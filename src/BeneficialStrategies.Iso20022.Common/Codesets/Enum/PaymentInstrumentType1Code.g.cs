@@ -21,48 +21,48 @@ public enum PaymentInstrumentType1Code
 {
     /// <summary>
     /// Payment card (credit or debit).
-    /// Encoded/decoded by serializers as "Card".
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_jjj6MdxgEeioifFt1dhnJA")]
     [Description(@"Payment card (credit or debit).")]
-    Card,
+    Card = PaymentInstrumentTypeCode.Card, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash managed by a cash handling system.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_jmi8wdxgEeioifFt1dhnJA")]
     [Description(@"Cash managed by a cash handling system.")]
-    Cash,
+    Cash = PaymentInstrumentTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Paper check.
-    /// Encoded/decoded by serializers as "Check".
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_jp2IYdxgEeioifFt1dhnJA")]
     [Description(@"Paper check.")]
-    Check,
+    Check = PaymentInstrumentTypeCode.Check, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account using loyalty processing.
-    /// Encoded/decoded by serializers as "LoyaltyAccount".
+    /// Encoded/decoded by serializers as "LOYT".
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_jt13kdxgEeioifFt1dhnJA")]
     [Description(@"Account using loyalty processing.")]
-    LoyaltyAccount,
+    LoyaltyAccount = PaymentInstrumentTypeCode.LoyaltyAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account accessed by a stored value instrument such as a card or a certificate.
-    /// Encoded/decoded by serializers as "StoredValueAccount".
+    /// Encoded/decoded by serializers as "SVAC".
     /// </summary>
     [EnumMember(Value = "SVAC")]
     [IsoId("_jxDjodxgEeioifFt1dhnJA")]
     [Description(@"Account accessed by a stored value instrument such as a card or a certificate.")]
-    StoredValueAccount,
+    StoredValueAccount = PaymentInstrumentTypeCode.StoredValueAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PaymentInstrumentType1Code
 public static class PaymentInstrumentType1CodeMetadataExtensions
 {
     private static readonly PaymentInstrumentType1CodeDropdownSource _dropdownSource = new PaymentInstrumentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

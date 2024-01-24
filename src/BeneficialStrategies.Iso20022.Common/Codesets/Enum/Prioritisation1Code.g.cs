@@ -21,30 +21,30 @@ public enum Prioritisation1Code
 {
     /// <summary>
     /// None of the sides should be prioritised.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_aKBiAdp-Ed-ak6NoX_4Aeg_1628857705")]
     [Description(@"None of the sides should be prioritised.")]
-    None,
+    None = PrioritisationCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buy side is prioritized.
-    /// Encoded/decoded by serializers as "BuySide".
+    /// Encoded/decoded by serializers as "BSPR".
     /// </summary>
     [EnumMember(Value = "BSPR")]
     [IsoId("_aKBiAtp-Ed-ak6NoX_4Aeg_1628857765")]
     [Description(@"Buy side is prioritized.")]
-    BuySide,
+    BuySide = PrioritisationCode.BuySide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sell side is prioritised.
-    /// Encoded/decoded by serializers as "SellSide".
+    /// Encoded/decoded by serializers as "SSPR".
     /// </summary>
     [EnumMember(Value = "SSPR")]
     [IsoId("_aKBiA9p-Ed-ak6NoX_4Aeg_1628858017")]
     [Description(@"Sell side is prioritised.")]
-    SellSide,
+    SellSide = PrioritisationCode.SellSide, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Prioritisation1Code
 public static class Prioritisation1CodeMetadataExtensions
 {
     private static readonly Prioritisation1CodeDropdownSource _dropdownSource = new Prioritisation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

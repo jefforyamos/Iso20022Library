@@ -21,156 +21,156 @@ public enum FailureReason4Code
 {
     /// <summary>
     /// ATM manager has requested to capture the card.
-    /// Encoded/decoded by serializers as "CardCaptured".
+    /// Encoded/decoded by serializers as "CDCP".
     /// </summary>
     [EnumMember(Value = "CDCP")]
     [IsoId("_4-wwUYqTEeSRT5rEzcAHEw")]
     [Description(@"ATM manager has requested to capture the card.")]
-    CardCaptured,
+    CardCaptured = FailureReasonCode.CardCaptured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Integrated circuit card declines the transaction before or after the authorisation.
-    /// Encoded/decoded by serializers as "CardDeclined".
+    /// Encoded/decoded by serializers as "CDCL".
     /// </summary>
     [EnumMember(Value = "CDCL")]
     [IsoId("_5IAL44qTEeSRT5rEzcAHEw")]
     [Description(@"Integrated circuit card declines the transaction before or after the authorisation.")]
-    CardDeclined,
+    CardDeclined = FailureReasonCode.CardDeclined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to complete transaction with the card.
-    /// Encoded/decoded by serializers as "CardError".
+    /// Encoded/decoded by serializers as "CDER".
     /// </summary>
     [EnumMember(Value = "CDER")]
     [IsoId("_6KBCg4qTEeSRT5rEzcAHEw")]
     [Description(@"Unable to complete transaction with the card.")]
-    CardError,
+    CardError = FailureReasonCode.CardError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer cancellation, for example removing the card before the end of the transaction.
-    /// Encoded/decoded by serializers as "CustomerCancel".
+    /// Encoded/decoded by serializers as "CUCL".
     /// </summary>
     [EnumMember(Value = "CUCL")]
     [IsoId("_6QkWc4qTEeSRT5rEzcAHEw")]
     [Description(@"Customer cancellation, for example removing the card before the end of the transaction.")]
-    CustomerCancel,
+    CustomerCancel = FailureReasonCode.CustomerCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer has declined additional fees or a lower amount, transaction fails.
-    /// Encoded/decoded by serializers as "CustomerDecline".
+    /// Encoded/decoded by serializers as "CUDC".
     /// </summary>
     [EnumMember(Value = "CUDC")]
     [IsoId("_636DQ4qTEeSRT5rEzcAHEw")]
     [Description(@"Customer has declined additional fees or a lower amount, transaction fails.")]
-    CustomerDecline,
+    CustomerDecline = FailureReasonCode.CustomerDecline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer has left the card in the ATM or a motorised card reader.
-    /// Encoded/decoded by serializers as "ForgottenCard".
+    /// Encoded/decoded by serializers as "CDFG".
     /// </summary>
     [EnumMember(Value = "CDFG")]
     [IsoId("_69kmY4qTEeSRT5rEzcAHEw")]
     [Description(@"Customer has left the card in the ATM or a motorised card reader.")]
-    ForgottenCard,
+    ForgottenCard = FailureReasonCode.ForgottenCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to fulfil, for instance dispensing the cash.
-    /// Encoded/decoded by serializers as "FullfilmentError".
+    /// Encoded/decoded by serializers as "FILL".
     /// </summary>
     [EnumMember(Value = "FILL")]
     [IsoId("_7y66A4qTEeSRT5rEzcAHEw")]
     [Description(@"Unable to fulfil, for instance dispensing the cash.")]
-    FullfilmentError,
+    FullfilmentError = FailureReasonCode.FullfilmentError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspected malfunction.
-    /// Encoded/decoded by serializers as "Malfunction".
+    /// Encoded/decoded by serializers as "MALF".
     /// </summary>
     [EnumMember(Value = "MALF")]
     [IsoId("_76Eq44qTEeSRT5rEzcAHEw")]
     [Description(@"Suspected malfunction.")]
-    Malfunction,
+    Malfunction = FailureReasonCode.Malfunction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Online authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "OnLineDeclined".
+    /// Encoded/decoded by serializers as "NDCL".
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_9fja84qTEeSRT5rEzcAHEw")]
     [Description(@"Online authorisation declined the transaction.")]
-    OnLineDeclined,
+    OnLineDeclined = FailureReasonCode.OnLineDeclined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security error has occurred in the authorisation response message sent by the acquirer.
-    /// Encoded/decoded by serializers as "SecurityError".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_9ucyk4qTEeSRT5rEzcAHEw")]
     [Description(@"Security error has occurred in the authorisation response message sent by the acquirer.")]
-    SecurityError,
+    SecurityError = FailureReasonCode.SecurityError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment transaction fails because the merchant suspect a fraud.
-    /// Encoded/decoded by serializers as "SuspectedFraud".
+    /// Encoded/decoded by serializers as "SFRD".
     /// </summary>
     [EnumMember(Value = "SFRD")]
     [IsoId("_-wnaM4qTEeSRT5rEzcAHEw")]
     [Description(@"Card payment transaction fails because the merchant suspect a fraud.")]
-    SuspectedFraud,
+    SuspectedFraud = FailureReasonCode.SuspectedFraud, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).
-    /// Encoded/decoded by serializers as "TimeOut".
+    /// Encoded/decoded by serializers as "TIMO".
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_-23zM4qTEeSRT5rEzcAHEw")]
     [Description(@"Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).")]
-    TimeOut,
+    TimeOut = FailureReasonCode.TimeOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to the previous message was received too late.
-    /// Encoded/decoded by serializers as "TooLateResponse".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_-8PbY4qTEeSRT5rEzcAHEw")]
     [Description(@"Response to the previous message was received too late.")]
-    TooLateResponse,
+    TooLateResponse = FailureReasonCode.TooLateResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to capture the card as requested.
-    /// Encoded/decoded by serializers as "UnableToCapture".
+    /// Encoded/decoded by serializers as "UCPT".
     /// </summary>
     [EnumMember(Value = "UCPT")]
     [IsoId("__rK984qTEeSRT5rEzcAHEw")]
     [Description(@"Unable to capture the card as requested.")]
-    UnableToCapture,
+    UnableToCapture = FailureReasonCode.UnableToCapture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to complete the transaction after the authorisation response.
-    /// Encoded/decoded by serializers as "UnableToComplete".
+    /// Encoded/decoded by serializers as "UCMP".
     /// </summary>
     [EnumMember(Value = "UCMP")]
     [IsoId("__wF6M4qTEeSRT5rEzcAHEw")]
     [Description(@"Unable to complete the transaction after the authorisation response.")]
-    UnableToComplete,
+    UnableToComplete = FailureReasonCode.UnableToComplete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to deliver the request message to the recipient party.
-    /// Encoded/decoded by serializers as "UnableToSend".
+    /// Encoded/decoded by serializers as "USND".
     /// </summary>
     [EnumMember(Value = "USND")]
     [IsoId("__03Fc4qTEeSRT5rEzcAHEw")]
     [Description(@"Unable to deliver the request message to the recipient party.")]
-    UnableToSend,
+    UnableToSend = FailureReasonCode.UnableToSend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ATM manager has requested to the ATM to stop customer services.
-    /// Encoded/decoded by serializers as "OutOfCustomerService".
+    /// Encoded/decoded by serializers as "CSRV".
     /// </summary>
     [EnumMember(Value = "CSRV")]
     [IsoId("_6sItcY6LEeSYc-j6zfGsZg")]
     [Description(@"ATM manager has requested to the ATM to stop customer services.")]
-    OutOfCustomerService,
+    OutOfCustomerService = FailureReasonCode.OutOfCustomerService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum FailureReason4Code
 public static class FailureReason4CodeMetadataExtensions
 {
     private static readonly FailureReason4CodeDropdownSource _dropdownSource = new FailureReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

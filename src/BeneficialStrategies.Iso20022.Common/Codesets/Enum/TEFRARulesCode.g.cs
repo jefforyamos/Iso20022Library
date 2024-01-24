@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yg95htp-Ed-ak6NoX_4Aeg_-1987299415")]
 [Description(@"Indicates the Tax Equity and Fiscal Responsibility Act (TEFRA) rule levied by the Internal Revenue Service under which the security is issued.")]
 [Derivations(typeof(TEFRARules1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TEFRARulesCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TEFRARulesCode
 public static class TEFRARulesCodeMetadataExtensions
 {
     private static readonly TEFRARulesCodeDropdownSource _dropdownSource = new TEFRARulesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

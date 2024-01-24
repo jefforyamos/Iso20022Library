@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vCRBUBYfEeiXa46FI4OtcQ")]
 [Description(@"Attribute related to the transaction")]
 [Derivations(typeof(TransactionAttribute1Code),typeof(TransactionAttribute2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransactionAttributeCode
 {
     /// <summary>
@@ -166,22 +165,20 @@ public enum TransactionAttributeCode
     
     /// <summary>
     /// Debt Recovery.
-    /// 
     /// Encoded/decoded by serializers as "DBRC".
     /// </summary>
     [EnumMember(Value = "DBRC")]
     [IsoId("_PmPoIDHWEeyTT91yHXSlSQ")]
-    [Description(@"Debt Recovery. ")]
+    [Description(@"Debt Recovery.|")]
     DebtRecovery,
     
     /// <summary>
     /// Unscheduled Card On File.
-    /// 
     /// Encoded/decoded by serializers as "UCOF".
     /// </summary>
     [EnumMember(Value = "UCOF")]
     [IsoId("_YGBhsDKjEeyTT91yHXSlSQ")]
-    [Description(@"Unscheduled Card On File. ")]
+    [Description(@"Unscheduled Card On File.|")]
     UnscheduledCardOnFile,
     
 }
@@ -193,7 +190,7 @@ public enum TransactionAttributeCode
 public static class TransactionAttributeCodeMetadataExtensions
 {
     private static readonly TransactionAttributeCodeDropdownSource _dropdownSource = new TransactionAttributeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum SpecialPurpose2Code
 {
     /// <summary>
     /// Blank value.
-    /// Encoded/decoded by serializers as "Blank".
+    /// Encoded/decoded by serializers as "BLNK".
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_V-aLccVcEeiYpLQka876sg")]
     [Description(@"Blank value.")]
-    Blank,
+    Blank = SpecialPurposeCode.Blank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not available (N/A).
-    /// Encoded/decoded by serializers as "NotAvailable".
+    /// Encoded/decoded by serializers as "NTAV".
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_WJ0xQsVcEeiYpLQka876sg")]
     [Description(@"Not available (N/A).")]
-    NotAvailable,
+    NotAvailable = SpecialPurposeCode.NotAvailable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SpecialPurpose2Code
 public static class SpecialPurpose2CodeMetadataExtensions
 {
     private static readonly SpecialPurpose2CodeDropdownSource _dropdownSource = new SpecialPurpose2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

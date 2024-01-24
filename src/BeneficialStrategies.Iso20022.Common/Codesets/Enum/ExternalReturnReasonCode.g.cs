@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_MNnSwLf9Eee9KIDjEHK7ZQ")]
-[Description(@"Specifies the return reason, as published in an external return reason code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the return reason, as published in an external return reason code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalReturnReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalReturnReasonCode
 {
     /// <summary>
@@ -739,7 +738,7 @@ public enum ExternalReturnReasonCode
     /// </summary>
     [EnumMember(Value = "AG07")]
     [IsoId("_BKveQAQrEey95qpfbNuEwg")]
-    [Description(@"Debtor account cannot be debited for a generic reason. Usage: Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer's insufficient funds for privacy reasons.")]
+    [Description(@"Debtor account cannot be debited for a generic reason.|Usage: Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer's insufficient funds for privacy reasons.")]
     UnsuccesfulDirectDebit,
     
     /// <summary>
@@ -785,7 +784,7 @@ public enum ExternalReturnReasonCode
     /// </summary>
     [EnumMember(Value = "FF03")]
     [IsoId("_4ZH60AQuEey95qpfbNuEwg")]
-    [Description(@"Payment Type Information is missing or invalid. Generic usage if cannot specify Service Level or Local Instrument code.")]
+    [Description(@"Payment Type Information is missing or invalid.|Generic usage if cannot specify Service Level or Local Instrument code.")]
     InvalidPaymentTypeInformation,
     
     /// <summary>
@@ -840,7 +839,7 @@ public enum ExternalReturnReasonCode
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_tieE4AQvEey95qpfbNuEwg")]
-    [Description(@"ClearingSystemMemberidentifier is invalid or missing. Generic usage if cannot specify between debit or credit account.")]
+    [Description(@"ClearingSystemMemberidentifier is invalid or missing.|Generic usage if cannot specify between debit or credit account.")]
     InvalidClearingSystemMemberIdentifier,
     
     /// <summary>
@@ -969,7 +968,7 @@ public enum ExternalReturnReasonCode
 public static class ExternalReturnReasonCodeMetadataExtensions
 {
     private static readonly ExternalReturnReasonCodeDropdownSource _dropdownSource = new ExternalReturnReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

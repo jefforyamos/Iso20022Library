@@ -21,30 +21,30 @@ public enum TransactionEnvironment1Code
 {
     /// <summary>
     /// Merchant environment.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TUJ9MAEcEeCQm6a_G2yO_w_765796733")]
     [Description(@"Merchant environment.")]
-    Merchant,
+    Merchant = TransactionEnvironmentCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private environment.
-    /// Encoded/decoded by serializers as "Private".
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_TUJ9MQEcEeCQm6a_G2yO_w_1751770309")]
     [Description(@"Private environment.")]
-    Private,
+    Private = TransactionEnvironmentCode.Private, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Public environment.
-    /// Encoded/decoded by serializers as "Public".
+    /// Encoded/decoded by serializers as "PUBL".
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_TUJ9MgEcEeCQm6a_G2yO_w_-376057534")]
     [Description(@"Public environment.")]
-    Public,
+    Public = TransactionEnvironmentCode.Public, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransactionEnvironment1Code
 public static class TransactionEnvironment1CodeMetadataExtensions
 {
     private static readonly TransactionEnvironment1CodeDropdownSource _dropdownSource = new TransactionEnvironment1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

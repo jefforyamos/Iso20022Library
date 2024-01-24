@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-fsj1KMOEeCojJW5vEuTEQ_1016949174")]
 [Description(@"Specifies the trade is maintained as a separate individual position in the clearing account, or not.")]
 [Derivations(typeof(TradePosting1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradePostingCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TradePostingCode
 public static class TradePostingCodeMetadataExtensions
 {
     private static readonly TradePostingCodeDropdownSource _dropdownSource = new TradePostingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

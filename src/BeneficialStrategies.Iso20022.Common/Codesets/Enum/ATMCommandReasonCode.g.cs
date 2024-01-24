@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_s2j4EItGEeSxlKlAGYErFg")]
 [Description(@"Reason for sending or requesting a maintenance command.")]
 [Derivations(typeof(ATMCommandReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMCommandReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ATMCommandReasonCode
 public static class ATMCommandReasonCodeMetadataExtensions
 {
     private static readonly ATMCommandReasonCodeDropdownSource _dropdownSource = new ATMCommandReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

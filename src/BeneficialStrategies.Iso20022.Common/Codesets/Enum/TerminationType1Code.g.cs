@@ -21,39 +21,39 @@ public enum TerminationType1Code
 {
     /// <summary>
     /// Repo with a term of one day.
-    /// Encoded/decoded by serializers as "Overnight".
+    /// Encoded/decoded by serializers as "OVER".
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_Yll62Np-Ed-ak6NoX_4Aeg_1580324024")]
     [Description(@"Repo with a term of one day.")]
-    Overnight,
+    Overnight = TerminationTypeCode.Overnight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repo with a term of more than one day.
-    /// Encoded/decoded by serializers as "Term".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_YlvEwNp-Ed-ak6NoX_4Aeg_1580324066")]
     [Description(@"Repo with a term of more than one day.")]
-    Term,
+    Term = TerminationTypeCode.Term, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies "a classic term repo with the added feature that the cash is repaid to the buyer in installments" (Definition from "Mastering Repo Markets" by Bob Steiner).
-    /// Encoded/decoded by serializers as "Flexible".
+    /// Encoded/decoded by serializers as "FLEX".
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_YlvEwdp-Ed-ak6NoX_4Aeg_1580324109")]
     [Description(@"Identifies ""a classic term repo with the added feature that the cash is repaid to the buyer in installments"" (Definition from ""Mastering Repo Markets"" by Bob Steiner).")]
-    Flexible,
+    Flexible = TerminationTypeCode.Flexible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repo which can be terminated by either party at any time, and which has an unspecified repurchase date.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_YlvEwtp-Ed-ak6NoX_4Aeg_1580324126")]
     [Description(@"Repo which can be terminated by either party at any time, and which has an unspecified repurchase date.")]
-    Open,
+    Open = TerminationTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TerminationType1Code
 public static class TerminationType1CodeMetadataExtensions
 {
     private static readonly TerminationType1CodeDropdownSource _dropdownSource = new TerminationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

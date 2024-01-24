@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1orVtDL3EeKU9IrkkToqcw_-113809036")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) specific options.")]
 [Derivations(typeof(ExtendedOptionFeature1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExtendedOptionFeatureCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum ExtendedOptionFeatureCode
 public static class ExtendedOptionFeatureCodeMetadataExtensions
 {
     private static readonly ExtendedOptionFeatureCodeDropdownSource _dropdownSource = new ExtendedOptionFeatureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

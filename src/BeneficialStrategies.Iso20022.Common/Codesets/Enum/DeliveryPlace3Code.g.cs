@@ -21,48 +21,48 @@ public enum DeliveryPlace3Code
 {
     /// <summary>
     /// Card needs to be sent via e-mail.
-    /// Encoded/decoded by serializers as "Email".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_OY3KYQ1fEeu_4e16J8D_UA")]
     [Description(@"Card needs to be sent via e-mail.")]
-    Email,
+    Email = DeliveryPlaceV2Code.Email, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card needs to be mailed to employer's address.
-    /// Encoded/decoded by serializers as "Employer".
+    /// Encoded/decoded by serializers as "EMPL".
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_OgTPIQ1fEeu_4e16J8D_UA")]
     [Description(@"Card needs to be mailed to employer's address.")]
-    Employer,
+    Employer = DeliveryPlaceV2Code.Employer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card needs to be mailed to the individual specified in PersonDetail.
-    /// Encoded/decoded by serializers as "Individual".
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_OoL_0Q1fEeu_4e16J8D_UA")]
     [Description(@"Card needs to be mailed to the individual specified in PersonDetail.")]
-    Individual,
+    Individual = DeliveryPlaceV2Code.Individual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card needs to be available at the entrance of the meeting.
-    /// Encoded/decoded by serializers as "MeetingEntrance".
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_Ot174Q1fEeu_4e16J8D_UA")]
     [Description(@"Card needs to be available at the entrance of the meeting.")]
-    MeetingEntrance,
+    MeetingEntrance = DeliveryPlaceV2Code.MeetingEntrance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cards needs to be send to another specified address.
-    /// Encoded/decoded by serializers as "OtherAddress".
+    /// Encoded/decoded by serializers as "OADR".
     /// </summary>
     [EnumMember(Value = "OADR")]
     [IsoId("_O2KxcQ1fEeu_4e16J8D_UA")]
     [Description(@"Cards needs to be send to another specified address.")]
-    OtherAddress,
+    OtherAddress = DeliveryPlaceV2Code.OtherAddress, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum DeliveryPlace3Code
 public static class DeliveryPlace3CodeMetadataExtensions
 {
     private static readonly DeliveryPlace3CodeDropdownSource _dropdownSource = new DeliveryPlace3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

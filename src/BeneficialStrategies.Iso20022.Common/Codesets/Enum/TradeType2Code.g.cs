@@ -21,39 +21,39 @@ public enum TradeType2Code
 {
     /// <summary>
     /// Trade involving risk.
-    /// Encoded/decoded by serializers as "RiskTrade".
+    /// Encoded/decoded by serializers as "RISK".
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_YqDkGNp-Ed-ak6NoX_4Aeg_-865863561")]
     [Description(@"Trade involving risk.")]
-    RiskTrade,
+    RiskTrade = TradeTypeCode.RiskTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.
-    /// Encoded/decoded by serializers as "VWAPGuarantee".
+    /// Encoded/decoded by serializers as "VWAP".
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_YqNVENp-Ed-ak6NoX_4Aeg_-865863544")]
     [Description(@"Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.")]
-    VWAPGuarantee,
+    VWAPGuarantee = TradeTypeCode.VWAPGuarantee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade in which an agent intermediates between a buyer and a seller.
-    /// Encoded/decoded by serializers as "Agency".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YqNVEdp-Ed-ak6NoX_4Aeg_-865863526")]
     [Description(@"Trade in which an agent intermediates between a buyer and a seller.")]
-    Agency,
+    Agency = TradeTypeCode.Agency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade which is guaranteed to be finalized.
-    /// Encoded/decoded by serializers as "GuaranteedClose".
+    /// Encoded/decoded by serializers as "GUAR".
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_YqNVEtp-Ed-ak6NoX_4Aeg_-865863509")]
     [Description(@"Trade which is guaranteed to be finalized.")]
-    GuaranteedClose,
+    GuaranteedClose = TradeTypeCode.GuaranteedClose, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TradeType2Code
 public static class TradeType2CodeMetadataExtensions
 {
     private static readonly TradeType2CodeDropdownSource _dropdownSource = new TradeType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,84 +21,84 @@ public enum InvestmentFundRole2Code
 {
     /// <summary>
     /// Party that sets up a fund, decides upon the investment strategy, appoints agents, and is responsible for the promotion and the marketing of the fund. This party makes all the strategic decisions related to a fund.
-    /// Encoded/decoded by serializers as "FundManagementCompany".
+    /// Encoded/decoded by serializers as "FMCO".
     /// </summary>
     [EnumMember(Value = "FMCO")]
     [IsoId("_acDtMdp-Ed-ak6NoX_4Aeg_-1672757374")]
     [Description(@"Party that sets up a fund, decides upon the investment strategy, appoints agents, and is responsible for the promotion and the marketing of the fund. This party makes all the strategic decisions related to a fund.")]
-    FundManagementCompany,
+    FundManagementCompany = PartyRoleCode.FundManagementCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party responsible for keeping track of the owners of securities. In the investment fund business, this party keeps the investor registry of the fund, and administers investor accounts and related records. It is appointed by the fund management company.
-    /// Encoded/decoded by serializers as "Registrar".
+    /// Encoded/decoded by serializers as "REGI".
     /// </summary>
     [EnumMember(Value = "REGI")]
     [IsoId("_acDtMtp-Ed-ak6NoX_4Aeg_-1672756984")]
     [Description(@"Party responsible for keeping track of the owners of securities. In the investment fund business, this party keeps the investor registry of the fund, and administers investor accounts and related records. It is appointed by the fund management company.")]
-    Registrar,
+    Registrar = PartyRoleCode.Registrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party appointed by the fund management company. This party updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.
-    /// Encoded/decoded by serializers as "TransferAgent".
+    /// Encoded/decoded by serializers as "TRAG".
     /// </summary>
     [EnumMember(Value = "TRAG")]
     [IsoId("_acDtM9p-Ed-ak6NoX_4Aeg_-1672756949")]
     [Description(@"Party appointed by the fund management company. This party updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.")]
-    TransferAgent,
+    TransferAgent = PartyRoleCode.TransferAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that provides services to investors relating to financial products. These services may include some, or all of, provision of information and advice on products, placement of investment orders, transmission of payment, custody of assets, and the administration of rights and benefits. In the specific framework of investment funds industry, an intermediary may present information about funds to potential investors, and solicit orders for the fund. This intermediary may facilitate the transmission of the orders and information from/to the investors and/or other intermediaries. The intermediary receives commission from the Fund and/or fees from the investor.
-    /// Encoded/decoded by serializers as "Intermediary".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_acDtNNp-Ed-ak6NoX_4Aeg_-1672756931")]
     [Description(@"Party that provides services to investors relating to financial products. These services may include some, or all of, provision of information and advice on products, placement of investment orders, transmission of payment, custody of assets, and the administration of rights and benefits. In the specific framework of investment funds industry, an intermediary may present information about funds to potential investors, and solicit orders for the fund. This intermediary may facilitate the transmission of the orders and information from/to the investors and/or other intermediaries. The intermediary receives commission from the Fund and/or fees from the investor.")]
-    Intermediary,
+    Intermediary = PartyRoleCode.Intermediary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that act as an wholesaler of funds.
-    /// Encoded/decoded by serializers as "Distributor".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_acDtNdp-Ed-ak6NoX_4Aeg_-1672756906")]
     [Description(@"Party that act as an wholesaler of funds.")]
-    Distributor,
+    Distributor = PartyRoleCode.Distributor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that acts as an aggregator of funds, also called a funds hub.
-    /// Encoded/decoded by serializers as "Concentrator".
+    /// Encoded/decoded by serializers as "CONC".
     /// </summary>
     [EnumMember(Value = "CONC")]
     [IsoId("_acDtNtp-Ed-ak6NoX_4Aeg_-1672756846")]
     [Description(@"Party that acts as an aggregator of funds, also called a funds hub.")]
-    Concentrator,
+    Concentrator = PartyRoleCode.Concentrator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying client of the intermediary.
-    /// Encoded/decoded by serializers as "UnderlyingClient1".
+    /// Encoded/decoded by serializers as "UCL1".
     /// </summary>
     [EnumMember(Value = "UCL1")]
     [IsoId("_acDtN9p-Ed-ak6NoX_4Aeg_-712294595")]
     [Description(@"Underlying client of the intermediary.")]
-    UnderlyingClient1,
+    UnderlyingClient1 = PartyRoleCode.UnderlyingClient1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying client of underlying client 1.
-    /// Encoded/decoded by serializers as "UnderlyingClient2".
+    /// Encoded/decoded by serializers as "UCL2".
     /// </summary>
     [EnumMember(Value = "UCL2")]
     [IsoId("_acDtONp-Ed-ak6NoX_4Aeg_-712294458")]
     [Description(@"Underlying client of underlying client 1.")]
-    UnderlyingClient2,
+    UnderlyingClient2 = PartyRoleCode.UnderlyingClient2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that transmits the instruction, advice, notification or report.
-    /// Encoded/decoded by serializers as "TransmittingAgent".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_acDtOdp-Ed-ak6NoX_4Aeg_-712294198")]
     [Description(@"Party that transmits the instruction, advice, notification or report.")]
-    TransmittingAgent,
+    TransmittingAgent = PartyRoleCode.TransmittingAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum InvestmentFundRole2Code
 public static class InvestmentFundRole2CodeMetadataExtensions
 {
     private static readonly InvestmentFundRole2CodeDropdownSource _dropdownSource = new InvestmentFundRole2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

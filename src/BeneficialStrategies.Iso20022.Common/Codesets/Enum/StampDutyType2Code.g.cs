@@ -21,21 +21,21 @@ public enum StampDutyType2Code
 {
     /// <summary>
     /// Stamps duty is applicable.
-    /// Encoded/decoded by serializers as "Applicable".
+    /// Encoded/decoded by serializers as "ASTD".
     /// </summary>
     [EnumMember(Value = "ASTD")]
     [IsoId("_Cd9Nnv8vEeC87tbx-VXRVA")]
     [Description(@"Stamps duty is applicable.")]
-    Applicable,
+    Applicable = StampDutyTypeCode.Applicable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stamp duty not applicable.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "SDRN".
     /// </summary>
     [EnumMember(Value = "SDRN")]
     [IsoId("_CmdCSv8vEeC87tbx-VXRVA")]
     [Description(@"Stamp duty not applicable.")]
-    NotApplicable,
+    NotApplicable = StampDutyTypeCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StampDutyType2Code
 public static class StampDutyType2CodeMetadataExtensions
 {
     private static readonly StampDutyType2CodeDropdownSource _dropdownSource = new StampDutyType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

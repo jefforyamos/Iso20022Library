@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWrsygEcEeCQm6a_G2yO_w_-1624727429")]
 [Description(@"Category of data set to transfer.")]
-[Derivations(typeof(DataSetCategory2Code),typeof(DataSetCategory3Code),typeof(DataSetCategory1Code),typeof(DataSetCategory5Code),typeof(DataSetCategory6Code),typeof(DataSetCategory4Code),typeof(DataSetCategory7Code),typeof(DataSetCategory9Code),typeof(DataSetCategory10Code),typeof(DataSetCategory8Code),typeof(DataSetCategory11Code),typeof(DataSetCategory12Code),typeof(DataSetCategory13Code),typeof(DataSetCategory14Code),typeof(DataSetCategory15Code),typeof(DataSetCategory16Code),typeof(DataSetCategory17Code),typeof(DataSetCategory18Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(DataSetCategory7Code),typeof(DataSetCategory14Code),typeof(DataSetCategory3Code),typeof(DataSetCategory12Code),typeof(DataSetCategory5Code),typeof(DataSetCategory17Code),typeof(DataSetCategory11Code),typeof(DataSetCategory2Code),typeof(DataSetCategory9Code),typeof(DataSetCategory16Code),typeof(DataSetCategory4Code),typeof(DataSetCategory8Code),typeof(DataSetCategory15Code),typeof(DataSetCategory1Code),typeof(DataSetCategory6Code),typeof(DataSetCategory10Code),typeof(DataSetCategory13Code),typeof(DataSetCategory18Code))]
 public enum DataSetCategoryCode
 {
     /// <summary>
@@ -389,7 +388,7 @@ public enum DataSetCategoryCode
 public static class DataSetCategoryCodeMetadataExtensions
 {
     private static readonly DataSetCategoryCodeDropdownSource _dropdownSource = new DataSetCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

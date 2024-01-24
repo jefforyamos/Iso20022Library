@@ -21,21 +21,21 @@ public enum StatementBasis3Code
 {
     /// <summary>
     /// Mark-to-Market report sent after settlement. All transactions which have been initiated.
-    /// Encoded/decoded by serializers as "EndOfSettlementPositions".
+    /// Encoded/decoded by serializers as "EOSP".
     /// </summary>
     [EnumMember(Value = "EOSP")]
     [IsoId("_s7hSMcRxEeij-rSPpvD-Tw")]
     [Description(@"Mark-to-Market report sent after settlement. All transactions which have been initiated.")]
-    EndOfSettlementPositions,
+    EndOfSettlementPositions = StatementBasisCode.EndOfSettlementPositions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.
-    /// Encoded/decoded by serializers as "FutureMarkToMarket".
+    /// Encoded/decoded by serializers as "FUTM".
     /// </summary>
     [EnumMember(Value = "FUTM")]
     [IsoId("_tDs90cRxEeij-rSPpvD-Tw")]
     [Description(@"Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.")]
-    FutureMarkToMarket,
+    FutureMarkToMarket = StatementBasisCode.FutureMarkToMarket, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StatementBasis3Code
 public static class StatementBasis3CodeMetadataExtensions
 {
     private static readonly StatementBasis3CodeDropdownSource _dropdownSource = new StatementBasis3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

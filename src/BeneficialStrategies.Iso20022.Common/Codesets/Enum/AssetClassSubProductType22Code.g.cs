@@ -21,12 +21,12 @@ public enum AssetClassSubProductType22Code
 {
     /// <summary>
     /// Commodity of type livestock.
-    /// Encoded/decoded by serializers as "Livestock".
+    /// Encoded/decoded by serializers as "LSTK".
     /// </summary>
     [EnumMember(Value = "LSTK")]
     [IsoId("_kxU3UVrAEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type livestock.")]
-    Livestock,
+    Livestock = AssetClassSubProductTypeCode.Livestock, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType22Code
 public static class AssetClassSubProductType22CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType22CodeDropdownSource _dropdownSource = new AssetClassSubProductType22CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

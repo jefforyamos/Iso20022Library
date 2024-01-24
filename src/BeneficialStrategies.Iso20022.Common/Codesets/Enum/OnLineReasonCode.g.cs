@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TU5kIAEcEeCQm6a_G2yO_w_329831590")]
 [Description(@"Reason to process an online authorisation.")]
 [Derivations(typeof(OnLineReason1Code),typeof(OnLineReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OnLineReasonCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum OnLineReasonCode
 public static class OnLineReasonCodeMetadataExtensions
 {
     private static readonly OnLineReasonCodeDropdownSource _dropdownSource = new OnLineReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

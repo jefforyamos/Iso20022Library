@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aKUc9Np-Ed-ak6NoX_4Aeg_1549809096")]
 [Description(@"Specifies the priority level of an event.")]
-[Derivations(typeof(Priority1Code),typeof(Priority2Code),typeof(Priority3Code),typeof(Priority4Code),typeof(Priority5Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(Priority4Code),typeof(Priority2Code),typeof(Priority5Code),typeof(Priority3Code),typeof(Priority1Code))]
 public enum PriorityCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PriorityCode
 public static class PriorityCodeMetadataExtensions
 {
     private static readonly PriorityCodeDropdownSource _dropdownSource = new PriorityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,123 +21,120 @@ public enum CollateralType8Code
 {
     /// <summary>
     /// Total collateral affected to open market operations.
-    /// Encoded/decoded by serializers as "TotalCollateralAffectedToOpenMarketOperations".
+    /// Encoded/decoded by serializers as "COMO".
     /// </summary>
     [EnumMember(Value = "COMO")]
     [IsoId("_bzLRIQLwEeutW5-TpeYJhA")]
     [Description(@"Total collateral affected to open market operations.")]
-    TotalCollateralAffectedToOpenMarketOperations,
+    TotalCollateralAffectedToOpenMarketOperations = CollateralTypeCode.TotalCollateralAffectedToOpenMarketOperations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total credit claims.
-    /// Encoded/decoded by serializers as "TotalCreditClaims".
+    /// Encoded/decoded by serializers as "CCCL".
     /// </summary>
     [EnumMember(Value = "CCCL")]
     [IsoId("_b6Ua8gLwEeutW5-TpeYJhA")]
     [Description(@"Total credit claims.")]
-    TotalCreditClaims,
+    TotalCreditClaims = CollateralTypeCode.TotalCreditClaims, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total externally managed collateral apart from credit claims.
-    /// 
-    /// Encoded/decoded by serializers as "TotalExternallyManagedCollateralApartFromCreditClaims".
+    /// Encoded/decoded by serializers as "CEMC".
     /// </summary>
     [EnumMember(Value = "CEMC")]
     [IsoId("_cD_UUgLwEeutW5-TpeYJhA")]
-    [Description(@"Total externally managed collateral apart from credit claims. ")]
-    TotalExternallyManagedCollateralApartFromCreditClaims,
+    [Description(@"Total externally managed collateral apart from credit claims.|")]
+    TotalExternallyManagedCollateralApartFromCreditClaims = CollateralTypeCode.TotalExternallyManagedCollateralApartFromCreditClaims, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total externally managed collateral for credit claims.
-    /// Encoded/decoded by serializers as "TotalExternallyManagedCollateralForCreditClaim".
+    /// Encoded/decoded by serializers as "CXCC".
     /// </summary>
     [EnumMember(Value = "CXCC")]
     [IsoId("_cMUw8gLwEeutW5-TpeYJhA")]
     [Description(@"Total externally managed collateral for credit claims.")]
-    TotalExternallyManagedCollateralForCreditClaim,
+    TotalExternallyManagedCollateralForCreditClaim = CollateralTypeCode.TotalExternallyManagedCollateralForCreditClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total fixed term deposit used as collateral.
-    /// Encoded/decoded by serializers as "TotalFixedTermDeposit".
+    /// Encoded/decoded by serializers as "CFTD".
     /// </summary>
     [EnumMember(Value = "CFTD")]
     [IsoId("_cjO1EgLwEeutW5-TpeYJhA")]
     [Description(@"Total fixed term deposit used as collateral.")]
-    TotalFixedTermDeposit,
+    TotalFixedTermDeposit = CollateralTypeCode.TotalFixedTermDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total interest for fixed term Deposit used as collateral.
-    /// Encoded/decoded by serializers as "TotalInterestForFixedTermDeposit".
+    /// Encoded/decoded by serializers as "CFTI".
     /// </summary>
     [EnumMember(Value = "CFTI")]
     [IsoId("_csdCggLwEeutW5-TpeYJhA")]
     [Description(@"Total interest for fixed term Deposit used as collateral.")]
-    TotalInterestForFixedTermDeposit,
+    TotalInterestForFixedTermDeposit = CollateralTypeCode.TotalInterestForFixedTermDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total triparty collateral.
-    /// Encoded/decoded by serializers as "TotalTripartyCollateral".
+    /// Encoded/decoded by serializers as "CTRC".
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_czAWcgLwEeutW5-TpeYJhA")]
     [Description(@"Total triparty collateral.")]
-    TotalTripartyCollateral,
+    TotalTripartyCollateral = CollateralTypeCode.TotalTripartyCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_qeiSUQLwEeutW5-TpeYJhA")]
     [Description(@"Collateral type is cash.")]
-    Cash,
+    Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
-    /// Encoded/decoded by serializers as "LetterOfCredit".
+    /// Encoded/decoded by serializers as "LCRE".
     /// </summary>
     [EnumMember(Value = "LCRE")]
     [IsoId("_q7sIYgLwEeutW5-TpeYJhA")]
     [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
-    LetterOfCredit,
+    LetterOfCredit = CollateralTypeCode.LetterOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other assets that could be used as collateral.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_rZcbYgLwEeutW5-TpeYJhA")]
     [Description(@"Other assets that could be used as collateral.")]
-    Other,
+    Other = CollateralTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_r0h04gLwEeutW5-TpeYJhA")]
     [Description(@"Collateral type is securities.")]
-    Securities,
+    Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total collateral operations.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "TotalCollateralOperations".
+    /// Encoded/decoded by serializers as "CTCO".
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_XI6sAQLxEeutW5-TpeYJhA")]
-    [Description(@"Total collateral operations.  ")]
-    TotalCollateralOperations,
+    [Description(@"Total collateral operations.||")]
+    TotalCollateralOperations = CollateralTypeCode.TotalCollateralOperations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total collateral value after relative credit limit.
-    /// Encoded/decoded by serializers as "TotalCollateralValueAfterRelativeCreditLimit".
+    /// Encoded/decoded by serializers as "CCVR".
     /// </summary>
     [EnumMember(Value = "CCVR")]
     [IsoId("_XR_IcgLxEeutW5-TpeYJhA")]
     [Description(@"Total collateral value after relative credit limit.")]
-    TotalCollateralValueAfterRelativeCreditLimit,
+    TotalCollateralValueAfterRelativeCreditLimit = CollateralTypeCode.TotalCollateralValueAfterRelativeCreditLimit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -148,7 +145,7 @@ public enum CollateralType8Code
 public static class CollateralType8CodeMetadataExtensions
 {
     private static readonly CollateralType8CodeDropdownSource _dropdownSource = new CollateralType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

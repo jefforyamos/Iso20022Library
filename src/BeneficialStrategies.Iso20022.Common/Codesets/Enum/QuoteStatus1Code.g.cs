@@ -21,147 +21,147 @@ public enum QuoteStatus1Code
 {
     /// <summary>
     /// Indicates that the quote is accepted for further negotiation.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_ZYQG09p-Ed-ak6NoX_4Aeg_710683030")]
     [Description(@"Indicates that the quote is accepted for further negotiation.")]
-    Accepted,
+    Accepted = QuoteStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled for a financial instrument's symbol.
-    /// Encoded/decoded by serializers as "CancelSymbol".
+    /// Encoded/decoded by serializers as "SYMB".
     /// </summary>
     [EnumMember(Value = "SYMB")]
     [IsoId("_ZYQG1Np-Ed-ak6NoX_4Aeg_710683065")]
     [Description(@"Indicates that all quotes are cancelled for a financial instrument's symbol.")]
-    CancelSymbol,
+    CancelSymbol = QuoteStatusCode.CancelSymbol, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled for a specific security.
-    /// Encoded/decoded by serializers as "CancelSecurity".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZYQG1dp-Ed-ak6NoX_4Aeg_710683125")]
     [Description(@"Indicates that all quotes are cancelled for a specific security.")]
-    CancelSecurity,
+    CancelSecurity = QuoteStatusCode.CancelSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled for an underlying financial instrument.
-    /// Encoded/decoded by serializers as "CancelUnderlying".
+    /// Encoded/decoded by serializers as "UNSY".
     /// </summary>
     [EnumMember(Value = "UNSY")]
     [IsoId("_ZYQG1tp-Ed-ak6NoX_4Aeg_710683160")]
     [Description(@"Indicates that all quotes are cancelled for an underlying financial instrument.")]
-    CancelUnderlying,
+    CancelUnderlying = QuoteStatusCode.CancelUnderlying, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled.
-    /// Encoded/decoded by serializers as "CancelAll".
+    /// Encoded/decoded by serializers as "ALLE".
     /// </summary>
     [EnumMember(Value = "ALLE")]
     [IsoId("_ZYQG19p-Ed-ak6NoX_4Aeg_710683437")]
     [Description(@"Indicates that all quotes are cancelled.")]
-    CancelAll,
+    CancelAll = QuoteStatusCode.CancelAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is not accepted.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZYQG2Np-Ed-ak6NoX_4Aeg_710683472")]
     [Description(@"Indicates that the quote is not accepted.")]
-    Rejected,
+    Rejected = QuoteStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are removed from the market.
-    /// Encoded/decoded by serializers as "RemovedFromMarket".
+    /// Encoded/decoded by serializers as "REMO".
     /// </summary>
     [EnumMember(Value = "REMO")]
     [IsoId("_ZYQG2dp-Ed-ak6NoX_4Aeg_710683917")]
     [Description(@"Indicates that all quotes are removed from the market.")]
-    RemovedFromMarket,
+    RemovedFromMarket = QuoteStatusCode.RemovedFromMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is not valid anymore.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_ZYZ30Np-Ed-ak6NoX_4Aeg_710683977")]
     [Description(@"Indicates that the quote is not valid anymore.")]
-    Expired,
+    Expired = QuoteStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is being requested.
-    /// Encoded/decoded by serializers as "Query".
+    /// Encoded/decoded by serializers as "QUER".
     /// </summary>
     [EnumMember(Value = "QUER")]
     [IsoId("_ZYZ30dp-Ed-ak6NoX_4Aeg_710684012")]
     [Description(@"Indicates that the quote is being requested.")]
-    Query,
+    Query = QuoteStatusCode.Query, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that no quote can be computed or communicated.
-    /// Encoded/decoded by serializers as "QuoteNotFound".
+    /// Encoded/decoded by serializers as "NQUO".
     /// </summary>
     [EnumMember(Value = "NQUO")]
     [IsoId("_ZYZ30tp-Ed-ak6NoX_4Aeg_710684013")]
     [Description(@"Indicates that no quote can be computed or communicated.")]
-    QuoteNotFound,
+    QuoteNotFound = QuoteStatusCode.QuoteNotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is being processed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZYZ309p-Ed-ak6NoX_4Aeg_710684030")]
     [Description(@"Indicates that the quote is being processed.")]
-    Pending,
+    Pending = QuoteStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the counterparty is not interested in the transaction.
-    /// Encoded/decoded by serializers as "Pass".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_ZYZ31Np-Ed-ak6NoX_4Aeg_710684055")]
     [Description(@"Indicates that the counterparty is not interested in the transaction.")]
-    Pass,
+    Pass = QuoteStatusCode.Pass, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warning due to a situation of locked market.
-    /// Encoded/decoded by serializers as "LockedMarketWarning".
+    /// Encoded/decoded by serializers as "LMWA".
     /// </summary>
     [EnumMember(Value = "LMWA")]
     [IsoId("_ZYZ31dp-Ed-ak6NoX_4Aeg_710684072")]
     [Description(@"Warning due to a situation of locked market.")]
-    LockedMarketWarning,
+    LockedMarketWarning = QuoteStatusCode.LockedMarketWarning, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warning due to a situation of cross market.
-    /// Encoded/decoded by serializers as "CrossMarketWarning".
+    /// Encoded/decoded by serializers as "CMWA".
     /// </summary>
     [EnumMember(Value = "CMWA")]
     [IsoId("_ZYZ31tp-Ed-ak6NoX_4Aeg_710684115")]
     [Description(@"Warning due to a situation of cross market.")]
-    CrossMarketWarning,
+    CrossMarketWarning = QuoteStatusCode.CrossMarketWarning, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is canceled due to a situation of locked market.
-    /// Encoded/decoded by serializers as "CanceledDueToLockMarket".
+    /// Encoded/decoded by serializers as "CDLM".
     /// </summary>
     [EnumMember(Value = "CDLM")]
     [IsoId("_ZYZ319p-Ed-ak6NoX_4Aeg_710684132")]
     [Description(@"Indicates that the quote is canceled due to a situation of locked market.")]
-    CanceledDueToLockMarket,
+    CanceledDueToLockMarket = QuoteStatusCode.CanceledDueToLockMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quote is canceled due to a situation of cross market.
-    /// Encoded/decoded by serializers as "CanceledDueToCrossMarket".
+    /// Encoded/decoded by serializers as "CDCM".
     /// </summary>
     [EnumMember(Value = "CDCM")]
     [IsoId("_ZYZ32Np-Ed-ak6NoX_4Aeg_710684150")]
     [Description(@"Indicates that the quote is canceled due to a situation of cross market.")]
-    CanceledDueToCrossMarket,
+    CanceledDueToCrossMarket = QuoteStatusCode.CanceledDueToCrossMarket, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum QuoteStatus1Code
 public static class QuoteStatus1CodeMetadataExtensions
 {
     private static readonly QuoteStatus1CodeDropdownSource _dropdownSource = new QuoteStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

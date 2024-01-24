@@ -21,30 +21,30 @@ public enum Operation1Code
 {
     /// <summary>
     /// Indicates a range delimited by two variables.
-    /// Encoded/decoded by serializers as "Till".
+    /// Encoded/decoded by serializers as "TILL".
     /// </summary>
     [EnumMember(Value = "TILL")]
     [IsoId("_aO8eRNp-Ed-ak6NoX_4Aeg_-2087974128")]
     [Description(@"Indicates a range delimited by two variables.")]
-    Till,
+    Till = OperationCode.Till, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates either of two variables is valid, but not both.
-    /// Encoded/decoded by serializers as "Or".
+    /// Encoded/decoded by serializers as "ORRR".
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_aO8eRdp-Ed-ak6NoX_4Aeg_-2087974093")]
     [Description(@"Indicates either of two variables is valid, but not both.")]
-    Or,
+    Or = OperationCode.Or, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that only when both variables are given, the operation is valid.
-    /// Encoded/decoded by serializers as "And".
+    /// Encoded/decoded by serializers as "ANDD".
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_aO8eRtp-Ed-ak6NoX_4Aeg_-2087974033")]
     [Description(@"Indicates that only when both variables are given, the operation is valid.")]
-    And,
+    And = OperationCode.And, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Operation1Code
 public static class Operation1CodeMetadataExtensions
 {
     private static readonly Operation1CodeDropdownSource _dropdownSource = new Operation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

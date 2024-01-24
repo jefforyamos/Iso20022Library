@@ -21,102 +21,93 @@ public enum SwitchStatus1Code
 {
     /// <summary>
     /// Account switch is accepted.
-    /// 
     /// Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_RnBGQX6rEeePx-IqKegQ8Q")]
-    [Description(@"Account switch is accepted.  Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.")]
-    Accepted,
+    [Description(@"Account switch is accepted.||Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.")]
+    Accepted = SwitchStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account balance transfer is requested.
-    /// 
     /// Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.
-    /// Encoded/decoded by serializers as "BalanceTransferRequested".
+    /// Encoded/decoded by serializers as "BTRQ".
     /// </summary>
     [EnumMember(Value = "BTRQ")]
     [IsoId("_RshRUX6rEeePx-IqKegQ8Q")]
-    [Description(@"Account balance transfer is requested.  Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.")]
-    BalanceTransferRequested,
+    [Description(@"Account balance transfer is requested.||Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.")]
+    BalanceTransferRequested = SwitchStatusCode.BalanceTransferRequested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance transfer responded.
-    /// 
     /// Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.
-    /// Encoded/decoded by serializers as "BalanceTransferResponse".
+    /// Encoded/decoded by serializers as "BTRS".
     /// </summary>
     [EnumMember(Value = "BTRS")]
     [IsoId("_RyUXUX6rEeePx-IqKegQ8Q")]
-    [Description(@"Balance transfer responded.  Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.")]
-    BalanceTransferResponse,
+    [Description(@"Balance transfer responded.||Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.")]
+    BalanceTransferResponse = SwitchStatusCode.BalanceTransferResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account switch is completed.
-    /// 
     /// Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_R3FikX6rEeePx-IqKegQ8Q")]
-    [Description(@"Account switch is completed.  Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.")]
-    Completed,
+    [Description(@"Account switch is completed.||Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.")]
+    Completed = SwitchStatusCode.Completed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for redirection. 
-    /// 
     /// Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.
-    /// Encoded/decoded by serializers as "Redirection".
+    /// Encoded/decoded by serializers as "REDT".
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_SAmq8X6rEeePx-IqKegQ8Q")]
-    [Description(@"Request for redirection.   Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.")]
-    Redirection,
+    [Description(@"Request for redirection. ||Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.")]
+    Redirection = SwitchStatusCode.Redirection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redirection ended at the end of the redirection period. 
-    /// 
     /// Usage: Indicates the cessation of account redirection by a particular service.
-    /// Encoded/decoded by serializers as "RedirectionEnded".
+    /// Encoded/decoded by serializers as "REDE".
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_SGtS8X6rEeePx-IqKegQ8Q")]
-    [Description(@"Redirection ended at the end of the redirection period.   Usage: Indicates the cessation of account redirection by a particular service.")]
-    RedirectionEnded,
+    [Description(@"Redirection ended at the end of the redirection period. ||Usage: Indicates the cessation of account redirection by a particular service.")]
+    RedirectionEnded = SwitchStatusCode.RedirectionEnded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account switch is rejected. 
-    /// 
     /// Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_SMWn8X6rEeePx-IqKegQ8Q")]
-    [Description(@"Account switch is rejected.   Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.")]
-    Rejected,
+    [Description(@"Account switch is rejected. ||Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.")]
+    Rejected = SwitchStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information is requested for the account switch. 
-    /// 
     /// Usage: Requested status should be used when the account switch service receives and validates an information request.
-    /// Encoded/decoded by serializers as "Requested".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_SVbrcX6rEeePx-IqKegQ8Q")]
-    [Description(@"Information is requested for the account switch.   Usage: Requested status should be used when the account switch service receives and validates an information request.")]
-    Requested,
+    [Description(@"Information is requested for the account switch. ||Usage: Requested status should be used when the account switch service receives and validates an information request.")]
+    Requested = SwitchStatusCode.Requested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account switch is terminated. 
-    /// 
     /// Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.
-    /// Encoded/decoded by serializers as "Termination".
+    /// Encoded/decoded by serializers as "TMTN".
     /// </summary>
     [EnumMember(Value = "TMTN")]
     [IsoId("_SayskX6rEeePx-IqKegQ8Q")]
-    [Description(@"Account switch is terminated.   Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.")]
-    Termination,
+    [Description(@"Account switch is terminated. ||Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.")]
+    Termination = SwitchStatusCode.Termination, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +118,7 @@ public enum SwitchStatus1Code
 public static class SwitchStatus1CodeMetadataExtensions
 {
     private static readonly SwitchStatus1CodeDropdownSource _dropdownSource = new SwitchStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

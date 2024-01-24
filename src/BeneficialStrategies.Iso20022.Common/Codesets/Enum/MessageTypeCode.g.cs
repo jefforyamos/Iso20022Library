@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aL9bs9p-Ed-ak6NoX_4Aeg_-127004772")]
 [Description(@"Specifies the message type.")]
 [Derivations(typeof(CashForecastMessage1Code),typeof(StatementType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MessageTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum MessageTypeCode
 public static class MessageTypeCodeMetadataExtensions
 {
     private static readonly MessageTypeCodeDropdownSource _dropdownSource = new MessageTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

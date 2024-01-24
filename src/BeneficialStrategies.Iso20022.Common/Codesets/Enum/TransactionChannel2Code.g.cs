@@ -21,30 +21,30 @@ public enum TransactionChannel2Code
 {
     /// <summary>
     /// Financial advisor.
-    /// Encoded/decoded by serializers as "FinancialAdvisor".
+    /// Encoded/decoded by serializers as "FIAD".
     /// </summary>
     [EnumMember(Value = "FIAD")]
     [IsoId("_5TAXgRRFEeOKWo1NF21OVw")]
     [Description(@"Financial advisor.")]
-    FinancialAdvisor,
+    FinancialAdvisor = TransactionChannelCode.FinancialAdvisor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Home banking.
-    /// Encoded/decoded by serializers as "HomeBanking".
+    /// Encoded/decoded by serializers as "HOBA".
     /// </summary>
     [EnumMember(Value = "HOBA")]
     [IsoId("_5fNAcRRFEeOKWo1NF21OVw")]
     [Description(@"Home banking.")]
-    HomeBanking,
+    HomeBanking = TransactionChannelCode.HomeBanking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Office or branch.
-    /// Encoded/decoded by serializers as "OfficeOrBranch".
+    /// Encoded/decoded by serializers as "BRAN".
     /// </summary>
     [EnumMember(Value = "BRAN")]
     [IsoId("_7iH6cRRFEeOKWo1NF21OVw")]
     [Description(@"Office or branch.")]
-    OfficeOrBranch,
+    OfficeOrBranch = TransactionChannelCode.OfficeOrBranch, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransactionChannel2Code
 public static class TransactionChannel2CodeMetadataExtensions
 {
     private static readonly TransactionChannel2CodeDropdownSource _dropdownSource = new TransactionChannel2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

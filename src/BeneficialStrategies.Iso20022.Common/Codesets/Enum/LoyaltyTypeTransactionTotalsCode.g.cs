@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1pKiwNxiEeioifFt1dhnJA")]
 [Description(@"Type of Loyalty transaction.")]
 [Derivations(typeof(LoyaltyTypeTransactionTotals1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LoyaltyTypeTransactionTotalsCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum LoyaltyTypeTransactionTotalsCode
 public static class LoyaltyTypeTransactionTotalsCodeMetadataExtensions
 {
     private static readonly LoyaltyTypeTransactionTotalsCodeDropdownSource _dropdownSource = new LoyaltyTypeTransactionTotalsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

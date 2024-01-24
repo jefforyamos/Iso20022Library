@@ -21,30 +21,30 @@ public enum StandingInstructionType1Code
 {
     /// <summary>
     /// Standing instruction for a cash distribution.
-    /// Encoded/decoded by serializers as "CashDistribution".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ZPw5Ndp-Ed-ak6NoX_4Aeg_-438291265")]
     [Description(@"Standing instruction for a cash distribution.")]
-    CashDistribution,
+    CashDistribution = StandingInstructionTypeCode.CashDistribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standing instruction for the payment modality, gross or net.
-    /// Encoded/decoded by serializers as "GrossNet".
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_ZPw5Ntp-Ed-ak6NoX_4Aeg_-200022240")]
     [Description(@"Standing instruction for the payment modality, gross or net.")]
-    GrossNet,
+    GrossNet = StandingInstructionTypeCode.GrossNet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standing instruction for a securities distribution.
-    /// Encoded/decoded by serializers as "SecuritiesDistribution".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZPw5N9p-Ed-ak6NoX_4Aeg_1211066353")]
     [Description(@"Standing instruction for a securities distribution.")]
-    SecuritiesDistribution,
+    SecuritiesDistribution = StandingInstructionTypeCode.SecuritiesDistribution, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum StandingInstructionType1Code
 public static class StandingInstructionType1CodeMetadataExtensions
 {
     private static readonly StandingInstructionType1CodeDropdownSource _dropdownSource = new StandingInstructionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

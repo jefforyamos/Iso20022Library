@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bqvG1tp-Ed-ak6NoX_4Aeg_-941371103")]
 [Description(@"Refers to an account management instruction, that is, either an account opening instruction or an account modification instruction or a get account details message.")]
 [Derivations(typeof(AccountManagementType2Code),typeof(AccountManagementType1Code),typeof(AccountManagementType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountManagementTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AccountManagementTypeCode
 public static class AccountManagementTypeCodeMetadataExtensions
 {
     private static readonly AccountManagementTypeCodeDropdownSource _dropdownSource = new AccountManagementTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

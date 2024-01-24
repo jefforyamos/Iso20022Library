@@ -21,84 +21,84 @@ public enum DurationType1Code
 {
     /// <summary>
     /// Duration is a year.
-    /// Encoded/decoded by serializers as "Year".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_J_AT8RVqEeWkV7eOBXXT7Q")]
     [Description(@"Duration is a year.")]
-    Year,
+    Year = DurationTypeCode.Year, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every week.
-    /// Encoded/decoded by serializers as "Week".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_KNSAgRVqEeWkV7eOBXXT7Q")]
     [Description(@"Event takes place every week.")]
-    Week,
+    Week = DurationTypeCode.Week, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "Season".
+    /// Encoded/decoded by serializers as "SEAS".
     /// </summary>
     [EnumMember(Value = "SEAS")]
     [IsoId("_KTiZgRVqEeWkV7eOBXXT7Q")]
     [Description(@"Event takes place every six months or two times a year.")]
-    Season,
+    Season = DurationTypeCode.Season, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarter".
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_KfbgcRVqEeWkV7eOBXXT7Q")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarter,
+    Quarter = DurationTypeCode.Quarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Month".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_Kta5IRVqEeWkV7eOBXXT7Q")]
     [Description(@"Event takes place every month or once a month.")]
-    Month,
+    Month = DurationTypeCode.Month, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duration is a minute.
-    /// Encoded/decoded by serializers as "Minute".
+    /// Encoded/decoded by serializers as "MNUT".
     /// </summary>
     [EnumMember(Value = "MNUT")]
     [IsoId("_Kxb2cRVqEeWkV7eOBXXT7Q")]
     [Description(@"Duration is a minute.")]
-    Minute,
+    Minute = DurationTypeCode.Minute, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duration is an hour.
-    /// Encoded/decoded by serializers as "Hour".
+    /// Encoded/decoded by serializers as "HOUR".
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_K9euYRVqEeWkV7eOBXXT7Q")]
     [Description(@"Duration is an hour.")]
-    Hour,
+    Hour = DurationTypeCode.Hour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duration is a day.
-    /// Encoded/decoded by serializers as "Day".
+    /// Encoded/decoded by serializers as "DASD".
     /// </summary>
     [EnumMember(Value = "DASD")]
     [IsoId("_LLdgARVqEeWkV7eOBXXT7Q")]
     [Description(@"Duration is a day.")]
-    Day,
+    Day = DurationTypeCode.Day, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duration is expressed in another unit.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_g4ZDwUDeEeWt96EosbOZ-w")]
     [Description(@"Duration is expressed in another unit.")]
-    Other,
+    Other = DurationTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum DurationType1Code
 public static class DurationType1CodeMetadataExtensions
 {
     private static readonly DurationType1CodeDropdownSource _dropdownSource = new DurationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

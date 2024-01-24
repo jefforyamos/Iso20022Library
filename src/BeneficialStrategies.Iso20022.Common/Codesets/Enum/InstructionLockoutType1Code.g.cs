@@ -21,30 +21,30 @@ public enum InstructionLockoutType1Code
 {
     /// <summary>
     /// Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.
-    /// Encoded/decoded by serializers as "ManualLocked".
+    /// Encoded/decoded by serializers as "MANL".
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_g5Rl4Q7xEeuZI5Sr_GAcuA")]
     [Description(@"Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.")]
-    ManualLocked,
+    ManualLocked = InstructionLockoutTypeCode.ManualLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.
-    /// Encoded/decoded by serializers as "NotLocked".
+    /// Encoded/decoded by serializers as "NOTL".
     /// </summary>
     [EnumMember(Value = "NOTL")]
     [IsoId("_g_SuUQ7xEeuZI5Sr_GAcuA")]
     [Description(@"Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.")]
-    NotLocked,
+    NotLocked = InstructionLockoutTypeCode.NotLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an "out of town" record date on the disbursed security.
-    /// Encoded/decoded by serializers as "SystemicLocked".
+    /// Encoded/decoded by serializers as "SYSL".
     /// </summary>
     [EnumMember(Value = "SYSL")]
     [IsoId("_hELOUQ7xEeuZI5Sr_GAcuA")]
     [Description(@"Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an ""out of town"" record date on the disbursed security.")]
-    SystemicLocked,
+    SystemicLocked = InstructionLockoutTypeCode.SystemicLocked, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InstructionLockoutType1Code
 public static class InstructionLockoutType1CodeMetadataExtensions
 {
     private static readonly InstructionLockoutType1CodeDropdownSource _dropdownSource = new InstructionLockoutType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

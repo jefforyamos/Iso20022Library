@@ -21,57 +21,57 @@ public enum ProductType5Code
 {
     /// <summary>
     /// Identifies categories of instruments related to Emission Allowance.
-    /// Encoded/decoded by serializers as "EmissionAllowance".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_Ty9kEWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies categories of instruments related to Emission Allowance.")]
-    EmissionAllowance,
+    EmissionAllowance = ProductTypeV2Code.EmissionAllowance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are interest rates based.
-    /// Encoded/decoded by serializers as "InterestRate".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_VAB0IWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies categories of instruments that are interest rates based.")]
-    InterestRate,
+    InterestRate = ProductTypeV2Code.InterestRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_VdArEWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies the nature or type of an equity.")]
-    Equity,
+    Equity = ProductTypeV2Code.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_VzUSQWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies categories of instruments that are commodities.")]
-    Commodity,
+    Commodity = ProductTypeV2Code.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are credits.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_WGPOQWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies categories of instruments that are credits.")]
-    Credit,
+    Credit = ProductTypeV2Code.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "Currency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_WZ5KEWlDEeaLAKoEUNsD9g")]
     [Description(@"Identifies categories of currency instruments.")]
-    Currency,
+    Currency = ProductTypeV2Code.Currency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ProductType5Code
 public static class ProductType5CodeMetadataExtensions
 {
     private static readonly ProductType5CodeDropdownSource _dropdownSource = new ProductType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

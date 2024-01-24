@@ -21,12 +21,12 @@ public enum PriceValueType10Code
 {
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5RTNWtdEeCY4-KZ9JEyUQ_1587696077")]
     [Description(@"Price is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = PriceValueTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PriceValueType10Code
 public static class PriceValueType10CodeMetadataExtensions
 {
     private static readonly PriceValueType10CodeDropdownSource _dropdownSource = new PriceValueType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

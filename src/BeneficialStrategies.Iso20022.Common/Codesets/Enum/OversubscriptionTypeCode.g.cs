@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1pktlTL3EeKU9IrkkToqcw_-2000683477")]
 [Description(@"Specifies the oversubscription type.")]
 [Derivations(typeof(OversubscriptionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OversubscriptionTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum OversubscriptionTypeCode
 public static class OversubscriptionTypeCodeMetadataExtensions
 {
     private static readonly OversubscriptionTypeCodeDropdownSource _dropdownSource = new OversubscriptionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

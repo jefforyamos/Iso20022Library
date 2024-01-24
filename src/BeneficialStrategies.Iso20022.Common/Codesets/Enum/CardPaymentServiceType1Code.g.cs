@@ -21,147 +21,147 @@ public enum CardPaymentServiceType1Code
 {
     /// <summary>
     /// Transfer of funds to and/or from a card account.
-    /// Encoded/decoded by serializers as "CardsFundTransfer".
+    /// Encoded/decoded by serializers as "CAFT".
     /// </summary>
     [EnumMember(Value = "CAFT")]
     [IsoId("_TSg-ggEcEeCQm6a_G2yO_w_-897565888")]
     [Description(@"Transfer of funds to and/or from a card account.")]
-    CardsFundTransfer,
+    CardsFundTransfer = CardPaymentServiceTypeCode.CardsFundTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original credit.
-    /// Encoded/decoded by serializers as "OriginalCredit".
+    /// Encoded/decoded by serializers as "ORCR".
     /// </summary>
     [EnumMember(Value = "ORCR")]
     [IsoId("_TSqIYAEcEeCQm6a_G2yO_w_565206622")]
     [Description(@"Original credit.")]
-    OriginalCredit,
+    OriginalCredit = CardPaymentServiceTypeCode.OriginalCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment.
-    /// Encoded/decoded by serializers as "CardPayment".
+    /// Encoded/decoded by serializers as "CRDP".
     /// </summary>
     [EnumMember(Value = "CRDP")]
     [IsoId("_TSqIYQEcEeCQm6a_G2yO_w_-717150152")]
     [Description(@"Card payment.")]
-    CardPayment,
+    CardPayment = CardPaymentServiceTypeCode.CardPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CashBack".
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_TSqIYgEcEeCQm6a_G2yO_w_1357942539")]
     [Description(@"Card payment with cash-back.")]
-    CashBack,
+    CashBack = CardPaymentServiceTypeCode.CashBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
-    /// Encoded/decoded by serializers as "CashAdvance".
+    /// Encoded/decoded by serializers as "CSHW".
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_TSqIYwEcEeCQm6a_G2yO_w_-1031105037")]
     [Description(@"Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.")]
-    CashAdvance,
+    CashAdvance = CardPaymentServiceTypeCode.CashAdvance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash deposit.
-    /// Encoded/decoded by serializers as "CashDeposit".
+    /// Encoded/decoded by serializers as "CSHD".
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_TSqIZAEcEeCQm6a_G2yO_w_906120136")]
     [Description(@"Cash deposit.")]
-    CashDeposit,
+    CashDeposit = CardPaymentServiceTypeCode.CashDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deferred payment.
-    /// Encoded/decoded by serializers as "DeferredPayment".
+    /// Encoded/decoded by serializers as "DEFR".
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_TSqIZQEcEeCQm6a_G2yO_w_2032417257")]
     [Description(@"Deferred payment.")]
-    DeferredPayment,
+    DeferredPayment = CardPaymentServiceTypeCode.DeferredPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reservation (pre-authorisation).
-    /// Encoded/decoded by serializers as "Reservation".
+    /// Encoded/decoded by serializers as "RESA".
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_TSqIZgEcEeCQm6a_G2yO_w_-1249057676")]
     [Description(@"Reservation (pre-authorisation).")]
-    Reservation,
+    Reservation = CardPaymentServiceTypeCode.Reservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Loading or reloading non-financial account.
-    /// Encoded/decoded by serializers as "Loading".
+    /// Encoded/decoded by serializers as "LOAD".
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_TSqIZwEcEeCQm6a_G2yO_w_807680454")]
     [Description(@"Loading or reloading non-financial account.")]
-    Loading,
+    Loading = CardPaymentServiceTypeCode.Loading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refund transaction.
-    /// Encoded/decoded by serializers as "Refund".
+    /// Encoded/decoded by serializers as "RFND".
     /// </summary>
     [EnumMember(Value = "RFND")]
     [IsoId("_TSqIaAEcEeCQm6a_G2yO_w_1446470231")]
     [Description(@"Refund transaction.")]
-    Refund,
+    Refund = CardPaymentServiceTypeCode.Refund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quasi-cash.
-    /// Encoded/decoded by serializers as "QuasiCash".
+    /// Encoded/decoded by serializers as "QUCH".
     /// </summary>
     [EnumMember(Value = "QUCH")]
     [IsoId("_TSqIaQEcEeCQm6a_G2yO_w_46915301")]
     [Description(@"Quasi-cash.")]
-    QuasiCash,
+    QuasiCash = CardPaymentServiceTypeCode.QuasiCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance enquiry.
-    /// Encoded/decoded by serializers as "Balance".
+    /// Encoded/decoded by serializers as "BALC".
     /// </summary>
     [EnumMember(Value = "BALC")]
     [IsoId("_TSqIagEcEeCQm6a_G2yO_w_14944537")]
     [Description(@"Balance enquiry.")]
-    Balance,
+    Balance = CardPaymentServiceTypeCode.Balance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card activation.
-    /// Encoded/decoded by serializers as "CardActivation".
+    /// Encoded/decoded by serializers as "CACT".
     /// </summary>
     [EnumMember(Value = "CACT")]
     [IsoId("_TSqIawEcEeCQm6a_G2yO_w_-1270792527")]
     [Description(@"Card activation.")]
-    CardActivation,
+    CardActivation = CardPaymentServiceTypeCode.CardActivation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card verification.
-    /// Encoded/decoded by serializers as "CardVerification".
+    /// Encoded/decoded by serializers as "CAVR".
     /// </summary>
     [EnumMember(Value = "CAVR")]
     [IsoId("_TSqIbAEcEeCQm6a_G2yO_w_1319956496")]
     [Description(@"Card verification.")]
-    CardVerification,
+    CardVerification = CardPaymentServiceTypeCode.CardVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN (Personal Identification Number) change.
-    /// Encoded/decoded by serializers as "PINChange".
+    /// Encoded/decoded by serializers as "PINC".
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_TSqIbQEcEeCQm6a_G2yO_w_554107845")]
     [Description(@"PIN (Personal Identification Number) change.")]
-    PINChange,
+    PINChange = CardPaymentServiceTypeCode.PINChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card validity check.
-    /// Encoded/decoded by serializers as "ValidityCheck".
+    /// Encoded/decoded by serializers as "VALC".
     /// </summary>
     [EnumMember(Value = "VALC")]
     [IsoId("_TSqIbgEcEeCQm6a_G2yO_w_1086949596")]
     [Description(@"Card validity check.")]
-    ValidityCheck,
+    ValidityCheck = CardPaymentServiceTypeCode.ValidityCheck, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum CardPaymentServiceType1Code
 public static class CardPaymentServiceType1CodeMetadataExtensions
 {
     private static readonly CardPaymentServiceType1CodeDropdownSource _dropdownSource = new CardPaymentServiceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

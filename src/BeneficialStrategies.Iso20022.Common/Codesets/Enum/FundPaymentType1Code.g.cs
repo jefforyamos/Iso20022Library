@@ -21,57 +21,57 @@ public enum FundPaymentType1Code
 {
     /// <summary>
     /// Payment instrument is a bankers draft.
-    /// Encoded/decoded by serializers as "BankersDraft".
+    /// Encoded/decoded by serializers as "DRAF".
     /// </summary>
     [EnumMember(Value = "DRAF")]
     [IsoId("_wli18V8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a bankers draft.")]
-    BankersDraft,
+    BankersDraft = FundPaymentTypeCode.BankersDraft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instrument is a cash account.
-    /// Encoded/decoded by serializers as "CashAccount".
+    /// Encoded/decoded by serializers as "CACC".
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_wqTaIV8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a cash account.")]
-    CashAccount,
+    CashAccount = FundPaymentTypeCode.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instrument is a cheque.
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHEQ".
     /// </summary>
     [EnumMember(Value = "CHEQ")]
     [IsoId("_w1dhQV8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a cheque.")]
-    Cheque,
+    Cheque = FundPaymentTypeCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instrument is a credit transfer.
-    /// Encoded/decoded by serializers as "CreditTransfer".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_w9Cv8V8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a credit transfer.")]
-    CreditTransfer,
+    CreditTransfer = FundPaymentTypeCode.CreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instrument is a direct debit.
-    /// Encoded/decoded by serializers as "DirectDebit".
+    /// Encoded/decoded by serializers as "DDEB".
     /// </summary>
     [EnumMember(Value = "DDEB")]
     [IsoId("_xC2dAV8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a direct debit.")]
-    DirectDebit,
+    DirectDebit = FundPaymentTypeCode.DirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instrument is a payment card.
-    /// Encoded/decoded by serializers as "PaymentCard".
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_xIzUAV8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a payment card.")]
-    PaymentCard,
+    PaymentCard = FundPaymentTypeCode.PaymentCard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum FundPaymentType1Code
 public static class FundPaymentType1CodeMetadataExtensions
 {
     private static readonly FundPaymentType1CodeDropdownSource _dropdownSource = new FundPaymentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

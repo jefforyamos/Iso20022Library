@@ -21,48 +21,48 @@ public enum PositionEffect2Code
 {
     /// <summary>
     /// Position after the trade the position should be open.
-    /// Encoded/decoded by serializers as "OpenPosition".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("__viXldojEeC60axPepSq7g_-1942211273")]
     [Description(@"Position after the trade the position should be open.")]
-    OpenPosition,
+    OpenPosition = PositionEffectV2Code.OpenPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Position after the trade the position should be closed.
-    /// Encoded/decoded by serializers as "ClosePosition".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("__viXltojEeC60axPepSq7g_-2056050339")]
     [Description(@"Position after the trade the position should be closed.")]
-    ClosePosition,
+    ClosePosition = PositionEffectV2Code.ClosePosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Results in a position obtained in a security previously held, sold and repurchased.
-    /// Encoded/decoded by serializers as "Rolled".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("__vrhgNojEeC60axPepSq7g_-686072263")]
     [Description(@"Results in a position obtained in a security previously held, sold and repurchased.")]
-    Rolled,
+    Rolled = PositionEffectV2Code.Rolled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "Fifo".
+    /// Encoded/decoded by serializers as "FIFO".
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("__vrhgdojEeC60axPepSq7g_-100125237")]
     [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
-    Fifo,
+    Fifo = PositionEffectV2Code.Fifo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade relates to a closure of an account.
-    /// Encoded/decoded by serializers as "CloseAccount".
+    /// Encoded/decoded by serializers as "CLOA".
     /// </summary>
     [EnumMember(Value = "CLOA")]
     [IsoId("__vrhgtojEeC60axPepSq7g_1367023526")]
     [Description(@"Trade relates to a closure of an account.")]
-    CloseAccount,
+    CloseAccount = PositionEffectV2Code.CloseAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PositionEffect2Code
 public static class PositionEffect2CodeMetadataExtensions
 {
     private static readonly PositionEffect2CodeDropdownSource _dropdownSource = new PositionEffect2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -45,7 +45,7 @@ public enum TradingCapacity2Code
 public static class TradingCapacity2CodeMetadataExtensions
 {
     private static readonly TradingCapacity2CodeDropdownSource _dropdownSource = new TradingCapacity2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

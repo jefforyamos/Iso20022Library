@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_2DXCYDlEEealR6-8aQ15BA")]
 [Description(@"Specifies the origin of cash.")]
 [Derivations(typeof(SourceOfCash1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SourceOfCashCode
 {
     /// <summary>
@@ -164,7 +163,7 @@ public enum SourceOfCashCode
 public static class SourceOfCashCodeMetadataExtensions
 {
     private static readonly SourceOfCashCodeDropdownSource _dropdownSource = new SourceOfCashCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

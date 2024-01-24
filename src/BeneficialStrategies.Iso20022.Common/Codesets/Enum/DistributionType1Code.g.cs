@@ -21,12 +21,12 @@ public enum DistributionType1Code
 {
     /// <summary>
     /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
-    /// Encoded/decoded by serializers as "RollingBasis".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_aw6i4tp-Ed-ak6NoX_4Aeg_-1335531037")]
     [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
-    RollingBasis,
+    RollingBasis = DistributionTypeCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DistributionType1Code
 public static class DistributionType1CodeMetadataExtensions
 {
     private static readonly DistributionType1CodeDropdownSource _dropdownSource = new DistributionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

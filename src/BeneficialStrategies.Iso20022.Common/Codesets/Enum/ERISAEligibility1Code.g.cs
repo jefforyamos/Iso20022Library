@@ -21,30 +21,30 @@ public enum ERISAEligibility1Code
 {
     /// <summary>
     /// Investor is subject to an ERISA declaration.
-    /// Encoded/decoded by serializers as "ERISAEligible".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ahtpRtp-Ed-ak6NoX_4Aeg_-1951543252")]
     [Description(@"Investor is subject to an ERISA declaration.")]
-    ERISAEligible,
+    ERISAEligible = ERISAEligibilityCode.ERISAEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment is not subject to an ERISA declaration.
-    /// Encoded/decoded by serializers as "NotERISAEligible".
+    /// Encoded/decoded by serializers as "NELI".
     /// </summary>
     [EnumMember(Value = "NELI")]
     [IsoId("_ahtpR9p-Ed-ak6NoX_4Aeg_-1951543222")]
     [Description(@"Investment is not subject to an ERISA declaration.")]
-    NotERISAEligible,
+    NotERISAEligible = ERISAEligibilityCode.NotERISAEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.
-    /// Encoded/decoded by serializers as "ERISAEligibilityUnknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ahtpSNp-Ed-ak6NoX_4Aeg_-1951543191")]
     [Description(@"Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.")]
-    ERISAEligibilityUnknown,
+    ERISAEligibilityUnknown = ERISAEligibilityCode.ERISAEligibilityUnknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ERISAEligibility1Code
 public static class ERISAEligibility1CodeMetadataExtensions
 {
     private static readonly ERISAEligibility1CodeDropdownSource _dropdownSource = new ERISAEligibility1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

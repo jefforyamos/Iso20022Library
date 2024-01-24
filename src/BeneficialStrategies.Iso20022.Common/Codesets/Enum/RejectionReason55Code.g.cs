@@ -21,75 +21,75 @@ public enum RejectionReason55Code
 {
     /// <summary>
     /// Disagreement in beneficial ownership.
-    /// Encoded/decoded by serializers as "BeneficialOwnershipDisagreement".
+    /// Encoded/decoded by serializers as "BENO".
     /// </summary>
     [EnumMember(Value = "BENO")]
     [IsoId("_8E9YIekJEemm4qhb2yFPOw")]
     [Description(@"Disagreement in beneficial ownership.")]
-    BeneficialOwnershipDisagreement,
+    BeneficialOwnershipDisagreement = RejectionReasonV3Code.BeneficialOwnershipDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CorporateActionRejection".
+    /// Encoded/decoded by serializers as "CAEV".
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_AXmSAekKEemm4qhb2yFPOw")]
     [Description(@"Corporate action pending on the financial instrument instructed.")]
-    CorporateActionRejection,
+    CorporateActionRejection = RejectionReasonV3Code.CorporateActionRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "QuantityRejection".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_CvfWcekKEemm4qhb2yFPOw")]
     [Description(@"Unrecognised or invalid instructed quantity.")]
-    QuantityRejection,
+    QuantityRejection = RejectionReasonV3Code.QuantityRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_T9KjYekKEemm4qhb2yFPOw")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV3Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has not been matched. It is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "PossibleDuplicate".
+    /// Encoded/decoded by serializers as "PODU".
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_P4QuEekLEemm4qhb2yFPOw")]
     [Description(@"Instruction has not been matched. It is a possible duplicate instruction.")]
-    PossibleDuplicate,
+    PossibleDuplicate = RejectionReasonV3Code.PossibleDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_V9wFoekLEemm4qhb2yFPOw")]
     [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
-    SafekeepingAccountRejection,
+    SafekeepingAccountRejection = RejectionReasonV3Code.SafekeepingAccountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standing Settlement Instruction is unknown or invalid.
-    /// Encoded/decoded by serializers as "StandingSettlementInstructionRejection".
+    /// Encoded/decoded by serializers as "SSID".
     /// </summary>
     [EnumMember(Value = "SSID")]
     [IsoId("_kHyicekLEemm4qhb2yFPOw")]
     [Description(@"Standing Settlement Instruction is unknown or invalid.")]
-    StandingSettlementInstructionRejection,
+    StandingSettlementInstructionRejection = RejectionReasonV3Code.StandingSettlementInstructionRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "InvalidSecurity".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_FJq80emtEemUgrefIx730g")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    InvalidSecurity,
+    InvalidSecurity = RejectionReasonV3Code.InvalidSecurity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum RejectionReason55Code
 public static class RejectionReason55CodeMetadataExtensions
 {
     private static readonly RejectionReason55CodeDropdownSource _dropdownSource = new RejectionReason55CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

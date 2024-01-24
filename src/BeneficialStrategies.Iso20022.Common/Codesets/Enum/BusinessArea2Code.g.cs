@@ -21,48 +21,48 @@ public enum BusinessArea2Code
 {
     /// <summary>
     /// The payment is initiated by an artificial intelligence based decision.
-    /// Encoded/decoded by serializers as "ArtificialIntelligenceBasedDecision".
+    /// Encoded/decoded by serializers as "AIBD".
     /// </summary>
     [EnumMember(Value = "AIBD")]
     [IsoId("_qGBrwXC7Ee2bmOA3bkVsMg")]
     [Description(@"The payment is initiated by an artificial intelligence based decision.")]
-    ArtificialIntelligenceBasedDecision,
+    ArtificialIntelligenceBasedDecision = BusinessAreaCode.ArtificialIntelligenceBasedDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is used to perform a plain payment.
-    /// Encoded/decoded by serializers as "PlainPayment".
+    /// Encoded/decoded by serializers as "PPAY".
     /// </summary>
     [EnumMember(Value = "PPAY")]
     [IsoId("_qGBrxXC7Ee2bmOA3bkVsMg")]
     [Description(@"The card is used to perform a plain payment.")]
-    PlainPayment,
+    PlainPayment = BusinessAreaCode.PlainPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is used in a Transit business case where the fare amount is known when the transaction is initiated.
-    /// Encoded/decoded by serializers as "TransitKnownFare".
+    /// Encoded/decoded by serializers as "TKNF".
     /// </summary>
     [EnumMember(Value = "TKNF")]
     [IsoId("_qGBrx3C7Ee2bmOA3bkVsMg")]
     [Description(@"The card is used in a Transit business case where the fare amount is known when the transaction is initiated.")]
-    TransitKnownFare,
+    TransitKnownFare = BusinessAreaCode.TransitKnownFare, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.
-    /// Encoded/decoded by serializers as "EnergyOpenPayment".
+    /// Encoded/decoded by serializers as "EOPT".
     /// </summary>
     [EnumMember(Value = "EOPT")]
     [IsoId("_taKWAXC7Ee2bmOA3bkVsMg")]
     [Description(@"Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.")]
-    EnergyOpenPayment,
+    EnergyOpenPayment = BusinessAreaCode.EnergyOpenPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.
-    /// Encoded/decoded by serializers as "TransitOpenPayment".
+    /// Encoded/decoded by serializers as "TOPT".
     /// </summary>
     [EnumMember(Value = "TOPT")]
     [IsoId("_u81psXC7Ee2bmOA3bkVsMg")]
     [Description(@"Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.")]
-    TransitOpenPayment,
+    TransitOpenPayment = BusinessAreaCode.TransitOpenPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum BusinessArea2Code
 public static class BusinessArea2CodeMetadataExtensions
 {
     private static readonly BusinessArea2CodeDropdownSource _dropdownSource = new BusinessArea2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

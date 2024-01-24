@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__0wOw9ojEeC60axPepSq7g_-159430534")]
 [Description(@"Type of business process model used to carry out the transaction.")]
 [Derivations(typeof(BusinessProcessType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BusinessProcessTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BusinessProcessTypeCode
     /// </summary>
     [EnumMember(Value = "RSAL")]
     [IsoId("__05YsNojEeC60axPepSq7g_-1597663913")]
-    [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice: o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’; o The broker will have to specify the original transaction notice reference; o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
+    [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice:|o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’;|o The broker will have to specify the original transaction notice reference;|o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
     Reversal,
     
     /// <summary>
@@ -104,7 +103,7 @@ public enum BusinessProcessTypeCode
 public static class BusinessProcessTypeCodeMetadataExtensions
 {
     private static readonly BusinessProcessTypeCodeDropdownSource _dropdownSource = new BusinessProcessTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

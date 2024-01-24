@@ -21,120 +21,120 @@ public enum TradeStatus6Code
 {
     /// <summary>
     /// Trade is invalid.
-    /// Encoded/decoded by serializers as "Invalid".
+    /// Encoded/decoded by serializers as "INVA".
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_k2IicZU7EeaYkf5FCqYMeA")]
     [Description(@"Trade is invalid.")]
-    Invalid,
+    Invalid = TradeStatusCode.Invalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "FMTC".
     /// </summary>
     [EnumMember(Value = "FMTC")]
     [IsoId("_k2Iic5U7EeaYkf5FCqYMeA")]
     [Description(@"Trade is matched.")]
-    Matched,
+    Matched = TradeStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade has been selected for settlement and is pending.
-    /// Encoded/decoded by serializers as "SettlementMaturePending".
+    /// Encoded/decoded by serializers as "SMAP".
     /// </summary>
     [EnumMember(Value = "SMAP")]
     [IsoId("_k2Iid5U7EeaYkf5FCqYMeA")]
     [Description(@"Trade has been selected for settlement and is pending.")]
-    SettlementMaturePending,
+    SettlementMaturePending = TradeStatusCode.SettlementMaturePending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_k2Iie5U7EeaYkf5FCqYMeA")]
     [Description(@"Trade is rejected.")]
-    Rejected,
+    Rejected = TradeStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is rescinded.
-    /// Encoded/decoded by serializers as "Rescinded".
+    /// Encoded/decoded by serializers as "RSCD".
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_k2IifZU7EeaYkf5FCqYMeA")]
     [Description(@"Trade is rescinded.")]
-    Rescinded,
+    Rescinded = TradeStatusCode.Rescinded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "STLD".
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_k2Iif5U7EeaYkf5FCqYMeA")]
     [Description(@"Settlement is complete.")]
-    Settled,
+    Settled = TradeStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade has been split into subtrades for settlement efficiency.
-    /// Encoded/decoded by serializers as "Split".
+    /// Encoded/decoded by serializers as "SPLI".
     /// </summary>
     [EnumMember(Value = "SPLI")]
     [IsoId("_k2IihZU7EeaYkf5FCqYMeA")]
     [Description(@"Trade has been split into subtrades for settlement efficiency.")]
-    Split,
+    Split = TradeStatusCode.Split, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is unmatched.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "UMTC".
     /// </summary>
     [EnumMember(Value = "UMTC")]
     [IsoId("_k2IiiZU7EeaYkf5FCqYMeA")]
     [Description(@"Trade is unmatched.")]
-    Unmatched,
+    Unmatched = TradeStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade has been selected for settlement.
-    /// Encoded/decoded by serializers as "SettlementMature".
+    /// Encoded/decoded by serializers as "SMAT".
     /// </summary>
     [EnumMember(Value = "SMAT")]
     [IsoId("_k2Iii5U7EeaYkf5FCqYMeA")]
     [Description(@"Trade has been selected for settlement.")]
-    SettlementMature,
+    SettlementMature = TradeStatusCode.SettlementMature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.
-    /// Encoded/decoded by serializers as "FixUnmatched".
+    /// Encoded/decoded by serializers as "FUMT".
     /// </summary>
     [EnumMember(Value = "FUMT")]
     [IsoId("_jEGx4ZVAEeaYkf5FCqYMeA")]
     [Description(@"For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.")]
-    FixUnmatched,
+    FixUnmatched = TradeStatusCode.FixUnmatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade has been netted by the central system.
-    /// Encoded/decoded by serializers as "Netted".
+    /// Encoded/decoded by serializers as "NETT".
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_j--espVAEeaYkf5FCqYMeA")]
     [Description(@"Trade has been netted by the central system.")]
-    Netted,
+    Netted = TradeStatusCode.Netted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.
-    /// Encoded/decoded by serializers as "PartialFix".
+    /// Encoded/decoded by serializers as "PFIX".
     /// </summary>
     [EnumMember(Value = "PFIX")]
     [IsoId("_lPS3EpVAEeaYkf5FCqYMeA")]
     [Description(@"For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.")]
-    PartialFix,
+    PartialFix = TradeStatusCode.PartialFix, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For NDF trades, the trade is marked as open match when both open confirmations from both parties match.
-    /// Encoded/decoded by serializers as "OpenMatched".
+    /// Encoded/decoded by serializers as "OMTC".
     /// </summary>
     [EnumMember(Value = "OMTC")]
     [IsoId("_Idn3QaAcEea9x5aZm6UTkw")]
     [Description(@"For NDF trades, the trade is marked as open match when both open confirmations from both parties match.")]
-    OpenMatched,
+    OpenMatched = TradeStatusCode.OpenMatched, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum TradeStatus6Code
 public static class TradeStatus6CodeMetadataExtensions
 {
     private static readonly TradeStatus6CodeDropdownSource _dropdownSource = new TradeStatus6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

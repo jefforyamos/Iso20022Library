@@ -21,63 +21,57 @@ public enum CCPMemberType1Code
 {
     /// <summary>
     /// Agent Clearing Member.
-    /// 
-    /// Encoded/decoded by serializers as "AgentClearingMember".
+    /// Encoded/decoded by serializers as "ACMB".
     /// </summary>
     [EnumMember(Value = "ACMB")]
     [IsoId("_oMEOYQIJEeutW5-TpeYJhA")]
-    [Description(@"Agent Clearing Member. ")]
-    AgentClearingMember,
+    [Description(@"Agent Clearing Member.|")]
+    AgentClearingMember = CCPMemberTypeCode.AgentClearingMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing House.
-    /// Encoded/decoded by serializers as "ClearingHouse".
+    /// Encoded/decoded by serializers as "CCPX".
     /// </summary>
     [EnumMember(Value = "CCPX")]
     [IsoId("_oVkIogIJEeutW5-TpeYJhA")]
     [Description(@"Clearing House.")]
-    ClearingHouse,
+    ClearingHouse = CCPMemberTypeCode.ClearingHouse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct Clearing Member.
-    /// 
-    /// Encoded/decoded by serializers as "DirectClearingMember".
+    /// Encoded/decoded by serializers as "DCMB".
     /// </summary>
     [EnumMember(Value = "DCMB")]
     [IsoId("_ofNM0gIJEeutW5-TpeYJhA")]
-    [Description(@"Direct Clearing Member. ")]
-    DirectClearingMember,
+    [Description(@"Direct Clearing Member.|")]
+    DirectClearingMember = CCPMemberTypeCode.DirectClearingMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Futures Commission Merchant.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "FuturesCommissionMerchant".
+    /// Encoded/decoded by serializers as "FCMC".
     /// </summary>
     [EnumMember(Value = "FCMC")]
     [IsoId("_oo9lwgIJEeutW5-TpeYJhA")]
-    [Description(@"Futures Commission Merchant.  ")]
-    FuturesCommissionMerchant,
+    [Description(@"Futures Commission Merchant.||")]
+    FuturesCommissionMerchant = CCPMemberTypeCode.FuturesCommissionMerchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General Clearing Member.
-    /// 
-    /// Encoded/decoded by serializers as "GeneralClearingMember".
+    /// Encoded/decoded by serializers as "GCMB".
     /// </summary>
     [EnumMember(Value = "GCMB")]
     [IsoId("_otx0UQIJEeutW5-TpeYJhA")]
-    [Description(@"General Clearing Member. ")]
-    GeneralClearingMember,
+    [Description(@"General Clearing Member.|")]
+    GeneralClearingMember = CCPMemberTypeCode.GeneralClearingMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sponsored Clearing Member.
-    ///  
-    /// Encoded/decoded by serializers as "SponsoredClearingMember".
+    /// Encoded/decoded by serializers as "SCMB".
     /// </summary>
     [EnumMember(Value = "SCMB")]
     [IsoId("_o53vkgIJEeutW5-TpeYJhA")]
-    [Description(@"Sponsored Clearing Member.  ")]
-    SponsoredClearingMember,
+    [Description(@"Sponsored Clearing Member.| ")]
+    SponsoredClearingMember = CCPMemberTypeCode.SponsoredClearingMember, // same ordinal as derivation source for type conversions
     
 }
 
@@ -88,7 +82,7 @@ public enum CCPMemberType1Code
 public static class CCPMemberType1CodeMetadataExtensions
 {
     private static readonly CCPMemberType1CodeDropdownSource _dropdownSource = new CCPMemberType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

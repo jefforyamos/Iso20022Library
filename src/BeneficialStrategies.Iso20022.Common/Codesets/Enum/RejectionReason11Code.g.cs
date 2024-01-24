@@ -21,39 +21,39 @@ public enum RejectionReason11Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZgdAl9p-Ed-ak6NoX_4Aeg_-698385107")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
+    /// Encoded/decoded by serializers as "DCAN".
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_ZgdAmNp-Ed-ak6NoX_4Aeg_-698385076")]
     [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
-    RejectedSinceAlreadyCancelled,
+    RejectedSinceAlreadyCancelled = RejectionReasonCode.RejectedSinceAlreadyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "RejectedSinceInProgress".
+    /// Encoded/decoded by serializers as "DPRG".
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_ZgdAmdp-Ed-ak6NoX_4Aeg_-698385045")]
     [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
-    RejectedSinceInProgress,
+    RejectedSinceInProgress = RejectionReasonCode.RejectedSinceInProgress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid corporate action identification supplied.
-    /// Encoded/decoded by serializers as "InvalidCAIdentification".
+    /// Encoded/decoded by serializers as "REFI".
     /// </summary>
     [EnumMember(Value = "REFI")]
     [IsoId("_ZgmKgNp-Ed-ak6NoX_4Aeg_-698385015")]
     [Description(@"Invalid corporate action identification supplied.")]
-    InvalidCAIdentification,
+    InvalidCAIdentification = RejectionReasonCode.InvalidCAIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RejectionReason11Code
 public static class RejectionReason11CodeMetadataExtensions
 {
     private static readonly RejectionReason11CodeDropdownSource _dropdownSource = new RejectionReason11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

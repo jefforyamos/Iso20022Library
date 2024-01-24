@@ -360,7 +360,7 @@ public enum YieldTypeCode
 public static class YieldTypeCodeMetadataExtensions
 {
     private static readonly YieldTypeCodeDropdownSource _dropdownSource = new YieldTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

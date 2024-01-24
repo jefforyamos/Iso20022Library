@@ -16,262 +16,262 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_8DT3MUgtEeaGKYpLDboHPQ")]
-[Description(@"Specifies the cancellation reason, as published in an external cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the cancellation reason, as published in an external cancellation reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalCancellationReasonCode))]
 public enum ExternalCancellationReason1Code
 {
     /// <summary>
     /// Wrong account number in Credit Transfer.
-    /// Encoded/decoded by serializers as "InvalidCreditorAccountNumber".
+    /// Encoded/decoded by serializers as "AC03".
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_uXeu5fRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong account number in Credit Transfer.")]
-    InvalidCreditorAccountNumber,
+    InvalidCreditorAccountNumber = ExternalCancellationReasonCode.InvalidCreditorAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectAgent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_uXof4vRYEeuLhpyIdtJzwg")]
     [Description(@"Agent in the payment workflow is incorrect.")]
-    IncorrectAgent,
+    IncorrectAgent = ExternalCancellationReasonCode.IncorrectAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount is not the amount agreed or expected.
-    /// Encoded/decoded by serializers as "WrongAmount".
+    /// Encoded/decoded by serializers as "AM09".
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_uXof5fRYEeuLhpyIdtJzwg")]
     [Description(@"Amount is not the amount agreed or expected.")]
-    WrongAmount,
+    WrongAmount = ExternalCancellationReasonCode.WrongAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debtor or Ultimate Debtor identification code missing or invalid.
-    /// Encoded/decoded by serializers as "InvalidDebtorIdentificationCode".
+    /// Encoded/decoded by serializers as "BE16".
     /// </summary>
     [EnumMember(Value = "BE16")]
     [IsoId("_uXyQ4vRYEeuLhpyIdtJzwg")]
     [Description(@"Debtor or Ultimate Debtor identification code missing or invalid.")]
-    InvalidDebtorIdentificationCode,
+    InvalidDebtorIdentificationCode = ExternalCancellationReasonCode.InvalidDebtorIdentificationCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cover payments has either been returned or cancelled.
-    /// Encoded/decoded by serializers as "CoverCancelledOrReturned".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_uXyQ5fRYEeuLhpyIdtJzwg")]
     [Description(@"Cover payments has either been returned or cancelled.")]
-    CoverCancelledOrReturned,
+    CoverCancelledOrReturned = ExternalCancellationReasonCode.CoverCancelledOrReturned, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Currency of the payment is incorrect.|
-    /// Encoded/decoded by serializers as "IncorrectCurrency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_uXyQ6PRYEeuLhpyIdtJzwg")]
     [Description(@"Currency of the payment is incorrect.|")]
-    IncorrectCurrency,
+    IncorrectCurrency = ExternalCancellationReasonCode.IncorrectCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "RequestedByCustomer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_uX7a0vRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested by the Debtor.")]
-    RequestedByCustomer,
+    RequestedByCustomer = ExternalCancellationReasonCode.RequestedByCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested because an investigation request has been received and no remediation is possible.
-    /// Encoded/decoded by serializers as "CancelUponUnableToApply".
+    /// Encoded/decoded by serializers as "CUTA".
     /// </summary>
     [EnumMember(Value = "CUTA")]
     [IsoId("_uX7a1fRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested because an investigation request has been received and no remediation is possible.")]
-    CancelUponUnableToApply,
+    CancelUponUnableToApply = ExternalCancellationReasonCode.CancelUponUnableToApply, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested because the original payment order expired due to time-out.
-    /// Encoded/decoded by serializers as "TimeOut".
+    /// Encoded/decoded by serializers as "DS24".
     /// </summary>
     [EnumMember(Value = "DS24")]
     [IsoId("_uYFL0vRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested because the original payment order expired due to time-out.")]
-    TimeOut,
+    TimeOut = ExternalCancellationReasonCode.TimeOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid date (for example, wrong or missing settlement date).
-    /// Encoded/decoded by serializers as "InvalidDate".
+    /// Encoded/decoded by serializers as "DT01".
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_uYFL1fRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid date (for example, wrong or missing settlement date).")]
-    InvalidDate,
+    InvalidDate = ExternalCancellationReasonCode.InvalidDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DuplicatePayment".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_uYFL2PRYEeuLhpyIdtJzwg")]
     [Description(@"Payment is a duplicate of another payment.")]
-    DuplicatePayment,
+    DuplicatePayment = ExternalCancellationReasonCode.DuplicatePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
-    /// Encoded/decoded by serializers as "FraudulentOrigin".
+    /// Encoded/decoded by serializers as "FRAD".
     /// </summary>
     [EnumMember(Value = "FRAD")]
     [IsoId("_uYOVwvRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.")]
-    FraudulentOrigin,
+    FraudulentOrigin = ExternalCancellationReasonCode.FraudulentOrigin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To complement a rejection response, suggesting the request for cancelation should be forwarded to the next agent in the payment transaction chain.
-    /// Encoded/decoded by serializers as "ForwardToNextAgent".
+    /// Encoded/decoded by serializers as "FRNA".
     /// </summary>
     [EnumMember(Value = "FRNA")]
     [IsoId("_uYOVxfRYEeuLhpyIdtJzwg")]
     [Description(@"To complement a rejection response, suggesting the request for cancelation should be forwarded to the next agent in the payment transaction chain.")]
-    ForwardToNextAgent,
+    ForwardToNextAgent = ExternalCancellationReasonCode.ForwardToNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct Debit Tracking recalled as Mandate Cancelled 
-    /// Encoded/decoded by serializers as "FinalResponse".
+    /// Encoded/decoded by serializers as "FRTR".
     /// </summary>
     [EnumMember(Value = "FRTR")]
     [IsoId("_uYOVyPRYEeuLhpyIdtJzwg")]
     [Description(@"Direct Debit Tracking recalled as Mandate Cancelled ")]
-    FinalResponse,
+    FinalResponse = ExternalCancellationReasonCode.FinalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To express the wish to establish a bilateral indemnity agreement.
-    /// Encoded/decoded by serializers as "IndemnityRequired".
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_uYOVy_RYEeuLhpyIdtJzwg")]
     [Description(@"To express the wish to establish a bilateral indemnity agreement.")]
-    IndemnityRequired,
+    IndemnityRequired = ExternalCancellationReasonCode.IndemnityRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The underlying transaction in relation to an RTP was modified.
-    /// Encoded/decoded by serializers as "ModifiedTransaction".
+    /// Encoded/decoded by serializers as "MODT".
     /// </summary>
     [EnumMember(Value = "MODT")]
     [IsoId("_uYOVzvRYEeuLhpyIdtJzwg")]
     [Description(@"The underlying transaction in relation to an RTP was modified.")]
-    ModifiedTransaction,
+    ModifiedTransaction = ExternalCancellationReasonCode.ModifiedTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The underlying transaction in relation to an RTP was already paid (via other means).
-    /// Encoded/decoded by serializers as "TransactionAlreadyPaid".
+    /// Encoded/decoded by serializers as "PAID".
     /// </summary>
     [EnumMember(Value = "PAID")]
     [IsoId("_uYYGwvRYEeuLhpyIdtJzwg")]
     [Description(@"The underlying transaction in relation to an RTP was already paid (via other means).")]
-    TransactionAlreadyPaid,
+    TransactionAlreadyPaid = ExternalCancellationReasonCode.TransactionAlreadyPaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The payment is cancelled since a cash amount rendered was not correct or goods or a service was not rendered to the customer, e.g. in an e-commerce situation.
-    /// Encoded/decoded by serializers as "ServiceNotRendered".
+    /// Encoded/decoded by serializers as "SVNR".
     /// </summary>
     [EnumMember(Value = "SVNR")]
     [IsoId("_uYYGxfRYEeuLhpyIdtJzwg")]
     [Description(@"The payment is cancelled since a cash amount rendered was not correct or goods or a service was not rendered to the customer, e.g. in an e-commerce situation.")]
-    ServiceNotRendered,
+    ServiceNotRendered = ExternalCancellationReasonCode.ServiceNotRendered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested by System Member to Settlement System Administrator to indicate that the cancellation request must not be forwarded further in the chain.
-    /// Encoded/decoded by serializers as "RequestToSettlementSystemAdministrator".
+    /// Encoded/decoded by serializers as "SYAD".
     /// </summary>
     [EnumMember(Value = "SYAD")]
     [IsoId("_uYh3wvRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested by System Member to Settlement System Administrator to indicate that the cancellation request must not be forwarded further in the chain.")]
-    RequestToSettlementSystemAdministrator,
+    RequestToSettlementSystemAdministrator = ExternalCancellationReasonCode.RequestToSettlementSystemAdministrator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation requested following technical problems resulting in an erroneous transaction.
-    /// Encoded/decoded by serializers as "TechnicalProblem".
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_uYh3xfRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested following technical problems resulting in an erroneous transaction.")]
-    TechnicalProblem,
+    TechnicalProblem = ExternalCancellationReasonCode.TechnicalProblem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UnduePayment".
+    /// Encoded/decoded by serializers as "UPAY".
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_uYrBsvRYEeuLhpyIdtJzwg")]
     [Description(@"Payment is not justified.")]
-    UnduePayment,
+    UnduePayment = ExternalCancellationReasonCode.UnduePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation or request for return requested by the Debtor specifically due to one or more errors by debtor in the original Credit Transfer. Usage: This code can be used for any error in the original Credit Transfer made by the Debtor. Can also be used if multiple errors were made in the original Credit Transfer.
-    /// Encoded/decoded by serializers as "EndUserError".
+    /// Encoded/decoded by serializers as "ENUE".
     /// </summary>
     [EnumMember(Value = "ENUE")]
     [IsoId("_qvBlgQQyEey95qpfbNuEwg")]
     [Description(@"Cancellation or request for return requested by the Debtor specifically due to one or more errors by debtor in the original Credit Transfer. Usage: This code can be used for any error in the original Credit Transfer made by the Debtor. Can also be used if multiple errors were made in the original Credit Transfer.")]
-    EndUserError,
+    EndUserError = ExternalCancellationReasonCode.EndUserError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Debtor is requesting a return of the payment because the payment was not properly authorized.
     /// Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.
-    /// Encoded/decoded by serializers as "UnauthorizedPayment".
+    /// Encoded/decoded by serializers as "UAPA".
     /// </summary>
     [EnumMember(Value = "UAPA")]
     [IsoId("_q-OfIQQyEey95qpfbNuEwg")]
-    [Description(@"The Debtor is requesting a return of the payment because the payment was not properly authorized. Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.")]
-    UnauthorizedPayment,
+    [Description(@"The Debtor is requesting a return of the payment because the payment was not properly authorized.|Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.")]
+    UnauthorizedPayment = ExternalCancellationReasonCode.UnauthorizedPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "Narrative".
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_l3VBUQQzEey95qpfbNuEwg")]
     [Description(@"Reason is provided as narrative information in the additional reason information.")]
-    Narrative,
+    Narrative = ExternalCancellationReasonCode.Narrative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debtor account number invalid or missing.
-    /// Encoded/decoded by serializers as "InvalidDebtorAccountNumber".
+    /// Encoded/decoded by serializers as "AC02".
     /// </summary>
     [EnumMember(Value = "AC02")]
     [IsoId("_pPR0kQQzEey95qpfbNuEwg")]
     [Description(@"Debtor account number invalid or missing.")]
-    InvalidDebtorAccountNumber,
+    InvalidDebtorAccountNumber = ExternalCancellationReasonCode.InvalidDebtorAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process a cancellation request but batch already settled.
-    /// Encoded/decoded by serializers as "BatchInstructionAlreadySettled".
+    /// Encoded/decoded by serializers as "BIAS".
     /// </summary>
     [EnumMember(Value = "BIAS")]
     [IsoId("_6KrlgQTSEey95qpfbNuEwg")]
     [Description(@"Process a cancellation request but batch already settled.")]
-    BatchInstructionAlreadySettled,
+    BatchInstructionAlreadySettled = ExternalCancellationReasonCode.BatchInstructionAlreadySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process a cancellation request with incorrect reference to original batch.
-    /// Encoded/decoded by serializers as "InvalidCancellationRequest".
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_6mjCIQTSEey95qpfbNuEwg")]
     [Description(@"Process a cancellation request with incorrect reference to original batch.")]
-    InvalidCancellationRequest,
+    InvalidCancellationRequest = ExternalCancellationReasonCode.InvalidCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplication of a request-to-pay message.
-    /// Encoded/decoded by serializers as "DuplicationRequestToPay".
+    /// Encoded/decoded by serializers as "DRTP".
     /// </summary>
     [EnumMember(Value = "DRTP")]
     [IsoId("_Umy2gVEHEey6cYDbEubNXg")]
     [Description(@"Duplication of a request-to-pay message.")]
-    DuplicationRequestToPay,
+    DuplicationRequestToPay = ExternalCancellationReasonCode.DuplicationRequestToPay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -282,7 +282,7 @@ public enum ExternalCancellationReason1Code
 public static class ExternalCancellationReason1CodeMetadataExtensions
 {
     private static readonly ExternalCancellationReason1CodeDropdownSource _dropdownSource = new ExternalCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

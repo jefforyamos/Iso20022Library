@@ -21,21 +21,21 @@ public enum MoneyMarketTransactionType1Code
 {
     /// <summary>
     /// Transaction is a borrowing.
-    /// Encoded/decoded by serializers as "CashBorrowing".
+    /// Encoded/decoded by serializers as "BORR".
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_IwD5oZfsEeSfnc-VXAEapg")]
     [Description(@"Transaction is a borrowing.")]
-    CashBorrowing,
+    CashBorrowing = MoneyMarketTransactionTypeCode.CashBorrowing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a lending.
-    /// Encoded/decoded by serializers as "CashLending".
+    /// Encoded/decoded by serializers as "LEND".
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("_I4gD8ZfsEeSfnc-VXAEapg")]
     [Description(@"Transaction is a lending.")]
-    CashLending,
+    CashLending = MoneyMarketTransactionTypeCode.CashLending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MoneyMarketTransactionType1Code
 public static class MoneyMarketTransactionType1CodeMetadataExtensions
 {
     private static readonly MoneyMarketTransactionType1CodeDropdownSource _dropdownSource = new MoneyMarketTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

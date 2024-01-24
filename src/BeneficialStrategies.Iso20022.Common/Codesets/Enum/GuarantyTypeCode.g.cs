@@ -99,7 +99,7 @@ public enum GuarantyTypeCode
 public static class GuarantyTypeCodeMetadataExtensions
 {
     private static readonly GuarantyTypeCodeDropdownSource _dropdownSource = new GuarantyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

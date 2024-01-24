@@ -21,21 +21,21 @@ public enum RateType13Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5kOIWtdEeCY4-KZ9JEyUQ_1754715972")]
     [Description(@"Rate is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate will not be paid.
-    /// Encoded/decoded by serializers as "NilPayment".
+    /// Encoded/decoded by serializers as "NILP".
     /// </summary>
     [EnumMember(Value = "NILP")]
     [IsoId("_q5kOImtdEeCY4-KZ9JEyUQ_-228191112")]
     [Description(@"Rate will not be paid.")]
-    NilPayment,
+    NilPayment = RateTypeCode.NilPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RateType13Code
 public static class RateType13CodeMetadataExtensions
 {
     private static readonly RateType13CodeDropdownSource _dropdownSource = new RateType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

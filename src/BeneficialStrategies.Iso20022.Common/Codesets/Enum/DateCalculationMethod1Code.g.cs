@@ -21,21 +21,21 @@ public enum DateCalculationMethod1Code
 {
     /// <summary>
     /// First in, first out. 
-    /// Encoded/decoded by serializers as "Fifo".
+    /// Encoded/decoded by serializers as "FIFO".
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("_U1m4wVSVEempisJfoIfvvQ")]
     [Description(@"First in, first out. ")]
-    Fifo,
+    Fifo = DateCalculationMethodCode.Fifo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last in, first out. 
-    /// Encoded/decoded by serializers as "Lifo".
+    /// Encoded/decoded by serializers as "LIFO".
     /// </summary>
     [EnumMember(Value = "LIFO")]
     [IsoId("_U6qX4VSVEempisJfoIfvvQ")]
     [Description(@"Last in, first out. ")]
-    Lifo,
+    Lifo = DateCalculationMethodCode.Lifo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DateCalculationMethod1Code
 public static class DateCalculationMethod1CodeMetadataExtensions
 {
     private static readonly DateCalculationMethod1CodeDropdownSource _dropdownSource = new DateCalculationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-oaa0ENHEeGHJ_bHJRPaIQ_1875185490")]
 [Description(@"Information about partial settlement.")]
 [Derivations(typeof(PartialSettlement2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PartialSettlementV2Code
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PartialSettlementV2Code
 public static class PartialSettlementV2CodeMetadataExtensions
 {
     private static readonly PartialSettlementV2CodeDropdownSource _dropdownSource = new PartialSettlementV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

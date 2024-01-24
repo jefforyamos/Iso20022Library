@@ -21,21 +21,21 @@ public enum Instruction4Code
 {
     /// <summary>
     /// Please advise/contact next agent by phone.
-    /// Encoded/decoded by serializers as "PhoneNextAgent".
+    /// Encoded/decoded by serializers as "PHOA".
     /// </summary>
     [EnumMember(Value = "PHOA")]
     [IsoId("_aW-_89p-Ed-ak6NoX_4Aeg_-1285879464")]
     [Description(@"Please advise/contact next agent by phone.")]
-    PhoneNextAgent,
+    PhoneNextAgent = InstructionCode.PhoneNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact next agent by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TelecomNextAgent".
+    /// Encoded/decoded by serializers as "TELA".
     /// </summary>
     [EnumMember(Value = "TELA")]
     [IsoId("_aW-_9Np-Ed-ak6NoX_4Aeg_-1285879404")]
     [Description(@"Please advise/contact next agent by the most efficient means of telecommunication.")]
-    TelecomNextAgent,
+    TelecomNextAgent = InstructionCode.TelecomNextAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Instruction4Code
 public static class Instruction4CodeMetadataExtensions
 {
     private static readonly Instruction4CodeDropdownSource _dropdownSource = new Instruction4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

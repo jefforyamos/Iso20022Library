@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_J5tA0PkMEeicy5Zn42b9bg")]
 [Description(@"Specifies the removal process.")]
 [Derivations(typeof(FinancialInstrumentRemoval1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentRemovalCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FinancialInstrumentRemovalCode
 public static class FinancialInstrumentRemovalCodeMetadataExtensions
 {
     private static readonly FinancialInstrumentRemovalCodeDropdownSource _dropdownSource = new FinancialInstrumentRemovalCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

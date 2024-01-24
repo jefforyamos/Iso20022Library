@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zzq3hNp-Ed-ak6NoX_4Aeg_-967340295")]
 [Description(@"Indicates whether the cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer or upon receipt of proceeds from the issuer.")]
 [Derivations(typeof(Payment1Code),typeof(Payment2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PaymentCode
 public static class PaymentCodeMetadataExtensions
 {
     private static readonly PaymentCodeDropdownSource _dropdownSource = new PaymentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

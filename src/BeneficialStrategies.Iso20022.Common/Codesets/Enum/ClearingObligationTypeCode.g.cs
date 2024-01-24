@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KtZd5A29EeWmAKKPnqYEVQ")]
 [Description(@"Specifies whether the reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation and both counterparties to the contract are subject to the clearing obligation under Regulation (EU) No 648/2012, as of the time of execution of the contract.")]
 [Derivations(typeof(ClearingObligationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingObligationTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ClearingObligationTypeCode
 public static class ClearingObligationTypeCodeMetadataExtensions
 {
     private static readonly ClearingObligationTypeCodeDropdownSource _dropdownSource = new ClearingObligationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

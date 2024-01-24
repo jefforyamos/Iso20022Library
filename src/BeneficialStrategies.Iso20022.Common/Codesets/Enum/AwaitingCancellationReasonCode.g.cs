@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__0Ti09ojEeC60axPepSq7g_-1282873817")]
 [Description(@"Specifies the reason why the instruction has a awaiting cancellation status.")]
 [Derivations(typeof(AwaitingCancellationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AwaitingCancellationReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum AwaitingCancellationReasonCode
 public static class AwaitingCancellationReasonCodeMetadataExtensions
 {
     private static readonly AwaitingCancellationReasonCodeDropdownSource _dropdownSource = new AwaitingCancellationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

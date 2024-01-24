@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KUq-gH1DEeCF8NjrBemJWQ_-187828262")]
 [Description(@"Action to perform in case of error during the action in progress.")]
 [Derivations(typeof(TerminalManagementErrorAction1Code),typeof(TerminalManagementErrorAction2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementErrorActionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TerminalManagementErrorActionCode
 public static class TerminalManagementErrorActionCodeMetadataExtensions
 {
     private static readonly TerminalManagementErrorActionCodeDropdownSource _dropdownSource = new TerminalManagementErrorActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

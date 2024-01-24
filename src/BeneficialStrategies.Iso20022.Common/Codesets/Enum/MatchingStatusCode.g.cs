@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aVDGRtp-Ed-ak6NoX_4Aeg_162716149")]
 [Description(@"Provides the matching status of the instruction at the time the settlement instruction was sent.")]
 [Derivations(typeof(MatchingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MatchingStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum MatchingStatusCode
 public static class MatchingStatusCodeMetadataExtensions
 {
     private static readonly MatchingStatusCodeDropdownSource _dropdownSource = new MatchingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

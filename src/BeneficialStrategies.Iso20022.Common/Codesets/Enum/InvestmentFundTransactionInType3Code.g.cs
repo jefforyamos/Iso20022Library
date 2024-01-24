@@ -21,48 +21,48 @@ public enum InvestmentFundTransactionInType3Code
 {
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ViO3idp-Ed-ak6NoX_4Aeg_-936351208")]
     [Description(@"Transaction is a subscription to an investment fund.")]
-    Subscription,
+    Subscription = InvestmentFundTransactionTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SwitchIn".
+    /// Encoded/decoded by serializers as "SWII".
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_ViYogNp-Ed-ak6NoX_4Aeg_-921572438")]
     [Description(@"Transaction is a subscription leg of a switch order execution.")]
-    SwitchIn,
+    SwitchIn = InvestmentFundTransactionTypeCode.SwitchIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "INSP".
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_ViYogdp-Ed-ak6NoX_4Aeg_-1939231322")]
     [Description(@"Transaction is an InSpecie.")]
-    InSpecie,
+    InSpecie = InvestmentFundTransactionTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a cross-in.
-    /// Encoded/decoded by serializers as "CrossIn".
+    /// Encoded/decoded by serializers as "CROI".
     /// </summary>
     [EnumMember(Value = "CROI")]
     [IsoId("_ViYogtp-Ed-ak6NoX_4Aeg_-1929071750")]
     [Description(@"Transaction is a cross-in.")]
-    CrossIn,
+    CrossIn = InvestmentFundTransactionTypeCode.CrossIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is another type of transaction.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ViYog9p-Ed-ak6NoX_4Aeg_-1909676382")]
     [Description(@"Transaction is another type of transaction.")]
-    Other,
+    Other = InvestmentFundTransactionTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum InvestmentFundTransactionInType3Code
 public static class InvestmentFundTransactionInType3CodeMetadataExtensions
 {
     private static readonly InvestmentFundTransactionInType3CodeDropdownSource _dropdownSource = new InvestmentFundTransactionInType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

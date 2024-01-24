@@ -21,21 +21,21 @@ public enum ResidualCash1Code
 {
     /// <summary>
     /// Residual Cash not to be transferred.
-    /// Encoded/decoded by serializers as "NotResidualCashTransfer".
+    /// Encoded/decoded by serializers as "NRCT".
     /// </summary>
     [EnumMember(Value = "NRCT")]
     [IsoId("_WcfODv8uEeC87tbx-VXRVA")]
     [Description(@"Residual Cash not to be transferred.")]
-    NotResidualCashTransfer,
+    NotResidualCashTransfer = ResidualCashCode.NotResidualCashTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Residual cash to be transferred.
-    /// Encoded/decoded by serializers as "ResidualCashTransfer".
+    /// Encoded/decoded by serializers as "RCTR".
     /// </summary>
     [EnumMember(Value = "RCTR")]
     [IsoId("_WgN3fv8uEeC87tbx-VXRVA")]
     [Description(@"Residual cash to be transferred.")]
-    ResidualCashTransfer,
+    ResidualCashTransfer = ResidualCashCode.ResidualCashTransfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResidualCash1Code
 public static class ResidualCash1CodeMetadataExtensions
 {
     private static readonly ResidualCash1CodeDropdownSource _dropdownSource = new ResidualCash1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

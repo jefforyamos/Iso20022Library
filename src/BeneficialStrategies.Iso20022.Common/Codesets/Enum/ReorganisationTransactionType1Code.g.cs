@@ -21,57 +21,57 @@ public enum ReorganisationTransactionType1Code
 {
     /// <summary>
     /// Reorganisation is a cover on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "CoverOnBehalfOfAnotherParticipantTransaction".
+    /// Encoded/decoded by serializers as "COVP".
     /// </summary>
     [EnumMember(Value = "COVP")]
     [IsoId("_am1Q0cU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover on behalf of another participant transaction type.")]
-    CoverOnBehalfOfAnotherParticipantTransaction,
+    CoverOnBehalfOfAnotherParticipantTransaction = ReorganisationTransactionTypeCode.CoverOnBehalfOfAnotherParticipantTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a cover protect directly to agent transaction type.
-    /// Encoded/decoded by serializers as "CoverProtectDirectlyToAgentHeaderTransaction".
+    /// Encoded/decoded by serializers as "COVA".
     /// </summary>
     [EnumMember(Value = "COVA")]
     [IsoId("_arcrEcU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover protect directly to agent transaction type.")]
-    CoverProtectDirectlyToAgentHeaderTransaction,
+    CoverProtectDirectlyToAgentHeaderTransaction = ReorganisationTransactionTypeCode.CoverProtectDirectlyToAgentHeaderTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a cover protect transaction type.
-    /// Encoded/decoded by serializers as "CoverProtectTransaction".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_avnZYcU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover protect transaction type.")]
-    CoverProtectTransaction,
+    CoverProtectTransaction = ReorganisationTransactionTypeCode.CoverProtectTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a protect on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "ProtectOnBehalfOfAnotherParticipantTransaction".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_azyHscU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a protect on behalf of another participant transaction type.")]
-    ProtectOnBehalfOfAnotherParticipantTransaction,
+    ProtectOnBehalfOfAnotherParticipantTransaction = ReorganisationTransactionTypeCode.ProtectOnBehalfOfAnotherParticipantTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "ProtectTransaction".
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_a3zFAcU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a protect transaction type.")]
-    ProtectTransaction,
+    ProtectTransaction = ReorganisationTransactionTypeCode.ProtectTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a voluntary offer instruction transaction type.
-    /// Encoded/decoded by serializers as "VoluntaryOfferInstructionTransaction".
+    /// Encoded/decoded by serializers as "VOIT".
     /// </summary>
     [EnumMember(Value = "VOIT")]
     [IsoId("_a8taMcU_EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a voluntary offer instruction transaction type.")]
-    VoluntaryOfferInstructionTransaction,
+    VoluntaryOfferInstructionTransaction = ReorganisationTransactionTypeCode.VoluntaryOfferInstructionTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ReorganisationTransactionType1Code
 public static class ReorganisationTransactionType1CodeMetadataExtensions
 {
     private static readonly ReorganisationTransactionType1CodeDropdownSource _dropdownSource = new ReorganisationTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

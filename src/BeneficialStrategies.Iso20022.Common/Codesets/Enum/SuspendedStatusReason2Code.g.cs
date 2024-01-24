@@ -21,30 +21,30 @@ public enum SuspendedStatusReason2Code
 {
     /// <summary>
     /// There is a suspension of pricing. The order will stay on the books until the next pricing.
-    /// Encoded/decoded by serializers as "PriceSuspension".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_VlEJENp-Ed-ak6NoX_4Aeg_453368006")]
     [Description(@"There is a suspension of pricing. The order will stay on the books until the next pricing.")]
-    PriceSuspension,
+    PriceSuspension = SuspendedStatusReasonCode.PriceSuspension, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is a fund overflow.
-    /// Encoded/decoded by serializers as "Overflow".
+    /// Encoded/decoded by serializers as "FLOW".
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_VlEJEdp-Ed-ak6NoX_4Aeg_469993316")]
     [Description(@"There is a fund overflow.")]
-    Overflow,
+    Overflow = SuspendedStatusReasonCode.Overflow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another reason for the status suspended.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VlEJEtp-Ed-ak6NoX_4Aeg_100672757")]
     [Description(@"Another reason for the status suspended.")]
-    Other,
+    Other = SuspendedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SuspendedStatusReason2Code
 public static class SuspendedStatusReason2CodeMetadataExtensions
 {
     private static readonly SuspendedStatusReason2CodeDropdownSource _dropdownSource = new SuspendedStatusReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

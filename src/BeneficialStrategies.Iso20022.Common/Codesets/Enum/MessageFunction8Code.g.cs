@@ -21,57 +21,57 @@ public enum MessageFunction8Code
 {
     /// <summary>
     /// Provide the ATM counters resettting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "BALN".
     /// </summary>
     [EnumMember(Value = "BALN")]
     [IsoId("_qGK2cSycEeWT0qwwEKj7sA")]
     [Description(@"Provide the ATM counters resettting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = MessageFunctionCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global status of the ATM.
-    /// Encoded/decoded by serializers as "ATMGlobalStatus".
+    /// Encoded/decoded by serializers as "GSTS".
     /// </summary>
     [EnumMember(Value = "GSTS")]
     [IsoId("_rsG5gSycEeWT0qwwEKj7sA")]
     [Description(@"Global status of the ATM.")]
-    ATMGlobalStatus,
+    ATMGlobalStatus = MessageFunctionCode.ATMGlobalStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security detailed report.
-    /// Encoded/decoded by serializers as "SecurityDetails".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_uCydASycEeWT0qwwEKj7sA")]
     [Description(@"Security detailed report.")]
-    SecurityDetails,
+    SecurityDetails = MessageFunctionCode.SecurityDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "INQC".
     /// </summary>
     [EnumMember(Value = "INQC")]
     [IsoId("_vAyWUSycEeWT0qwwEKj7sA")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = MessageFunctionCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request of a key exchange.
-    /// Encoded/decoded by serializers as "KeyExchangeRequest".
+    /// Encoded/decoded by serializers as "KEYQ".
     /// </summary>
     [EnumMember(Value = "KEYQ")]
     [IsoId("_xK0k8SycEeWT0qwwEKj7sA")]
     [Description(@"Request of a key exchange.")]
-    KeyExchangeRequest,
+    KeyExchangeRequest = MessageFunctionCode.KeyExchangeRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of cryptographic keys.
-    /// Encoded/decoded by serializers as "SecurityKeyStatus".
+    /// Encoded/decoded by serializers as "SSTS".
     /// </summary>
     [EnumMember(Value = "SSTS")]
     [IsoId("_yriw0SycEeWT0qwwEKj7sA")]
     [Description(@"Status of cryptographic keys.")]
-    SecurityKeyStatus,
+    SecurityKeyStatus = MessageFunctionCode.SecurityKeyStatus, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum MessageFunction8Code
 public static class MessageFunction8CodeMetadataExtensions
 {
     private static readonly MessageFunction8CodeDropdownSource _dropdownSource = new MessageFunction8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

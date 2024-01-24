@@ -21,12 +21,12 @@ public enum InternalPartyRole1Code
 {
     /// <summary>
     /// Party acting as an internal agent.
-    /// Encoded/decoded by serializers as "Internal".
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_T0-jUR5ZEeWc9bJOIIhUUw")]
     [Description(@"Party acting as an internal agent.")]
-    Internal,
+    Internal = PartyRoleCode.Internal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum InternalPartyRole1Code
 public static class InternalPartyRole1CodeMetadataExtensions
 {
     private static readonly InternalPartyRole1CodeDropdownSource _dropdownSource = new InternalPartyRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

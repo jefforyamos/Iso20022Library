@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_BGqPsBUOEeusI4XK3oQSyg")]
-[Description(@"Specifies the type of reservation, as published in an external reservation type code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the type of reservation, as published in an external reservation type code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalReservationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalReservationTypeCode
 {
     /// <summary>
@@ -84,7 +83,7 @@ public enum ExternalReservationTypeCode
 public static class ExternalReservationTypeCodeMetadataExtensions
 {
     private static readonly ExternalReservationTypeCodeDropdownSource _dropdownSource = new ExternalReservationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum Standardisation1Code
 {
     /// <summary>
     /// Derivatives defined according to exchange specifications, but certain characteristics can be user defined.
-    /// Encoded/decoded by serializers as "Flexible".
+    /// Encoded/decoded by serializers as "FLEX".
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_SRUj4YQDEeeCVYNDbDZB1g")]
     [Description(@"Derivatives defined according to exchange specifications, but certain characteristics can be user defined.")]
-    Flexible,
+    Flexible = StandardisationCode.Flexible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custom-made instrument between two parties. Underlying|instruments, expiration date and contract size of the derivatives are not standardised.
-    /// Encoded/decoded by serializers as "NonStandardised".
+    /// Encoded/decoded by serializers as "NSTA".
     /// </summary>
     [EnumMember(Value = "NSTA")]
     [IsoId("_SUJOYYQDEeeCVYNDbDZB1g")]
     [Description(@"Custom-made instrument between two parties. Underlying|instruments, expiration date and contract size of the derivatives are not standardised.")]
-    NonStandardised,
+    NonStandardised = StandardisationCode.NonStandardised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The underlying instruments, expiration date and contract size of the derivatives are standardised.
-    /// Encoded/decoded by serializers as "Standardised".
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_SYwooYQDEeeCVYNDbDZB1g")]
     [Description(@"The underlying instruments, expiration date and contract size of the derivatives are standardised.")]
-    Standardised,
+    Standardised = StandardisationCode.Standardised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Standardisation1Code
 public static class Standardisation1CodeMetadataExtensions
 {
     private static readonly Standardisation1CodeDropdownSource _dropdownSource = new Standardisation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a9UR8E4NEey_VecAUE-C9Q")]
 [Description(@"Specifies the business context of the transaction")]
 [Derivations(typeof(BusinessArea1Code),typeof(BusinessArea2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BusinessAreaCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum BusinessAreaCode
 public static class BusinessAreaCodeMetadataExtensions
 {
     private static readonly BusinessAreaCodeDropdownSource _dropdownSource = new BusinessAreaCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

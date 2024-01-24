@@ -21,102 +21,102 @@ public enum InputCommand1Code
 {
     /// <summary>
     /// Wait for a string of digit characters with a decimal point, the length range could be specified.
-    /// Encoded/decoded by serializers as "DecimalString".
+    /// Encoded/decoded by serializers as "DCSG".
     /// </summary>
     [EnumMember(Value = "DCSG")]
     [IsoId("_ezGMUO2tEei-V5h0ja04AA")]
     [Description(@"Wait for a string of digit characters with a decimal point, the length range could be specified.")]
-    DecimalString,
+    DecimalString = InputCommandCode.DecimalString, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a string of digit characters.
-    /// Encoded/decoded by serializers as "DigitString".
+    /// Encoded/decoded by serializers as "DGSG".
     /// </summary>
     [EnumMember(Value = "DGSG")]
     [IsoId("_e4fCoe2tEei-V5h0ja04AA")]
     [Description(@"Wait for a string of digit characters.")]
-    DigitString,
+    DigitString = InputCommandCode.DigitString, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.
-    /// Encoded/decoded by serializers as "GetAnyKey".
+    /// Encoded/decoded by serializers as "GAKY".
     /// </summary>
     [EnumMember(Value = "GAKY")]
     [IsoId("_e-ztEe2tEei-V5h0ja04AA")]
     [Description(@"Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.")]
-    GetAnyKey,
+    GetAnyKey = InputCommandCode.GetAnyKey, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.
-    /// Encoded/decoded by serializers as "GetConfirmation".
+    /// Encoded/decoded by serializers as "GCNF".
     /// </summary>
     [EnumMember(Value = "GCNF")]
     [IsoId("_fFTWoe2tEei-V5h0ja04AA")]
     [Description(@"Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.")]
-    GetConfirmation,
+    GetConfirmation = InputCommandCode.GetConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.
-    /// Encoded/decoded by serializers as "GetFunctionKey".
+    /// Encoded/decoded by serializers as "GFKY".
     /// </summary>
     [EnumMember(Value = "GFKY")]
     [IsoId("_fL8xMe2tEei-V5h0ja04AA")]
     [Description(@"Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.")]
-    GetFunctionKey,
+    GetFunctionKey = InputCommandCode.GetFunctionKey, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.
-    /// Encoded/decoded by serializers as "GetMenuEntry".
+    /// Encoded/decoded by serializers as "GMNE".
     /// </summary>
     [EnumMember(Value = "GMNE")]
     [IsoId("_fQxm0e2tEei-V5h0ja04AA")]
     [Description(@"To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.")]
-    GetMenuEntry,
+    GetMenuEntry = InputCommandCode.GetMenuEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to enter a password with masked characters while typing the password.
-    /// Encoded/decoded by serializers as "Password".
+    /// Encoded/decoded by serializers as "PSWD".
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_fV1tAe2tEei-V5h0ja04AA")]
     [Description(@"Request to enter a password with masked characters while typing the password.")]
-    Password,
+    Password = InputCommandCode.Password, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.
-    /// Encoded/decoded by serializers as "SiteManager".
+    /// Encoded/decoded by serializers as "SITE".
     /// </summary>
     [EnumMember(Value = "SITE")]
     [IsoId("_faotce2tEei-V5h0ja04AA")]
     [Description(@"Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.")]
-    SiteManager,
+    SiteManager = InputCommandCode.SiteManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a string of alphanumeric characters.
-    /// Encoded/decoded by serializers as "TextString".
+    /// Encoded/decoded by serializers as "TXSG".
     /// </summary>
     [EnumMember(Value = "TXSG")]
     [IsoId("_ffbG0e2tEei-V5h0ja04AA")]
     [Description(@"Wait for a string of alphanumeric characters.")]
-    TextString,
+    TextString = InputCommandCode.TextString, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wait for a XHTML data.
-    /// Encoded/decoded by serializers as "XHTMLText".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_fkPVYO2tEei-V5h0ja04AA")]
     [Description(@"Wait for a XHTML data.")]
-    XHTMLText,
+    XHTMLText = InputCommandCode.XHTMLText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to wait for signature.
-    /// Encoded/decoded by serializers as "Signature".
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_v0ROUe2tEei-V5h0ja04AA")]
     [Description(@"Request to wait for signature.")]
-    Signature,
+    Signature = InputCommandCode.Signature, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum InputCommand1Code
 public static class InputCommand1CodeMetadataExtensions
 {
     private static readonly InputCommand1CodeDropdownSource _dropdownSource = new InputCommand1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZUYTc9p-Ed-ak6NoX_4Aeg_-165761302")]
 [Description(@"Specifies the request used to further detail the type of information that will be queried.")]
 [Derivations(typeof(RequestType1Code),typeof(RequestType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RequestTypeCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum RequestTypeCode
 public static class RequestTypeCodeMetadataExtensions
 {
     private static readonly RequestTypeCodeDropdownSource _dropdownSource = new RequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

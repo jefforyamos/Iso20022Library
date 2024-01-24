@@ -21,30 +21,30 @@ public enum SettledStatusReason1Code
 {
     /// <summary>
     /// Units are partially settled.
-    /// Encoded/decoded by serializers as "UnitsPartiallySettled".
+    /// Encoded/decoded by serializers as "UPST".
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZKsL8tp-Ed-ak6NoX_4Aeg_514877099")]
     [Description(@"Units are partially settled.")]
-    UnitsPartiallySettled,
+    UnitsPartiallySettled = SettledStatusReasonCode.UnitsPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash is partially settled.
-    /// Encoded/decoded by serializers as "CashPartiallySettled".
+    /// Encoded/decoded by serializers as "CPST".
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZKsL89p-Ed-ak6NoX_4Aeg_514877159")]
     [Description(@"Cash is partially settled.")]
-    CashPartiallySettled,
+    CashPartiallySettled = SettledStatusReasonCode.CashPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Units and cash are both partially settled.
-    /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
+    /// Encoded/decoded by serializers as "UCPS".
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZKsL9Np-Ed-ak6NoX_4Aeg_514878209")]
     [Description(@"Units and cash are both partially settled.")]
-    UnitsCashPartiallySettled,
+    UnitsCashPartiallySettled = SettledStatusReasonCode.UnitsCashPartiallySettled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SettledStatusReason1Code
 public static class SettledStatusReason1CodeMetadataExtensions
 {
     private static readonly SettledStatusReason1CodeDropdownSource _dropdownSource = new SettledStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

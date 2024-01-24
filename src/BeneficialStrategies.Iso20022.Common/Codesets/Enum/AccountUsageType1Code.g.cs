@@ -21,21 +21,21 @@ public enum AccountUsageType1Code
 {
     /// <summary>
     /// Investor.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_ayRoIRKDEeKj15WxqwlXPw")]
     [Description(@"Investor.")]
-    Investor,
+    Investor = AccountUsageTypeCode.Investor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement participant.
-    /// Encoded/decoded by serializers as "SettlementParticipant".
+    /// Encoded/decoded by serializers as "SETP".
     /// </summary>
     [EnumMember(Value = "SETP")]
     [IsoId("_a6Uw4RKDEeKj15WxqwlXPw")]
     [Description(@"Settlement participant.")]
-    SettlementParticipant,
+    SettlementParticipant = AccountUsageTypeCode.SettlementParticipant, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountUsageType1Code
 public static class AccountUsageType1CodeMetadataExtensions
 {
     private static readonly AccountUsageType1CodeDropdownSource _dropdownSource = new AccountUsageType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

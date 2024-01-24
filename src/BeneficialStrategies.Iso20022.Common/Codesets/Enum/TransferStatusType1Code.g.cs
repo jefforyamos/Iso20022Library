@@ -21,75 +21,75 @@ public enum TransferStatusType1Code
 {
     /// <summary>
     /// Status report is sent in response to an account holding information request.
-    /// Encoded/decoded by serializers as "AccountHoldingInformationRequest".
+    /// Encoded/decoded by serializers as "S019".
     /// </summary>
     [EnumMember(Value = "S019")]
     [IsoId("_HqVIMVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report is sent in response to an account holding information request.")]
-    AccountHoldingInformationRequest,
+    AccountHoldingInformationRequest = TransferStatusTypeCode.AccountHoldingInformationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report advises one or more Benefit Crystallisation Events (BCE) have occurred.
-    /// Encoded/decoded by serializers as "BenefitCrystallisationEvent".
+    /// Encoded/decoded by serializers as "BCEV".
     /// </summary>
     [EnumMember(Value = "BCEV")]
     [IsoId("_HupngVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report advises one or more Benefit Crystallisation Events (BCE) have occurred.")]
-    BenefitCrystallisationEvent,
+    BenefitCrystallisationEvent = TransferStatusTypeCode.BenefitCrystallisationEvent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report advises one or more drawdowns.
-    /// Encoded/decoded by serializers as "Drawdown".
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_Hy9fwVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report advises one or more drawdowns.")]
-    Drawdown,
+    Drawdown = TransferStatusTypeCode.Drawdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report advises cash is or has been instructed.
-    /// Encoded/decoded by serializers as "PaymentAdvice".
+    /// Encoded/decoded by serializers as "PAYA".
     /// </summary>
     [EnumMember(Value = "PAYA")]
     [IsoId("_H5EHwVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report advises cash is or has been instructed.")]
-    PaymentAdvice,
+    PaymentAdvice = TransferStatusTypeCode.PaymentAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report is sent in response to a portfolio transfer instruction.
-    /// Encoded/decoded by serializers as "PortfolioTransferInstruction".
+    /// Encoded/decoded by serializers as "S012".
     /// </summary>
     [EnumMember(Value = "S012")]
     [IsoId("_H-3NwVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report is sent in response to a portfolio transfer instruction.")]
-    PortfolioTransferInstruction,
+    PortfolioTransferInstruction = TransferStatusTypeCode.PortfolioTransferInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report is sent in response to a transfer-in instruction.
-    /// Encoded/decoded by serializers as "TransferInInstruction".
+    /// Encoded/decoded by serializers as "S005".
     /// </summary>
     [EnumMember(Value = "S005")]
     [IsoId("_IFQwsVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report is sent in response to a transfer-in instruction.")]
-    TransferInInstruction,
+    TransferInInstruction = TransferStatusTypeCode.TransferInInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report is sent in response to a transfer-out instruction.
-    /// Encoded/decoded by serializers as "TransferOutInstruction".
+    /// Encoded/decoded by serializers as "S001".
     /// </summary>
     [EnumMember(Value = "S001")]
     [IsoId("_IK6swVUWEeiQFOf5GRHqeQ")]
     [Description(@"Status report is sent in response to a transfer-out instruction.")]
-    TransferOutInstruction,
+    TransferOutInstruction = TransferStatusTypeCode.TransferOutInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status report is sent to provide information required for a CSD or ICSD settlement leg.
-    /// Encoded/decoded by serializers as "CSDorICSDSettlementInformation".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_XZN54ei5EeifCsigq7uLaQ")]
     [Description(@"Status report is sent to provide information required for a CSD or ICSD settlement leg.")]
-    CSDorICSDSettlementInformation,
+    CSDorICSDSettlementInformation = TransferStatusTypeCode.CSDorICSDSettlementInformation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TransferStatusType1Code
 public static class TransferStatusType1CodeMetadataExtensions
 {
     private static readonly TransferStatusType1CodeDropdownSource _dropdownSource = new TransferStatusType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

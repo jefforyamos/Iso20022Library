@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_afe0o9p-Ed-ak6NoX_4Aeg_-430711327")]
 [Description(@"Identifies the type of status.")]
 [Derivations(typeof(ListStatusType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ListStatusTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ListStatusTypeCode
 public static class ListStatusTypeCodeMetadataExtensions
 {
     private static readonly ListStatusTypeCodeDropdownSource _dropdownSource = new ListStatusTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

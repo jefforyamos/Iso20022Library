@@ -21,30 +21,30 @@ public enum QualityIndication1Code
 {
     /// <summary>
     /// Low quality.
-    /// Encoded/decoded by serializers as "Low".
+    /// Encoded/decoded by serializers as "LOWE".
     /// </summary>
     [EnumMember(Value = "LOWE")]
     [IsoId("_ZXNlB9p-Ed-ak6NoX_4Aeg_-1478752289")]
     [Description(@"Low quality.")]
-    Low,
+    Low = QualityIndicationCode.Low, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Medium quality.
-    /// Encoded/decoded by serializers as "Medium".
+    /// Encoded/decoded by serializers as "MEDI".
     /// </summary>
     [EnumMember(Value = "MEDI")]
     [IsoId("_ZXNlCNp-Ed-ak6NoX_4Aeg_-1478752246")]
     [Description(@"Medium quality.")]
-    Medium,
+    Medium = QualityIndicationCode.Medium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// High quality.
-    /// Encoded/decoded by serializers as "High".
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_ZXNlCdp-Ed-ak6NoX_4Aeg_-1478752210")]
     [Description(@"High quality.")]
-    High,
+    High = QualityIndicationCode.High, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum QualityIndication1Code
 public static class QualityIndication1CodeMetadataExtensions
 {
     private static readonly QualityIndication1CodeDropdownSource _dropdownSource = new QualityIndication1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

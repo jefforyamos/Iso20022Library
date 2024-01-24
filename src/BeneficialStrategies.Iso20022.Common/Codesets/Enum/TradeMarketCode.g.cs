@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_tVVDYKcAEeSyQqZ4APDtOA")]
 [Description(@"Specifies a code for a trade market.")]
 [Derivations(typeof(TradeMarket1Code),typeof(TradeMarket2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeMarketCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum TradeMarketCode
 public static class TradeMarketCodeMetadataExtensions
 {
     private static readonly TradeMarketCodeDropdownSource _dropdownSource = new TradeMarketCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

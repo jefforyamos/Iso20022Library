@@ -21,336 +21,336 @@ public enum MessageFunction11Code
 {
     /// <summary>
     /// Provide the ATM counters resettting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "BALN".
     /// </summary>
     [EnumMember(Value = "BALN")]
     [IsoId("_e61o4a1xEeWMg5rOByfExw")]
     [Description(@"Provide the ATM counters resettting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = MessageFunctionCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of a completion advice.
-    /// Encoded/decoded by serializers as "ATMCompletionAcknowledgement".
+    /// Encoded/decoded by serializers as "CMPA".
     /// </summary>
     [EnumMember(Value = "CMPA")]
     [IsoId("_e61o461xEeWMg5rOByfExw")]
     [Description(@"Acknowledgement of a completion advice.")]
-    ATMCompletionAcknowledgement,
+    ATMCompletionAcknowledgement = MessageFunctionCode.ATMCompletionAcknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice of an ATM transaction completion.
-    /// Encoded/decoded by serializers as "ATMCompletionAdvice".
+    /// Encoded/decoded by serializers as "CMPD".
     /// </summary>
     [EnumMember(Value = "CMPD")]
     [IsoId("_e61o5a1xEeWMg5rOByfExw")]
     [Description(@"Advice of an ATM transaction completion.")]
-    ATMCompletionAdvice,
+    ATMCompletionAdvice = MessageFunctionCode.ATMCompletionAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global ATM commands.
-    /// Encoded/decoded by serializers as "ATMControl".
+    /// Encoded/decoded by serializers as "ACMD".
     /// </summary>
     [EnumMember(Value = "ACMD")]
     [IsoId("_e61o561xEeWMg5rOByfExw")]
     [Description(@"Global ATM commands.")]
-    ATMControl,
+    ATMControl = MessageFunctionCode.ATMControl, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maintenance commands to perform.
-    /// Encoded/decoded by serializers as "ATMDeviceControl".
+    /// Encoded/decoded by serializers as "DVCC".
     /// </summary>
     [EnumMember(Value = "DVCC")]
     [IsoId("_e61o6a1xEeWMg5rOByfExw")]
     [Description(@"Maintenance commands to perform.")]
-    ATMDeviceControl,
+    ATMDeviceControl = MessageFunctionCode.ATMDeviceControl, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a diagnostic.
-    /// Encoded/decoded by serializers as "ATMDiagnosticRequest".
+    /// Encoded/decoded by serializers as "DIAQ".
     /// </summary>
     [EnumMember(Value = "DIAQ")]
     [IsoId("_e61o661xEeWMg5rOByfExw")]
     [Description(@"Request for a diagnostic.")]
-    ATMDiagnosticRequest,
+    ATMDiagnosticRequest = MessageFunctionCode.ATMDiagnosticRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a diagnostic request.
-    /// Encoded/decoded by serializers as "ATMDiagnosticResponse".
+    /// Encoded/decoded by serializers as "DIAP".
     /// </summary>
     [EnumMember(Value = "DIAP")]
     [IsoId("_e61o7a1xEeWMg5rOByfExw")]
     [Description(@"Response to a diagnostic request.")]
-    ATMDiagnosticResponse,
+    ATMDiagnosticResponse = MessageFunctionCode.ATMDiagnosticResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global status of the ATM.
-    /// Encoded/decoded by serializers as "ATMGlobalStatus".
+    /// Encoded/decoded by serializers as "GSTS".
     /// </summary>
     [EnumMember(Value = "GSTS")]
     [IsoId("_e61o761xEeWMg5rOByfExw")]
     [Description(@"Global status of the ATM.")]
-    ATMGlobalStatus,
+    ATMGlobalStatus = MessageFunctionCode.ATMGlobalStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for an inquiry.
-    /// Encoded/decoded by serializers as "ATMInquiryRequest".
+    /// Encoded/decoded by serializers as "INQQ".
     /// </summary>
     [EnumMember(Value = "INQQ")]
     [IsoId("_e61o8a1xEeWMg5rOByfExw")]
     [Description(@"Request for an inquiry.")]
-    ATMInquiryRequest,
+    ATMInquiryRequest = MessageFunctionCode.ATMInquiryRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to an inquiry request.
-    /// Encoded/decoded by serializers as "ATMInquiryResponse".
+    /// Encoded/decoded by serializers as "INQP".
     /// </summary>
     [EnumMember(Value = "INQP")]
     [IsoId("_e61o861xEeWMg5rOByfExw")]
     [Description(@"Response to an inquiry request.")]
-    ATMInquiryResponse,
+    ATMInquiryResponse = MessageFunctionCode.ATMInquiryResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a key download.
-    /// Encoded/decoded by serializers as "ATMKeyDownloadRequest".
+    /// Encoded/decoded by serializers as "KYAQ".
     /// </summary>
     [EnumMember(Value = "KYAQ")]
     [IsoId("_e61o9a1xEeWMg5rOByfExw")]
     [Description(@"Request for a key download.")]
-    ATMKeyDownloadRequest,
+    ATMKeyDownloadRequest = MessageFunctionCode.ATMKeyDownloadRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a key download.
-    /// Encoded/decoded by serializers as "ATMKeyDownloadResponse".
+    /// Encoded/decoded by serializers as "KYAP".
     /// </summary>
     [EnumMember(Value = "KYAP")]
     [IsoId("_e61o961xEeWMg5rOByfExw")]
     [Description(@"Response to a key download.")]
-    ATMKeyDownloadResponse,
+    ATMKeyDownloadResponse = MessageFunctionCode.ATMKeyDownloadResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a cardholder PIN management.
-    /// Encoded/decoded by serializers as "ATMPINManagementRequest".
+    /// Encoded/decoded by serializers as "PINQ".
     /// </summary>
     [EnumMember(Value = "PINQ")]
     [IsoId("_e61o-a1xEeWMg5rOByfExw")]
     [Description(@"Request for a cardholder PIN management.")]
-    ATMPINManagementRequest,
+    ATMPINManagementRequest = MessageFunctionCode.ATMPINManagementRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a cardholder PIN management request.
-    /// Encoded/decoded by serializers as "ATMPINManagementResponse".
+    /// Encoded/decoded by serializers as "PINP".
     /// </summary>
     [EnumMember(Value = "PINP")]
     [IsoId("_e61o-61xEeWMg5rOByfExw")]
     [Description(@"Response to a cardholder PIN management request.")]
-    ATMPINManagementResponse,
+    ATMPINManagementResponse = MessageFunctionCode.ATMPINManagementResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejected request message.
-    /// Encoded/decoded by serializers as "ATMRequestReject".
+    /// Encoded/decoded by serializers as "RJAQ".
     /// </summary>
     [EnumMember(Value = "RJAQ")]
     [IsoId("_e61o_a1xEeWMg5rOByfExw")]
     [Description(@"Rejected request message.")]
-    ATMRequestReject,
+    ATMRequestReject = MessageFunctionCode.ATMRequestReject, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejected response message.
-    /// Encoded/decoded by serializers as "ATMResponseReject".
+    /// Encoded/decoded by serializers as "RJAP".
     /// </summary>
     [EnumMember(Value = "RJAP")]
     [IsoId("_e61o_61xEeWMg5rOByfExw")]
     [Description(@"Rejected response message.")]
-    ATMResponseReject,
+    ATMResponseReject = MessageFunctionCode.ATMResponseReject, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response of a withdrawal transaction.
-    /// Encoded/decoded by serializers as "ATMWithdrawalAdvice".
+    /// Encoded/decoded by serializers as "WITV".
     /// </summary>
     [EnumMember(Value = "WITV")]
     [IsoId("_e61pAa1xEeWMg5rOByfExw")]
     [Description(@"Response of a withdrawal transaction.")]
-    ATMWithdrawalAdvice,
+    ATMWithdrawalAdvice = MessageFunctionCode.ATMWithdrawalAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of a withdrawal transaction advice.
-    /// Encoded/decoded by serializers as "ATMWithdrawalAknowledgement".
+    /// Encoded/decoded by serializers as "WITK".
     /// </summary>
     [EnumMember(Value = "WITK")]
     [IsoId("_e61pA61xEeWMg5rOByfExw")]
     [Description(@"Acknowledgement of a withdrawal transaction advice.")]
-    ATMWithdrawalAknowledgement,
+    ATMWithdrawalAknowledgement = MessageFunctionCode.ATMWithdrawalAknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a withdrawal transaction.
-    /// Encoded/decoded by serializers as "ATMWithdrawalRequest".
+    /// Encoded/decoded by serializers as "WITQ".
     /// </summary>
     [EnumMember(Value = "WITQ")]
     [IsoId("_e61pBa1xEeWMg5rOByfExw")]
     [Description(@"Request for a withdrawal transaction.")]
-    ATMWithdrawalRequest,
+    ATMWithdrawalRequest = MessageFunctionCode.ATMWithdrawalRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a withdrawal transaction request.
-    /// Encoded/decoded by serializers as "ATMWithdrawalResponse".
+    /// Encoded/decoded by serializers as "WITP".
     /// </summary>
     [EnumMember(Value = "WITP")]
     [IsoId("_e61pB61xEeWMg5rOByfExw")]
     [Description(@"Response to a withdrawal transaction request.")]
-    ATMWithdrawalResponse,
+    ATMWithdrawalResponse = MessageFunctionCode.ATMWithdrawalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "INQC".
     /// </summary>
     [EnumMember(Value = "INQC")]
     [IsoId("_e61pCa1xEeWMg5rOByfExw")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = MessageFunctionCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of a request from a host to an ATM for contacting.
-    /// Encoded/decoded by serializers as "HostToATMAcknowledgement".
+    /// Encoded/decoded by serializers as "H2AP".
     /// </summary>
     [EnumMember(Value = "H2AP")]
     [IsoId("_e61pC61xEeWMg5rOByfExw")]
     [Description(@"Acknowledgement of a request from a host to an ATM for contacting.")]
-    HostToATMAcknowledgement,
+    HostToATMAcknowledgement = MessageFunctionCode.HostToATMAcknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request from a host to an ATM to be contacted by this ATM.
-    /// Encoded/decoded by serializers as "HostToATMRequest".
+    /// Encoded/decoded by serializers as "H2AQ".
     /// </summary>
     [EnumMember(Value = "H2AQ")]
     [IsoId("_e61pDa1xEeWMg5rOByfExw")]
     [Description(@"Request from a host to an ATM to be contacted by this ATM.")]
-    HostToATMRequest,
+    HostToATMRequest = MessageFunctionCode.HostToATMRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Logical or physical operation on the ATM.
-    /// Encoded/decoded by serializers as "ATMOperation".
+    /// Encoded/decoded by serializers as "TMOP".
     /// </summary>
     [EnumMember(Value = "TMOP")]
     [IsoId("_e61pD61xEeWMg5rOByfExw")]
     [Description(@"Logical or physical operation on the ATM.")]
-    ATMOperation,
+    ATMOperation = MessageFunctionCode.ATMOperation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security Commands.
-    /// Encoded/decoded by serializers as "SecurityControl".
+    /// Encoded/decoded by serializers as "CSEC".
     /// </summary>
     [EnumMember(Value = "CSEC")]
     [IsoId("_e61pEa1xEeWMg5rOByfExw")]
     [Description(@"Security Commands.")]
-    SecurityControl,
+    SecurityControl = MessageFunctionCode.SecurityControl, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security detailed report.
-    /// Encoded/decoded by serializers as "SecurityDetails".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_e61pE61xEeWMg5rOByfExw")]
     [Description(@"Security detailed report.")]
-    SecurityDetails,
+    SecurityDetails = MessageFunctionCode.SecurityDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Result of the key download with the status of the downloaded keys including key check values.
-    /// Encoded/decoded by serializers as "SecurityKeyCompletion".
+    /// Encoded/decoded by serializers as "SKSC".
     /// </summary>
     [EnumMember(Value = "SKSC")]
     [IsoId("_e61pFa1xEeWMg5rOByfExw")]
     [Description(@"Result of the key download with the status of the downloaded keys including key check values.")]
-    SecurityKeyCompletion,
+    SecurityKeyCompletion = MessageFunctionCode.SecurityKeyCompletion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of cryptographic keys.
-    /// Encoded/decoded by serializers as "SecurityKeyStatus".
+    /// Encoded/decoded by serializers as "SSTS".
     /// </summary>
     [EnumMember(Value = "SSTS")]
     [IsoId("_e61pF61xEeWMg5rOByfExw")]
     [Description(@"Status of cryptographic keys.")]
-    SecurityKeyStatus,
+    SecurityKeyStatus = MessageFunctionCode.SecurityKeyStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of a deposit completion advice.
-    /// Encoded/decoded by serializers as "ATMDepositCompletionAcknowledgement".
+    /// Encoded/decoded by serializers as "DPSK".
     /// </summary>
     [EnumMember(Value = "DPSK")]
     [IsoId("_lLyCga1xEeWMg5rOByfExw")]
     [Description(@"Acknowledgement of a deposit completion advice.")]
-    ATMDepositCompletionAcknowledgement,
+    ATMDepositCompletionAcknowledgement = MessageFunctionCode.ATMDepositCompletionAcknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice of an ATM deposit transaction completion.
-    /// Encoded/decoded by serializers as "ATMDepositCompletionAdvice".
+    /// Encoded/decoded by serializers as "DPSV".
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_lT-VMa1xEeWMg5rOByfExw")]
     [Description(@"Advice of an ATM deposit transaction completion.")]
-    ATMDepositCompletionAdvice,
+    ATMDepositCompletionAdvice = MessageFunctionCode.ATMDepositCompletionAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a deposit.
-    /// Encoded/decoded by serializers as "ATMDepositRequest".
+    /// Encoded/decoded by serializers as "DPSQ".
     /// </summary>
     [EnumMember(Value = "DPSQ")]
     [IsoId("_ld0Nsa1xEeWMg5rOByfExw")]
     [Description(@"Request for a deposit.")]
-    ATMDepositRequest,
+    ATMDepositRequest = MessageFunctionCode.ATMDepositRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a deposit request.
-    /// Encoded/decoded by serializers as "ATMDepositResponse".
+    /// Encoded/decoded by serializers as "DPSP".
     /// </summary>
     [EnumMember(Value = "DPSP")]
     [IsoId("_lmAgYa1xEeWMg5rOByfExw")]
     [Description(@"Response to a deposit request.")]
-    ATMDepositResponse,
+    ATMDepositResponse = MessageFunctionCode.ATMDepositResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of an exception advice.
-    /// Encoded/decoded by serializers as "ATMExceptionAcknowledgement".
+    /// Encoded/decoded by serializers as "EXPK".
     /// </summary>
     [EnumMember(Value = "EXPK")]
     [IsoId("_mGqWYa1xEeWMg5rOByfExw")]
     [Description(@"Acknowledgement of an exception advice.")]
-    ATMExceptionAcknowledgement,
+    ATMExceptionAcknowledgement = MessageFunctionCode.ATMExceptionAcknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice of an ATM exception.
-    /// Encoded/decoded by serializers as "ATMExceptionAdvice".
+    /// Encoded/decoded by serializers as "EXPV".
     /// </summary>
     [EnumMember(Value = "EXPV")]
     [IsoId("_mOakMa1xEeWMg5rOByfExw")]
     [Description(@"Advice of an ATM exception.")]
-    ATMExceptionAdvice,
+    ATMExceptionAdvice = MessageFunctionCode.ATMExceptionAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for a fund transfer.
-    /// Encoded/decoded by serializers as "ATMTransferRequest".
+    /// Encoded/decoded by serializers as "TRFQ".
     /// </summary>
     [EnumMember(Value = "TRFQ")]
     [IsoId("_n5vdka1xEeWMg5rOByfExw")]
     [Description(@"Request for a fund transfer.")]
-    ATMTransferRequest,
+    ATMTransferRequest = MessageFunctionCode.ATMTransferRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response to a fund transfer request.
-    /// Encoded/decoded by serializers as "ATMTransferResponse".
+    /// Encoded/decoded by serializers as "TRFP".
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_oCFhQa1xEeWMg5rOByfExw")]
     [Description(@"Response to a fund transfer request.")]
-    ATMTransferResponse,
+    ATMTransferResponse = MessageFunctionCode.ATMTransferResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "CountersReport".
+    /// Encoded/decoded by serializers as "RPTC".
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_rsA1Ua1xEeWMg5rOByfExw")]
     [Description(@"Provide the value of the ATM counters, no reinitialisation of the counters.")]
-    CountersReport,
+    CountersReport = MessageFunctionCode.CountersReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -361,7 +361,7 @@ public enum MessageFunction11Code
 public static class MessageFunction11CodeMetadataExtensions
 {
     private static readonly MessageFunction11CodeDropdownSource _dropdownSource = new MessageFunction11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

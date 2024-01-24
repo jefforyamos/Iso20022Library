@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ah3aQNp-Ed-ak6NoX_4Aeg_-672768404")]
 [Description(@"Specifies information about ERISA (Eligibility to federal Employee Retirement Income Security Act) eligibility.")]
 [Derivations(typeof(ERISAEligibility1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ERISAEligibilityCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ERISAEligibilityCode
 public static class ERISAEligibilityCodeMetadataExtensions
 {
     private static readonly ERISAEligibilityCodeDropdownSource _dropdownSource = new ERISAEligibilityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bnKOY9p-Ed-ak6NoX_4Aeg_-700576555")]
 [Description(@"Specifies whether the adjustment is added or substracted to the total amount.")]
 [Derivations(typeof(AdjustmentDirection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AdjustmentDirectionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AdjustmentDirectionCode
 public static class AdjustmentDirectionCodeMetadataExtensions
 {
     private static readonly AdjustmentDirectionCodeDropdownSource _dropdownSource = new AdjustmentDirectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

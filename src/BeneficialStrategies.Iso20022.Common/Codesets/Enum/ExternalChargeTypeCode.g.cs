@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("__92AcJF_EeeBGrZP1w0opg")]
-[Description(@"Specifies the nature, or use, of the charges in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code set published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature, or use, of the charges in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalChargeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalChargeTypeCode
 {
     /// <summary>
@@ -67,7 +66,7 @@ public enum ExternalChargeTypeCode
 public static class ExternalChargeTypeCodeMetadataExtensions
 {
     private static readonly ExternalChargeTypeCodeDropdownSource _dropdownSource = new ExternalChargeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

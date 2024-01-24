@@ -21,111 +21,111 @@ public enum ActionType11Code
 {
     /// <summary>
     /// Contact card issuer.
-    /// Encoded/decoded by serializers as "ContactIssuer".
+    /// Encoded/decoded by serializers as "CNTI".
     /// </summary>
     [EnumMember(Value = "CNTI")]
     [IsoId("_nHJlYZ1AEeeuzZPGP9QqVw")]
     [Description(@"Contact card issuer.")]
-    ContactIssuer,
+    ContactIssuer = ActionTypeCode.ContactIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refer to card issuer's special conditions.
-    /// Encoded/decoded by serializers as "ContactIssuerSpecialConditions".
+    /// Encoded/decoded by serializers as "CNIS".
     /// </summary>
     [EnumMember(Value = "CNIS")]
     [IsoId("_nR3AkZ1AEeeuzZPGP9QqVw")]
     [Description(@"Refer to card issuer's special conditions.")]
-    ContactIssuerSpecialConditions,
+    ContactIssuerSpecialConditions = ActionTypeCode.ContactIssuerSpecialConditions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact acquirer.
-    /// Encoded/decoded by serializers as "ContactAcquirer".
+    /// Encoded/decoded by serializers as "CNTA".
     /// </summary>
     [EnumMember(Value = "CNTA")]
     [IsoId("_oM7hsZ1AEeeuzZPGP9QqVw")]
     [Description(@"Contact acquirer.")]
-    ContactAcquirer,
+    ContactAcquirer = ActionTypeCode.ContactAcquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card acceptor to call acquirer's security department.
-    /// Encoded/decoded by serializers as "ContactAcquirerSecurity".
+    /// Encoded/decoded by serializers as "CNAS".
     /// </summary>
     [EnumMember(Value = "CNAS")]
     [IsoId("_oZbFkZ1AEeeuzZPGP9QqVw")]
     [Description(@"Card acceptor to call acquirer's security department.")]
-    ContactAcquirerSecurity,
+    ContactAcquirerSecurity = ActionTypeCode.ContactAcquirerSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CaptureCard".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_pwdJ8Z1AEeeuzZPGP9QqVw")]
     [Description(@"Capture the card.")]
-    CaptureCard,
+    CaptureCard = ActionTypeCode.CaptureCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional verification of cardholder required.
-    /// Encoded/decoded by serializers as "CardholderVerification".
+    /// Encoded/decoded by serializers as "CHDV".
     /// </summary>
     [EnumMember(Value = "CHDV")]
     [IsoId("_qebDMZ1AEeeuzZPGP9QqVw")]
     [Description(@"Additional verification of cardholder required.")]
-    CardholderVerification,
+    CardholderVerification = ActionTypeCode.CardholderVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manage account as a VIP one.
-    /// Encoded/decoded by serializers as "VIPAccountManagement".
+    /// Encoded/decoded by serializers as "VIPM".
     /// </summary>
     [EnumMember(Value = "VIPM")]
     [IsoId("_sG3nsZ1AEeeuzZPGP9QqVw")]
     [Description(@"Manage account as a VIP one.")]
-    VIPAccountManagement,
+    VIPAccountManagement = ActionTypeCode.VIPAccountManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track provided in the response must be updated on the card.
-    /// Encoded/decoded by serializers as "UpdateTrack".
+    /// Encoded/decoded by serializers as "TRCK".
     /// </summary>
     [EnumMember(Value = "TRCK")]
     [IsoId("_tVHjgZ1AEeeuzZPGP9QqVw")]
     [Description(@"Track provided in the response must be updated on the card.")]
-    UpdateTrack,
+    UpdateTrack = ActionTypeCode.UpdateTrack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction to be re-entered.
-    /// Encoded/decoded by serializers as "ReEnterTransaction".
+    /// Encoded/decoded by serializers as "TRXR".
     /// </summary>
     [EnumMember(Value = "TRXR")]
     [IsoId("_uWb2kZ1AEeeuzZPGP9QqVw")]
     [Description(@"Transaction to be re-entered.")]
-    ReEnterTransaction,
+    ReEnterTransaction = ActionTypeCode.ReEnterTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other action defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_2qgToZ1CEeeuzZPGP9QqVw")]
     [Description(@"Other action defined at national level.")]
-    OtherNational,
+    OtherNational = ActionTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other action defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_21Nu0Z1CEeeuzZPGP9QqVw")]
     [Description(@"Other action defined at private level")]
-    OtherPrivate,
+    OtherPrivate = ActionTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Signature required.
-    /// Encoded/decoded by serializers as "Signature".
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_q7b14J54EeqkBIJTZMHl2Q")]
     [Description(@"Signature required.")]
-    Signature,
+    Signature = ActionTypeCode.Signature, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum ActionType11Code
 public static class ActionType11CodeMetadataExtensions
 {
     private static readonly ActionType11CodeDropdownSource _dropdownSource = new ActionType11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

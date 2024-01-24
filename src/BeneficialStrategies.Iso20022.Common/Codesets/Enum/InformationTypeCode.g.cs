@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aWsFAtp-Ed-ak6NoX_4Aeg_760507288")]
 [Description(@"Specifies the coded type of additional information provided.")]
 [Derivations(typeof(InformationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InformationTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InformationTypeCode
 public static class InformationTypeCodeMetadataExtensions
 {
     private static readonly InformationTypeCodeDropdownSource _dropdownSource = new InformationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

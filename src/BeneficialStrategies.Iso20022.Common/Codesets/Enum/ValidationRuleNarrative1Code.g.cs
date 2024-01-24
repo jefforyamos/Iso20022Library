@@ -21,12 +21,12 @@ public enum ValidationRuleNarrative1Code
 {
     /// <summary>
     /// Narrative.
-    /// Encoded/decoded by serializers as "Narrative".
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_MEQ0kR-1EeuxStysDTgLiw")]
     [Description(@"Narrative.")]
-    Narrative,
+    Narrative = ValidationRuleCode.Narrative, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRuleNarrative1Code
 public static class ValidationRuleNarrative1CodeMetadataExtensions
 {
     private static readonly ValidationRuleNarrative1CodeDropdownSource _dropdownSource = new ValidationRuleNarrative1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

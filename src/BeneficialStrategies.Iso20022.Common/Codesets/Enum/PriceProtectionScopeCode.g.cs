@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aI1PNtp-Ed-ak6NoX_4Aeg_413321420")]
 [Description(@"Defines the type of price protection the customer requires on their order.")]
 [Derivations(typeof(PriceProtectionScope1Code),typeof(PriceProtectionScope2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PriceProtectionScopeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PriceProtectionScopeCode
 public static class PriceProtectionScopeCodeMetadataExtensions
 {
     private static readonly PriceProtectionScopeCodeDropdownSource _dropdownSource = new PriceProtectionScopeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

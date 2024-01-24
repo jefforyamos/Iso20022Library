@@ -21,93 +21,93 @@ public enum EventWorkflowStatus1Code
 {
     /// <summary>
     /// All of the required data has been populated. Any conflicting data has been resolved. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "WSAP".
     /// </summary>
     [EnumMember(Value = "WSAP")]
     [IsoId("_1yNsNTL3EeKU9IrkkToqcw_-1182982813")]
     [Description(@"All of the required data has been populated. Any conflicting data has been resolved. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.")]
-    Approved,
+    Approved = EventWorkflowStatusCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation review was performed and event has been modified. Event is pending authorised approval.
-    /// Encoded/decoded by serializers as "PendingApproval".
+    /// Encoded/decoded by serializers as "WSPA".
     /// </summary>
     [EnumMember(Value = "WSPA")]
     [IsoId("_1yXdMDL3EeKU9IrkkToqcw_-1296821879")]
     [Description(@"Validation review was performed and event has been modified. Event is pending authorised approval.")]
-    PendingApproval,
+    PendingApproval = EventWorkflowStatusCode.PendingApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Announcement has been confirmed but not all of the required data is available. Event was validated or specific STP criteria was met, however data is still pending confirmation of the event.
-    /// Encoded/decoded by serializers as "ConditionallyApproved".
+    /// Encoded/decoded by serializers as "WSCA".
     /// </summary>
     [EnumMember(Value = "WSCA")]
     [IsoId("_1yXdMTL3EeKU9IrkkToqcw_1268115494")]
     [Description(@"Announcement has been confirmed but not all of the required data is available. Event was validated or specific STP criteria was met, however data is still pending confirmation of the event.")]
-    ConditionallyApproved,
+    ConditionallyApproved = EventWorkflowStatusCode.ConditionallyApproved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation review has been performed and event has been modified. Announcement has been confirmed but not all of the required data is available. Even record is pending authorised approval.
-    /// Encoded/decoded by serializers as "PendingConditionalApproval".
+    /// Encoded/decoded by serializers as "WSPN".
     /// </summary>
     [EnumMember(Value = "WSPN")]
     [IsoId("_1yXdMjL3EeKU9IrkkToqcw_1154276428")]
     [Description(@"Validation review has been performed and event has been modified. Announcement has been confirmed but not all of the required data is available. Even record is pending authorised approval.")]
-    PendingConditionalApproval,
+    PendingConditionalApproval = EventWorkflowStatusCode.PendingConditionalApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Two or more sources disagree on one or more data elements.
-    /// Encoded/decoded by serializers as "InConflict".
+    /// Encoded/decoded by serializers as "WSCT".
     /// </summary>
     [EnumMember(Value = "WSCT")]
     [IsoId("_1yXdMzL3EeKU9IrkkToqcw_1722202763")]
     [Description(@"Two or more sources disagree on one or more data elements.")]
-    InConflict,
+    InConflict = EventWorkflowStatusCode.InConflict, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Required data is not available. Announcement record cannot be verified.
-    /// Encoded/decoded by serializers as "Incomplete".
+    /// Encoded/decoded by serializers as "WSIN".
     /// </summary>
     [EnumMember(Value = "WSIN")]
     [IsoId("_1yXdNDL3EeKU9IrkkToqcw_1711103986")]
     [Description(@"Required data is not available. Announcement record cannot be verified.")]
-    Incomplete,
+    Incomplete = EventWorkflowStatusCode.Incomplete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation has determined the announcement record to be invalid. Pending authorisation.
-    /// Encoded/decoded by serializers as "PendingDeleted".
+    /// Encoded/decoded by serializers as "WSPD".
     /// </summary>
     [EnumMember(Value = "WSPD")]
     [IsoId("_1yXdNTL3EeKU9IrkkToqcw_18923789")]
     [Description(@"Validation has determined the announcement record to be invalid. Pending authorisation.")]
-    PendingDeleted,
+    PendingDeleted = EventWorkflowStatusCode.PendingDeleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Announcement record is not supported by validation service.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "WSNS".
     /// </summary>
     [EnumMember(Value = "WSNS")]
     [IsoId("_1ygnIDL3EeKU9IrkkToqcw_-94915277")]
     [Description(@"Announcement record is not supported by validation service.")]
-    NotSupported,
+    NotSupported = EventWorkflowStatusCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation has determined that the record is not supported. Pending authorisations.
-    /// Encoded/decoded by serializers as "PendingNotSupported".
+    /// Encoded/decoded by serializers as "WSPS".
     /// </summary>
     [EnumMember(Value = "WSPS")]
     [IsoId("_1ygnITL3EeKU9IrkkToqcw_-298852872")]
     [Description(@"Validation has determined that the record is not supported. Pending authorisations.")]
-    PendingNotSupported,
+    PendingNotSupported = EventWorkflowStatusCode.PendingNotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation has determined event is being cancelled by the issuer/offeror. Pending authorisation.
-    /// Encoded/decoded by serializers as "PendingCancelled".
+    /// Encoded/decoded by serializers as "WSPC".
     /// </summary>
     [EnumMember(Value = "WSPC")]
     [IsoId("_1ygnIjL3EeKU9IrkkToqcw_1731496793")]
     [Description(@"Validation has determined event is being cancelled by the issuer/offeror. Pending authorisation.")]
-    PendingCancelled,
+    PendingCancelled = EventWorkflowStatusCode.PendingCancelled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum EventWorkflowStatus1Code
 public static class EventWorkflowStatus1CodeMetadataExtensions
 {
     private static readonly EventWorkflowStatus1CodeDropdownSource _dropdownSource = new EventWorkflowStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum UKTaxGroupUnit1Code
 {
     /// <summary>
     /// The units that were purchased prior to the last ex-div date.
-    /// Encoded/decoded by serializers as "Group1".
+    /// Encoded/decoded by serializers as "GRP1".
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_PGFToYoQEeahcZ3Nzs1Qag")]
     [Description(@"The units that were purchased prior to the last ex-div date.")]
-    Group1,
+    Group1 = UKTaxGroupUnitCode.Group1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The units that were purchased since the ex-div date, and that benefit from the tax exemption.
-    /// Encoded/decoded by serializers as "Group2".
+    /// Encoded/decoded by serializers as "GRP2".
     /// </summary>
     [EnumMember(Value = "GRP2")]
     [IsoId("_PLJZ0YoQEeahcZ3Nzs1Qag")]
     [Description(@"The units that were purchased since the ex-div date, and that benefit from the tax exemption.")]
-    Group2,
+    Group2 = UKTaxGroupUnitCode.Group2, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum UKTaxGroupUnit1Code
 public static class UKTaxGroupUnit1CodeMetadataExtensions
 {
     private static readonly UKTaxGroupUnit1CodeDropdownSource _dropdownSource = new UKTaxGroupUnit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

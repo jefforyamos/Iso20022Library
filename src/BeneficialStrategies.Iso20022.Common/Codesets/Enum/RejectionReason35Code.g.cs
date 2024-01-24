@@ -21,84 +21,84 @@ public enum RejectionReason35Code
 {
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CashAccount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_jWeIou5NEeCisYr99QEiWA_732299625")]
     [Description(@"Unrecognised or invalid cash account.")]
-    CashAccount,
+    CashAccount = RejectionReasonV2Code.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_jWeIo-5NEeCisYr99QEiWA_-329052334")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV2Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "ReferenceRejection".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_jWeIpO5NEeCisYr99QEiWA_-150933662")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    ReferenceRejection,
+    ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_jWnSkO5NEeCisYr99QEiWA_-442891400")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "SettlementDateRejection".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_jWnSke5NEeCisYr99QEiWA_-264772728")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    SettlementDateRejection,
+    SettlementDateRejection = RejectionReasonV2Code.SettlementDateRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction could not be found.
-    /// Encoded/decoded by serializers as "NotFoundRejection".
+    /// Encoded/decoded by serializers as "NRGN".
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_jWnSku5NEeCisYr99QEiWA_1213359397")]
     [Description(@"Instruction could not be found.")]
-    NotFoundRejection,
+    NotFoundRejection = RejectionReasonV2Code.NotFoundRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jWnSk-5NEeCisYr99QEiWA_-1326124687")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid or unrecognized modification request.
-    /// Encoded/decoded by serializers as "InvalidModificationRequest".
+    /// Encoded/decoded by serializers as "INVM".
     /// </summary>
     [EnumMember(Value = "INVM")]
     [IsoId("_AzkQYnglEeGqN5NokjUPnw_-1651616515")]
     [Description(@"Invalid or unrecognized modification request.")]
-    InvalidModificationRequest,
+    InvalidModificationRequest = RejectionReasonV2Code.InvalidModificationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid or unrecognized link.
-    /// Encoded/decoded by serializers as "InvalidLink".
+    /// Encoded/decoded by serializers as "INVL".
     /// </summary>
     [EnumMember(Value = "INVL")]
     [IsoId("_AzkQY3glEeGqN5NokjUPnw_-2048316852")]
     [Description(@"Invalid or unrecognized link.")]
-    InvalidLink,
+    InvalidLink = RejectionReasonV2Code.InvalidLink, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum RejectionReason35Code
 public static class RejectionReason35CodeMetadataExtensions
 {
     private static readonly RejectionReason35CodeDropdownSource _dropdownSource = new RejectionReason35CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

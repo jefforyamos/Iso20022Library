@@ -21,30 +21,30 @@ public enum PoliticalExposureType1Code
 {
     /// <summary>
     /// No political exposure.
-    /// Encoded/decoded by serializers as "NoPoliticalExposure".
+    /// Encoded/decoded by serializers as "NPEX".
     /// </summary>
     [EnumMember(Value = "NPEX")]
     [IsoId("_Zojl4RRvEeOKWo1NF21OVw")]
     [Description(@"No political exposure.")]
-    NoPoliticalExposure,
+    NoPoliticalExposure = PoliticalExposureTypeCode.NoPoliticalExposure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Political exposure type is foreign.
-    /// Encoded/decoded by serializers as "PoliticalExposureForeign".
+    /// Encoded/decoded by serializers as "PEXF".
     /// </summary>
     [EnumMember(Value = "PEXF")]
     [IsoId("_ZyXpMRRvEeOKWo1NF21OVw")]
     [Description(@"Political exposure type is foreign.")]
-    PoliticalExposureForeign,
+    PoliticalExposureForeign = PoliticalExposureTypeCode.PoliticalExposureForeign, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Political exposure type is domestic.
-    /// Encoded/decoded by serializers as "PoliticalExposureDomestic".
+    /// Encoded/decoded by serializers as "PEXD".
     /// </summary>
     [EnumMember(Value = "PEXD")]
     [IsoId("_Z8CikRRvEeOKWo1NF21OVw")]
     [Description(@"Political exposure type is domestic.")]
-    PoliticalExposureDomestic,
+    PoliticalExposureDomestic = PoliticalExposureTypeCode.PoliticalExposureDomestic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PoliticalExposureType1Code
 public static class PoliticalExposureType1CodeMetadataExtensions
 {
     private static readonly PoliticalExposureType1CodeDropdownSource _dropdownSource = new PoliticalExposureType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

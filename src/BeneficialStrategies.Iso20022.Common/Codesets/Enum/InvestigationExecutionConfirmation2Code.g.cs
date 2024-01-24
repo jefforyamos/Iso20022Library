@@ -21,93 +21,93 @@ public enum InvestigationExecutionConfirmation2Code
 {
     /// <summary>
     /// Used when a requested cancellation is successful.
-    /// Encoded/decoded by serializers as "CancelledAsPerRequest".
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_abAkUNp-Ed-ak6NoX_4Aeg_-904367506")]
     [Description(@"Used when a requested cancellation is successful.")]
-    CancelledAsPerRequest,
+    CancelledAsPerRequest = InvestigationExecutionConfirmationCode.CancelledAsPerRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested modification is successful.
-    /// Encoded/decoded by serializers as "ModifiedAsPerRequest".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_abAkUdp-Ed-ak6NoX_4Aeg_-904367489")]
     [Description(@"Used when a requested modification is successful.")]
-    ModifiedAsPerRequest,
+    ModifiedAsPerRequest = InvestigationExecutionConfirmationCode.ModifiedAsPerRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the result of an investigation is, or will be, the initiation of a payment instruction.
-    /// Encoded/decoded by serializers as "PaymentInitiated".
+    /// Encoded/decoded by serializers as "IPAY".
     /// </summary>
     [EnumMember(Value = "IPAY")]
     [IsoId("_abAkUtp-Ed-ak6NoX_4Aeg_-904367212")]
     [Description(@"Used when the result of an investigation is, or will be, the initiation of a payment instruction.")]
-    PaymentInitiated,
+    PaymentInitiated = InvestigationExecutionConfirmationCode.PaymentInitiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a transfer of funds has been initiated (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "CoverInitiated".
+    /// Encoded/decoded by serializers as "ICOV".
     /// </summary>
     [EnumMember(Value = "ICOV")]
     [IsoId("_abAkU9p-Ed-ak6NoX_4Aeg_-904367187")]
     [Description(@"Used when a transfer of funds has been initiated (a cover payment) to resolve a case.")]
-    CoverInitiated,
+    CoverInitiated = InvestigationExecutionConfirmationCode.CoverInitiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a transfer of funds has been modified (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "CoverModified".
+    /// Encoded/decoded by serializers as "MCOV".
     /// </summary>
     [EnumMember(Value = "MCOV")]
     [IsoId("_abAkVNp-Ed-ak6NoX_4Aeg_-904367170")]
     [Description(@"Used when a transfer of funds has been modified (a cover payment) to resolve a case.")]
-    CoverModified,
+    CoverModified = InvestigationExecutionConfirmationCode.CoverModified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when additional information has been sent to the beneficiary of a payment.
-    /// Encoded/decoded by serializers as "AdditionalInformationSent".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_abAkVdp-Ed-ak6NoX_4Aeg_-904367151")]
     [Description(@"Used when additional information has been sent to the beneficiary of a payment.")]
-    AdditionalInformationSent,
+    AdditionalInformationSent = InvestigationExecutionConfirmationCode.AdditionalInformationSent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a payment has been checked and was correctly executed without any intervention.
-    /// Encoded/decoded by serializers as "ConfirmationOfPayment".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_abAkVtp-Ed-ak6NoX_4Aeg_-904367135")]
     [Description(@"Used when a payment has been checked and was correctly executed without any intervention.")]
-    ConfirmationOfPayment,
+    ConfirmationOfPayment = InvestigationExecutionConfirmationCode.ConfirmationOfPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a payment will be cancelled to solve an investigation case.
-    /// Encoded/decoded by serializers as "CancellationWillFollow".
+    /// Encoded/decoded by serializers as "CWFW".
     /// </summary>
     [EnumMember(Value = "CWFW")]
     [IsoId("_abAkV9p-Ed-ak6NoX_4Aeg_-904367092")]
     [Description(@"Used when a payment will be cancelled to solve an investigation case.")]
-    CancellationWillFollow,
+    CancellationWillFollow = InvestigationExecutionConfirmationCode.CancellationWillFollow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the payment will be modified to solve an investigation case.
-    /// Encoded/decoded by serializers as "ModificationWillFollow".
+    /// Encoded/decoded by serializers as "MWFW".
     /// </summary>
     [EnumMember(Value = "MWFW")]
     [IsoId("_abAkWNp-Ed-ak6NoX_4Aeg_-904367091")]
     [Description(@"Used when the payment will be modified to solve an investigation case.")]
-    ModificationWillFollow,
+    ModificationWillFollow = InvestigationExecutionConfirmationCode.ModificationWillFollow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when sender wants to respond to an assignment with an Unable To Apply workflow.
-    /// Encoded/decoded by serializers as "UnableToApplyWillFollow".
+    /// Encoded/decoded by serializers as "UWFW".
     /// </summary>
     [EnumMember(Value = "UWFW")]
     [IsoId("_abAkWdp-Ed-ak6NoX_4Aeg_-1265299711")]
     [Description(@"Used when sender wants to respond to an assignment with an Unable To Apply workflow.")]
-    UnableToApplyWillFollow,
+    UnableToApplyWillFollow = InvestigationExecutionConfirmationCode.UnableToApplyWillFollow, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum InvestigationExecutionConfirmation2Code
 public static class InvestigationExecutionConfirmation2CodeMetadataExtensions
 {
     private static readonly InvestigationExecutionConfirmation2CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

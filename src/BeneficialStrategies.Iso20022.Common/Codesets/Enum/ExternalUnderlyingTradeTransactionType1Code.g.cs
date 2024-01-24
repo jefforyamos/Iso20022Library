@@ -16,72 +16,72 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MhZAG7iEeKo25nLKvGr8w_-1500208754")]
-[Description(@"Specifies the external commercial reference type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external commercial reference type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUnderlyingTradeTransactionTypeCode))]
 public enum ExternalUnderlyingTradeTransactionType1Code
 {
     /// <summary>
     /// Underlying transaction is a contract.
-    /// Encoded/decoded by serializers as "Contract".
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_uQn48vRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a contract.")]
-    Contract,
+    Contract = ExternalUnderlyingTradeTransactionTypeCode.Contract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a delivery order.
-    /// Encoded/decoded by serializers as "DeliveryOrder".
+    /// Encoded/decoded by serializers as "DELV".
     /// </summary>
     [EnumMember(Value = "DELV")]
     [IsoId("_uQn49fRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a delivery order.")]
-    DeliveryOrder,
+    DeliveryOrder = ExternalUnderlyingTradeTransactionTypeCode.DeliveryOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a proforma invoice.
-    /// Encoded/decoded by serializers as "ProformaInvoice".
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_uQn4-PRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a proforma invoice.")]
-    ProformaInvoice,
+    ProformaInvoice = ExternalUnderlyingTradeTransactionTypeCode.ProformaInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a project.
-    /// Encoded/decoded by serializers as "Project".
+    /// Encoded/decoded by serializers as "PROJ".
     /// </summary>
     [EnumMember(Value = "PROJ")]
     [IsoId("_uQn4-_RYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a project.")]
-    Project,
+    Project = ExternalUnderlyingTradeTransactionTypeCode.Project, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a purchase order.
-    /// Encoded/decoded by serializers as "PurchaseOrder".
+    /// Encoded/decoded by serializers as "PUOR".
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_uQxp8vRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a purchase order.")]
-    PurchaseOrder,
+    PurchaseOrder = ExternalUnderlyingTradeTransactionTypeCode.PurchaseOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a quotation.
-    /// Encoded/decoded by serializers as "Quotation".
+    /// Encoded/decoded by serializers as "QUOT".
     /// </summary>
     [EnumMember(Value = "QUOT")]
     [IsoId("_uQxp9fRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a quotation.")]
-    Quotation,
+    Quotation = ExternalUnderlyingTradeTransactionTypeCode.Quotation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying transaction is a tender.
-    /// Encoded/decoded by serializers as "Tender".
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_uQxp-PRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a tender.")]
-    Tender,
+    Tender = ExternalUnderlyingTradeTransactionTypeCode.Tender, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
 public static class ExternalUnderlyingTradeTransactionType1CodeMetadataExtensions
 {
     private static readonly ExternalUnderlyingTradeTransactionType1CodeDropdownSource _dropdownSource = new ExternalUnderlyingTradeTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

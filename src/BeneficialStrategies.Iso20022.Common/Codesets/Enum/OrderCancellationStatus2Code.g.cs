@@ -21,39 +21,39 @@ public enum OrderCancellationStatus2Code
 {
     /// <summary>
     /// Order cancellation request has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_9vuJodcPEeaX5rvhR0a-OQ")]
     [Description(@"Order cancellation request has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderCancellationStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the order cancellation request is received, that is, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_95Dr0dcPEeaX5rvhR0a-OQ")]
     [Description(@"Status of the order cancellation request is received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
-    Received,
+    Received = OrderCancellationStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.
-    /// Encoded/decoded by serializers as "CancellationPending".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_-BQlkdcPEeaX5rvhR0a-OQ")]
     [Description(@"Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.")]
-    CancellationPending,
+    CancellationPending = OrderCancellationStatusCode.CancellationPending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.
-    /// Encoded/decoded by serializers as "CancellationCompleted".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_-JLLcdcPEeaX5rvhR0a-OQ")]
     [Description(@"Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.")]
-    CancellationCompleted,
+    CancellationCompleted = OrderCancellationStatusCode.CancellationCompleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum OrderCancellationStatus2Code
 public static class OrderCancellationStatus2CodeMetadataExtensions
 {
     private static readonly OrderCancellationStatus2CodeDropdownSource _dropdownSource = new OrderCancellationStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

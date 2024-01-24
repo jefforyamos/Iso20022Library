@@ -21,606 +21,606 @@ public enum BalanceType10Code
 {
     /// <summary>
     /// Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.
-    /// Encoded/decoded by serializers as "Opening".
+    /// Encoded/decoded by serializers as "OPNG".
     /// </summary>
     [EnumMember(Value = "OPNG")]
     [IsoId("_bkU80Np-Ed-ak6NoX_4Aeg_1537940410")]
     [Description(@"Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.")]
-    Opening,
+    Opening = BalanceTypeCode.Opening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_bkU80dp-Ed-ak6NoX_4Aeg_1537940439")]
     [Description(@"Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.")]
-    Interim,
+    Interim = BalanceTypeCode.Interim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.
-    /// Encoded/decoded by serializers as "Closing".
+    /// Encoded/decoded by serializers as "CLSG".
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_bkU80tp-Ed-ak6NoX_4Aeg_1537940687")]
     [Description(@"Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.")]
-    Closing,
+    Closing = BalanceTypeCode.Closing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance that is registered in the books of the account servicer.
-    /// Encoded/decoded by serializers as "Book".
+    /// Encoded/decoded by serializers as "BOOK".
     /// </summary>
     [EnumMember(Value = "BOOK")]
     [IsoId("_bkU809p-Ed-ak6NoX_4Aeg_1537940688")]
     [Description(@"Balance that is registered in the books of the account servicer.")]
-    Book,
+    Book = BalanceTypeCode.Book, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of the account at a precise moment in time.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CRRT".
     /// </summary>
     [EnumMember(Value = "CRRT")]
     [IsoId("_bkU81Np-Ed-ak6NoX_4Aeg_1537940717")]
     [Description(@"Balance of the account at a precise moment in time.")]
-    Current,
+    Current = BalanceTypeCode.Current, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending delivery, eg, orders to sell securities have been executed but settlement of the open transactions has not been confirmed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_bkU81dp-Ed-ak6NoX_4Aeg_1537940718")]
     [Description(@"Balance of securities pending delivery, eg, orders to sell securities have been executed but settlement of the open transactions has not been confirmed.")]
-    Pending,
+    Pending = BalanceTypeCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.
-    /// Encoded/decoded by serializers as "LimitRelated".
+    /// Encoded/decoded by serializers as "LRLD".
     /// </summary>
     [EnumMember(Value = "LRLD")]
     [IsoId("_bkU81tp-Ed-ak6NoX_4Aeg_1537940748")]
     [Description(@"Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.")]
-    LimitRelated,
+    LimitRelated = BalanceTypeCode.LimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "Available".
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_bkU819p-Ed-ak6NoX_4Aeg_1537940778")]
     [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
-    Available,
+    Available = BalanceTypeCode.Available, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance composed of the sum of all liquidity transfers made to or from an account.
-    /// Encoded/decoded by serializers as "LiquidityTransfer".
+    /// Encoded/decoded by serializers as "LTSF".
     /// </summary>
     [EnumMember(Value = "LTSF")]
     [IsoId("_bkeGwNp-Ed-ak6NoX_4Aeg_1537940779")]
     [Description(@"Balance composed of the sum of all liquidity transfers made to or from an account.")]
-    LiquidityTransfer,
+    LiquidityTransfer = BalanceTypeCode.LiquidityTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the sum of all credit entries booked to an account.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_bkeGwdp-Ed-ak6NoX_4Aeg_1537940809")]
     [Description(@"Balance representing the sum of all credit entries booked to an account.")]
-    Credit,
+    Credit = BalanceTypeCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.
-    /// Encoded/decoded by serializers as "EligibleAssets".
+    /// Encoded/decoded by serializers as "EAST".
     /// </summary>
     [EnumMember(Value = "EAST")]
     [IsoId("_bkeGwtp-Ed-ak6NoX_4Aeg_1537940810")]
     [Description(@"Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.")]
-    EligibleAssets,
+    EligibleAssets = BalanceTypeCode.EligibleAssets, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.
-    /// Encoded/decoded by serializers as "Payment".
+    /// Encoded/decoded by serializers as "PYMT".
     /// </summary>
     [EnumMember(Value = "PYMT")]
     [IsoId("_bkeGw9p-Ed-ak6NoX_4Aeg_1537940840")]
     [Description(@"Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.")]
-    Payment,
+    Payment = BalanceTypeCode.Payment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_bkeGxNp-Ed-ak6NoX_4Aeg_1537940841")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.")]
-    Blocked,
+    Blocked = BalanceTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.
-    /// Encoded/decoded by serializers as "Expected".
+    /// Encoded/decoded by serializers as "XPCD".
     /// </summary>
     [EnumMember(Value = "XPCD")]
     [IsoId("_bkeGxdp-Ed-ak6NoX_4Aeg_1537940862")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.")]
-    Expected,
+    Expected = BalanceTypeCode.Expected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.
-    /// Encoded/decoded by serializers as "DaylightOverdraft".
+    /// Encoded/decoded by serializers as "DLOD".
     /// </summary>
     [EnumMember(Value = "DLOD")]
     [IsoId("_bkeGxtp-Ed-ak6NoX_4Aeg_1537941141")]
     [Description(@"Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.")]
-    DaylightOverdraft,
+    DaylightOverdraft = BalanceTypeCode.DaylightOverdraft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.
-    /// Encoded/decoded by serializers as "ExpectedCredit".
+    /// Encoded/decoded by serializers as "XCRD".
     /// </summary>
     [EnumMember(Value = "XCRD")]
     [IsoId("_bkeGx9p-Ed-ak6NoX_4Aeg_1537941150")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.")]
-    ExpectedCredit,
+    ExpectedCredit = BalanceTypeCode.ExpectedCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.
-    /// Encoded/decoded by serializers as "ExpectedDebit".
+    /// Encoded/decoded by serializers as "XDBT".
     /// </summary>
     [EnumMember(Value = "XDBT")]
     [IsoId("_bkeGyNp-Ed-ak6NoX_4Aeg_1537941151")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.")]
-    ExpectedDebit,
+    ExpectedDebit = BalanceTypeCode.ExpectedDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.
-    /// Encoded/decoded by serializers as "Adjustment".
+    /// Encoded/decoded by serializers as "ADJT".
     /// </summary>
     [EnumMember(Value = "ADJT")]
     [IsoId("_bkeGydp-Ed-ak6NoX_4Aeg_1537941172")]
     [Description(@"Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.")]
-    Adjustment,
+    Adjustment = BalanceTypeCode.Adjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.
-    /// Encoded/decoded by serializers as "ProgressiveAverage".
+    /// Encoded/decoded by serializers as "PRAV".
     /// </summary>
     [EnumMember(Value = "PRAV")]
     [IsoId("_bkn3wNp-Ed-ak6NoX_4Aeg_1537941181")]
     [Description(@"Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.")]
-    ProgressiveAverage,
+    ProgressiveAverage = BalanceTypeCode.ProgressiveAverage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the sum of all debit entries booked to an account.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_bkn3wdp-Ed-ak6NoX_4Aeg_1537941182")]
     [Description(@"Balance representing the sum of all debit entries booked to an account.")]
-    Debit,
+    Debit = BalanceTypeCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.
-    /// Encoded/decoded by serializers as "Threshold".
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_bkn3wtp-Ed-ak6NoX_4Aeg_1537941202")]
     [Description(@"Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.")]
-    Threshold,
+    Threshold = BalanceTypeCode.Threshold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.
-    /// Encoded/decoded by serializers as "Noted".
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_bkn3w9p-Ed-ak6NoX_4Aeg_1537941203")]
     [Description(@"Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.")]
-    Noted,
+    Noted = BalanceTypeCode.Noted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of the account identified (as opposed to Master Balance).
-    /// Encoded/decoded by serializers as "Self".
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_bkn3xNp-Ed-ak6NoX_4Aeg_1537941212")]
     [Description(@"Balance of the account identified (as opposed to Master Balance).")]
-    Self,
+    Self = BalanceTypeCode.Self, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of the identified account plus the balance of all of its subaccounts.
-    /// Encoded/decoded by serializers as "Master".
+    /// Encoded/decoded by serializers as "MSTR".
     /// </summary>
     [EnumMember(Value = "MSTR")]
     [IsoId("_bkn3xdp-Ed-ak6NoX_4Aeg_1537941233")]
     [Description(@"Balance of the identified account plus the balance of all of its subaccounts.")]
-    Master,
+    Master = BalanceTypeCode.Master, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of total of all cash legs for trades that are ready to settle via CSD. Amounts shown are still subject to processing of the securities settlement.
-    /// Encoded/decoded by serializers as "ForecastSettlement".
+    /// Encoded/decoded by serializers as "FSET".
     /// </summary>
     [EnumMember(Value = "FSET")]
     [IsoId("_bkn3xtp-Ed-ak6NoX_4Aeg_1537941234")]
     [Description(@"Balance representing the forecast of total of all cash legs for trades that are ready to settle via CSD. Amounts shown are still subject to processing of the securities settlement.")]
-    ForecastSettlement,
+    ForecastSettlement = BalanceTypeCode.ForecastSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the projected total of all cash legs for trades settling via CSD that have been matched but blocked in order to not settle. These blocked trades are included in the calculation for settlement (eg, to avoid overdrafts).|Usage rule: Blocking can be done by account owner or its counterparties. Usually this is done to chain transactions or to prioritise other trades. Blocked trades have an indicator that prevents the transactions from settling. Once matched, they can settle whenever the freeze is lifted. In this case they will move to FSET. Lifting the freeze can happen anytime during the day and the transaction will be settling in the next settlement cycle which can be the same day if the (I)CSD's operates several settlements cycles per day.
-    /// Encoded/decoded by serializers as "BlockedTrades".
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_bkn3x9p-Ed-ak6NoX_4Aeg_1537941263")]
     [Description(@"Balance representing the projected total of all cash legs for trades settling via CSD that have been matched but blocked in order to not settle. These blocked trades are included in the calculation for settlement (eg, to avoid overdrafts).|Usage rule: Blocking can be done by account owner or its counterparties. Usually this is done to chain transactions or to prioritise other trades. Blocked trades have an indicator that prevents the transactions from settling. Once matched, they can settle whenever the freeze is lifted. In this case they will move to FSET. Lifting the freeze can happen anytime during the day and the transaction will be settling in the next settlement cycle which can be the same day if the (I)CSD's operates several settlements cycles per day.")]
-    BlockedTrades,
+    BlockedTrades = BalanceTypeCode.BlockedTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the projected total of all cash legs for trades settling via CSD that have been matched but blocked in order to not settle. These blocked transactions are not included in the calculation for settlement.
-    /// Encoded/decoded by serializers as "OtherBlockedTrades".
+    /// Encoded/decoded by serializers as "OTHB".
     /// </summary>
     [EnumMember(Value = "OTHB")]
     [IsoId("_bkn3yNp-Ed-ak6NoX_4Aeg_1537941264")]
     [Description(@"Balance representing the projected total of all cash legs for trades settling via CSD that have been matched but blocked in order to not settle. These blocked transactions are not included in the calculation for settlement.")]
-    OtherBlockedTrades,
+    OtherBlockedTrades = BalanceTypeCode.OtherBlockedTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the projected total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, etc.
-    /// Encoded/decoded by serializers as "Custody".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bkn3ydp-Ed-ak6NoX_4Aeg_1537941265")]
     [Description(@"Balance representing the projected total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, etc.")]
-    Custody,
+    Custody = BalanceTypeCode.Custody, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of all balance types representing transactions to settle, blocked items and custody transactions.
-    /// Encoded/decoded by serializers as "CashForecast".
+    /// Encoded/decoded by serializers as "FORC".
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_bkn3ytp-Ed-ak6NoX_4Aeg_1537941294")]
     [Description(@"Balance representing the total of all balance types representing transactions to settle, blocked items and custody transactions.")]
-    CashForecast,
+    CashForecast = BalanceTypeCode.CashForecast, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the projected total amount of all payment obligations to the participant (bank), based on their role as main paying agent.
-    /// Encoded/decoded by serializers as "DividendsCollection".
+    /// Encoded/decoded by serializers as "COLC".
     /// </summary>
     [EnumMember(Value = "COLC")]
     [IsoId("_bkxowNp-Ed-ak6NoX_4Aeg_1537941295")]
     [Description(@"Balance representing the projected total amount of all payment obligations to the participant (bank), based on their role as main paying agent.")]
-    DividendsCollection,
+    DividendsCollection = BalanceTypeCode.DividendsCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the net amount to be funded resulting from all transactions which have an impact on the funding requirement.
-    /// Encoded/decoded by serializers as "NetFunding".
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_bkxowdp-Ed-ak6NoX_4Aeg_1537941325")]
     [Description(@"Balance representing the net amount to be funded resulting from all transactions which have an impact on the funding requirement.")]
-    NetFunding,
+    NetFunding = BalanceTypeCode.NetFunding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between the CSD and the user.||Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.
-    /// Encoded/decoded by serializers as "PayInPayOut".
+    /// Encoded/decoded by serializers as "PIPO".
     /// </summary>
     [EnumMember(Value = "PIPO")]
     [IsoId("_bkxowtp-Ed-ak6NoX_4Aeg_1537941326")]
     [Description(@"Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between the CSD and the user.||Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
-    PayInPayOut,
+    PayInPayOut = BalanceTypeCode.PayInPayOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges.
-    /// Encoded/decoded by serializers as "ExchangeForecast".
+    /// Encoded/decoded by serializers as "XCHG".
     /// </summary>
     [EnumMember(Value = "XCHG")]
     [IsoId("_bkxow9p-Ed-ak6NoX_4Aeg_1537941327")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges.")]
-    ExchangeForecast,
+    ExchangeForecast = BalanceTypeCode.ExchangeForecast, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges that operate a central counterparty functionality.
-    /// Encoded/decoded by serializers as "CentralCounterparty".
+    /// Encoded/decoded by serializers as "CCPS".
     /// </summary>
     [EnumMember(Value = "CCPS")]
     [IsoId("_bkxoxNp-Ed-ak6NoX_4Aeg_1537941355")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges that operate a central counterparty functionality.")]
-    CentralCounterparty,
+    CentralCounterparty = BalanceTypeCode.CentralCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of the payments that were put on hold because the limits have been exceeded.
-    /// Encoded/decoded by serializers as "TotalOnHold".
+    /// Encoded/decoded by serializers as "TOHB".
     /// </summary>
     [EnumMember(Value = "TOHB")]
     [IsoId("_bkxoxdp-Ed-ak6NoX_4Aeg_1537941356")]
     [Description(@"Balance representing the total of the payments that were put on hold because the limits have been exceeded.")]
-    TotalOnHold,
+    TotalOnHold = BalanceTypeCode.TotalOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total incoming payments that were put on hold because the credit limit has been exceeded.
-    /// Encoded/decoded by serializers as "CreditOnHold".
+    /// Encoded/decoded by serializers as "COHB".
     /// </summary>
     [EnumMember(Value = "COHB")]
     [IsoId("_bkxoxtp-Ed-ak6NoX_4Aeg_1537941357")]
     [Description(@"Balance representing the total incoming payments that were put on hold because the credit limit has been exceeded.")]
-    CreditOnHold,
+    CreditOnHold = BalanceTypeCode.CreditOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total outgoing payments that were put on hold because the debit limit has been exceeded.
-    /// Encoded/decoded by serializers as "DebitOnHold".
+    /// Encoded/decoded by serializers as "DOHB".
     /// </summary>
     [EnumMember(Value = "DOHB")]
     [IsoId("_bkxox9p-Ed-ak6NoX_4Aeg_1537941386")]
     [Description(@"Balance representing the total outgoing payments that were put on hold because the debit limit has been exceeded.")]
-    DebitOnHold,
+    DebitOnHold = BalanceTypeCode.DebitOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of the payments that have been processed and are waiting for settlement during the day.
-    /// Encoded/decoded by serializers as "TotalProcessed".
+    /// Encoded/decoded by serializers as "TPBL".
     /// </summary>
     [EnumMember(Value = "TPBL")]
     [IsoId("_bkxoyNp-Ed-ak6NoX_4Aeg_1537941387")]
     [Description(@"Balance representing the total of the payments that have been processed and are waiting for settlement during the day.")]
-    TotalProcessed,
+    TotalProcessed = BalanceTypeCode.TotalProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total incoming payments that have been processed and are waiting for settlement.
-    /// Encoded/decoded by serializers as "CreditProcessed".
+    /// Encoded/decoded by serializers as "CPBL".
     /// </summary>
     [EnumMember(Value = "CPBL")]
     [IsoId("_bkxoydp-Ed-ak6NoX_4Aeg_1537941417")]
     [Description(@"Balance representing the total incoming payments that have been processed and are waiting for settlement.")]
-    CreditProcessed,
+    CreditProcessed = BalanceTypeCode.CreditProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total outgoing payments that have been processed and are waiting for settlement.
-    /// Encoded/decoded by serializers as "DebitProcessed".
+    /// Encoded/decoded by serializers as "DPBL".
     /// </summary>
     [EnumMember(Value = "DPBL")]
     [IsoId("_bk6ysNp-Ed-ak6NoX_4Aeg_1537941418")]
     [Description(@"Balance representing the total outgoing payments that have been processed and are waiting for settlement.")]
-    DebitProcessed,
+    DebitProcessed = BalanceTypeCode.DebitProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of the payments with a processing date in the future.
-    /// Encoded/decoded by serializers as "TotalFuture".
+    /// Encoded/decoded by serializers as "FUTB".
     /// </summary>
     [EnumMember(Value = "FUTB")]
     [IsoId("_bk6ysdp-Ed-ak6NoX_4Aeg_1537941419")]
     [Description(@"Balance representing the total of the payments with a processing date in the future.")]
-    TotalFuture,
+    TotalFuture = BalanceTypeCode.TotalFuture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of the payments that have been rejected.
-    /// Encoded/decoded by serializers as "TotalRejected".
+    /// Encoded/decoded by serializers as "REJB".
     /// </summary>
     [EnumMember(Value = "REJB")]
     [IsoId("_bk6ystp-Ed-ak6NoX_4Aeg_1537941664")]
     [Description(@"Balance representing the total of the payments that have been rejected.")]
-    TotalRejected,
+    TotalRejected = BalanceTypeCode.TotalRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.
-    /// Encoded/decoded by serializers as "FirmCollateralisation".
+    /// Encoded/decoded by serializers as "FCOL".
     /// </summary>
     [EnumMember(Value = "FCOL")]
     [IsoId("_bk6ys9p-Ed-ak6NoX_4Aeg_1623828777")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.")]
-    FirmCollateralisation,
+    FirmCollateralisation = BalanceTypeCode.FirmCollateralisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.
-    /// Encoded/decoded by serializers as "UsedAmountsFirmCollateralisation".
+    /// Encoded/decoded by serializers as "FCOU".
     /// </summary>
     [EnumMember(Value = "FCOU")]
     [IsoId("_bk6ytNp-Ed-ak6NoX_4Aeg_1623828869")]
     [Description(@"Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.")]
-    UsedAmountsFirmCollateralisation,
+    UsedAmountsFirmCollateralisation = BalanceTypeCode.UsedAmountsFirmCollateralisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.
-    /// Encoded/decoded by serializers as "SelfCollateralisation".
+    /// Encoded/decoded by serializers as "SCOL".
     /// </summary>
     [EnumMember(Value = "SCOL")]
     [IsoId("_bk6ytdp-Ed-ak6NoX_4Aeg_1623829147")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.")]
-    SelfCollateralisation,
+    SelfCollateralisation = BalanceTypeCode.SelfCollateralisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process.
-    /// Encoded/decoded by serializers as "UsedAmountsSelfCollateralisation".
+    /// Encoded/decoded by serializers as "SCOU".
     /// </summary>
     [EnumMember(Value = "SCOU")]
     [IsoId("_bk6yttp-Ed-ak6NoX_4Aeg_1623829232")]
     [Description(@"Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process.")]
-    UsedAmountsSelfCollateralisation,
+    UsedAmountsSelfCollateralisation = BalanceTypeCode.UsedAmountsSelfCollateralisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the actual total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, redemptions, etc.
-    /// Encoded/decoded by serializers as "CustodyActual".
+    /// Encoded/decoded by serializers as "CUSA".
     /// </summary>
     [EnumMember(Value = "CUSA")]
     [IsoId("_bk6yt9p-Ed-ak6NoX_4Aeg_1623829542")]
     [Description(@"Balance representing the actual total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, redemptions, etc.")]
-    CustodyActual,
+    CustodyActual = BalanceTypeCode.CustodyActual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions in exchanges, going through CCP functions.
-    /// Encoded/decoded by serializers as "CCPGuaranteedForecasting".
+    /// Encoded/decoded by serializers as "XCHC".
     /// </summary>
     [EnumMember(Value = "XCHC")]
     [IsoId("_bk6yuNp-Ed-ak6NoX_4Aeg_1623829572")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions in exchanges, going through CCP functions.")]
-    CCPGuaranteedForecasting,
+    CCPGuaranteedForecasting = BalanceTypeCode.CCPGuaranteedForecasting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges not going through CCP functions.
-    /// Encoded/decoded by serializers as "NonCCPGuaranteedForecasting".
+    /// Encoded/decoded by serializers as "XCHN".
     /// </summary>
     [EnumMember(Value = "XCHN")]
     [IsoId("_bk6yudp-Ed-ak6NoX_4Aeg_1623829633")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges not going through CCP functions.")]
-    NonCCPGuaranteedForecasting,
+    NonCCPGuaranteedForecasting = BalanceTypeCode.NonCCPGuaranteedForecasting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash equivalent of all settled securities transactions.
-    /// Encoded/decoded by serializers as "DefinitiveSettledSecurities".
+    /// Encoded/decoded by serializers as "DSET".
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_blEjsNp-Ed-ak6NoX_4Aeg_1623829695")]
     [Description(@"Balance representing the cash equivalent of all settled securities transactions.")]
-    DefinitiveSettledSecurities,
+    DefinitiveSettledSecurities = BalanceTypeCode.DefinitiveSettledSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash equivalent of transactions with a lack of holdings.
-    /// Encoded/decoded by serializers as "LackOfHoldingsTransactions".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_blEjsdp-Ed-ak6NoX_4Aeg_1623829725")]
     [Description(@"Balance representing the cash equivalent of transactions with a lack of holdings.")]
-    LackOfHoldingsTransactions,
+    LackOfHoldingsTransactions = BalanceTypeCode.LackOfHoldingsTransactions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash equivalent of all non-settled securities transactions.
-    /// Encoded/decoded by serializers as "NonSettledSecurities".
+    /// Encoded/decoded by serializers as "NSET".
     /// </summary>
     [EnumMember(Value = "NSET")]
     [IsoId("_blEjstp-Ed-ak6NoX_4Aeg_1623829787")]
     [Description(@"Balance representing the cash equivalent of all non-settled securities transactions.")]
-    NonSettledSecurities,
+    NonSettledSecurities = BalanceTypeCode.NonSettledSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the Forecast of the total of all cash-legs of transactions 'over the counter' (OTC), going through CCP functions.
-    /// Encoded/decoded by serializers as "CCPGuaranteedOTCTransactions".
+    /// Encoded/decoded by serializers as "OTCC".
     /// </summary>
     [EnumMember(Value = "OTCC")]
     [IsoId("_blEjs9p-Ed-ak6NoX_4Aeg_1623830065")]
     [Description(@"Balance representing the Forecast of the total of all cash-legs of transactions 'over the counter' (OTC), going through CCP functions.")]
-    CCPGuaranteedOTCTransactions,
+    CCPGuaranteedOTCTransactions = BalanceTypeCode.CCPGuaranteedOTCTransactions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC).
-    /// Encoded/decoded by serializers as "ForecastOTCTransactions".
+    /// Encoded/decoded by serializers as "OTCG".
     /// </summary>
     [EnumMember(Value = "OTCG")]
     [IsoId("_blEjtNp-Ed-ak6NoX_4Aeg_1623830095")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC).")]
-    ForecastOTCTransactions,
+    ForecastOTCTransactions = BalanceTypeCode.ForecastOTCTransactions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC) not going through CCP functions.
-    /// Encoded/decoded by serializers as "NonCCPGuaranteedOTCTransactions".
+    /// Encoded/decoded by serializers as "OTCN".
     /// </summary>
     [EnumMember(Value = "OTCN")]
     [IsoId("_blEjtdp-Ed-ak6NoX_4Aeg_1623830157")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC) not going through CCP functions.")]
-    NonCCPGuaranteedOTCTransactions,
+    NonCCPGuaranteedOTCTransactions = BalanceTypeCode.NonCCPGuaranteedOTCTransactions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the settlement account processor direct debit amount.
-    /// Encoded/decoded by serializers as "SAPDirectDebitAmount".
+    /// Encoded/decoded by serializers as "SAPD".
     /// </summary>
     [EnumMember(Value = "SAPD")]
     [IsoId("_blEjttp-Ed-ak6NoX_4Aeg_1623830218")]
     [Description(@"Balance represents the settlement account processor direct debit amount.")]
-    SAPDirectDebitAmount,
+    SAPDirectDebitAmount = BalanceTypeCode.SAPDirectDebitAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the settlement account processor direct credit amount.
-    /// Encoded/decoded by serializers as "SAPDirectCreditAmount".
+    /// Encoded/decoded by serializers as "SAPC".
     /// </summary>
     [EnumMember(Value = "SAPC")]
     [IsoId("_blEjt9p-Ed-ak6NoX_4Aeg_1623830497")]
     [Description(@"Balance represents the settlement account processor direct credit amount.")]
-    SAPDirectCreditAmount,
+    SAPDirectCreditAmount = BalanceTypeCode.SAPDirectCreditAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the total of the central moneymarkets unit processor repo debits.
-    /// Encoded/decoded by serializers as "CMUPRepoDebit".
+    /// Encoded/decoded by serializers as "REPD".
     /// </summary>
     [EnumMember(Value = "REPD")]
     [IsoId("_blEjuNp-Ed-ak6NoX_4Aeg_1623830558")]
     [Description(@"Balance represents the total of the central moneymarkets unit processor repo debits.")]
-    CMUPRepoDebit,
+    CMUPRepoDebit = BalanceTypeCode.CMUPRepoDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the total of the central moneymarkets unit processor repo credits.
-    /// Encoded/decoded by serializers as "CMUPRepoCredit".
+    /// Encoded/decoded by serializers as "REPC".
     /// </summary>
     [EnumMember(Value = "REPC")]
     [IsoId("_blEjudp-Ed-ak6NoX_4Aeg_1623830619")]
     [Description(@"Balance represents the total of the central moneymarkets unit processor repo credits.")]
-    CMUPRepoCredit,
+    CMUPRepoCredit = BalanceTypeCode.CMUPRepoCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the total of the bulk settlement and central moneymarkets unit processor debit.
-    /// Encoded/decoded by serializers as "BulkSettlementCMUPDebit".
+    /// Encoded/decoded by serializers as "BSCD".
     /// </summary>
     [EnumMember(Value = "BSCD")]
     [IsoId("_blEjutp-Ed-ak6NoX_4Aeg_1623830680")]
     [Description(@"Balance represents the total of the bulk settlement and central moneymarkets unit processor debit.")]
-    BulkSettlementCMUPDebit,
+    BulkSettlementCMUPDebit = BalanceTypeCode.BulkSettlementCMUPDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the total of the bulk settlement and central moneymarkets unit processor credit.
-    /// Encoded/decoded by serializers as "BulkSettlementCMUPCredit".
+    /// Encoded/decoded by serializers as "BSCC".
     /// </summary>
     [EnumMember(Value = "BSCC")]
     [IsoId("_blNtoNp-Ed-ak6NoX_4Aeg_1623830711")]
     [Description(@"Balance represents the total of the bulk settlement and central moneymarkets unit processor credit.")]
-    BulkSettlementCMUPCredit,
+    BulkSettlementCMUPCredit = BalanceTypeCode.BulkSettlementCMUPCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the settlement account processor queue amount.
-    /// Encoded/decoded by serializers as "SAPQueueAmount".
+    /// Encoded/decoded by serializers as "SAPP".
     /// </summary>
     [EnumMember(Value = "SAPP")]
     [IsoId("_blNtodp-Ed-ak6NoX_4Aeg_1623830764")]
     [Description(@"Balance represents the settlement account processor queue amount.")]
-    SAPQueueAmount,
+    SAPQueueAmount = BalanceTypeCode.SAPQueueAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the intraday repo limit.
-    /// Encoded/decoded by serializers as "IntradayRepoLimit".
+    /// Encoded/decoded by serializers as "IRLT".
     /// </summary>
     [EnumMember(Value = "IRLT")]
     [IsoId("_blNtotp-Ed-ak6NoX_4Aeg_1623831042")]
     [Description(@"Balance represents the intraday repo limit.")]
-    IntradayRepoLimit,
+    IntradayRepoLimit = BalanceTypeCode.IntradayRepoLimit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the intraday repo drawings.
-    /// Encoded/decoded by serializers as "IntradayRepoDrawings".
+    /// Encoded/decoded by serializers as "IRDR".
     /// </summary>
     [EnumMember(Value = "IRDR")]
     [IsoId("_blNto9p-Ed-ak6NoX_4Aeg_1623831104")]
     [Description(@"Balance represents the intraday repo drawings.")]
-    IntradayRepoDrawings,
+    IntradayRepoDrawings = BalanceTypeCode.IntradayRepoDrawings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the discount window repo drawings.
-    /// Encoded/decoded by serializers as "DiscountWindowRepoDrawings".
+    /// Encoded/decoded by serializers as "DWRD".
     /// </summary>
     [EnumMember(Value = "DWRD")]
     [IsoId("_blNtpNp-Ed-ak6NoX_4Aeg_1624751137")]
     [Description(@"Balance represents the discount window repo drawings.")]
-    DiscountWindowRepoDrawings,
+    DiscountWindowRepoDrawings = BalanceTypeCode.DiscountWindowRepoDrawings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the available discounted market value for discount window repo.
-    /// Encoded/decoded by serializers as "AvailableDMVForDiscountWindowRepo".
+    /// Encoded/decoded by serializers as "ADWR".
     /// </summary>
     [EnumMember(Value = "ADWR")]
     [IsoId("_blNtpdp-Ed-ak6NoX_4Aeg_1624751198")]
     [Description(@"Balance represents the available discounted market value for discount window repo.")]
-    AvailableDMVForDiscountWindowRepo,
+    AvailableDMVForDiscountWindowRepo = BalanceTypeCode.AvailableDMVForDiscountWindowRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance represents the available discounted market value for intraday repo.
-    /// Encoded/decoded by serializers as "AvailableDMVForIntradayRepo".
+    /// Encoded/decoded by serializers as "AIDR".
     /// </summary>
     [EnumMember(Value = "AIDR")]
     [IsoId("_blNtptp-Ed-ak6NoX_4Aeg_1624751259")]
     [Description(@"Balance represents the available discounted market value for intraday repo.")]
-    AvailableDMVForIntradayRepo,
+    AvailableDMVForIntradayRepo = BalanceTypeCode.AvailableDMVForIntradayRepo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -631,7 +631,7 @@ public enum BalanceType10Code
 public static class BalanceType10CodeMetadataExtensions
 {
     private static readonly BalanceType10CodeDropdownSource _dropdownSource = new BalanceType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

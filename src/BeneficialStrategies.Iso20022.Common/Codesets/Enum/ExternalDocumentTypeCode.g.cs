@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_8jvwwJGCEeeBGrZP1w0opg")]
-[Description(@"Specifies the document type as published in an external document type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the document type as published in an external document type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDocumentType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalDocumentTypeCode
 {
     /// <summary>
@@ -183,7 +182,7 @@ public enum ExternalDocumentTypeCode
 public static class ExternalDocumentTypeCodeMetadataExtensions
 {
     private static readonly ExternalDocumentTypeCodeDropdownSource _dropdownSource = new ExternalDocumentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

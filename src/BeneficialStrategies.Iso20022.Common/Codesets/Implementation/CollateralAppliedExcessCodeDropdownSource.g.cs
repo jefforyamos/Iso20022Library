@@ -8,7 +8,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Indicates if the collateral reported is applied or in excess.
-/// 
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="ICollateralAppliedExcessCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>

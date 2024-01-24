@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZsOLstp-Ed-ak6NoX_4Aeg_336258693")]
 [Description(@"A type of quantity of financial instrument expressed in a relative size.")]
 [Derivations(typeof(RelativeSize1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RelativeSizeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum RelativeSizeCode
 public static class RelativeSizeCodeMetadataExtensions
 {
     private static readonly RelativeSizeCodeDropdownSource _dropdownSource = new RelativeSizeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

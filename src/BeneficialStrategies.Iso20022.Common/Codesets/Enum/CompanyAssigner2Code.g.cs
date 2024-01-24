@@ -21,66 +21,66 @@ public enum CompanyAssigner2Code
 {
     /// <summary>
     /// Any relevant association in charge of assigning an identification to a company.
-    /// Encoded/decoded by serializers as "Association".
+    /// Encoded/decoded by serializers as "ASSO".
     /// </summary>
     [EnumMember(Value = "ASSO")]
     [IsoId("_qVBv0WMaEeexSYCBvAp_qA")]
     [Description(@"Any relevant association in charge of assigning an identification to a company.")]
-    Association,
+    Association = CompanyAssignerCode.Association, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal authority assigning an identification to a company (for example, a local, regional or national authority).
-    /// Encoded/decoded by serializers as "Authority".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_qeFlMWMaEeexSYCBvAp_qA")]
     [Description(@"Legal authority assigning an identification to a company (for example, a local, regional or national authority).")]
-    Authority,
+    Authority = CompanyAssignerCode.Authority, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification assigned by the company itself.
-    /// Encoded/decoded by serializers as "Company".
+    /// Encoded/decoded by serializers as "CPNY".
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_qrDqMWMaEeexSYCBvAp_qA")]
     [Description(@"Identification assigned by the company itself.")]
-    Company,
+    Company = CompanyAssignerCode.Company, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal Entity Identifier.
-    /// Encoded/decoded by serializers as "LEI".
+    /// Encoded/decoded by serializers as "LEII".
     /// </summary>
     [EnumMember(Value = "LEII")]
     [IsoId("_q6aU0WMaEeexSYCBvAp_qA")]
     [Description(@"Legal Entity Identifier.")]
-    LEI,
+    LEI = CompanyAssignerCode.LEI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification assigned by a travel agency.
-    /// Encoded/decoded by serializers as "TravelAgency".
+    /// Encoded/decoded by serializers as "TRAG".
     /// </summary>
     [EnumMember(Value = "TRAG")]
     [IsoId("_rC_pEWMaEeexSYCBvAp_qA")]
     [Description(@"Identification assigned by a travel agency.")]
-    TravelAgency,
+    TravelAgency = CompanyAssignerCode.TravelAgency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other company assigner entity defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_9vdIMWMaEeexSYCBvAp_qA")]
     [Description(@"Other company assigner entity defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = CompanyAssignerCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other company assigner entity defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_97L3EWMaEeexSYCBvAp_qA")]
     [Description(@"Other company assigner entity defined at national level.")]
-    OtherNational,
+    OtherNational = CompanyAssignerCode.OtherNational, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CompanyAssigner2Code
 public static class CompanyAssigner2CodeMetadataExtensions
 {
     private static readonly CompanyAssigner2CodeDropdownSource _dropdownSource = new CompanyAssigner2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

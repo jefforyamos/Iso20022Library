@@ -21,12 +21,12 @@ public enum PaymentMethod5Code
 {
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "CreditTransfer".
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_Vr6_Bdp-Ed-ak6NoX_4Aeg_869407428")]
     [Description(@"Transfer of an amount of money in the books of the account servicer.")]
-    CreditTransfer,
+    CreditTransfer = PaymentMethodCode.CreditTransfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PaymentMethod5Code
 public static class PaymentMethod5CodeMetadataExtensions
 {
     private static readonly PaymentMethod5CodeDropdownSource _dropdownSource = new PaymentMethod5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

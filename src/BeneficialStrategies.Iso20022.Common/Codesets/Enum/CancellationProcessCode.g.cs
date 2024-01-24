@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_w2PhkB3nEeKWfegf-2AeBQ")]
 [Description(@"Configuration of the exchanges to perform the cancellation of a payment transaction.")]
 [Derivations(typeof(CancellationProcess1Code),typeof(CancellationProcess2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CancellationProcessCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CancellationProcessCode
 public static class CancellationProcessCodeMetadataExtensions
 {
     private static readonly CancellationProcessCodeDropdownSource _dropdownSource = new CancellationProcessCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

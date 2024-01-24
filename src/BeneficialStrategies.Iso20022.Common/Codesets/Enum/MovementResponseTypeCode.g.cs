@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jQ9Wgu5NEeCisYr99QEiWA_1302753990")]
 [Description(@"Specifies the type of movement response to be returned.")]
 [Derivations(typeof(MovementResponseType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MovementResponseTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MovementResponseTypeCode
 public static class MovementResponseTypeCodeMetadataExtensions
 {
     private static readonly MovementResponseTypeCodeDropdownSource _dropdownSource = new MovementResponseTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

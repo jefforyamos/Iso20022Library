@@ -21,21 +21,21 @@ public enum EventConfirmationStatus1Code
 {
     /// <summary>
     /// Occurrence of the event has been confirmed.
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ajNeEtp-Ed-ak6NoX_4Aeg_-181611544")]
     [Description(@"Occurrence of the event has been confirmed.")]
-    Confirmed,
+    Confirmed = EventConfirmationStatusCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Occurrence of the event has not been confirmed.
-    /// Encoded/decoded by serializers as "Unconfirmed".
+    /// Encoded/decoded by serializers as "UCON".
     /// </summary>
     [EnumMember(Value = "UCON")]
     [IsoId("_ajNeE9p-Ed-ak6NoX_4Aeg_-176071125")]
     [Description(@"Occurrence of the event has not been confirmed.")]
-    Unconfirmed,
+    Unconfirmed = EventConfirmationStatusCode.Unconfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EventConfirmationStatus1Code
 public static class EventConfirmationStatus1CodeMetadataExtensions
 {
     private static readonly EventConfirmationStatus1CodeDropdownSource _dropdownSource = new EventConfirmationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

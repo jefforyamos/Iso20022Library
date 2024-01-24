@@ -21,21 +21,21 @@ public enum OfferorType1Code
 {
     /// <summary>
     /// Offeror is the issuing company.
-    /// Encoded/decoded by serializers as "Self".
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_1pa8ljL3EeKU9IrkkToqcw_2101612018")]
     [Description(@"Offeror is the issuing company.")]
-    Self,
+    Self = OfferorTypeCode.Self, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer is made by the third party.
-    /// Encoded/decoded by serializers as "ThirdParty".
+    /// Encoded/decoded by serializers as "THRD".
     /// </summary>
     [EnumMember(Value = "THRD")]
     [IsoId("_1pktkDL3EeKU9IrkkToqcw_1987772952")]
     [Description(@"Offer is made by the third party.")]
-    ThirdParty,
+    ThirdParty = OfferorTypeCode.ThirdParty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OfferorType1Code
 public static class OfferorType1CodeMetadataExtensions
 {
     private static readonly OfferorType1CodeDropdownSource _dropdownSource = new OfferorType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

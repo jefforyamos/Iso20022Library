@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_mPL1QHk_Eei6J5_ka3EtUg")]
 [Description(@"Indicates the type of payment event.")]
 [Derivations(typeof(TrackerEventType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerEventTypeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum TrackerEventTypeCode
 public static class TrackerEventTypeCodeMetadataExtensions
 {
     private static readonly TrackerEventTypeCodeDropdownSource _dropdownSource = new TrackerEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

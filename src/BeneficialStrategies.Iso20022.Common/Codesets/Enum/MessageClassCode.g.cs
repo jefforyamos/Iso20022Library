@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yUpw0Bs_EeqrvK3udMUsNQ")]
 [Description(@"Identifies a class of messages with the same high level function.")]
 [Derivations(typeof(MessageClass1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MessageClassCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum MessageClassCode
 public static class MessageClassCodeMetadataExtensions
 {
     private static readonly MessageClassCodeDropdownSource _dropdownSource = new MessageClassCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

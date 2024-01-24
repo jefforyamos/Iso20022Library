@@ -21,102 +21,102 @@ public enum FATCAStatus1Code
 {
     /// <summary>
     /// Account holder type is an owner-documented financial institution with specified US owner(s).
-    /// Encoded/decoded by serializers as "FATCA101".
+    /// Encoded/decoded by serializers as "F101".
     /// </summary>
     [EnumMember(Value = "F101")]
     [IsoId("_XFWYwQjUEeS5F6qHcKOrew")]
     [Description(@"Account holder type is an owner-documented financial institution with specified US owner(s).")]
-    FATCA101,
+    FATCA101 = FATCAStatusCode.FATCA101, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a passive non-financial entity with substantial US owner(s).
-    /// Encoded/decoded by serializers as "FATCA102".
+    /// Encoded/decoded by serializers as "F102".
     /// </summary>
     [EnumMember(Value = "F102")]
     [IsoId("_XN1mYQjUEeS5F6qHcKOrew")]
     [Description(@"Account holder type is a passive non-financial entity with substantial US owner(s).")]
-    FATCA102,
+    FATCA102 = FATCAStatusCode.FATCA102, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a non-participating financial institution.
-    /// Encoded/decoded by serializers as "FATCA103".
+    /// Encoded/decoded by serializers as "F103".
     /// </summary>
     [EnumMember(Value = "F103")]
     [IsoId("_XWw44QjUEeS5F6qHcKOrew")]
     [Description(@"Account holder type is a non-participating financial institution.")]
-    FATCA103,
+    FATCA103 = FATCAStatusCode.FATCA103, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a specified US person.
-    /// Encoded/decoded by serializers as "FATCA104".
+    /// Encoded/decoded by serializers as "F104".
     /// </summary>
     [EnumMember(Value = "F104")]
     [IsoId("_XfFucQjUEeS5F6qHcKOrew")]
     [Description(@"Account holder type is a specified US person.")]
-    FATCA104,
+    FATCA104 = FATCAStatusCode.FATCA104, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a direct reporting non-financial foreign entity (NFFE).
-    /// Encoded/decoded by serializers as "FATCA105".
+    /// Encoded/decoded by serializers as "F105".
     /// </summary>
     [EnumMember(Value = "F105")]
     [IsoId("_Xnk8EQjUEeS5F6qHcKOrew")]
     [Description(@"Account holder type is a direct reporting non-financial foreign entity (NFFE).")]
-    FATCA105,
+    FATCA105 = FATCAStatusCode.FATCA105, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is a recalcitrant account holder with US indicia.
-    /// Encoded/decoded by serializers as "FATCA201".
+    /// Encoded/decoded by serializers as "F201".
     /// </summary>
     [EnumMember(Value = "F201")]
     [IsoId("_Xv5xoQjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is a recalcitrant account holder with US indicia.")]
-    FATCA201,
+    FATCA201 = FATCAStatusCode.FATCA201, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is a recalcitrant account holder without US indicia.
-    /// Encoded/decoded by serializers as "FATCA202".
+    /// Encoded/decoded by serializers as "F202".
     /// </summary>
     [EnumMember(Value = "F202")]
     [IsoId("_X4POQQjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is a recalcitrant account holder without US indicia.")]
-    FATCA202,
+    FATCA202 = FATCAStatusCode.FATCA202, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is a dormant account.
-    /// Encoded/decoded by serializers as "FATCA203".
+    /// Encoded/decoded by serializers as "F203".
     /// </summary>
     [EnumMember(Value = "F203")]
     [IsoId("_YAt00QjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is a dormant account.")]
-    FATCA203,
+    FATCA203 = FATCAStatusCode.FATCA203, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is a non-participating foreign financial institution.
-    /// Encoded/decoded by serializers as "FATCA204".
+    /// Encoded/decoded by serializers as "F204".
     /// </summary>
     [EnumMember(Value = "F204")]
     [IsoId("_YDjGYQjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is a non-participating foreign financial institution.")]
-    FATCA204,
+    FATCA204 = FATCAStatusCode.FATCA204, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is a recalcitrant account holder that is a US person.
-    /// Encoded/decoded by serializers as "FATCA205".
+    /// Encoded/decoded by serializers as "F205".
     /// </summary>
     [EnumMember(Value = "F205")]
     [IsoId("_YL378QjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is a recalcitrant account holder that is a US person.")]
-    FATCA205,
+    FATCA205 = FATCAStatusCode.FATCA205, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account pool reporting type is recalcitrant account holder that is a passive non-financial foreign entity (NFFE).
-    /// Encoded/decoded by serializers as "FATCA206".
+    /// Encoded/decoded by serializers as "F206".
     /// </summary>
     [EnumMember(Value = "F206")]
     [IsoId("_YUWigQjUEeS5F6qHcKOrew")]
     [Description(@"Account pool reporting type is recalcitrant account holder that is a passive non-financial foreign entity (NFFE).")]
-    FATCA206,
+    FATCA206 = FATCAStatusCode.FATCA206, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum FATCAStatus1Code
 public static class FATCAStatus1CodeMetadataExtensions
 {
     private static readonly FATCAStatus1CodeDropdownSource _dropdownSource = new FATCAStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

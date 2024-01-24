@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_uQUrMHykEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the undertaking status.")]
 [Derivations(typeof(UndertakingStatus1Code),typeof(UndertakingStatus2Code),typeof(UndertakingStatus3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UndertakingStatusCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum UndertakingStatusCode
 public static class UndertakingStatusCodeMetadataExtensions
 {
     private static readonly UndertakingStatusCodeDropdownSource _dropdownSource = new UndertakingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

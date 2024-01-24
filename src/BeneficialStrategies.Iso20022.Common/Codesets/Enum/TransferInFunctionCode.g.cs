@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cP0N0CVNEeWI0orciOKunQ")]
 [Description(@"Specifies the function of the transfer in.")]
 [Derivations(typeof(TransferInFunction1Code),typeof(TransferInFunction2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransferInFunctionCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TransferInFunctionCode
 public static class TransferInFunctionCodeMetadataExtensions
 {
     private static readonly TransferInFunctionCodeDropdownSource _dropdownSource = new TransferInFunctionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

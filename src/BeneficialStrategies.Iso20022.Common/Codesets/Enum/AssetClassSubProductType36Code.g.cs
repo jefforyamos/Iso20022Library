@@ -21,12 +21,12 @@ public enum AssetClassSubProductType36Code
 {
     /// <summary>
     /// Commodity of type newsprint.
-    /// Encoded/decoded by serializers as "Newsprint".
+    /// Encoded/decoded by serializers as "NSPT".
     /// </summary>
     [EnumMember(Value = "NSPT")]
     [IsoId("_uxcls1ryEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type newsprint.")]
-    Newsprint,
+    Newsprint = AssetClassSubProductTypeCode.Newsprint, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType36Code
 public static class AssetClassSubProductType36CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType36CodeDropdownSource _dropdownSource = new AssetClassSubProductType36CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CancellationProcess1Code
 {
     /// <summary>
     /// Card payment transaction may be cancelled by an advice only before closure of the reconciliation period or before the capture by batch.
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVC".
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_YZnlMR3oEeKWfegf-2AeBQ")]
     [Description(@"Card payment transaction may be cancelled by an advice only before closure of the reconciliation period or before the capture by batch.")]
-    Advice,
+    Advice = CancellationProcessCode.Advice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment transaction cannot be cancelled by the acquirer.
-    /// Encoded/decoded by serializers as "NotAllowed".
+    /// Encoded/decoded by serializers as "NALW".
     /// </summary>
     [EnumMember(Value = "NALW")]
     [IsoId("_YiP8wR3oEeKWfegf-2AeBQ")]
     [Description(@"Card payment transaction cannot be cancelled by the acquirer.")]
-    NotAllowed,
+    NotAllowed = CancellationProcessCode.NotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment transaction may also be cancelled after the closure of the reconciliation period or after the capture by batch. In this case a cancellation request exchange is required.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_Yo8aoR3oEeKWfegf-2AeBQ")]
     [Description(@"Card payment transaction may also be cancelled after the closure of the reconciliation period or after the capture by batch. In this case a cancellation request exchange is required.")]
-    Request,
+    Request = CancellationProcessCode.Request, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CancellationProcess1Code
 public static class CancellationProcess1CodeMetadataExtensions
 {
     private static readonly CancellationProcess1CodeDropdownSource _dropdownSource = new CancellationProcess1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

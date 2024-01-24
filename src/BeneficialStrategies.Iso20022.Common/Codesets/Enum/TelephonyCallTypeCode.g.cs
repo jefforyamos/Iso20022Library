@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__R_VYPfFEei89sMSHxl1ew")]
 [Description(@"Indicates the call type")]
 [Derivations(typeof(TelephonyCallType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TelephonyCallTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum TelephonyCallTypeCode
 public static class TelephonyCallTypeCodeMetadataExtensions
 {
     private static readonly TelephonyCallTypeCodeDropdownSource _dropdownSource = new TelephonyCallTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

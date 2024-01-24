@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Wl2EAGpVEeSR-ZWLvO-1dg")]
 [Description(@"Type of communication network.")]
 [Derivations(typeof(NetworkType1Code),typeof(NetworkType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NetworkTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum NetworkTypeCode
 public static class NetworkTypeCodeMetadataExtensions
 {
     private static readonly NetworkTypeCodeDropdownSource _dropdownSource = new NetworkTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum CustomerAssigner1Code
 {
     /// <summary>
     /// Legal authority assigning an identification.
-    /// Encoded/decoded by serializers as "Authority".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_Vb-ykVyyEeeve7Je9cXtkQ")]
     [Description(@"Legal authority assigning an identification.")]
-    Authority,
+    Authority = CustomerAssignerCode.Authority, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Company assigning an identification to a customer.
-    /// Encoded/decoded by serializers as "Company".
+    /// Encoded/decoded by serializers as "CRCY".
     /// </summary>
     [EnumMember(Value = "CRCY")]
     [IsoId("_Vnk-klyyEeeve7Je9cXtkQ")]
     [Description(@"Company assigning an identification to a customer.")]
-    Company,
+    Company = CustomerAssignerCode.Company, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Company for which the customer is on duty.
-    /// Encoded/decoded by serializers as "Customer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_V-C90VyyEeeve7Je9cXtkQ")]
     [Description(@"Company for which the customer is on duty.")]
-    Customer,
+    Customer = CustomerAssignerCode.Customer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On file identification.
-    /// Encoded/decoded by serializers as "OnFile".
+    /// Encoded/decoded by serializers as "ONFL".
     /// </summary>
     [EnumMember(Value = "ONFL")]
     [IsoId("_WMVRclyyEeeve7Je9cXtkQ")]
     [Description(@"On file identification.")]
-    OnFile,
+    OnFile = CustomerAssignerCode.OnFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other party assigning an identification.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_WZHwQlyyEeeve7Je9cXtkQ")]
     [Description(@"Other party assigning an identification.")]
-    Other,
+    Other = CustomerAssignerCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Travel agency assigning an identification.
-    /// Encoded/decoded by serializers as "TravelAgency".
+    /// Encoded/decoded by serializers as "TRAY".
     /// </summary>
     [EnumMember(Value = "TRAY")]
     [IsoId("_WkujUlyyEeeve7Je9cXtkQ")]
     [Description(@"Travel agency assigning an identification.")]
-    TravelAgency,
+    TravelAgency = CustomerAssignerCode.TravelAgency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum CustomerAssigner1Code
 public static class CustomerAssigner1CodeMetadataExtensions
 {
     private static readonly CustomerAssigner1CodeDropdownSource _dropdownSource = new CustomerAssigner1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aUJuZ9p-Ed-ak6NoX_4Aeg_1950929666")]
 [Description(@"Specifies the type of margin.")]
 [Derivations(typeof(RemarketingMarginType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RemarketingMarginTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RemarketingMarginTypeCode
 public static class RemarketingMarginTypeCodeMetadataExtensions
 {
     private static readonly RemarketingMarginTypeCodeDropdownSource _dropdownSource = new RemarketingMarginTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

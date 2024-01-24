@@ -16,27 +16,27 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_cjg1wQtKEeWkxvNyFrBT8Q")]
-[Description(@"Specifies a contract balance type code, as published in the external ISO 20022 external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies a contract balance type code, as published in the external ISO 20022 external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalContractBalanceTypeCode))]
 public enum ExternalContractBalanceType1Code
 {
     /// <summary>
     /// Revolver loan current utilisation (applicable on loan contracts types)
-    /// Encoded/decoded by serializers as "CurrentUtilisation".
+    /// Encoded/decoded by serializers as "EXPC".
     /// </summary>
     [EnumMember(Value = "EXPC")]
     [IsoId("_uUDndfRYEeuLhpyIdtJzwg")]
     [Description(@"Revolver loan current utilisation (applicable on loan contracts types)")]
-    CurrentUtilisation,
+    CurrentUtilisation = ExternalContractBalanceTypeCode.CurrentUtilisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)
-    /// Encoded/decoded by serializers as "TotalUtilisation".
+    /// Encoded/decoded by serializers as "EXPT".
     /// </summary>
     [EnumMember(Value = "EXPT")]
     [IsoId("_uUDnePRYEeuLhpyIdtJzwg")]
     [Description(@"Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)")]
-    TotalUtilisation,
+    TotalUtilisation = ExternalContractBalanceTypeCode.TotalUtilisation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +47,7 @@ public enum ExternalContractBalanceType1Code
 public static class ExternalContractBalanceType1CodeMetadataExtensions
 {
     private static readonly ExternalContractBalanceType1CodeDropdownSource _dropdownSource = new ExternalContractBalanceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

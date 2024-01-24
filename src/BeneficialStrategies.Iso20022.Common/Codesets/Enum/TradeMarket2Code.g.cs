@@ -21,21 +21,21 @@ public enum TradeMarket2Code
 {
     /// <summary>
     /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "Domestic".
+    /// Encoded/decoded by serializers as "DMST".
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_pKLSwZhyEeumhIk_Pv20Lg")]
     [Description(@"Transaction has an origin and a destination in the same country and is made in the currency of that country.")]
-    Domestic,
+    Domestic = TradeMarketCode.Domestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "Foreign".
+    /// Encoded/decoded by serializers as "FRGN".
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_pRn-kZhyEeumhIk_Pv20Lg")]
     [Description(@"Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
-    Foreign,
+    Foreign = TradeMarketCode.Foreign, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradeMarket2Code
 public static class TradeMarket2CodeMetadataExtensions
 {
     private static readonly TradeMarket2CodeDropdownSource _dropdownSource = new TradeMarket2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

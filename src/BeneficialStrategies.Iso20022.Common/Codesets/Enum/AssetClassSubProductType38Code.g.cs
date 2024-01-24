@@ -21,12 +21,12 @@ public enum AssetClassSubProductType38Code
 {
     /// <summary>
     /// Commodity of type recovered paper.
-    /// Encoded/decoded by serializers as "RecoveredPaper".
+    /// Encoded/decoded by serializers as "RCVP".
     /// </summary>
     [EnumMember(Value = "RCVP")]
     [IsoId("_9VZXV1ryEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type recovered paper.")]
-    RecoveredPaper,
+    RecoveredPaper = AssetClassSubProductTypeCode.RecoveredPaper, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType38Code
 public static class AssetClassSubProductType38CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType38CodeDropdownSource _dropdownSource = new AssetClassSubProductType38CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

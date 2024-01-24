@@ -21,30 +21,30 @@ public enum InstructionCancellationReason1Code
 {
     /// <summary>
     /// Instruction has been cancelled as per your request.
-    /// Encoded/decoded by serializers as "CancelledByYourselves".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_aXIw8dp-Ed-ak6NoX_4Aeg_-339028661")]
     [Description(@"Instruction has been cancelled as per your request.")]
-    CancelledByYourselves,
+    CancelledByYourselves = InstructionCancellationReasonCode.CancelledByYourselves, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled by the settlement system.
-    /// Encoded/decoded by serializers as "CancelledBySystem".
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_aXIw8tp-Ed-ak6NoX_4Aeg_-339028630")]
     [Description(@"Instruction has been cancelled by the settlement system.")]
-    CancelledBySystem,
+    CancelledBySystem = InstructionCancellationReasonCode.CancelledBySystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled by the agent.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_aXIw89p-Ed-ak6NoX_4Aeg_-339028569")]
     [Description(@"Instruction has been cancelled by the agent.")]
-    CancelledByAgent,
+    CancelledByAgent = InstructionCancellationReasonCode.CancelledByAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InstructionCancellationReason1Code
 public static class InstructionCancellationReason1CodeMetadataExtensions
 {
     private static readonly InstructionCancellationReason1CodeDropdownSource _dropdownSource = new InstructionCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

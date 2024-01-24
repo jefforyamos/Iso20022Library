@@ -21,48 +21,48 @@ public enum DiscountType1Code
 {
     /// <summary>
     /// Quantity discount.
-    /// Encoded/decoded by serializers as "QuantityDiscount".
+    /// Encoded/decoded by serializers as "QUAN".
     /// </summary>
     [EnumMember(Value = "QUAN")]
     [IsoId("_TQ3_sQEcEeCQm6a_G2yO_w_1171814968")]
     [Description(@"Quantity discount.")]
-    QuantityDiscount,
+    QuantityDiscount = DiscountTypeCode.QuantityDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Promotional discount.
-    /// Encoded/decoded by serializers as "PromotionalDiscount".
+    /// Encoded/decoded by serializers as "PROM".
     /// </summary>
     [EnumMember(Value = "PROM")]
     [IsoId("_TQ3_sgEcEeCQm6a_G2yO_w_-1656003565")]
     [Description(@"Promotional discount.")]
-    PromotionalDiscount,
+    PromotionalDiscount = DiscountTypeCode.PromotionalDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pricing discount.
-    /// Encoded/decoded by serializers as "PricingDiscount".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_TQ3_swEcEeCQm6a_G2yO_w_1625902237")]
     [Description(@"Pricing discount.")]
-    PricingDiscount,
+    PricingDiscount = DiscountTypeCode.PricingDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Special agreement discount.
-    /// Encoded/decoded by serializers as "SpecialAgreementDiscount".
+    /// Encoded/decoded by serializers as "SPAG".
     /// </summary>
     [EnumMember(Value = "SPAG")]
     [IsoId("_TQ3_tAEcEeCQm6a_G2yO_w_-1201916296")]
     [Description(@"Special agreement discount.")]
-    SpecialAgreementDiscount,
+    SpecialAgreementDiscount = DiscountTypeCode.SpecialAgreementDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// End-of-range discount.
-    /// Encoded/decoded by serializers as "EndOfRangeDiscount".
+    /// Encoded/decoded by serializers as "ENOR".
     /// </summary>
     [EnumMember(Value = "ENOR")]
     [IsoId("_TQ3_tQEcEeCQm6a_G2yO_w_1614803460")]
     [Description(@"End-of-range discount.")]
-    EndOfRangeDiscount,
+    EndOfRangeDiscount = DiscountTypeCode.EndOfRangeDiscount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum DiscountType1Code
 public static class DiscountType1CodeMetadataExtensions
 {
     private static readonly DiscountType1CodeDropdownSource _dropdownSource = new DiscountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

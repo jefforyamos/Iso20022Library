@@ -21,84 +21,84 @@ public enum MessageClass1Code
 {
     /// <summary>
     /// Addendum class of messages.
-    /// Encoded/decoded by serializers as "Addendum".
+    /// Encoded/decoded by serializers as "ADDE".
     /// </summary>
     [EnumMember(Value = "ADDE")]
     [IsoId("_MJCC8RtCEeqrvK3udMUsNQ")]
     [Description(@"Addendum class of messages.")]
-    Addendum,
+    Addendum = MessageClassCode.Addendum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amendment class of messages.
-    /// Encoded/decoded by serializers as "Amendment".
+    /// Encoded/decoded by serializers as "AMDT".
     /// </summary>
     [EnumMember(Value = "AMDT")]
     [IsoId("_MUMKERtCEeqrvK3udMUsNQ")]
     [Description(@"Amendment class of messages.")]
-    Amendment,
+    Amendment = MessageClassCode.Amendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authorisation class of messages.
-    /// Encoded/decoded by serializers as "Authorisation".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_Mfy9IRtCEeqrvK3udMUsNQ")]
     [Description(@"Authorisation class of messages.")]
-    Authorisation,
+    Authorisation = MessageClassCode.Authorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card management class of messages.
-    /// Encoded/decoded by serializers as "CardManagement".
+    /// Encoded/decoded by serializers as "CMGT".
     /// </summary>
     [EnumMember(Value = "CMGT")]
     [IsoId("_M3wKIRtCEeqrvK3udMUsNQ")]
     [Description(@"Card management class of messages.")]
-    CardManagement,
+    CardManagement = MessageClassCode.CardManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge back class of messages.
-    /// Encoded/decoded by serializers as "ChargeBack".
+    /// Encoded/decoded by serializers as "CBCK".
     /// </summary>
     [EnumMember(Value = "CBCK")]
     [IsoId("_NDgHIRtCEeqrvK3udMUsNQ")]
     [Description(@"Charge back class of messages.")]
-    ChargeBack,
+    ChargeBack = MessageClassCode.ChargeBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee collection class of messages.
-    /// Encoded/decoded by serializers as "FeeCollection".
+    /// Encoded/decoded by serializers as "FEEC".
     /// </summary>
     [EnumMember(Value = "FEEC")]
     [IsoId("_NJmvIRtCEeqrvK3udMUsNQ")]
     [Description(@"Fee collection class of messages.")]
-    FeeCollection,
+    FeeCollection = MessageClassCode.FeeCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial class of messages.
-    /// Encoded/decoded by serializers as "Financial".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_NPQrMRtCEeqrvK3udMUsNQ")]
     [Description(@"Financial class of messages.")]
-    Financial,
+    Financial = MessageClassCode.Financial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inquiry class of messages.
-    /// Encoded/decoded by serializers as "Inquiry".
+    /// Encoded/decoded by serializers as "INQY".
     /// </summary>
     [EnumMember(Value = "INQY")]
     [IsoId("_NbTjIRtCEeqrvK3udMUsNQ")]
     [Description(@"Inquiry class of messages.")]
-    Inquiry,
+    Inquiry = MessageClassCode.Inquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification class of messages.
-    /// Encoded/decoded by serializers as "Verification".
+    /// Encoded/decoded by serializers as "VERI".
     /// </summary>
     [EnumMember(Value = "VERI")]
     [IsoId("_NjCi0RtCEeqrvK3udMUsNQ")]
     [Description(@"Verification class of messages.")]
-    Verification,
+    Verification = MessageClassCode.Verification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum MessageClass1Code
 public static class MessageClass1CodeMetadataExtensions
 {
     private static readonly MessageClass1CodeDropdownSource _dropdownSource = new MessageClass1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

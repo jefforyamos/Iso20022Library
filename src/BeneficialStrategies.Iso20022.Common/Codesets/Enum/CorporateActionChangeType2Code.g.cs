@@ -21,93 +21,93 @@ public enum CorporateActionChangeType2Code
 {
     /// <summary>
     /// Change from bearer into registered form.
-    /// Encoded/decoded by serializers as "BearToRegistered".
+    /// Encoded/decoded by serializers as "BERE".
     /// </summary>
     [EnumMember(Value = "BERE")]
     [IsoId("_bC8uFdp-Ed-ak6NoX_4Aeg_-1895645691")]
     [Description(@"Change from bearer into registered form.")]
-    BearToRegistered,
+    BearToRegistered = CorporateActionChangeTypeCode.BearToRegistered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change of all instruments into certificates.
-    /// Encoded/decoded by serializers as "Certificates".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_bC8uFtp-Ed-ak6NoX_4Aeg_-1895645690")]
     [Description(@"Change of all instruments into certificates.")]
-    Certificates,
+    Certificates = CorporateActionChangeTypeCode.Certificates, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from dematerialised into physical form.
-    /// Encoded/decoded by serializers as "DematerialisedToPhysical".
+    /// Encoded/decoded by serializers as "DEPH".
     /// </summary>
     [EnumMember(Value = "DEPH")]
     [IsoId("_bC8uF9p-Ed-ak6NoX_4Aeg_-1895645689")]
     [Description(@"Change from dematerialised into physical form.")]
-    DematerialisedToPhysical,
+    DematerialisedToPhysical = CorporateActionChangeTypeCode.DematerialisedToPhysical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from global permanent to physical form.
-    /// Encoded/decoded by serializers as "GlobalPermanentToPhysical".
+    /// Encoded/decoded by serializers as "GPPH".
     /// </summary>
     [EnumMember(Value = "GPPH")]
     [IsoId("_bC8uGNp-Ed-ak6NoX_4Aeg_-1895645674")]
     [Description(@"Change from global permanent to physical form.")]
-    GlobalPermanentToPhysical,
+    GlobalPermanentToPhysical = CorporateActionChangeTypeCode.GlobalPermanentToPhysical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from global temporary to global permanent form.
-    /// Encoded/decoded by serializers as "GlobalTemporaryToGlobalPermanent".
+    /// Encoded/decoded by serializers as "GTGP".
     /// </summary>
     [EnumMember(Value = "GTGP")]
     [IsoId("_bC8uGdp-Ed-ak6NoX_4Aeg_-1895645673")]
     [Description(@"Change from global temporary to global permanent form.")]
-    GlobalTemporaryToGlobalPermanent,
+    GlobalTemporaryToGlobalPermanent = CorporateActionChangeTypeCode.GlobalTemporaryToGlobalPermanent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from global temporary to physical form.
-    /// Encoded/decoded by serializers as "GlobalTemporaryToPhysical".
+    /// Encoded/decoded by serializers as "GTPH".
     /// </summary>
     [EnumMember(Value = "GTPH")]
     [IsoId("_bDF4ANp-Ed-ak6NoX_4Aeg_-1895645656")]
     [Description(@"Change from global temporary to physical form.")]
-    GlobalTemporaryToPhysical,
+    GlobalTemporaryToPhysical = CorporateActionChangeTypeCode.GlobalTemporaryToPhysical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.
-    /// Encoded/decoded by serializers as "Name".
+    /// Encoded/decoded by serializers as "NAME".
     /// </summary>
     [EnumMember(Value = "NAME")]
     [IsoId("_bDF4Adp-Ed-ak6NoX_4Aeg_-1895645655")]
     [Description(@"The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.")]
-    Name,
+    Name = CorporateActionChangeTypeCode.Name, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from physical into dematerialised form.
-    /// Encoded/decoded by serializers as "PhysicalToDematerialised".
+    /// Encoded/decoded by serializers as "PHDE".
     /// </summary>
     [EnumMember(Value = "PHDE")]
     [IsoId("_bDF4Atp-Ed-ak6NoX_4Aeg_-1895645639")]
     [Description(@"Change from physical into dematerialised form.")]
-    PhysicalToDematerialised,
+    PhysicalToDematerialised = CorporateActionChangeTypeCode.PhysicalToDematerialised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change from registered into bearer form.
-    /// Encoded/decoded by serializers as "RegisteredToBearer".
+    /// Encoded/decoded by serializers as "REBE".
     /// </summary>
     [EnumMember(Value = "REBE")]
     [IsoId("_bDF4A9p-Ed-ak6NoX_4Aeg_-1895645621")]
     [Description(@"Change from registered into bearer form.")]
-    RegisteredToBearer,
+    RegisteredToBearer = CorporateActionChangeTypeCode.RegisteredToBearer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change in the terms of the security.
-    /// Encoded/decoded by serializers as "Terms".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_bDF4BNp-Ed-ak6NoX_4Aeg_-1895645613")]
     [Description(@"Change in the terms of the security.")]
-    Terms,
+    Terms = CorporateActionChangeTypeCode.Terms, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum CorporateActionChangeType2Code
 public static class CorporateActionChangeType2CodeMetadataExtensions
 {
     private static readonly CorporateActionChangeType2CodeDropdownSource _dropdownSource = new CorporateActionChangeType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

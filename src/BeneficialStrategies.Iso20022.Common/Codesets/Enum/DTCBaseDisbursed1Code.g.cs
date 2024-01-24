@@ -21,21 +21,21 @@ public enum DTCBaseDisbursed1Code
 {
     /// <summary>
     /// Based on base security.
-    /// Encoded/decoded by serializers as "Base".
+    /// Encoded/decoded by serializers as "BASE".
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_1qBZhDL3EeKU9IrkkToqcw_-1482681313")]
     [Description(@"Based on base security.")]
-    Base,
+    Base = DTCBaseDisbursedCode.Base, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Based on disbursed security.
-    /// Encoded/decoded by serializers as "Disbursed".
+    /// Encoded/decoded by serializers as "DISB".
     /// </summary>
     [EnumMember(Value = "DISB")]
     [IsoId("_1qBZhTL3EeKU9IrkkToqcw_-1596520379")]
     [Description(@"Based on disbursed security.")]
-    Disbursed,
+    Disbursed = DTCBaseDisbursedCode.Disbursed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCBaseDisbursed1Code
 public static class DTCBaseDisbursed1CodeMetadataExtensions
 {
     private static readonly DTCBaseDisbursed1CodeDropdownSource _dropdownSource = new DTCBaseDisbursed1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y8FvRNp-Ed-ak6NoX_4Aeg_-12808488")]
 [Description(@"Specifies the reason the transaction, transfer or settlement instruction is unmatched.")]
 [Derivations(typeof(TransferUnmatchedReason1Code),typeof(TransferUnmatchedReason2Code),typeof(TransferUnmatchedReason3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransferUnmatchedReasonCode
 {
     /// <summary>
@@ -371,7 +370,7 @@ public enum TransferUnmatchedReasonCode
 public static class TransferUnmatchedReasonCodeMetadataExtensions
 {
     private static readonly TransferUnmatchedReasonCodeDropdownSource _dropdownSource = new TransferUnmatchedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

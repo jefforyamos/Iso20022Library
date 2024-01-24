@@ -17,180 +17,180 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_5xnW4DooEeOr__K5A0LSog")]
-[Description(@"Specifies the external market code, to which the instruction, operation or report relates, in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code set published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external market code, to which the instruction, operation or report relates, in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalMarketAreaCode))]
 public enum ExternalMarketArea1Code
 {
     /// <summary>
     /// Any market area.
-    /// Encoded/decoded by serializers as "Any".
+    /// Encoded/decoded by serializers as "ANYY".
     /// </summary>
     [EnumMember(Value = "ANYY")]
     [IsoId("_uUMxZfRYEeuLhpyIdtJzwg")]
     [Description(@"Any market area.")]
-    Any,
+    Any = ExternalMarketAreaCode.Any, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank to bank cash movements.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_uUMxaPRYEeuLhpyIdtJzwg")]
     [Description(@"Bank to bank cash movements.")]
-    Cash,
+    Cash = ExternalMarketAreaCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collections.
-    /// Encoded/decoded by serializers as "Collections".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_uUMxa_RYEeuLhpyIdtJzwg")]
     [Description(@"Collections.")]
-    Collections,
+    Collections = ExternalMarketAreaCode.Collections, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Precious metals and other commodities such as palm oil.
-    /// Encoded/decoded by serializers as "Commodities".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uUWiYvRYEeuLhpyIdtJzwg")]
     [Description(@"Precious metals and other commodities such as palm oil.")]
-    Commodities,
+    Commodities = ExternalMarketAreaCode.Commodities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment in which one of the parties is not a financial institution.
-    /// Encoded/decoded by serializers as "CommercialPayments".
+    /// Encoded/decoded by serializers as "COPA".
     /// </summary>
     [EnumMember(Value = "COPA")]
     [IsoId("_uUWiZfRYEeuLhpyIdtJzwg")]
     [Description(@"Payment in which one of the parties is not a financial institution.")]
-    CommercialPayments,
+    CommercialPayments = ExternalMarketAreaCode.CommercialPayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Futures contracts, options, forward contracts, swaps, etc...
-    /// Encoded/decoded by serializers as "Derivatives".
+    /// Encoded/decoded by serializers as "DERI".
     /// </summary>
     [EnumMember(Value = "DERI")]
     [IsoId("_uUgTYvRYEeuLhpyIdtJzwg")]
     [Description(@"Futures contracts, options, forward contracts, swaps, etc...")]
-    Derivatives,
+    Derivatives = ExternalMarketAreaCode.Derivatives, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Documentary credits.
-    /// Encoded/decoded by serializers as "DocumentaryCredits".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_uUgTZfRYEeuLhpyIdtJzwg")]
     [Description(@"Documentary credits.")]
-    DocumentaryCredits,
+    DocumentaryCredits = ExternalMarketAreaCode.DocumentaryCredits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Foreign exchange.
-    /// Encoded/decoded by serializers as "ForeignExchange".
+    /// Encoded/decoded by serializers as "FOEX".
     /// </summary>
     [EnumMember(Value = "FOEX")]
     [IsoId("_uUgTaPRYEeuLhpyIdtJzwg")]
     [Description(@"Foreign exchange.")]
-    ForeignExchange,
+    ForeignExchange = ExternalMarketAreaCode.ForeignExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Guarantees.
-    /// Encoded/decoded by serializers as "Guarantees".
+    /// Encoded/decoded by serializers as "GUAR".
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_uUgTa_RYEeuLhpyIdtJzwg")]
     [Description(@"Guarantees.")]
-    Guarantees,
+    Guarantees = ExternalMarketAreaCode.Guarantees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Letters of credit.
-    /// Encoded/decoded by serializers as "LettersOfCredit".
+    /// Encoded/decoded by serializers as "LETT".
     /// </summary>
     [EnumMember(Value = "LETT")]
     [IsoId("_uUpdUvRYEeuLhpyIdtJzwg")]
     [Description(@"Letters of credit.")]
-    LettersOfCredit,
+    LettersOfCredit = ExternalMarketAreaCode.LettersOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Loans and deposits.
-    /// Encoded/decoded by serializers as "Loans".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_uUpdVfRYEeuLhpyIdtJzwg")]
     [Description(@"Loans and deposits.")]
-    Loans,
+    Loans = ExternalMarketAreaCode.Loans, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Money markets.
-    /// Encoded/decoded by serializers as "MoneyMarkets".
+    /// Encoded/decoded by serializers as "MMKT".
     /// </summary>
     [EnumMember(Value = "MMKT")]
     [IsoId("_uUpdWPRYEeuLhpyIdtJzwg")]
     [Description(@"Money markets.")]
-    MoneyMarkets,
+    MoneyMarkets = ExternalMarketAreaCode.MoneyMarkets, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FX forward trade for which only balance is settled.
-    /// Encoded/decoded by serializers as "NonDeliverableForward".
+    /// Encoded/decoded by serializers as "NDLF".
     /// </summary>
     [EnumMember(Value = "NDLF")]
     [IsoId("_uUpdW_RYEeuLhpyIdtJzwg")]
     [Description(@"FX forward trade for which only balance is settled.")]
-    NonDeliverableForward,
+    NonDeliverableForward = ExternalMarketAreaCode.NonDeliverableForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offshore settlement.
-    /// Encoded/decoded by serializers as "Offshore".
+    /// Encoded/decoded by serializers as "OFFS".
     /// </summary>
     [EnumMember(Value = "OFFS")]
     [IsoId("_uUpdXvRYEeuLhpyIdtJzwg")]
     [Description(@"Offshore settlement.")]
-    Offshore,
+    Offshore = ExternalMarketAreaCode.Offshore, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Onshore settlement.
-    /// Encoded/decoded by serializers as "Onshore".
+    /// Encoded/decoded by serializers as "ONSH".
     /// </summary>
     [EnumMember(Value = "ONSH")]
     [IsoId("_uUzOUvRYEeuLhpyIdtJzwg")]
     [Description(@"Onshore settlement.")]
-    Onshore,
+    Onshore = ExternalMarketAreaCode.Onshore, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FX Options, swap options, etc...
-    /// Encoded/decoded by serializers as "Options".
+    /// Encoded/decoded by serializers as "OPTI".
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_uUzOVfRYEeuLhpyIdtJzwg")]
     [Description(@"FX Options, swap options, etc...")]
-    Options,
+    Options = ExternalMarketAreaCode.Options, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bonds, equities, futures...
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_uUzOWPRYEeuLhpyIdtJzwg")]
     [Description(@"Bonds, equities, futures...")]
-    Securities,
+    Securities = ExternalMarketAreaCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Documentary credits, collections, guarantees, letters of credit.
-    /// Encoded/decoded by serializers as "TradeFinance".
+    /// Encoded/decoded by serializers as "TFIN".
     /// </summary>
     [EnumMember(Value = "TFIN")]
     [IsoId("_uUzOW_RYEeuLhpyIdtJzwg")]
     [Description(@"Documentary credits, collections, guarantees, letters of credit.")]
-    TradeFinance,
+    TradeFinance = ExternalMarketAreaCode.TradeFinance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash management activities.
-    /// Encoded/decoded by serializers as "Treasury".
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_uU8YQvRYEeuLhpyIdtJzwg")]
     [Description(@"Cash management activities.")]
-    Treasury,
+    Treasury = ExternalMarketAreaCode.Treasury, // same ordinal as derivation source for type conversions
     
 }
 
@@ -201,7 +201,7 @@ public enum ExternalMarketArea1Code
 public static class ExternalMarketArea1CodeMetadataExtensions
 {
     private static readonly ExternalMarketArea1CodeDropdownSource _dropdownSource = new ExternalMarketArea1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

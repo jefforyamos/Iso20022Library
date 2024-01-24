@@ -21,30 +21,30 @@ public enum AssetClassSubProductFreight1Code
 {
     /// <summary>
     /// Commodity of type dry freight.
-    /// Encoded/decoded by serializers as "Dry".
+    /// Encoded/decoded by serializers as "DRYF".
     /// </summary>
     [EnumMember(Value = "DRYF")]
     [IsoId("_pxgg4UDbEeWOL-OsSq2h6w")]
     [Description(@"Commodity of type dry freight.")]
-    Dry,
+    Dry = AssetClassSubProductTypeCode.Dry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type wet freight.
-    /// Encoded/decoded by serializers as "Wet".
+    /// Encoded/decoded by serializers as "WETF".
     /// </summary>
     [EnumMember(Value = "WETF")]
     [IsoId("_q4LOAUDbEeWOL-OsSq2h6w")]
     [Description(@"Commodity of type wet freight.")]
-    Wet,
+    Wet = AssetClassSubProductTypeCode.Wet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_mmQ5MafvEeW_OId9wS8dsQ")]
     [Description(@"Commodity of other type.")]
-    Other,
+    Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AssetClassSubProductFreight1Code
 public static class AssetClassSubProductFreight1CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductFreight1CodeDropdownSource _dropdownSource = new AssetClassSubProductFreight1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

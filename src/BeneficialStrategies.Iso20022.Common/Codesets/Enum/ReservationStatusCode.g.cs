@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8J5r9qMgEeCJ6YNENx4h-w_-31027971")]
 [Description(@"Specifies the current status of a limit.")]
 [Derivations(typeof(ReservationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReservationStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ReservationStatusCode
 public static class ReservationStatusCodeMetadataExtensions
 {
     private static readonly ReservationStatusCodeDropdownSource _dropdownSource = new ReservationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

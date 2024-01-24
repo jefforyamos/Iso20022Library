@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_JUeaoK4EEeWL1uap3dNhCQ")]
 [Description(@"Format of the check code line.")]
 [Derivations(typeof(CheckCodeLine1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CheckCodeLineCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum CheckCodeLineCode
 public static class CheckCodeLineCodeMetadataExtensions
 {
     private static readonly CheckCodeLineCodeDropdownSource _dropdownSource = new CheckCodeLineCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_WNjzwRRxEeOKWo1NF21OVw")]
 [Description(@"Specifies the type of Know Your Customer (KYC) or anti-money laundering due diligence to which the investor has been subjected.")]
 [Derivations(typeof(KnowYourCustomerCheckType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum KnowYourCustomerCheckTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum KnowYourCustomerCheckTypeCode
 public static class KnowYourCustomerCheckTypeCodeMetadataExtensions
 {
     private static readonly KnowYourCustomerCheckTypeCodeDropdownSource _dropdownSource = new KnowYourCustomerCheckTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum KeyType1Code
 {
     /// <summary>
     /// Other national
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_EnKX4TEtEemzCpWiCwK4aQ")]
     [Description(@"Other national")]
-    OtherNational,
+    OtherNational = KeyTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_E7SNwTEtEemzCpWiCwK4aQ")]
     [Description(@"Other private")]
-    OtherPrivate,
+    OtherPrivate = KeyTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN translation key applicable to the acquirer
-    /// Encoded/decoded by serializers as "PINTranslationKeyAcquirer".
+    /// Encoded/decoded by serializers as "PTKA".
     /// </summary>
     [EnumMember(Value = "PTKA")]
     [IsoId("_FP-EUTEtEemzCpWiCwK4aQ")]
     [Description(@"PIN translation key applicable to the acquirer")]
-    PINTranslationKeyAcquirer,
+    PINTranslationKeyAcquirer = KeyTypeCode.PINTranslationKeyAcquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN translation key applicable to the issuer
-    /// Encoded/decoded by serializers as "PINTranslationKeyIssuer".
+    /// Encoded/decoded by serializers as "PTKI".
     /// </summary>
     [EnumMember(Value = "PTKI")]
     [IsoId("_FluR4TEtEemzCpWiCwK4aQ")]
     [Description(@"PIN translation key applicable to the issuer")]
-    PINTranslationKeyIssuer,
+    PINTranslationKeyIssuer = KeyTypeCode.PINTranslationKeyIssuer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum KeyType1Code
 public static class KeyType1CodeMetadataExtensions
 {
     private static readonly KeyType1CodeDropdownSource _dropdownSource = new KeyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

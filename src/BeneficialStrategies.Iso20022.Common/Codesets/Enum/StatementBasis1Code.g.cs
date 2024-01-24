@@ -21,30 +21,30 @@ public enum StatementBasis1Code
 {
     /// <summary>
     /// The statement is based on contractual settlement date irrespective of settled data positions.
-    /// Encoded/decoded by serializers as "Contractual".
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_ZP6DJdp-Ed-ak6NoX_4Aeg_-926610659")]
     [Description(@"The statement is based on contractual settlement date irrespective of settled data positions.")]
-    Contractual,
+    Contractual = StatementBasisCode.Contractual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_ZP6DJtp-Ed-ak6NoX_4Aeg_-2028635093")]
     [Description(@"The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.")]
-    Settled,
+    Settled = StatementBasisCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The statement is based on trade date positions.
-    /// Encoded/decoded by serializers as "Traded".
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZP6DJ9p-Ed-ak6NoX_4Aeg_-2014783388")]
     [Description(@"The statement is based on trade date positions.")]
-    Traded,
+    Traded = StatementBasisCode.Traded, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum StatementBasis1Code
 public static class StatementBasis1CodeMetadataExtensions
 {
     private static readonly StatementBasis1CodeDropdownSource _dropdownSource = new StatementBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

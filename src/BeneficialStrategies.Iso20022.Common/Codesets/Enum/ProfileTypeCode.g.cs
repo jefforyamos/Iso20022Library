@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_2zud0CDNEeWPMvNwVtiMsA")]
 [Description(@"Specifies the type of profile.")]
 [Derivations(typeof(ProfileType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProfileTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ProfileTypeCode
 public static class ProfileTypeCodeMetadataExtensions
 {
     private static readonly ProfileTypeCodeDropdownSource _dropdownSource = new ProfileTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

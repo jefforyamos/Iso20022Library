@@ -21,66 +21,66 @@ public enum PeriodUnit3Code
 {
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_Lp06QXyYEemfrNOe0zHQyg")]
     [Description(@"Other Private")]
-    OtherPrivate,
+    OtherPrivate = PeriodUnitCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Lp06Q3yYEemfrNOe0zHQyg")]
     [Description(@"Other National")]
-    OtherNational,
+    OtherNational = PeriodUnitCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counted in months.
-    /// Encoded/decoded by serializers as "Months".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_Lp06RXyYEemfrNOe0zHQyg")]
     [Description(@"Counted in months.")]
-    Months,
+    Months = PeriodUnitCode.Months, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counted in weeks.
-    /// Encoded/decoded by serializers as "Weeks".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_Lp06R3yYEemfrNOe0zHQyg")]
     [Description(@"Counted in weeks.")]
-    Weeks,
+    Weeks = PeriodUnitCode.Weeks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counted in years.
-    /// Encoded/decoded by serializers as "Years".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_Lp06SXyYEemfrNOe0zHQyg")]
     [Description(@"Counted in years.")]
-    Years,
+    Years = PeriodUnitCode.Years, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counted in days.
-    /// Encoded/decoded by serializers as "Days".
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_Lp06S3yYEemfrNOe0zHQyg")]
     [Description(@"Counted in days.")]
-    Days,
+    Days = PeriodUnitCode.Days, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra Days
-    /// Encoded/decoded by serializers as "ExtraDays".
+    /// Encoded/decoded by serializers as "EXDY".
     /// </summary>
     [EnumMember(Value = "EXDY")]
     [IsoId("_Lp06TXyYEemfrNOe0zHQyg")]
     [Description(@"Extra Days")]
-    ExtraDays,
+    ExtraDays = PeriodUnitCode.ExtraDays, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum PeriodUnit3Code
 public static class PeriodUnit3CodeMetadataExtensions
 {
     private static readonly PeriodUnit3CodeDropdownSource _dropdownSource = new PeriodUnit3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

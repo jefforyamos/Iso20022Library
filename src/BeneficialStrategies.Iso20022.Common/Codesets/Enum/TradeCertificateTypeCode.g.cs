@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YmVhstp-Ed-ak6NoX_4Aeg_706311619")]
 [Description(@"Specifies the type of trade certificate.")]
 [Derivations(typeof(TradeCertificateType1Code),typeof(TradeCertificateType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeCertificateTypeCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum TradeCertificateTypeCode
 public static class TradeCertificateTypeCodeMetadataExtensions
 {
     private static readonly TradeCertificateTypeCodeDropdownSource _dropdownSource = new TradeCertificateTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

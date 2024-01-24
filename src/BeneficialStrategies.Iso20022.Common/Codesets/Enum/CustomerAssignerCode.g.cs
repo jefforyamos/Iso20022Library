@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Q2RBIFyxEeeve7Je9cXtkQ")]
 [Description(@"Party in charge of assigning the identification of the customer.")]
 [Derivations(typeof(CustomerAssigner1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustomerAssignerCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CustomerAssignerCode
 public static class CustomerAssignerCodeMetadataExtensions
 {
     private static readonly CustomerAssignerCodeDropdownSource _dropdownSource = new CustomerAssignerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

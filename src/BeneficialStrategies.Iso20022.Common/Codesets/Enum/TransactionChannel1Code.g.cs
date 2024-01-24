@@ -21,39 +21,39 @@ public enum TransactionChannel1Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MailOrder".
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_TUAMOgEcEeCQm6a_G2yO_w_421671046")]
     [Description(@"Mail order.")]
-    MailOrder,
+    MailOrder = TransactionChannelCode.MailOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Telephone order.
-    /// Encoded/decoded by serializers as "TelephoneOrder".
+    /// Encoded/decoded by serializers as "TLPH".
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_TUAMOwEcEeCQm6a_G2yO_w_-391479472")]
     [Description(@"Telephone order.")]
-    TelephoneOrder,
+    TelephoneOrder = TransactionChannelCode.TelephoneOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce.
-    /// Encoded/decoded by serializers as "ElectronicCommerce".
+    /// Encoded/decoded by serializers as "ECOM".
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_TUAMPAEcEeCQm6a_G2yO_w_-106195051")]
     [Description(@"Electronic commerce.")]
-    ElectronicCommerce,
+    ElectronicCommerce = TransactionChannelCode.ElectronicCommerce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment on television.
-    /// Encoded/decoded by serializers as "TelevisionPayment".
+    /// Encoded/decoded by serializers as "TVPY".
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_TUAMPQEcEeCQm6a_G2yO_w_654570102")]
     [Description(@"Payment on television.")]
-    TelevisionPayment,
+    TelevisionPayment = TransactionChannelCode.TelevisionPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TransactionChannel1Code
 public static class TransactionChannel1CodeMetadataExtensions
 {
     private static readonly TransactionChannel1CodeDropdownSource _dropdownSource = new TransactionChannel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

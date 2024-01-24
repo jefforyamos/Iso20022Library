@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EHaIYDQTEe2o-K1dwNg8Gg")]
 [Description(@"Specifies whether the message is a final eligible balance and entitlements message or a preliminary advice of payment message.")]
 [Derivations(typeof(CorporateActionMovementPreliminaryAdviceFunction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionMovementPreliminaryAdviceFunctionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CorporateActionMovementPreliminaryAdviceFunctionCode
 public static class CorporateActionMovementPreliminaryAdviceFunctionCodeMetadataExtensions
 {
     private static readonly CorporateActionMovementPreliminaryAdviceFunctionCodeDropdownSource _dropdownSource = new CorporateActionMovementPreliminaryAdviceFunctionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

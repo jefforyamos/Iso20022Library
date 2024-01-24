@@ -21,21 +21,21 @@ public enum InitialPhysicalForm2Code
 {
     /// <summary>
     /// Initial Physical Form is GP.
-    /// Encoded/decoded by serializers as "GP".
+    /// Encoded/decoded by serializers as "GPGP".
     /// </summary>
     [EnumMember(Value = "GPGP")]
     [IsoId("_hbu7kGliEeGaMcKyqKNRfQ_1457267840")]
     [Description(@"Initial Physical Form is GP.")]
-    GP,
+    GP = InitialPhysicalFormCode.GP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initial Physical Form is definitive.
-    /// Encoded/decoded by serializers as "Definitive".
+    /// Encoded/decoded by serializers as "DERN".
     /// </summary>
     [EnumMember(Value = "DERN")]
     [IsoId("_hbu7kWliEeGaMcKyqKNRfQ_-428414513")]
     [Description(@"Initial Physical Form is definitive.")]
-    Definitive,
+    Definitive = InitialPhysicalFormCode.Definitive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InitialPhysicalForm2Code
 public static class InitialPhysicalForm2CodeMetadataExtensions
 {
     private static readonly InitialPhysicalForm2CodeDropdownSource _dropdownSource = new InitialPhysicalForm2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_RqsCgFNYEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of transfer status or transfer event.")]
 [Derivations(typeof(TransferStatusType1Code),typeof(TransferStatusType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransferStatusTypeCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum TransferStatusTypeCode
 public static class TransferStatusTypeCodeMetadataExtensions
 {
     private static readonly TransferStatusTypeCodeDropdownSource _dropdownSource = new TransferStatusTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

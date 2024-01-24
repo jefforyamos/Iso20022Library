@@ -21,12 +21,12 @@ public enum CashClearingSystem2Code
 {
     /// <summary>
     /// Real Time Gross Settlement System. Payment system that simultaneously clears individual transfers and settles them in central bank money.
-    /// Encoded/decoded by serializers as "RTGS".
+    /// Encoded/decoded by serializers as "RTG".
     /// </summary>
     [EnumMember(Value = "RTG")]
     [IsoId("_a4g_stp-Ed-ak6NoX_4Aeg_-351665378")]
     [Description(@"Real Time Gross Settlement System. Payment system that simultaneously clears individual transfers and settles them in central bank money.")]
-    RTGS,
+    RTGS = CashClearingSystemCode.RTGS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.
@@ -35,25 +35,25 @@ public enum CashClearingSystem2Code
     [EnumMember(Value = "ACH")]
     [IsoId("_a4g_s9p-Ed-ak6NoX_4Aeg_-288868274")]
     [Description(@"Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.")]
-    ACH,
+    ACH = CashClearingSystemCode.ACH, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CHIPS is the Clearing House Interbank Payment System in the US.
-    /// Encoded/decoded by serializers as "USChips".
+    /// Encoded/decoded by serializers as "CHI".
     /// </summary>
     [EnumMember(Value = "CHI")]
     [IsoId("_a4g_tNp-Ed-ak6NoX_4Aeg_-400546927")]
     [Description(@"CHIPS is the Clearing House Interbank Payment System in the US.")]
-    USChips,
+    USChips = CashClearingSystemCode.USChips, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FedNet is a link to a Federal Bank account via the internet. FedNet enables checking of account balance, transactions, take print outs of account statement, transfer funds to third party accounts, E-shopping, BSNL Payments, Deposit opening, Deposit Renewal, Request for Demand Draft, Cheque Book etc.
-    /// Encoded/decoded by serializers as "FedNet".
+    /// Encoded/decoded by serializers as "FDN".
     /// </summary>
     [EnumMember(Value = "FDN")]
     [IsoId("_a4g_tdp-Ed-ak6NoX_4Aeg_-284181622")]
     [Description(@"FedNet is a link to a Federal Bank account via the internet. FedNet enables checking of account balance, transactions, take print outs of account statement, transfer funds to third party accounts, E-shopping, BSNL Payments, Deposit opening, Deposit Renewal, Request for Demand Draft, Cheque Book etc.")]
-    FedNet,
+    FedNet = CashClearingSystemCode.FedNet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CashClearingSystem2Code
 public static class CashClearingSystem2CodeMetadataExtensions
 {
     private static readonly CashClearingSystem2CodeDropdownSource _dropdownSource = new CashClearingSystem2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

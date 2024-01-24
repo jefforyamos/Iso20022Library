@@ -21,30 +21,30 @@ public enum OutputFormat1Code
 {
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MessageReference".
+    /// Encoded/decoded by serializers as "MREF".
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_-Q8cgXr5EeSZrs_hiwNOWA")]
     [Description(@"Predefined configured messages, identified by a reference.")]
-    MessageReference,
+    MessageReference = OutputFormatCode.MessageReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "SimpleText".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_-m43UXr5EeSZrs_hiwNOWA")]
     [Description(@"Text without format attributes.")]
-    SimpleText,
+    SimpleText = OutputFormatCode.SimpleText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "XHTML".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_-sGugXr5EeSZrs_hiwNOWA")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    XHTML,
+    XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OutputFormat1Code
 public static class OutputFormat1CodeMetadataExtensions
 {
     private static readonly OutputFormat1CodeDropdownSource _dropdownSource = new OutputFormat1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

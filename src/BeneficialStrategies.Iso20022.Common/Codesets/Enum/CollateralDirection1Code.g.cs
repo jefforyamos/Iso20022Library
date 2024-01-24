@@ -21,22 +21,21 @@ public enum CollateralDirection1Code
 {
     /// <summary>
     /// Collateral is due to party A.
-    /// 
-    /// Encoded/decoded by serializers as "CollateralDueToPartyA".
+    /// Encoded/decoded by serializers as "CDPA".
     /// </summary>
     [EnumMember(Value = "CDPA")]
     [IsoId("_x_VEQQMyEeutW5-TpeYJhA")]
-    [Description(@"Collateral is due to party A. ")]
-    CollateralDueToPartyA,
+    [Description(@"Collateral is due to party A.|")]
+    CollateralDueToPartyA = CollateralDirectionCode.CollateralDueToPartyA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral is due to party B.
-    /// Encoded/decoded by serializers as "CollateralDueToPartyB".
+    /// Encoded/decoded by serializers as "CDPB".
     /// </summary>
     [EnumMember(Value = "CDPB")]
     [IsoId("_yKB4YgMyEeutW5-TpeYJhA")]
     [Description(@"Collateral is due to party B.")]
-    CollateralDueToPartyB,
+    CollateralDueToPartyB = CollateralDirectionCode.CollateralDueToPartyB, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +46,7 @@ public enum CollateralDirection1Code
 public static class CollateralDirection1CodeMetadataExtensions
 {
     private static readonly CollateralDirection1CodeDropdownSource _dropdownSource = new CollateralDirection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

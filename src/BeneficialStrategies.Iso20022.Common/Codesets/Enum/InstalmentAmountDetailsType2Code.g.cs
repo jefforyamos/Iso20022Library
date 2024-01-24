@@ -21,111 +21,111 @@ public enum InstalmentAmountDetailsType2Code
 {
     /// <summary>
     /// Total financing cost per annum.
-    /// Encoded/decoded by serializers as "AnnualFinancingCost".
+    /// Encoded/decoded by serializers as "AFCO".
     /// </summary>
     [EnumMember(Value = "AFCO")]
     [IsoId("_LaEdUZJOEeuuktRxxQZoNQ")]
     [Description(@"Total financing cost per annum.")]
-    AnnualFinancingCost,
+    AnnualFinancingCost = InstalmentAmountDetailsTypeCode.AnnualFinancingCost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Expense Amount
-    /// Encoded/decoded by serializers as "Expense".
+    /// Encoded/decoded by serializers as "EXPN".
     /// </summary>
     [EnumMember(Value = "EXPN")]
     [IsoId("_LhX_MZJOEeuuktRxxQZoNQ")]
     [Description(@"Expense Amount")]
-    Expense,
+    Expense = InstalmentAmountDetailsTypeCode.Expense, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees amount
-    /// Encoded/decoded by serializers as "Fees".
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_Lnl78ZJOEeuuktRxxQZoNQ")]
     [Description(@"Fees amount")]
-    Fees,
+    Fees = InstalmentAmountDetailsTypeCode.Fees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funded amount
-    /// Encoded/decoded by serializers as "Funded".
+    /// Encoded/decoded by serializers as "FUNA".
     /// </summary>
     [EnumMember(Value = "FUNA")]
     [IsoId("_LuRywZJOEeuuktRxxQZoNQ")]
     [Description(@"Funded amount")]
-    Funded,
+    Funded = InstalmentAmountDetailsTypeCode.Funded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insurance amount
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_L1TAwZJOEeuuktRxxQZoNQ")]
     [Description(@"Insurance amount")]
-    Insurance,
+    Insurance = InstalmentAmountDetailsTypeCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interest amount.
-    /// Encoded/decoded by serializers as "Interest".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_L7lO8ZJOEeuuktRxxQZoNQ")]
     [Description(@"Interest amount.")]
-    Interest,
+    Interest = InstalmentAmountDetailsTypeCode.Interest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other amounts
-    /// Encoded/decoded by serializers as "OtherCharges".
+    /// Encoded/decoded by serializers as "OTHC".
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_MBmXYZJOEeuuktRxxQZoNQ")]
     [Description(@"Other amounts")]
-    OtherCharges,
+    OtherCharges = InstalmentAmountDetailsTypeCode.OtherCharges, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Grace period unit type
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_MH07MZJOEeuuktRxxQZoNQ")]
     [Description(@"Grace period unit type")]
-    OtherNational,
+    OtherNational = InstalmentAmountDetailsTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Grace period unit type
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_MOe80ZJOEeuuktRxxQZoNQ")]
     [Description(@"Grace period unit type")]
-    OtherPrivate,
+    OtherPrivate = InstalmentAmountDetailsTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Principal amount.
-    /// Encoded/decoded by serializers as "Principal".
+    /// Encoded/decoded by serializers as "PRNC".
     /// </summary>
     [EnumMember(Value = "PRNC")]
     [IsoId("_MUKuEZJOEeuuktRxxQZoNQ")]
     [Description(@"Principal amount.")]
-    Principal,
+    Principal = InstalmentAmountDetailsTypeCode.Principal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested amount
-    /// Encoded/decoded by serializers as "Requested".
+    /// Encoded/decoded by serializers as "RQST".
     /// </summary>
     [EnumMember(Value = "RQST")]
     [IsoId("_MbQNgZJOEeuuktRxxQZoNQ")]
     [Description(@"Requested amount")]
-    Requested,
+    Requested = InstalmentAmountDetailsTypeCode.Requested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instalment amount tax
-    /// Encoded/decoded by serializers as "Tax".
+    /// Encoded/decoded by serializers as "TAXX".
     /// </summary>
     [EnumMember(Value = "TAXX")]
     [IsoId("_MhsMsZJOEeuuktRxxQZoNQ")]
     [Description(@"Instalment amount tax")]
-    Tax,
+    Tax = InstalmentAmountDetailsTypeCode.Tax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum InstalmentAmountDetailsType2Code
 public static class InstalmentAmountDetailsType2CodeMetadataExtensions
 {
     private static readonly InstalmentAmountDetailsType2CodeDropdownSource _dropdownSource = new InstalmentAmountDetailsType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

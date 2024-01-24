@@ -21,48 +21,48 @@ public enum TradeMarket1Code
 {
     /// <summary>
     /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "Domestic".
+    /// Encoded/decoded by serializers as "DMST".
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_6oIEQKcCEeSyQqZ4APDtOA")]
     [Description(@"Transaction has an origin and a destination in the same country and is made in the currency of that country.")]
-    Domestic,
+    Domestic = TradeMarketCode.Domestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. Origin and destination countries may be one and the same country.
-    /// Encoded/decoded by serializers as "EuroDomestic".
+    /// Encoded/decoded by serializers as "EUDM".
     /// </summary>
     [EnumMember(Value = "EUDM")]
     [IsoId("_6uJzw6cCEeSyQqZ4APDtOA")]
     [Description(@"Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. Origin and destination countries may be one and the same country.")]
-    EuroDomestic,
+    EuroDomestic = TradeMarketCode.EuroDomestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is between a French Overseas Departments and Territories (Dom/Tom) and some country in the European Union (France included).
-    /// Encoded/decoded by serializers as "FrenchDomTom".
+    /// Encoded/decoded by serializers as "FRDT".
     /// </summary>
     [EnumMember(Value = "FRDT")]
     [IsoId("_6zg046cCEeSyQqZ4APDtOA")]
     [Description(@"Transaction is between a French Overseas Departments and Territories (Dom/Tom) and some country in the European Union (France included).")]
-    FrenchDomTom,
+    FrenchDomTom = TradeMarketCode.FrenchDomTom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "International".
+    /// Encoded/decoded by serializers as "INTL".
     /// </summary>
     [EnumMember(Value = "INTL")]
     [IsoId("_6432A6cCEeSyQqZ4APDtOA")]
     [Description(@"Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
-    International,
+    International = TradeMarketCode.International, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a North American Free Trade Association (NAFTA) transaction, ie, the first and final agent are both located in the NAFTA area.
-    /// Encoded/decoded by serializers as "NAFTA".
+    /// Encoded/decoded by serializers as "NFTA".
     /// </summary>
     [EnumMember(Value = "NFTA")]
     [IsoId("_6-hyE6cCEeSyQqZ4APDtOA")]
     [Description(@"Transaction is a North American Free Trade Association (NAFTA) transaction, ie, the first and final agent are both located in the NAFTA area.")]
-    NAFTA,
+    NAFTA = TradeMarketCode.NAFTA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TradeMarket1Code
 public static class TradeMarket1CodeMetadataExtensions
 {
     private static readonly TradeMarket1CodeDropdownSource _dropdownSource = new TradeMarket1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

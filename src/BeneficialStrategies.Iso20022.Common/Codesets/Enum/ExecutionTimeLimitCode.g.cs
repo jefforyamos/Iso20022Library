@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ak_mydp-Ed-ak6NoX_4Aeg_1584923071")]
 [Description(@"Indicates from/until when an order must be executed.")]
 [Derivations(typeof(ExecutionTimeLimit1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExecutionTimeLimitCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum ExecutionTimeLimitCode
 public static class ExecutionTimeLimitCodeMetadataExtensions
 {
     private static readonly ExecutionTimeLimitCodeDropdownSource _dropdownSource = new ExecutionTimeLimitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

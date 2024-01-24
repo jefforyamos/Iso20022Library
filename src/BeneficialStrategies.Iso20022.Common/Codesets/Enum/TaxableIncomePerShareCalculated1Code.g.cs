@@ -21,39 +21,39 @@ public enum TaxableIncomePerShareCalculated1Code
 {
     /// <summary>
     /// Fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundCalculates".
+    /// Encoded/decoded by serializers as "TSIY".
     /// </summary>
     [EnumMember(Value = "TSIY")]
     [IsoId("_VlEJFNp-Ed-ak6NoX_4Aeg_-1901338896")]
     [Description(@"Fund is calculating the taxable interest per share with the NAV.")]
-    FundCalculates,
+    FundCalculates = TaxableIncomePerShareCalculatedCode.FundCalculates, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund is not calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundDoesNotCalculate".
+    /// Encoded/decoded by serializers as "TSIN".
     /// </summary>
     [EnumMember(Value = "TSIN")]
     [IsoId("_VlEJFdp-Ed-ak6NoX_4Aeg_-1901338871")]
     [Description(@"Fund is not calculating the taxable interest per share with the NAV.")]
-    FundDoesNotCalculate,
+    FundDoesNotCalculate = TaxableIncomePerShareCalculatedCode.FundDoesNotCalculate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether the fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundCalculatesUnknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_VlEJFtp-Ed-ak6NoX_4Aeg_-1901338854")]
     [Description(@"Unknown whether the fund is calculating the taxable interest per share with the NAV.")]
-    FundCalculatesUnknown,
+    FundCalculatesUnknown = TaxableIncomePerShareCalculatedCode.FundCalculatesUnknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of taxable income per share.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VlEJF9p-Ed-ak6NoX_4Aeg_-721697044")]
     [Description(@"Another type of taxable income per share.")]
-    Other,
+    Other = TaxableIncomePerShareCalculatedCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TaxableIncomePerShareCalculated1Code
 public static class TaxableIncomePerShareCalculated1CodeMetadataExtensions
 {
     private static readonly TaxableIncomePerShareCalculated1CodeDropdownSource _dropdownSource = new TaxableIncomePerShareCalculated1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

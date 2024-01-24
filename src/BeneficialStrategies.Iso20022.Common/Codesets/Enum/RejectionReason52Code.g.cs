@@ -21,30 +21,30 @@ public enum RejectionReason52Code
 {
     /// <summary>
     /// Disclosure request identification is invalid or unknown.
-    /// Encoded/decoded by serializers as "InvalidDisclosureRequestIdentification".
+    /// Encoded/decoded by serializers as "IDRI".
     /// </summary>
     [EnumMember(Value = "IDRI")]
     [IsoId("_v9mNMcAWEembi_x1QDJfxw")]
     [Description(@"Disclosure request identification is invalid or unknown.")]
-    InvalidDisclosureRequestIdentification,
+    InvalidDisclosureRequestIdentification = RejectionReasonV3Code.InvalidDisclosureRequestIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Disclosure response identification is invalid or unknown.
-    /// Encoded/decoded by serializers as "InvalidDisclosureResponseIdentification".
+    /// Encoded/decoded by serializers as "IDRJ".
     /// </summary>
     [EnumMember(Value = "IDRJ")]
     [IsoId("_wFLb4cAWEembi_x1QDJfxw")]
     [Description(@"Disclosure response identification is invalid or unknown.")]
-    InvalidDisclosureResponseIdentification,
+    InvalidDisclosureResponseIdentification = RejectionReasonV3Code.InvalidDisclosureResponseIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service for which the information was sent is not offered.
-    /// Encoded/decoded by serializers as "ServiceNotOffered".
+    /// Encoded/decoded by serializers as "SVNO".
     /// </summary>
     [EnumMember(Value = "SVNO")]
     [IsoId("_2dH1YcAWEembi_x1QDJfxw")]
     [Description(@"Service for which the information was sent is not offered.")]
-    ServiceNotOffered,
+    ServiceNotOffered = RejectionReasonV3Code.ServiceNotOffered, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RejectionReason52Code
 public static class RejectionReason52CodeMetadataExtensions
 {
     private static readonly RejectionReason52CodeDropdownSource _dropdownSource = new RejectionReason52CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

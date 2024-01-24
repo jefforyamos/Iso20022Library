@@ -21,12 +21,12 @@ public enum CancelledStatusReason14Code
 {
     /// <summary>
     /// See narrative field for reason.
-    /// Encoded/decoded by serializers as "NarrativeReason".
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_LqRR0Sz0EeOsiuMH68so7Q")]
     [Description(@"See narrative field for reason.")]
-    NarrativeReason,
+    NarrativeReason = CancelledStatusReasonV2Code.NarrativeReason, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum CancelledStatusReason14Code
 public static class CancelledStatusReason14CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason14CodeDropdownSource _dropdownSource = new CancelledStatusReason14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

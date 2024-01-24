@@ -21,39 +21,39 @@ public enum AttestationValue1Code
 {
     /// <summary>
     /// Attestation claimed.
-    /// Encoded/decoded by serializers as "Claimed".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_J41_cQMlEeujMs2LsB3mMw")]
     [Description(@"Attestation claimed.")]
-    Claimed,
+    Claimed = AttestationValueCode.Claimed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attestation validated.
-    /// Encoded/decoded by serializers as "Honored".
+    /// Encoded/decoded by serializers as "HONO".
     /// </summary>
     [EnumMember(Value = "HONO")]
     [IsoId("_KERMUQMlEeujMs2LsB3mMw")]
     [Description(@"Attestation validated.")]
-    Honored,
+    Honored = AttestationValueCode.Honored, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attestation not claimed.
-    /// Encoded/decoded by serializers as "NotClaimed".
+    /// Encoded/decoded by serializers as "NCLA".
     /// </summary>
     [EnumMember(Value = "NCLA")]
     [IsoId("_KOxzMQMlEeujMs2LsB3mMw")]
     [Description(@"Attestation not claimed.")]
-    NotClaimed,
+    NotClaimed = AttestationValueCode.NotClaimed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attestation failed validation.
-    /// Encoded/decoded by serializers as "NotHonored".
+    /// Encoded/decoded by serializers as "NHON".
     /// </summary>
     [EnumMember(Value = "NHON")]
     [IsoId("_H6g1EQMmEeujMs2LsB3mMw")]
     [Description(@"Attestation failed validation.")]
-    NotHonored,
+    NotHonored = AttestationValueCode.NotHonored, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AttestationValue1Code
 public static class AttestationValue1CodeMetadataExtensions
 {
     private static readonly AttestationValue1CodeDropdownSource _dropdownSource = new AttestationValue1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

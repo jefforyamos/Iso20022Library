@@ -21,30 +21,30 @@ public enum OrderStatus3Code
 {
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_Vep_E9p-Ed-ak6NoX_4Aeg_-913662626")]
     [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
-    /// Encoded/decoded by serializers as "PendingCancel".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_Vep_FNp-Ed-ak6NoX_4Aeg_-887802624")]
     [Description(@"Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.")]
-    PendingCancel,
+    PendingCancel = OrderStatusCode.PendingCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_Vep_Fdp-Ed-ak6NoX_4Aeg_-672621299")]
     [Description(@"Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.")]
-    Completed,
+    Completed = OrderStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OrderStatus3Code
 public static class OrderStatus3CodeMetadataExtensions
 {
     private static readonly OrderStatus3CodeDropdownSource _dropdownSource = new OrderStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

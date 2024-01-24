@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_w783gIcPEeu4rpsqTt37Pg")]
 [Description(@"Specifies the list of codes applicable to embedded option types.")]
 [Derivations(typeof(EmbeddedType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EmbeddedTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum EmbeddedTypeCode
 public static class EmbeddedTypeCodeMetadataExtensions
 {
     private static readonly EmbeddedTypeCodeDropdownSource _dropdownSource = new EmbeddedTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

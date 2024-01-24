@@ -21,39 +21,39 @@ public enum QRCodePresentmentMode1Code
 {
     /// <summary>
     /// The consumer presented a QR Code at the point of service for the transaction.
-    /// Encoded/decoded by serializers as "ConsumerPresented".
+    /// Encoded/decoded by serializers as "CPMD".
     /// </summary>
     [EnumMember(Value = "CPMD")]
     [IsoId("_CPnUMcV4Eeua2vd9tJAtHg")]
     [Description(@"The consumer presented a QR Code at the point of service for the transaction.")]
-    ConsumerPresented,
+    ConsumerPresented = QRCodePresentmentModeCode.ConsumerPresented, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other nationally defined method for QR Code presentment for the transaction.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_CwAEccV4Eeua2vd9tJAtHg")]
     [Description(@"Other nationally defined method for QR Code presentment for the transaction.")]
-    OtherNational,
+    OtherNational = QRCodePresentmentModeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other QR Code presentment mode defined by bilateral agreement.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_DGIFccV4Eeua2vd9tJAtHg")]
     [Description(@"Other QR Code presentment mode defined by bilateral agreement.")]
-    OtherPrivate,
+    OtherPrivate = QRCodePresentmentModeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The acceptor presented a QR Code to the consumer for the transaction.
-    /// Encoded/decoded by serializers as "MerchantPresented".
+    /// Encoded/decoded by serializers as "MPMD".
     /// </summary>
     [EnumMember(Value = "MPMD")]
     [IsoId("_DGuiYcV4Eeua2vd9tJAtHg")]
     [Description(@"The acceptor presented a QR Code to the consumer for the transaction.")]
-    MerchantPresented,
+    MerchantPresented = QRCodePresentmentModeCode.MerchantPresented, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum QRCodePresentmentMode1Code
 public static class QRCodePresentmentMode1CodeMetadataExtensions
 {
     private static readonly QRCodePresentmentMode1CodeDropdownSource _dropdownSource = new QRCodePresentmentMode1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

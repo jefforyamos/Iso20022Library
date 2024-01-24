@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_idBPwErGEeenp6hmNprBHg")]
 [Description(@"Channel to transmit receipt information to the recipient.")]
 [Derivations(typeof(ReceiptType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReceiptTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ReceiptTypeCode
 public static class ReceiptTypeCodeMetadataExtensions
 {
     private static readonly ReceiptTypeCodeDropdownSource _dropdownSource = new ReceiptTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

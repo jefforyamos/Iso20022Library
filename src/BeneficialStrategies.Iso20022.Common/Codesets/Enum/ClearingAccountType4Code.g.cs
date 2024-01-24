@@ -21,21 +21,21 @@ public enum ClearingAccountType4Code
 {
     /// <summary>
     /// Specifies that the account is used to register trades executed for the clearing member's customers.
-    /// Encoded/decoded by serializers as "Client".
+    /// Encoded/decoded by serializers as "CLIE".
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_Gbdm4YJLEeuDe9SyRl5qeg")]
     [Description(@"Specifies that the account is used to register trades executed for the clearing member's customers.")]
-    Client,
+    Client = ClearingAccountTypeCode.Client, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.
-    /// Encoded/decoded by serializers as "House".
+    /// Encoded/decoded by serializers as "HOUS".
     /// </summary>
     [EnumMember(Value = "HOUS")]
     [IsoId("_GmBREYJLEeuDe9SyRl5qeg")]
     [Description(@"Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.")]
-    House,
+    House = ClearingAccountTypeCode.House, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ClearingAccountType4Code
 public static class ClearingAccountType4CodeMetadataExtensions
 {
     private static readonly ClearingAccountType4CodeDropdownSource _dropdownSource = new ClearingAccountType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

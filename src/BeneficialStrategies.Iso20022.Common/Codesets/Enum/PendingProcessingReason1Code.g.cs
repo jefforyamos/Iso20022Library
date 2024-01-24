@@ -21,174 +21,174 @@ public enum PendingProcessingReason1Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_aAfLhdp-Ed-ak6NoX_4Aeg_1265761433")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
-    /// Encoded/decoded by serializers as "AwaitingSecurities".
+    /// Encoded/decoded by serializers as "CAIS".
     /// </summary>
     [EnumMember(Value = "CAIS")]
     [IsoId("_aAfLhtp-Ed-ak6NoX_4Aeg_1265761468")]
     [Description(@"Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.")]
-    AwaitingSecurities,
+    AwaitingSecurities = PendingFailingReasonCode.AwaitingSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting documents or endorsements from you.
-    /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
+    /// Encoded/decoded by serializers as "DOCY".
     /// </summary>
     [EnumMember(Value = "DOCY")]
     [IsoId("_aAfLh9p-Ed-ak6NoX_4Aeg_1652718235")]
     [Description(@"Awaiting documents or endorsements from you.")]
-    AwaitingDocumentsOrEndorsementsFromYou,
+    AwaitingDocumentsOrEndorsementsFromYou = PendingFailingReasonCode.AwaitingDocumentsOrEndorsementsFromYou, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A foreign exchange instruction from you is missing.
-    /// Encoded/decoded by serializers as "NoForeignExchangeInstruction".
+    /// Encoded/decoded by serializers as "NOFX".
     /// </summary>
     [EnumMember(Value = "NOFX")]
     [IsoId("_aAfLiNp-Ed-ak6NoX_4Aeg_-1812928688")]
     [Description(@"A foreign exchange instruction from you is missing.")]
-    NoForeignExchangeInstruction,
+    NoForeignExchangeInstruction = PendingFailingReasonCode.NoForeignExchangeInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your account is blocked, no instruction can settle over the account.
-    /// Encoded/decoded by serializers as "AccountBlocked".
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_aAfLidp-Ed-ak6NoX_4Aeg_1265761529")]
     [Description(@"Your account is blocked, no instruction can settle over the account.")]
-    AccountBlocked,
+    AccountBlocked = PendingFailingReasonCode.AccountBlocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MultipleSettlementAmount".
+    /// Encoded/decoded by serializers as "MUNO".
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_aAo8gNp-Ed-ak6NoX_4Aeg_1265761572")]
     [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
-    MultipleSettlementAmount,
+    MultipleSettlementAmount = PendingFailingReasonCode.MultipleSettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement cannot be executed; financial instruments are in global form.
-    /// Encoded/decoded by serializers as "GlobalFormSecurities".
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aAo8gdp-Ed-ak6NoX_4Aeg_2078461059")]
     [Description(@"Settlement cannot be executed; financial instruments are in global form.")]
-    GlobalFormSecurities,
+    GlobalFormSecurities = PendingFailingReasonCode.GlobalFormSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient collateral in your account to execute the instruction.
-    /// Encoded/decoded by serializers as "CollateralShortage".
+    /// Encoded/decoded by serializers as "YCOL".
     /// </summary>
     [EnumMember(Value = "YCOL")]
     [IsoId("_aAo8gtp-Ed-ak6NoX_4Aeg_1265761649")]
     [Description(@"Insufficient collateral in your account to execute the instruction.")]
-    CollateralShortage,
+    CollateralShortage = PendingFailingReasonCode.CollateralShortage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are not deliverable as they are pledged as collateral.
-    /// Encoded/decoded by serializers as "SecuritiesPledgedAsCollateral".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_aAo8g9p-Ed-ak6NoX_4Aeg_1265761666")]
     [Description(@"Financial instruments are not deliverable as they are pledged as collateral.")]
-    SecuritiesPledgedAsCollateral,
+    SecuritiesPledgedAsCollateral = PendingFailingReasonCode.SecuritiesPledgedAsCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
-    /// Encoded/decoded by serializers as "MaximumForeignLimitReached".
+    /// Encoded/decoded by serializers as "FLIM".
     /// </summary>
     [EnumMember(Value = "FLIM")]
     [IsoId("_aAo8hNp-Ed-ak6NoX_4Aeg_1265761683")]
     [Description(@"Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.")]
-    MaximumForeignLimitReached,
+    MaximumForeignLimitReached = PendingFailingReasonCode.MaximumForeignLimitReached, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Next process is launched. No processing pending problems to be reported.
-    /// Encoded/decoded by serializers as "NextProcess".
+    /// Encoded/decoded by serializers as "NEXT".
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_aAo8hdp-Ed-ak6NoX_4Aeg_-2084445306")]
     [Description(@"Next process is launched. No processing pending problems to be reported.")]
-    NextProcess,
+    NextProcess = PendingFailingReasonCode.NextProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LackOfSecurities".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_aAo8htp-Ed-ak6NoX_4Aeg_1265761943")]
     [Description(@"Insufficient financial instruments in your account.")]
-    LackOfSecurities,
+    LackOfSecurities = PendingFailingReasonCode.LackOfSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are out on loan.
-    /// Encoded/decoded by serializers as "SecuritiesLoanedOut".
+    /// Encoded/decoded by serializers as "LALO".
     /// </summary>
     [EnumMember(Value = "LALO")]
     [IsoId("_aAo8h9p-Ed-ak6NoX_4Aeg_1265761944")]
     [Description(@"Financial instruments are out on loan.")]
-    SecuritiesLoanedOut,
+    SecuritiesLoanedOut = PendingFailingReasonCode.SecuritiesLoanedOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "InsufficientMoney".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_aAo8iNp-Ed-ak6NoX_4Aeg_1265761945")]
     [Description(@"Insufficient money in your account.")]
-    InsufficientMoney,
+    InsufficientMoney = PendingFailingReasonCode.InsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MinimumSettlementAmount".
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_aAo8idp-Ed-ak6NoX_4Aeg_1265762021")]
     [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
-    MinimumSettlementAmount,
+    MinimumSettlementAmount = PendingFailingReasonCode.MinimumSettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aAyGcNp-Ed-ak6NoX_4Aeg_1265762038")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
-    /// Encoded/decoded by serializers as "UnavailableDeliverableDenominatedQuantity".
+    /// Encoded/decoded by serializers as "DENO".
     /// </summary>
     [EnumMember(Value = "DENO")]
     [IsoId("_aAyGcdp-Ed-ak6NoX_4Aeg_1265762074")]
     [Description(@"Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.")]
-    UnavailableDeliverableDenominatedQuantity,
+    UnavailableDeliverableDenominatedQuantity = PendingFailingReasonCode.UnavailableDeliverableDenominatedQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central bank liquidity is insufficient.
-    /// Encoded/decoded by serializers as "InsufficientCentralBankLiquidity".
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_aAyGctp-Ed-ak6NoX_4Aeg_1265762381")]
     [Description(@"Central bank liquidity is insufficient.")]
-    InsufficientCentralBankLiquidity,
+    InsufficientCentralBankLiquidity = PendingFailingReasonCode.InsufficientCentralBankLiquidity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_aAyGc9p-Ed-ak6NoX_4Aeg_1265762441")]
     [Description(@"Certificate number error.")]
-    WrongCertificatesNumbers,
+    WrongCertificatesNumbers = PendingFailingReasonCode.WrongCertificatesNumbers, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum PendingProcessingReason1Code
 public static class PendingProcessingReason1CodeMetadataExtensions
 {
     private static readonly PendingProcessingReason1CodeDropdownSource _dropdownSource = new PendingProcessingReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

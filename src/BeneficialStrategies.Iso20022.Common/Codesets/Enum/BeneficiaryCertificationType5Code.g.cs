@@ -21,30 +21,30 @@ public enum BeneficiaryCertificationType5Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "AccreditedInvestor".
+    /// Encoded/decoded by serializers as "ACCI".
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_zJKBtQE6EeG43uL-ROUO3A")]
     [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
-    AccreditedInvestor,
+    AccreditedInvestor = BeneficiaryCertificationTypeCode.AccreditedInvestor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NonCompany".
+    /// Encoded/decoded by serializers as "NCOM".
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_zJKBuQE6EeG43uL-ROUO3A")]
     [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
-    NonCompany,
+    NonCompany = BeneficiaryCertificationTypeCode.NonCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBCertification".
+    /// Encoded/decoded by serializers as "QIBB".
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_zJKBvQE6EeG43uL-ROUO3A")]
     [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-    QIBCertification,
+    QIBCertification = BeneficiaryCertificationTypeCode.QIBCertification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BeneficiaryCertificationType5Code
 public static class BeneficiaryCertificationType5CodeMetadataExtensions
 {
     private static readonly BeneficiaryCertificationType5CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

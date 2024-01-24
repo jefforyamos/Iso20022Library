@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__0dT09ojEeC60axPepSq7g_1572602070")]
 [Description(@"Identifies the underlying reason for the borrowing.")]
 [Derivations(typeof(BorrowingReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BorrowingReasonCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BorrowingReasonCode
 public static class BorrowingReasonCodeMetadataExtensions
 {
     private static readonly BorrowingReasonCodeDropdownSource _dropdownSource = new BorrowingReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

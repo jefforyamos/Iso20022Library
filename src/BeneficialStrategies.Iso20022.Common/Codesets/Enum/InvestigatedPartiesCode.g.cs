@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_2BtERU4-EeGFgOSp_IATnQ")]
 [Description(@"Specifies the investigated parties.")]
 [Derivations(typeof(InvestigatedParties1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestigatedPartiesCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InvestigatedPartiesCode
 public static class InvestigatedPartiesCodeMetadataExtensions
 {
     private static readonly InvestigatedPartiesCodeDropdownSource _dropdownSource = new InvestigatedPartiesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

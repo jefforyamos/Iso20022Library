@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_S5BlgCDXEeWCLu74WLgP4w")]
 [Description(@"Specifies if all the shares are owned exclusively by the fund company.")]
 [Derivations(typeof(FundOwnership1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FundOwnershipCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FundOwnershipCode
 public static class FundOwnershipCodeMetadataExtensions
 {
     private static readonly FundOwnershipCodeDropdownSource _dropdownSource = new FundOwnershipCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

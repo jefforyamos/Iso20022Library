@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ADcV0N6_Eeiwsev40qZGEQ")]
 [Description(@"Type of sound to play.")]
 [Derivations(typeof(SoundFormat1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SoundFormatCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SoundFormatCode
 public static class SoundFormatCodeMetadataExtensions
 {
     private static readonly SoundFormatCodeDropdownSource _dropdownSource = new SoundFormatCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

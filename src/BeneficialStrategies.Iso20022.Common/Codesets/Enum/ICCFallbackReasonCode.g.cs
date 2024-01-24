@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Hq2KwDHJEeyTT91yHXSlSQ")]
 [Description(@"A code that provides the reason of ICC fallback.")]
 [Derivations(typeof(ICCFallbackReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ICCFallbackReasonCode
 {
     /// <summary>
@@ -31,22 +30,20 @@ public enum ICCFallbackReasonCode
     
     /// <summary>
     /// Error during IC app processing.
-    /// 
     /// Encoded/decoded by serializers as "EDIP".
     /// </summary>
     [EnumMember(Value = "EDIP")]
     [IsoId("_c46rADHJEeyTT91yHXSlSQ")]
-    [Description(@"Error during IC app processing. ")]
+    [Description(@"Error during IC app processing.|")]
     ErrorDuringICAppProcessing,
     
     /// <summary>
     /// Terminal error reading IC data.
-    /// 
     /// Encoded/decoded by serializers as "TERI".
     /// </summary>
     [EnumMember(Value = "TERI")]
     [IsoId("_tJRUEDHJEeyTT91yHXSlSQ")]
-    [Description(@"Terminal error reading IC data. ")]
+    [Description(@"Terminal error reading IC data.|")]
     TerminalErrorReadingICData,
     
     /// <summary>
@@ -76,7 +73,7 @@ public enum ICCFallbackReasonCode
 public static class ICCFallbackReasonCodeMetadataExtensions
 {
     private static readonly ICCFallbackReasonCodeDropdownSource _dropdownSource = new ICCFallbackReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

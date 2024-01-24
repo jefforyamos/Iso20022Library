@@ -21,21 +21,21 @@ public enum SettlementConditionModificationProcessingStatus1Code
 {
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "AcknowledgedAccepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZK188dp-Ed-ak6NoX_4Aeg_-1146323136")]
     [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
-    AcknowledgedAccepted,
+    AcknowledgedAccepted = InstructionProcessingStatusCode.AcknowledgedAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZK188tp-Ed-ak6NoX_4Aeg_-1146323114")]
     [Description(@"Instruction has been rejected for further processing.")]
-    Rejected,
+    Rejected = InstructionProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SettlementConditionModificationProcessingStatus1Code
 public static class SettlementConditionModificationProcessingStatus1CodeMetadataExtensions
 {
     private static readonly SettlementConditionModificationProcessingStatus1CodeDropdownSource _dropdownSource = new SettlementConditionModificationProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

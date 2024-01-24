@@ -21,21 +21,21 @@ public enum CollateralSubstitutionSequence1Code
 {
     /// <summary>
     /// Indicates this is a new collateral substitution request.
-    /// Encoded/decoded by serializers as "Initial".
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_Yb5zV9p-Ed-ak6NoX_4Aeg_1315111868")]
     [Description(@"Indicates this is a new collateral substitution request.")]
-    Initial,
+    Initial = CollateralSubstitutionSequenceCode.Initial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates this is an updated collateral substitution request.
-    /// Encoded/decoded by serializers as "Updated".
+    /// Encoded/decoded by serializers as "UPDD".
     /// </summary>
     [EnumMember(Value = "UPDD")]
     [IsoId("_YcDkUNp-Ed-ak6NoX_4Aeg_-1512706665")]
     [Description(@"Indicates this is an updated collateral substitution request.")]
-    Updated,
+    Updated = CollateralSubstitutionSequenceCode.Updated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralSubstitutionSequence1Code
 public static class CollateralSubstitutionSequence1CodeMetadataExtensions
 {
     private static readonly CollateralSubstitutionSequence1CodeDropdownSource _dropdownSource = new CollateralSubstitutionSequence1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

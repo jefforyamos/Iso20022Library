@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_x8pjANBUEeiirviLm7P0IA")]
 [Description(@"Specifies whether the report includes pending or settled transactions.")]
 [Derivations(typeof(StatementStatusType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatementStatusTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StatementStatusTypeCode
 public static class StatementStatusTypeCodeMetadataExtensions
 {
     private static readonly StatementStatusTypeCodeDropdownSource _dropdownSource = new StatementStatusTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,45 +17,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_t9qdIFkyEeGeoaLUQk__nA_-849686320")]
-[Description(@"Specifies the nature, or use, of the charges in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature, or use, of the charges in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalChargeTypeCode))]
 public enum ExternalChargeType1Code
 {
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BrokerageFee".
+    /// Encoded/decoded by serializers as "BRKF".
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_uLHG3vRYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid to a broker for services provided.")]
-    BrokerageFee,
+    BrokerageFee = ExternalChargeTypeCode.BrokerageFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for processing a batch of transactions.
-    /// Encoded/decoded by serializers as "Batch".
+    /// Encoded/decoded by serializers as "BTCH".
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_uLQ30vRYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid for processing a batch of transactions.")]
-    Batch,
+    Batch = ExternalChargeTypeCode.Batch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for services provided.
-    /// Encoded/decoded by serializers as "Commission".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uLQ31fRYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid for services provided.")]
-    Commission,
+    Commission = ExternalChargeTypeCode.Commission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Summation of individual fees.
-    /// Encoded/decoded by serializers as "Summation".
+    /// Encoded/decoded by serializers as "SUMM".
     /// </summary>
     [EnumMember(Value = "SUMM")]
     [IsoId("_uLQ32PRYEeuLhpyIdtJzwg")]
     [Description(@"Summation of individual fees.")]
-    Summation,
+    Summation = ExternalChargeTypeCode.Summation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -66,7 +66,7 @@ public enum ExternalChargeType1Code
 public static class ExternalChargeType1CodeMetadataExtensions
 {
     private static readonly ExternalChargeType1CodeDropdownSource _dropdownSource = new ExternalChargeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

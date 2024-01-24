@@ -21,43 +21,43 @@ public enum ESGCategoryGermanFundMarket1Code
 {
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "Neutral".
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_dI3ugM6gEeuxwOWq_hqWVg")]
     [Description(@"Neutral or has no impact.")]
-    Neutral,
+    Neutral = ESGCategoryGermanFundMarketCode.Neutral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product with impact-related investment (pursuant to Article 9 Disclosure Regulation):
     /// - No serious breach of the United Nations Global Compact (UNGC);
     /// - Relevant for both individual products and those in a portfolio/basket (shares/bonds);
     /// - Product manager follows a recognised industry standard (UN PRI).
-    /// Encoded/decoded by serializers as "Impact".
+    /// Encoded/decoded by serializers as "IMPF".
     /// </summary>
     [EnumMember(Value = "IMPF")]
     [IsoId("_dPWJ8c6gEeuxwOWq_hqWVg")]
-    [Description(@"Product with impact-related investment (pursuant to Article 9 Disclosure Regulation): - No serious breach of the United Nations Global Compact (UNGC); - Relevant for both individual products and those in a portfolio/basket (shares/bonds); - Product manager follows a recognised industry standard (UN PRI).")]
-    Impact,
+    [Description(@"Product with impact-related investment (pursuant to Article 9 Disclosure Regulation):|- No serious breach of the United Nations Global Compact (UNGC);|- Relevant for both individual products and those in a portfolio/basket (shares/bonds);|- Product manager follows a recognised industry standard (UN PRI).")]
+    Impact = ESGCategoryGermanFundMarketCode.Impact, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).
-    /// Encoded/decoded by serializers as "ESGStrategy".
+    /// Encoded/decoded by serializers as "ESGF".
     /// </summary>
     [EnumMember(Value = "ESGF")]
     [IsoId("_dVM6Uc6gEeuxwOWq_hqWVg")]
     [Description(@"Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).")]
-    ESGStrategy,
+    ESGStrategy = ESGCategoryGermanFundMarketCode.ESGStrategy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the "ESG integration enhanced" criteria.
     /// Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).
-    /// Encoded/decoded by serializers as "BasicCategory".
+    /// Encoded/decoded by serializers as "BASF".
     /// </summary>
     [EnumMember(Value = "BASF")]
     [IsoId("_dbS7Qc6gEeuxwOWq_hqWVg")]
-    [Description(@"Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the ""ESG integration enhanced"" criteria. Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).")]
-    BasicCategory,
+    [Description(@"Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the ""ESG integration enhanced"" criteria.|Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).")]
+    BasicCategory = ESGCategoryGermanFundMarketCode.BasicCategory, // same ordinal as derivation source for type conversions
     
 }
 
@@ -68,7 +68,7 @@ public enum ESGCategoryGermanFundMarket1Code
 public static class ESGCategoryGermanFundMarket1CodeMetadataExtensions
 {
     private static readonly ESGCategoryGermanFundMarket1CodeDropdownSource _dropdownSource = new ESGCategoryGermanFundMarket1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

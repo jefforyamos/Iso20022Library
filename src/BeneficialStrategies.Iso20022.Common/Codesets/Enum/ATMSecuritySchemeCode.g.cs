@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_zqg0kIr4EeSvuOJS0mmL0g")]
 [Description(@"Key exchange security scheme on an ATM for the host manager.")]
 [Derivations(typeof(ATMSecurityScheme2Code),typeof(ATMSecurityScheme1Code),typeof(ATMSecurityScheme3Code),typeof(ATMSecurityScheme4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMSecuritySchemeCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum ATMSecuritySchemeCode
 public static class ATMSecuritySchemeCodeMetadataExtensions
 {
     private static readonly ATMSecuritySchemeCodeDropdownSource _dropdownSource = new ATMSecuritySchemeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum PriceValueType5Code
 {
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aJk2FNp-Ed-ak6NoX_4Aeg_-647834596")]
     [Description(@"Price is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = PriceValueTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price has not been established.
-    /// Encoded/decoded by serializers as "OpenDated".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aJk2Fdp-Ed-ak6NoX_4Aeg_-647834587")]
     [Description(@"Price has not been established.")]
-    OpenDated,
+    OpenDated = PriceValueTypeCode.OpenDated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PriceValueType5Code
 public static class PriceValueType5CodeMetadataExtensions
 {
     private static readonly PriceValueType5CodeDropdownSource _dropdownSource = new PriceValueType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CardServiceType3Code
 {
     /// <summary>
     /// Convey the key to the receiver.
-    /// Encoded/decoded by serializers as "DeliverKey".
+    /// Encoded/decoded by serializers as "KYDL".
     /// </summary>
     [EnumMember(Value = "KYDL")]
     [IsoId("_a-8UIXvNEeSCJdwgzb6SFw")]
     [Description(@"Convey the key to the receiver.")]
-    DeliverKey,
+    DeliverKey = CardServiceTypeCode.DeliverKey, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the keys that the receiver must send in the response.
-    /// Encoded/decoded by serializers as "KeyChange".
+    /// Encoded/decoded by serializers as "KYCG".
     /// </summary>
     [EnumMember(Value = "KYCG")]
     [IsoId("_baEJ43vNEeSCJdwgzb6SFw")]
     [Description(@"Request the keys that the receiver must send in the response.")]
-    KeyChange,
+    KeyChange = CardServiceTypeCode.KeyChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the receiver to verify the key check value.
-    /// Encoded/decoded by serializers as "KeyVerification".
+    /// Encoded/decoded by serializers as "KYVF".
     /// </summary>
     [EnumMember(Value = "KYVF")]
     [IsoId("_ugAgAXvNEeSCJdwgzb6SFw")]
     [Description(@"Request the receiver to verify the key check value.")]
-    KeyVerification,
+    KeyVerification = CardServiceTypeCode.KeyVerification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CardServiceType3Code
 public static class CardServiceType3CodeMetadataExtensions
 {
     private static readonly CardServiceType3CodeDropdownSource _dropdownSource = new CardServiceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

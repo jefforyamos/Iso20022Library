@@ -21,30 +21,30 @@ public enum AcknowledgementReason10Code
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_NDLHi5wZEeqtp-LOti013g")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = AcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
+    /// Encoded/decoded by serializers as "SMPG".
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_NDLHjJwZEeqtp-LOti013g")]
     [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
-    MarketPracticeRuleDiscrepency,
+    MarketPracticeRuleDiscrepency = AcknowledgementReasonCode.MarketPracticeRuleDiscrepency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_NDLHkZwZEeqtp-LOti013g")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AcknowledgementReason10Code
 public static class AcknowledgementReason10CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason10CodeDropdownSource _dropdownSource = new AcknowledgementReason10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

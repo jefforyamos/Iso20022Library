@@ -21,39 +21,39 @@ public enum ProfileType1Code
 {
     /// <summary>
     /// Investor shares that uses defensive operations (hedging), thus avoiding the risk of large swings.
-    /// Encoded/decoded by serializers as "Hedge".
+    /// Encoded/decoded by serializers as "HEDG".
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_N0lOcSGLEeW_v8XsK-l3KA")]
     [Description(@"Investor shares that uses defensive operations (hedging), thus avoiding the risk of large swings.")]
-    Hedge,
+    Hedge = ProfileTypeCode.Hedge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investors operating through algorithms and send orders automatically according to the strategies defined by their managers. Through this access model, the participants of these servers are hosted primarily within the premises of Brazilian Market and significantly reduce the time of submission of offers to trading systems.
-    /// Encoded/decoded by serializers as "HighFrequencyTrader".
+    /// Encoded/decoded by serializers as "HFTR".
     /// </summary>
     [EnumMember(Value = "HFTR")]
     [IsoId("_N8nJESGLEeW_v8XsK-l3KA")]
     [Description(@"Investors operating through algorithms and send orders automatically according to the strategies defined by their managers. Through this access model, the participants of these servers are hosted primarily within the premises of Brazilian Market and significantly reduce the time of submission of offers to trading systems.")]
-    HighFrequencyTrader,
+    HighFrequencyTrader = ProfileTypeCode.HighFrequencyTrader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent liquidity, liquidity facilitator, promoter of business, specialist, market maker and liquidity provider are some designations given to those who propose to provide liquidity and minimum reference price for assets previously accredited, factors highlighted in the analysis of efficiency in capital markets.
-    /// Encoded/decoded by serializers as "MarketMaker".
+    /// Encoded/decoded by serializers as "MAKE".
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_OEpDsSGLEeW_v8XsK-l3KA")]
     [Description(@"Agent liquidity, liquidity facilitator, promoter of business, specialist, market maker and liquidity provider are some designations given to those who propose to provide liquidity and minimum reference price for assets previously accredited, factors highlighted in the analysis of efficiency in capital markets.")]
-    MarketMaker,
+    MarketMaker = ProfileTypeCode.MarketMaker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading system of federal securities in the retail market directly to the investor. The operation can be performed directly over the Internet.
-    /// Encoded/decoded by serializers as "Treasury".
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_OMrlYSGLEeW_v8XsK-l3KA")]
     [Description(@"Trading system of federal securities in the retail market directly to the investor. The operation can be performed directly over the Internet.")]
-    Treasury,
+    Treasury = ProfileTypeCode.Treasury, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProfileType1Code
 public static class ProfileType1CodeMetadataExtensions
 {
     private static readonly ProfileType1CodeDropdownSource _dropdownSource = new ProfileType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

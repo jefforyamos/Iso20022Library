@@ -21,93 +21,93 @@ public enum TransactionType2Code
 {
     /// <summary>
     /// Transaction is a redemption of an investment fund.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_Yuh0Ztp-Ed-ak6NoX_4Aeg_-756571607")]
     [Description(@"Transaction is a redemption of an investment fund.")]
-    Redemption,
+    Redemption = InvestmentFundTransactionTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_Yuh0Z9p-Ed-ak6NoX_4Aeg_-754722916")]
     [Description(@"Transaction is a subscription to an investment fund.")]
-    Subscription,
+    Subscription = InvestmentFundTransactionTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription for a savings plan, that is, money set aside by individuals in the framework of a structured plan for a special purpose, for example, retirement.
-    /// Encoded/decoded by serializers as "SubscriptionSavingsPlan".
+    /// Encoded/decoded by serializers as "SSPL".
     /// </summary>
     [EnumMember(Value = "SSPL")]
     [IsoId("_Yuh0aNp-Ed-ak6NoX_4Aeg_-746412148")]
     [Description(@"Transaction is a subscription for a savings plan, that is, money set aside by individuals in the framework of a structured plan for a special purpose, for example, retirement.")]
-    SubscriptionSavingsPlan,
+    SubscriptionSavingsPlan = InvestmentFundTransactionTypeCode.SubscriptionSavingsPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a withdrawal by individuals in the framework of a structured plan for investments made in the past.
-    /// Encoded/decoded by serializers as "RedemptionWithdrawingPlan".
+    /// Encoded/decoded by serializers as "RWPL".
     /// </summary>
     [EnumMember(Value = "RWPL")]
     [IsoId("_YurlYNp-Ed-ak6NoX_4Aeg_-745487445")]
     [Description(@"Transaction is a withdrawal by individuals in the framework of a structured plan for investments made in the past.")]
-    RedemptionWithdrawingPlan,
+    RedemptionWithdrawingPlan = InvestmentFundTransactionTypeCode.RedemptionWithdrawingPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an incoming credit to an account on the shareholders register, and is not linked to a shift in investment (subscription or switch), but to account management.
-    /// Encoded/decoded by serializers as "TransferIn".
+    /// Encoded/decoded by serializers as "TRIN".
     /// </summary>
     [EnumMember(Value = "TRIN")]
     [IsoId("_YurlYdp-Ed-ak6NoX_4Aeg_-732559796")]
     [Description(@"Transaction is an incoming credit to an account on the shareholders register, and is not linked to a shift in investment (subscription or switch), but to account management.")]
-    TransferIn,
+    TransferIn = InvestmentFundTransactionTypeCode.TransferIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a debit to an account on the shareholders register, and is not linked to a shift in investment (redemption or switch), but to account management.
-    /// Encoded/decoded by serializers as "TransferOut".
+    /// Encoded/decoded by serializers as "TOUT".
     /// </summary>
     [EnumMember(Value = "TOUT")]
     [IsoId("_YurlYtp-Ed-ak6NoX_4Aeg_-731634274")]
     [Description(@"Transaction is a debit to an account on the shareholders register, and is not linked to a shift in investment (redemption or switch), but to account management.")]
-    TransferOut,
+    TransferOut = InvestmentFundTransactionTypeCode.TransferOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SwitchIn".
+    /// Encoded/decoded by serializers as "SWII".
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_YurlY9p-Ed-ak6NoX_4Aeg_-384390981")]
     [Description(@"Transaction is a subscription leg of a switch order execution.")]
-    SwitchIn,
+    SwitchIn = InvestmentFundTransactionTypeCode.SwitchIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SwitchOut".
+    /// Encoded/decoded by serializers as "SWIO".
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_YurlZNp-Ed-ak6NoX_4Aeg_-372387112")]
     [Description(@"Transaction is a subscription leg of a switch order execution.")]
-    SwitchOut,
+    SwitchOut = InvestmentFundTransactionTypeCode.SwitchOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription in an asset allocation plan that enables investors to allocate, by percentage a certain amount of cash into several sub-funds of a same umbrella structure.
-    /// Encoded/decoded by serializers as "SubscriptionAssetAllocation".
+    /// Encoded/decoded by serializers as "SUAA".
     /// </summary>
     [EnumMember(Value = "SUAA")]
     [IsoId("_YurlZdp-Ed-ak6NoX_4Aeg_-690818303")]
     [Description(@"Transaction is a subscription in an asset allocation plan that enables investors to allocate, by percentage a certain amount of cash into several sub-funds of a same umbrella structure.")]
-    SubscriptionAssetAllocation,
+    SubscriptionAssetAllocation = InvestmentFundTransactionTypeCode.SubscriptionAssetAllocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a redemption in an asset allocation plan which enables investors to withdraw, by percentage a certain amount of cash from several sub-funds of a same umbrella structure.
-    /// Encoded/decoded by serializers as "RedemptionAssetAllocation".
+    /// Encoded/decoded by serializers as "REAA".
     /// </summary>
     [EnumMember(Value = "REAA")]
     [IsoId("_YurlZtp-Ed-ak6NoX_4Aeg_-690817720")]
     [Description(@"Transaction is a redemption in an asset allocation plan which enables investors to withdraw, by percentage a certain amount of cash from several sub-funds of a same umbrella structure.")]
-    RedemptionAssetAllocation,
+    RedemptionAssetAllocation = InvestmentFundTransactionTypeCode.RedemptionAssetAllocation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum TransactionType2Code
 public static class TransactionType2CodeMetadataExtensions
 {
     private static readonly TransactionType2CodeDropdownSource _dropdownSource = new TransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

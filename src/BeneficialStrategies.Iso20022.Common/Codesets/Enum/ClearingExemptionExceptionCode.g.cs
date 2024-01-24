@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vMoZsIJTEeuDe9SyRl5qeg")]
 [Description(@"Specifies the list of codes applicable to the clearing exemptions or exceptions.")]
 [Derivations(typeof(ClearingExemptionException1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingExemptionExceptionCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum ClearingExemptionExceptionCode
 public static class ClearingExemptionExceptionCodeMetadataExtensions
 {
     private static readonly ClearingExemptionExceptionCodeDropdownSource _dropdownSource = new ClearingExemptionExceptionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

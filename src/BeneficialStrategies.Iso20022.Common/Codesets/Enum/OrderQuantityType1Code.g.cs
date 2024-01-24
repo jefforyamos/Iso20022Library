@@ -21,30 +21,30 @@ public enum OrderQuantityType1Code
 {
     /// <summary>
     /// Order is placed by unit.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_ViiZgtp-Ed-ak6NoX_4Aeg_-278477005")]
     [Description(@"Order is placed by unit.")]
-    Unit,
+    Unit = OrderQuantityTypeCode.Unit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is placed by amount of money.
-    /// Encoded/decoded by serializers as "Amount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ViiZg9p-Ed-ak6NoX_4Aeg_-278476987")]
     [Description(@"Order is placed by amount of money.")]
-    Amount,
+    Amount = OrderQuantityTypeCode.Amount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is another type of transaction.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ViiZhNp-Ed-ak6NoX_4Aeg_-278476962")]
     [Description(@"Transaction is another type of transaction.")]
-    Other,
+    Other = OrderQuantityTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OrderQuantityType1Code
 public static class OrderQuantityType1CodeMetadataExtensions
 {
     private static readonly OrderQuantityType1CodeDropdownSource _dropdownSource = new OrderQuantityType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

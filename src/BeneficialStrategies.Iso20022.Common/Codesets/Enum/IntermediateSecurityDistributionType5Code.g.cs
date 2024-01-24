@@ -21,138 +21,138 @@ public enum IntermediateSecurityDistributionType5Code
 {
     /// <summary>
     /// Distribution of reverser rights.
-    /// Encoded/decoded by serializers as "ReverseRights".
+    /// Encoded/decoded by serializers as "BIDS".
     /// </summary>
     [EnumMember(Value = "BIDS")]
     [IsoId("_-q_4BwCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of reverser rights.")]
-    ReverseRights,
+    ReverseRights = IntermediateSecurityDistributionTypeCode.ReverseRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of dividend reinvestment securities.
-    /// Encoded/decoded by serializers as "DividendReinvestment".
+    /// Encoded/decoded by serializers as "DRIP".
     /// </summary>
     [EnumMember(Value = "DRIP")]
     [IsoId("_-q_4CwCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of dividend reinvestment securities.")]
-    DividendReinvestment,
+    DividendReinvestment = IntermediateSecurityDistributionTypeCode.DividendReinvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.
-    /// Encoded/decoded by serializers as "CashDividend".
+    /// Encoded/decoded by serializers as "DVCA".
     /// </summary>
     [EnumMember(Value = "DVCA")]
     [IsoId("_-rJpAgCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.")]
-    CashDividend,
+    CashDividend = IntermediateSecurityDistributionTypeCode.CashDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of dividend option.
-    /// Encoded/decoded by serializers as "DividendOption".
+    /// Encoded/decoded by serializers as "DVOP".
     /// </summary>
     [EnumMember(Value = "DVOP")]
     [IsoId("_-rJpBgCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of dividend option.")]
-    DividendOption,
+    DividendOption = IntermediateSecurityDistributionTypeCode.DividendOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of subscription rights.
-    /// Encoded/decoded by serializers as "SubscriptionRights".
+    /// Encoded/decoded by serializers as "EXRI".
     /// </summary>
     [EnumMember(Value = "EXRI")]
     [IsoId("_-rJpCgCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of subscription rights.")]
-    SubscriptionRights,
+    SubscriptionRights = IntermediateSecurityDistributionTypeCode.SubscriptionRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of open offer rights.
-    /// Encoded/decoded by serializers as "OpenOfferRights".
+    /// Encoded/decoded by serializers as "PRIO".
     /// </summary>
     [EnumMember(Value = "PRIO")]
     [IsoId("_-rJpDgCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of open offer rights.")]
-    OpenOfferRights,
+    OpenOfferRights = IntermediateSecurityDistributionTypeCode.OpenOfferRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend or interest paid in the form of scrip.
-    /// Encoded/decoded by serializers as "ScripDividendOrPayment".
+    /// Encoded/decoded by serializers as "DVSC".
     /// </summary>
     [EnumMember(Value = "DVSC")]
     [IsoId("_-rJpEgCcEeGiE5oKUBl5wQ")]
     [Description(@"Dividend or interest paid in the form of scrip.")]
-    ScripDividendOrPayment,
+    ScripDividendOrPayment = IntermediateSecurityDistributionTypeCode.ScripDividendOrPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend paid to shareholders in the form of shares of stock.
-    /// Encoded/decoded by serializers as "StockDividend".
+    /// Encoded/decoded by serializers as "DVSE".
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_-rJpFgCcEeGiE5oKUBl5wQ")]
     [Description(@"Dividend paid to shareholders in the form of shares of stock.")]
-    StockDividend,
+    StockDividend = IntermediateSecurityDistributionTypeCode.StockDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interest payment distributed to holders of an interest bearing asset.
-    /// Encoded/decoded by serializers as "InterestPayment".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_-rJpGgCcEeGiE5oKUBl5wQ")]
     [Description(@"Interest payment distributed to holders of an interest bearing asset.")]
-    InterestPayment,
+    InterestPayment = IntermediateSecurityDistributionTypeCode.InterestPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A distribution of cash, assets or both.
-    /// Encoded/decoded by serializers as "LiquidationDividendOrPayment".
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_-rJpHgCcEeGiE5oKUBl5wQ")]
     [Description(@"A distribution of cash, assets or both.")]
-    LiquidationDividendOrPayment,
+    LiquidationDividendOrPayment = IntermediateSecurityDistributionTypeCode.LiquidationDividendOrPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A distribution of subsidiary stock to the shareholders.
-    /// Encoded/decoded by serializers as "SpinOff".
+    /// Encoded/decoded by serializers as "SOFF".
     /// </summary>
     [EnumMember(Value = "SOFF")]
     [IsoId("_-rJpIgCcEeGiE5oKUBl5wQ")]
     [Description(@"A distribution of subsidiary stock to the shareholders.")]
-    SpinOff,
+    SpinOff = IntermediateSecurityDistributionTypeCode.SpinOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Also known as change in nominal value or subdivision.|Increase in a corporation's number of outstanding equities without any change in the shareholder's equity or the aggregate market value at the time of the split. Equity price and nominal value are reduced accordingly.
-    /// Encoded/decoded by serializers as "StockSplit".
+    /// Encoded/decoded by serializers as "SPLF".
     /// </summary>
     [EnumMember(Value = "SPLF")]
     [IsoId("_-rJpJgCcEeGiE5oKUBl5wQ")]
     [Description(@"Also known as change in nominal value or subdivision.|Increase in a corporation's number of outstanding equities without any change in the shareholder's equity or the aggregate market value at the time of the split. Equity price and nominal value are reduced accordingly.")]
-    StockSplit,
+    StockSplit = IntermediateSecurityDistributionTypeCode.StockSplit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of bonus rights.
-    /// Encoded/decoded by serializers as "BonusRights".
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_-rJpKgCcEeGiE5oKUBl5wQ")]
     [Description(@"Distribution of bonus rights.")]
-    BonusRights,
+    BonusRights = IntermediateSecurityDistributionTypeCode.BonusRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example "exchange offer", "capital reorganisation" or "funds separation".
-    /// Encoded/decoded by serializers as "Exchange".
+    /// Encoded/decoded by serializers as "EXOF".
     /// </summary>
     [EnumMember(Value = "EXOF")]
     [IsoId("_-rJpLgCcEeGiE5oKUBl5wQ")]
     [Description(@"Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example ""exchange offer"", ""capital reorganisation"" or ""funds separation"".")]
-    Exchange,
+    Exchange = IntermediateSecurityDistributionTypeCode.Exchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange of outstanding securities, initiated by the issuer which may include options, as the result of two or more companies combining assets, that is, an external, third party company. Cash payments may accompany share exchange.
-    /// Encoded/decoded by serializers as "Merger".
+    /// Encoded/decoded by serializers as "MRGR".
     /// </summary>
     [EnumMember(Value = "MRGR")]
     [IsoId("__QGwPgCcEeGiE5oKUBl5wQ")]
     [Description(@"Exchange of outstanding securities, initiated by the issuer which may include options, as the result of two or more companies combining assets, that is, an external, third party company. Cash payments may accompany share exchange.")]
-    Merger,
+    Merger = IntermediateSecurityDistributionTypeCode.Merger, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum IntermediateSecurityDistributionType5Code
 public static class IntermediateSecurityDistributionType5CodeMetadataExtensions
 {
     private static readonly IntermediateSecurityDistributionType5CodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

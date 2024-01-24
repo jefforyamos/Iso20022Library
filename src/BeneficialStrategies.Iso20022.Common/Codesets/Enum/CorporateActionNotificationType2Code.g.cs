@@ -21,21 +21,21 @@ public enum CorporateActionNotificationType2Code
 {
     /// <summary>
     /// Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.
-    /// Encoded/decoded by serializers as "Withrawal".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bLJAwdp-Ed-ak6NoX_4Aeg_746682216")]
     [Description(@"Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.")]
-    Withrawal,
+    Withrawal = CorporateActionNotificationTypeCode.Withrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification requesting the cancellation of a previously sent notification.
-    /// Encoded/decoded by serializers as "Cancellation".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bLJAwtp-Ed-ak6NoX_4Aeg_746682237")]
     [Description(@"Notification requesting the cancellation of a previously sent notification.")]
-    Cancellation,
+    Cancellation = CorporateActionNotificationTypeCode.Cancellation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionNotificationType2Code
 public static class CorporateActionNotificationType2CodeMetadataExtensions
 {
     private static readonly CorporateActionNotificationType2CodeDropdownSource _dropdownSource = new CorporateActionNotificationType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

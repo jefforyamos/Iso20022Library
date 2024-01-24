@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_iSnDE_ouEeCfbIXrKCjG0g")]
 [Description(@"Specifies whether the corporate action proceeds are taxable at issuer level.")]
 [Derivations(typeof(IssuerTaxability1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum IssuerTaxabilityCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum IssuerTaxabilityCode
 public static class IssuerTaxabilityCodeMetadataExtensions
 {
     private static readonly IssuerTaxabilityCodeDropdownSource _dropdownSource = new IssuerTaxabilityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

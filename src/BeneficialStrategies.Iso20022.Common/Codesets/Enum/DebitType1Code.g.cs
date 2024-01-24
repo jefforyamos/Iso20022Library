@@ -21,21 +21,21 @@ public enum DebitType1Code
 {
     /// <summary>
     /// Debit is performed as a global debit for all instructions in the file.
-    /// Encoded/decoded by serializers as "Global".
+    /// Encoded/decoded by serializers as "GLBL".
     /// </summary>
     [EnumMember(Value = "GLBL")]
     [IsoId("_WbBjccmKEeWAGphE2LvqeA")]
     [Description(@"Debit is performed as a global debit for all instructions in the file.")]
-    Global,
+    Global = DebitTypeCode.Global, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit is performed as an individual single debit for each instruction in the file.
-    /// Encoded/decoded by serializers as "Single".
+    /// Encoded/decoded by serializers as "SNGL".
     /// </summary>
     [EnumMember(Value = "SNGL")]
     [IsoId("_WmWpssmKEeWAGphE2LvqeA")]
     [Description(@"Debit is performed as an individual single debit for each instruction in the file.")]
-    Single,
+    Single = DebitTypeCode.Single, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DebitType1Code
 public static class DebitType1CodeMetadataExtensions
 {
     private static readonly DebitType1CodeDropdownSource _dropdownSource = new DebitType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

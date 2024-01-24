@@ -21,12 +21,12 @@ public enum TradeConfirmationType2Code
 {
     /// <summary>
     /// Non-confirmed.
-    /// Encoded/decoded by serializers as "NonConfirmed".
+    /// Encoded/decoded by serializers as "NCNF".
     /// </summary>
     [EnumMember(Value = "NCNF")]
     [IsoId("_HQSTQQ28EeWmAKKPnqYEVQ")]
     [Description(@"Non-confirmed.")]
-    NonConfirmed,
+    NonConfirmed = TradeConfirmationTypeCode.NonConfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum TradeConfirmationType2Code
 public static class TradeConfirmationType2CodeMetadataExtensions
 {
     private static readonly TradeConfirmationType2CodeDropdownSource _dropdownSource = new TradeConfirmationType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

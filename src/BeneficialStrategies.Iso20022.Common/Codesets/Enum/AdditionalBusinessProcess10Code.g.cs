@@ -21,75 +21,75 @@ public enum AdditionalBusinessProcess10Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "ClaimOrCompensation".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_EIJx8RewEeyroI8qKgB7Mg")]
     [Description(@"Relates to a claim on the associated corporate action event.")]
-    ClaimOrCompensation,
+    ClaimOrCompensation = AdditionalBusinessProcessCode.ClaimOrCompensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a preadvice of movement reversal.
-    /// Encoded/decoded by serializers as "NotificationOfReversal".
+    /// Encoded/decoded by serializers as "REVR".
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_EIJx8xewEeyroI8qKgB7Mg")]
     [Description(@"Indicates a preadvice of movement reversal.")]
-    NotificationOfReversal,
+    NotificationOfReversal = AdditionalBusinessProcessCode.NotificationOfReversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TaxRefund".
+    /// Encoded/decoded by serializers as "TAXR".
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_EIJx9RewEeyroI8qKgB7Mg")]
     [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
-    TaxRefund,
+    TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.
-    /// Encoded/decoded by serializers as "PartialMandatoryPutRedemption".
+    /// Encoded/decoded by serializers as "PPUT".
     /// </summary>
     [EnumMember(Value = "PPUT")]
     [IsoId("_EIJx9xewEeyroI8qKgB7Mg")]
     [Description(@"Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.")]
-    PartialMandatoryPutRedemption,
+    PartialMandatoryPutRedemption = AdditionalBusinessProcessCode.PartialMandatoryPutRedemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "PartialPreFunding".
+    /// Encoded/decoded by serializers as "PPRE".
     /// </summary>
     [EnumMember(Value = "PPRE")]
     [IsoId("_EIJx-RewEeyroI8qKgB7Mg")]
     [Description(@"Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.")]
-    PartialPreFunding,
+    PartialPreFunding = AdditionalBusinessProcessCode.PartialPreFunding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "FullPrefunding".
+    /// Encoded/decoded by serializers as "FPRE".
     /// </summary>
     [EnumMember(Value = "FPRE")]
     [IsoId("_EIJx-xewEeyroI8qKgB7Mg")]
     [Description(@"Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.")]
-    FullPrefunding,
+    FullPrefunding = AdditionalBusinessProcessCode.FullPrefunding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Proceeds / entitlements of the mandatory event can only be paid if specified action is taken by the account owner.
-    /// Encoded/decoded by serializers as "RequiredAction".
+    /// Encoded/decoded by serializers as "REAC".
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_EIJx_RewEeyroI8qKgB7Mg")]
     [Description(@"Proceeds / entitlements of the mandatory event can only be paid if specified action is taken by the account owner.")]
-    RequiredAction,
+    RequiredAction = AdditionalBusinessProcessCode.RequiredAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The event is a payment of an incentive premium related to the voting conditions prescribed at a general meeting.
-    /// Encoded/decoded by serializers as "IncentivePremiumPayment".
+    /// Encoded/decoded by serializers as "INCP".
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_GyU5MRewEeyroI8qKgB7Mg")]
     [Description(@"The event is a payment of an incentive premium related to the voting conditions prescribed at a general meeting.")]
-    IncentivePremiumPayment,
+    IncentivePremiumPayment = AdditionalBusinessProcessCode.IncentivePremiumPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum AdditionalBusinessProcess10Code
 public static class AdditionalBusinessProcess10CodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcess10CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_RQTCAQ2XEeStB9HSJRk0Qw")]
 [Description(@"Specifies the status of the switch either full or part for a given account.")]
 [Derivations(typeof(SwitchType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SwitchTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SwitchTypeCode
 public static class SwitchTypeCodeMetadataExtensions
 {
     private static readonly SwitchTypeCodeDropdownSource _dropdownSource = new SwitchTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

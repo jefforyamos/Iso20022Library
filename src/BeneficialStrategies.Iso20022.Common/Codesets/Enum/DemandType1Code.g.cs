@@ -21,21 +21,21 @@ public enum DemandType1Code
 {
     /// <summary>
     /// Pay only.
-    /// Encoded/decoded by serializers as "PayOnly".
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_hAxXJnyYEeGWJuGCfvwOsQ")]
     [Description(@"Pay only.")]
-    PayOnly,
+    PayOnly = DemandTypeCode.PayOnly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pay or extend.
-    /// Encoded/decoded by serializers as "PayOrExtend".
+    /// Encoded/decoded by serializers as "PAEX".
     /// </summary>
     [EnumMember(Value = "PAEX")]
     [IsoId("_hJ3BtnyYEeGWJuGCfvwOsQ")]
     [Description(@"Pay or extend.")]
-    PayOrExtend,
+    PayOrExtend = DemandTypeCode.PayOrExtend, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DemandType1Code
 public static class DemandType1CodeMetadataExtensions
 {
     private static readonly DemandType1CodeDropdownSource _dropdownSource = new DemandType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

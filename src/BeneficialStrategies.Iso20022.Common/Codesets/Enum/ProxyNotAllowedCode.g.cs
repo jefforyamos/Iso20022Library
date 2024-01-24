@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZWd-Jdp-Ed-ak6NoX_4Aeg_-1352917034")]
 [Description(@"Indicates that the assignment of a proxy is not allowed for the meeting.")]
 [Derivations(typeof(ProxyNotAllowed1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProxyNotAllowedCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum ProxyNotAllowedCode
 public static class ProxyNotAllowedCodeMetadataExtensions
 {
     private static readonly ProxyNotAllowedCodeDropdownSource _dropdownSource = new ProxyNotAllowedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

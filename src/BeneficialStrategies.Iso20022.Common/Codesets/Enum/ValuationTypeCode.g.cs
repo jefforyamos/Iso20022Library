@@ -17,28 +17,24 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YQhLUPP4EeS_qLctCs2aRQ")]
 [Description(@"Specifies the type used for the calculation of the valuation.")]
 [Derivations(typeof(ValuationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ValuationTypeCode
 {
     /// <summary>
     /// Mark to market valuation.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "MTMA".
     /// </summary>
     [EnumMember(Value = "MTMA")]
     [IsoId("_dEVfoPP4EeS_qLctCs2aRQ")]
-    [Description(@"Mark to market valuation.  ")]
+    [Description(@"Mark to market valuation.||")]
     MarkToMarket,
     
     /// <summary>
     /// Mark to model valuation.
-    /// 
     /// Encoded/decoded by serializers as "MTMO".
     /// </summary>
     [EnumMember(Value = "MTMO")]
     [IsoId("_dKIloPP4EeS_qLctCs2aRQ")]
-    [Description(@"Mark to model valuation. ")]
+    [Description(@"Mark to model valuation.|")]
     MarkToModel,
     
     /// <summary>
@@ -68,7 +64,7 @@ public enum ValuationTypeCode
 public static class ValuationTypeCodeMetadataExtensions
 {
     private static readonly ValuationTypeCodeDropdownSource _dropdownSource = new ValuationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

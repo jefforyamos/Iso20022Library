@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y-eU4Np-Ed-ak6NoX_4Aeg_-770553292")]
 [Description(@"Indicates the type of routing.")]
 [Derivations(typeof(RoutingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RoutingTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RoutingTypeCode
 public static class RoutingTypeCodeMetadataExtensions
 {
     private static readonly RoutingTypeCodeDropdownSource _dropdownSource = new RoutingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

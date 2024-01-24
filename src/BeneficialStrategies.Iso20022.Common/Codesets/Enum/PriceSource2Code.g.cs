@@ -21,39 +21,39 @@ public enum PriceSource2Code
 {
     /// <summary>
     /// Source of price quotation is a fund, eg, transfer agent, fund itself.
-    /// Encoded/decoded by serializers as "Fund".
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_mUejN6B6EeOEyO7fCl8lLA")]
     [Description(@"Source of price quotation is a fund, eg, transfer agent, fund itself.")]
-    Fund,
+    Fund = PriceSourceCode.Fund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of price quotation is a theoretical value based on the market yield.
-    /// Encoded/decoded by serializers as "Theoretical".
+    /// Encoded/decoded by serializers as "THEO".
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_mUejOaB6EeOEyO7fCl8lLA")]
     [Description(@"Source of price quotation is a theoretical value based on the market yield.")]
-    Theoretical,
+    Theoretical = PriceSourceCode.Theoretical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of price quotation is an external vendor.
-    /// Encoded/decoded by serializers as "Vendor".
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_mUejO6B6EeOEyO7fCl8lLA")]
     [Description(@"Source of price quotation is an external vendor.")]
-    Vendor,
+    Vendor = PriceSourceCode.Vendor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of price quotation is a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_KMfvYaB7EeOEyO7fCl8lLA")]
     [Description(@"Source of price quotation is a stock exchange.")]
-    StockExchange,
+    StockExchange = PriceSourceCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PriceSource2Code
 public static class PriceSource2CodeMetadataExtensions
 {
     private static readonly PriceSource2CodeDropdownSource _dropdownSource = new PriceSource2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

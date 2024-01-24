@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_H8wEoRXyEeOBE-jZfcm4KQ")]
 [Description(@"Specifies how expenses are paid.")]
 [Derivations(typeof(ChargePaymentMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ChargePaymentMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ChargePaymentMethodCode
 public static class ChargePaymentMethodCodeMetadataExtensions
 {
     private static readonly ChargePaymentMethodCodeDropdownSource _dropdownSource = new ChargePaymentMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum FundOrderType1Code
 {
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_atCvgtp-Ed-ak6NoX_4Aeg_1645076282")]
     [Description(@"Investment fund order is a subscription.")]
-    Subscription,
+    Subscription = FundOrderTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_atCvg9p-Ed-ak6NoX_4Aeg_1645076559")]
     [Description(@"Investment fund order is a redemption.")]
-    Redemption,
+    Redemption = FundOrderTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a switch.
-    /// Encoded/decoded by serializers as "Switch".
+    /// Encoded/decoded by serializers as "SWIT".
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_atCvhNp-Ed-ak6NoX_4Aeg_1645076612")]
     [Description(@"Investment fund order is a switch.")]
-    Switch,
+    Switch = FundOrderTypeCode.Switch, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FundOrderType1Code
 public static class FundOrderType1CodeMetadataExtensions
 {
     private static readonly FundOrderType1CodeDropdownSource _dropdownSource = new FundOrderType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

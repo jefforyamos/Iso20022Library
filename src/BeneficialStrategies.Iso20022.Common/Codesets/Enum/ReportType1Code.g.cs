@@ -21,30 +21,30 @@ public enum ReportType1Code
 {
     /// <summary>
     /// The report contains a baseline submitted for the first time.
-    /// Encoded/decoded by serializers as "ForwardInitialSubmission".
+    /// Encoded/decoded by serializers as "FWIS".
     /// </summary>
     [EnumMember(Value = "FWIS")]
     [IsoId("_ZTVxo9p-Ed-ak6NoX_4Aeg_302562336")]
     [Description(@"The report contains a baseline submitted for the first time.")]
-    ForwardInitialSubmission,
+    ForwardInitialSubmission = ReportTypeCode.ForwardInitialSubmission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The report contains a baseline that is resubmitted.
-    /// Encoded/decoded by serializers as "ForwardReSubmission".
+    /// Encoded/decoded by serializers as "FWRE".
     /// </summary>
     [EnumMember(Value = "FWRE")]
     [IsoId("_ZTVxpNp-Ed-ak6NoX_4Aeg_302562354")]
     [Description(@"The report contains a baseline that is resubmitted.")]
-    ForwardReSubmission,
+    ForwardReSubmission = ReportTypeCode.ForwardReSubmission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The report contains a baseline that is amended.
-    /// Encoded/decoded by serializers as "ForwardAmend".
+    /// Encoded/decoded by serializers as "FWAM".
     /// </summary>
     [EnumMember(Value = "FWAM")]
     [IsoId("_ZTVxpdp-Ed-ak6NoX_4Aeg_302562379")]
     [Description(@"The report contains a baseline that is amended.")]
-    ForwardAmend,
+    ForwardAmend = ReportTypeCode.ForwardAmend, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReportType1Code
 public static class ReportType1CodeMetadataExtensions
 {
     private static readonly ReportType1CodeDropdownSource _dropdownSource = new ReportType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum AssetClassSubProductEnergyType1Code
 {
     /// <summary>
     /// Commodity of type coal.
-    /// Encoded/decoded by serializers as "Coal".
+    /// Encoded/decoded by serializers as "COAL".
     /// </summary>
     [EnumMember(Value = "COAL")]
     [IsoId("_flKPkc5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type coal.")]
-    Coal,
+    Coal = AssetClassSubProductTypeCode.Coal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type electricity.
-    /// Encoded/decoded by serializers as "Electricity".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_fuNd4c5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type electricity.")]
-    Electricity,
+    Electricity = AssetClassSubProductTypeCode.Electricity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type oil.
-    /// Encoded/decoded by serializers as "Oil".
+    /// Encoded/decoded by serializers as "OILP".
     /// </summary>
     [EnumMember(Value = "OILP")]
     [IsoId("_gLvucc5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type oil.")]
-    Oil,
+    Oil = AssetClassSubProductTypeCode.Oil, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type inter energy.
-    /// Encoded/decoded by serializers as "InterEnergy".
+    /// Encoded/decoded by serializers as "INRG".
     /// </summary>
     [EnumMember(Value = "INRG")]
     [IsoId("_gzJFoc5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type inter energy.")]
-    InterEnergy,
+    InterEnergy = AssetClassSubProductTypeCode.InterEnergy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type natural gas.
-    /// Encoded/decoded by serializers as "NaturalGas".
+    /// Encoded/decoded by serializers as "NGAS".
     /// </summary>
     [EnumMember(Value = "NGAS")]
     [IsoId("_USGZAUDbEeWOL-OsSq2h6w")]
     [Description(@"Commodity of type natural gas.")]
-    NaturalGas,
+    NaturalGas = AssetClassSubProductTypeCode.NaturalGas, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_UhRdcUDbEeWOL-OsSq2h6w")]
     [Description(@"Commodity of other type.")]
-    Other,
+    Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AssetClassSubProductEnergyType1Code
 public static class AssetClassSubProductEnergyType1CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductEnergyType1CodeDropdownSource _dropdownSource = new AssetClassSubProductEnergyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

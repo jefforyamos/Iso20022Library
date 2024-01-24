@@ -21,75 +21,75 @@ public enum RepurchaseType7Code
 {
     /// <summary>
     /// Relates to a Swap/Substitution.
-    /// Encoded/decoded by serializers as "Swap".
+    /// Encoded/decoded by serializers as "CADJ".
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("__vrhhNojEeC60axPepSq7g_-2098807040")]
     [Description(@"Relates to a Swap/Substitution.")]
-    Swap,
+    Swap = RepurchaseTypeCode.Swap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a change in the closing or maturity date.
-    /// Encoded/decoded by serializers as "RepurchaseCall".
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("__vrhhdojEeC60axPepSq7g_-1838435152")]
     [Description(@"Relates to a change in the closing or maturity date.")]
-    RepurchaseCall,
+    RepurchaseCall = RepurchaseTypeCode.RepurchaseCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
-    /// Encoded/decoded by serializers as "Pairoff".
+    /// Encoded/decoded by serializers as "PAIR".
     /// </summary>
     [EnumMember(Value = "PAIR")]
     [IsoId("__v1SgNojEeC60axPepSq7g_-371286389")]
     [Description(@"Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.")]
-    Pairoff,
+    Pairoff = RepurchaseTypeCode.Pairoff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Is part of a pair-off.
-    /// Encoded/decoded by serializers as "RepoRate".
+    /// Encoded/decoded by serializers as "RATE".
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("__v1SgdojEeC60axPepSq7g_1146352751")]
     [Description(@"Is part of a pair-off.")]
-    RepoRate,
+    RepoRate = RepurchaseTypeCode.RepoRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "Rollover".
+    /// Encoded/decoded by serializers as "ROLP".
     /// </summary>
     [EnumMember(Value = "ROLP")]
     [IsoId("__v1SgtojEeC60axPepSq7g_511320905")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    Rollover,
+    Rollover = RepurchaseTypeCode.Rollover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "TopUp".
+    /// Encoded/decoded by serializers as "TOPU".
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("__v1Sg9ojEeC60axPepSq7g_1978469668")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    TopUp,
+    TopUp = RepurchaseTypeCode.TopUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("__v1ShNojEeC60axPepSq7g_-2108580250")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    Withdrawal,
+    Withdrawal = RepurchaseTypeCode.Withdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a principal adjustment.
-    /// Encoded/decoded by serializers as "PrincipalExposureAdjustment".
+    /// Encoded/decoded by serializers as "PADJ".
     /// </summary>
     [EnumMember(Value = "PADJ")]
     [IsoId("__v1ShdojEeC60axPepSq7g_342518057")]
     [Description(@"Relates to a principal adjustment.")]
-    PrincipalExposureAdjustment,
+    PrincipalExposureAdjustment = RepurchaseTypeCode.PrincipalExposureAdjustment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum RepurchaseType7Code
 public static class RepurchaseType7CodeMetadataExtensions
 {
     private static readonly RepurchaseType7CodeDropdownSource _dropdownSource = new RepurchaseType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

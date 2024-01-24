@@ -21,30 +21,30 @@ public enum AllocationIndicator1Code
 {
     /// <summary>
     /// Trade is a post-allocation trade.
-    /// Encoded/decoded by serializers as "Post_allocation".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_kPSY4SjvEeK1Sbo8NpBROA")]
     [Description(@"Trade is a post-allocation trade.")]
-    Post_allocation,
+    Post_allocation = AllocationIndicatorCode.Post_allocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is a pre-allocation trade.
-    /// Encoded/decoded by serializers as "Pre_allocation".
+    /// Encoded/decoded by serializers as "PREA".
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_kUnk0SjvEeK1Sbo8NpBROA")]
     [Description(@"Trade is a pre-allocation trade.")]
-    Pre_allocation,
+    Pre_allocation = AllocationIndicatorCode.Pre_allocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is unallocated.
-    /// Encoded/decoded by serializers as "Unallocated".
+    /// Encoded/decoded by serializers as "UNAL".
     /// </summary>
     [EnumMember(Value = "UNAL")]
     [IsoId("_kZ_NASjvEeK1Sbo8NpBROA")]
     [Description(@"Trade is unallocated.")]
-    Unallocated,
+    Unallocated = AllocationIndicatorCode.Unallocated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AllocationIndicator1Code
 public static class AllocationIndicator1CodeMetadataExtensions
 {
     private static readonly AllocationIndicator1CodeDropdownSource _dropdownSource = new AllocationIndicator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

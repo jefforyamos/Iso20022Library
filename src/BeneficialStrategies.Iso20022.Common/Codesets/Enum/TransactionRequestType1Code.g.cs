@@ -21,21 +21,21 @@ public enum TransactionRequestType1Code
 {
     /// <summary>
     /// Request is the date and time related to the original transaction numlber.
-    /// Encoded/decoded by serializers as "DateTimeTransaction".
+    /// Encoded/decoded by serializers as "DTTX".
     /// </summary>
     [EnumMember(Value = "DTTX")]
     [IsoId("_X0PrNmKDEeGByYwyG-c4ow")]
     [Description(@"Request is the date and time related to the original transaction numlber.")]
-    DateTimeTransaction,
+    DateTimeTransaction = TransactionRequestTypeCode.DateTimeTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request is the original receipt.
-    /// Encoded/decoded by serializers as "OriginalReceipt".
+    /// Encoded/decoded by serializers as "OREC".
     /// </summary>
     [EnumMember(Value = "OREC")]
     [IsoId("_X43shmKDEeGByYwyG-c4ow")]
     [Description(@"Request is the original receipt.")]
-    OriginalReceipt,
+    OriginalReceipt = TransactionRequestTypeCode.OriginalReceipt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransactionRequestType1Code
 public static class TransactionRequestType1CodeMetadataExtensions
 {
     private static readonly TransactionRequestType1CodeDropdownSource _dropdownSource = new TransactionRequestType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

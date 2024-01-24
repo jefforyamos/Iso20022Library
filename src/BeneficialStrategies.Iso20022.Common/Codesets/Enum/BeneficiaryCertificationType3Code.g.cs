@@ -21,39 +21,39 @@ public enum BeneficiaryCertificationType3Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "AccreditedInvestor".
+    /// Encoded/decoded by serializers as "ACCI".
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_beD8wtp-Ed-ak6NoX_4Aeg_-1668344657")]
     [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
-    AccreditedInvestor,
+    AccreditedInvestor = BeneficiaryCertificationTypeCode.AccreditedInvestor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NonCompany".
+    /// Encoded/decoded by serializers as "NCOM".
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_beD8w9p-Ed-ak6NoX_4Aeg_-1667421525")]
     [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
-    NonCompany,
+    NonCompany = BeneficiaryCertificationTypeCode.NonCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBCertification".
+    /// Encoded/decoded by serializers as "QIBB".
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_beD8xNp-Ed-ak6NoX_4Aeg_-1667421153")]
     [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-    QIBCertification,
+    QIBCertification = BeneficiaryCertificationTypeCode.QIBCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// See narrative field for certification requirements.
-    /// Encoded/decoded by serializers as "NarrativeDescription".
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_beD8xdp-Ed-ak6NoX_4Aeg_1359889133")]
     [Description(@"See narrative field for certification requirements.")]
-    NarrativeDescription,
+    NarrativeDescription = BeneficiaryCertificationTypeCode.NarrativeDescription, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum BeneficiaryCertificationType3Code
 public static class BeneficiaryCertificationType3CodeMetadataExtensions
 {
     private static readonly BeneficiaryCertificationType3CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

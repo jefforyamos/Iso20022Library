@@ -21,129 +21,129 @@ public enum Algorithm17Code
 {
     /// <summary>
     /// Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).
-    /// Encoded/decoded by serializers as "RetailCBCMAC".
+    /// Encoded/decoded by serializers as "MACC".
     /// </summary>
     [EnumMember(Value = "MACC")]
     [IsoId("_2i6SodtjEee9e6xduATmQg")]
     [Description(@"Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).")]
-    RetailCBCMAC,
+    RetailCBCMAC = AlgorithmCode.RetailCBCMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).
-    /// Encoded/decoded by serializers as "RetailSHA256MAC".
+    /// Encoded/decoded by serializers as "MCCS".
     /// </summary>
     [EnumMember(Value = "MCCS")]
     [IsoId("_2i6So9tjEee9e6xduATmQg")]
     [Description(@"Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).")]
-    RetailSHA256MAC,
+    RetailSHA256MAC = AlgorithmCode.RetailSHA256MAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.
-    /// Encoded/decoded by serializers as "SHA256CMACwithAES128".
+    /// Encoded/decoded by serializers as "CMA1".
     /// </summary>
     [EnumMember(Value = "CMA1")]
     [IsoId("_2i6SpdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.")]
-    SHA256CMACwithAES128,
+    SHA256CMACwithAES128 = AlgorithmCode.SHA256CMACwithAES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The DEPRECATED Retail-CBC-MAC with SHA-1 (Secure Hash standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-1).
-    /// Encoded/decoded by serializers as "RetailSHA1MAC".
+    /// Encoded/decoded by serializers as "MCC1".
     /// </summary>
     [EnumMember(Value = "MCC1")]
     [IsoId("_2i6Sp9tjEee9e6xduATmQg")]
     [Description(@"The DEPRECATED Retail-CBC-MAC with SHA-1 (Secure Hash standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-1).")]
-    RetailSHA1MAC,
+    RetailSHA1MAC = AlgorithmCode.RetailSHA1MAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-384 digest of the message.
-    /// Encoded/decoded by serializers as "SHA384CMACwithAES192".
+    /// Encoded/decoded by serializers as "CMA9".
     /// </summary>
     [EnumMember(Value = "CMA9")]
     [IsoId("_2i6SqdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-384 digest of the message.")]
-    SHA384CMACwithAES192,
+    SHA384CMACwithAES192 = AlgorithmCode.SHA384CMACwithAES192, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-512 digest of the message.
-    /// Encoded/decoded by serializers as "SHA512CMACwithAES256".
+    /// Encoded/decoded by serializers as "CMA5".
     /// </summary>
     [EnumMember(Value = "CMA5")]
     [IsoId("_2i6Sq9tjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-512 digest of the message.")]
-    SHA512CMACwithAES256,
+    SHA512CMACwithAES256 = AlgorithmCode.SHA512CMACwithAES256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.
-    /// Encoded/decoded by serializers as "SHA256CMACWithAES256".
+    /// Encoded/decoded by serializers as "CMA2".
     /// </summary>
     [EnumMember(Value = "CMA2")]
     [IsoId("_4y3jEdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.")]
-    SHA256CMACWithAES256,
+    SHA256CMACWithAES256 = AlgorithmCode.SHA256CMACWithAES256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-256 digest of the message.
-    /// Encoded/decoded by serializers as "SHA3_256CMACWithAES128".
+    /// Encoded/decoded by serializers as "CM31".
     /// </summary>
     [EnumMember(Value = "CM31")]
     [IsoId("_5fvQIdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-256 digest of the message.")]
-    SHA3_256CMACWithAES128,
+    SHA3_256CMACWithAES128 = AlgorithmCode.SHA3_256CMACWithAES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-384 digest of the message.
-    /// Encoded/decoded by serializers as "SHA3_384CMACWithAES192".
+    /// Encoded/decoded by serializers as "CM32".
     /// </summary>
     [EnumMember(Value = "CM32")]
     [IsoId("_6Sb4YdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-384 digest of the message.")]
-    SHA3_384CMACWithAES192,
+    SHA3_384CMACWithAES192 = AlgorithmCode.SHA3_384CMACWithAES192, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-512 digest of the message.
-    /// Encoded/decoded by serializers as "SHA3_512CMACWithAES256".
+    /// Encoded/decoded by serializers as "CM33".
     /// </summary>
     [EnumMember(Value = "CM33")]
     [IsoId("_6nW_gdtjEee9e6xduATmQg")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA3-512 digest of the message.")]
-    SHA3_512CMACWithAES256,
+    SHA3_512CMACWithAES256 = AlgorithmCode.SHA3_512CMACWithAES256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// 3DES CBC-MAC with SHA3-256 (SecureHAsh standard) and ISO/IEC9797-1 method 2 padding.
-    /// Encoded/decoded by serializers as "SHA3_256_3DESMAC".
+    /// Encoded/decoded by serializers as "MCS3".
     /// </summary>
     [EnumMember(Value = "MCS3")]
     [IsoId("_-SqMkdtjEee9e6xduATmQg")]
     [Description(@"3DES CBC-MAC with SHA3-256 (SecureHAsh standard) and ISO/IEC9797-1 method 2 padding.")]
-    SHA3_256_3DESMAC,
+    SHA3_256_3DESMAC = AlgorithmCode.SHA3_256_3DESMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "CMACAES128".
+    /// Encoded/decoded by serializers as "CCA1".
     /// </summary>
     [EnumMember(Value = "CCA1")]
     [IsoId("_GRNCQd9bEeeNt9bWIs54cw")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    CMACAES128,
+    CMACAES128 = AlgorithmCode.CMACAES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "CMACAES192".
+    /// Encoded/decoded by serializers as "CCA2".
     /// </summary>
     [EnumMember(Value = "CCA2")]
     [IsoId("_GaUiAd9bEeeNt9bWIs54cw")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    CMACAES192,
+    CMACAES192 = AlgorithmCode.CMACAES192, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "CMACAES256".
+    /// Encoded/decoded by serializers as "CCA3".
     /// </summary>
     [EnumMember(Value = "CCA3")]
     [IsoId("_Gkd8gd9bEeeNt9bWIs54cw")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    CMACAES256,
+    CMACAES256 = AlgorithmCode.CMACAES256, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum Algorithm17Code
 public static class Algorithm17CodeMetadataExtensions
 {
     private static readonly Algorithm17CodeDropdownSource _dropdownSource = new Algorithm17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

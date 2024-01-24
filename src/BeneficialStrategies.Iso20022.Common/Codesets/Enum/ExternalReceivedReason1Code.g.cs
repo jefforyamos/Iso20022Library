@@ -17,18 +17,18 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_BRBXUFjsEeOnqqBHs8Gasw")]
-[Description(@"Specifies the reason for a received status.| The list of valid codes is an external code list published separately.  External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for a received status.||The list of valid codes is an external code list published separately. |External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalReceivedReasonCode))]
 public enum ExternalReceivedReason1Code
 {
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
-    /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVGJSPRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction was not straight through processing and had to be processed manually")]
-    NotStraightThroughProcessing,
+    NotStraightThroughProcessing = ExternalReceivedReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -39,7 +39,7 @@ public enum ExternalReceivedReason1Code
 public static class ExternalReceivedReason1CodeMetadataExtensions
 {
     private static readonly ExternalReceivedReason1CodeDropdownSource _dropdownSource = new ExternalReceivedReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

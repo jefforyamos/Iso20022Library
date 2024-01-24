@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_sNAZ0O8UEeSLA89yUYsVSw")]
 [Description(@"Specifies the type of regulatory reporting pre-trade waiver.")]
 [Derivations(typeof(ReportingWaiverType1Code),typeof(ReportingWaiverType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReportingWaiverTypeCode
 {
     /// <summary>
@@ -112,22 +111,20 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Cancellations.
-    /// 
     /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_RupQoBqCEeWZfqhJDVHHrQ")]
-    [Description(@"Cancellations. ")]
+    [Description(@"Cancellations.|")]
     Cancellations,
     
     /// <summary>
     /// Special dividend transactions.
-    /// 
     /// Encoded/decoded by serializers as "SDIV".
     /// </summary>
     [EnumMember(Value = "SDIV")]
     [IsoId("_WvjlwBqCEeWZfqhJDVHHrQ")]
-    [Description(@"Special dividend transactions. ")]
+    [Description(@"Special dividend transactions.|")]
     SpecialDividendTransaction,
     
     /// <summary>
@@ -202,7 +199,7 @@ public enum ReportingWaiverTypeCode
 public static class ReportingWaiverTypeCodeMetadataExtensions
 {
     private static readonly ReportingWaiverTypeCodeDropdownSource _dropdownSource = new ReportingWaiverTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

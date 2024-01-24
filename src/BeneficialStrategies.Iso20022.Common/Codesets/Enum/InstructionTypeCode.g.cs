@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aYxvstp-Ed-ak6NoX_4Aeg_-1770372143")]
 [Description(@"Specifies the action that the TSU must take on a baseline or a data set.")]
 [Derivations(typeof(InstructionType3Code),typeof(InstructionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstructionTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum InstructionTypeCode
 public static class InstructionTypeCodeMetadataExtensions
 {
     private static readonly InstructionTypeCodeDropdownSource _dropdownSource = new InstructionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

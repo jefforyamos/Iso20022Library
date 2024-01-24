@@ -21,30 +21,30 @@ public enum GoodTillBookingInstruction1Code
 {
     /// <summary>
     /// Book out all trades on day of execution.
-    /// Encoded/decoded by serializers as "BookOnExecutionDay".
+    /// Encoded/decoded by serializers as "BOEX".
     /// </summary>
     [EnumMember(Value = "BOEX")]
     [IsoId("_auYMQtp-Ed-ak6NoX_4Aeg_659969076")]
     [Description(@"Book out all trades on day of execution.")]
-    BookOnExecutionDay,
+    BookOnExecutionDay = GoodTillBookingInstructionCode.BookOnExecutionDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accumulate executions until order is filled or expires.
-    /// Encoded/decoded by serializers as "AccumulateTillEnd".
+    /// Encoded/decoded by serializers as "ACTE".
     /// </summary>
     [EnumMember(Value = "ACTE")]
     [IsoId("_auYMQ9p-Ed-ak6NoX_4Aeg_659969118")]
     [Description(@"Accumulate executions until order is filled or expires.")]
-    AccumulateTillEnd,
+    AccumulateTillEnd = GoodTillBookingInstructionCode.AccumulateTillEnd, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accumulate until verbally notified otherwise.
-    /// Encoded/decoded by serializers as "AccumulateTillTold".
+    /// Encoded/decoded by serializers as "ACTT".
     /// </summary>
     [EnumMember(Value = "ACTT")]
     [IsoId("_auYMRNp-Ed-ak6NoX_4Aeg_659969178")]
     [Description(@"Accumulate until verbally notified otherwise.")]
-    AccumulateTillTold,
+    AccumulateTillTold = GoodTillBookingInstructionCode.AccumulateTillTold, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum GoodTillBookingInstruction1Code
 public static class GoodTillBookingInstruction1CodeMetadataExtensions
 {
     private static readonly GoodTillBookingInstruction1CodeDropdownSource _dropdownSource = new GoodTillBookingInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

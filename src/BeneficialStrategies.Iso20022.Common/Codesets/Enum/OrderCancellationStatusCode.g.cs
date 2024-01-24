@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aQk189p-Ed-ak6NoX_4Aeg_85357733")]
 [Description(@"Specifies the current status of the order cancellation request.")]
 [Derivations(typeof(OrderCancellationStatus1Code),typeof(OrderCancellationStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderCancellationStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OrderCancellationStatusCode
 public static class OrderCancellationStatusCodeMetadataExtensions
 {
     private static readonly OrderCancellationStatusCodeDropdownSource _dropdownSource = new OrderCancellationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

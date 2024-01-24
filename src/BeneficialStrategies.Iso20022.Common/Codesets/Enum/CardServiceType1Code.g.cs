@@ -21,30 +21,30 @@ public enum CardServiceType1Code
 {
     /// <summary>
     /// Partial reconciliation of the day.
-    /// Encoded/decoded by serializers as "CheckPoint".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_AFicAXu9EeSLmfFG0DG7zQ")]
     [Description(@"Partial reconciliation of the day.")]
-    CheckPoint,
+    CheckPoint = CardServiceTypeCode.CheckPoint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final reconciliation.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_AK5dIXu9EeSLmfFG0DG7zQ")]
     [Description(@"Final reconciliation.")]
-    Final,
+    Final = CardServiceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for totals of a previous reconciliation.
-    /// Encoded/decoded by serializers as "TotalInquiry".
+    /// Encoded/decoded by serializers as "PRVS".
     /// </summary>
     [EnumMember(Value = "PRVS")]
     [IsoId("_AUbzo3u9EeSLmfFG0DG7zQ")]
     [Description(@"Request for totals of a previous reconciliation.")]
-    TotalInquiry,
+    TotalInquiry = CardServiceTypeCode.TotalInquiry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CardServiceType1Code
 public static class CardServiceType1CodeMetadataExtensions
 {
     private static readonly CardServiceType1CodeDropdownSource _dropdownSource = new CardServiceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

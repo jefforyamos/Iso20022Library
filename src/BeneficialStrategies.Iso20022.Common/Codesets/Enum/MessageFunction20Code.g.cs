@@ -16,72 +16,72 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-KhpoFBNEeedyPuM0kK2EQ")]
-[Description(@"Identifies the type of chargeback process related to the message. ISO 8583 MTI")]
+[Description(@"Identifies the type of chargeback process related to the message.|ISO 8583 MTI")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction20Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVC".
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_xtHBAemtEemNVKPwszFC-A")]
     [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
-    Advice,
+    Advice = MessageFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "Notification".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_zKVM8OmtEemNVKPwszFC-A")]
     [Description(@"Information about the transaction.")]
-    Notification,
+    Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_zzsTAemtEemNVKPwszFC-A")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "ReversalAdvice".
+    /// Encoded/decoded by serializers as "RVRA".
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_1H5F0emtEemNVKPwszFC-A")]
     [Description(@"Advice for reversal without financial capture.")]
-    ReversalAdvice,
+    ReversalAdvice = MessageFunctionCode.ReversalAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification of reversal for either an authorisation or a financial message (response not expected).
-    /// Encoded/decoded by serializers as "ReversalNotification".
+    /// Encoded/decoded by serializers as "RVNO".
     /// </summary>
     [EnumMember(Value = "RVNO")]
     [IsoId("_1rYNYemtEemNVKPwszFC-A")]
     [Description(@"Notification of reversal for either an authorisation or a financial message (response not expected).")]
-    ReversalNotification,
+    ReversalNotification = MessageFunctionCode.ReversalNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice about the status of a transaction.
-    /// Encoded/decoded by serializers as "StatusAdvice".
+    /// Encoded/decoded by serializers as "STAD".
     /// </summary>
     [EnumMember(Value = "STAD")]
     [IsoId("_3BoOoemtEemNVKPwszFC-A")]
     [Description(@"Advice about the status of a transaction.")]
-    StatusAdvice,
+    StatusAdvice = MessageFunctionCode.StatusAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification about the status of a transaction.
-    /// Encoded/decoded by serializers as "StatusNotification".
+    /// Encoded/decoded by serializers as "STNO".
     /// </summary>
     [EnumMember(Value = "STNO")]
     [IsoId("_3I7JcemtEemNVKPwszFC-A")]
     [Description(@"Notification about the status of a transaction.")]
-    StatusNotification,
+    StatusNotification = MessageFunctionCode.StatusNotification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum MessageFunction20Code
 public static class MessageFunction20CodeMetadataExtensions
 {
     private static readonly MessageFunction20CodeDropdownSource _dropdownSource = new MessageFunction20CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

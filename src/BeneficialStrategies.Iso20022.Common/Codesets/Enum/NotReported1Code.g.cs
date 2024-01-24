@@ -21,12 +21,12 @@ public enum NotReported1Code
 {
     /// <summary>
     /// Value not reported by the party.
-    /// Encoded/decoded by serializers as "NotReported".
+    /// Encoded/decoded by serializers as "NORP".
     /// </summary>
     [EnumMember(Value = "NORP")]
     [IsoId("_WhKP8dGfEeaQk737TH1Fzw")]
     [Description(@"Value not reported by the party.")]
-    NotReported,
+    NotReported = SpecialPurposeCode.NotReported, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum NotReported1Code
 public static class NotReported1CodeMetadataExtensions
 {
     private static readonly NotReported1CodeDropdownSource _dropdownSource = new NotReported1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

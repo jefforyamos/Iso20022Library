@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_HkvJcGCMEeabZtzjEVWYCQ")]
 [Description(@"Specifies the reason for the closure pending status.")]
 [Derivations(typeof(ClosurePendingStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClosurePendingStatusReasonCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ClosurePendingStatusReasonCode
 public static class ClosurePendingStatusReasonCodeMetadataExtensions
 {
     private static readonly ClosurePendingStatusReasonCodeDropdownSource _dropdownSource = new ClosurePendingStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

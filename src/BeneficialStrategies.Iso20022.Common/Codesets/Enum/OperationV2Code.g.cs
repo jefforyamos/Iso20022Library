@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cS11gNGxEeaokquJJ-K6uA")]
 [Description(@"Indicates the relationship between two variables.")]
 [Derivations(typeof(Operation3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OperationV2Code
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OperationV2Code
 public static class OperationV2CodeMetadataExtensions
 {
     private static readonly OperationV2CodeDropdownSource _dropdownSource = new OperationV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

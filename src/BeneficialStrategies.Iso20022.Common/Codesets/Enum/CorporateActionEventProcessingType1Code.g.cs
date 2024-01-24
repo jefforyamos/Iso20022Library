@@ -21,30 +21,30 @@ public enum CorporateActionEventProcessingType1Code
 {
     /// <summary>
     /// No debit or credit of resources.
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GENL".
     /// </summary>
     [EnumMember(Value = "GENL")]
     [IsoId("_bDij8tp-Ed-ak6NoX_4Aeg_-1292636681")]
     [Description(@"No debit or credit of resources.")]
-    General,
+    General = CorporateActionEventProcessingTypeCode.General, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holder of the relevant security on a certain date, for example, the record date, will receive a benefit without giving up the underlying security.
-    /// Encoded/decoded by serializers as "Distribution".
+    /// Encoded/decoded by serializers as "DISN".
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_bDij89p-Ed-ak6NoX_4Aeg_-1292636650")]
     [Description(@"Holder of the relevant security on a certain date, for example, the record date, will receive a benefit without giving up the underlying security.")]
-    Distribution,
+    Distribution = CorporateActionEventProcessingTypeCode.Distribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying security will be debited and may be replaced by another resource (or resources).
-    /// Encoded/decoded by serializers as "Reorganisation".
+    /// Encoded/decoded by serializers as "REOR".
     /// </summary>
     [EnumMember(Value = "REOR")]
     [IsoId("_bDij9Np-Ed-ak6NoX_4Aeg_-1292636649")]
     [Description(@"Underlying security will be debited and may be replaced by another resource (or resources).")]
-    Reorganisation,
+    Reorganisation = CorporateActionEventProcessingTypeCode.Reorganisation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionEventProcessingType1Code
 public static class CorporateActionEventProcessingType1CodeMetadataExtensions
 {
     private static readonly CorporateActionEventProcessingType1CodeDropdownSource _dropdownSource = new CorporateActionEventProcessingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

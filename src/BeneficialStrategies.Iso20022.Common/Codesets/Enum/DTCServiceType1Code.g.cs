@@ -21,30 +21,30 @@ public enum DTCServiceType1Code
 {
     /// <summary>
     /// Cash In Lieu or Round Up service.
-    /// Encoded/decoded by serializers as "CashInLieuRoundUp".
+    /// Encoded/decoded by serializers as "CILR".
     /// </summary>
     [EnumMember(Value = "CILR")]
     [IsoId("_14xnNTL3EeKU9IrkkToqcw_-623906197")]
     [Description(@"Cash In Lieu or Round Up service.")]
-    CashInLieuRoundUp,
+    CashInLieuRoundUp = DTCServiceType.CashInLieuRoundUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// U.S. Tax Withholding service.
-    /// Encoded/decoded by serializers as "USTaxWithholding".
+    /// Encoded/decoded by serializers as "USTX".
     /// </summary>
     [EnumMember(Value = "USTX")]
     [IsoId("_14xnNjL3EeKU9IrkkToqcw_843242566")]
     [Description(@"U.S. Tax Withholding service.")]
-    USTaxWithholding,
+    USTaxWithholding = DTCServiceType.USTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Foreign Tax Relief service.
-    /// Encoded/decoded by serializers as "ForeignTaxRelief".
+    /// Encoded/decoded by serializers as "FTXR".
     /// </summary>
     [EnumMember(Value = "FTXR")]
     [IsoId("_146xIDL3EeKU9IrkkToqcw_1672203018")]
     [Description(@"Foreign Tax Relief service.")]
-    ForeignTaxRelief,
+    ForeignTaxRelief = DTCServiceType.ForeignTaxRelief, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DTCServiceType1Code
 public static class DTCServiceType1CodeMetadataExtensions
 {
     private static readonly DTCServiceType1CodeDropdownSource _dropdownSource = new DTCServiceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,138 +21,138 @@ public enum PartyType2Code
 {
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_ZyVayNp-Ed-ak6NoX_4Aeg_1425772570")]
     [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
-    Investor,
+    Investor = PartyTypeCode.Investor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that identifies an executing / give-up broker.
-    /// Encoded/decoded by serializers as "ExecutingFirm".
+    /// Encoded/decoded by serializers as "EXEC".
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_ZyeksNp-Ed-ak6NoX_4Aeg_1488571424")]
     [Description(@"Party that identifies an executing / give-up broker.")]
-    ExecutingFirm,
+    ExecutingFirm = PartyTypeCode.ExecutingFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that receives the trade credit.
-    /// Encoded/decoded by serializers as "BrokerOfCredit".
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_Zyeksdp-Ed-ak6NoX_4Aeg_1488571597")]
     [Description(@"Party that receives the trade credit.")]
-    BrokerOfCredit,
+    BrokerOfCredit = PartyTypeCode.BrokerOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that is going to carry the position on their books at another clearinghouse (exchanges).
-    /// Encoded/decoded by serializers as "CorrespondentClearingFirm".
+    /// Encoded/decoded by serializers as "CORR".
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_Zyekstp-Ed-ak6NoX_4Aeg_1488571614")]
     [Description(@"Party that is going to carry the position on their books at another clearinghouse (exchanges).")]
-    CorrespondentClearingFirm,
+    CorrespondentClearingFirm = PartyTypeCode.CorrespondentClearingFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that is the counterparty in a trade.
-    /// Encoded/decoded by serializers as "ContraFirm".
+    /// Encoded/decoded by serializers as "COFI".
     /// </summary>
     [EnumMember(Value = "COFI")]
     [IsoId("_Zyeks9p-Ed-ak6NoX_4Aeg_1488572277")]
     [Description(@"Party that is the counterparty in a trade.")]
-    ContraFirm,
+    ContraFirm = PartyTypeCode.ContraFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that is the clearing firm of the counterparty in a trade.
-    /// Encoded/decoded by serializers as "ContraClearingFirm".
+    /// Encoded/decoded by serializers as "COCL".
     /// </summary>
     [EnumMember(Value = "COCL")]
     [IsoId("_ZyektNp-Ed-ak6NoX_4Aeg_1488572337")]
     [Description(@"Party that is the clearing firm of the counterparty in a trade.")]
-    ContraClearingFirm,
+    ContraClearingFirm = PartyTypeCode.ContraClearingFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party (broker or other firm), which is the contra side of the trade for the underlying security.
-    /// Encoded/decoded by serializers as "UnderlyingContraFirm".
+    /// Encoded/decoded by serializers as "UNDE".
     /// </summary>
     [EnumMember(Value = "UNDE")]
     [IsoId("_Zyektdp-Ed-ak6NoX_4Aeg_1488572527")]
     [Description(@"Party (broker or other firm), which is the contra side of the trade for the underlying security.")]
-    UnderlyingContraFirm,
+    UnderlyingContraFirm = PartyTypeCode.UnderlyingContraFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to which the trade is given up (carries the position that results from a trade).
-    /// Encoded/decoded by serializers as "GiveUpClearingFirm".
+    /// Encoded/decoded by serializers as "GIVE".
     /// </summary>
     [EnumMember(Value = "GIVE")]
     [IsoId("_Zyekttp-Ed-ak6NoX_4Aeg_1488572864")]
     [Description(@"Party to which the trade is given up (carries the position that results from a trade).")]
-    GiveUpClearingFirm,
+    GiveUpClearingFirm = PartyTypeCode.GiveUpClearingFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that originates an order.
-    /// Encoded/decoded by serializers as "OrderOriginationFirm".
+    /// Encoded/decoded by serializers as "ORDE".
     /// </summary>
     [EnumMember(Value = "ORDE")]
     [IsoId("_Zyekt9p-Ed-ak6NoX_4Aeg_1488573423")]
     [Description(@"Party that originates an order.")]
-    OrderOriginationFirm,
+    OrderOriginationFirm = PartyTypeCode.OrderOriginationFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.
-    /// Encoded/decoded by serializers as "SponsoringFirm".
+    /// Encoded/decoded by serializers as "SPON".
     /// </summary>
     [EnumMember(Value = "SPON")]
     [IsoId("_ZyekuNp-Ed-ak6NoX_4Aeg_1488574258")]
     [Description(@"Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.")]
-    SponsoringFirm,
+    SponsoringFirm = PartyTypeCode.SponsoringFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party (broker) that settles security transactions from another broker for a fee = take up broker.
-    /// Encoded/decoded by serializers as "Clearingfirm".
+    /// Encoded/decoded by serializers as "CLEA".
     /// </summary>
     [EnumMember(Value = "CLEA")]
     [IsoId("_Zyekudp-Ed-ak6NoX_4Aeg_1488574430")]
     [Description(@"Party (broker) that settles security transactions from another broker for a fee = take up broker.")]
-    Clearingfirm,
+    Clearingfirm = PartyTypeCode.Clearingfirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.
-    /// Encoded/decoded by serializers as "IntroducingFirm".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_Zyekutp-Ed-ak6NoX_4Aeg_1489494904")]
     [Description(@"Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.")]
-    IntroducingFirm,
+    IntroducingFirm = PartyTypeCode.IntroducingFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.
-    /// Encoded/decoded by serializers as "EnteringFirm".
+    /// Encoded/decoded by serializers as "ENTE".
     /// </summary>
     [EnumMember(Value = "ENTE")]
     [IsoId("_ZyoVsNp-Ed-ak6NoX_4Aeg_1489495041")]
     [Description(@"Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.")]
-    EnteringFirm,
+    EnteringFirm = PartyTypeCode.EnteringFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A client is identified in third party-transactions or for investor in intermediary transactions.
-    /// Encoded/decoded by serializers as "Client".
+    /// Encoded/decoded by serializers as "CLIE".
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_ZyoVsdp-Ed-ak6NoX_4Aeg_1489495378")]
     [Description(@"A client is identified in third party-transactions or for investor in intermediary transactions.")]
-    Client,
+    Client = PartyTypeCode.Client, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Broker to which the investment manager directs the execution of a portion of the trade.
-    /// Encoded/decoded by serializers as "StepInBroker".
+    /// Encoded/decoded by serializers as "STEP".
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_ZyoVstp-Ed-ak6NoX_4Aeg_1489495860")]
     [Description(@"Broker to which the investment manager directs the execution of a portion of the trade.")]
-    StepInBroker,
+    StepInBroker = PartyTypeCode.StepInBroker, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum PartyType2Code
 public static class PartyType2CodeMetadataExtensions
 {
     private static readonly PartyType2CodeDropdownSource _dropdownSource = new PartyType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

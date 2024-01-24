@@ -21,40 +21,40 @@ public enum SenderTrigger1Code
 {
     /// <summary>
     /// File generated based on a date/time event.
-    /// Encoded/decoded by serializers as "DateTime".
+    /// Encoded/decoded by serializers as "DTTM".
     /// </summary>
     [EnumMember(Value = "DTTM")]
     [IsoId("_sdhbYcm4EeWAGphE2LvqeA")]
     [Description(@"File generated based on a date/time event.")]
-    DateTime,
+    DateTime = SenderTriggerCode.DateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File generated based on a manual event (file has been
     /// generated manually).
-    /// Encoded/decoded by serializers as "Manual".
+    /// Encoded/decoded by serializers as "MANL".
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_sx6XAcm4EeWAGphE2LvqeA")]
-    [Description(@"File generated based on a manual event (file has been generated manually).")]
-    Manual,
+    [Description(@"File generated based on a manual event (file has been|generated manually).")]
+    Manual = SenderTriggerCode.Manual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File generated based on a signature event (file has the minimum required signature from the sender).
-    /// Encoded/decoded by serializers as "SufficientlySigned".
+    /// Encoded/decoded by serializers as "SFSG".
     /// </summary>
     [EnumMember(Value = "SFSG")]
     [IsoId("_s8U3Qsm4EeWAGphE2LvqeA")]
     [Description(@"File generated based on a signature event (file has the minimum required signature from the sender).")]
-    SufficientlySigned,
+    SufficientlySigned = SenderTriggerCode.SufficientlySigned, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File generated based on a forced event (file generation has been forced).
-    /// Encoded/decoded by serializers as "Forced".
+    /// Encoded/decoded by serializers as "FRCD".
     /// </summary>
     [EnumMember(Value = "FRCD")]
     [IsoId("_s9gjAcm4EeWAGphE2LvqeA")]
     [Description(@"File generated based on a forced event (file generation has been forced).")]
-    Forced,
+    Forced = SenderTriggerCode.Forced, // same ordinal as derivation source for type conversions
     
 }
 
@@ -65,7 +65,7 @@ public enum SenderTrigger1Code
 public static class SenderTrigger1CodeMetadataExtensions
 {
     private static readonly SenderTrigger1CodeDropdownSource _dropdownSource = new SenderTrigger1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

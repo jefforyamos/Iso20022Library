@@ -21,21 +21,21 @@ public enum RateType7Code
 {
     /// <summary>
     /// Rate of the scheduled payment.
-    /// Encoded/decoded by serializers as "Scheduled".
+    /// Encoded/decoded by serializers as "SCHD".
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_ZZmKpdp-Ed-ak6NoX_4Aeg_-218272353")]
     [Description(@"Rate of the scheduled payment.")]
-    Scheduled,
+    Scheduled = InterestRateTypeCode.Scheduled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate of the unscheduled payment.
-    /// Encoded/decoded by serializers as "Unscheduled".
+    /// Encoded/decoded by serializers as "USCD".
     /// </summary>
     [EnumMember(Value = "USCD")]
     [IsoId("_ZZmKptp-Ed-ak6NoX_4Aeg_-218272323")]
     [Description(@"Rate of the unscheduled payment.")]
-    Unscheduled,
+    Unscheduled = InterestRateTypeCode.Unscheduled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RateType7Code
 public static class RateType7CodeMetadataExtensions
 {
     private static readonly RateType7CodeDropdownSource _dropdownSource = new RateType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

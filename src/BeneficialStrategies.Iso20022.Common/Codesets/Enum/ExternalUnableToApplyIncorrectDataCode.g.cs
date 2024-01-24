@@ -12,14 +12,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.
 /// External code sets can be downloaded from www.iso20022.org.
-/// 
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_p-vHSt4jEeqt1ZcLzWyWFw")]
-[Description(@"Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set. External code sets can be downloaded from www.iso20022.org. ")]
+[Description(@"Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.|External code sets can be downloaded from www.iso20022.org.|")]
 [Derivations(typeof(ExternalUnableToApplyIncorrectData1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalUnableToApplyIncorrectDataCode
 {
     /// <summary>
@@ -400,7 +398,7 @@ public enum ExternalUnableToApplyIncorrectDataCode
 public static class ExternalUnableToApplyIncorrectDataCodeMetadataExtensions
 {
     private static readonly ExternalUnableToApplyIncorrectDataCodeDropdownSource _dropdownSource = new ExternalUnableToApplyIncorrectDataCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

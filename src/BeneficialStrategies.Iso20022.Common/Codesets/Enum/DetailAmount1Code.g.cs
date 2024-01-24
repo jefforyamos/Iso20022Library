@@ -21,93 +21,93 @@ public enum DetailAmount1Code
 {
     /// <summary>
     /// Cashback amount
-    /// Encoded/decoded by serializers as "Cashback".
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_eFR94RbyEeit0dtP9bTmEg")]
     [Description(@"Cashback amount")]
-    Cashback,
+    Cashback = DetailAmountCode.Cashback, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Donation amount
-    /// Encoded/decoded by serializers as "Donation".
+    /// Encoded/decoded by serializers as "DONN".
     /// </summary>
     [EnumMember(Value = "DONN")]
     [IsoId("_ef6rcRbyEeit0dtP9bTmEg")]
     [Description(@"Donation amount")]
-    Donation,
+    Donation = DetailAmountCode.Donation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic Currency Conversion type of amount
-    /// Encoded/decoded by serializers as "DynamicCurrencyConversionFee".
+    /// Encoded/decoded by serializers as "DCCF".
     /// </summary>
     [EnumMember(Value = "DCCF")]
     [IsoId("_eqBpsRbyEeit0dtP9bTmEg")]
     [Description(@"Dynamic Currency Conversion type of amount")]
-    DynamicCurrencyConversionFee,
+    DynamicCurrencyConversionFee = DetailAmountCode.DynamicCurrencyConversionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra charges (for example, minibar, etc.)
-    /// Encoded/decoded by serializers as "Extra".
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_e4BCYRbyEeit0dtP9bTmEg")]
     [Description(@"Extra charges (for example, minibar, etc.)")]
-    Extra,
+    Extra = DetailAmountCode.Extra, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee applicable to a foreign exchange (Forex) transaction
-    /// Encoded/decoded by serializers as "ForeignExchangeFee".
+    /// Encoded/decoded by serializers as "FORX".
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_fCkskRbyEeit0dtP9bTmEg")]
     [Description(@"Fee applicable to a foreign exchange (Forex) transaction")]
-    ForeignExchangeFee,
+    ForeignExchangeFee = DetailAmountCode.ForeignExchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gratuity amount
-    /// Encoded/decoded by serializers as "Gratuity".
+    /// Encoded/decoded by serializers as "GRTY".
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_fOVQoRbyEeit0dtP9bTmEg")]
     [Description(@"Gratuity amount")]
-    Gratuity,
+    Gratuity = DetailAmountCode.Gratuity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_fcBHURbyEeit0dtP9bTmEg")]
     [Description(@"Other type of amount defined at national level")]
-    OtherNational,
+    OtherNational = DetailAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_fogrMRbyEeit0dtP9bTmEg")]
     [Description(@"Other type of amount defined at private level")]
-    OtherPrivate,
+    OtherPrivate = DetailAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by the acceptor for the transaction.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_f0aZMRbyEeit0dtP9bTmEg")]
     [Description(@"Fee charged by the acceptor for the transaction.")]
-    Surcharge,
+    Surcharge = DetailAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax applicable to the transaction
-    /// Encoded/decoded by serializers as "Tax".
+    /// Encoded/decoded by serializers as "TAXT".
     /// </summary>
     [EnumMember(Value = "TAXT")]
     [IsoId("_gECJkRbyEeit0dtP9bTmEg")]
     [Description(@"Tax applicable to the transaction")]
-    Tax,
+    Tax = DetailAmountCode.Tax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum DetailAmount1Code
 public static class DetailAmount1CodeMetadataExtensions
 {
     private static readonly DetailAmount1CodeDropdownSource _dropdownSource = new DetailAmount1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

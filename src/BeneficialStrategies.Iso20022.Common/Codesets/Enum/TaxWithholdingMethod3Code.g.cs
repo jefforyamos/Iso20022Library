@@ -21,84 +21,84 @@ public enum TaxWithholdingMethod3Code
 {
     /// <summary>
     /// Minority interest tax is withheld.
-    /// Encoded/decoded by serializers as "MinorityInterestTax".
+    /// Encoded/decoded by serializers as "MITX".
     /// </summary>
     [EnumMember(Value = "MITX")]
     [IsoId("_rHlbQb-IEeWfsa741pI6WA")]
     [Description(@"Minority interest tax is withheld.")]
-    MinorityInterestTax,
+    MinorityInterestTax = TaxWithholdingMethodCode.MinorityInterestTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withholding tax is applied to an investment company.
-    /// Encoded/decoded by serializers as "InvestmentCompany".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_sBdCgb-IEeWfsa741pI6WA")]
     [Description(@"Withholding tax is applied to an investment company.")]
-    InvestmentCompany,
+    InvestmentCompany = TaxWithholdingMethodCode.InvestmentCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend tax is exempt according to the accountant.
-    /// Encoded/decoded by serializers as "Accountant".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_shvsIb-IEeWfsa741pI6WA")]
     [Description(@"Dividend tax is exempt according to the accountant.")]
-    Accountant,
+    Accountant = TaxWithholdingMethodCode.Accountant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend tax is exempt.
-    /// Encoded/decoded by serializers as "Exempt".
+    /// Encoded/decoded by serializers as "EXMT".
     /// </summary>
     [EnumMember(Value = "EXMT")]
     [IsoId("_tfyBsb-IEeWfsa741pI6WA")]
     [Description(@"Dividend tax is exempt.")]
-    Exempt,
+    Exempt = TaxWithholdingMethodCode.Exempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax information is reported to the tax authorities and therefore not withheld at source.
-    /// Encoded/decoded by serializers as "ReportTax".
+    /// Encoded/decoded by serializers as "REPT".
     /// </summary>
     [EnumMember(Value = "REPT")]
     [IsoId("_y3UHEb-IEeWfsa741pI6WA")]
     [Description(@"Tax information is reported to the tax authorities and therefore not withheld at source.")]
-    ReportTax,
+    ReportTax = TaxWithholdingMethodCode.ReportTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.
-    /// Encoded/decoded by serializers as "TaxCertificate".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_y_WBsb-IEeWfsa741pI6WA")]
     [Description(@"Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.")]
-    TaxCertificate,
+    TaxCertificate = TaxWithholdingMethodCode.TaxCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withholding tax is applied to a corporate.
-    /// Encoded/decoded by serializers as "WithholdingCorporateTax".
+    /// Encoded/decoded by serializers as "WHCO".
     /// </summary>
     [EnumMember(Value = "WHCO")]
     [IsoId("_zLZgsb-IEeWfsa741pI6WA")]
     [Description(@"Withholding tax is applied to a corporate.")]
-    WithholdingCorporateTax,
+    WithholdingCorporateTax = TaxWithholdingMethodCode.WithholdingCorporateTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is withheld at source.
-    /// Encoded/decoded by serializers as "WithholdTax".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_zSr0cb-IEeWfsa741pI6WA")]
     [Description(@"Tax is withheld at source.")]
-    WithholdTax,
+    WithholdTax = TaxWithholdingMethodCode.WithholdTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is withheld at source and the tax information is also reported to the tax authorities.
-    /// Encoded/decoded by serializers as "WithholdTaxAndReport".
+    /// Encoded/decoded by serializers as "WTRE".
     /// </summary>
     [EnumMember(Value = "WTRE")]
     [IsoId("_zauWIL-IEeWfsa741pI6WA")]
     [Description(@"Tax is withheld at source and the tax information is also reported to the tax authorities.")]
-    WithholdTaxAndReport,
+    WithholdTaxAndReport = TaxWithholdingMethodCode.WithholdTaxAndReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TaxWithholdingMethod3Code
 public static class TaxWithholdingMethod3CodeMetadataExtensions
 {
     private static readonly TaxWithholdingMethod3CodeDropdownSource _dropdownSource = new TaxWithholdingMethod3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

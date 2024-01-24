@@ -21,48 +21,48 @@ public enum TransactionActivity1Code
 {
     /// <summary>
     /// Transaction relates to lending/borrowing.
-    /// Encoded/decoded by serializers as "BorrowingLendingActivity".
+    /// Encoded/decoded by serializers as "BOLE".
     /// </summary>
     [EnumMember(Value = "BOLE")]
     [IsoId("_YrP24dp-Ed-ak6NoX_4Aeg_166271038")]
     [Description(@"Transaction relates to lending/borrowing.")]
-    BorrowingLendingActivity,
+    BorrowingLendingActivity = TransactionActivityCode.BorrowingLendingActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction relates to a market claim following a corporate action.
-    /// Encoded/decoded by serializers as "MarketClaim".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_YrP24tp-Ed-ak6NoX_4Aeg_166271039")]
     [Description(@"Transaction relates to a market claim following a corporate action.")]
-    MarketClaim,
+    MarketClaim = TransactionActivityCode.MarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction relates to collateral.
-    /// Encoded/decoded by serializers as "CollateralActivity".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_YrP249p-Ed-ak6NoX_4Aeg_166271040")]
     [Description(@"Transaction relates to collateral.")]
-    CollateralActivity,
+    CollateralActivity = TransactionActivityCode.CollateralActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction relates to corporate action.
-    /// Encoded/decoded by serializers as "CorporateActionActivity".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_YrP25Np-Ed-ak6NoX_4Aeg_166271069")]
     [Description(@"Transaction relates to corporate action.")]
-    CorporateActionActivity,
+    CorporateActionActivity = TransactionActivityCode.CorporateActionActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction relates to settlement and clearing.
-    /// Encoded/decoded by serializers as "SettlementandClearingActivity".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_YrP25dp-Ed-ak6NoX_4Aeg_166271070")]
     [Description(@"Transaction relates to settlement and clearing.")]
-    SettlementandClearingActivity,
+    SettlementandClearingActivity = TransactionActivityCode.SettlementandClearingActivity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TransactionActivity1Code
 public static class TransactionActivity1CodeMetadataExtensions
 {
     private static readonly TransactionActivity1CodeDropdownSource _dropdownSource = new TransactionActivity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

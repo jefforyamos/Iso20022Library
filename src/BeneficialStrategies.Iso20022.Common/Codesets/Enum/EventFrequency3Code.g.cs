@@ -21,48 +21,48 @@ public enum EventFrequency3Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ajpi8tp-Ed-ak6NoX_4Aeg_1482517787")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = EventFrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ajpi89p-Ed-ak6NoX_4Aeg_1482517810")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = EventFrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarterly".
+    /// Encoded/decoded by serializers as "QUTR".
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_ajpi9Np-Ed-ak6NoX_4Aeg_1482517811")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarterly,
+    Quarterly = EventFrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SemiAnnual".
+    /// Encoded/decoded by serializers as "SEMI".
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_ajpi9dp-Ed-ak6NoX_4Aeg_1482517827")]
     [Description(@"Event takes place every six months or two times a year.")]
-    SemiAnnual,
+    SemiAnnual = EventFrequencyCode.SemiAnnual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "Weekly".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ajzT8Np-Ed-ak6NoX_4Aeg_1482517828")]
     [Description(@"Event takes place once a week.")]
-    Weekly,
+    Weekly = EventFrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum EventFrequency3Code
 public static class EventFrequency3CodeMetadataExtensions
 {
     private static readonly EventFrequency3CodeDropdownSource _dropdownSource = new EventFrequency3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

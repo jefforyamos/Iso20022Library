@@ -21,30 +21,30 @@ public enum ForeignCurrencyPaymentElection1Code
 {
     /// <summary>
     /// Foreign currency payment is offered.
-    /// Encoded/decoded by serializers as "Offered".
+    /// Encoded/decoded by serializers as "OFFD".
     /// </summary>
     [EnumMember(Value = "OFFD")]
     [IsoId("_1zs58zL3EeKU9IrkkToqcw_-629605202")]
     [Description(@"Foreign currency payment is offered.")]
-    Offered,
+    Offered = ForeignCurrencyPaymentElectionCode.Offered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Foreign currency payment is not offered.
-    /// Encoded/decoded by serializers as "NotOffered".
+    /// Encoded/decoded by serializers as "NOFD".
     /// </summary>
     [EnumMember(Value = "NOFD")]
     [IsoId("_1zs59DL3EeKU9IrkkToqcw_-1264637048")]
     [Description(@"Foreign currency payment is not offered.")]
-    NotOffered,
+    NotOffered = ForeignCurrencyPaymentElectionCode.NotOffered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Foreign currency payment is mandatory.
-    /// Encoded/decoded by serializers as "Mandatory".
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_1zs59TL3EeKU9IrkkToqcw_202511715")]
     [Description(@"Foreign currency payment is mandatory.")]
-    Mandatory,
+    Mandatory = ForeignCurrencyPaymentElectionCode.Mandatory, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ForeignCurrencyPaymentElection1Code
 public static class ForeignCurrencyPaymentElection1CodeMetadataExtensions
 {
     private static readonly ForeignCurrencyPaymentElection1CodeDropdownSource _dropdownSource = new ForeignCurrencyPaymentElection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

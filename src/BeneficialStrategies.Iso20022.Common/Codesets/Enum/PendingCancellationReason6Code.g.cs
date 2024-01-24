@@ -21,39 +21,39 @@ public enum PendingCancellationReason6Code
 {
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "QuantityRejection".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_v3pvMbLOEemDyeh7tbvg1w")]
     [Description(@"Unrecognised or invalid instructed quantity.")]
-    QuantityRejection,
+    QuantityRejection = RejectionReasonV3Code.QuantityRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_v3pvNbLOEemDyeh7tbvg1w")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV3Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_v3pvN7LOEemDyeh7tbvg1w")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV3Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_zDeK8bLOEemDyeh7tbvg1w")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV3Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PendingCancellationReason6Code
 public static class PendingCancellationReason6CodeMetadataExtensions
 {
     private static readonly PendingCancellationReason6CodeDropdownSource _dropdownSource = new PendingCancellationReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

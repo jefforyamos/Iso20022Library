@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_dtx60Nj4EeiojJsa6FYyew")]
 [Description(@"Identifies the type of process related to the message.")]
 [Derivations(typeof(RetailerMessage1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RetailerMessageCode
 {
     /// <summary>
@@ -182,7 +181,7 @@ public enum RetailerMessageCode
 public static class RetailerMessageCodeMetadataExtensions
 {
     private static readonly RetailerMessageCodeDropdownSource _dropdownSource = new RetailerMessageCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gdIMkEyIEeir2sRRVd9XhA")]
 [Description(@"Specifies a source of the cash asset.")]
 [Derivations(typeof(CashAssetType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashAssetTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CashAssetTypeCode
 public static class CashAssetTypeCodeMetadataExtensions
 {
     private static readonly CashAssetTypeCodeDropdownSource _dropdownSource = new CashAssetTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

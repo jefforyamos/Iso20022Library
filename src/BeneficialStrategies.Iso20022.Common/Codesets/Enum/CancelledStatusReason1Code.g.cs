@@ -21,30 +21,30 @@ public enum CancelledStatusReason1Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CancelledByYourself".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_a0pMU9p-Ed-ak6NoX_4Aeg_689720889")]
     [Description(@"Transaction is cancelled by yourself.")]
-    CancelledByYourself,
+    CancelledByYourself = CancelledStatusReasonCode.CancelledByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelledBySystem".
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_a0pMVNp-Ed-ak6NoX_4Aeg_689720890")]
     [Description(@"Transaction is cancelled by the system.")]
-    CancelledBySystem,
+    CancelledBySystem = CancelledStatusReasonCode.CancelledBySystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the agent.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_a0pMVdp-Ed-ak6NoX_4Aeg_689720891")]
     [Description(@"Transaction is cancelled by the agent.")]
-    CancelledByAgent,
+    CancelledByAgent = CancelledStatusReasonCode.CancelledByAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CancelledStatusReason1Code
 public static class CancelledStatusReason1CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason1CodeDropdownSource _dropdownSource = new CancelledStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,102 +21,102 @@ public enum DataSetCategory11Code
 {
     /// <summary>
     /// Configuration parameters of the payment acquirer protocol.
-    /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
+    /// Encoded/decoded by serializers as "ACQP".
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_LSf3EY4GEeWrZqsymMFdfg")]
     [Description(@"Configuration parameters of the payment acquirer protocol.")]
-    AcquirerProtocolParameters,
+    AcquirerProtocolParameters = DataSetCategoryCode.AcquirerProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "ApplicationParameters".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_LSf3E44GEeWrZqsymMFdfg")]
     [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
-    ApplicationParameters,
+    ApplicationParameters = DataSetCategoryCode.ApplicationParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creation of a subset of the configuration parameters of an application.
-    /// Encoded/decoded by serializers as "ApplicationParametersSubsetCreation".
+    /// Encoded/decoded by serializers as "APSB".
     /// </summary>
     [EnumMember(Value = "APSB")]
     [IsoId("_LSf3FY4GEeWrZqsymMFdfg")]
     [Description(@"Creation of a subset of the configuration parameters of an application.")]
-    ApplicationParametersSubsetCreation,
+    ApplicationParametersSubsetCreation = DataSetCategoryCode.ApplicationParametersSubsetCreation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Download of cryptographic keys with the related information.
-    /// Encoded/decoded by serializers as "KeyDownload".
+    /// Encoded/decoded by serializers as "KDWL".
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_LSf3F44GEeWrZqsymMFdfg")]
     [Description(@"Download of cryptographic keys with the related information.")]
-    KeyDownload,
+    KeyDownload = DataSetCategoryCode.KeyDownload, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Activate, deactivate or revoke loaded cryptographic keys.
-    /// Encoded/decoded by serializers as "KeyManagement".
+    /// Encoded/decoded by serializers as "KMGT".
     /// </summary>
     [EnumMember(Value = "KMGT")]
     [IsoId("_LSf3GY4GEeWrZqsymMFdfg")]
     [Description(@"Activate, deactivate or revoke loaded cryptographic keys.")]
-    KeyManagement,
+    KeyManagement = DataSetCategoryCode.KeyManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reporting on activity, status and error of a point of interaction.
-    /// Encoded/decoded by serializers as "Reporting".
+    /// Encoded/decoded by serializers as "RPRT".
     /// </summary>
     [EnumMember(Value = "RPRT")]
     [IsoId("_LSf3G44GEeWrZqsymMFdfg")]
     [Description(@"Reporting on activity, status and error of a point of interaction.")]
-    Reporting,
+    Reporting = DataSetCategoryCode.Reporting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SoftwareModule".
+    /// Encoded/decoded by serializers as "SWPK".
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_LSf3HY4GEeWrZqsymMFdfg")]
     [Description(@"Software module.")]
-    SoftwareModule,
+    SoftwareModule = DataSetCategoryCode.SoftwareModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSProtocolParameters".
+    /// Encoded/decoded by serializers as "TMSP".
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_LSf3H44GEeWrZqsymMFdfg")]
     [Description(@"Configuration parameters for the TMS protocol.")]
-    TMSProtocolParameters,
+    TMSProtocolParameters = DataSetCategoryCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MerchantParameters".
+    /// Encoded/decoded by serializers as "MRPR".
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_LSf3IY4GEeWrZqsymMFdfg")]
     [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
-    MerchantParameters,
+    MerchantParameters = DataSetCategoryCode.MerchantParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TerminalParameters".
+    /// Encoded/decoded by serializers as "TRPR".
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_LSf3I44GEeWrZqsymMFdfg")]
     [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
-    TerminalParameters,
+    TerminalParameters = DataSetCategoryCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CertificateParameters".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_RkeLcY4GEeWrZqsymMFdfg")]
     [Description(@"Certificate provided by a terminal manager.")]
-    CertificateParameters,
+    CertificateParameters = DataSetCategoryCode.CertificateParameters, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum DataSetCategory11Code
 public static class DataSetCategory11CodeMetadataExtensions
 {
     private static readonly DataSetCategory11CodeDropdownSource _dropdownSource = new DataSetCategory11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

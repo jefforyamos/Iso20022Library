@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_av4BF9p-Ed-ak6NoX_4Aeg_1948323043")]
 [Description(@"Specifies the status of a depositary receipt processing.")]
 [Derivations(typeof(DepositaryReceiptProcessingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DepositaryReceiptProcessingStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DepositaryReceiptProcessingStatusCode
 public static class DepositaryReceiptProcessingStatusCodeMetadataExtensions
 {
     private static readonly DepositaryReceiptProcessingStatusCodeDropdownSource _dropdownSource = new DepositaryReceiptProcessingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

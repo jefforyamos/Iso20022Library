@@ -21,66 +21,66 @@ public enum CryptographicKeyType4Code
 {
     /// <summary>
     /// Key used to protect application information.
-    /// Encoded/decoded by serializers as "Application".
+    /// Encoded/decoded by serializers as "APPL".
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_VAq5oYtJEeSxlKlAGYErFg")]
     [Description(@"Key used to protect application information.")]
-    Application,
+    Application = CryptographicKeyTypeCode.Application, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key used to protect data in the messages.
-    /// Encoded/decoded by serializers as "Data".
+    /// Encoded/decoded by serializers as "DATA".
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_VKNQI4tJEeSxlKlAGYErFg")]
     [Description(@"Key used to protect data in the messages.")]
-    Data,
+    Data = CryptographicKeyTypeCode.Data, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any cryptographic key that can be downloaded.
-    /// Encoded/decoded by serializers as "Dynamic".
+    /// Encoded/decoded by serializers as "DYNC".
     /// </summary>
     [EnumMember(Value = "DYNC")]
     [IsoId("_VcPbU4tJEeSxlKlAGYErFg")]
     [Description(@"Any cryptographic key that can be downloaded.")]
-    Dynamic,
+    Dynamic = CryptographicKeyTypeCode.Dynamic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key used to encrypt other keys.
-    /// Encoded/decoded by serializers as "KeyEncryption".
+    /// Encoded/decoded by serializers as "KENC".
     /// </summary>
     [EnumMember(Value = "KENC")]
     [IsoId("_Vntrg4tJEeSxlKlAGYErFg")]
     [Description(@"Key used to encrypt other keys.")]
-    KeyEncryption,
+    KeyEncryption = CryptographicKeyTypeCode.KeyEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key used to generate the MAC of a message.
-    /// Encoded/decoded by serializers as "MAC".
+    /// Encoded/decoded by serializers as "MACK".
     /// </summary>
     [EnumMember(Value = "MACK")]
     [IsoId("_V28aU4tJEeSxlKlAGYErFg")]
     [Description(@"Key used to generate the MAC of a message.")]
-    MAC,
+    MAC = CryptographicKeyTypeCode.MAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key used to encrypt a PIN.
-    /// Encoded/decoded by serializers as "PIN".
+    /// Encoded/decoded by serializers as "PINK".
     /// </summary>
     [EnumMember(Value = "PINK")]
     [IsoId("_WBHC84tJEeSxlKlAGYErFg")]
     [Description(@"Key used to encrypt a PIN.")]
-    PIN,
+    PIN = CryptographicKeyTypeCode.PIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Temporary key used to download keys.
-    /// Encoded/decoded by serializers as "Working".
+    /// Encoded/decoded by serializers as "WRKG".
     /// </summary>
     [EnumMember(Value = "WRKG")]
     [IsoId("_WJwBk4tJEeSxlKlAGYErFg")]
     [Description(@"Temporary key used to download keys.")]
-    Working,
+    Working = CryptographicKeyTypeCode.Working, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CryptographicKeyType4Code
 public static class CryptographicKeyType4CodeMetadataExtensions
 {
     private static readonly CryptographicKeyType4CodeDropdownSource _dropdownSource = new CryptographicKeyType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

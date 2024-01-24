@@ -21,12 +21,12 @@ public enum ServiceLevel3Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_VwsKQdp-Ed-ak6NoX_4Aeg_-228092481")]
     [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
-    SingleEuroPaymentsArea,
+    SingleEuroPaymentsArea = ServiceLevelCode.SingleEuroPaymentsArea, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ServiceLevel3Code
 public static class ServiceLevel3CodeMetadataExtensions
 {
     private static readonly ServiceLevel3CodeDropdownSource _dropdownSource = new ServiceLevel3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

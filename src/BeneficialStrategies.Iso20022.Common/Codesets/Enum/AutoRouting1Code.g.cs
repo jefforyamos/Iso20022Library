@@ -21,21 +21,21 @@ public enum AutoRouting1Code
 {
     /// <summary>
     /// Indicates the Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.
-    /// Encoded/decoded by serializers as "DOTSystem".
+    /// Encoded/decoded by serializers as "DDOT".
     /// </summary>
     [EnumMember(Value = "DDOT")]
     [IsoId("_bj4Q5dp-Ed-ak6NoX_4Aeg_1094266206")]
     [Description(@"Indicates the Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.")]
-    DOTSystem,
+    DOTSystem = AutoRoutingCode.DOTSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the evolution of the DOT system, a Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.
-    /// Encoded/decoded by serializers as "SuperDOTSystem".
+    /// Encoded/decoded by serializers as "SDOT".
     /// </summary>
     [EnumMember(Value = "SDOT")]
     [IsoId("_bj4Q5tp-Ed-ak6NoX_4Aeg_1094266241")]
     [Description(@"Indicates the evolution of the DOT system, a Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.")]
-    SuperDOTSystem,
+    SuperDOTSystem = AutoRoutingCode.SuperDOTSystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AutoRouting1Code
 public static class AutoRouting1CodeMetadataExtensions
 {
     private static readonly AutoRouting1CodeDropdownSource _dropdownSource = new AutoRouting1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

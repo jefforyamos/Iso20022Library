@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_h5LIgCFnEeW9XJWqfgXIIA")]
 [Description(@"Specifies the status of a restriction.")]
 [Derivations(typeof(RestrictionStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RestrictionStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RestrictionStatusCode
 public static class RestrictionStatusCodeMetadataExtensions
 {
     private static readonly RestrictionStatusCodeDropdownSource _dropdownSource = new RestrictionStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

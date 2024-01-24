@@ -21,59 +21,57 @@ public enum BondType1Code
 {
     /// <summary>
     /// Bond of type sovereign bond.
-    /// 
-    /// Encoded/decoded by serializers as "SovereignBond".
+    /// Encoded/decoded by serializers as "EUSB".
     /// </summary>
     [EnumMember(Value = "EUSB")]
     [IsoId("_z95C0XwXEeWa36CuR-uOCw")]
-    [Description(@"Bond of type sovereign bond. ")]
-    SovereignBond,
+    [Description(@"Bond of type sovereign bond.|")]
+    SovereignBond = BondTypeCode.SovereignBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bond of type other public bond.
-    /// Encoded/decoded by serializers as "OtherPublicBond".
+    /// Encoded/decoded by serializers as "OEPB".
     /// </summary>
     [EnumMember(Value = "OEPB")]
     [IsoId("_0jKTEXwXEeWa36CuR-uOCw")]
     [Description(@"Bond of type other public bond.")]
-    OtherPublicBond,
+    OtherPublicBond = BondTypeCode.OtherPublicBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bond of type convertible bond.
-    /// Encoded/decoded by serializers as "ConvertibleBond".
+    /// Encoded/decoded by serializers as "CVTB".
     /// </summary>
     [EnumMember(Value = "CVTB")]
     [IsoId("_1H1tcXwXEeWa36CuR-uOCw")]
     [Description(@"Bond of type convertible bond.")]
-    ConvertibleBond,
+    ConvertibleBond = BondTypeCode.ConvertibleBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bond of type corporate Bond.
-    /// 
-    /// Encoded/decoded by serializers as "CorporateBond".
+    /// Encoded/decoded by serializers as "CRPB".
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_1huNEXwXEeWa36CuR-uOCw")]
-    [Description(@"Bond of type corporate Bond. ")]
-    CorporateBond,
+    [Description(@"Bond of type corporate Bond.|")]
+    CorporateBond = BondTypeCode.CorporateBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bond of type covered Bond.
-    /// Encoded/decoded by serializers as "CoveredBond".
+    /// Encoded/decoded by serializers as "CVDB".
     /// </summary>
     [EnumMember(Value = "CVDB")]
     [IsoId("_15wSkXwXEeWa36CuR-uOCw")]
     [Description(@"Bond of type covered Bond.")]
-    CoveredBond,
+    CoveredBond = BondTypeCode.CoveredBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other bond type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_2V1KkXwXEeWa36CuR-uOCw")]
     [Description(@"Other bond type.")]
-    Other,
+    Other = BondTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -84,7 +82,7 @@ public enum BondType1Code
 public static class BondType1CodeMetadataExtensions
 {
     private static readonly BondType1CodeDropdownSource _dropdownSource = new BondType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

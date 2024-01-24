@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8NxfVaMgEeCJ6YNENx4h-w_73506953")]
 [Description(@"Defines the query type for standing orders queries, that identifies the predefined key attributes expected in the response to the query.")]
 [Derivations(typeof(StandingOrderQueryType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StandingOrderQueryTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum StandingOrderQueryTypeCode
 public static class StandingOrderQueryTypeCodeMetadataExtensions
 {
     private static readonly StandingOrderQueryTypeCodeDropdownSource _dropdownSource = new StandingOrderQueryTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

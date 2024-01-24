@@ -21,336 +21,336 @@ public enum DTCAdjustmentPaymentType2Code
 {
     /// <summary>
     /// Adjusted for rights subscription related adjustment.
-    /// Encoded/decoded by serializers as "AdjustedForRightsSubscription".
+    /// Encoded/decoded by serializers as "RRRA".
     /// </summary>
     [EnumMember(Value = "RRRA")]
     [IsoId("_ux8KYXxtEeOCOoRiuJeDeg")]
     [Description(@"Adjusted for rights subscription related adjustment.")]
-    AdjustedForRightsSubscription,
+    AdjustedForRightsSubscription = DTCAdjustmentPaymentTypeV2Code.AdjustedForRightsSubscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// American Depository R issue fee charge adjustment.
-    /// Encoded/decoded by serializers as "ADRIssueFeeCharge".
+    /// Encoded/decoded by serializers as "RADC".
     /// </summary>
     [EnumMember(Value = "RADC")]
     [IsoId("_u63c4XxtEeOCOoRiuJeDeg")]
     [Description(@"American Depository R issue fee charge adjustment.")]
-    ADRIssueFeeCharge,
+    ADRIssueFeeCharge = DTCAdjustmentPaymentTypeV2Code.ADRIssueFeeCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ADR issue fee reversal adjustment.
-    /// Encoded/decoded by serializers as "ADRIssueFeeReversal".
+    /// Encoded/decoded by serializers as "RADR".
     /// </summary>
     [EnumMember(Value = "RADR")]
     [IsoId("_u9sucXxtEeOCOoRiuJeDeg")]
     [Description(@"ADR issue fee reversal adjustment.")]
-    ADRIssueFeeReversal,
+    ADRIssueFeeReversal = DTCAdjustmentPaymentTypeV2Code.ADRIssueFeeReversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash in lieu related adjustment.
-    /// Encoded/decoded by serializers as "CashInLieu".
+    /// Encoded/decoded by serializers as "RCIL".
     /// </summary>
     [EnumMember(Value = "RCIL")]
     [IsoId("_vIHOs3xtEeOCOoRiuJeDeg")]
     [Description(@"Cash in lieu related adjustment.")]
-    CashInLieu,
+    CashInLieu = DTCAdjustmentPaymentTypeV2Code.CashInLieu, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Claim settlement related adjustment.
-    /// Encoded/decoded by serializers as "ClaimSettlement".
+    /// Encoded/decoded by serializers as "RRCL".
     /// </summary>
     [EnumMember(Value = "RRCL")]
     [IsoId("_vKyvQXxtEeOCOoRiuJeDeg")]
     [Description(@"Claim settlement related adjustment.")]
-    ClaimSettlement,
+    ClaimSettlement = DTCAdjustmentPaymentTypeV2Code.ClaimSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend payment on a DTC custody held security related adjustment.
-    /// Encoded/decoded by serializers as "CustodyDividendPayment".
+    /// Encoded/decoded by serializers as "RCDP".
     /// </summary>
     [EnumMember(Value = "RCDP")]
     [IsoId("_vNdowXxtEeOCOoRiuJeDeg")]
     [Description(@"Dividend payment on a DTC custody held security related adjustment.")]
-    CustodyDividendPayment,
+    CustodyDividendPayment = DTCAdjustmentPaymentTypeV2Code.CustodyDividendPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custody reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "CustodyReorganizationDeposit".
+    /// Encoded/decoded by serializers as "RRCD".
     /// </summary>
     [EnumMember(Value = "RRCD")]
     [IsoId("_vmdXkXxtEeOCOoRiuJeDeg")]
     [Description(@"Custody reorganization deposit related adjustment.")]
-    CustodyReorganizationDeposit,
+    CustodyReorganizationDeposit = DTCAdjustmentPaymentTypeV2Code.CustodyReorganizationDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic rate change related adjustment.
-    /// Encoded/decoded by serializers as "DynamicRateChange".
+    /// Encoded/decoded by serializers as "RRDR".
     /// </summary>
     [EnumMember(Value = "RRDR")]
     [IsoId("_vpI4IXxtEeOCOoRiuJeDeg")]
     [Description(@"Dynamic rate change related adjustment.")]
-    DynamicRateChange,
+    DynamicRateChange = DTCAdjustmentPaymentTypeV2Code.DynamicRateChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FailSettlement".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_vr0YsXxtEeOCOoRiuJeDeg")]
     [Description(@"FAIL (undelivered securities) transaction.")]
-    FailSettlement,
+    FailSettlement = DTCAdjustmentPaymentTypeV2Code.FailSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fail tracking tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "FailTrackingTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXF".
     /// </summary>
     [EnumMember(Value = "TJXF")]
     [IsoId("_v0JOQXxtEeOCOoRiuJeDeg")]
     [Description(@"Fail tracking tax withholding related adjustment.")]
-    FailTrackingTaxWithholding,
+    FailTrackingTaxWithholding = DTCAdjustmentPaymentTypeV2Code.FailTrackingTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Intra-day reversal of original tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "IntraDayReversalOfOriginalTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXV".
     /// </summary>
     [EnumMember(Value = "TJXV")]
     [IsoId("_v20u0XxtEeOCOoRiuJeDeg")]
     [Description(@"Intra-day reversal of original tax withholding related adjustment.")]
-    IntraDayReversalOfOriginalTaxWithholding,
+    IntraDayReversalOfOriginalTaxWithholding = DTCAdjustmentPaymentTypeV2Code.IntraDayReversalOfOriginalTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last day protect related adjustment.
-    /// Encoded/decoded by serializers as "LastDayProtect".
+    /// Encoded/decoded by serializers as "RRRL".
     /// </summary>
     [EnumMember(Value = "RRRL")]
     [IsoId("_v5gPYXxtEeOCOoRiuJeDeg")]
     [Description(@"Last day protect related adjustment.")]
-    LastDayProtect,
+    LastDayProtect = DTCAdjustmentPaymentTypeV2Code.LastDayProtect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "LegalReorganizationDeposits".
+    /// Encoded/decoded by serializers as "RRML".
     /// </summary>
     [EnumMember(Value = "RRML")]
     [IsoId("_v8U54XxtEeOCOoRiuJeDeg")]
     [Description(@"Legal reorganization deposit related adjustment.")]
-    LegalReorganizationDeposits,
+    LegalReorganizationDeposits = DTCAdjustmentPaymentTypeV2Code.LegalReorganizationDeposits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandatory legal reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "MandatoryLegalReorgDeposit".
+    /// Encoded/decoded by serializers as "RRLR".
     /// </summary>
     [EnumMember(Value = "RRLR")]
     [IsoId("_wGcfM3xtEeOCOoRiuJeDeg")]
     [Description(@"Mandatory legal reorganization deposit related adjustment.")]
-    MandatoryLegalReorgDeposit,
+    MandatoryLegalReorgDeposit = DTCAdjustmentPaymentTypeV2Code.MandatoryLegalReorgDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandatory reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "MandatoryReorganizationDeposit".
+    /// Encoded/decoded by serializers as "RRMD".
     /// </summary>
     [EnumMember(Value = "RRMD")]
     [IsoId("_wOoK0XxtEeOCOoRiuJeDeg")]
     [Description(@"Mandatory reorganization deposit related adjustment.")]
-    MandatoryReorganizationDeposit,
+    MandatoryReorganizationDeposit = DTCAdjustmentPaymentTypeV2Code.MandatoryReorganizationDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manual user tax adjustment.
-    /// Encoded/decoded by serializers as "ManualUserTax".
+    /// Encoded/decoded by serializers as "TJXU".
     /// </summary>
     [EnumMember(Value = "TJXU")]
     [IsoId("_wW9ncXxtEeOCOoRiuJeDeg")]
     [Description(@"Manual user tax adjustment.")]
-    ManualUserTax,
+    ManualUserTax = DTCAdjustmentPaymentTypeV2Code.ManualUserTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MiscellaneousSettlement".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_wZpIAXxtEeOCOoRiuJeDeg")]
     [Description(@"Miscellaneous (adjustment) transaction.")]
-    MiscellaneousSettlement,
+    MiscellaneousSettlement = DTCAdjustmentPaymentTypeV2Code.MiscellaneousSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original (initial) tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "OriginalInitialTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXO".
     /// </summary>
     [EnumMember(Value = "TJXO")]
     [IsoId("_wcUokXxtEeOCOoRiuJeDeg")]
     [Description(@"Original (initial) tax withholding related adjustment.")]
-    OriginalInitialTaxWithholding,
+    OriginalInitialTaxWithholding = DTCAdjustmentPaymentTypeV2Code.OriginalInitialTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandatory over three year reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "MandatoryOverThreeYearReorganizationDeposit".
+    /// Encoded/decoded by serializers as "RRR3".
     /// </summary>
     [EnumMember(Value = "RRR3")]
     [IsoId("_wqAfQXxtEeOCOoRiuJeDeg")]
     [Description(@"Mandatory over three year reorganization deposit related adjustment.")]
-    MandatoryOverThreeYearReorganizationDeposit,
+    MandatoryOverThreeYearReorganizationDeposit = DTCAdjustmentPaymentTypeV2Code.MandatoryOverThreeYearReorganizationDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original late tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "OriginalLateTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXL".
     /// </summary>
     [EnumMember(Value = "TJXL")]
     [IsoId("_xOnBI3xtEeOCOoRiuJeDeg")]
     [Description(@"Original late tax withholding related adjustment.")]
-    OriginalLateTaxWithholding,
+    OriginalLateTaxWithholding = DTCAdjustmentPaymentTypeV2Code.OriginalLateTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserved for new user defined reason codes.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_xRbroXxtEeOCOoRiuJeDeg")]
     [Description(@"Reserved for new user defined reason codes.")]
-    Other,
+    Other = DTCAdjustmentPaymentTypeV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate change tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "RateChangeTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXT".
     /// </summary>
     [EnumMember(Value = "TJXT")]
     [IsoId("_xUHMMXxtEeOCOoRiuJeDeg")]
     [Description(@"Rate change tax withholding related adjustment.")]
-    RateChangeTaxWithholding,
+    RateChangeTaxWithholding = DTCAdjustmentPaymentTypeV2Code.RateChangeTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reclassification tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "ReclassificationTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXD".
     /// </summary>
     [EnumMember(Value = "TJXD")]
     [IsoId("_xW72sXxtEeOCOoRiuJeDeg")]
     [Description(@"Reclassification tax withholding related adjustment.")]
-    ReclassificationTaxWithholding,
+    ReclassificationTaxWithholding = DTCAdjustmentPaymentTypeV2Code.ReclassificationTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant deposited a security within 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "ReorganisationDepositPhaseOne".
+    /// Encoded/decoded by serializers as "RRD1".
     /// </summary>
     [EnumMember(Value = "RRD1")]
     [IsoId("_xe-YYXxtEeOCOoRiuJeDeg")]
     [Description(@"Participant deposited a security within 10 days after a corporate action event has occurred.")]
-    ReorganisationDepositPhaseOne,
+    ReorganisationDepositPhaseOne = DTCAdjustmentPaymentTypeV2Code.ReorganisationDepositPhaseOne, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant deposited a security 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "ReorgDepositPhaseTwo".
+    /// Encoded/decoded by serializers as "RRD2".
     /// </summary>
     [EnumMember(Value = "RRD2")]
     [IsoId("_xhzC4XxtEeOCOoRiuJeDeg")]
     [Description(@"Participant deposited a security 10 days after a corporate action event has occurred.")]
-    ReorgDepositPhaseTwo,
+    ReorgDepositPhaseTwo = DTCAdjustmentPaymentTypeV2Code.ReorgDepositPhaseTwo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "RepoSettlement".
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_xkejcXxtEeOCOoRiuJeDeg")]
     [Description(@"REPO (repurchase agreement) transaction.")]
-    RepoSettlement,
+    RepoSettlement = DTCAdjustmentPaymentTypeV2Code.RepoSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal related adjustment.
-    /// Encoded/decoded by serializers as "Reversal".
+    /// Encoded/decoded by serializers as "REVA".
     /// </summary>
     [EnumMember(Value = "REVA")]
     [IsoId("_xyApIXxtEeOCOoRiuJeDeg")]
     [Description(@"Reversal related adjustment.")]
-    Reversal,
+    Reversal = DTCAdjustmentPaymentTypeV2Code.Reversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal of tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "ReversalOfTaxWithholding".
+    /// Encoded/decoded by serializers as "TJXR".
     /// </summary>
     [EnumMember(Value = "TJXR")]
     [IsoId("_x0sJsXxtEeOCOoRiuJeDeg")]
     [Description(@"Reversal of tax withholding related adjustment.")]
-    ReversalOfTaxWithholding,
+    ReversalOfTaxWithholding = DTCAdjustmentPaymentTypeV2Code.ReversalOfTaxWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights protect related adjustment.
-    /// Encoded/decoded by serializers as "RightsProtect".
+    /// Encoded/decoded by serializers as "RRRI".
     /// </summary>
     [EnumMember(Value = "RRRI")]
     [IsoId("_x3XqQXxtEeOCOoRiuJeDeg")]
     [Description(@"Rights protect related adjustment.")]
-    RightsProtect,
+    RightsProtect = DTCAdjustmentPaymentTypeV2Code.RightsProtect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights sales related adjustment.
-    /// Encoded/decoded by serializers as "RightsSales".
+    /// Encoded/decoded by serializers as "RRRS".
     /// </summary>
     [EnumMember(Value = "RRRS")]
     [IsoId("_x_jV4XxtEeOCOoRiuJeDeg")]
     [Description(@"Rights sales related adjustment.")]
-    RightsSales,
+    RightsSales = DTCAdjustmentPaymentTypeV2Code.RightsSales, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights step up related adjustment.
-    /// Encoded/decoded by serializers as "RightsStepUp".
+    /// Encoded/decoded by serializers as "RRRU".
     /// </summary>
     [EnumMember(Value = "RRRU")]
     [IsoId("_yCO2cXxtEeOCOoRiuJeDeg")]
     [Description(@"Rights step up related adjustment.")]
-    RightsStepUp,
+    RightsStepUp = DTCAdjustmentPaymentTypeV2Code.RightsStepUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights subscription related adjustment.
-    /// Encoded/decoded by serializers as "RightsSubscription".
+    /// Encoded/decoded by serializers as "RRRE".
     /// </summary>
     [EnumMember(Value = "RRRE")]
     [IsoId("_zBKj4XxtEeOCOoRiuJeDeg")]
     [Description(@"Rights subscription related adjustment.")]
-    RightsSubscription,
+    RightsSubscription = DTCAdjustmentPaymentTypeV2Code.RightsSubscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "StockLoanSettlement".
+    /// Encoded/decoded by serializers as "STOK".
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_zD2EcXxtEeOCOoRiuJeDeg")]
     [Description(@"Stock loan transaction.")]
-    StockLoanSettlement,
+    StockLoanSettlement = DTCAdjustmentPaymentTypeV2Code.StockLoanSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax instruction change related adjustment.
-    /// Encoded/decoded by serializers as "TaxInstructionChange".
+    /// Encoded/decoded by serializers as "TJXI".
     /// </summary>
     [EnumMember(Value = "TJXI")]
     [IsoId("_zMBwEXxtEeOCOoRiuJeDeg")]
     [Description(@"Tax instruction change related adjustment.")]
-    TaxInstructionChange,
+    TaxInstructionChange = DTCAdjustmentPaymentTypeV2Code.TaxInstructionChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender offer fraction related adjustment.
-    /// Encoded/decoded by serializers as "TenderOfferFraction".
+    /// Encoded/decoded by serializers as "RRT2".
     /// </summary>
     [EnumMember(Value = "RRT2")]
     [IsoId("_zOtQoXxtEeOCOoRiuJeDeg")]
     [Description(@"Tender offer fraction related adjustment.")]
-    TenderOfferFraction,
+    TenderOfferFraction = DTCAdjustmentPaymentTypeV2Code.TenderOfferFraction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warrant Participant delete related adjustment.
-    /// Encoded/decoded by serializers as "WarrantParticipantDelete".
+    /// Encoded/decoded by serializers as "RRWT".
     /// </summary>
     [EnumMember(Value = "RRWT")]
     [IsoId("_zRYKIXxtEeOCOoRiuJeDeg")]
     [Description(@"Warrant Participant delete related adjustment.")]
-    WarrantParticipantDelete,
+    WarrantParticipantDelete = DTCAdjustmentPaymentTypeV2Code.WarrantParticipantDelete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warrant rate change related adjustment.
-    /// Encoded/decoded by serializers as "WarrantRateChange".
+    /// Encoded/decoded by serializers as "RRWC".
     /// </summary>
     [EnumMember(Value = "RRWC")]
     [IsoId("_zZar0XxtEeOCOoRiuJeDeg")]
     [Description(@"Warrant rate change related adjustment.")]
-    WarrantRateChange,
+    WarrantRateChange = DTCAdjustmentPaymentTypeV2Code.WarrantRateChange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -361,7 +361,7 @@ public enum DTCAdjustmentPaymentType2Code
 public static class DTCAdjustmentPaymentType2CodeMetadataExtensions
 {
     private static readonly DTCAdjustmentPaymentType2CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_MwrsIJ05Eeet_4BCDEBLdQ")]
-[Description(@"Specifies the market infrastructure identification, as published in an external market infrastructure code list. This is a synonym of the external cash clearing system code list, extended outside the pure cash domains. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the market infrastructure identification, as published in an external market infrastructure code list.|This is a synonym of the external cash clearing system code list, extended outside the pure cash domains.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalMarketInfrastructure1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalMarketInfrastructureCode
 {
     /// <summary>
@@ -913,7 +912,7 @@ public enum ExternalMarketInfrastructureCode
 public static class ExternalMarketInfrastructureCodeMetadataExtensions
 {
     private static readonly ExternalMarketInfrastructureCodeDropdownSource _dropdownSource = new ExternalMarketInfrastructureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

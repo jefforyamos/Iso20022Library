@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-ul2sGBgEeaR1OOiVxm3Gg")]
 [Description(@"Specifies the reason for an enabled status.")]
 [Derivations(typeof(EnabledStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EnabledStatusReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum EnabledStatusReasonCode
 public static class EnabledStatusReasonCodeMetadataExtensions
 {
     private static readonly EnabledStatusReasonCodeDropdownSource _dropdownSource = new EnabledStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_muenYK3wEemG7MmivSuE5g")]
 [Description(@"Specifies the different methods allowed for participating to the vote of agenda resolutions in a general meeting.")]
 [Derivations(typeof(VotingParticipationMethod1Code),typeof(VotingParticipationMethod2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum VotingParticipationMethodCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum VotingParticipationMethodCode
 public static class VotingParticipationMethodCodeMetadataExtensions
 {
     private static readonly VotingParticipationMethodCodeDropdownSource _dropdownSource = new VotingParticipationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

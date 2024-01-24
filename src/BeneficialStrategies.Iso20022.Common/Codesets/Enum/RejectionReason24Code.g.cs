@@ -21,66 +21,66 @@ public enum RejectionReason24Code
 {
     /// <summary>
     /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZjbcGNp-Ed-ak6NoX_4Aeg_1066393063")]
     [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
-    SafekeepingAccountRejection,
+    SafekeepingAccountRejection = RejectionReasonV2Code.SafekeepingAccountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "InvalidSecurity".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_ZjlNENp-Ed-ak6NoX_4Aeg_1066393115")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    InvalidSecurity,
+    InvalidSecurity = RejectionReasonV2Code.InvalidSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_ZjlNEdp-Ed-ak6NoX_4Aeg_1066393158")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "ReferenceRejection".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_ZjlNEtp-Ed-ak6NoX_4Aeg_1481977131")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    ReferenceRejection,
+    ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZjlNE9p-Ed-ak6NoX_4Aeg_-1967966501")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV2Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZjlNFNp-Ed-ak6NoX_4Aeg_-1184235378")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement/status advice request cannot be executed. The message type requested is not valid for the message reference or statement period concerned.
-    /// Encoded/decoded by serializers as "InvalidRequest".
+    /// Encoded/decoded by serializers as "MISM".
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_ZjlNFdp-Ed-ak6NoX_4Aeg_-66977480")]
     [Description(@"Statement/status advice request cannot be executed. The message type requested is not valid for the message reference or statement period concerned.")]
-    InvalidRequest,
+    InvalidRequest = RejectionReasonV2Code.InvalidRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum RejectionReason24Code
 public static class RejectionReason24CodeMetadataExtensions
 {
     private static readonly RejectionReason24CodeDropdownSource _dropdownSource = new RejectionReason24CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

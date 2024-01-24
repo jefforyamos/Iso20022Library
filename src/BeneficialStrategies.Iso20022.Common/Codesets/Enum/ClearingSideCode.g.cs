@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__1M6s9ojEeC60axPepSq7g_1756834553")]
 [Description(@"Side taken by a party on an order.")]
 [Derivations(typeof(ClearingSide1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingSideCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ClearingSideCode
 public static class ClearingSideCodeMetadataExtensions
 {
     private static readonly ClearingSideCodeDropdownSource _dropdownSource = new ClearingSideCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

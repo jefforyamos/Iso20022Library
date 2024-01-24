@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZzzfsQ3mEeWc7_0KPiuk6w")]
 [Description(@"Specifies the transaction or position level.")]
 [Derivations(typeof(ModificationLevel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ModificationLevelCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ModificationLevelCode
 public static class ModificationLevelCodeMetadataExtensions
 {
     private static readonly ModificationLevelCodeDropdownSource _dropdownSource = new ModificationLevelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

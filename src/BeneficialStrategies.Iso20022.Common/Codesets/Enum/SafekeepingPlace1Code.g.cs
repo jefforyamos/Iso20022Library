@@ -21,39 +21,39 @@ public enum SafekeepingPlace1Code
 {
     /// <summary>
     /// Financial instruments held at a local custodian.
-    /// Encoded/decoded by serializers as "SharesHeldAtLocalCustodian".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_Y-oF4Np-Ed-ak6NoX_4Aeg_-532747937")]
     [Description(@"Financial instruments held at a local custodian.")]
-    SharesHeldAtLocalCustodian,
+    SharesHeldAtLocalCustodian = SafekeepingPlaceCode.SharesHeldAtLocalCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments held at an International Central Securities Depository.
-    /// Encoded/decoded by serializers as "SharesHeldAtICSD".
+    /// Encoded/decoded by serializers as "ICSD".
     /// </summary>
     [EnumMember(Value = "ICSD")]
     [IsoId("_Y-oF4dp-Ed-ak6NoX_4Aeg_-495806728")]
     [Description(@"Financial instruments held at an International Central Securities Depository.")]
-    SharesHeldAtICSD,
+    SharesHeldAtICSD = SafekeepingPlaceCode.SharesHeldAtICSD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments held at a National Central Securities Depository.
-    /// Encoded/decoded by serializers as "SharesHeldAtNCSD".
+    /// Encoded/decoded by serializers as "NCSD".
     /// </summary>
     [EnumMember(Value = "NCSD")]
     [IsoId("_Y-oF4tp-Ed-ak6NoX_4Aeg_279949982")]
     [Description(@"Financial instruments held at a National Central Securities Depository.")]
-    SharesHeldAtNCSD,
+    SharesHeldAtNCSD = SafekeepingPlaceCode.SharesHeldAtNCSD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.
-    /// Encoded/decoded by serializers as "SharesHeldElsewhere".
+    /// Encoded/decoded by serializers as "SHHE".
     /// </summary>
     [EnumMember(Value = "SHHE")]
     [IsoId("_Y-oF49p-Ed-ak6NoX_4Aeg_-1284489900")]
     [Description(@"Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.")]
-    SharesHeldElsewhere,
+    SharesHeldElsewhere = SafekeepingPlaceCode.SharesHeldElsewhere, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SafekeepingPlace1Code
 public static class SafekeepingPlace1CodeMetadataExtensions
 {
     private static readonly SafekeepingPlace1CodeDropdownSource _dropdownSource = new SafekeepingPlace1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

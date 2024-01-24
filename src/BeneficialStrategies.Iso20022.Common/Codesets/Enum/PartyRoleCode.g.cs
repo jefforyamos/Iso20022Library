@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZxlM1tp-Ed-ak6NoX_4Aeg_492772100")]
 [Description(@"Specifies the role of the party in the transaction.")]
-[Derivations(typeof(InvestmentFundRole1Code),typeof(InvestmentFundRole3Code),typeof(InvestmentFundRole2Code),typeof(PaymentRole1Code),typeof(InvestmentFundRole4Code),typeof(InvestmentFundRole5Code),typeof(InvestmentFundRole6Code),typeof(InvestmentFundRole7Code),typeof(InternalPartyRole1Code),typeof(PartyRole1Code),typeof(PartyRole2Code),typeof(PartyRole3Code),typeof(InvestmentFundRole8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(InvestmentFundRole6Code),typeof(PaymentRole1Code),typeof(PartyRole2Code),typeof(InvestmentFundRole2Code),typeof(InternalPartyRole1Code),typeof(InvestmentFundRole8Code),typeof(InvestmentFundRole3Code),typeof(InvestmentFundRole1Code),typeof(InvestmentFundRole5Code),typeof(PartyRole3Code),typeof(InvestmentFundRole4Code),typeof(InvestmentFundRole7Code),typeof(PartyRole1Code))]
 public enum PartyRoleCode
 {
     /// <summary>
@@ -344,7 +343,7 @@ public enum PartyRoleCode
 public static class PartyRoleCodeMetadataExtensions
 {
     private static readonly PartyRoleCodeDropdownSource _dropdownSource = new PartyRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

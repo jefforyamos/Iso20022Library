@@ -21,30 +21,30 @@ public enum Referred1Code
 {
     /// <summary>
     /// The investor was referred to the fund by a placement agent.
-    /// Encoded/decoded by serializers as "Referred".
+    /// Encoded/decoded by serializers as "REFR".
     /// </summary>
     [EnumMember(Value = "REFR")]
     [IsoId("_Zaosddp-Ed-ak6NoX_4Aeg_59379446")]
     [Description(@"The investor was referred to the fund by a placement agent.")]
-    Referred,
+    Referred = ReferredCode.Referred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The investor was not referred to the fund by a placement agent.
-    /// Encoded/decoded by serializers as "NotReferred".
+    /// Encoded/decoded by serializers as "NRFR".
     /// </summary>
     [EnumMember(Value = "NRFR")]
     [IsoId("_Zaosdtp-Ed-ak6NoX_4Aeg_59379471")]
     [Description(@"The investor was not referred to the fund by a placement agent.")]
-    NotReferred,
+    NotReferred = ReferredCode.NotReferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// It is not known whether the investor was referred to the fund by a placement agent.
-    /// Encoded/decoded by serializers as "NotKnown".
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_Zaosd9p-Ed-ak6NoX_4Aeg_59379506")]
     [Description(@"It is not known whether the investor was referred to the fund by a placement agent.")]
-    NotKnown,
+    NotKnown = ReferredCode.NotKnown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Referred1Code
 public static class Referred1CodeMetadataExtensions
 {
     private static readonly Referred1CodeDropdownSource _dropdownSource = new Referred1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

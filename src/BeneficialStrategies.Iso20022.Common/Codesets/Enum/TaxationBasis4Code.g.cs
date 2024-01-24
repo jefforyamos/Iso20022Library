@@ -21,39 +21,39 @@ public enum TaxationBasis4Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "Flat".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_ZScZyNp-Ed-ak6NoX_4Aeg_752961378")]
     [Description(@"Charge/tax basis is a lump sum.")]
-    Flat,
+    Flat = TaxationBasisCode.Flat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PerUnit".
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_ZSljsNp-Ed-ak6NoX_4Aeg_752961403")]
     [Description(@"Charges/tax basis is per unit of financial instrument.")]
-    PerUnit,
+    PerUnit = TaxationBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/Commission/tax basis is based on the gross amount.
-    /// Encoded/decoded by serializers as "GrossAmount".
+    /// Encoded/decoded by serializers as "GRAM".
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_ZSljsdp-Ed-ak6NoX_4Aeg_771431735")]
     [Description(@"Charge/Commission/tax basis is based on the gross amount.")]
-    GrossAmount,
+    GrossAmount = TaxationBasisCode.GrossAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/commission/tax basis is based on the net amount.
-    /// Encoded/decoded by serializers as "NetAmount".
+    /// Encoded/decoded by serializers as "NEAM".
     /// </summary>
     [EnumMember(Value = "NEAM")]
     [IsoId("_ZSljstp-Ed-ak6NoX_4Aeg_771431777")]
     [Description(@"Charge/commission/tax basis is based on the net amount.")]
-    NetAmount,
+    NetAmount = TaxationBasisCode.NetAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TaxationBasis4Code
 public static class TaxationBasis4CodeMetadataExtensions
 {
     private static readonly TaxationBasis4CodeDropdownSource _dropdownSource = new TaxationBasis4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

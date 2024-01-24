@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Wps_YQ3fEeWc7_0KPiuk6w")]
 [Description(@"Specifies an energy quantity unit.")]
 [Derivations(typeof(EnergyQuantityUnit1Code),typeof(EnergyQuantityUnit2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EnergyQuantityUnitCode
 {
     /// <summary>
@@ -209,7 +208,7 @@ public enum EnergyQuantityUnitCode
 public static class EnergyQuantityUnitCodeMetadataExtensions
 {
     private static readonly EnergyQuantityUnitCodeDropdownSource _dropdownSource = new EnergyQuantityUnitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

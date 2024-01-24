@@ -17,29 +17,26 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8RJ1sPpPEemXaqBx8S4XSg")]
 [Description(@"Provides the reason for a status of a payment transaction in the tracker.")]
 [Derivations(typeof(TrackerTransactionStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerTransactionStatusReasonCode
 {
     /// <summary>
     /// In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.
-    /// 
     /// In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.
     /// Encoded/decoded by serializers as "G000".
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_D11vIPpQEemXaqBx8S4XSg")]
-    [Description(@"In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.  In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.")]
+    [Description(@"In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.||In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.")]
     PaymentTransferredAndTracked,
     
     /// <summary>
     /// In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.
-    /// 
     /// In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.
     /// Encoded/decoded by serializers as "G001".
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_D7HQsPpQEemXaqBx8S4XSg")]
-    [Description(@"In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.  In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.")]
+    [Description(@"In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.||In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.")]
     PaymentTransferredAndNotTracked,
     
     /// <summary>
@@ -49,7 +46,7 @@ public enum TrackerTransactionStatusReasonCode
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_D9U3MPpQEemXaqBx8S4XSg")]
-    [Description(@"In a FIToFI Customer Credit Transfer: Credit to the creditor’s account may not be confirmed same day. Update will follow from the Status Originator. In a Financial Institution Credit Transfer with cover: Debit/credit to nostro account may not be confirmed same day or Financial Institution Credit Transfer may not be transferred same day. Update will follow from the Status Originator.")]
+    [Description(@"In a FIToFI Customer Credit Transfer: Credit to the creditor’s account may not be confirmed same day. Update will follow from the Status Originator.|In a Financial Institution Credit Transfer with cover: Debit/credit to nostro account may not be confirmed same day or Financial Institution Credit Transfer may not be transferred same day. Update will follow from the Status Originator.")]
     CreditDebitNotConfirmed,
     
     /// <summary>
@@ -59,7 +56,7 @@ public enum TrackerTransactionStatusReasonCode
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_D_jEwPpQEemXaqBx8S4XSg")]
-    [Description(@"In a FIToFI Customer Credit Transfer: Credit to creditor’s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation. Update will follow from the Status Originator. In a Financial Institution Credit Transfer with cover: Status Originator has requested a previous Agent to provide additional information/correct information. Update will follow from the Status Originator.")]
+    [Description(@"In a FIToFI Customer Credit Transfer: Credit to creditor’s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation. Update will follow from the Status Originator.|In a Financial Institution Credit Transfer with cover: Status Originator has requested a previous Agent to provide additional information/correct information. Update will follow from the Status Originator.")]
     CreditPendingDocuments,
     
     /// <summary>
@@ -98,7 +95,7 @@ public enum TrackerTransactionStatusReasonCode
 public static class TrackerTransactionStatusReasonCodeMetadataExtensions
 {
     private static readonly TrackerTransactionStatusReasonCodeDropdownSource _dropdownSource = new TrackerTransactionStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

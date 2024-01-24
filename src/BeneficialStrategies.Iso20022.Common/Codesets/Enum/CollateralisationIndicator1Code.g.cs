@@ -21,39 +21,39 @@ public enum CollateralisationIndicator1Code
 {
     /// <summary>
     /// Transaction is fully collateralised.
-    /// Encoded/decoded by serializers as "FullyCollateralised".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_At8bUS5VEeKwTrPDLMbLxA")]
     [Description(@"Transaction is fully collateralised.")]
-    FullyCollateralised,
+    FullyCollateralised = CollateralisationIndicatorCode.FullyCollateralised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is one-way collateralised.
-    /// Encoded/decoded by serializers as "OneWayCollateralised".
+    /// Encoded/decoded by serializers as "ONEW".
     /// </summary>
     [EnumMember(Value = "ONEW")]
     [IsoId("_Ax7jcS5VEeKwTrPDLMbLxA")]
     [Description(@"Transaction is one-way collateralised.")]
-    OneWayCollateralised,
+    OneWayCollateralised = CollateralisationIndicatorCode.OneWayCollateralised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is partially collateralised.
-    /// Encoded/decoded by serializers as "PartiallyCollateralised".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_A2-bgS5VEeKwTrPDLMbLxA")]
     [Description(@"Transaction is partially collateralised.")]
-    PartiallyCollateralised,
+    PartiallyCollateralised = CollateralisationIndicatorCode.PartiallyCollateralised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is uncollateralised.
-    /// Encoded/decoded by serializers as "Uncollateralised".
+    /// Encoded/decoded by serializers as "UNCO".
     /// </summary>
     [EnumMember(Value = "UNCO")]
     [IsoId("_A7OpYS5VEeKwTrPDLMbLxA")]
     [Description(@"Transaction is uncollateralised.")]
-    Uncollateralised,
+    Uncollateralised = CollateralisationIndicatorCode.Uncollateralised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CollateralisationIndicator1Code
 public static class CollateralisationIndicator1CodeMetadataExtensions
 {
     private static readonly CollateralisationIndicator1CodeDropdownSource _dropdownSource = new CollateralisationIndicator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

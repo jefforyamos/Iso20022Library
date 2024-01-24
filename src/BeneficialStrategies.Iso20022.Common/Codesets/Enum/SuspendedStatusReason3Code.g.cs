@@ -21,21 +21,21 @@ public enum SuspendedStatusReason3Code
 {
     /// <summary>
     /// There is a suspension of pricing. The order will stay on the books until the next pricing.
-    /// Encoded/decoded by serializers as "PriceSuspension".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_ZQzbB9p-Ed-ak6NoX_4Aeg_1892876189")]
     [Description(@"There is a suspension of pricing. The order will stay on the books until the next pricing.")]
-    PriceSuspension,
+    PriceSuspension = SuspendedStatusReasonCode.PriceSuspension, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is a fund overflow.
-    /// Encoded/decoded by serializers as "Overflow".
+    /// Encoded/decoded by serializers as "FLOW".
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_ZQzbCNp-Ed-ak6NoX_4Aeg_1892876206")]
     [Description(@"There is a fund overflow.")]
-    Overflow,
+    Overflow = SuspendedStatusReasonCode.Overflow, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SuspendedStatusReason3Code
 public static class SuspendedStatusReason3CodeMetadataExtensions
 {
     private static readonly SuspendedStatusReason3CodeDropdownSource _dropdownSource = new SuspendedStatusReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

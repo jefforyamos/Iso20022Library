@@ -21,39 +21,39 @@ public enum UseCases1Code
 {
     /// <summary>
     /// Code indicating the opening of an account.
-    /// Encoded/decoded by serializers as "Opening".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Yatgh9p-Ed-ak6NoX_4Aeg_-2048866565")]
     [Description(@"Code indicating the opening of an account.")]
-    Opening,
+    Opening = UseCasesCode.Opening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code indicating the maintenance of an account.
-    /// Encoded/decoded by serializers as "Maintenance".
+    /// Encoded/decoded by serializers as "MNTN".
     /// </summary>
     [EnumMember(Value = "MNTN")]
     [IsoId("_YatgiNp-Ed-ak6NoX_4Aeg_-2048866534")]
     [Description(@"Code indicating the maintenance of an account.")]
-    Maintenance,
+    Maintenance = UseCasesCode.Maintenance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code indicating the closing of an account.
-    /// Encoded/decoded by serializers as "Closing".
+    /// Encoded/decoded by serializers as "CLSG".
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_Yatgidp-Ed-ak6NoX_4Aeg_-2048866503")]
     [Description(@"Code indicating the closing of an account.")]
-    Closing,
+    Closing = UseCasesCode.Closing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code indicating the view of an account.
-    /// Encoded/decoded by serializers as "View".
+    /// Encoded/decoded by serializers as "VIEW".
     /// </summary>
     [EnumMember(Value = "VIEW")]
     [IsoId("_Ya3RgNp-Ed-ak6NoX_4Aeg_-2048866473")]
     [Description(@"Code indicating the view of an account.")]
-    View,
+    View = UseCasesCode.View, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UseCases1Code
 public static class UseCases1CodeMetadataExtensions
 {
     private static readonly UseCases1CodeDropdownSource _dropdownSource = new UseCases1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

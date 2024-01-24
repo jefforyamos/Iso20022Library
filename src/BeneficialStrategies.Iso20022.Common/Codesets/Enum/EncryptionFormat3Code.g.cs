@@ -26,7 +26,7 @@ public enum EncryptionFormat3Code
     [EnumMember(Value = "TR34")]
     [IsoId("_KlXRgX0lEemfrNOe0zHQyg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-34 standard.")]
-    TR34,
+    TR34 = EncryptionFormatCode.TR34, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-31 standard.
@@ -35,7 +35,7 @@ public enum EncryptionFormat3Code
     [EnumMember(Value = "TR31")]
     [IsoId("_KlXRg30lEemfrNOe0zHQyg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-31 standard.")]
-    TR31,
+    TR31 = EncryptionFormatCode.TR31, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CTC encryption mode.
@@ -44,16 +44,16 @@ public enum EncryptionFormat3Code
     [EnumMember(Value = "CTCE")]
     [IsoId("_KlXRhX0lEemfrNOe0zHQyg")]
     [Description(@"CTC encryption mode.")]
-    CTCE,
+    CTCE = EncryptionFormatCode.CTCE, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cipher Block Chaining mode of encryption
-    /// Encoded/decoded by serializers as "CBC".
+    /// Encoded/decoded by serializers as "CBCE".
     /// </summary>
     [EnumMember(Value = "CBCE")]
     [IsoId("_KlXRh30lEemfrNOe0zHQyg")]
     [Description(@"Cipher Block Chaining mode of encryption")]
-    CBC,
+    CBC = EncryptionFormatCode.CBC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum EncryptionFormat3Code
 public static class EncryptionFormat3CodeMetadataExtensions
 {
     private static readonly EncryptionFormat3CodeDropdownSource _dropdownSource = new EncryptionFormat3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

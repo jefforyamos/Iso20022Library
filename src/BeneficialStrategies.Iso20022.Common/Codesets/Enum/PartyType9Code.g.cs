@@ -21,57 +21,57 @@ public enum PartyType9Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_-H_xIXrTEeSfJf8ETXpBxg")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing acquiring card payment processing services on behalf on an acquirer.
-    /// Encoded/decoded by serializers as "AcquirerProcessor".
+    /// Encoded/decoded by serializers as "ACQP".
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_-SnFsXrTEeSfJf8ETXpBxg")]
     [Description(@"Entity providing acquiring card payment processing services on behalf on an acquirer.")]
-    AcquirerProcessor,
+    AcquirerProcessor = PartyTypeCode.AcquirerProcessor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_-mj8cXrTEeSfJf8ETXpBxg")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing issuing card payment processing services on behalf on an issuer.
-    /// Encoded/decoded by serializers as "CardIssuerProcessor".
+    /// Encoded/decoded by serializers as "CISP".
     /// </summary>
     [EnumMember(Value = "CISP")]
     [IsoId("_-v1NMXrTEeSfJf8ETXpBxg")]
     [Description(@"Entity providing issuing card payment processing services on behalf on an issuer.")]
-    CardIssuerProcessor,
+    CardIssuerProcessor = PartyTypeCode.CardIssuerProcessor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CardScheme".
+    /// Encoded/decoded by serializers as "CSCH".
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_-5uJAXrTEeSfJf8ETXpBxg")]
     [Description(@"Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.")]
-    CardScheme,
+    CardScheme = PartyTypeCode.CardScheme, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting on behalf of a card scheme.
-    /// Encoded/decoded by serializers as "CardSchemeProcessor".
+    /// Encoded/decoded by serializers as "SCHP".
     /// </summary>
     [EnumMember(Value = "SCHP")]
     [IsoId("_AAaEQXrUEeSfJf8ETXpBxg")]
     [Description(@"Entity providing card payment processing services acting on behalf of a card scheme.")]
-    CardSchemeProcessor,
+    CardSchemeProcessor = PartyTypeCode.CardSchemeProcessor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum PartyType9Code
 public static class PartyType9CodeMetadataExtensions
 {
     private static readonly PartyType9CodeDropdownSource _dropdownSource = new PartyType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

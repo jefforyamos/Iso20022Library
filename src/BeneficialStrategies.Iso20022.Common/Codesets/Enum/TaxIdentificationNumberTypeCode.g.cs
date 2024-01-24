@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_RXCbQQhJEeSUPbC7DbLJpQ")]
 [Description(@"Specifies the type of tax identification number.")]
 [Derivations(typeof(TaxIdentificationNumberType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxIdentificationNumberTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TaxIdentificationNumberTypeCode
 public static class TaxIdentificationNumberTypeCodeMetadataExtensions
 {
     private static readonly TaxIdentificationNumberTypeCodeDropdownSource _dropdownSource = new TaxIdentificationNumberTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

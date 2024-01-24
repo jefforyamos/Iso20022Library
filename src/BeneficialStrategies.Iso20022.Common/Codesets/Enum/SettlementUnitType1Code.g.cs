@@ -21,21 +21,21 @@ public enum SettlementUnitType1Code
 {
     /// <summary>
     /// Represent the face amount, for example the principal of a debt instrument.
-    /// Encoded/decoded by serializers as "FaceAmount".
+    /// Encoded/decoded by serializers as "FAMT".
     /// </summary>
     [EnumMember(Value = "FAMT")]
     [IsoId("_hblKlmliEeGaMcKyqKNRfQ_40062376")]
     [Description(@"Represent the face amount, for example the principal of a debt instrument.")]
-    FaceAmount,
+    FaceAmount = SettlementUnitTypeCode.FaceAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Represent the unit as a number, for example a number of shares.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_hblKl2liEeGaMcKyqKNRfQ_-1210061355")]
     [Description(@"Represent the unit as a number, for example a number of shares.")]
-    Unit,
+    Unit = SettlementUnitTypeCode.Unit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SettlementUnitType1Code
 public static class SettlementUnitType1CodeMetadataExtensions
 {
     private static readonly SettlementUnitType1CodeDropdownSource _dropdownSource = new SettlementUnitType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

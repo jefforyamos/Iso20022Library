@@ -21,165 +21,165 @@ public enum RejectionReason33Code
 {
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CashAccount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_jV3rs-5NEeCisYr99QEiWA_-486351623")]
     [Description(@"Unrecognised or invalid cash account.")]
-    CashAccount,
+    CashAccount = RejectionReasonV2Code.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_jV3rtO5NEeCisYr99QEiWA_1551021963")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV2Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
-    /// Encoded/decoded by serializers as "SettlementAmountRejection".
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_jWBcsO5NEeCisYr99QEiWA_-34758990")]
     [Description(@"Unrecognised or invalid settlement amount.")]
-    SettlementAmountRejection,
+    SettlementAmountRejection = RejectionReasonV2Code.SettlementAmountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "SettlementAmountCurrencyRejection".
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_jWBcse5NEeCisYr99QEiWA_1163601061")]
     [Description(@"Unrecognised or invalid settlement amount currency.")]
-    SettlementAmountCurrencyRejection,
+    SettlementAmountCurrencyRejection = RejectionReasonV2Code.SettlementAmountCurrencyRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_jWBcsu5NEeCisYr99QEiWA_1259064225")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid or unrecognized link.
-    /// Encoded/decoded by serializers as "InvalidLink".
+    /// Encoded/decoded by serializers as "INVL".
     /// </summary>
     [EnumMember(Value = "INVL")]
     [IsoId("_AzafZXglEeGqN5NokjUPnw_-2077778906")]
     [Description(@"Invalid or unrecognized link.")]
-    InvalidLink,
+    InvalidLink = RejectionReasonV2Code.InvalidLink, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction aims at using an invalid balance.
-    /// Encoded/decoded by serializers as "InvalidBalance".
+    /// Encoded/decoded by serializers as "INVB".
     /// </summary>
     [EnumMember(Value = "INVB")]
     [IsoId("_AzafZnglEeGqN5NokjUPnw_-1899660234")]
     [Description(@"Instruction aims at using an invalid balance.")]
-    InvalidBalance,
+    InvalidBalance = RejectionReasonV2Code.InvalidBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid or unrecognized lot number.
-    /// Encoded/decoded by serializers as "InvalidLotNumber".
+    /// Encoded/decoded by serializers as "INVN".
     /// </summary>
     [EnumMember(Value = "INVN")]
     [IsoId("_AzkQYHglEeGqN5NokjUPnw_2103349324")]
     [Description(@"Invalid or unrecognized lot number.")]
-    InvalidLotNumber,
+    InvalidLotNumber = RejectionReasonV2Code.InvalidLotNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account servicer validation rule rejection.
-    /// Encoded/decoded by serializers as "InvalidRule".
+    /// Encoded/decoded by serializers as "VALR".
     /// </summary>
     [EnumMember(Value = "VALR")]
     [IsoId("_AzkQYXglEeGqN5NokjUPnw_-432511471")]
     [Description(@"Account servicer validation rule rejection.")]
-    InvalidRule,
+    InvalidRule = RejectionReasonV2Code.InvalidRule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "InsufficientMoney".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_jWBcs-5NEeCisYr99QEiWA_-514762422")]
     [Description(@"Insufficient money in your account.")]
-    InsufficientMoney,
+    InsufficientMoney = RejectionReasonV2Code.InsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CorporateActionRejection".
+    /// Encoded/decoded by serializers as "CAEV".
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_jWBctO5NEeCisYr99QEiWA_1437182897")]
     [Description(@"Corporate action pending on the financial instrument instructed.")]
-    CorporateActionRejection,
+    CorporateActionRejection = RejectionReasonV2Code.CorporateActionRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "SettlementDateRejection".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_jWLNsO5NEeCisYr99QEiWA_-1511834775")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    SettlementDateRejection,
+    SettlementDateRejection = RejectionReasonV2Code.SettlementDateRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "ReferenceRejection".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_jWLNse5NEeCisYr99QEiWA_553949610")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    ReferenceRejection,
+    ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jWLNsu5NEeCisYr99QEiWA_261991872")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "QuantityRejection".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_jRQRcO5NEeCisYr99QEiWA_841750264")]
     [Description(@"Unrecognised or invalid instructed quantity.")]
-    QuantityRejection,
+    QuantityRejection = RejectionReasonV2Code.QuantityRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "InvalidSecurity".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_jRaCcu5NEeCisYr99QEiWA_1914384398")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    InvalidSecurity,
+    InvalidSecurity = RejectionReasonV2Code.InvalidSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MinimumSettlementQuantity".
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_jTMLIe5NEeCisYr99QEiWA_260279970")]
     [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
-    MinimumSettlementQuantity,
+    MinimumSettlementQuantity = RejectionReasonV2Code.MinimumSettlementQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MultipleSettlementQuantity".
+    /// Encoded/decoded by serializers as "MUNO".
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_jTV8Ie5NEeCisYr99QEiWA_388839182")]
     [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
-    MultipleSettlementQuantity,
+    MultipleSettlementQuantity = RejectionReasonV2Code.MultipleSettlementQuantity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum RejectionReason33Code
 public static class RejectionReason33CodeMetadataExtensions
 {
     private static readonly RejectionReason33CodeDropdownSource _dropdownSource = new RejectionReason33CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

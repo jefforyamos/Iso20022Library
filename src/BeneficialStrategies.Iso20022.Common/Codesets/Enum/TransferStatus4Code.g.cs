@@ -21,66 +21,66 @@ public enum TransferStatus4Code
 {
     /// <summary>
     /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_3USnQSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = TransferStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is fully executed and the confirmation is sent.
-    /// Encoded/decoded by serializers as "AlreadyExecuted".
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_3kg0kSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
-    AlreadyExecuted,
+    AlreadyExecuted = TransferStatusCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MACH".
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_3-_xISY-EeW_ZNn8gbfY7Q")]
     [Description(@"Transfer or settlement instruction is matched.")]
-    Matched,
+    Matched = TransferStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_4VKOYSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
-    Received,
+    Received = TransferStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_4taWUSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = TransferStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is settled.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_5FEBUSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Transfer or settlement instruction is settled.")]
-    Settled,
+    Settled = TransferStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portfolio transfer is complete.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_5j3dMSY-EeW_ZNn8gbfY7Q")]
     [Description(@"Portfolio transfer is complete.")]
-    Complete,
+    Complete = TransferStatusCode.Complete, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TransferStatus4Code
 public static class TransferStatus4CodeMetadataExtensions
 {
     private static readonly TransferStatus4CodeDropdownSource _dropdownSource = new TransferStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

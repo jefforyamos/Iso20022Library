@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oYawzL3EeKU9IrkkToqcw_1347831784")]
 [Description(@"Specifies the cut-off type.")]
 [Derivations(typeof(CutOff1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CutOffCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CutOffCode
 public static class CutOffCodeMetadataExtensions
 {
     private static readonly CutOffCodeDropdownSource _dropdownSource = new CutOffCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

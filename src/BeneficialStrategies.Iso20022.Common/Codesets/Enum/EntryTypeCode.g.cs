@@ -17,27 +17,24 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_GwgOMHvEEemW9qhOy0scyg")]
 [Description(@"Specifies whether the quantity or amount is to be delivered or received.")]
 [Derivations(typeof(CollateralEntryType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EntryTypeCode
 {
     /// <summary>
     /// Financial Instruments  or amount are to be received in Party A's account.
-    /// 
     /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_B6l14HvJEemW9qhOy0scyg")]
-    [Description(@"Financial Instruments  or amount are to be received in Party A's account. ")]
+    [Description(@"Financial Instruments  or amount are to be received in Party A's account.|")]
     Received,
     
     /// <summary>
     /// Financial Instruments or amount are to be delivered out of Party A's account.
-    /// 
     /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_QhB60HvJEemW9qhOy0scyg")]
-    [Description(@"Financial Instruments or amount are to be delivered out of Party A's account. ")]
+    [Description(@"Financial Instruments or amount are to be delivered out of Party A's account.|")]
     Delivered,
     
 }
@@ -49,7 +46,7 @@ public enum EntryTypeCode
 public static class EntryTypeCodeMetadataExtensions
 {
     private static readonly EntryTypeCodeDropdownSource _dropdownSource = new EntryTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

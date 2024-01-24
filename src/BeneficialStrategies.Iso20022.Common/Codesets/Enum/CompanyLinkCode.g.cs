@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_FFnMsCCaEeWJd9HF2tO7BA")]
 [Description(@"Specifies the type of links to a company.")]
 [Derivations(typeof(CompanyLink1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CompanyLinkCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CompanyLinkCode
 public static class CompanyLinkCodeMetadataExtensions
 {
     private static readonly CompanyLinkCodeDropdownSource _dropdownSource = new CompanyLinkCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

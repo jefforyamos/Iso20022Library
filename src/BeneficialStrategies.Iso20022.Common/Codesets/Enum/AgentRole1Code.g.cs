@@ -21,21 +21,21 @@ public enum AgentRole1Code
 {
     /// <summary>
     /// Identification of the agent acting as main agent.
-    /// Encoded/decoded by serializers as "PrincipalAgent".
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_bnmTR9p-Ed-ak6NoX_4Aeg_1607205276")]
     [Description(@"Identification of the agent acting as main agent.")]
-    PrincipalAgent,
+    PrincipalAgent = AgentRoleCode.PrincipalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the agent acting as co-domicile or sub agent.
-    /// Encoded/decoded by serializers as "SubAgent".
+    /// Encoded/decoded by serializers as "SUBA".
     /// </summary>
     [EnumMember(Value = "SUBA")]
     [IsoId("_bnmTSNp-Ed-ak6NoX_4Aeg_1634910933")]
     [Description(@"Identification of the agent acting as co-domicile or sub agent.")]
-    SubAgent,
+    SubAgent = AgentRoleCode.SubAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AgentRole1Code
 public static class AgentRole1CodeMetadataExtensions
 {
     private static readonly AgentRole1CodeDropdownSource _dropdownSource = new AgentRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

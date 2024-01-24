@@ -21,30 +21,30 @@ public enum HoldingsPlanType1Code
 {
     /// <summary>
     /// Holding to be transferred belongs to an investment plan.
-    /// Encoded/decoded by serializers as "InvestmentPlan".
+    /// Encoded/decoded by serializers as "INVP".
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_HrnWjv81EeC-e_lDNJKWcg")]
     [Description(@"Holding to be transferred belongs to an investment plan.")]
-    InvestmentPlan,
+    InvestmentPlan = HoldingsPlanTypeCode.InvestmentPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holding to be transferred belongs to a switch plan.
-    /// Encoded/decoded by serializers as "SwitchPlan".
+    /// Encoded/decoded by serializers as "SWIP".
     /// </summary>
     [EnumMember(Value = "SWIP")]
     [IsoId("_H1dPBv81EeC-e_lDNJKWcg")]
     [Description(@"Holding to be transferred belongs to a switch plan.")]
-    SwitchPlan,
+    SwitchPlan = HoldingsPlanTypeCode.SwitchPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holding to be transferred belongs to a withdrawal plan.
-    /// Encoded/decoded by serializers as "WithdrawalPlan".
+    /// Encoded/decoded by serializers as "PLAR".
     /// </summary>
     [EnumMember(Value = "PLAR")]
     [IsoId("_H5LRbv81EeC-e_lDNJKWcg")]
     [Description(@"Holding to be transferred belongs to a withdrawal plan.")]
-    WithdrawalPlan,
+    WithdrawalPlan = HoldingsPlanTypeCode.WithdrawalPlan, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum HoldingsPlanType1Code
 public static class HoldingsPlanType1CodeMetadataExtensions
 {
     private static readonly HoldingsPlanType1CodeDropdownSource _dropdownSource = new HoldingsPlanType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -45,7 +45,7 @@ public enum StatementUpdateTypeCode
 public static class StatementUpdateTypeCodeMetadataExtensions
 {
     private static readonly StatementUpdateTypeCodeDropdownSource _dropdownSource = new StatementUpdateTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

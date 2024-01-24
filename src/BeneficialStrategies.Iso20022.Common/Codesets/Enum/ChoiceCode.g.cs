@@ -45,7 +45,7 @@ public enum ChoiceCode
 public static class ChoiceCodeMetadataExtensions
 {
     private static readonly ChoiceCodeDropdownSource _dropdownSource = new ChoiceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

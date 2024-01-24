@@ -21,30 +21,30 @@ public enum ProtectInstructionStatus3Code
 {
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_riQzIbpTEeilsanBGAzy4A")]
     [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
-    Open,
+    Open = DTCInstructionStatusCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect instruction has been fully covered.
-    /// Encoded/decoded by serializers as "FullyCovered".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_r-rpYrpTEeilsanBGAzy4A")]
     [Description(@"Protect instruction has been fully covered.")]
-    FullyCovered,
+    FullyCovered = DTCInstructionStatusCode.FullyCovered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect instruction has expired.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_vrX9krpTEeilsanBGAzy4A")]
     [Description(@"Protect instruction has expired.")]
-    Expired,
+    Expired = DTCInstructionStatusCode.Expired, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProtectInstructionStatus3Code
 public static class ProtectInstructionStatus3CodeMetadataExtensions
 {
     private static readonly ProtectInstructionStatus3CodeDropdownSource _dropdownSource = new ProtectInstructionStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

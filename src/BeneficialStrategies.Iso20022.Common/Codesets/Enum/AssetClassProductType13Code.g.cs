@@ -21,12 +21,12 @@ public enum AssetClassProductType13Code
 {
     /// <summary>
     /// Commodity of type multi commodity exotic.
-    /// Encoded/decoded by serializers as "MultiCommodityExotic".
+    /// Encoded/decoded by serializers as "MCEX".
     /// </summary>
     [EnumMember(Value = "MCEX")]
     [IsoId("_XyXFgVrLEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type multi commodity exotic.")]
-    MultiCommodityExotic,
+    MultiCommodityExotic = AssetClassProductTypeCode.MultiCommodityExotic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType13Code
 public static class AssetClassProductType13CodeMetadataExtensions
 {
     private static readonly AssetClassProductType13CodeDropdownSource _dropdownSource = new AssetClassProductType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

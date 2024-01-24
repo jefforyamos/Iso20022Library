@@ -21,84 +21,84 @@ public enum PaymentCancellationRejection3Code
 {
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
-    /// Encoded/decoded by serializers as "AgentDecision".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_xpmqER09EeiYoZGjIMHr2A")]
     [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
-    AgentDecision,
+    AgentDecision = PaymentCancellationRejectionCode.AgentDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation not accepted as the transaction has already been returned.
-    /// Encoded/decoded by serializers as "AlreadyReturned".
+    /// Encoded/decoded by serializers as "ARDT".
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_xv44Qh09EeiYoZGjIMHr2A")]
     [Description(@"Cancellation not accepted as the transaction has already been returned.")]
-    AlreadyReturned,
+    AlreadyReturned = PaymentCancellationRejectionCode.AlreadyReturned, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation indemnity is required.
-    /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_x3zeIR09EeiYoZGjIMHr2A")]
     [Description(@"Cancellation indemnity is required.")]
-    CancellationIndemnityRequired,
+    CancellationIndemnityRequired = PaymentCancellationRejectionCode.CancellationIndemnityRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account number specified has been closed on the receiver’s books.
-    /// Encoded/decoded by serializers as "ClosedAccountNumber".
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_x_dlUR09EeiYoZGjIMHr2A")]
     [Description(@"Account number specified has been closed on the receiver’s books.")]
-    ClosedAccountNumber,
+    ClosedAccountNumber = PaymentCancellationRejectionCode.ClosedAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
-    /// Encoded/decoded by serializers as "CustomerDecision".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_yGmvIh09EeiYoZGjIMHr2A")]
     [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
-    CustomerDecision,
+    CustomerDecision = PaymentCancellationRejectionCode.CustomerDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "InsufficientFunds".
+    /// Encoded/decoded by serializers as "AM04".
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_yNidkh09EeiYoZGjIMHr2A")]
     [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
-    InsufficientFunds,
+    InsufficientFunds = PaymentCancellationRejectionCode.InsufficientFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
-    /// Encoded/decoded by serializers as "LegalDecision".
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_yU-iUh09EeiYoZGjIMHr2A")]
     [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
-    LegalDecision,
+    LegalDecision = PaymentCancellationRejectionCode.LegalDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No response from beneficiary (to the cancellation request).
-    /// Encoded/decoded by serializers as "NoAnswerFromCustomer".
+    /// Encoded/decoded by serializers as "NOAS".
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_yZ--Ih09EeiYoZGjIMHr2A")]
     [Description(@"No response from beneficiary (to the cancellation request).")]
-    NoAnswerFromCustomer,
+    NoAnswerFromCustomer = PaymentCancellationRejectionCode.NoAnswerFromCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original transaction (subject to cancellation) never received.
-    /// Encoded/decoded by serializers as "NoOriginalTransactionReceived".
+    /// Encoded/decoded by serializers as "NOOR".
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_yewwch09EeiYoZGjIMHr2A")]
     [Description(@"Original transaction (subject to cancellation) never received.")]
-    NoOriginalTransactionReceived,
+    NoOriginalTransactionReceived = PaymentCancellationRejectionCode.NoOriginalTransactionReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum PaymentCancellationRejection3Code
 public static class PaymentCancellationRejection3CodeMetadataExtensions
 {
     private static readonly PaymentCancellationRejection3CodeDropdownSource _dropdownSource = new PaymentCancellationRejection3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

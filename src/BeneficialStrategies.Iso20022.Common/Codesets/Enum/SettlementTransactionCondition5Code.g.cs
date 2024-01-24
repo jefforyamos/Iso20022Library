@@ -21,39 +21,39 @@ public enum SettlementTransactionCondition5Code
 {
     /// <summary>
     /// Partial settlement is allowed.
-    /// Encoded/decoded by serializers as "PartialAllowed".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_q6dmBWtdEeCY4-KZ9JEyUQ_-817672077")]
     [Description(@"Partial settlement is allowed.")]
-    PartialAllowed,
+    PartialAllowed = SettlementTransactionConditionCode.PartialAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial settlement is not allowed.
-    /// Encoded/decoded by serializers as "PartialNotAllowed".
+    /// Encoded/decoded by serializers as "NPAR".
     /// </summary>
     [EnumMember(Value = "NPAR")]
     [IsoId("_q6dmBmtdEeCY4-KZ9JEyUQ_-1814744430")]
     [Description(@"Partial settlement is not allowed.")]
-    PartialNotAllowed,
+    PartialNotAllowed = SettlementTransactionConditionCode.PartialNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial settlement is allowed but must satisfy a cash value minimum (value defined in static data).
-    /// Encoded/decoded by serializers as "PartialSettlementCashThresholdAllowed".
+    /// Encoded/decoded by serializers as "PARC".
     /// </summary>
     [EnumMember(Value = "PARC")]
     [IsoId("_q6nXAGtdEeCY4-KZ9JEyUQ_374187327")]
     [Description(@"Partial settlement is allowed but must satisfy a cash value minimum (value defined in static data).")]
-    PartialSettlementCashThresholdAllowed,
+    PartialSettlementCashThresholdAllowed = SettlementTransactionConditionCode.PartialSettlementCashThresholdAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial settlement is allowed but must satisfy a minimum quantity of securities (quantity defined in static data).
-    /// Encoded/decoded by serializers as "PartialSettlementQuantityThresholdAllowed".
+    /// Encoded/decoded by serializers as "PARQ".
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_q6nXAWtdEeCY4-KZ9JEyUQ_1425320399")]
     [Description(@"Partial settlement is allowed but must satisfy a minimum quantity of securities (quantity defined in static data).")]
-    PartialSettlementQuantityThresholdAllowed,
+    PartialSettlementQuantityThresholdAllowed = SettlementTransactionConditionCode.PartialSettlementQuantityThresholdAllowed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SettlementTransactionCondition5Code
 public static class SettlementTransactionCondition5CodeMetadataExtensions
 {
     private static readonly SettlementTransactionCondition5CodeDropdownSource _dropdownSource = new SettlementTransactionCondition5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

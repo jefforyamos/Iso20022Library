@@ -21,75 +21,75 @@ public enum UnderlyingContractForDifferenceType3Code
 {
     /// <summary>
     /// Underlying is a bond.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_-D6XQYJoEeaStugbHOVOsA")]
     [Description(@"Underlying is a bond.")]
-    Bond,
+    Bond = UnderlyingTypeV3Code.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a commodity.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_-NuakYJoEeaStugbHOVOsA")]
     [Description(@"Underlying is a commodity.")]
-    Commodity,
+    Commodity = UnderlyingTypeV3Code.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a currency.
-    /// Encoded/decoded by serializers as "Currency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_-hqDMYJoEeaStugbHOVOsA")]
     [Description(@"Underlying is a currency.")]
-    Currency,
+    Currency = UnderlyingTypeV3Code.Currency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is an emission allowance.
-    /// Encoded/decoded by serializers as "EmissionAllowance".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_-7ii0YJoEeaStugbHOVOsA")]
     [Description(@"Underlying is an emission allowance.")]
-    EmissionAllowance,
+    EmissionAllowance = UnderlyingTypeV3Code.EmissionAllowance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("__UhqkYJoEeaStugbHOVOsA")]
     [Description(@"Underlying is an equity.")]
-    Equity,
+    Equity = UnderlyingTypeV3Code.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a future on equity.
-    /// Encoded/decoded by serializers as "FutureOnEquity".
+    /// Encoded/decoded by serializers as "FTEQ".
     /// </summary>
     [EnumMember(Value = "FTEQ")]
     [IsoId("_ANMX8YJpEeaStugbHOVOsA")]
     [Description(@"Underlying is a future on equity.")]
-    FutureOnEquity,
+    FutureOnEquity = UnderlyingTypeV3Code.FutureOnEquity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is an option on equity.
-    /// Encoded/decoded by serializers as "OptionOnEquity".
+    /// Encoded/decoded by serializers as "OPEQ".
     /// </summary>
     [EnumMember(Value = "OPEQ")]
     [IsoId("_BAgEMYJpEeaStugbHOVOsA")]
     [Description(@"Underlying is an option on equity.")]
-    OptionOnEquity,
+    OptionOnEquity = UnderlyingTypeV3Code.OptionOnEquity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_BPhXoYJpEeaStugbHOVOsA")]
     [Description(@"Underlying is of other type.")]
-    Other,
+    Other = UnderlyingTypeV3Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum UnderlyingContractForDifferenceType3Code
 public static class UnderlyingContractForDifferenceType3CodeMetadataExtensions
 {
     private static readonly UnderlyingContractForDifferenceType3CodeDropdownSource _dropdownSource = new UnderlyingContractForDifferenceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

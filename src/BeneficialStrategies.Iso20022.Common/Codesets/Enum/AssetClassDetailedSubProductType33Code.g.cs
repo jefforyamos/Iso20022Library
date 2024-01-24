@@ -21,21 +21,21 @@ public enum AssetClassDetailedSubProductType33Code
 {
     /// <summary>
     /// Commodity attribute of type dry bulk carrier.
-    /// Encoded/decoded by serializers as "DryBulkCarrier".
+    /// Encoded/decoded by serializers as "DBCR".
     /// </summary>
     [EnumMember(Value = "DBCR")]
     [IsoId("_Gov8gbv6EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type dry bulk carrier.")]
-    DryBulkCarrier,
+    DryBulkCarrier = AssetClassDetailedSubProductTypeCode.DryBulkCarrier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Ktu04bv6EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssetClassDetailedSubProductType33Code
 public static class AssetClassDetailedSubProductType33CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType33CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType33CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

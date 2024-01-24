@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_m9ZG0PNBEeCuA5Tr22BnwA_-207567627")]
 [Description(@"Categorization of financial asset type.")]
 [Derivations(typeof(FinancialAssetTypeCategory1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialAssetTypeCategoryCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum FinancialAssetTypeCategoryCode
 public static class FinancialAssetTypeCategoryCodeMetadataExtensions
 {
     private static readonly FinancialAssetTypeCategoryCodeDropdownSource _dropdownSource = new FinancialAssetTypeCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

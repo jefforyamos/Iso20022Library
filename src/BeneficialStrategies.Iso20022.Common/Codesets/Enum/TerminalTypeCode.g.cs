@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_71JA8ECGEeeXpbqDpLawug")]
 [Description(@"Type of terminal under the control of the card acceptor used for the card transaction.")]
 [Derivations(typeof(TerminalType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminalTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum TerminalTypeCode
 public static class TerminalTypeCodeMetadataExtensions
 {
     private static readonly TerminalTypeCodeDropdownSource _dropdownSource = new TerminalTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

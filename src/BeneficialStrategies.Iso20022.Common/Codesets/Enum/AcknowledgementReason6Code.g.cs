@@ -21,48 +21,48 @@ public enum AcknowledgementReason6Code
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_0mppcQlIEeGATtfOBToyew_818267667")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = AcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
+    /// Encoded/decoded by serializers as "SMPG".
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_0mppcglIEeGATtfOBToyew_-243084292")]
     [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
-    MarketPracticeRuleDiscrepency,
+    MarketPracticeRuleDiscrepency = AcknowledgementReasonCode.MarketPracticeRuleDiscrepency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0mppcwlIEeGATtfOBToyew_-64965620")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_0mppdAlIEeGATtfOBToyew_-1062037973")]
     [Description(@"Instruction was not straight through processing and had to be processed manually.")]
-    NotStraightThroughProcessing,
+    NotStraightThroughProcessing = AcknowledgementReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_0mppdQlIEeGATtfOBToyew_-1175877039")]
     [Description(@"Instruction was received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = AcknowledgementReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AcknowledgementReason6Code
 public static class AcknowledgementReason6CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason6CodeDropdownSource _dropdownSource = new AcknowledgementReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

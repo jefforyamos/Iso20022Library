@@ -21,21 +21,21 @@ public enum StandingOrderType1Code
 {
     /// <summary>
     /// Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.
-    /// Encoded/decoded by serializers as "UserDefinedStandingOrder".
+    /// Encoded/decoded by serializers as "USTO".
     /// </summary>
     [EnumMember(Value = "USTO")]
     [IsoId("_8OFBVKMgEeCJ6YNENx4h-w_1846866247")]
     [Description(@"Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.")]
-    UserDefinedStandingOrder,
+    UserDefinedStandingOrder = StandingOrderTypeCode.UserDefinedStandingOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Liquidity transfer standing order type, as predefined in the system.
-    /// Encoded/decoded by serializers as "PredefinedStandingOrder".
+    /// Encoded/decoded by serializers as "PSTO".
     /// </summary>
     [EnumMember(Value = "PSTO")]
     [IsoId("_8OFBVaMgEeCJ6YNENx4h-w_328114765")]
     [Description(@"Liquidity transfer standing order type, as predefined in the system.")]
-    PredefinedStandingOrder,
+    PredefinedStandingOrder = StandingOrderTypeCode.PredefinedStandingOrder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StandingOrderType1Code
 public static class StandingOrderType1CodeMetadataExtensions
 {
     private static readonly StandingOrderType1CodeDropdownSource _dropdownSource = new StandingOrderType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

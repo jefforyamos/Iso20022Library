@@ -21,30 +21,30 @@ public enum TerminalManagementAdditionalProcess1Code
 {
     /// <summary>
     /// Manual confirmation of the merchant before the terminal management action.
-    /// Encoded/decoded by serializers as "ManualConfirmation".
+    /// Encoded/decoded by serializers as "MANC".
     /// </summary>
     [EnumMember(Value = "MANC")]
     [IsoId("_KUYDmH1DEeCF8NjrBemJWQ_-1485151029")]
     [Description(@"Manual confirmation of the merchant before the terminal management action.")]
-    ManualConfirmation,
+    ManualConfirmation = TerminalManagementAdditionalProcessCode.ManualConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer reconciliation to be performed before the terminal management action.
-    /// Encoded/decoded by serializers as "Reconciliation".
+    /// Encoded/decoded by serializers as "RCNC".
     /// </summary>
     [EnumMember(Value = "RCNC")]
     [IsoId("_KUh0kH1DEeCF8NjrBemJWQ_361779399")]
     [Description(@"Acquirer reconciliation to be performed before the terminal management action.")]
-    Reconciliation,
+    Reconciliation = TerminalManagementAdditionalProcessCode.Reconciliation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Restart the system after performing the terminal management action.
-    /// Encoded/decoded by serializers as "RestartSystem".
+    /// Encoded/decoded by serializers as "RSRT".
     /// </summary>
     [EnumMember(Value = "RSRT")]
     [IsoId("_KUh0kX1DEeCF8NjrBemJWQ_1903870501")]
     [Description(@"Restart the system after performing the terminal management action.")]
-    RestartSystem,
+    RestartSystem = TerminalManagementAdditionalProcessCode.RestartSystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TerminalManagementAdditionalProcess1Code
 public static class TerminalManagementAdditionalProcess1CodeMetadataExtensions
 {
     private static readonly TerminalManagementAdditionalProcess1CodeDropdownSource _dropdownSource = new TerminalManagementAdditionalProcess1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

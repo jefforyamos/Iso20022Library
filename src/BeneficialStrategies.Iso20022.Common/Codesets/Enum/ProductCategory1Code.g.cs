@@ -21,48 +21,48 @@ public enum ProductCategory1Code
 {
     /// <summary>
     /// Classification of goods as developed by the Customs Cooperation council.
-    /// Encoded/decoded by serializers as "HarmonizedTariffCodeName".
+    /// Encoded/decoded by serializers as "HRTR".
     /// </summary>
     [EnumMember(Value = "HRTR")]
     [IsoId("_aLXl0Np-Ed-ak6NoX_4Aeg_1456527208")]
     [Description(@"Classification of goods as developed by the Customs Cooperation council.")]
-    HarmonizedTariffCodeName,
+    HarmonizedTariffCodeName = ProductCategoryCode.HarmonizedTariffCodeName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product identifier used by the retail industry.
-    /// Encoded/decoded by serializers as "QuotaCategory".
+    /// Encoded/decoded by serializers as "QOTA".
     /// </summary>
     [EnumMember(Value = "QOTA")]
     [IsoId("_aLXl0dp-Ed-ak6NoX_4Aeg_1456527268")]
     [Description(@"Product identifier used by the retail industry.")]
-    QuotaCategory,
+    QuotaCategory = ProductCategoryCode.QuotaCategory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product Group Code.
-    /// Encoded/decoded by serializers as "ProductGroup".
+    /// Encoded/decoded by serializers as "PRGP".
     /// </summary>
     [EnumMember(Value = "PRGP")]
     [IsoId("_aLXl0tp-Ed-ak6NoX_4Aeg_1456527285")]
     [Description(@"Product Group Code.")]
-    ProductGroup,
+    ProductGroup = ProductCategoryCode.ProductGroup, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line of business code.
-    /// Encoded/decoded by serializers as "LineOfBusiness".
+    /// Encoded/decoded by serializers as "LOBU".
     /// </summary>
     [EnumMember(Value = "LOBU")]
     [IsoId("_aLXl09p-Ed-ak6NoX_4Aeg_1456527286")]
     [Description(@"Line of business code.")]
-    LineOfBusiness,
+    LineOfBusiness = ProductCategoryCode.LineOfBusiness, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for gender.
-    /// Encoded/decoded by serializers as "Gender".
+    /// Encoded/decoded by serializers as "GNDR".
     /// </summary>
     [EnumMember(Value = "GNDR")]
     [IsoId("_aLXl1Np-Ed-ak6NoX_4Aeg_1456527520")]
     [Description(@"Code for gender.")]
-    Gender,
+    Gender = ProductCategoryCode.Gender, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ProductCategory1Code
 public static class ProductCategory1CodeMetadataExtensions
 {
     private static readonly ProductCategory1CodeDropdownSource _dropdownSource = new ProductCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bHRNZtp-Ed-ak6NoX_4Aeg_-1565392153")]
 [Description(@"Specifies the type of corporate action event.")]
 [Derivations(typeof(CorporateActionEventType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionEventTypeCode
 {
     /// <summary>
@@ -353,7 +352,7 @@ public enum CorporateActionEventTypeCode
 public static class CorporateActionEventTypeCodeMetadataExtensions
 {
     private static readonly CorporateActionEventTypeCodeDropdownSource _dropdownSource = new CorporateActionEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

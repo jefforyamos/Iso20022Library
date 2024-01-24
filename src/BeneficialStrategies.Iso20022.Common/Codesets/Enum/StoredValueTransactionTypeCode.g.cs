@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OuAlgNuNEeiB5uLfkg9ZJA")]
 [Description(@"Identification of operation to proceed on the stored value account or the stored value card.")]
 [Derivations(typeof(StoredValueTransactionType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StoredValueTransactionTypeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum StoredValueTransactionTypeCode
 public static class StoredValueTransactionTypeCodeMetadataExtensions
 {
     private static readonly StoredValueTransactionTypeCodeDropdownSource _dropdownSource = new StoredValueTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

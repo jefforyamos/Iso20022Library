@@ -21,39 +21,39 @@ public enum UnderlyingInterestRateType3Code
 {
     /// <summary>
     /// Underlying is a bond.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_UWAiQYCmEea6KOHFXW8q7A")]
     [Description(@"Underlying is a bond.")]
-    Bond,
+    Bond = UnderlyingTypeV3Code.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a bond future.
-    /// Encoded/decoded by serializers as "BondFuture".
+    /// Encoded/decoded by serializers as "BNDF".
     /// </summary>
     [EnumMember(Value = "BNDF")]
     [IsoId("_U0WrIYCmEea6KOHFXW8q7A")]
     [Description(@"Underlying is a bond future.")]
-    BondFuture,
+    BondFuture = UnderlyingTypeV3Code.BondFuture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is interest rate.
-    /// Encoded/decoded by serializers as "InterestRate".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_V2Q0EYCmEea6KOHFXW8q7A")]
     [Description(@"Underlying is interest rate.")]
-    InterestRate,
+    InterestRate = UnderlyingTypeV3Code.InterestRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is an interest rate future or a forward rate agreement (FRA).
-    /// Encoded/decoded by serializers as "InterestRateFutureFRA".
+    /// Encoded/decoded by serializers as "IFUT".
     /// </summary>
     [EnumMember(Value = "IFUT")]
     [IsoId("_WVWj0YCmEea6KOHFXW8q7A")]
     [Description(@"Underlying is an interest rate future or a forward rate agreement (FRA).")]
-    InterestRateFutureFRA,
+    InterestRateFutureFRA = UnderlyingTypeV3Code.InterestRateFutureFRA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UnderlyingInterestRateType3Code
 public static class UnderlyingInterestRateType3CodeMetadataExtensions
 {
     private static readonly UnderlyingInterestRateType3CodeDropdownSource _dropdownSource = new UnderlyingInterestRateType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

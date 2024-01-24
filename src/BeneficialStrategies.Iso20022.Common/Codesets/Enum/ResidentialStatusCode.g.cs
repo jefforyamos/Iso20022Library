@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZU0_Ydp-Ed-ak6NoX_4Aeg_-1411597800")]
 [Description(@"Specifies the residential status of an individual.")]
 [Derivations(typeof(ResidentialStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResidentialStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ResidentialStatusCode
 public static class ResidentialStatusCodeMetadataExtensions
 {
     private static readonly ResidentialStatusCodeDropdownSource _dropdownSource = new ResidentialStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum CancellationStatus3Code
 {
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_a0MgZtp-Ed-ak6NoX_4Aeg_1830748469")]
     [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = CancellationStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_a0MgZ9p-Ed-ak6NoX_4Aeg_1830748470")]
     [Description(@"Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.")]
-    Pending,
+    Pending = CancellationStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_a0MgaNp-Ed-ak6NoX_4Aeg_1830748494")]
     [Description(@"Cancellation instruction / request has been accepted and processed, the cancellation is complete.")]
-    Complete,
+    Complete = CancellationStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request has been received by issuer or registrar.
-    /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_a0Mgadp-Ed-ak6NoX_4Aeg_1830748512")]
     [Description(@"Cancellation instruction / request has been received by issuer or registrar.")]
-    ReceivedByIssuerOrRegistrar,
+    ReceivedByIssuerOrRegistrar = CancellationStatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CancellationStatus3Code
 public static class CancellationStatus3CodeMetadataExtensions
 {
     private static readonly CancellationStatus3CodeDropdownSource _dropdownSource = new CancellationStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

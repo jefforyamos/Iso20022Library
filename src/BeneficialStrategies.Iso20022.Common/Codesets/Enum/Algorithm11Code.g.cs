@@ -21,39 +21,39 @@ public enum Algorithm11Code
 {
     /// <summary>
     /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
-    /// Encoded/decoded by serializers as "SHA256".
+    /// Encoded/decoded by serializers as "HS25".
     /// </summary>
     [EnumMember(Value = "HS25")]
     [IsoId("_yLO4UWi4EeS87LmvcA55sg")]
     [Description(@"Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).")]
-    SHA256,
+    SHA256 = AlgorithmCode.SHA256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
-    /// Encoded/decoded by serializers as "SHA384".
+    /// Encoded/decoded by serializers as "HS38".
     /// </summary>
     [EnumMember(Value = "HS38")]
     [IsoId("_yLO4U2i4EeS87LmvcA55sg")]
     [Description(@"Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).")]
-    SHA384,
+    SHA384 = AlgorithmCode.SHA384, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
-    /// Encoded/decoded by serializers as "SHA512".
+    /// Encoded/decoded by serializers as "HS51".
     /// </summary>
     [EnumMember(Value = "HS51")]
     [IsoId("_yLO4VWi4EeS87LmvcA55sg")]
     [Description(@"Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).")]
-    SHA512,
+    SHA512 = AlgorithmCode.SHA512, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).
-    /// Encoded/decoded by serializers as "SHA1".
+    /// Encoded/decoded by serializers as "HS01".
     /// </summary>
     [EnumMember(Value = "HS01")]
     [IsoId("_I6AWUWi5EeS87LmvcA55sg")]
     [Description(@"The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).")]
-    SHA1,
+    SHA1 = AlgorithmCode.SHA1, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Algorithm11Code
 public static class Algorithm11CodeMetadataExtensions
 {
     private static readonly Algorithm11CodeDropdownSource _dropdownSource = new Algorithm11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

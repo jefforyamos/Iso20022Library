@@ -21,12 +21,12 @@ public enum AssetClassSubProductType35Code
 {
     /// <summary>
     /// Commodity of type containerboard.
-    /// Encoded/decoded by serializers as "Containerboard".
+    /// Encoded/decoded by serializers as "CBRD".
     /// </summary>
     [EnumMember(Value = "CBRD")]
     [IsoId("_mxGD8VryEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type containerboard.")]
-    Containerboard,
+    Containerboard = AssetClassSubProductTypeCode.Containerboard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType35Code
 public static class AssetClassSubProductType35CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType35CodeDropdownSource _dropdownSource = new AssetClassSubProductType35CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

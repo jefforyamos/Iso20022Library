@@ -21,167 +21,165 @@ public enum TransactionAttribute2Code
 {
     /// <summary>
     /// Payment is an aggregation one.
-    /// Encoded/decoded by serializers as "Aggregation".
+    /// Encoded/decoded by serializers as "AGGR".
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_Z_c3oDHWEeyTT91yHXSlSQ")]
     [Description(@"Payment is an aggregation one.")]
-    Aggregation,
+    Aggregation = TransactionAttributeCode.Aggregation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal is a cardless cash disbursement one.
-    /// Encoded/decoded by serializers as "CardlessATMCashDisbursement".
+    /// Encoded/decoded by serializers as "CADB".
     /// </summary>
     [EnumMember(Value = "CADB")]
     [IsoId("_aFAGATHWEeyTT91yHXSlSQ")]
     [Description(@"Withdrawal is a cardless cash disbursement one.")]
-    CardlessATMCashDisbursement,
+    CardlessATMCashDisbursement = TransactionAttributeCode.CardlessATMCashDisbursement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction previously initiated is completed and contains the actual amount.
-    /// Encoded/decoded by serializers as "Completion".
+    /// Encoded/decoded by serializers as "CPLT".
     /// </summary>
     [EnumMember(Value = "CPLT")]
     [IsoId("_aMLsETHWEeyTT91yHXSlSQ")]
     [Description(@"Transaction previously initiated is completed and contains the actual amount.")]
-    Completion,
+    Completion = TransactionAttributeCode.Completion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debt Recovery.
-    /// 
-    /// Encoded/decoded by serializers as "DebtRecovery".
+    /// Encoded/decoded by serializers as "DBRC".
     /// </summary>
     [EnumMember(Value = "DBRC")]
     [IsoId("_aQ07gTHWEeyTT91yHXSlSQ")]
-    [Description(@"Debt Recovery. ")]
-    DebtRecovery,
+    [Description(@"Debt Recovery.|")]
+    DebtRecovery = TransactionAttributeCode.DebtRecovery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is a debt repayment one.
-    /// Encoded/decoded by serializers as "DebtRepayment".
+    /// Encoded/decoded by serializers as "DBRP".
     /// </summary>
     [EnumMember(Value = "DBRP")]
     [IsoId("_aVLQATHWEeyTT91yHXSlSQ")]
     [Description(@"Payment is a debt repayment one.")]
-    DebtRepayment,
+    DebtRepayment = TransactionAttributeCode.DebtRepayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is a deferred one.
-    /// Encoded/decoded by serializers as "DeferredPayment".
+    /// Encoded/decoded by serializers as "DFRD".
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_aZhkgTHWEeyTT91yHXSlSQ")]
     [Description(@"Payment is a deferred one.")]
-    DeferredPayment,
+    DeferredPayment = TransactionAttributeCode.DeferredPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To authorise additional amounts for a previously authorised transaction.
-    /// Encoded/decoded by serializers as "Incremental".
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_aeBqATHWEeyTT91yHXSlSQ")]
     [Description(@"To authorise additional amounts for a previously authorised transaction.")]
-    Incremental,
+    Incremental = TransactionAttributeCode.Incremental, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// First occurence of a recurring payment.
-    /// Encoded/decoded by serializers as "FirstRecurring".
+    /// Encoded/decoded by serializers as "FRCP".
     /// </summary>
     [EnumMember(Value = "FRCP")]
     [IsoId("_amCWgTHWEeyTT91yHXSlSQ")]
     [Description(@"First occurence of a recurring payment.")]
-    FirstRecurring,
+    FirstRecurring = TransactionAttributeCode.FirstRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is an instalment one.
-    /// Encoded/decoded by serializers as "Instalment".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_attEwTHWEeyTT91yHXSlSQ")]
     [Description(@"Payment is an instalment one.")]
-    Instalment,
+    Instalment = TransactionAttributeCode.Instalment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attribute defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_a0XGYTHWEeyTT91yHXSlSQ")]
     [Description(@"Attribute defined at national level.")]
-    OtherNational,
+    OtherNational = TransactionAttributeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attribute defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_a4af8THWEeyTT91yHXSlSQ")]
     [Description(@"Attribute defined at private level")]
-    OtherPrivate,
+    OtherPrivate = TransactionAttributeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preauthorisation for an amount which is unknown at the time when the transaction is initiated and to be cleared within a specified timeframe.
-    /// Encoded/decoded by serializers as "PreAuthorisation".
+    /// Encoded/decoded by serializers as "PAUT".
     /// </summary>
     [EnumMember(Value = "PAUT")]
     [IsoId("_a9cw8THWEeyTT91yHXSlSQ")]
     [Description(@"Preauthorisation for an amount which is unknown at the time when the transaction is initiated and to be cleared within a specified timeframe.")]
-    PreAuthorisation,
+    PreAuthorisation = TransactionAttributeCode.PreAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial completion of a pre-authorised transaction within a specified timeframe.
-    /// Encoded/decoded by serializers as "PreAuthorisationCompletion".
+    /// Encoded/decoded by serializers as "PACP".
     /// </summary>
     [EnumMember(Value = "PACP")]
     [IsoId("_bEi3cTHWEeyTT91yHXSlSQ")]
     [Description(@"Financial completion of a pre-authorised transaction within a specified timeframe.")]
-    PreAuthorisationCompletion,
+    PreAuthorisationCompletion = TransactionAttributeCode.PreAuthorisationCompletion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment in advance of receiving goods or services.
-    /// Encoded/decoded by serializers as "PrePayment".
+    /// Encoded/decoded by serializers as "PPYT".
     /// </summary>
     [EnumMember(Value = "PPYT")]
     [IsoId("_bJWe8THWEeyTT91yHXSlSQ")]
     [Description(@"Payment in advance of receiving goods or services.")]
-    PrePayment,
+    PrePayment = TransactionAttributeCode.PrePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An occurrence of a recurring payment..
-    /// Encoded/decoded by serializers as "RecurringPayment".
+    /// Encoded/decoded by serializers as "RCPT".
     /// </summary>
     [EnumMember(Value = "RCPT")]
     [IsoId("_bOF1ATHWEeyTT91yHXSlSQ")]
     [Description(@"An occurrence of a recurring payment..")]
-    RecurringPayment,
+    RecurringPayment = TransactionAttributeCode.RecurringPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Subsequent occurrence of a recurring payment.
-    /// Encoded/decoded by serializers as "SubsequentRecurring".
+    /// Encoded/decoded by serializers as "SUBR".
     /// </summary>
     [EnumMember(Value = "SUBR")]
     [IsoId("_bSudYTHWEeyTT91yHXSlSQ")]
     [Description(@"Subsequent occurrence of a recurring payment.")]
-    SubsequentRecurring,
+    SubsequentRecurring = TransactionAttributeCode.SubsequentRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service to replenish value in an account (for example, mobile account, prepaid account, etc.).
-    /// Encoded/decoded by serializers as "TopUp".
+    /// Encoded/decoded by serializers as "TPUP".
     /// </summary>
     [EnumMember(Value = "TPUP")]
     [IsoId("_bWyeATHWEeyTT91yHXSlSQ")]
     [Description(@"Service to replenish value in an account (for example, mobile account, prepaid account, etc.).")]
-    TopUp,
+    TopUp = TransactionAttributeCode.TopUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unscheduled Card On File.
-    /// 
-    /// Encoded/decoded by serializers as "UnscheduledCardOnFile".
+    /// Encoded/decoded by serializers as "UCOF".
     /// </summary>
     [EnumMember(Value = "UCOF")]
     [IsoId("_hreZATKjEeyTT91yHXSlSQ")]
-    [Description(@"Unscheduled Card On File. ")]
-    UnscheduledCardOnFile,
+    [Description(@"Unscheduled Card On File.|")]
+    UnscheduledCardOnFile = TransactionAttributeCode.UnscheduledCardOnFile, // same ordinal as derivation source for type conversions
     
 }
 
@@ -192,7 +190,7 @@ public enum TransactionAttribute2Code
 public static class TransactionAttribute2CodeMetadataExtensions
 {
     private static readonly TransactionAttribute2CodeDropdownSource _dropdownSource = new TransactionAttribute2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_sH2IUF9BEeicg40_9gK9vQ")]
 [Description(@"Specifes a type of investment fund plan.")]
 [Derivations(typeof(InvestmentFundPlanType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestmentFundPlanTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InvestmentFundPlanTypeCode
 public static class InvestmentFundPlanTypeCodeMetadataExtensions
 {
     private static readonly InvestmentFundPlanTypeCodeDropdownSource _dropdownSource = new InvestmentFundPlanTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

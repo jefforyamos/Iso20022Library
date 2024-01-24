@@ -11,78 +11,77 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the status for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_RDOJRh-yEeuxStysDTgLiw")]
-[Description(@"Specifies the status for the cross-element validation rules.  Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
+[Description(@"Specifies the status for the cross-element validation rules.||Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
 public enum ValidationRuleStatus2Code
 {
     /// <summary>
     /// Accepted technical validation.
-    /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_nXe9cSAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted technical validation.")]
-    AcceptedTechnicalValidation,
+    AcceptedTechnicalValidation = ValidationRuleCode.AcceptedTechnicalValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted customer profile.
-    /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_nXe9cyAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted customer profile.")]
-    AcceptedCustomerProfile,
+    AcceptedCustomerProfile = ValidationRuleCode.AcceptedCustomerProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted settlement in process.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_nXe9dSAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted settlement in process.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = ValidationRuleCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted settlement completed.
-    /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACSC".
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_nXe9dyAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted settlement completed.")]
-    AcceptedSettlementCompleted,
+    AcceptedSettlementCompleted = ValidationRuleCode.AcceptedSettlementCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted cancellation request.
-    /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
+    /// Encoded/decoded by serializers as "ACCR".
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_nXe9eSAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted cancellation request.")]
-    AcceptedCancellationRequest,
+    AcceptedCancellationRequest = ValidationRuleCode.AcceptedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted with change.
-    /// Encoded/decoded by serializers as "AcceptedWithChange".
+    /// Encoded/decoded by serializers as "ACWC".
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_nXe9eyAeEeuSiN6KdHu9iw")]
     [Description(@"Accepted with change.")]
-    AcceptedWithChange,
+    AcceptedWithChange = ValidationRuleCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_nXe9fSAeEeuSiN6KdHu9iw")]
     [Description(@"Pending.")]
-    Pending,
+    Pending = ValidationRuleCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -93,7 +92,7 @@ public enum ValidationRuleStatus2Code
 public static class ValidationRuleStatus2CodeMetadataExtensions
 {
     private static readonly ValidationRuleStatus2CodeDropdownSource _dropdownSource = new ValidationRuleStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

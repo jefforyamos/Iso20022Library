@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TWii2gEcEeCQm6a_G2yO_w_-608827804")]
 [Description(@"Identification of the type of protection for a protected data.")]
 [Derivations(typeof(ContentType1Code),typeof(ContentType2Code),typeof(ContentType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ContentTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum ContentTypeCode
 public static class ContentTypeCodeMetadataExtensions
 {
     private static readonly ContentTypeCodeDropdownSource _dropdownSource = new ContentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

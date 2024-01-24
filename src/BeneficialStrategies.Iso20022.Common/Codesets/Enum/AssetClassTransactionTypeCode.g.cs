@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yNs5MNDREeSv_Pll20DdbA")]
 [Description(@"Code list of transaction type as specified by the trading venue.")]
 [Derivations(typeof(AssetClassTransactionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AssetClassTransactionTypeCode
 {
     /// <summary>
@@ -31,12 +30,11 @@ public enum AssetClassTransactionTypeCode
     
     /// <summary>
     /// Options.
-    /// 
     /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_sN_kENDSEeSv_Pll20DdbA")]
-    [Description(@"Options. ")]
+    [Description(@"Options.|")]
     Options,
     
     /// <summary>
@@ -120,7 +118,7 @@ public enum AssetClassTransactionTypeCode
 public static class AssetClassTransactionTypeCodeMetadataExtensions
 {
     private static readonly AssetClassTransactionTypeCodeDropdownSource _dropdownSource = new AssetClassTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

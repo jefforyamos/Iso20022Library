@@ -21,39 +21,39 @@ public enum QRCodeErrorCorrection1Code
 {
     /// <summary>
     /// Reed-Solomon error correction 15%
-    /// Encoded/decoded by serializers as "ErrorCorrection15Percent".
+    /// Encoded/decoded by serializers as "M015".
     /// </summary>
     [EnumMember(Value = "M015")]
     [IsoId("_EgtQwdudEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 15%")]
-    ErrorCorrection15Percent,
+    ErrorCorrection15Percent = QRCodeErrorCorrectionCode.ErrorCorrection15Percent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reed-Solomon error correction 25%
-    /// Encoded/decoded by serializers as "ErrorCorrection25Percent".
+    /// Encoded/decoded by serializers as "Q025".
     /// </summary>
     [EnumMember(Value = "Q025")]
     [IsoId("_Ek7pcdudEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 25%")]
-    ErrorCorrection25Percent,
+    ErrorCorrection25Percent = QRCodeErrorCorrectionCode.ErrorCorrection25Percent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reed-Solomon error correction 30%
-    /// Encoded/decoded by serializers as "ErrorCorrection30Percent".
+    /// Encoded/decoded by serializers as "H030".
     /// </summary>
     [EnumMember(Value = "H030")]
     [IsoId("_Eo48YdudEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 30%")]
-    ErrorCorrection30Percent,
+    ErrorCorrection30Percent = QRCodeErrorCorrectionCode.ErrorCorrection30Percent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reed-Solomon error correction  7%
-    /// Encoded/decoded by serializers as "ErrorCorrection7Percent".
+    /// Encoded/decoded by serializers as "L007".
     /// </summary>
     [EnumMember(Value = "L007")]
     [IsoId("_Es55sdudEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction  7%")]
-    ErrorCorrection7Percent,
+    ErrorCorrection7Percent = QRCodeErrorCorrectionCode.ErrorCorrection7Percent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum QRCodeErrorCorrection1Code
 public static class QRCodeErrorCorrection1CodeMetadataExtensions
 {
     private static readonly QRCodeErrorCorrection1CodeDropdownSource _dropdownSource = new QRCodeErrorCorrection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

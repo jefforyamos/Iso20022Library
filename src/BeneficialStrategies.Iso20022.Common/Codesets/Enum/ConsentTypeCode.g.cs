@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_T9qiUCHmEeOQ7qT4JUI53A")]
 [Description(@"Specifies the type of consent announced.")]
 [Derivations(typeof(ConsentType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ConsentTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ConsentTypeCode
 public static class ConsentTypeCodeMetadataExtensions
 {
     private static readonly ConsentTypeCodeDropdownSource _dropdownSource = new ConsentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

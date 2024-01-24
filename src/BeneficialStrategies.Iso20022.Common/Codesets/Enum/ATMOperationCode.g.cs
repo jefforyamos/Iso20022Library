@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VNYCoOhAEeSbwP3G-MV9YA")]
 [Description(@"Type of logical or physical operation on an ATM.")]
 [Derivations(typeof(ATMOperation1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMOperationCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ATMOperationCode
 public static class ATMOperationCodeMetadataExtensions
 {
     private static readonly ATMOperationCodeDropdownSource _dropdownSource = new ATMOperationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

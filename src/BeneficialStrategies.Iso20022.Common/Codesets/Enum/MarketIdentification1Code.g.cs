@@ -21,21 +21,21 @@ public enum MarketIdentification1Code
 {
     /// <summary>
     /// Market segment code.
-    /// Encoded/decoded by serializers as "Segment".
+    /// Encoded/decoded by serializers as "SGMT".
     /// </summary>
     [EnumMember(Value = "SGMT")]
     [IsoId("_AoDUIcOcEeWiEtRBUJSIaA")]
     [Description(@"Market segment code.")]
-    Segment,
+    Segment = MarketIdentificationCode.Segment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Market operating code.
-    /// Encoded/decoded by serializers as "Operating".
+    /// Encoded/decoded by serializers as "OPRT".
     /// </summary>
     [EnumMember(Value = "OPRT")]
     [IsoId("_Aq3-ocOcEeWiEtRBUJSIaA")]
     [Description(@"Market operating code.")]
-    Operating,
+    Operating = MarketIdentificationCode.Operating, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MarketIdentification1Code
 public static class MarketIdentification1CodeMetadataExtensions
 {
     private static readonly MarketIdentification1CodeDropdownSource _dropdownSource = new MarketIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

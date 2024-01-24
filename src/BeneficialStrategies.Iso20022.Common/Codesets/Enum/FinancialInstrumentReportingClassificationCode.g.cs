@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__esiMPPQEeS_qLctCs2aRQ")]
 [Description(@"Specifies the financial instrument reporting classification for both equity and non-equity.")]
 [Derivations(typeof(NonEquityInstrumentReportingClassification1Code),typeof(EquityInstrumentReportingClassification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentReportingClassificationCode
 {
     /// <summary>
@@ -40,12 +39,11 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type bonds.
-    /// 
     /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_IBJEYfPREeS_qLctCs2aRQ")]
-    [Description(@"Contract is of type bonds. ")]
+    [Description(@"Contract is of type bonds.|")]
     Bond,
     
     /// <summary>
@@ -59,22 +57,20 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type contract for difference (CFD).
-    /// 
     /// Encoded/decoded by serializers as "CFDS".
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_K1KEIfPREeS_qLctCs2aRQ")]
-    [Description(@"Contract is of type contract for difference (CFD). ")]
+    [Description(@"Contract is of type contract for difference (CFD).|")]
     ContractForDifference,
     
     /// <summary>
     /// Contract is of type derivative.
-    /// 
     /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_LLeSYfPREeS_qLctCs2aRQ")]
-    [Description(@"Contract is of type derivative. ")]
+    [Description(@"Contract is of type derivative.|")]
     Derivative,
     
     /// <summary>
@@ -149,7 +145,7 @@ public enum FinancialInstrumentReportingClassificationCode
 public static class FinancialInstrumentReportingClassificationCodeMetadataExtensions
 {
     private static readonly FinancialInstrumentReportingClassificationCodeDropdownSource _dropdownSource = new FinancialInstrumentReportingClassificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

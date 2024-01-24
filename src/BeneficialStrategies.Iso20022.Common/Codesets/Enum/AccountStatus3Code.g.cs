@@ -21,39 +21,39 @@ public enum AccountStatus3Code
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_Yajvgtp-Ed-ak6NoX_4Aeg_-2072727728")]
     [Description(@"Account can be used for its intended purpose.")]
-    Enabled,
+    Enabled = AccountStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_Yajvg9p-Ed-ak6NoX_4Aeg_-2045022067")]
     [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
-    Disabled,
+    Disabled = AccountStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account cannot be used any longer.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DELE".
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_YajvhNp-Ed-ak6NoX_4Aeg_-2017316036")]
     [Description(@"Account cannot be used any longer.")]
-    Deleted,
+    Deleted = AccountStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
-    /// Encoded/decoded by serializers as "ProForma".
+    /// Encoded/decoded by serializers as "FORM".
     /// </summary>
     [EnumMember(Value = "FORM")]
     [IsoId("_Yajvhdp-Ed-ak6NoX_4Aeg_-1757807861")]
     [Description(@"Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.")]
-    ProForma,
+    ProForma = AccountStatusCode.ProForma, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AccountStatus3Code
 public static class AccountStatus3CodeMetadataExtensions
 {
     private static readonly AccountStatus3CodeDropdownSource _dropdownSource = new AccountStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

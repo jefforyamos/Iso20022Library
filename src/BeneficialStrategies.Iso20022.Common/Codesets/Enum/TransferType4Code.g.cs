@@ -21,39 +21,39 @@ public enum TransferType4Code
 {
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_y8KKgaxWEemRcYBAkJyjkg")]
     [Description(@"Transfer as cash.")]
-    Cash,
+    Cash = TransferTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ISIN is converted to another ISIN and then transferred.
-    /// Encoded/decoded by serializers as "Conversion".
+    /// Encoded/decoded by serializers as "CONV".
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_zABW0axWEemRcYBAkJyjkg")]
     [Description(@"ISIN is converted to another ISIN and then transferred.")]
-    Conversion,
+    Conversion = TransferTypeCode.Conversion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Asset excluded from transfer.
-    /// Encoded/decoded by serializers as "Excluded".
+    /// Encoded/decoded by serializers as "EXCL".
     /// </summary>
     [EnumMember(Value = "EXCL")]
     [IsoId("_zE7sAaxWEemRcYBAkJyjkg")]
     [Description(@"Asset excluded from transfer.")]
-    Excluded,
+    Excluded = TransferTypeCode.Excluded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_zJGaUaxWEemRcYBAkJyjkg")]
     [Description(@"Transfer the security as an asset in specie, that is, 'in its actual form'.")]
-    InSpecie,
+    InSpecie = TransferTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TransferType4Code
 public static class TransferType4CodeMetadataExtensions
 {
     private static readonly TransferType4CodeDropdownSource _dropdownSource = new TransferType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

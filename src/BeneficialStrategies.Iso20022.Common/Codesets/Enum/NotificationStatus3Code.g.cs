@@ -21,30 +21,30 @@ public enum NotificationStatus3Code
 {
     /// <summary>
     /// Event(s) as described in the notification to receive occurred but details are different.
-    /// Encoded/decoded by serializers as "ReceivedButDifferent".
+    /// Encoded/decoded by serializers as "RCBD".
     /// </summary>
     [EnumMember(Value = "RCBD")]
     [IsoId("_aN5VYtp-Ed-ak6NoX_4Aeg_410470248")]
     [Description(@"Event(s) as described in the notification to receive occurred but details are different.")]
-    ReceivedButDifferent,
+    ReceivedButDifferent = NotificationToReceiveStatusCode.ReceivedButDifferent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event(s) as described in the notification to receive occurred.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_aN5VY9p-Ed-ak6NoX_4Aeg_410470266")]
     [Description(@"Event(s) as described in the notification to receive occurred.")]
-    Received,
+    Received = NotificationToReceiveStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event(s) as described in the notification to receive did not occur.
-    /// Encoded/decoded by serializers as "NotReceived".
+    /// Encoded/decoded by serializers as "NRCD".
     /// </summary>
     [EnumMember(Value = "NRCD")]
     [IsoId("_aN5VZNp-Ed-ak6NoX_4Aeg_410470291")]
     [Description(@"Event(s) as described in the notification to receive did not occur.")]
-    NotReceived,
+    NotReceived = NotificationToReceiveStatusCode.NotReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NotificationStatus3Code
 public static class NotificationStatus3CodeMetadataExtensions
 {
     private static readonly NotificationStatus3CodeDropdownSource _dropdownSource = new NotificationStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

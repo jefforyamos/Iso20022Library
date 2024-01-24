@@ -21,30 +21,30 @@ public enum ResidenceType1Code
 {
     /// <summary>
     /// Residence is domestic.
-    /// Encoded/decoded by serializers as "Domestic".
+    /// Encoded/decoded by serializers as "DMST".
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_LFI20WjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is domestic.")]
-    Domestic,
+    Domestic = ResidenceTypeCode.Domestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Residence is foreign.
-    /// Encoded/decoded by serializers as "Foreign".
+    /// Encoded/decoded by serializers as "FRGN".
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_LOpYIWjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is foreign.")]
-    Foreign,
+    Foreign = ResidenceTypeCode.Foreign, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Residence is mixed
-    /// Encoded/decoded by serializers as "Mixed".
+    /// Encoded/decoded by serializers as "MXED".
     /// </summary>
     [EnumMember(Value = "MXED")]
     [IsoId("_LYfQoWjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is mixed")]
-    Mixed,
+    Mixed = ResidenceTypeCode.Mixed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ResidenceType1Code
 public static class ResidenceType1CodeMetadataExtensions
 {
     private static readonly ResidenceType1CodeDropdownSource _dropdownSource = new ResidenceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

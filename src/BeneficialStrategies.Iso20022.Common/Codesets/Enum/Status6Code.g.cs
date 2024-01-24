@@ -21,30 +21,30 @@ public enum Status6Code
 {
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_kpxjkO5NEeCisYr99QEiWA_-61748503")]
     [Description(@"Instruction has been rejected.")]
-    Rejected,
+    Rejected = StatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_kpxjke5NEeCisYr99QEiWA_203121317")]
     [Description(@"Processing has been completed.")]
-    Completed,
+    Completed = StatusCode.Completed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is queued.
-    /// Encoded/decoded by serializers as "Queued".
+    /// Encoded/decoded by serializers as "QUED".
     /// </summary>
     [EnumMember(Value = "QUED")]
     [IsoId("_kpxjku5NEeCisYr99QEiWA_-1861474063")]
     [Description(@"Instruction is queued.")]
-    Queued,
+    Queued = StatusCode.Queued, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Status6Code
 public static class Status6CodeMetadataExtensions
 {
     private static readonly Status6CodeDropdownSource _dropdownSource = new Status6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassSubProductType47Code
 {
     /// <summary>
     /// Commodity of type deliverable.
-    /// Encoded/decoded by serializers as "Deliverable".
+    /// Encoded/decoded by serializers as "DLVR".
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_kPWNAfwhEeW4Wthd0Ze_kA")]
     [Description(@"Commodity of type deliverable.")]
-    Deliverable,
+    Deliverable = AssetClassSubProductTypeCode.Deliverable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType47Code
 public static class AssetClassSubProductType47CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType47CodeDropdownSource _dropdownSource = new AssetClassSubProductType47CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

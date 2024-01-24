@@ -90,7 +90,7 @@ public enum ReasonBlockedCode
 public static class ReasonBlockedCodeMetadataExtensions
 {
     private static readonly ReasonBlockedCodeDropdownSource _dropdownSource = new ReasonBlockedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

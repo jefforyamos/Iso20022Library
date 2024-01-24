@@ -21,57 +21,57 @@ public enum GracePeriodUnitType1Code
 {
     /// <summary>
     /// Grace period weeks.
-    /// Encoded/decoded by serializers as "Weeks".
+    /// Encoded/decoded by serializers as "WEKS".
     /// </summary>
     [EnumMember(Value = "WEKS")]
     [IsoId("_xb7ZcTEpEemzCpWiCwK4aQ")]
     [Description(@"Grace period weeks.")]
-    Weeks,
+    Weeks = GracePeriodUnitTypeCode.Weeks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Grace period payments.
-    /// Encoded/decoded by serializers as "Payments".
+    /// Encoded/decoded by serializers as "PMTS".
     /// </summary>
     [EnumMember(Value = "PMTS")]
     [IsoId("_xwpFMTEpEemzCpWiCwK4aQ")]
     [Description(@"Grace period payments.")]
-    Payments,
+    Payments = GracePeriodUnitTypeCode.Payments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Private Grace period.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_yFqS8TEpEemzCpWiCwK4aQ")]
     [Description(@"Other Private Grace period.")]
-    OtherPrivate,
+    OtherPrivate = GracePeriodUnitTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other National Grace period.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_yaONsTEpEemzCpWiCwK4aQ")]
     [Description(@"Other National Grace period.")]
-    OtherNational,
+    OtherNational = GracePeriodUnitTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Grace period months.
-    /// Encoded/decoded by serializers as "Months".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_yuo-gTEpEemzCpWiCwK4aQ")]
     [Description(@"Grace period months.")]
-    Months,
+    Months = GracePeriodUnitTypeCode.Months, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Grace period days.
-    /// Encoded/decoded by serializers as "Days".
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_zDWqQTEpEemzCpWiCwK4aQ")]
     [Description(@"Grace period days.")]
-    Days,
+    Days = GracePeriodUnitTypeCode.Days, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum GracePeriodUnitType1Code
 public static class GracePeriodUnitType1CodeMetadataExtensions
 {
     private static readonly GracePeriodUnitType1CodeDropdownSource _dropdownSource = new GracePeriodUnitType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

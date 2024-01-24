@@ -21,30 +21,30 @@ public enum ClearingObligationType1Code
 {
     /// <summary>
     /// Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.
-    /// Encoded/decoded by serializers as "No".
+    /// Encoded/decoded by serializers as "FLSE".
     /// </summary>
     [EnumMember(Value = "FLSE")]
     [IsoId("_wq36sQ29EeWmAKKPnqYEVQ")]
     [Description(@"Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    No,
+    No = ClearingObligationTypeCode.No, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_wwOUwQ29EeWmAKKPnqYEVQ")]
     [Description(@"Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    Unknown,
+    Unknown = ClearingObligationTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
-    /// Encoded/decoded by serializers as "Yes".
+    /// Encoded/decoded by serializers as "TRUE".
     /// </summary>
     [EnumMember(Value = "TRUE")]
     [IsoId("_w0r-AQ29EeWmAKKPnqYEVQ")]
     [Description(@"Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    Yes,
+    Yes = ClearingObligationTypeCode.Yes, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ClearingObligationType1Code
 public static class ClearingObligationType1CodeMetadataExtensions
 {
     private static readonly ClearingObligationType1CodeDropdownSource _dropdownSource = new ClearingObligationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

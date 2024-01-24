@@ -21,30 +21,30 @@ public enum CorporateActionTaxableIncomePerShareCalculated1Code
 {
     /// <summary>
     /// Fund is calculating the taxable income per dividend/taxable income per share.
-    /// Encoded/decoded by serializers as "Calculated".
+    /// Encoded/decoded by serializers as "TDIY".
     /// </summary>
     [EnumMember(Value = "TDIY")]
     [IsoId("_bTVTcdp-Ed-ak6NoX_4Aeg_-1786544873")]
     [Description(@"Fund is calculating the taxable income per dividend/taxable income per share.")]
-    Calculated,
+    Calculated = CorporateActionTaxableIncomePerShareCalculatedCode.Calculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund is not calculating the taxable income per dividend/taxable income per share.
-    /// Encoded/decoded by serializers as "NotCalculated".
+    /// Encoded/decoded by serializers as "TDIN".
     /// </summary>
     [EnumMember(Value = "TDIN")]
     [IsoId("_bTVTctp-Ed-ak6NoX_4Aeg_-1786544858")]
     [Description(@"Fund is not calculating the taxable income per dividend/taxable income per share.")]
-    NotCalculated,
+    NotCalculated = CorporateActionTaxableIncomePerShareCalculatedCode.NotCalculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_bTVTc9p-Ed-ak6NoX_4Aeg_-1786544857")]
     [Description(@"Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.")]
-    Unknown,
+    Unknown = CorporateActionTaxableIncomePerShareCalculatedCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionTaxableIncomePerShareCalculated1Code
 public static class CorporateActionTaxableIncomePerShareCalculated1CodeMetadataExtensions
 {
     private static readonly CorporateActionTaxableIncomePerShareCalculated1CodeDropdownSource _dropdownSource = new CorporateActionTaxableIncomePerShareCalculated1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

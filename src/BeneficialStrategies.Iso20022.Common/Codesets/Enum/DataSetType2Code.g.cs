@@ -21,57 +21,57 @@ public enum DataSetType2Code
 {
     /// <summary>
     /// Data set is a baseline.
-    /// Encoded/decoded by serializers as "Baseline".
+    /// Encoded/decoded by serializers as "BASE".
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_ayG1s9p-Ed-ak6NoX_4Aeg_597609124")]
     [Description(@"Data set is a baseline.")]
-    Baseline,
+    Baseline = DataSetTypeCode.Baseline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is a transport data set.
-    /// Encoded/decoded by serializers as "TransportDataSet".
+    /// Encoded/decoded by serializers as "TRDS".
     /// </summary>
     [EnumMember(Value = "TRDS")]
     [IsoId("_ayG1tNp-Ed-ak6NoX_4Aeg_597609125")]
     [Description(@"Data set is a transport data set.")]
-    TransportDataSet,
+    TransportDataSet = DataSetTypeCode.TransportDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is a commercial data set.
-    /// Encoded/decoded by serializers as "CommercialDataSet".
+    /// Encoded/decoded by serializers as "CODS".
     /// </summary>
     [EnumMember(Value = "CODS")]
     [IsoId("_ayG1tdp-Ed-ak6NoX_4Aeg_597609154")]
     [Description(@"Data set is a commercial data set.")]
-    CommercialDataSet,
+    CommercialDataSet = DataSetTypeCode.CommercialDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is an insurance data set.
-    /// Encoded/decoded by serializers as "InsuranceDataSet".
+    /// Encoded/decoded by serializers as "INDS".
     /// </summary>
     [EnumMember(Value = "INDS")]
     [IsoId("_ayG1ttp-Ed-ak6NoX_4Aeg_672416869")]
     [Description(@"Data set is an insurance data set.")]
-    InsuranceDataSet,
+    InsuranceDataSet = DataSetTypeCode.InsuranceDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is a certificate data set.
-    /// Encoded/decoded by serializers as "CertificateDataSet".
+    /// Encoded/decoded by serializers as "CEDS".
     /// </summary>
     [EnumMember(Value = "CEDS")]
     [IsoId("_ayG1t9p-Ed-ak6NoX_4Aeg_925458258")]
     [Description(@"Data set is a certificate data set.")]
-    CertificateDataSet,
+    CertificateDataSet = DataSetTypeCode.CertificateDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is an other special certificate data set.
-    /// Encoded/decoded by serializers as "OtherCertificateDataSet".
+    /// Encoded/decoded by serializers as "OCDS".
     /// </summary>
     [EnumMember(Value = "OCDS")]
     [IsoId("_ayG1uNp-Ed-ak6NoX_4Aeg_940237322")]
     [Description(@"Data set is an other special certificate data set.")]
-    OtherCertificateDataSet,
+    OtherCertificateDataSet = DataSetTypeCode.OtherCertificateDataSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum DataSetType2Code
 public static class DataSetType2CodeMetadataExtensions
 {
     private static readonly DataSetType2CodeDropdownSource _dropdownSource = new DataSetType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

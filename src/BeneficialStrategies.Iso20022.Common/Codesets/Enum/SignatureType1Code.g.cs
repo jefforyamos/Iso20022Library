@@ -21,39 +21,39 @@ public enum SignatureType1Code
 {
     /// <summary>
     /// The investor's written signature is required. Can also be known as physical or wet signature.
-    /// Encoded/decoded by serializers as "Original".
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_ZPUNQtp-Ed-ak6NoX_4Aeg_1976689877")]
     [Description(@"The investor's written signature is required. Can also be known as physical or wet signature.")]
-    Original,
+    Original = SignatureTypeCode.Original, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
-    /// Encoded/decoded by serializers as "Digital".
+    /// Encoded/decoded by serializers as "DIGI".
     /// </summary>
     [EnumMember(Value = "DIGI")]
     [IsoId("_ZPUNQ9p-Ed-ak6NoX_4Aeg_1976689878")]
     [Description(@"A technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.")]
-    Digital,
+    Digital = SignatureTypeCode.Digital, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A copy of a physical or original signature in an electronic format.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZPUNRNp-Ed-ak6NoX_4Aeg_1976689908")]
     [Description(@"A copy of a physical or original signature in an electronic format.")]
-    Electronic,
+    Electronic = SignatureTypeCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is no signature required in any form.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_ZPUNRdp-Ed-ak6NoX_4Aeg_1976689909")]
     [Description(@"There is no signature required in any form.")]
-    None,
+    None = SignatureTypeCode.None, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SignatureType1Code
 public static class SignatureType1CodeMetadataExtensions
 {
     private static readonly SignatureType1CodeDropdownSource _dropdownSource = new SignatureType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

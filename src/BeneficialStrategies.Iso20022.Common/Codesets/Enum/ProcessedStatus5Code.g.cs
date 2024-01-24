@@ -21,21 +21,21 @@ public enum ProcessedStatus5Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKxI4Np-Ed-ak6NoX_4Aeg_-1913679382")]
     [Description(@"The instruction/request has been received.")]
-    Received,
+    Received = CorporateActionProcessedStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The request is accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aKxI4dp-Ed-ak6NoX_4Aeg_-1913679351")]
     [Description(@"The request is accepted.")]
-    Accepted,
+    Accepted = CorporateActionProcessedStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ProcessedStatus5Code
 public static class ProcessedStatus5CodeMetadataExtensions
 {
     private static readonly ProcessedStatus5CodeDropdownSource _dropdownSource = new ProcessedStatus5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum InvestigationExecutionConfirmation5Code
 {
     /// <summary>
     /// Used when a requested cancellation is successful.
-    /// Encoded/decoded by serializers as "CancelledAsPerRequest".
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_S-p1IR08EeiYoZGjIMHr2A")]
     [Description(@"Used when a requested cancellation is successful.")]
-    CancelledAsPerRequest,
+    CancelledAsPerRequest = InvestigationExecutionConfirmationCode.CancelledAsPerRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation is pending.
-    /// Encoded/decoded by serializers as "PendingCancellationRequest".
+    /// Encoded/decoded by serializers as "PDCR".
     /// </summary>
     [EnumMember(Value = "PDCR")]
     [IsoId("_Uebl0h08EeiYoZGjIMHr2A")]
     [Description(@"Used when a requested cancellation is pending.")]
-    PendingCancellationRequest,
+    PendingCancellationRequest = InvestigationExecutionConfirmationCode.PendingCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation has been rejected.
-    /// Encoded/decoded by serializers as "RejectedCancellationRequest".
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_VBa-Ih08EeiYoZGjIMHr2A")]
     [Description(@"Used when a requested cancellation has been rejected.")]
-    RejectedCancellationRequest,
+    RejectedCancellationRequest = InvestigationExecutionConfirmationCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestigationExecutionConfirmation5Code
 public static class InvestigationExecutionConfirmation5CodeMetadataExtensions
 {
     private static readonly InvestigationExecutionConfirmation5CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

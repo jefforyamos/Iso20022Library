@@ -21,12 +21,12 @@ public enum AssetClassProductType16Code
 {
     /// <summary>
     /// Index type of commodities.
-    /// Encoded/decoded by serializers as "Index".
+    /// Encoded/decoded by serializers as "INDX".
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_aDo5gU7KEe2PGo0mhYCh1g")]
     [Description(@"Index type of commodities.")]
-    Index,
+    Index = AssetClassProductTypeCode.Index, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType16Code
 public static class AssetClassProductType16CodeMetadataExtensions
 {
     private static readonly AssetClassProductType16CodeDropdownSource _dropdownSource = new AssetClassProductType16CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum SecuritiesBalanceType6Code
 {
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "Available".
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_ZCf5RNp-Ed-ak6NoX_4Aeg_-1599060177")]
     [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
-    Available,
+    Available = BalanceTypeCode.Available, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the "escrow balance" or "sequestered balance".
-    /// Encoded/decoded by serializers as "Restricted".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ZCf5Rdp-Ed-ak6NoX_4Aeg_-1598140176")]
     [Description(@"Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the ""escrow balance"" or ""sequestered balance"".")]
-    Restricted,
+    Restricted = BalanceTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total quantity of financial instruments entitled to the account owner based on the terms of the corporate action event.
-    /// Encoded/decoded by serializers as "TotalEntitled".
+    /// Encoded/decoded by serializers as "TENT".
     /// </summary>
     [EnumMember(Value = "TENT")]
     [IsoId("_ZCf5Rtp-Ed-ak6NoX_4Aeg_-1598140175")]
     [Description(@"Total quantity of financial instruments entitled to the account owner based on the terms of the corporate action event.")]
-    TotalEntitled,
+    TotalEntitled = BalanceTypeCode.TotalEntitled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of financial instruments that are reserved for the distribution of the proceeds.
-    /// Encoded/decoded by serializers as "ReservedForDistribution".
+    /// Encoded/decoded by serializers as "RDIS".
     /// </summary>
     [EnumMember(Value = "RDIS")]
     [IsoId("_ZCf5R9p-Ed-ak6NoX_4Aeg_-1598140154")]
     [Description(@"Balance of financial instruments that are reserved for the distribution of the proceeds.")]
-    ReservedForDistribution,
+    ReservedForDistribution = BalanceTypeCode.ReservedForDistribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.
-    /// Encoded/decoded by serializers as "ReservedForRemoval".
+    /// Encoded/decoded by serializers as "RREM".
     /// </summary>
     [EnumMember(Value = "RREM")]
     [IsoId("_ZCf5SNp-Ed-ak6NoX_4Aeg_-1598140145")]
     [Description(@"Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.")]
-    ReservedForRemoval,
+    ReservedForRemoval = BalanceTypeCode.ReservedForRemoval, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum SecuritiesBalanceType6Code
 public static class SecuritiesBalanceType6CodeMetadataExtensions
 {
     private static readonly SecuritiesBalanceType6CodeDropdownSource _dropdownSource = new SecuritiesBalanceType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

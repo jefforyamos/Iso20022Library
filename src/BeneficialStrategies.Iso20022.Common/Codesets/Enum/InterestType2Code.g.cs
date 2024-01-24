@@ -21,21 +21,21 @@ public enum InterestType2Code
 {
     /// <summary>
     /// Indicates deal price including accrued interest.
-    /// Encoded/decoded by serializers as "CumInterest".
+    /// Encoded/decoded by serializers as "CINT".
     /// </summary>
     [EnumMember(Value = "CINT")]
     [IsoId("__215cdojEeC60axPepSq7g_717130324")]
     [Description(@"Indicates deal price including accrued interest.")]
-    CumInterest,
+    CumInterest = InterestTypeCode.CumInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates deal price excluding accrued interest.
-    /// Encoded/decoded by serializers as "ExInterest".
+    /// Encoded/decoded by serializers as "XINT".
     /// </summary>
     [EnumMember(Value = "XINT")]
     [IsoId("__215ctojEeC60axPepSq7g_1303077350")]
     [Description(@"Indicates deal price excluding accrued interest.")]
-    ExInterest,
+    ExInterest = InterestTypeCode.ExInterest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InterestType2Code
 public static class InterestType2CodeMetadataExtensions
 {
     private static readonly InterestType2CodeDropdownSource _dropdownSource = new InterestType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

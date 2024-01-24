@@ -21,30 +21,30 @@ public enum Reversible1Code
 {
     /// <summary>
     /// Securities lending contract can be ended by the borrower before the expiration date.
-    /// Encoded/decoded by serializers as "Reversible".
+    /// Encoded/decoded by serializers as "REVL".
     /// </summary>
     [EnumMember(Value = "REVL")]
     [IsoId("__v_DgNojEeC60axPepSq7g_-721289092")]
     [Description(@"Securities lending contract can be ended by the borrower before the expiration date.")]
-    Reversible,
+    Reversible = ReversibleCode.Reversible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities lending contract can not be ended by the borrower before the expiration date.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("__v_DgdojEeC60axPepSq7g_745859671")]
     [Description(@"Securities lending contract can not be ended by the borrower before the expiration date.")]
-    Fixed,
+    Fixed = ReversibleCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities lending contract can be ended by the lender before the expiration date.
-    /// Encoded/decoded by serializers as "CallBack".
+    /// Encoded/decoded by serializers as "CABK".
     /// </summary>
     [EnumMember(Value = "CABK")]
     [IsoId("__v_DgtojEeC60axPepSq7g_589215960")]
     [Description(@"Securities lending contract can be ended by the lender before the expiration date.")]
-    CallBack,
+    CallBack = ReversibleCode.CallBack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Reversible1Code
 public static class Reversible1CodeMetadataExtensions
 {
     private static readonly Reversible1CodeDropdownSource _dropdownSource = new Reversible1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

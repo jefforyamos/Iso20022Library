@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_Aeu_oJGDEeeBGrZP1w0opg")]
-[Description(@"Specifies the document purpose as published in an external document purpose code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the document purpose as published in an external document purpose code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDocumentPurpose1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalDocumentPurposeCode
 {
     /// <summary>
@@ -48,7 +47,7 @@ public enum ExternalDocumentPurposeCode
 public static class ExternalDocumentPurposeCodeMetadataExtensions
 {
     private static readonly ExternalDocumentPurposeCodeDropdownSource _dropdownSource = new ExternalDocumentPurposeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,981 +17,981 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_ame0gdp-Ed-ak6NoX_4Aeg_-1943783063")]
-[Description(@"Specifies the external local instrument code in the format of character string with a maximum length of 35 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external local instrument code in the format of character string with a maximum length of 35 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalLocalInstrumentCode))]
 public enum ExternalLocalInstrument1Code
 {
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under a confirmed electronic mandate.
-    /// Encoded/decoded by serializers as "DirectDebitConfirmedElectronicMandate".
+    /// Encoded/decoded by serializers as "DDMC".
     /// </summary>
     [EnumMember(Value = "DDMC")]
     [IsoId("_tmA1uPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under a confirmed electronic mandate.")]
-    DirectDebitConfirmedElectronicMandate,
+    DirectDebitConfirmedElectronicMandate = ExternalLocalInstrumentCode.DirectDebitConfirmedElectronicMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under a paper based mandate, supported by paper authorization signed by the debtor.
-    /// Encoded/decoded by serializers as "DirectDebitPaperMandateWithPaperAuthorization".
+    /// Encoded/decoded by serializers as "DDMP".
     /// </summary>
     [EnumMember(Value = "DDMP")]
     [IsoId("_tmA1u_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under a paper based mandate, supported by paper authorization signed by the debtor.")]
-    DirectDebitPaperMandateWithPaperAuthorization,
+    DirectDebitPaperMandateWithPaperAuthorization = ExternalLocalInstrumentCode.DirectDebitPaperMandateWithPaperAuthorization, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under an unconfirmed electronic mandate requiring confirmation by the debtor.
-    /// Encoded/decoded by serializers as "DirectDebitUnconfirmedElectronicMandate".
+    /// Encoded/decoded by serializers as "DDMU".
     /// </summary>
     [EnumMember(Value = "DDMU")]
     [IsoId("_tmJ_ovRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under an unconfirmed electronic mandate requiring confirmation by the debtor.")]
-    DirectDebitUnconfirmedElectronicMandate,
+    DirectDebitUnconfirmedElectronicMandate = ExternalLocalInstrumentCode.DirectDebitUnconfirmedElectronicMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme, with a specific batch time-out delay.
-    /// Encoded/decoded by serializers as "BatchPaymentsAruba".
+    /// Encoded/decoded by serializers as "BPA".
     /// </summary>
     [EnumMember(Value = "BPA")]
     [IsoId("_tmJ_pfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme, with a specific batch time-out delay.")]
-    BatchPaymentsAruba,
+    BatchPaymentsAruba = ExternalLocalInstrumentCode.BatchPaymentsAruba, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme.
-    /// Encoded/decoded by serializers as "InstantPaymentsAruba".
+    /// Encoded/decoded by serializers as "IPA".
     /// </summary>
     [EnumMember(Value = "IPA")]
     [IsoId("_tmJ_qPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme.")]
-    InstantPaymentsAruba,
+    InstantPaymentsAruba = ExternalLocalInstrumentCode.InstantPaymentsAruba, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to credit transfers
-    /// Encoded/decoded by serializers as "CreditTransfers".
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_tmJ_q_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to credit transfers")]
-    CreditTransfers,
+    CreditTransfers = ExternalLocalInstrumentCode.CreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
-    /// Encoded/decoded by serializers as "NonPreauthorisedDirectDebitAT".
+    /// Encoded/decoded by serializers as "82".
     /// </summary>
     [EnumMember(Value = "82")]
     [IsoId("_tmTwovRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). ")]
-    NonPreauthorisedDirectDebitAT,
+    NonPreauthorisedDirectDebitAT = ExternalLocalInstrumentCode.NonPreauthorisedDirectDebitAT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
-    /// Encoded/decoded by serializers as "PreauthorisedDirectDebitAT".
+    /// Encoded/decoded by serializers as "83".
     /// </summary>
     [EnumMember(Value = "83")]
     [IsoId("_tmTwpfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). ")]
-    PreauthorisedDirectDebitAT,
+    PreauthorisedDirectDebitAT = ExternalLocalInstrumentCode.PreauthorisedDirectDebitAT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to cash per post.|Transaction to ultimate recipient having no bank account. Primary beneficiary is a postal service provider. Funds are paid out by cash. Additional necessary information for address and delivery options need to be attached.|
-    /// Encoded/decoded by serializers as "CashPerPost".
+    /// Encoded/decoded by serializers as "CPP".
     /// </summary>
     [EnumMember(Value = "CPP")]
     [IsoId("_tmTwqPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cash per post.|Transaction to ultimate recipient having no bank account. Primary beneficiary is a postal service provider. Funds are paid out by cash. Additional necessary information for address and delivery options need to be attached.|")]
-    CashPerPost,
+    CashPerPost = ExternalLocalInstrumentCode.CashPerPost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to returned credit transfers.
-    /// Encoded/decoded by serializers as "ReturnedCreditTransfers".
+    /// Encoded/decoded by serializers as "RTR".
     /// </summary>
     [EnumMember(Value = "RTR")]
     [IsoId("_tmTwq_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to returned credit transfers.")]
-    ReturnedCreditTransfers,
+    ReturnedCreditTransfers = ExternalLocalInstrumentCode.ReturnedCreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to truncated credit transfers.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.|Transaction triggered by specific marked and populated paper slip.|Reconciliation reference is secured by check digits supporting secure optical recognition. All other remittance information is truncated prior transmission.|
-    /// Encoded/decoded by serializers as "TruncatedCreditTransfers".
+    /// Encoded/decoded by serializers as "GST".
     /// </summary>
     [EnumMember(Value = "GST")]
     [IsoId("_tmc6kvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to truncated credit transfers.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.|Transaction triggered by specific marked and populated paper slip.|Reconciliation reference is secured by check digits supporting secure optical recognition. All other remittance information is truncated prior transmission.|")]
-    TruncatedCreditTransfers,
+    TruncatedCreditTransfers = ExternalLocalInstrumentCode.TruncatedCreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to direct debits.
-    /// Encoded/decoded by serializers as "DirectDebits".
+    /// Encoded/decoded by serializers as "DDT".
     /// </summary>
     [EnumMember(Value = "DDT")]
     [IsoId("_tmc6lfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to direct debits.")]
-    DirectDebits,
+    DirectDebits = ExternalLocalInstrumentCode.DirectDebits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to returned direct debits.
-    /// Encoded/decoded by serializers as "ReturnedDirectDebits".
+    /// Encoded/decoded by serializers as "RDD".
     /// </summary>
     [EnumMember(Value = "RDD")]
     [IsoId("_tmc6mPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to returned direct debits.")]
-    ReturnedDirectDebits,
+    ReturnedDirectDebits = ExternalLocalInstrumentCode.ReturnedDirectDebits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to truncated checks.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.
-    /// Encoded/decoded by serializers as "TruncatedChecks".
+    /// Encoded/decoded by serializers as "CHN".
     /// </summary>
     [EnumMember(Value = "CHN")]
     [IsoId("_tmmrkvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to truncated checks.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.")]
-    TruncatedChecks,
+    TruncatedChecks = ExternalLocalInstrumentCode.TruncatedChecks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked credit transfers
-    /// Encoded/decoded by serializers as "RevokedCreditTransfers".
+    /// Encoded/decoded by serializers as "STR".
     /// </summary>
     [EnumMember(Value = "STR")]
     [IsoId("_tmmrlfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked credit transfers")]
-    RevokedCreditTransfers,
+    RevokedCreditTransfers = ExternalLocalInstrumentCode.RevokedCreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked direct debits.
-    /// Encoded/decoded by serializers as "RevokedDirectDebits".
+    /// Encoded/decoded by serializers as "SDD".
     /// </summary>
     [EnumMember(Value = "SDD")]
     [IsoId("_tmmrmPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked direct debits.")]
-    RevokedDirectDebits,
+    RevokedDirectDebits = ExternalLocalInstrumentCode.RevokedDirectDebits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked returned credit transfers
-    /// Encoded/decoded by serializers as "RevokedReturnedCreditTransfers".
+    /// Encoded/decoded by serializers as "SRT".
     /// </summary>
     [EnumMember(Value = "SRT")]
     [IsoId("_tmmrm_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked returned credit transfers")]
-    RevokedReturnedCreditTransfers,
+    RevokedReturnedCreditTransfers = ExternalLocalInstrumentCode.RevokedReturnedCreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked returned direct debits.
-    /// Encoded/decoded by serializers as "RevokedReturnedDirectDebits".
+    /// Encoded/decoded by serializers as "SRD".
     /// </summary>
     [EnumMember(Value = "SRD")]
     [IsoId("_tmmrnvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked returned direct debits.")]
-    RevokedReturnedDirectDebits,
+    RevokedReturnedDirectDebits = ExternalLocalInstrumentCode.RevokedReturnedDirectDebits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked truncated checks.
-    /// Encoded/decoded by serializers as "RevokedTruncatedChecks".
+    /// Encoded/decoded by serializers as "SCN".
     /// </summary>
     [EnumMember(Value = "SCN")]
     [IsoId("_tmwckvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked truncated checks.")]
-    RevokedTruncatedChecks,
+    RevokedTruncatedChecks = ExternalLocalInstrumentCode.RevokedTruncatedChecks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to revoked truncated credit transfers.
-    /// Encoded/decoded by serializers as "RevokedTruncatedCreditTransfers".
+    /// Encoded/decoded by serializers as "SGT".
     /// </summary>
     [EnumMember(Value = "SGT")]
     [IsoId("_tmwclfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked truncated credit transfers.")]
-    RevokedTruncatedCreditTransfers,
+    RevokedTruncatedCreditTransfers = ExternalLocalInstrumentCode.RevokedTruncatedCreditTransfers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to card clearing.
-    /// Encoded/decoded by serializers as "CardClearing".
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_tmwcmPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to card clearing.")]
-    CardClearing,
+    CardClearing = ExternalLocalInstrumentCode.CardClearing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
-    /// Encoded/decoded by serializers as "NonPreauthorisedDirectDebitDE".
+    /// Encoded/decoded by serializers as "05".
     /// </summary>
     [EnumMember(Value = "05")]
     [IsoId("_tm5mgvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). ")]
-    NonPreauthorisedDirectDebitDE,
+    NonPreauthorisedDirectDebitDE = ExternalLocalInstrumentCode.NonPreauthorisedDirectDebitDE, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
-    /// Encoded/decoded by serializers as "PreauthorisedDirectDebitDE".
+    /// Encoded/decoded by serializers as "04".
     /// </summary>
     [EnumMember(Value = "04")]
     [IsoId("_tm5mhfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). ")]
-    PreauthorisedDirectDebitDE,
+    PreauthorisedDirectDebitDE = ExternalLocalInstrumentCode.PreauthorisedDirectDebitDE, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the German Image-based Cheque Collection Procedure “Imagegestützter Scheckeinzug - ISE”
-    /// Encoded/decoded by serializers as "ImageBasedChequeCollection".
+    /// Encoded/decoded by serializers as "ISE".
     /// </summary>
     [EnumMember(Value = "ISE")]
     [IsoId("_tm5miPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the German Image-based Cheque Collection Procedure “Imagegestützter Scheckeinzug - ISE”")]
-    ImageBasedChequeCollection,
+    ImageBasedChequeCollection = ExternalLocalInstrumentCode.ImageBasedChequeCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the German Paperless Cheque Collection procedure “Belegloser Scheckeinzug - BSE”
-    /// Encoded/decoded by serializers as "PaperlessChequeCollection".
+    /// Encoded/decoded by serializers as "BSE".
     /// </summary>
     [EnumMember(Value = "BSE")]
     [IsoId("_tm5mi_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the German Paperless Cheque Collection procedure “Belegloser Scheckeinzug - BSE”")]
-    PaperlessChequeCollection,
+    PaperlessChequeCollection = ExternalLocalInstrumentCode.PaperlessChequeCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a business-to-business direct debit (CSB58).
-    /// Encoded/decoded by serializers as "BusinessToBusinessDirectDebit".
+    /// Encoded/decoded by serializers as "58".
     /// </summary>
     [EnumMember(Value = "58")]
     [IsoId("_tm5mjvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a business-to-business direct debit (CSB58).")]
-    BusinessToBusinessDirectDebit,
+    BusinessToBusinessDirectDebit = ExternalLocalInstrumentCode.BusinessToBusinessDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a business-to-customer direct debit (CSB19).
-    /// Encoded/decoded by serializers as "BusinessToCustomerDirectDebit".
+    /// Encoded/decoded by serializers as "19".
     /// </summary>
     [EnumMember(Value = "19")]
     [IsoId("_tnDXgvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a business-to-customer direct debit (CSB19).")]
-    BusinessToCustomerDirectDebit,
+    BusinessToCustomerDirectDebit = ExternalLocalInstrumentCode.BusinessToCustomerDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the payment is sent by an authorized third party on behalf of the participant. 
-    /// Encoded/decoded by serializers as "AncillarySystemTransferInitiation".
+    /// Encoded/decoded by serializers as "ASTI".
     /// </summary>
     [EnumMember(Value = "ASTI")]
     [IsoId("_tnDXhfRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is sent by an authorized third party on behalf of the participant. ")]
-    AncillarySystemTransferInitiation,
+    AncillarySystemTransferInitiation = ExternalLocalInstrumentCode.AncillarySystemTransferInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the payment was initiated manually using a GUI (Graphical User Interface).
-    /// Encoded/decoded by serializers as "BackupPayment".
+    /// Encoded/decoded by serializers as "BACP".
     /// </summary>
     [EnumMember(Value = "BACP")]
     [IsoId("_tnDXiPRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment was initiated manually using a GUI (Graphical User Interface).")]
-    BackupPayment,
+    BackupPayment = ExternalLocalInstrumentCode.BackupPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.
-    /// Encoded/decoded by serializers as "MandatedPayment".
+    /// Encoded/decoded by serializers as "MANP".
     /// </summary>
     [EnumMember(Value = "MANP")]
     [IsoId("_tnDXi_RYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.")]
-    MandatedPayment,
+    MandatedPayment = ExternalLocalInstrumentCode.MandatedPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the payment is submitted to move  liquidity to the technical account - dedicated to real-time settlement in an external system (for example ancillary system) . The payment is processed in a separate payment queue besides the normal processing.
-    /// Encoded/decoded by serializers as "SettlementBankTransferInitiation".
+    /// Encoded/decoded by serializers as "SBTI".
     /// </summary>
     [EnumMember(Value = "SBTI")]
     [IsoId("_tnNIgvRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is submitted to move  liquidity to the technical account - dedicated to real-time settlement in an external system (for example ancillary system) . The payment is processed in a separate payment queue besides the normal processing.")]
-    SettlementBankTransferInitiation,
+    SettlementBankTransferInitiation = ExternalLocalInstrumentCode.SettlementBankTransferInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement accéléré).
-    /// Encoded/decoded by serializers as "PreauthorisedDirectDebitAccéléréAcceleratedClearing2DayOrdinaireNormalClearing4Day".
+    /// Encoded/decoded by serializers as "85".
     /// </summary>
     [EnumMember(Value = "85")]
     [IsoId("_tnNIhfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement accéléré).")]
-    PreauthorisedDirectDebitAccéléréAcceleratedClearing2DayOrdinaireNormalClearing4Day,
+    PreauthorisedDirectDebitAccéléréAcceleratedClearing2DayOrdinaireNormalClearing4Day = ExternalLocalInstrumentCode.PreauthorisedDirectDebitAccéléréAcceleratedClearing2DayOrdinaireNormalClearing4Day, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Avis de Prélèvement).
-    /// Encoded/decoded by serializers as "PreauthorisedDirectDebitOrdinaireNormalClearing4Day".
+    /// Encoded/decoded by serializers as "08".
     /// </summary>
     [EnumMember(Value = "08")]
     [IsoId("_tnNIiPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Avis de Prélèvement).")]
-    PreauthorisedDirectDebitOrdinaireNormalClearing4Day,
+    PreauthorisedDirectDebitOrdinaireNormalClearing4Day = ExternalLocalInstrumentCode.PreauthorisedDirectDebitOrdinaireNormalClearing4Day, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement vérifié).
-    /// Encoded/decoded by serializers as "PreauthorisedDirectDebitVérifiéVerifiedClearing".
+    /// Encoded/decoded by serializers as "89".
     /// </summary>
     [EnumMember(Value = "89")]
     [IsoId("_tnNIi_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement vérifié).")]
-    PreauthorisedDirectDebitVérifiéVerifiedClearing,
+    PreauthorisedDirectDebitVérifiéVerifiedClearing = ExternalLocalInstrumentCode.PreauthorisedDirectDebitVérifiéVerifiedClearing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// LCR - Lettre de Change Relevé (Recovered Bill of Exchange) and BOR - Billet à Orde Relevé (Promissory Note)
-    /// Encoded/decoded by serializers as "RecoveredBillofExchangeorPromissoryNote".
+    /// Encoded/decoded by serializers as "60".
     /// </summary>
     [EnumMember(Value = "60")]
     [IsoId("_tnNIjvRYEeuLhpyIdtJzwg")]
     [Description(@"LCR - Lettre de Change Relevé (Recovered Bill of Exchange) and BOR - Billet à Orde Relevé (Promissory Note)")]
-    RecoveredBillofExchangeorPromissoryNote,
+    RecoveredBillofExchangeorPromissoryNote = ExternalLocalInstrumentCode.RecoveredBillofExchangeorPromissoryNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a non-pre authorised collection (RIBA).
-    /// Encoded/decoded by serializers as "NonPreauthorisedDirectDebitRIBA".
+    /// Encoded/decoded by serializers as "RIBA".
     /// </summary>
     [EnumMember(Value = "RIBA")]
     [IsoId("_tnW5gvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a non-pre authorised collection (RIBA).")]
-    NonPreauthorisedDirectDebitRIBA,
+    NonPreauthorisedDirectDebitRIBA = ExternalLocalInstrumentCode.NonPreauthorisedDirectDebitRIBA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised and revocable (RID Ordinario).
-    /// Encoded/decoded by serializers as "PreauthorisedRevocableDirectDebit".
+    /// Encoded/decoded by serializers as "RIDO".
     /// </summary>
     [EnumMember(Value = "RIDO")]
     [IsoId("_tnW5hfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised and revocable (RID Ordinario).")]
-    PreauthorisedRevocableDirectDebit,
+    PreauthorisedRevocableDirectDebit = ExternalLocalInstrumentCode.PreauthorisedRevocableDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised and revocable (RID Veloce).
-    /// Encoded/decoded by serializers as "PreauthorisedRevocableUrgentDirectDebit".
+    /// Encoded/decoded by serializers as "RIDV".
     /// </summary>
     [EnumMember(Value = "RIDV")]
     [IsoId("_tngDcvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised and revocable (RID Veloce).")]
-    PreauthorisedRevocableUrgentDirectDebit,
+    PreauthorisedRevocableUrgentDirectDebit = ExternalLocalInstrumentCode.PreauthorisedRevocableUrgentDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence.
-    /// Encoded/decoded by serializers as "PaymentsViaInternetOwnedByCurrence".
+    /// Encoded/decoded by serializers as "IDEAL".
     /// </summary>
     [EnumMember(Value = "IDEAL")]
     [IsoId("_tngDdfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence.")]
-    PaymentsViaInternetOwnedByCurrence,
+    PaymentsViaInternetOwnedByCurrence = ExternalLocalInstrumentCode.PaymentsViaInternetOwnedByCurrence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transaction is related to a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.
-    /// Encoded/decoded by serializers as "InstantCreditTransferNotTimeCritical".
+    /// Encoded/decoded by serializers as "INSTNT01".
     /// </summary>
     [EnumMember(Value = "INSTNT01")]
     [IsoId("_tngDePRYEeuLhpyIdtJzwg")]
     [Description(@"The transaction is related to a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.")]
-    InstantCreditTransferNotTimeCritical,
+    InstantCreditTransferNotTimeCritical = ExternalLocalInstrumentCode.InstantCreditTransferNotTimeCritical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transaction is related to an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.
-    /// Encoded/decoded by serializers as "InstantCreditTransferTimeCritical".
+    /// Encoded/decoded by serializers as "INSTTC01".
     /// </summary>
     [EnumMember(Value = "INSTTC01")]
     [IsoId("_tngDe_RYEeuLhpyIdtJzwg")]
     [Description(@"The transaction is related to an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.")]
-    InstantCreditTransferTimeCritical,
+    InstantCreditTransferTimeCritical = ExternalLocalInstrumentCode.InstantCreditTransferTimeCritical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer.
-    /// Encoded/decoded by serializers as "PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransfer".
+    /// Encoded/decoded by serializers as "INSTIDEAL".
     /// </summary>
     [EnumMember(Value = "INSTIDEAL")]
     [IsoId("_tngDfvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer.")]
-    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransfer,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransfer = ExternalLocalInstrumentCode.PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.
-    /// Encoded/decoded by serializers as "PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferNotTimeCritical".
+    /// Encoded/decoded by serializers as "INSTNT01IDEAL".
     /// </summary>
     [EnumMember(Value = "INSTNT01IDEAL")]
     [IsoId("_tnp0cvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.")]
-    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferNotTimeCritical,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferNotTimeCritical = ExternalLocalInstrumentCode.PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferNotTimeCritical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.
-    /// Encoded/decoded by serializers as "PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical".
+    /// Encoded/decoded by serializers as "INSTTC01IDEAL".
     /// </summary>
     [EnumMember(Value = "INSTTC01IDEAL")]
     [IsoId("_tnp0dfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.")]
-    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical = ExternalLocalInstrumentCode.PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a Domestic payment initiated by PAIN.001
-    /// Encoded/decoded by serializers as "DutchDomesticBulkPayment".
+    /// Encoded/decoded by serializers as "NLDO".
     /// </summary>
     [EnumMember(Value = "NLDO")]
     [IsoId("_tnp0ePRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a Domestic payment initiated by PAIN.001")]
-    DutchDomesticBulkPayment,
+    DutchDomesticBulkPayment = ExternalLocalInstrumentCode.DutchDomesticBulkPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a Domestic payment initiated by PAIN.001
-    /// Encoded/decoded by serializers as "DutchUrgentPayment".
+    /// Encoded/decoded by serializers as "NLUP".
     /// </summary>
     [EnumMember(Value = "NLUP")]
     [IsoId("_tny-YvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a Domestic payment initiated by PAIN.001")]
-    DutchUrgentPayment,
+    DutchUrgentPayment = ExternalLocalInstrumentCode.DutchUrgentPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via a ‘Standaard Digitale Nota’ InvoiceAcceptgiro payment.
-    /// Encoded/decoded by serializers as "PaymentsViaStandaardDigitaleNota".
+    /// Encoded/decoded by serializers as "SDN".
     /// </summary>
     [EnumMember(Value = "SDN")]
     [IsoId("_tny-ZfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via a ‘Standaard Digitale Nota’ InvoiceAcceptgiro payment.")]
-    PaymentsViaStandaardDigitaleNota,
+    PaymentsViaStandaardDigitaleNota = ExternalLocalInstrumentCode.PaymentsViaStandaardDigitaleNota, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payments via Acceptgiro owned by Currence.
-    /// Encoded/decoded by serializers as "PaymentViaAcceptgiroOwnedByCurrence".
+    /// Encoded/decoded by serializers as "ACCEPT".
     /// </summary>
     [EnumMember(Value = "ACCEPT")]
     [IsoId("_tn8vYvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via Acceptgiro owned by Currence.")]
-    PaymentViaAcceptgiroOwnedByCurrence,
+    PaymentViaAcceptgiroOwnedByCurrence = ExternalLocalInstrumentCode.PaymentViaAcceptgiroOwnedByCurrence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an Incident Management Correction procedure based on the DD infrastructure.
-    /// Encoded/decoded by serializers as "IncidentManagementCorrection".
+    /// Encoded/decoded by serializers as "ICMC".
     /// </summary>
     [EnumMember(Value = "ICMC")]
     [IsoId("_tn8vZfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Incident Management Correction procedure based on the DD infrastructure.")]
-    IncidentManagementCorrection,
+    IncidentManagementCorrection = ExternalLocalInstrumentCode.IncidentManagementCorrection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to direct debit scheme owned by the NVB.
-    /// Encoded/decoded by serializers as "DirectDebitInitiatedByTheGovernmentWithSpecialConditions".
+    /// Encoded/decoded by serializers as "NLGOV".
     /// </summary>
     [EnumMember(Value = "NLGOV")]
     [IsoId("_tn8vaPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to direct debit scheme owned by the NVB.")]
-    DirectDebitInitiatedByTheGovernmentWithSpecialConditions,
+    DirectDebitInitiatedByTheGovernmentWithSpecialConditions = ExternalLocalInstrumentCode.DirectDebitInitiatedByTheGovernmentWithSpecialConditions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to mass payment beneficiary.|
-    /// Encoded/decoded by serializers as "MassPaymentBeneficiary".
+    /// Encoded/decoded by serializers as "0090".
     /// </summary>
     [EnumMember(Value = "0090")]
     [IsoId("_tn8va_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment beneficiary.|")]
-    MassPaymentBeneficiary,
+    MassPaymentBeneficiary = ExternalLocalInstrumentCode.MassPaymentBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to mass payment ours.|
-    /// Encoded/decoded by serializers as "MassPaymentOurs".
+    /// Encoded/decoded by serializers as "0091".
     /// </summary>
     [EnumMember(Value = "0091")]
     [IsoId("_tn8vbvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment ours.|")]
-    MassPaymentOurs,
+    MassPaymentOurs = ExternalLocalInstrumentCode.MassPaymentOurs, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to mass payment shared.|
-    /// Encoded/decoded by serializers as "MassPaymentShared".
+    /// Encoded/decoded by serializers as "0092".
     /// </summary>
     [EnumMember(Value = "0092")]
     [IsoId("_toF5UvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment shared.|")]
-    MassPaymentShared,
+    MassPaymentShared = ExternalLocalInstrumentCode.MassPaymentShared, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to standing order.
-    /// Encoded/decoded by serializers as "StandingOrder".
+    /// Encoded/decoded by serializers as "0002".
     /// </summary>
     [EnumMember(Value = "0002")]
     [IsoId("_toF5VfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing order.")]
-    StandingOrder,
+    StandingOrder = ExternalLocalInstrumentCode.StandingOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to one-off authorisation.
-    /// Encoded/decoded by serializers as "OneOffAuthorisation".
+    /// Encoded/decoded by serializers as "0221".
     /// </summary>
     [EnumMember(Value = "0221")]
     [IsoId("_toF5WPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation.")]
-    OneOffAuthorisation,
+    OneOffAuthorisation = ExternalLocalInstrumentCode.OneOffAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to one-off authorisation charities.
-    /// Encoded/decoded by serializers as "OneOffAuthorisationCharities".
+    /// Encoded/decoded by serializers as "0224".
     /// </summary>
     [EnumMember(Value = "0224")]
     [IsoId("_toF5W_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation charities.")]
-    OneOffAuthorisationCharities,
+    OneOffAuthorisationCharities = ExternalLocalInstrumentCode.OneOffAuthorisationCharities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to one-off authorisation construction industry.
-    /// Encoded/decoded by serializers as "OneOffAuthorisationConstructionIndustry".
+    /// Encoded/decoded by serializers as "0226".
     /// </summary>
     [EnumMember(Value = "0226")]
     [IsoId("_toPqUvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation construction industry.")]
-    OneOffAuthorisationConstructionIndustry,
+    OneOffAuthorisationConstructionIndustry = ExternalLocalInstrumentCode.OneOffAuthorisationConstructionIndustry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to one-off authorisation tuition fees.
-    /// Encoded/decoded by serializers as "OneOffAuthorisationTuitionFees".
+    /// Encoded/decoded by serializers as "0225".
     /// </summary>
     [EnumMember(Value = "0225")]
     [IsoId("_toPqVfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation tuition fees.")]
-    OneOffAuthorisationTuitionFees,
+    OneOffAuthorisationTuitionFees = ExternalLocalInstrumentCode.OneOffAuthorisationTuitionFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to standing authorisation companies.
-    /// Encoded/decoded by serializers as "StandingAuthorisationCompanies".
+    /// Encoded/decoded by serializers as "0222".
     /// </summary>
     [EnumMember(Value = "0222")]
     [IsoId("_toPqWPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation companies.")]
-    StandingAuthorisationCompanies,
+    StandingAuthorisationCompanies = ExternalLocalInstrumentCode.StandingAuthorisationCompanies, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to standing authorisation companies without debtor revocation right.
-    /// Encoded/decoded by serializers as "StandingAuthorisationCompaniesWithoutDebtorRevocationRight".
+    /// Encoded/decoded by serializers as "0227".
     /// </summary>
     [EnumMember(Value = "0227")]
     [IsoId("_toZbUvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation companies without debtor revocation right.")]
-    StandingAuthorisationCompaniesWithoutDebtorRevocationRight,
+    StandingAuthorisationCompaniesWithoutDebtorRevocationRight = ExternalLocalInstrumentCode.StandingAuthorisationCompaniesWithoutDebtorRevocationRight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to standing authorisation general.|
-    /// Encoded/decoded by serializers as "StandingAuthorisationGeneral".
+    /// Encoded/decoded by serializers as "0220".
     /// </summary>
     [EnumMember(Value = "0220")]
     [IsoId("_toZbVfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation general.|")]
-    StandingAuthorisationGeneral,
+    StandingAuthorisationGeneral = ExternalLocalInstrumentCode.StandingAuthorisationGeneral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to standing authorisation lotteries.
-    /// Encoded/decoded by serializers as "StandingAuthorisationLotteries".
+    /// Encoded/decoded by serializers as "0223".
     /// </summary>
     [EnumMember(Value = "0223")]
     [IsoId("_toilQvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation lotteries.")]
-    StandingAuthorisationLotteries,
+    StandingAuthorisationLotteries = ExternalLocalInstrumentCode.StandingAuthorisationLotteries, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to converted (bank) payment.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process.The instrument rules change upon conversion.
-    /// Encoded/decoded by serializers as "ConvertedBankPayment".
+    /// Encoded/decoded by serializers as "0001".
     /// </summary>
     [EnumMember(Value = "0001")]
     [IsoId("_toilRfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to converted (bank) payment.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process.The instrument rules change upon conversion.")]
-    ConvertedBankPayment,
+    ConvertedBankPayment = ExternalLocalInstrumentCode.ConvertedBankPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to business payment
-    /// Encoded/decoded by serializers as "BusinessPayment".
+    /// Encoded/decoded by serializers as "0000".
     /// </summary>
     [EnumMember(Value = "0000")]
     [IsoId("_toilSPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to business payment")]
-    BusinessPayment,
+    BusinessPayment = ExternalLocalInstrumentCode.BusinessPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to cross border customer credit transfer.
-    /// Encoded/decoded by serializers as "CrossBorderCustomerCreditTransfer".
+    /// Encoded/decoded by serializers as "IN".
     /// </summary>
     [EnumMember(Value = "IN")]
     [IsoId("_tosWQvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cross border customer credit transfer.")]
-    CrossBorderCustomerCreditTransfer,
+    CrossBorderCustomerCreditTransfer = ExternalLocalInstrumentCode.CrossBorderCustomerCreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to overnight clearing.
-    /// Encoded/decoded by serializers as "Overnight".
+    /// Encoded/decoded by serializers as "ONCL".
     /// </summary>
     [EnumMember(Value = "ONCL")]
     [IsoId("_tosWRfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to overnight clearing.")]
-    Overnight,
+    Overnight = ExternalLocalInstrumentCode.Overnight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit transfer contains Extended Remittance Information (ERI) as defined within the applicable scheme.
-    /// Encoded/decoded by serializers as "PaymentWithERI".
+    /// Encoded/decoded by serializers as "PERI".
     /// </summary>
     [EnumMember(Value = "PERI")]
     [IsoId("_tosWSPRYEeuLhpyIdtJzwg")]
     [Description(@"Credit transfer contains Extended Remittance Information (ERI) as defined within the applicable scheme.")]
-    PaymentWithERI,
+    PaymentWithERI = ExternalLocalInstrumentCode.PaymentWithERI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to New Zealand High Value Clearing System (HVCS) same day clearing payments.
-    /// Encoded/decoded by serializers as "SameDayClearedPayments".
+    /// Encoded/decoded by serializers as "SDCL".
     /// </summary>
     [EnumMember(Value = "SDCL")]
     [IsoId("_tosWS_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to New Zealand High Value Clearing System (HVCS) same day clearing payments.")]
-    SameDayClearedPayments,
+    SameDayClearedPayments = ExternalLocalInstrumentCode.SameDayClearedPayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SEPA Core Direct Debit with ‘no refund’ option
-    /// Encoded/decoded by serializers as "CoreNoRefund".
+    /// Encoded/decoded by serializers as "DDNR".
     /// </summary>
     [EnumMember(Value = "DDNR")]
     [IsoId("_tosWTvRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Core Direct Debit with ‘no refund’ option")]
-    CoreNoRefund,
+    CoreNoRefund = ExternalLocalInstrumentCode.CoreNoRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SEPA Fixed Amount Direct Debit
-    /// Encoded/decoded by serializers as "DirectDebitFixedAmount".
+    /// Encoded/decoded by serializers as "DDFA".
     /// </summary>
     [EnumMember(Value = "DDFA")]
     [IsoId("_to2HQvRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Fixed Amount Direct Debit")]
-    DirectDebitFixedAmount,
+    DirectDebitFixedAmount = ExternalLocalInstrumentCode.DirectDebitFixedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to SEPA direct debit -core.
-    /// Encoded/decoded by serializers as "SEPADirectDebitCore".
+    /// Encoded/decoded by serializers as "CORE".
     /// </summary>
     [EnumMember(Value = "CORE")]
     [IsoId("_to2HRfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to SEPA direct debit -core.")]
-    SEPADirectDebitCore,
+    SEPADirectDebitCore = ExternalLocalInstrumentCode.SEPADirectDebitCore, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SEPA B2B Direct Debit AMI based on a paper mandate
-    /// Encoded/decoded by serializers as "SEPAB2BDirectDebitAMI".
+    /// Encoded/decoded by serializers as "B2BAMIPM".
     /// </summary>
     [EnumMember(Value = "B2BAMIPM")]
     [IsoId("_to_RMvRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA B2B Direct Debit AMI based on a paper mandate")]
-    SEPAB2BDirectDebitAMI,
+    SEPAB2BDirectDebitAMI = ExternalLocalInstrumentCode.SEPAB2BDirectDebitAMI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to SEPA business to business direct debit.
-    /// Encoded/decoded by serializers as "SEPABusinessToBusinessDirectDebit".
+    /// Encoded/decoded by serializers as "B2B".
     /// </summary>
     [EnumMember(Value = "B2B")]
     [IsoId("_to_RNfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to SEPA business to business direct debit.")]
-    SEPABusinessToBusinessDirectDebit,
+    SEPABusinessToBusinessDirectDebit = ExternalLocalInstrumentCode.SEPABusinessToBusinessDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Optional shorter time cycle (D-1) for SEPA Core Direct Debit AMI based on a paper mandate
-    /// Encoded/decoded by serializers as "SEPACoreD1DirectDebitAMI".
+    /// Encoded/decoded by serializers as "CR1AMIPM".
     /// </summary>
     [EnumMember(Value = "CR1AMIPM")]
     [IsoId("_to_ROPRYEeuLhpyIdtJzwg")]
     [Description(@"Optional shorter time cycle (D-1) for SEPA Core Direct Debit AMI based on a paper mandate")]
-    SEPACoreD1DirectDebitAMI,
+    SEPACoreD1DirectDebitAMI = ExternalLocalInstrumentCode.SEPACoreD1DirectDebitAMI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SEPA Core Direct Debit AMI based on a paper mandate
-    /// Encoded/decoded by serializers as "SEPACoreDirectDebitAMI".
+    /// Encoded/decoded by serializers as "CORAMIPM".
     /// </summary>
     [EnumMember(Value = "CORAMIPM")]
     [IsoId("_to_RO_RYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Core Direct Debit AMI based on a paper mandate")]
-    SEPACoreDirectDebitAMI,
+    SEPACoreDirectDebitAMI = ExternalLocalInstrumentCode.SEPACoreDirectDebitAMI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Optional shorter time cycle (D-1) for SEPA Core Direct Debit
-    /// Encoded/decoded by serializers as "SEPADirectDebit1DaySettlement".
+    /// Encoded/decoded by serializers as "COR1".
     /// </summary>
     [EnumMember(Value = "COR1")]
     [IsoId("_to_RPvRYEeuLhpyIdtJzwg")]
     [Description(@"Optional shorter time cycle (D-1) for SEPA Core Direct Debit")]
-    SEPADirectDebit1DaySettlement,
+    SEPADirectDebit1DaySettlement = ExternalLocalInstrumentCode.SEPADirectDebit1DaySettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SEPA Fixed Amount Direct Debit AMI based on a paper mandate
-    /// Encoded/decoded by serializers as "SEPAFADirectDebitAMI".
+    /// Encoded/decoded by serializers as "FADAMIPM".
     /// </summary>
     [EnumMember(Value = "FADAMIPM")]
     [IsoId("_tpJCMvRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Fixed Amount Direct Debit AMI based on a paper mandate")]
-    SEPAFADirectDebitAMI,
+    SEPAFADirectDebitAMI = ExternalLocalInstrumentCode.SEPAFADirectDebitAMI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the CLSClearedFX service for Eurex.  |Usage: The code is mandatory for all pacs.009 payments to this service.
-    /// Encoded/decoded by serializers as "CLSClearedFXForEurex".
+    /// Encoded/decoded by serializers as "CLSCCPERX".
     /// </summary>
     [EnumMember(Value = "CLSCCPERX")]
     [IsoId("_tpJCNfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the CLSClearedFX service for Eurex.  |Usage: The code is mandatory for all pacs.009 payments to this service.")]
-    CLSClearedFXForEurex,
+    CLSClearedFXForEurex = ExternalLocalInstrumentCode.CLSClearedFXForEurex, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the CLSClearedFX service for London Exchange Clearing House. |Usage: The code is mandatory for all pacs.009 payments to this service.
-    /// Encoded/decoded by serializers as "CLSClearedFXForLCH".
+    /// Encoded/decoded by serializers as "CLSCCPLCH".
     /// </summary>
     [EnumMember(Value = "CLSCCPLCH")]
     [IsoId("_tpJCOPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the CLSClearedFX service for London Exchange Clearing House. |Usage: The code is mandatory for all pacs.009 payments to this service.")]
-    CLSClearedFXForLCH,
+    CLSClearedFXForLCH = ExternalLocalInstrumentCode.CLSClearedFXForLCH, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer.|Use case example: SEPA Instant Credit Transfer (SCT Inst)
-    /// Encoded/decoded by serializers as "InstantCreditTransfer".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_tpJCO_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer.|Use case example: SEPA Instant Credit Transfer (SCT Inst)")]
-    InstantCreditTransfer,
+    InstantCreditTransfer = ExternalLocalInstrumentCode.InstantCreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is authenticated direct debit for domestic use.
-    /// Encoded/decoded by serializers as "AuthenticatedDirectDebit".
+    /// Encoded/decoded by serializers as "ADD".
     /// </summary>
     [EnumMember(Value = "ADD")]
     [IsoId("_tpJCPvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is authenticated direct debit for domestic use.")]
-    AuthenticatedDirectDebit,
+    AuthenticatedDirectDebit = ExternalLocalInstrumentCode.AuthenticatedDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is unauthenticated direct debit for domestic use.
-    /// Encoded/decoded by serializers as "UnauthenticatedDirectDebit".
+    /// Encoded/decoded by serializers as "UDD".
     /// </summary>
     [EnumMember(Value = "UDD")]
     [IsoId("_tpSzMvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is unauthenticated direct debit for domestic use.")]
-    UnauthenticatedDirectDebit,
+    UnauthenticatedDirectDebit = ExternalLocalInstrumentCode.UnauthenticatedDirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to an intra-group bank initiated cash management payment
-    /// Encoded/decoded by serializers as "CashConcentrationIntragroup".
+    /// Encoded/decoded by serializers as "CCI".
     /// </summary>
     [EnumMember(Value = "CCI")]
     [IsoId("_tpSzNfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an intra-group bank initiated cash management payment")]
-    CashConcentrationIntragroup,
+    CashConcentrationIntragroup = ExternalLocalInstrumentCode.CashConcentrationIntragroup, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a bank transfer.
-    /// Encoded/decoded by serializers as "BankTransfer".
+    /// Encoded/decoded by serializers as "BTR".
     /// </summary>
     [EnumMember(Value = "BTR")]
     [IsoId("_tpb9IvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a bank transfer.")]
-    BankTransfer,
+    BankTransfer = ExternalLocalInstrumentCode.BankTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to check same day settlement wire.
-    /// Encoded/decoded by serializers as "CheckSameDaySettlementWire".
+    /// Encoded/decoded by serializers as "CKS".
     /// </summary>
     [EnumMember(Value = "CKS")]
     [IsoId("_tpb9JfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to check same day settlement wire.")]
-    CheckSameDaySettlementWire,
+    CheckSameDaySettlementWire = ExternalLocalInstrumentCode.CheckSameDaySettlementWire, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to customer transfer.
-    /// Encoded/decoded by serializers as "CustomerTransfer".
+    /// Encoded/decoded by serializers as "CTR".
     /// </summary>
     [EnumMember(Value = "CTR")]
     [IsoId("_tpluIvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to customer transfer.")]
-    CustomerTransfer,
+    CustomerTransfer = ExternalLocalInstrumentCode.CustomerTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a customer transfer, which may include information related to a cover payment or extended remittance information.  
-    /// Encoded/decoded by serializers as "CustomerTransferPlus".
+    /// Encoded/decoded by serializers as "CTP".
     /// </summary>
     [EnumMember(Value = "CTP")]
     [IsoId("_tpluJfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a customer transfer, which may include information related to a cover payment or extended remittance information.  ")]
-    CustomerTransferPlus,
+    CustomerTransferPlus = ExternalLocalInstrumentCode.CustomerTransferPlus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to deposit to sender's account.
-    /// Encoded/decoded by serializers as "DepositToSendersAccount".
+    /// Encoded/decoded by serializers as "DEP".
     /// </summary>
     [EnumMember(Value = "DEP")]
     [IsoId("_tpluKPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to deposit to sender's account.")]
-    DepositToSendersAccount,
+    DepositToSendersAccount = ExternalLocalInstrumentCode.DepositToSendersAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to Fed funds returned.
-    /// Encoded/decoded by serializers as "FedFundsReturned".
+    /// Encoded/decoded by serializers as "FFR".
     /// </summary>
     [EnumMember(Value = "FFR")]
     [IsoId("_tpluK_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to Fed funds returned.")]
-    FedFundsReturned,
+    FedFundsReturned = ExternalLocalInstrumentCode.FedFundsReturned, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to Fed funds sold.
-    /// Encoded/decoded by serializers as "FedFundsSold".
+    /// Encoded/decoded by serializers as "FFS".
     /// </summary>
     [EnumMember(Value = "FFS")]
     [IsoId("_tpvfIvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to Fed funds sold.")]
-    FedFundsSold,
+    FedFundsSold = ExternalLocalInstrumentCode.FedFundsSold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to non-value service message.
-    /// Encoded/decoded by serializers as "NonValueServiceMessage".
+    /// Encoded/decoded by serializers as "SVC".
     /// </summary>
     [EnumMember(Value = "SVC")]
     [IsoId("_tpvfJfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to non-value service message.")]
-    NonValueServiceMessage,
+    NonValueServiceMessage = ExternalLocalInstrumentCode.NonValueServiceMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to drawdown response (value) to honor a drawdown request.
-    /// Encoded/decoded by serializers as "DrawdownResponseValueToHonorADrawdownRequest".
+    /// Encoded/decoded by serializers as "DRW".
     /// </summary>
     [EnumMember(Value = "DRW")]
     [IsoId("_tpvfKPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to drawdown response (value) to honor a drawdown request.")]
-    DrawdownResponseValueToHonorADrawdownRequest,
+    DrawdownResponseValueToHonorADrawdownRequest = ExternalLocalInstrumentCode.DrawdownResponseValueToHonorADrawdownRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to bank-to-bank drawdown request or response (non-value)
-    /// Encoded/decoded by serializers as "BankToBankDrawdownRequestOrResponseNonvalue".
+    /// Encoded/decoded by serializers as "DRB".
     /// </summary>
     [EnumMember(Value = "DRB")]
     [IsoId("_tpvfK_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to bank-to-bank drawdown request or response (non-value)")]
-    BankToBankDrawdownRequestOrResponseNonvalue,
+    BankToBankDrawdownRequestOrResponseNonvalue = ExternalLocalInstrumentCode.BankToBankDrawdownRequestOrResponseNonvalue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to customer or corporate drawdown request or response (non-value).
-    /// Encoded/decoded by serializers as "CustomerOrCorporateDrawdownRequestOrResponseNonvalue".
+    /// Encoded/decoded by serializers as "DRC".
     /// </summary>
     [EnumMember(Value = "DRC")]
     [IsoId("_tpvfLvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to customer or corporate drawdown request or response (non-value).")]
-    CustomerOrCorporateDrawdownRequestOrResponseNonvalue,
+    CustomerOrCorporateDrawdownRequestOrResponseNonvalue = ExternalLocalInstrumentCode.CustomerOrCorporateDrawdownRequestOrResponseNonvalue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to international ACH.
-    /// Encoded/decoded by serializers as "InternationalACH".
+    /// Encoded/decoded by serializers as "IAT".
     /// </summary>
     [EnumMember(Value = "IAT")]
     [IsoId("_tp4pEvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to international ACH.")]
-    InternationalACH,
+    InternationalACH = ExternalLocalInstrumentCode.InternationalACH, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to cash concentration or disbursement corporate counterparty.
-    /// Encoded/decoded by serializers as "CashConcentrationOrDisbursementCorporateCounterparty".
+    /// Encoded/decoded by serializers as "CCD".
     /// </summary>
     [EnumMember(Value = "CCD")]
     [IsoId("_tp4pFfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cash concentration or disbursement corporate counterparty.")]
-    CashConcentrationOrDisbursementCorporateCounterparty,
+    CashConcentrationOrDisbursementCorporateCounterparty = ExternalLocalInstrumentCode.CashConcentrationOrDisbursementCorporateCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to corporate trade exchange.
-    /// Encoded/decoded by serializers as "CorporateTradeExchange".
+    /// Encoded/decoded by serializers as "CTX".
     /// </summary>
     [EnumMember(Value = "CTX")]
     [IsoId("_tp4pGPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to corporate trade exchange.")]
-    CorporateTradeExchange,
+    CorporateTradeExchange = ExternalLocalInstrumentCode.CorporateTradeExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to prearranged payment or deposit consumer counterparty.
-    /// Encoded/decoded by serializers as "PrearrangedPaymentOrDepositConsumerCounterparty".
+    /// Encoded/decoded by serializers as "PPD".
     /// </summary>
     [EnumMember(Value = "PPD")]
     [IsoId("_tp4pG_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to prearranged payment or deposit consumer counterparty.")]
-    PrearrangedPaymentOrDepositConsumerCounterparty,
+    PrearrangedPaymentOrDepositConsumerCounterparty = ExternalLocalInstrumentCode.PrearrangedPaymentOrDepositConsumerCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A credit entry initiated by or on behalf of the holder of a consumer account
-    /// Encoded/decoded by serializers as "CustomerInitiatedEntry".
+    /// Encoded/decoded by serializers as "CIE".
     /// </summary>
     [EnumMember(Value = "CIE")]
     [IsoId("_tp4pHvRYEeuLhpyIdtJzwg")]
     [Description(@"A credit entry initiated by or on behalf of the holder of a consumer account")]
-    CustomerInitiatedEntry,
+    CustomerInitiatedEntry = ExternalLocalInstrumentCode.CustomerInitiatedEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to re-presented check entry.
-    /// Encoded/decoded by serializers as "RepresentedCheckEntry".
+    /// Encoded/decoded by serializers as "RCK".
     /// </summary>
     [EnumMember(Value = "RCK")]
     [IsoId("_tqCaEvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to re-presented check entry.")]
-    RepresentedCheckEntry,
+    RepresentedCheckEntry = ExternalLocalInstrumentCode.RepresentedCheckEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to accounts receivable check.
-    /// Encoded/decoded by serializers as "AccountsReceivableCheck".
+    /// Encoded/decoded by serializers as "ARC".
     /// </summary>
     [EnumMember(Value = "ARC")]
     [IsoId("_tqCaFfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to accounts receivable check.")]
-    AccountsReceivableCheck,
+    AccountsReceivableCheck = ExternalLocalInstrumentCode.AccountsReceivableCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to internet initiated entry.
-    /// Encoded/decoded by serializers as "InternetInitiatedEntry".
+    /// Encoded/decoded by serializers as "WEB".
     /// </summary>
     [EnumMember(Value = "WEB")]
     [IsoId("_tqCaGPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to internet initiated entry.")]
-    InternetInitiatedEntry,
+    InternetInitiatedEntry = ExternalLocalInstrumentCode.InternetInitiatedEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to point-of-purchase.
-    /// Encoded/decoded by serializers as "PointOfPurchase".
+    /// Encoded/decoded by serializers as "POP".
     /// </summary>
     [EnumMember(Value = "POP")]
     [IsoId("_tqLkAvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to point-of-purchase.")]
-    PointOfPurchase,
+    PointOfPurchase = ExternalLocalInstrumentCode.PointOfPurchase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to point-of-sale.
-    /// Encoded/decoded by serializers as "PointOfSale".
+    /// Encoded/decoded by serializers as "POS".
     /// </summary>
     [EnumMember(Value = "POS")]
     [IsoId("_tqLkBfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to point-of-sale.")]
-    PointOfSale,
+    PointOfSale = ExternalLocalInstrumentCode.PointOfSale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to telephone initiated entry.
-    /// Encoded/decoded by serializers as "TelephoneInitiatedEntry".
+    /// Encoded/decoded by serializers as "TEL".
     /// </summary>
     [EnumMember(Value = "TEL")]
     [IsoId("_tqLkCPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to telephone initiated entry.")]
-    TelephoneInitiatedEntry,
+    TelephoneInitiatedEntry = ExternalLocalInstrumentCode.TelephoneInitiatedEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request-to-pay preferred payment via Instant Credit Transfer but Credit Transfer is also possible.
-    /// Encoded/decoded by serializers as "InstantCreditTransferPreferred".
+    /// Encoded/decoded by serializers as "ITP".
     /// </summary>
     [EnumMember(Value = "ITP")]
     [IsoId("_It7dAVEFEey6cYDbEubNXg")]
     [Description(@"Request-to-pay preferred payment via Instant Credit Transfer but Credit Transfer is also possible.")]
-    InstantCreditTransferPreferred,
+    InstantCreditTransferPreferred = ExternalLocalInstrumentCode.InstantCreditTransferPreferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.
-    /// Encoded/decoded by serializers as "CreditTransferPreferred".
+    /// Encoded/decoded by serializers as "CTP".
     /// </summary>
     [EnumMember(Value = "CTP")]
     [IsoId("_K0CN4VEFEey6cYDbEubNXg")]
     [Description(@"Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.")]
-    CreditTransferPreferred,
+    CreditTransferPreferred = ExternalLocalInstrumentCode.CreditTransferPreferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of New Payments Architecture (NPA) payment. Payments are processed over a three-day cycle and available to customers early in the morning of Day 3.
-    /// Encoded/decoded by serializers as "MultiDayPayment".
+    /// Encoded/decoded by serializers as "MDP".
     /// </summary>
     [EnumMember(Value = "MDP")]
     [IsoId("_yIC_seAnEey0k8vo1GQhqQ")]
     [Description(@"Type of New Payments Architecture (NPA) payment. Payments are processed over a three-day cycle and available to customers early in the morning of Day 3.")]
-    MultiDayPayment,
+    MultiDayPayment = ExternalLocalInstrumentCode.MultiDayPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -1002,7 +1002,7 @@ public enum ExternalLocalInstrument1Code
 public static class ExternalLocalInstrument1CodeMetadataExtensions
 {
     private static readonly ExternalLocalInstrument1CodeDropdownSource _dropdownSource = new ExternalLocalInstrument1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

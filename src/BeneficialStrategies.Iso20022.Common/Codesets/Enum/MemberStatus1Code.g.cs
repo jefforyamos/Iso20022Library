@@ -21,39 +21,39 @@ public enum MemberStatus1Code
 {
     /// <summary>
     /// Member is live on the system.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENBL".
     /// </summary>
     [EnumMember(Value = "ENBL")]
     [IsoId("_zdmYZA93EeGeV5vP7Mvdig_-507442078")]
     [Description(@"Member is live on the system.")]
-    Enabled,
+    Enabled = MemberStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is temporarily not live on the system.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DSBL".
     /// </summary>
     [EnumMember(Value = "DSBL")]
     [IsoId("_zdmYZQ93EeGeV5vP7Mvdig_943717544")]
     [Description(@"Member is temporarily not live on the system.")]
-    Disabled,
+    Disabled = MemberStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is no longer live on the system.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DLTD".
     /// </summary>
     [EnumMember(Value = "DLTD")]
     [IsoId("_zdmYZg93EeGeV5vP7Mvdig_1865880854")]
     [Description(@"Member is no longer live on the system.")]
-    Deleted,
+    Deleted = MemberStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is joining and will soon be enabled on the system.
-    /// Encoded/decoded by serializers as "Joining".
+    /// Encoded/decoded by serializers as "JOIN".
     /// </summary>
     [EnumMember(Value = "JOIN")]
     [IsoId("_zdviUA93EeGeV5vP7Mvdig_1111130980")]
     [Description(@"Member is joining and will soon be enabled on the system.")]
-    Joining,
+    Joining = MemberStatusCode.Joining, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum MemberStatus1Code
 public static class MemberStatus1CodeMetadataExtensions
 {
     private static readonly MemberStatus1CodeDropdownSource _dropdownSource = new MemberStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

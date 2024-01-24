@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_ioPgo3h3EeidzqjNEfehPg")]
-[Description(@"Specifies the external proxy account type code, as published in the proxy account type external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external proxy account type code, as published in the proxy account type external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalProxyAccountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalProxyAccountTypeCode
 {
     /// <summary>
@@ -219,7 +218,7 @@ public enum ExternalProxyAccountTypeCode
 public static class ExternalProxyAccountTypeCodeMetadataExtensions
 {
     private static readonly ExternalProxyAccountTypeCodeDropdownSource _dropdownSource = new ExternalProxyAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bfHFotp-Ed-ak6NoX_4Aeg_-1137977786")]
 [Description(@"Specifies the deliverability of a security.")]
 [Derivations(typeof(Appearance1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AppearanceCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum AppearanceCode
 public static class AppearanceCodeMetadataExtensions
 {
     private static readonly AppearanceCodeDropdownSource _dropdownSource = new AppearanceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

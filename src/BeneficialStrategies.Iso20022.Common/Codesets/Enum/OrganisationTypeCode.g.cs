@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_--ww8CCeEeWJd9HF2tO7BA")]
 [Description(@"Specifies a type of organisation.")]
 [Derivations(typeof(OrganisationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrganisationTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OrganisationTypeCode
 public static class OrganisationTypeCodeMetadataExtensions
 {
     private static readonly OrganisationTypeCodeDropdownSource _dropdownSource = new OrganisationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

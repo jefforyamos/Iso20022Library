@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hXsYANdcEeibyvRfU9vJ7w")]
 [Description(@"Specifies whether a financial product is in scope of a target market parameter.")]
 [Derivations(typeof(TargetMarket1Code),typeof(TargetMarket2Code),typeof(TargetMarket3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TargetMarketCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TargetMarketCode
 public static class TargetMarketCodeMetadataExtensions
 {
     private static readonly TargetMarketCodeDropdownSource _dropdownSource = new TargetMarketCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

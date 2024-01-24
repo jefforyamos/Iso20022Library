@@ -21,66 +21,66 @@ public enum TaxRecord1Code
 {
     /// <summary>
     /// Tax record is related to the withholding tax.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WHTX".
     /// </summary>
     [EnumMember(Value = "WHTX")]
     [IsoId("_YiBCaNp-Ed-ak6NoX_4Aeg_278106712")]
     [Description(@"Tax record is related to the withholding tax.")]
-    WithholdingTax,
+    WithholdingTax = TaxRecordCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax record is related to the value added tax.
-    /// Encoded/decoded by serializers as "ValueAddedTax".
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_YiKMUNp-Ed-ak6NoX_4Aeg_278106740")]
     [Description(@"Tax record is related to the value added tax.")]
-    ValueAddedTax,
+    ValueAddedTax = TaxRecordCode.ValueAddedTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax record is related to the income payment details.
-    /// Encoded/decoded by serializers as "IncomePaymentDetails".
+    /// Encoded/decoded by serializers as "INCP".
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_YiKMUdp-Ed-ak6NoX_4Aeg_278106771")]
     [Description(@"Tax record is related to the income payment details.")]
-    IncomePaymentDetails,
+    IncomePaymentDetails = TaxRecordCode.IncomePaymentDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax record is related to the total amount for income payments.
-    /// Encoded/decoded by serializers as "TotalAmountForIncomePayments".
+    /// Encoded/decoded by serializers as "TLAI".
     /// </summary>
     [EnumMember(Value = "TLAI")]
     [IsoId("_YiKMUtp-Ed-ak6NoX_4Aeg_278106772")]
     [Description(@"Tax record is related to the total amount for income payments.")]
-    TotalAmountForIncomePayments,
+    TotalAmountForIncomePayments = TaxRecordCode.TotalAmountForIncomePayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax record is related to the money payments details.
-    /// Encoded/decoded by serializers as "MoneyPaymentDetails".
+    /// Encoded/decoded by serializers as "MONP".
     /// </summary>
     [EnumMember(Value = "MONP")]
     [IsoId("_YiKMU9p-Ed-ak6NoX_4Aeg_278106802")]
     [Description(@"Tax record is related to the money payments details.")]
-    MoneyPaymentDetails,
+    MoneyPaymentDetails = TaxRecordCode.MoneyPaymentDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax record is related to the total amount for money payments.
-    /// Encoded/decoded by serializers as "TotalAmountForMoneyPayments".
+    /// Encoded/decoded by serializers as "TLAM".
     /// </summary>
     [EnumMember(Value = "TLAM")]
     [IsoId("_YiKMVNp-Ed-ak6NoX_4Aeg_278107073")]
     [Description(@"Tax record is related to the total amount for money payments.")]
-    TotalAmountForMoneyPayments,
+    TotalAmountForMoneyPayments = TaxRecordCode.TotalAmountForMoneyPayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other tax record type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YiKMVdp-Ed-ak6NoX_4Aeg_278107081")]
     [Description(@"Other tax record type.")]
-    Other,
+    Other = TaxRecordCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TaxRecord1Code
 public static class TaxRecord1CodeMetadataExtensions
 {
     private static readonly TaxRecord1CodeDropdownSource _dropdownSource = new TaxRecord1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum Algorithm9Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES128CBC".
+    /// Encoded/decoded by serializers as "EA2C".
     /// </summary>
     [EnumMember(Value = "EA2C")]
     [IsoId("_8jRpES9aEeOlZIh7PImd0A")]
     [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    AES128CBC,
+    AES128CBC = AlgorithmCode.AES128CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "DES112CBC".
+    /// Encoded/decoded by serializers as "E3DC".
     /// </summary>
     [EnumMember(Value = "E3DC")]
     [IsoId("_8jRpEy9aEeOlZIh7PImd0A")]
     [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
-    DES112CBC,
+    DES112CBC = AlgorithmCode.DES112CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DUKPT2009".
+    /// Encoded/decoded by serializers as "DKP9".
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_8jRpFy9aEeOlZIh7PImd0A")]
     [Description(@"DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.")]
-    DUKPT2009,
+    DUKPT2009 = AlgorithmCode.DUKPT2009, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).
@@ -53,16 +53,16 @@ public enum Algorithm9Code
     [EnumMember(Value = "UKPT")]
     [IsoId("_8jRpGS9aEeOlZIh7PImd0A")]
     [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).")]
-    UKPT,
+    UKPT = AlgorithmCode.UKPT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "UKPTwithAES128".
+    /// Encoded/decoded by serializers as "UKA1".
     /// </summary>
     [EnumMember(Value = "UKA1")]
     [IsoId("_8jRpGy9aEeOlZIh7PImd0A")]
     [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    UKPTwithAES128,
+    UKPTwithAES128 = AlgorithmCode.UKPTwithAES128, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum Algorithm9Code
 public static class Algorithm9CodeMetadataExtensions
 {
     private static readonly Algorithm9CodeDropdownSource _dropdownSource = new Algorithm9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

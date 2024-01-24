@@ -21,57 +21,57 @@ public enum PersonIdentificationType3Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_aGvkiNp-Ed-ak6NoX_4Aeg_266470202")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = PersonIdentificationTypeV2Code.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "CCPT".
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_aGvkidp-Ed-ak6NoX_4Aeg_266470231")]
     [Description(@"Number assigned by a passport authority to a passport.")]
-    PassportNumber,
+    PassportNumber = PersonIdentificationTypeV2Code.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
+    /// Encoded/decoded by serializers as "EMID".
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aG5VgNp-Ed-ak6NoX_4Aeg_266470232")]
     [Description(@"Number assigned to an employer by a registration authority.")]
-    EmployerIdentificationNumber,
+    EmployerIdentificationNumber = PersonIdentificationTypeV2Code.EmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DriversLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aG5Vgdp-Ed-ak6NoX_4Aeg_266470233")]
     [Description(@"Number assigned by a license authority to a driver's license.")]
-    DriversLicenseNumber,
+    DriversLicenseNumber = PersonIdentificationTypeV2Code.DriversLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "ForeignInvestmentIdentityNumber".
+    /// Encoded/decoded by serializers as "FINN".
     /// </summary>
     [EnumMember(Value = "FINN")]
     [IsoId("_aG5Vgtp-Ed-ak6NoX_4Aeg_266470261")]
     [Description(@"Number assigned to a foreign investor (other than the alien number).")]
-    ForeignInvestmentIdentityNumber,
+    ForeignInvestmentIdentityNumber = PersonIdentificationTypeV2Code.ForeignInvestmentIdentityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_aG5Vg9p-Ed-ak6NoX_4Aeg_266470262")]
     [Description(@"Number assigned by a tax authority to an entity.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = PersonIdentificationTypeV2Code.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum PersonIdentificationType3Code
 public static class PersonIdentificationType3CodeMetadataExtensions
 {
     private static readonly PersonIdentificationType3CodeDropdownSource _dropdownSource = new PersonIdentificationType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

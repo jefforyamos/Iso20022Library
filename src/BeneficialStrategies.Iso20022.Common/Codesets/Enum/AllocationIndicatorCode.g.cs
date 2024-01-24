@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jsRFAyjnEeK1Sbo8NpBROA")]
 [Description(@"Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.")]
 [Derivations(typeof(AllocationIndicator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AllocationIndicatorCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum AllocationIndicatorCode
 public static class AllocationIndicatorCodeMetadataExtensions
 {
     private static readonly AllocationIndicatorCodeDropdownSource _dropdownSource = new AllocationIndicatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

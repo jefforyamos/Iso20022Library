@@ -21,84 +21,84 @@ public enum TradeConfirmationStatus1Code
 {
     /// <summary>
     /// All current status of the trade.
-    /// Encoded/decoded by serializers as "AllStatus".
+    /// Encoded/decoded by serializers as "ALST".
     /// </summary>
     [EnumMember(Value = "ALST")]
     [IsoId("_hJ9SEYBFEeSUJZYcWGKkkw")]
     [Description(@"All current status of the trade.")]
-    AllStatus,
+    AllStatus = TradeConfirmationStatusCode.AllStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trades are confirmed by Central Matching Utility (analogous to virtual matching utility).
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_hO3nQYBFEeSUJZYcWGKkkw")]
     [Description(@"Trades are confirmed by Central Matching Utility (analogous to virtual matching utility).")]
-    Confirmed,
+    Confirmed = TradeConfirmationStatusCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade information of the both trading member is unmatched.
-    /// Encoded/decoded by serializers as "Disaccord".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_hTuSEYBFEeSUJZYcWGKkkw")]
     [Description(@"Trade information of the both trading member is unmatched.")]
-    Disaccord,
+    Disaccord = TradeConfirmationStatusCode.Disaccord, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central Matching Utility (analogous to virtual matching utility) confirms trades in contingency.
-    /// Encoded/decoded by serializers as "EmergencyConfirmed".
+    /// Encoded/decoded by serializers as "EMCN".
     /// </summary>
     [EnumMember(Value = "EMCN")]
     [IsoId("_hYigoYBFEeSUJZYcWGKkkw")]
     [Description(@"Central Matching Utility (analogous to virtual matching utility) confirms trades in contingency.")]
-    EmergencyConfirmed,
+    EmergencyConfirmed = TradeConfirmationStatusCode.EmergencyConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade information between Central Matching Utility(analogous to virtual matching utility) and the trading member is mismatched.
-    /// Encoded/decoded by serializers as "Mismatched".
+    /// Encoded/decoded by serializers as "MISM".
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_hdZLcYBFEeSUJZYcWGKkkw")]
     [Description(@"Trade information between Central Matching Utility(analogous to virtual matching utility) and the trading member is mismatched.")]
-    Mismatched,
+    Mismatched = TradeConfirmationStatusCode.Mismatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Home party has confirmed, but couterparty is unrecognized.
-    /// Encoded/decoded by serializers as "SelfConfirmedAndCouterpartyNotConfirmed".
+    /// Encoded/decoded by serializers as "SCCN".
     /// </summary>
     [EnumMember(Value = "SCCN")]
     [IsoId("_hijYQYBFEeSUJZYcWGKkkw")]
     [Description(@"Home party has confirmed, but couterparty is unrecognized.")]
-    SelfConfirmedAndCouterpartyNotConfirmed,
+    SelfConfirmedAndCouterpartyNotConfirmed = TradeConfirmationStatusCode.SelfConfirmedAndCouterpartyNotConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Home party has not confirmed, but couterparty is recognized.
-    /// Encoded/decoded by serializers as "SelfNotConfirmedAndCouterpartyConfirmed".
+    /// Encoded/decoded by serializers as "SNCC".
     /// </summary>
     [EnumMember(Value = "SNCC")]
     [IsoId("_hnzrsYBFEeSUJZYcWGKkkw")]
     [Description(@"Home party has not confirmed, but couterparty is recognized.")]
-    SelfNotConfirmedAndCouterpartyConfirmed,
+    SelfNotConfirmedAndCouterpartyConfirmed = TradeConfirmationStatusCode.SelfNotConfirmedAndCouterpartyConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Both the two parties are not confirmed.
-    /// Encoded/decoded by serializers as "SelfNotConfirmedAndCouterpartyNotConfirmed".
+    /// Encoded/decoded by serializers as "SNCN".
     /// </summary>
     [EnumMember(Value = "SNCN")]
     [IsoId("_hszgcYBFEeSUJZYcWGKkkw")]
     [Description(@"Both the two parties are not confirmed.")]
-    SelfNotConfirmedAndCouterpartyNotConfirmed,
+    SelfNotConfirmedAndCouterpartyNotConfirmed = TradeConfirmationStatusCode.SelfNotConfirmedAndCouterpartyNotConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trades are not confirmed by Central Matching Utility(analogous to virtual matching utility).
-    /// Encoded/decoded by serializers as "Unconfirmed".
+    /// Encoded/decoded by serializers as "UNCN".
     /// </summary>
     [EnumMember(Value = "UNCN")]
     [IsoId("_hxrZYYBFEeSUJZYcWGKkkw")]
     [Description(@"Trades are not confirmed by Central Matching Utility(analogous to virtual matching utility).")]
-    Unconfirmed,
+    Unconfirmed = TradeConfirmationStatusCode.Unconfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TradeConfirmationStatus1Code
 public static class TradeConfirmationStatus1CodeMetadataExtensions
 {
     private static readonly TradeConfirmationStatus1CodeDropdownSource _dropdownSource = new TradeConfirmationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

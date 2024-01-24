@@ -21,21 +21,21 @@ public enum GeneralInvestmentAccountType2Code
 {
     /// <summary>
     /// Any type of general investment account.
-    /// Encoded/decoded by serializers as "Any".
+    /// Encoded/decoded by serializers as "ANYY".
     /// </summary>
     [EnumMember(Value = "ANYY")]
     [IsoId("_PDJ8YZgJEemu1vK8dsrXIw")]
     [Description(@"Any type of general investment account.")]
-    Any,
+    Any = GeneralInvestmentAccountTypeCode.Any, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General shares or equity savings account.
-    /// Encoded/decoded by serializers as "ShareSavingsAccount".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_PI9CYZgJEemu1vK8dsrXIw")]
     [Description(@"General shares or equity savings account.")]
-    ShareSavingsAccount,
+    ShareSavingsAccount = GeneralInvestmentAccountTypeCode.ShareSavingsAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum GeneralInvestmentAccountType2Code
 public static class GeneralInvestmentAccountType2CodeMetadataExtensions
 {
     private static readonly GeneralInvestmentAccountType2CodeDropdownSource _dropdownSource = new GeneralInvestmentAccountType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

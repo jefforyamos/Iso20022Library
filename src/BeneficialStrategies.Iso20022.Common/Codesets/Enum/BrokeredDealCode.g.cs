@@ -17,18 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TXL5MHvREeWrWYBng3OpVw")]
 [Description(@"Specifies whether the transaction is arranged via a third party broker or not.")]
 [Derivations(typeof(BrokeredDeal1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BrokeredDealCode
 {
     /// <summary>
     /// Transaction was arranged by a third party broking agent.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_WQ54UHvREeWrWYBng3OpVw")]
-    [Description(@"Transaction was arranged by a third party broking agent.  ")]
+    [Description(@"Transaction was arranged by a third party broking agent.||")]
     BrokeredTransaction,
     
     /// <summary>
@@ -49,7 +46,7 @@ public enum BrokeredDealCode
 public static class BrokeredDealCodeMetadataExtensions
 {
     private static readonly BrokeredDealCodeDropdownSource _dropdownSource = new BrokeredDealCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

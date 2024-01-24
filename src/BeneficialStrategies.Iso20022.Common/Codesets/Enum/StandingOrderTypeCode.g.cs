@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8N7QU6MgEeCJ6YNENx4h-w_814542161")]
 [Description(@"Specifies the type of standing order.")]
 [Derivations(typeof(StandingOrderType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StandingOrderTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StandingOrderTypeCode
 public static class StandingOrderTypeCodeMetadataExtensions
 {
     private static readonly StandingOrderTypeCodeDropdownSource _dropdownSource = new StandingOrderTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

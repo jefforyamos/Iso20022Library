@@ -21,21 +21,21 @@ public enum MatchingProcess1Code
 {
     /// <summary>
     /// The referenced transaction is requested to be unmatched.
-    /// Encoded/decoded by serializers as "Unmatch".
+    /// Encoded/decoded by serializers as "UNMT".
     /// </summary>
     [EnumMember(Value = "UNMT")]
     [IsoId("_aU58V9p-Ed-ak6NoX_4Aeg_65054355")]
     [Description(@"The referenced transaction is requested to be unmatched.")]
-    Unmatch,
+    Unmatch = MatchingProcessCode.Unmatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Matching process is to be resumed for the referenced transaction.
-    /// Encoded/decoded by serializers as "ResumeMatching".
+    /// Encoded/decoded by serializers as "MTRE".
     /// </summary>
     [EnumMember(Value = "MTRE")]
     [IsoId("_aU58WNp-Ed-ak6NoX_4Aeg_65054356")]
     [Description(@"Matching process is to be resumed for the referenced transaction.")]
-    ResumeMatching,
+    ResumeMatching = MatchingProcessCode.ResumeMatching, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MatchingProcess1Code
 public static class MatchingProcess1CodeMetadataExtensions
 {
     private static readonly MatchingProcess1CodeDropdownSource _dropdownSource = new MatchingProcess1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

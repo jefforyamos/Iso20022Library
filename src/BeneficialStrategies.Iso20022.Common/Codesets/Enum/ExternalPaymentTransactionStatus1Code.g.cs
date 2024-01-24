@@ -16,171 +16,171 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_wCGbwZRjEeazAtAtDSg0Nw")]
-[Description(@"Specifies the status of an individual payment instructions, as published in an external payment transaction status code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the status of an individual payment instructions, as published in an external payment transaction status code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalPaymentTransactionStatusCode))]
 public enum ExternalPaymentTransactionStatus1Code
 {
     /// <summary>
     /// Settlement on the creditor's account has been completed.
-    /// Encoded/decoded by serializers as "AcceptedSettlementCompletedCreditorAccount".
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_uV_hK_RYEeuLhpyIdtJzwg")]
     [Description(@"Settlement on the creditor's account has been completed.")]
-    AcceptedSettlementCompletedCreditorAccount,
+    AcceptedSettlementCompletedCreditorAccount = ExternalPaymentTransactionStatusCode.AcceptedSettlementCompletedCreditorAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preceding check of technical validation was successful. Customer profile check was also successful.
-    /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_uWIrEvRYEeuLhpyIdtJzwg")]
     [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
-    AcceptedCustomerProfile,
+    AcceptedCustomerProfile = ExternalPaymentTransactionStatusCode.AcceptedCustomerProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preceding check of technical validation and customer profile was successful and an automatic funds check was positive.
-    /// Encoded/decoded by serializers as "AcceptedFundsChecked".
+    /// Encoded/decoded by serializers as "ACFC".
     /// </summary>
     [EnumMember(Value = "ACFC")]
     [IsoId("_uWIrFfRYEeuLhpyIdtJzwg")]
     [Description(@"Preceding check of technical validation and customer profile was successful and an automatic funds check was positive.")]
-    AcceptedFundsChecked,
+    AcceptedFundsChecked = ExternalPaymentTransactionStatusCode.AcceptedFundsChecked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction to issue a cheque has been accepted, and the cheque has been issued but not yet been deposited or cleared.
-    /// Encoded/decoded by serializers as "AcceptedandChequeIssued".
+    /// Encoded/decoded by serializers as "ACIS".
     /// </summary>
     [EnumMember(Value = "ACIS")]
     [IsoId("_uWIrGPRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction to issue a cheque has been accepted, and the cheque has been issued but not yet been deposited or cleared.")]
-    AcceptedandChequeIssued,
+    AcceptedandChequeIssued = ExternalPaymentTransactionStatusCode.AcceptedandChequeIssued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement completed.|Usage : this can be used by a Market Infrastructure reporting to Infrastructure Participant or an Account Servicer to Account Owner to report that the transaction account entry has been completed.|Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|
-    /// Encoded/decoded by serializers as "AcceptedSettlementCompletedDebitorAccount".
+    /// Encoded/decoded by serializers as "ACSC".
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_uWIrG_RYEeuLhpyIdtJzwg")]
     [Description(@"Settlement completed.|Usage : this can be used by a Market Infrastructure reporting to Infrastructure Participant or an Account Servicer to Account Owner to report that the transaction account entry has been completed.|Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|")]
-    AcceptedSettlementCompletedDebitorAccount,
+    AcceptedSettlementCompletedDebitorAccount = ExternalPaymentTransactionStatusCode.AcceptedSettlementCompletedDebitorAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment instruction has been accepted for execution.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_uWIrHvRYEeuLhpyIdtJzwg")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment instruction has been accepted for execution.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = ExternalPaymentTransactionStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication and syntactical and semantical validation are successful
-    /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_uWScEvRYEeuLhpyIdtJzwg")]
     [Description(@"Authentication and syntactical and semantical validation are successful")]
-    AcceptedTechnicalValidation,
+    AcceptedTechnicalValidation = ExternalPaymentTransactionStatusCode.AcceptedTechnicalValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but a change will be made, such as date or remittance not sent.
-    /// Encoded/decoded by serializers as "AcceptedWithChange".
+    /// Encoded/decoded by serializers as "ACWC".
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_uWScFfRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
-    AcceptedWithChange,
+    AcceptedWithChange = ExternalPaymentTransactionStatusCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction included in the credit transfer is accepted without being posted to the creditor customer’s account.
-    /// Encoded/decoded by serializers as "AcceptedWithoutPosting".
+    /// Encoded/decoded by serializers as "ACWP".
     /// </summary>
     [EnumMember(Value = "ACWP")]
     [IsoId("_uWcNEvRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction included in the credit transfer is accepted without being posted to the creditor customer’s account.")]
-    AcceptedWithoutPosting,
+    AcceptedWithoutPosting = ExternalPaymentTransactionStatusCode.AcceptedWithoutPosting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment transaction previously reported with status 'ACWP' is blocked, for example, funds will neither be posted to the Creditor's account, nor be returned to the Debtor.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_uWcNFfRYEeuLhpyIdtJzwg")]
     [Description(@"Payment transaction previously reported with status 'ACWP' is blocked, for example, funds will neither be posted to the Creditor's account, nor be returned to the Debtor.")]
-    Blocked,
+    Blocked = ExternalPaymentTransactionStatusCode.Blocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment initiation has been successfully cancelled after having received a request for cancellation.|Usage: code to be used in the context of APIs only.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_uWcNGPRYEeuLhpyIdtJzwg")]
     [Description(@"Payment initiation has been successfully cancelled after having received a request for cancellation.|Usage: code to be used in the context of APIs only.")]
-    Cancelled,
+    Cancelled = ExternalPaymentTransactionStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash has been picked up by the Creditor.
-    /// Encoded/decoded by serializers as "CashPickedUpByCreditor".
+    /// Encoded/decoded by serializers as "CPUC".
     /// </summary>
     [EnumMember(Value = "CPUC")]
     [IsoId("_uWcNG_RYEeuLhpyIdtJzwg")]
     [Description(@"Cash has been picked up by the Creditor.")]
-    CashPickedUpByCreditor,
+    CashPickedUpByCreditor = ExternalPaymentTransactionStatusCode.CashPickedUpByCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment initiation needs multiple authentications, where some but not yet all have been performed. Syntactical and semantical validations are successful.
-    /// Encoded/decoded by serializers as "PartiallyAcceptedTechnicalCorrect".
+    /// Encoded/decoded by serializers as "PATC".
     /// </summary>
     [EnumMember(Value = "PATC")]
     [IsoId("_uWlXAvRYEeuLhpyIdtJzwg")]
     [Description(@"Payment initiation needs multiple authentications, where some but not yet all have been performed. Syntactical and semantical validations are successful.")]
-    PartiallyAcceptedTechnicalCorrect,
+    PartiallyAcceptedTechnicalCorrect = ExternalPaymentTransactionStatusCode.PartiallyAcceptedTechnicalCorrect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction is pending. Further checks and status update will be performed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_uWlXBfRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction is pending. Further checks and status update will be performed.")]
-    Pending,
+    Pending = ExternalPaymentTransactionStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for Payment has been presented to the Debtor.
-    /// Encoded/decoded by serializers as "Presented".
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_uWvIAvRYEeuLhpyIdtJzwg")]
     [Description(@"Request for Payment has been presented to the Debtor.")]
-    Presented,
+    Presented = ExternalPaymentTransactionStatusCode.Presented, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_uWvIBfRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction has been received.")]
-    Received,
+    Received = ExternalPaymentTransactionStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_uW4R8vRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction has been rejected.")]
-    Rejected,
+    Rejected = ExternalPaymentTransactionStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of transaction released from the Debtor Agent and accepted by the clearing.
-    /// Encoded/decoded by serializers as "AcceptedClearingProcessed".
+    /// Encoded/decoded by serializers as "ACPD".
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_aXLdIeGIEeyiZZWde7CbVw")]
     [Description(@"Status of transaction released from the Debtor Agent and accepted by the clearing.")]
-    AcceptedClearingProcessed,
+    AcceptedClearingProcessed = ExternalPaymentTransactionStatusCode.AcceptedClearingProcessed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -191,7 +191,7 @@ public enum ExternalPaymentTransactionStatus1Code
 public static class ExternalPaymentTransactionStatus1CodeMetadataExtensions
 {
     private static readonly ExternalPaymentTransactionStatus1CodeDropdownSource _dropdownSource = new ExternalPaymentTransactionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

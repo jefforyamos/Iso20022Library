@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_lnn88BZNEeiXa46FI4OtcQ")]
 [Description(@"Entity to perform verification.")]
 [Derivations(typeof(VerificationEntity1Code),typeof(VerificationEntity2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum VerificationEntityCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum VerificationEntityCode
 public static class VerificationEntityCodeMetadataExtensions
 {
     private static readonly VerificationEntityCodeDropdownSource _dropdownSource = new VerificationEntityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

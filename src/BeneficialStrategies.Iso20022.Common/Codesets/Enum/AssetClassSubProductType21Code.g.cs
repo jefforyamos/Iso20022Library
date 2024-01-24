@@ -21,12 +21,12 @@ public enum AssetClassSubProductType21Code
 {
     /// <summary>
     /// Commodity of type forestry.
-    /// Encoded/decoded by serializers as "Forestry".
+    /// Encoded/decoded by serializers as "FRST".
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_HNipUVrAEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type forestry.")]
-    Forestry,
+    Forestry = AssetClassSubProductTypeCode.Forestry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType21Code
 public static class AssetClassSubProductType21CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType21CodeDropdownSource _dropdownSource = new AssetClassSubProductType21CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_sf5qh_QDEeihCvvpsmGI2w")]
 [Description(@"Contains the transportation type code list")]
 [Derivations(typeof(TransportType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransportTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum TransportTypeCode
 public static class TransportTypeCodeMetadataExtensions
 {
     private static readonly TransportTypeCodeDropdownSource _dropdownSource = new TransportTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

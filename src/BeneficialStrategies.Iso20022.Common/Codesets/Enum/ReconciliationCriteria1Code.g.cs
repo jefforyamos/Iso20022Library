@@ -21,30 +21,30 @@ public enum ReconciliationCriteria1Code
 {
     /// <summary>
     /// The set is defined by transactions made with cards belonging  to the same brand.
-    /// Encoded/decoded by serializers as "CardBrand".
+    /// Encoded/decoded by serializers as "BRND".
     /// </summary>
     [EnumMember(Value = "BRND")]
     [IsoId("_T3JYoSpWEeuUucRY0yCMTA")]
     [Description(@"The set is defined by transactions made with cards belonging  to the same brand.")]
-    CardBrand,
+    CardBrand = ReconciliationCriteriaCode.CardBrand, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The set is defined by transactions made with cards sharing the same CardProductProfile.
-    /// Encoded/decoded by serializers as "CardProductProfile".
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_UHVwwSpWEeuUucRY0yCMTA")]
     [Description(@"The set is defined by transactions made with cards sharing the same CardProductProfile.")]
-    CardProductProfile,
+    CardProductProfile = ReconciliationCriteriaCode.CardProductProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The set is defined by transactions processed by POIs identified with the same POIGroup.
-    /// Encoded/decoded by serializers as "PoiGroup".
+    /// Encoded/decoded by serializers as "GRUP".
     /// </summary>
     [EnumMember(Value = "GRUP")]
     [IsoId("_UJQcUSpWEeuUucRY0yCMTA")]
     [Description(@"The set is defined by transactions processed by POIs identified with the same POIGroup.")]
-    PoiGroup,
+    PoiGroup = ReconciliationCriteriaCode.PoiGroup, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReconciliationCriteria1Code
 public static class ReconciliationCriteria1CodeMetadataExtensions
 {
     private static readonly ReconciliationCriteria1CodeDropdownSource _dropdownSource = new ReconciliationCriteria1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

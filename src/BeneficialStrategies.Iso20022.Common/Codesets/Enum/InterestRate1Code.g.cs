@@ -21,39 +21,39 @@ public enum InterestRate1Code
 {
     /// <summary>
     /// Gross interest rate of the instalment
-    /// Encoded/decoded by serializers as "GrossRate".
+    /// Encoded/decoded by serializers as "GSRT".
     /// </summary>
     [EnumMember(Value = "GSRT")]
     [IsoId("_RBUdYTErEemzCpWiCwK4aQ")]
     [Description(@"Gross interest rate of the instalment")]
-    GrossRate,
+    GrossRate = InterestRateCode.GrossRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Net interest rate of the instalment
-    /// Encoded/decoded by serializers as "NetRate".
+    /// Encoded/decoded by serializers as "NTRT".
     /// </summary>
     [EnumMember(Value = "NTRT")]
     [IsoId("_RW7hATErEemzCpWiCwK4aQ")]
     [Description(@"Net interest rate of the instalment")]
-    NetRate,
+    NetRate = InterestRateCode.NetRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other interest rate of the instalment
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_RrpMwTErEemzCpWiCwK4aQ")]
     [Description(@"Other interest rate of the instalment")]
-    OtherNational,
+    OtherNational = InterestRateCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other interest rate of the instalment
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_R9-S4TErEemzCpWiCwK4aQ")]
     [Description(@"Other interest rate of the instalment")]
-    OtherPrivate,
+    OtherPrivate = InterestRateCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum InterestRate1Code
 public static class InterestRate1CodeMetadataExtensions
 {
     private static readonly InterestRate1CodeDropdownSource _dropdownSource = new InterestRate1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

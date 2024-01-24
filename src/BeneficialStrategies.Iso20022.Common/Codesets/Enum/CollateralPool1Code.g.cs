@@ -21,21 +21,21 @@ public enum CollateralPool1Code
 {
     /// <summary>
     /// Collateral is not of pool type.
-    /// Encoded/decoded by serializers as "NoPool".
+    /// Encoded/decoded by serializers as "NOPL".
     /// </summary>
     [EnumMember(Value = "NOPL")]
     [IsoId("_CvAqQd7GEeSaBeqd_btViQ")]
     [Description(@"Collateral is not of pool type.")]
-    NoPool,
+    NoPool = CollateralPoolCode.NoPool, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral is of pool type.
-    /// Encoded/decoded by serializers as "Pool".
+    /// Encoded/decoded by serializers as "POOL".
     /// </summary>
     [EnumMember(Value = "POOL")]
     [IsoId("_Czndcd7GEeSaBeqd_btViQ")]
     [Description(@"Collateral is of pool type.")]
-    Pool,
+    Pool = CollateralPoolCode.Pool, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralPool1Code
 public static class CollateralPool1CodeMetadataExtensions
 {
     private static readonly CollateralPool1CodeDropdownSource _dropdownSource = new CollateralPool1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

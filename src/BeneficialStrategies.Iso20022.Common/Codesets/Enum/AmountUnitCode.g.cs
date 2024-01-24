@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YOwqMNtlEeipuvJHTHIw9A")]
 [Description(@"Unit of a amount (for loyalty or account).")]
 [Derivations(typeof(AmountUnit1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AmountUnitCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AmountUnitCode
 public static class AmountUnitCodeMetadataExtensions
 {
     private static readonly AmountUnitCodeDropdownSource _dropdownSource = new AmountUnitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

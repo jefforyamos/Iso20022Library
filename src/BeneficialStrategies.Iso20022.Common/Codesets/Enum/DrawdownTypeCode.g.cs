@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_goS4AFNdEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of drawdown.")]
 [Derivations(typeof(DrawdownType1Code),typeof(DrawdownType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DrawdownTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DrawdownTypeCode
 public static class DrawdownTypeCodeMetadataExtensions
 {
     private static readonly DrawdownTypeCodeDropdownSource _dropdownSource = new DrawdownTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

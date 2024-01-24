@@ -21,222 +21,219 @@ public enum InvestmentFundMiFIDFee2Code
 {
     /// <summary>
     /// Financing costs related to borrowing for the purposes of gearing expressed as a percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07105 and 08045.
-    /// Encoded/decoded by serializers as "BorrowingCostFund".
+    /// Encoded/decoded by serializers as "BORF".
     /// </summary>
     [EnumMember(Value = "BORF")]
     [IsoId("_cGtWIbSZEeq-6ssAXwSh-g")]
     [Description(@"Financing costs related to borrowing for the purposes of gearing expressed as a percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07105 and 08045.")]
-    BorrowingCostFund,
+    BorrowingCostFund = InvestmentFundMiFIDFeeV2Code.BorrowingCostFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution fee. This fee is included in the total on going costs and is not included in the management fee. It is only applicable if the product has this feature. The cost reported should reflect the current running distribution fee. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07120 and 08060 and this a percentage of the NAV of the financial instrument expressed in annualised terms (rate of cost deduction to be applied).
-    /// Encoded/decoded by serializers as "DistributionFee".
+    /// Encoded/decoded by serializers as "DIS2".
     /// </summary>
     [EnumMember(Value = "DIS2")]
     [IsoId("_cM9vIbSZEeq-6ssAXwSh-g")]
     [Description(@"Distribution fee. This fee is included in the total on going costs and is not included in the management fee. It is only applicable if the product has this feature. The cost reported should reflect the current running distribution fee. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07120 and 08060 and this a percentage of the NAV of the financial instrument expressed in annualised terms (rate of cost deduction to be applied).")]
-    DistributionFee,
+    DistributionFee = InvestmentFundMiFIDFeeV2Code.DistributionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08010 and may be specified as an actual amount or a percentage of the reference value, EMT reference 08110 or 08120, and should only incorporate manufacturer costs (that is, the cost of the financial instrument) and distributor costs upfront when known by the manufacturer. It should, however, not include distribution fees added on top of the product price by distributors that is out of control of the manufacturer.
-    /// Encoded/decoded by serializers as "GrossOneOffEntryCostStructured".
+    /// Encoded/decoded by serializers as "FES3".
     /// </summary>
     [EnumMember(Value = "FES3")]
     [IsoId("_cTDwEbSZEeq-6ssAXwSh-g")]
     [Description(@"Gross one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08010 and may be specified as an actual amount or a percentage of the reference value, EMT reference 08110 or 08120, and should only incorporate manufacturer costs (that is, the cost of the financial instrument) and distributor costs upfront when known by the manufacturer. It should, however, not include distribution fees added on top of the product price by distributors that is out of control of the manufacturer.")]
-    GrossOneOffEntryCostStructured,
+    GrossOneOffEntryCostStructured = InvestmentFundMiFIDFeeV2Code.GrossOneOffEntryCostStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross one-off maximum entry cost not acquired to the fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07020 and is a percentage of the amount to be invested. This fee is paid by the investor to the fund or fund management company. This is indicative and should be adapted by the distributor according to the agreement with the asset manager.
-    /// Encoded/decoded by serializers as "GrossOneOffMaximumEntryCostNonAcquired".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_cX07UbSZEeq-6ssAXwSh-g")]
     [Description(@"Gross one-off maximum entry cost not acquired to the fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07020 and is a percentage of the amount to be invested. This fee is paid by the investor to the fund or fund management company. This is indicative and should be adapted by the distributor according to the agreement with the asset manager.")]
-    GrossOneOffMaximumEntryCostNonAcquired,
+    GrossOneOffMaximumEntryCostNonAcquired = InvestmentFundMiFIDFeeV2Code.GrossOneOffMaximumEntryCostNonAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross maximum one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07020 or 08120, and is the 'ask price' or 'fair value'. It may be specified as an actual amount or a percentage of the reference value, EMT reference 07150, and should only incorporate manufacturer costs (that is, the cost of the financial instrument) and distributor costs upfront when known by the manufacturer. It should, however, not include distribution fees added on top of the product price by distributors that are out of control of the manufacturer.
-    /// Encoded/decoded by serializers as "GrossOneOffMaximumEntryCostStructured".
+    /// Encoded/decoded by serializers as "FES2".
     /// </summary>
     [EnumMember(Value = "FES2")]
     [IsoId("_ceN3MbSZEeq-6ssAXwSh-g")]
     [Description(@"Gross maximum one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07020 or 08120, and is the 'ask price' or 'fair value'. It may be specified as an actual amount or a percentage of the reference value, EMT reference 07150, and should only incorporate manufacturer costs (that is, the cost of the financial instrument) and distributor costs upfront when known by the manufacturer. It should, however, not include distribution fees added on top of the product price by distributors that are out of control of the manufacturer.")]
-    GrossOneOffMaximumEntryCostStructured,
+    GrossOneOffMaximumEntryCostStructured = InvestmentFundMiFIDFeeV2Code.GrossOneOffMaximumEntryCostStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross on-going costs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07100 and 08030 and is a percentage of the NAV of the financial product, expressed in annualised terms (rate of cost deduction to be applied). This includes management fees and distribution fees and excludes all transaction costs, incidental costs and performance fees. Costs reported should reflect current running ongoing costs. The gross on-going costs is expressed as a percentage of the NAV of the financial instrument per annum.
-    /// Encoded/decoded by serializers as "GrossOngoingCosts".
+    /// Encoded/decoded by serializers as "GOC1".
     /// </summary>
     [EnumMember(Value = "GOC1")]
     [IsoId("_ckUfMbSZEeq-6ssAXwSh-g")]
     [Description(@"Gross on-going costs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07100 and 08030 and is a percentage of the NAV of the financial product, expressed in annualised terms (rate of cost deduction to be applied). This includes management fees and distribution fees and excludes all transaction costs, incidental costs and performance fees. Costs reported should reflect current running ongoing costs. The gross on-going costs is expressed as a percentage of the NAV of the financial instrument per annum.")]
-    GrossOngoingCosts,
+    GrossOngoingCosts = InvestmentFundMiFIDFeeV2Code.GrossOngoingCosts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross on-going costs for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07100 and 08030 and is expressed as a percentage of the NAV or currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 or 08110.
-    /// Encoded/decoded by serializers as "GrossOngoingCostsStructured".
+    /// Encoded/decoded by serializers as "GOCS".
     /// </summary>
     [EnumMember(Value = "GOCS")]
     [IsoId("_ctZisbSZEeq-6ssAXwSh-g")]
     [Description(@"Gross on-going costs for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07100 and 08030 and is expressed as a percentage of the NAV or currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 or 08110.")]
-    GrossOngoingCostsStructured,
+    GrossOngoingCostsStructured = InvestmentFundMiFIDFeeV2Code.GrossOngoingCostsStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee that covers incidental costs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07140 and 08080 and is expressed as a percentage of the NAV. Includes performance fees and other costs.
-    /// 
-    /// Encoded/decoded by serializers as "IncidentalCosts".
+    /// Encoded/decoded by serializers as "INCF".
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_cyv8wbSZEeq-6ssAXwSh-g")]
-    [Description(@"Fee that covers incidental costs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07140 and 08080 and is expressed as a percentage of the NAV. Includes performance fees and other costs. ")]
-    IncidentalCosts,
+    [Description(@"Fee that covers incidental costs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07140 and 08080 and is expressed as a percentage of the NAV. Includes performance fees and other costs.|")]
+    IncidentalCosts = InvestmentFundMiFIDFeeV2Code.IncidentalCosts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee that covers incidental costs for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07140 and 08080 and is expressed as a percentage of the NAV or a currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 and 08110. 
-    /// Encoded/decoded by serializers as "IncidentalCostsStructured".
+    /// Encoded/decoded by serializers as "INCS".
     /// </summary>
     [EnumMember(Value = "INCS")]
     [IsoId("_c6yecbSZEeq-6ssAXwSh-g")]
     [Description(@"Fee that covers incidental costs for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07140 and 08080 and is expressed as a percentage of the NAV or a currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 and 08110. ")]
-    IncidentalCostsStructured,
+    IncidentalCostsStructured = InvestmentFundMiFIDFeeV2Code.IncidentalCostsStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Management fee paid to an investment manager for services. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07110 and 08050 and is a percentage of the NAV of the financial product expressed in annualised terms (rate of cost deduction to be applied). These fees are included in total ongoing costs and are fees used by distributors to calculate retrocession fees. The costs reported should reflect current running management costs.
-    /// Encoded/decoded by serializers as "ManagementFee".
+    /// Encoded/decoded by serializers as "MNF1".
     /// </summary>
     [EnumMember(Value = "MNF1")]
     [IsoId("_dBe8UbSZEeq-6ssAXwSh-g")]
     [Description(@"Management fee paid to an investment manager for services. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07110 and 08050 and is a percentage of the NAV of the financial product expressed in annualised terms (rate of cost deduction to be applied). These fees are included in total ongoing costs and are fees used by distributors to calculate retrocession fees. The costs reported should reflect current running management costs.")]
-    ManagementFee,
+    ManagementFee = InvestmentFundMiFIDFeeV2Code.ManagementFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Management fee for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07110 and 08050 and is expressed as a percentage of the NAV or a currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 or 08110.
-    /// Encoded/decoded by serializers as "ManagementFeeStructured".
+    /// Encoded/decoded by serializers as "MANS".
     /// </summary>
     [EnumMember(Value = "MANS")]
     [IsoId("_dI7BEbSZEeq-6ssAXwSh-g")]
     [Description(@"Management fee for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07110 and 08050 and is expressed as a percentage of the NAV or a currency and amount for an absolute quotation of the financial product in annualised terms related to the reference value, EMT reference 07150 or 07155 or 08110.")]
-    ManagementFeeStructured,
+    ManagementFeeStructured = InvestmentFundMiFIDFeeV2Code.ManagementFeeStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Net one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08015 and is minus the upfront distribution fee. The cost reported is a net disclosure and therefore the upfront distributor fee is equal to the difference between the gross one-off entry cost (EMT reference 08010) and the net one-off entry (EMT reference 08015).
-    /// Encoded/decoded by serializers as "NetOneOffEntryCostExPostStructured".
+    /// Encoded/decoded by serializers as "NET2".
     /// </summary>
     [EnumMember(Value = "NET2")]
     [IsoId("_dObMIbSZEeq-6ssAXwSh-g")]
     [Description(@"Net one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08015 and is minus the upfront distribution fee. The cost reported is a net disclosure and therefore the upfront distributor fee is equal to the difference between the gross one-off entry cost (EMT reference 08010) and the net one-off entry (EMT reference 08015).")]
-    NetOneOffEntryCostExPostStructured,
+    NetOneOffEntryCostExPostStructured = InvestmentFundMiFIDFeeV2Code.NetOneOffEntryCostExPostStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Net one-off entry cost for a structured fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07025. This is expressed as a percentage of the amount to be invested.
-    /// Encoded/decoded by serializers as "NetOneOffEntryCostNonAcquiredStructuredFund".
+    /// Encoded/decoded by serializers as "NESF".
     /// </summary>
     [EnumMember(Value = "NESF")]
     [IsoId("_dT7XMbSZEeq-6ssAXwSh-g")]
     [Description(@"Net one-off entry cost for a structured fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07025. This is expressed as a percentage of the amount to be invested.")]
-    NetOneOffEntryCostNonAcquiredStructuredFund,
+    NetOneOffEntryCostNonAcquiredStructuredFund = InvestmentFundMiFIDFeeV2Code.NetOneOffEntryCostNonAcquiredStructuredFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Net one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07025 and is minus the upfront distribution fee. The cost reported is a net disclosure and therefore the upfront distributor fee is equal to the difference between the one-off entry cost (EMT reference 07020) and the net one-off entry (EMT reference 07025).
-    /// 
-    /// Encoded/decoded by serializers as "NetOneOffEntryCostStructuredNonAcquired".
+    /// Encoded/decoded by serializers as "NETO".
     /// </summary>
     [EnumMember(Value = "NETO")]
     [IsoId("_dZlTQbSZEeq-6ssAXwSh-g")]
-    [Description(@"Net one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07025 and is minus the upfront distribution fee. The cost reported is a net disclosure and therefore the upfront distributor fee is equal to the difference between the one-off entry cost (EMT reference 07020) and the net one-off entry (EMT reference 07025). ")]
-    NetOneOffEntryCostStructuredNonAcquired,
+    [Description(@"Net one-off entry cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07025 and is minus the upfront distribution fee. The cost reported is a net disclosure and therefore the upfront distributor fee is equal to the difference between the one-off entry cost (EMT reference 07020) and the net one-off entry (EMT reference 07025).|")]
+    NetOneOffEntryCostStructuredNonAcquired = InvestmentFundMiFIDFeeV2Code.NetOneOffEntryCostStructuredNonAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notional reference amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07155 and 08120. This is the amount expressed as a number of currency units to which a unit disclosed ex-post cost is based and to which a percentage disclosed cost should be multiplied in order to retrieve the unit cost.
-    /// Encoded/decoded by serializers as "NotionalReferenceAmount".
+    /// Encoded/decoded by serializers as "NRAM".
     /// </summary>
     [EnumMember(Value = "NRAM")]
     [IsoId("_df-2MbSZEeq-6ssAXwSh-g")]
     [Description(@"Notional reference amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07155 and 08120. This is the amount expressed as a number of currency units to which a unit disclosed ex-post cost is based and to which a percentage disclosed cost should be multiplied in order to retrieve the unit cost.")]
-    NotionalReferenceAmount,
+    NotionalReferenceAmount = InvestmentFundMiFIDFeeV2Code.NotionalReferenceAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08025.
-    /// Encoded/decoded by serializers as "OneOffEntryCostAcquired".
+    /// Encoded/decoded by serializers as "OOEA".
     /// </summary>
     [EnumMember(Value = "OOEA")]
     [IsoId("_dlx8MbSZEeq-6ssAXwSh-g")]
     [Description(@"Percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08025.")]
-    OneOffEntryCostAcquired,
+    OneOffEntryCostAcquired = InvestmentFundMiFIDFeeV2Code.OneOffEntryCostAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One-off exit cost prior to the recommended holding period (RHP). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07090 and may be specified as a percentage of the amount to be divested.
-    /// Encoded/decoded by serializers as "OneOffExitCostPriorStructuredProductFund".
+    /// Encoded/decoded by serializers as "OOSF".
     /// </summary>
     [EnumMember(Value = "OOSF")]
     [IsoId("_drlCMbSZEeq-6ssAXwSh-g")]
     [Description(@"One-off exit cost prior to the recommended holding period (RHP). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07090 and may be specified as a percentage of the amount to be divested.")]
-    OneOffExitCostPriorStructuredProductFund,
+    OneOffExitCostPriorStructuredProductFund = InvestmentFundMiFIDFeeV2Code.OneOffExitCostPriorStructuredProductFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One-off exit cost prior to the recommended holding period (RHP). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07090 and is specified as an actual amount or a percentage of the reference value, EMT reference 07150 or 07155.
-    /// Encoded/decoded by serializers as "OneOffExitCostPriorStructuredSecurities".
+    /// Encoded/decoded by serializers as "OOSS".
     /// </summary>
     [EnumMember(Value = "OOSS")]
     [IsoId("_dxO-QbSZEeq-6ssAXwSh-g")]
     [Description(@"One-off exit cost prior to the recommended holding period (RHP). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07090 and is specified as an actual amount or a percentage of the reference value, EMT reference 07150 or 07155.")]
-    OneOffExitCostPriorStructuredSecurities,
+    OneOffExitCostPriorStructuredSecurities = InvestmentFundMiFIDFeeV2Code.OneOffExitCostPriorStructuredSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One off exit cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08020 and when expressed as a percentage, this is a percentage of the reference value, EMT reference 08110 or 08120.
-    /// 
-    /// Encoded/decoded by serializers as "OneOffExitCostStructured".
+    /// Encoded/decoded by serializers as "BENS".
     /// </summary>
     [EnumMember(Value = "BENS")]
     [IsoId("_d4FNIbSZEeq-6ssAXwSh-g")]
-    [Description(@"One off exit cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08020 and when expressed as a percentage, this is a percentage of the reference value, EMT reference 08110 or 08120. ")]
-    OneOffExitCostStructured,
+    [Description(@"One off exit cost for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08020 and when expressed as a percentage, this is a percentage of the reference value, EMT reference 08110 or 08120.|")]
+    OneOffExitCostStructured = InvestmentFundMiFIDFeeV2Code.OneOffExitCostStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cost of the one-off entry fee. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07040 and is the subscription fees acquired to the fund. It is not included in the one off entry cost 07020. This maximum one-off entry cost acquired to the fund is specified as a percentage of the amount to be invested.
-    /// Encoded/decoded by serializers as "OneOffMaximumEntryCostAcquired".
+    /// Encoded/decoded by serializers as "ENAC".
     /// </summary>
     [EnumMember(Value = "ENAC")]
     [IsoId("_d-U_EbSZEeq-6ssAXwSh-g")]
     [Description(@"Maximum cost of the one-off entry fee. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07040 and is the subscription fees acquired to the fund. It is not included in the one off entry cost 07020. This maximum one-off entry cost acquired to the fund is specified as a percentage of the amount to be invested.")]
-    OneOffMaximumEntryCostAcquired,
+    OneOffMaximumEntryCostAcquired = InvestmentFundMiFIDFeeV2Code.OneOffMaximumEntryCostAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum one-off entry cost fixed amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07030 and is a flat fee defined by the fund or fund management company. This is indicative and should be adapted by the distributor according to the relationship been the fund and the distribution. This cost is not taken into account in the gross one-off maximum entry cost (FEND), EMT reference 07020.
-    /// Encoded/decoded by serializers as "OneOffMaximumEntryCostFixedAmountItaly".
+    /// Encoded/decoded by serializers as "ENFX".
     /// </summary>
     [EnumMember(Value = "ENFX")]
     [IsoId("_eEuiAbSZEeq-6ssAXwSh-g")]
     [Description(@"Maximum one-off entry cost fixed amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07030 and is a flat fee defined by the fund or fund management company. This is indicative and should be adapted by the distributor according to the relationship been the fund and the distribution. This cost is not taken into account in the gross one-off maximum entry cost (FEND), EMT reference 07020.")]
-    OneOffMaximumEntryCostFixedAmountItaly,
+    OneOffMaximumEntryCostFixedAmountItaly = InvestmentFundMiFIDFeeV2Code.OneOffMaximumEntryCostFixedAmountItaly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cost of the one-off exit fee acquired to the fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07070. It is not included in the one off maximum exit cost EMT reference 07050. This is paid by the investor to the fund or fund management company. This is a percentage of the NAV. 
-    /// Encoded/decoded by serializers as "OneOffMaximumExitCostAcquired".
+    /// Encoded/decoded by serializers as "EXAC".
     /// </summary>
     [EnumMember(Value = "EXAC")]
     [IsoId("_eLRO4bSZEeq-6ssAXwSh-g")]
     [Description(@"Maximum cost of the one-off exit fee acquired to the fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07070. It is not included in the one off maximum exit cost EMT reference 07050. This is paid by the investor to the fund or fund management company. This is a percentage of the NAV. ")]
-    OneOffMaximumExitCostAcquired,
+    OneOffMaximumExitCostAcquired = InvestmentFundMiFIDFeeV2Code.OneOffMaximumExitCostAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum one-off exit cost, a maximum fixed amount per redemption. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07060 and is flat fee defined by the fund or fund management company. It is indicative and should be adapted distributor according to the relationship been the fund and the distribution. This cost is not taken in account in the one-off maximum exit cost EMT reference 07050.
-    /// Encoded/decoded by serializers as "OneOffMaximumExitCostFixedAmountItaly".
+    /// Encoded/decoded by serializers as "ENBX".
     /// </summary>
     [EnumMember(Value = "ENBX")]
     [IsoId("_eRX24bSZEeq-6ssAXwSh-g")]
     [Description(@"Maximum one-off exit cost, a maximum fixed amount per redemption. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07060 and is flat fee defined by the fund or fund management company. It is indicative and should be adapted distributor according to the relationship been the fund and the distribution. This cost is not taken in account in the one-off maximum exit cost EMT reference 07050.")]
-    OneOffMaximumExitCostFixedAmountItaly,
+    OneOffMaximumExitCostFixedAmountItaly = InvestmentFundMiFIDFeeV2Code.OneOffMaximumExitCostFixedAmountItaly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cost of the one-off exit fee not acquired to the fund that could happen at a certain time during the life of the product. This is a percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07050.
-    /// Encoded/decoded by serializers as "OneOffMaximumExitCostNonAcquired".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_eXxZ0bSZEeq-6ssAXwSh-g")]
     [Description(@"Maximum cost of the one-off exit fee not acquired to the fund that could happen at a certain time during the life of the product. This is a percentage of the NAV. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07050.")]
-    OneOffMaximumExitCostNonAcquired,
+    OneOffMaximumExitCostNonAcquired = InvestmentFundMiFIDFeeV2Code.OneOffMaximumExitCostNonAcquired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One-off typical exit current exit cost linked to the recommended holding period (RHP) or time to maturity. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07080 and are the ‘normal’ fees if the client holds the product until maturity or during the RHP.
@@ -247,48 +244,48 @@ public enum InvestmentFundMiFIDFee2Code
     /// - 0 at maturity
     /// Then maximum exit cost: 4%.
     /// Typical cost : 0
-    /// Encoded/decoded by serializers as "OneOffTypicalExitCost".
+    /// Encoded/decoded by serializers as "PENO".
     /// </summary>
     [EnumMember(Value = "PENO")]
     [IsoId("_eeK8wbSZEeq-6ssAXwSh-g")]
-    [Description(@"One-off typical exit current exit cost linked to the recommended holding period (RHP) or time to maturity. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07080 and are the ‘normal’ fees if the client holds the product until maturity or during the RHP. Example: a product with a 5 year maturity has exit costs of: - 4% after 1 and 2 years - 3% after 3 years - 1% after 4 years - 0 at maturity Then maximum exit cost: 4%. Typical cost : 0")]
-    OneOffTypicalExitCost,
+    [Description(@"One-off typical exit current exit cost linked to the recommended holding period (RHP) or time to maturity. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07080 and are the ‘normal’ fees if the client holds the product until maturity or during the RHP.|Example: a product with a 5 year maturity has exit costs of:|- 4% after 1 and 2 years|- 3% after 3 years|- 1% after 4 years|- 0 at maturity|Then maximum exit cost: 4%.|Typical cost : 0")]
+    OneOffTypicalExitCost = InvestmentFundMiFIDFeeV2Code.OneOffTypicalExitCost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One-off typical exit cost linked to the recommended holding period (RHP) for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07080 and may be specified as an actual amount or a percentage of the reference value, EMT reference 07150 or 07155.
-    /// Encoded/decoded by serializers as "OneOffTypicalExitCostsStructured".
+    /// Encoded/decoded by serializers as "OTES".
     /// </summary>
     [EnumMember(Value = "OTES")]
     [IsoId("_ekHzwbSZEeq-6ssAXwSh-g")]
     [Description(@"One-off typical exit cost linked to the recommended holding period (RHP) for a structured product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07080 and may be specified as an actual amount or a percentage of the reference value, EMT reference 07150 or 07155.")]
-    OneOffTypicalExitCostsStructured,
+    OneOffTypicalExitCostsStructured = InvestmentFundMiFIDFeeV2Code.OneOffTypicalExitCostsStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sum of daily recurring product costs accumulated during the year until the ex post reference date. This is typically specified as an actual amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08040.
-    /// Encoded/decoded by serializers as "OngoingCostsAccumulatedStructured".
+    /// Encoded/decoded by serializers as "OCAS".
     /// </summary>
     [EnumMember(Value = "OCAS")]
     [IsoId("_ep65wbSZEeq-6ssAXwSh-g")]
     [Description(@"Sum of daily recurring product costs accumulated during the year until the ex post reference date. This is typically specified as an actual amount. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08040.")]
-    OngoingCostsAccumulatedStructured,
+    OngoingCostsAccumulatedStructured = InvestmentFundMiFIDFeeV2Code.OngoingCostsAccumulatedStructured, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reference Price. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07150 and 08110 and is the instrument price to which a unit disclosed ex-post cost is based and to which a percentage disclosed cost should be multiplied in order to retrieve the unit cost. 
-    /// Encoded/decoded by serializers as "ReferencePrice".
+    /// Encoded/decoded by serializers as "RPSS".
     /// </summary>
     [EnumMember(Value = "RPSS")]
     [IsoId("_exzqcbSZEeq-6ssAXwSh-g")]
     [Description(@"Reference Price. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07150 and 08110 and is the instrument price to which a unit disclosed ex-post cost is based and to which a percentage disclosed cost should be multiplied in order to retrieve the unit cost. ")]
-    ReferencePrice,
+    ReferencePrice = InvestmentFundMiFIDFeeV2Code.ReferencePrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cost associated with the transaction. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07130 and 08070 and this is a percentage of the NAV of the financial instrument expressed in annualised terms (rate of cost deduction to be applied).
-    /// Encoded/decoded by serializers as "TransactionCost".
+    /// Encoded/decoded by serializers as "TRS1".
     /// </summary>
     [EnumMember(Value = "TRS1")]
     [IsoId("_e6lL8bSZEeq-6ssAXwSh-g")]
     [Description(@"Cost associated with the transaction. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07130 and 08070 and this is a percentage of the NAV of the financial instrument expressed in annualised terms (rate of cost deduction to be applied).")]
-    TransactionCost,
+    TransactionCost = InvestmentFundMiFIDFeeV2Code.TransactionCost, // same ordinal as derivation source for type conversions
     
 }
 
@@ -299,7 +296,7 @@ public enum InvestmentFundMiFIDFee2Code
 public static class InvestmentFundMiFIDFee2CodeMetadataExtensions
 {
     private static readonly InvestmentFundMiFIDFee2CodeDropdownSource _dropdownSource = new InvestmentFundMiFIDFee2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

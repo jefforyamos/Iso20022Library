@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bItp4IogEeSirOZJBRz_nA")]
 [Description(@"Describes the type of transaction available for a customer on an ATM.")]
-[Derivations(typeof(ATMServiceType1Code),typeof(ATMServiceType4Code),typeof(ATMServiceType2Code),typeof(ATMServiceType3Code),typeof(ATMServiceType5Code),typeof(ATMServiceType6Code),typeof(ATMServiceType7Code),typeof(ATMServiceType8Code),typeof(ATMServiceType9Code),typeof(ATMServiceType10Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(ATMServiceType5Code),typeof(ATMServiceType1Code),typeof(ATMServiceType4Code),typeof(ATMServiceType10Code),typeof(ATMServiceType8Code),typeof(ATMServiceType3Code),typeof(ATMServiceType9Code),typeof(ATMServiceType7Code),typeof(ATMServiceType2Code),typeof(ATMServiceType6Code))]
 public enum ATMServiceTypeCode
 {
     /// <summary>
@@ -236,7 +235,7 @@ public enum ATMServiceTypeCode
 public static class ATMServiceTypeCodeMetadataExtensions
 {
     private static readonly ATMServiceTypeCodeDropdownSource _dropdownSource = new ATMServiceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

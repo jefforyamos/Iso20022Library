@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aUwLU9p-Ed-ak6NoX_4Aeg_1124995296")]
 [Description(@"Specifies the type of place where a trade was executed, a price was sourced from, an instrument is listed.")]
-[Derivations(typeof(MarketType2Code),typeof(MarketType5Code),typeof(MarketType3Code),typeof(MarketType4Code),typeof(MarketType1Code),typeof(MarketType6Code),typeof(MarketType8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(MarketType4Code),typeof(MarketType5Code),typeof(MarketType3Code),typeof(MarketType8Code),typeof(MarketType6Code),typeof(MarketType1Code),typeof(MarketType2Code))]
 public enum MarketTypeCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum MarketTypeCode
 public static class MarketTypeCodeMetadataExtensions
 {
     private static readonly MarketTypeCodeDropdownSource _dropdownSource = new MarketTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

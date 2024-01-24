@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_DkNtsJ26Eeuwmdq0KtnICg")]
-[Description(@"Specifies the reason for the exchange with the national competent authority, as published in an external category purpose code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for the exchange with the national competent authority, as published in an external category purpose code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalAuthorityExchangeReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalAuthorityExchangeReasonCode
 {
     /// <summary>
@@ -147,7 +146,7 @@ public enum ExternalAuthorityExchangeReasonCode
 public static class ExternalAuthorityExchangeReasonCodeMetadataExtensions
 {
     private static readonly ExternalAuthorityExchangeReasonCodeDropdownSource _dropdownSource = new ExternalAuthorityExchangeReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

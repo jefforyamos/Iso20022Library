@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gIoLANIFEeiG-o-KpBT4-g")]
 [Description(@"Indication whether both counterparties to the transaction have reported to the same trade repository or each counteraprty to the transaction reported two different trade repository.")]
 [Derivations(typeof(TradeRepositoryReportingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeRepositoryReportingTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TradeRepositoryReportingTypeCode
 public static class TradeRepositoryReportingTypeCodeMetadataExtensions
 {
     private static readonly TradeRepositoryReportingTypeCodeDropdownSource _dropdownSource = new TradeRepositoryReportingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

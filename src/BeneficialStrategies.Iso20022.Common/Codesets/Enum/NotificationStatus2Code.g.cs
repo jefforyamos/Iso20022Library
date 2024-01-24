@@ -21,21 +21,21 @@ public enum NotificationStatus2Code
 {
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "EventConfirmed".
+    /// Encoded/decoded by serializers as "ECON".
     /// </summary>
     [EnumMember(Value = "ECON")]
     [IsoId("_aNwLeNp-Ed-ak6NoX_4Aeg_-174896803")]
     [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
-    EventConfirmed,
+    EventConfirmed = NotificationStatusCode.EventConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "EventUnconfirmed".
+    /// Encoded/decoded by serializers as "EUNC".
     /// </summary>
     [EnumMember(Value = "EUNC")]
     [IsoId("_aN5VYNp-Ed-ak6NoX_4Aeg_-174896795")]
     [Description(@"The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
-    EventUnconfirmed,
+    EventUnconfirmed = NotificationStatusCode.EventUnconfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NotificationStatus2Code
 public static class NotificationStatus2CodeMetadataExtensions
 {
     private static readonly NotificationStatus2CodeDropdownSource _dropdownSource = new NotificationStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

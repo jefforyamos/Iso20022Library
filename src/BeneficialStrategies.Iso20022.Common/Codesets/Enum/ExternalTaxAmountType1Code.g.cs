@@ -17,54 +17,54 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_t99_JFkyEeGeoaLUQk__nA_700990481")]
-[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalTaxAmountTypeCode))]
 public enum ExternalTaxAmountType1Code
 {
     /// <summary>
     /// Tax accessed by city jurisdications within a country.
-    /// Encoded/decoded by serializers as "CityTax".
+    /// Encoded/decoded by serializers as "CITY".
     /// </summary>
     [EnumMember(Value = "CITY")]
     [IsoId("_uMAeu_RYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by city jurisdications within a country.")]
-    CityTax,
+    CityTax = ExternalTaxAmountTypeCode.CityTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax accessed by county jurisdications within a country.
-    /// Encoded/decoded by serializers as "CountyTax".
+    /// Encoded/decoded by serializers as "CNTY".
     /// </summary>
     [EnumMember(Value = "CNTY")]
     [IsoId("_uMAevvRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by county jurisdications within a country.")]
-    CountyTax,
+    CountyTax = ExternalTaxAmountTypeCode.CountyTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax accessed by local jurisdications within a country.
-    /// Encoded/decoded by serializers as "LocalTax".
+    /// Encoded/decoded by serializers as "LOCL".
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_uMKPsvRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by local jurisdications within a country.")]
-    LocalTax,
+    LocalTax = ExternalTaxAmountTypeCode.LocalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax accessed by province jurisdications within a country.
-    /// Encoded/decoded by serializers as "ProvinceTax".
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_uMKPtfRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by province jurisdications within a country.")]
-    ProvinceTax,
+    ProvinceTax = ExternalTaxAmountTypeCode.ProvinceTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax accessed by state jurisdications within a country.
-    /// Encoded/decoded by serializers as "StateTax".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_uMKPuPRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by state jurisdications within a country.")]
-    StateTax,
+    StateTax = ExternalTaxAmountTypeCode.StateTax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -75,7 +75,7 @@ public enum ExternalTaxAmountType1Code
 public static class ExternalTaxAmountType1CodeMetadataExtensions
 {
     private static readonly ExternalTaxAmountType1CodeDropdownSource _dropdownSource = new ExternalTaxAmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

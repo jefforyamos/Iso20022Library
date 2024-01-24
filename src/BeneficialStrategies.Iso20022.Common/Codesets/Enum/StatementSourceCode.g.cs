@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_m5XidfNBEeCuA5Tr22BnwA_665404846")]
 [Description(@"Specifies the source of the report.")]
 [Derivations(typeof(StatementSource1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatementSourceCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StatementSourceCode
 public static class StatementSourceCodeMetadataExtensions
 {
     private static readonly StatementSourceCodeDropdownSource _dropdownSource = new StatementSourceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

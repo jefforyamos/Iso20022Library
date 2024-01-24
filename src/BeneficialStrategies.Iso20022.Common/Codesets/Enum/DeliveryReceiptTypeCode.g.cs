@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_azTIgNp-Ed-ak6NoX_4Aeg_-314094989")]
 [Description(@"Specifies how the transaction is to be settled.")]
 [Derivations(typeof(DeliveryReceiptType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeliveryReceiptTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DeliveryReceiptTypeCode
 public static class DeliveryReceiptTypeCodeMetadataExtensions
 {
     private static readonly DeliveryReceiptTypeCodeDropdownSource _dropdownSource = new DeliveryReceiptTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum Frequency8Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_sPwacQ3iEeWc7_0KPiuk6w")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = FrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SemiAnnual".
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_socnQQ3iEeWc7_0KPiuk6w")]
     [Description(@"Event takes place every six months or two times a year.")]
-    SemiAnnual,
+    SemiAnnual = FrequencyCode.SemiAnnual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_uYoLcQ3iEeWc7_0KPiuk6w")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = FrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarterly".
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_uz_40Q3iEeWc7_0KPiuk6w")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarterly,
+    Quarterly = FrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Frequency8Code
 public static class Frequency8CodeMetadataExtensions
 {
     private static readonly Frequency8CodeDropdownSource _dropdownSource = new Frequency8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum PEPISA1Code
 {
     /// <summary>
     /// Personal equity plan.
-    /// Encoded/decoded by serializers as "PEP".
+    /// Encoded/decoded by serializers as "PEPT".
     /// </summary>
     [EnumMember(Value = "PEPT")]
     [IsoId("_zdTddA93EeGeV5vP7Mvdig_-2054941291")]
     [Description(@"Personal equity plan.")]
-    PEP,
+    PEP = PEPISACode.PEP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Individual savings account.
-    /// Encoded/decoded by serializers as "ISA".
+    /// Encoded/decoded by serializers as "ISAT".
     /// </summary>
     [EnumMember(Value = "ISAT")]
     [IsoId("_zdTddQ93EeGeV5vP7Mvdig_865100993")]
     [Description(@"Individual savings account.")]
-    ISA,
+    ISA = PEPISACode.ISA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PEPISA1Code
 public static class PEPISA1CodeMetadataExtensions
 {
     private static readonly PEPISA1CodeDropdownSource _dropdownSource = new PEPISA1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

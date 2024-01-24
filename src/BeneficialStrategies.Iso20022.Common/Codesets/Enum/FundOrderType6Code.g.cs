@@ -21,66 +21,66 @@ public enum FundOrderType6Code
 {
     /// <summary>
     /// All type of orders.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_oC2e0RKuEeKj15WxqwlXPw")]
     [Description(@"All type of orders.")]
-    All,
+    All = FundOrderTypeCode.All, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_oh_48RKuEeKj15WxqwlXPw")]
     [Description(@"Investment fund order is a redemption.")]
-    Redemption,
+    Redemption = FundOrderTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_o6vJERKuEeKj15WxqwlXPw")]
     [Description(@"Investment fund order is a subscription.")]
-    Subscription,
+    Subscription = FundOrderTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Switch out or switch from.
-    /// Encoded/decoded by serializers as "SwitchFrom".
+    /// Encoded/decoded by serializers as "SWII".
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_pct0wRKuEeKj15WxqwlXPw")]
     [Description(@"Switch out or switch from.")]
-    SwitchFrom,
+    SwitchFrom = FundOrderTypeCode.SwitchFrom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Switch in or switch to.
-    /// Encoded/decoded by serializers as "SwitchTo".
+    /// Encoded/decoded by serializers as "SWIO".
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_pt_yARKuEeKj15WxqwlXPw")]
     [Description(@"Switch in or switch to.")]
-    SwitchTo,
+    SwitchTo = FundOrderTypeCode.SwitchTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer in.
-    /// Encoded/decoded by serializers as "TransferIn".
+    /// Encoded/decoded by serializers as "TRAI".
     /// </summary>
     [EnumMember(Value = "TRAI")]
     [IsoId("_p4ubURKuEeKj15WxqwlXPw")]
     [Description(@"Transfer in.")]
-    TransferIn,
+    TransferIn = FundOrderTypeCode.TransferIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer out.
-    /// Encoded/decoded by serializers as "TransferOut".
+    /// Encoded/decoded by serializers as "TRAO".
     /// </summary>
     [EnumMember(Value = "TRAO")]
     [IsoId("_qBEfARKuEeKj15WxqwlXPw")]
     [Description(@"Transfer out.")]
-    TransferOut,
+    TransferOut = FundOrderTypeCode.TransferOut, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum FundOrderType6Code
 public static class FundOrderType6CodeMetadataExtensions
 {
     private static readonly FundOrderType6CodeDropdownSource _dropdownSource = new FundOrderType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

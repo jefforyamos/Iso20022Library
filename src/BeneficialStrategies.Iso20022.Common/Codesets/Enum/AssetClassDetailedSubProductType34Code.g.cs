@@ -21,21 +21,21 @@ public enum AssetClassDetailedSubProductType34Code
 {
     /// <summary>
     /// Commodity attribute of type tanker.
-    /// Encoded/decoded by serializers as "Tanker".
+    /// Encoded/decoded by serializers as "TNKR".
     /// </summary>
     [EnumMember(Value = "TNKR")]
     [IsoId("_0Dk7sbv6EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type tanker.")]
-    Tanker,
+    Tanker = AssetClassDetailedSubProductTypeCode.Tanker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_2cukYbv6EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssetClassDetailedSubProductType34Code
 public static class AssetClassDetailedSubProductType34CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType34CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType34CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

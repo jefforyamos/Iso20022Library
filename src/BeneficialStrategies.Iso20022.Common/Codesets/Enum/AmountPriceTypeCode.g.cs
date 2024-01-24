@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_beqZtdp-Ed-ak6NoX_4Aeg_904379222")]
 [Description(@"Specifies the amount price type.")]
 [Derivations(typeof(AmountPriceType1Code),typeof(AmountPriceType2Code),typeof(AmountPriceType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AmountPriceTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AmountPriceTypeCode
 public static class AmountPriceTypeCodeMetadataExtensions
 {
     private static readonly AmountPriceTypeCodeDropdownSource _dropdownSource = new AmountPriceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum RateType12Code
 {
     /// <summary>
     /// Rate has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZZJesdp-Ed-ak6NoX_4Aeg_-1551942185")]
     [Description(@"Rate has not been established.")]
-    Open,
+    Open = RateTypeCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZZJestp-Ed-ak6NoX_4Aeg_-1551942164")]
     [Description(@"Rate is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate will not be paid.
-    /// Encoded/decoded by serializers as "NilPayment".
+    /// Encoded/decoded by serializers as "NILP".
     /// </summary>
     [EnumMember(Value = "NILP")]
     [IsoId("_ZZJes9p-Ed-ak6NoX_4Aeg_-1551942163")]
     [Description(@"Rate will not be paid.")]
-    NilPayment,
+    NilPayment = RateTypeCode.NilPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RateType12Code
 public static class RateType12CodeMetadataExtensions
 {
     private static readonly RateType12CodeDropdownSource _dropdownSource = new RateType12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

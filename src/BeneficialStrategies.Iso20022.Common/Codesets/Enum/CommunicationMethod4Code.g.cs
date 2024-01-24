@@ -21,84 +21,84 @@ public enum CommunicationMethod4Code
 {
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "Email".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_-_hTkdL6EeSDLevdaFPXHw")]
     [Description(@"Transmission by e-mail.")]
-    Email,
+    Email = CommunicationMethodCode.Email, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "Fax".
+    /// Encoded/decoded by serializers as "FAXI".
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("__HQTQ9L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by fax.")]
-    Fax,
+    Fax = CommunicationMethodCode.Fax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by file transfer.
-    /// Encoded/decoded by serializers as "File".
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("__QCb09L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by file transfer.")]
-    File,
+    File = CommunicationMethodCode.File, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission on line, for example, in a web portal.
-    /// Encoded/decoded by serializers as "Online".
+    /// Encoded/decoded by serializers as "ONLI".
     /// </summary>
     [EnumMember(Value = "ONLI")]
     [IsoId("__XK-k9L6EeSDLevdaFPXHw")]
     [Description(@"Transmission on line, for example, in a web portal.")]
-    Online,
+    Online = CommunicationMethodCode.Online, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by telephone.
-    /// Encoded/decoded by serializers as "Phone".
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("__ed5Y9L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by telephone.")]
-    Phone,
+    Phone = CommunicationMethodCode.Phone, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by postal service.
-    /// Encoded/decoded by serializers as "PostalService".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("__lAmQ9L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by postal service.")]
-    PostalService,
+    PostalService = CommunicationMethodCode.PostalService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by proprietary method.
-    /// Encoded/decoded by serializers as "Proprietary".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("__r__E9L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by proprietary method.")]
-    Proprietary,
+    Proprietary = CommunicationMethodCode.Proprietary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by Swift (FIN).
-    /// Encoded/decoded by serializers as "SWIFTMT".
+    /// Encoded/decoded by serializers as "SWMT".
     /// </summary>
     [EnumMember(Value = "SWMT")]
     [IsoId("__y2N89L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by Swift (FIN).")]
-    SWIFTMT,
+    SWIFTMT = CommunicationMethodCode.SWIFTMT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by SWIFTNET.
-    /// Encoded/decoded by serializers as "SWIFTMX".
+    /// Encoded/decoded by serializers as "SWMX".
     /// </summary>
     [EnumMember(Value = "SWMX")]
     [IsoId("__5ir09L6EeSDLevdaFPXHw")]
     [Description(@"Transmission by SWIFTNET.")]
-    SWIFTMX,
+    SWIFTMX = CommunicationMethodCode.SWIFTMX, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum CommunicationMethod4Code
 public static class CommunicationMethod4CodeMetadataExtensions
 {
     private static readonly CommunicationMethod4CodeDropdownSource _dropdownSource = new CommunicationMethod4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

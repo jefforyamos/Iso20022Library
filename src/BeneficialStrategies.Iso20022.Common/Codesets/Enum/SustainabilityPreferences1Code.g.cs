@@ -21,30 +21,30 @@ public enum SustainabilityPreferences1Code
 {
     /// <summary>
     /// Preference for products having environmental, social and corporate governance (ESG) characteristics.
-    /// Encoded/decoded by serializers as "ESGPreference".
+    /// Encoded/decoded by serializers as "CESG".
     /// </summary>
     [EnumMember(Value = "CESG")]
     [IsoId("_MmV30c0VEeuAE-cYsQdwHQ")]
     [Description(@"Preference for products having environmental, social and corporate governance (ESG) characteristics.")]
-    ESGPreference,
+    ESGPreference = SustainabilityPreferencesCode.ESGPreference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "Neutral".
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_MyNwoc0VEeuAE-cYsQdwHQ")]
     [Description(@"Neutral or has no impact.")]
-    Neutral,
+    Neutral = SustainabilityPreferencesCode.Neutral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preference for products having sustainable objectives.
-    /// Encoded/decoded by serializers as "SustainablePreference".
+    /// Encoded/decoded by serializers as "OSUS".
     /// </summary>
     [EnumMember(Value = "OSUS")]
     [IsoId("_M6uzcc0VEeuAE-cYsQdwHQ")]
     [Description(@"Preference for products having sustainable objectives.")]
-    SustainablePreference,
+    SustainablePreference = SustainabilityPreferencesCode.SustainablePreference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SustainabilityPreferences1Code
 public static class SustainabilityPreferences1CodeMetadataExtensions
 {
     private static readonly SustainabilityPreferences1CodeDropdownSource _dropdownSource = new SustainabilityPreferences1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

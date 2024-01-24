@@ -21,21 +21,21 @@ public enum PaymentMethod6Code
 {
     /// <summary>
     /// Direct method.
-    /// Encoded/decoded by serializers as "Direct".
+    /// Encoded/decoded by serializers as "DIRE".
     /// </summary>
     [EnumMember(Value = "DIRE")]
     [IsoId("_Z0kPZ9p-Ed-ak6NoX_4Aeg_1534180343")]
     [Description(@"Direct method.")]
-    Direct,
+    Direct = PaymentMethodCode.Direct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Classical method.
-    /// Encoded/decoded by serializers as "Classical".
+    /// Encoded/decoded by serializers as "CLAS".
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_Z0kPaNp-Ed-ak6NoX_4Aeg_1534180372")]
     [Description(@"Classical method.")]
-    Classical,
+    Classical = PaymentMethodCode.Classical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PaymentMethod6Code
 public static class PaymentMethod6CodeMetadataExtensions
 {
     private static readonly PaymentMethod6CodeDropdownSource _dropdownSource = new PaymentMethod6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

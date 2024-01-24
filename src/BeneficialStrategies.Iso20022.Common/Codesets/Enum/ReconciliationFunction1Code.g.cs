@@ -21,30 +21,30 @@ public enum ReconciliationFunction1Code
 {
     /// <summary>
     /// Inquiry for reconciliation totals
-    /// Encoded/decoded by serializers as "Inquire".
+    /// Encoded/decoded by serializers as "INQR".
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_sqvgYS7OEemIy6A-26wnAg")]
     [Description(@"Inquiry for reconciliation totals")]
-    Inquire,
+    Inquire = ReconciliationFunctionCode.Inquire, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initiation of a cutover. 
-    /// Encoded/decoded by serializers as "InitiateCutover".
+    /// Encoded/decoded by serializers as "INCU".
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_tIhokS7OEemIy6A-26wnAg")]
     [Description(@"Initiation of a cutover. ")]
-    InitiateCutover,
+    InitiateCutover = ReconciliationFunctionCode.InitiateCutover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Convey reconciliation totals
-    /// Encoded/decoded by serializers as "Convey".
+    /// Encoded/decoded by serializers as "CNVY".
     /// </summary>
     [EnumMember(Value = "CNVY")]
     [IsoId("_tOg70S7OEemIy6A-26wnAg")]
     [Description(@"Convey reconciliation totals")]
-    Convey,
+    Convey = ReconciliationFunctionCode.Convey, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReconciliationFunction1Code
 public static class ReconciliationFunction1CodeMetadataExtensions
 {
     private static readonly ReconciliationFunction1CodeDropdownSource _dropdownSource = new ReconciliationFunction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

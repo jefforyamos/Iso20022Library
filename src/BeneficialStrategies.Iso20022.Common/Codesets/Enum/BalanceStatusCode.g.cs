@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bkLL0tp-Ed-ak6NoX_4Aeg_882404778")]
 [Description(@"Specifies the balance of transactions with a certain status.")]
 [Derivations(typeof(BalanceStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BalanceStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum BalanceStatusCode
 public static class BalanceStatusCodeMetadataExtensions
 {
     private static readonly BalanceStatusCodeDropdownSource _dropdownSource = new BalanceStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

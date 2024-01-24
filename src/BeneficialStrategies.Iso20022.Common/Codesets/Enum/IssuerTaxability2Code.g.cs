@@ -21,12 +21,12 @@ public enum IssuerTaxability2Code
 {
     /// <summary>
     /// The relevant proceeds are taxable.
-    /// Encoded/decoded by serializers as "Taxable".
+    /// Encoded/decoded by serializers as "TXBL".
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_3na_IYlyEeavwKddCbm3hg")]
     [Description(@"The relevant proceeds are taxable.")]
-    Taxable,
+    Taxable = IssuerTaxabilityV2Code.Taxable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum IssuerTaxability2Code
 public static class IssuerTaxability2CodeMetadataExtensions
 {
     private static readonly IssuerTaxability2CodeDropdownSource _dropdownSource = new IssuerTaxability2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

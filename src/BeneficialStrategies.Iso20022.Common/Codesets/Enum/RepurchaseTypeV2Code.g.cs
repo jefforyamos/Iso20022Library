@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_oOW02Y-QEeaVK-2bgpxeYw")]
 [Description(@"Relates to a principal adjustment.")]
 [Derivations(typeof(RepurchaseType8Code),typeof(RepurchaseType10Code),typeof(RepurchaseType9Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RepurchaseTypeV2Code
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum RepurchaseTypeV2Code
 public static class RepurchaseTypeV2CodeMetadataExtensions
 {
     private static readonly RepurchaseTypeV2CodeDropdownSource _dropdownSource = new RepurchaseTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

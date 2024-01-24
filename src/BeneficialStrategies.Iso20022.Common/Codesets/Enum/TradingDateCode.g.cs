@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__ztF4dojEeC60axPepSq7g_723432947")]
 [Description(@"Indicates if the Trading Date is various.")]
 [Derivations(typeof(TradingDate1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingDateCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum TradingDateCode
 public static class TradingDateCodeMetadataExtensions
 {
     private static readonly TradingDateCodeDropdownSource _dropdownSource = new TradingDateCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

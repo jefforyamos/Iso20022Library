@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yk2T89p-Ed-ak6NoX_4Aeg_1366299042")]
 [Description(@"Specifies the type of tax.")]
-[Derivations(typeof(TaxType6Code),typeof(TaxType12Code),typeof(TaxType2Code),typeof(TaxType13Code),typeof(TaxType4Code),typeof(TaxType7Code),typeof(TaxType10Code),typeof(TaxType5Code),typeof(TaxType11Code),typeof(TaxType3Code),typeof(TaxType15Code),typeof(TaxType9Code),typeof(TaxType14Code),typeof(TaxType16Code),typeof(TaxType17Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TaxType10Code),typeof(TaxType5Code),typeof(TaxType12Code),typeof(TaxType13Code),typeof(TaxType15Code),typeof(TaxType6Code),typeof(TaxType17Code),typeof(TaxType4Code),typeof(TaxType16Code),typeof(TaxType3Code),typeof(TaxType2Code),typeof(TaxType14Code),typeof(TaxType9Code),typeof(TaxType11Code),typeof(TaxType7Code))]
 public enum TaxTypeCode
 {
     /// <summary>
@@ -371,7 +370,7 @@ public enum TaxTypeCode
 public static class TaxTypeCodeMetadataExtensions
 {
     private static readonly TaxTypeCodeDropdownSource _dropdownSource = new TaxTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

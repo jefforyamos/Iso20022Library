@@ -21,48 +21,48 @@ public enum OtherAsset2Code
 {
     /// <summary>
     /// Asset is a discretionary investment manager account
-    /// Encoded/decoded by serializers as "Discretionary".
+    /// Encoded/decoded by serializers as "DIMA".
     /// </summary>
     [EnumMember(Value = "DIMA")]
     [IsoId("_fnEmYZNCEemQB_8XA98K0Q")]
     [Description(@"Asset is a discretionary investment manager account")]
-    Discretionary,
+    Discretionary = OtherAssetCode.Discretionary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Asset is an external investment account.
-    /// Encoded/decoded by serializers as "ExternalAccount".
+    /// Encoded/decoded by serializers as "EXIA".
     /// </summary>
     [EnumMember(Value = "EXIA")]
     [IsoId("_fsbAcZNCEemQB_8XA98K0Q")]
     [Description(@"Asset is an external investment account.")]
-    ExternalAccount,
+    ExternalAccount = OtherAssetCode.ExternalAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Property that is not real estate. Also known as 'movable chattels'.
-    /// Encoded/decoded by serializers as "MovableProperty".
+    /// Encoded/decoded by serializers as "MOVE".
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_fyX3cZNCEemQB_8XA98K0Q")]
     [Description(@"Property that is not real estate. Also known as 'movable chattels'.")]
-    MovableProperty,
+    MovableProperty = OtherAssetCode.MovableProperty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Property that is real estate.
-    /// Encoded/decoded by serializers as "Property".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_f5EVUZNCEemQB_8XA98K0Q")]
     [Description(@"Property that is real estate.")]
-    Property,
+    Property = OtherAssetCode.Property, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Asset is a trustee investment plan (TIP).
-    /// Encoded/decoded by serializers as "TrusteeInvestmentPlan".
+    /// Encoded/decoded by serializers as "TIPP".
     /// </summary>
     [EnumMember(Value = "TIPP")]
     [IsoId("_f_UuUZNCEemQB_8XA98K0Q")]
     [Description(@"Asset is a trustee investment plan (TIP).")]
-    TrusteeInvestmentPlan,
+    TrusteeInvestmentPlan = OtherAssetCode.TrusteeInvestmentPlan, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum OtherAsset2Code
 public static class OtherAsset2CodeMetadataExtensions
 {
     private static readonly OtherAsset2CodeDropdownSource _dropdownSource = new OtherAsset2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

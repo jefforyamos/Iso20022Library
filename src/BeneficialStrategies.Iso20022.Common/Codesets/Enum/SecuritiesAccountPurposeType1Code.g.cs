@@ -21,57 +21,57 @@ public enum SecuritiesAccountPurposeType1Code
 {
     /// <summary>
     /// Account is used when financing is done by the broker.
-    /// Encoded/decoded by serializers as "Margin".
+    /// Encoded/decoded by serializers as "MARG".
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_Y-7A1dp-Ed-ak6NoX_4Aeg_-1554401442")]
     [Description(@"Account is used when financing is done by the broker.")]
-    Margin,
+    Margin = SecuritiesAccountPurposeTypeCode.Margin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is used for short sale orders.
-    /// Encoded/decoded by serializers as "ShortSale".
+    /// Encoded/decoded by serializers as "SHOR".
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_Y-7A1tp-Ed-ak6NoX_4Aeg_-1554401407")]
     [Description(@"Account is used for short sale orders.")]
-    ShortSale,
+    ShortSale = SecuritiesAccountPurposeTypeCode.ShortSale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is located in a financial institution outside the country where the transaction is taking place.
-    /// Encoded/decoded by serializers as "Abroad".
+    /// Encoded/decoded by serializers as "ABRD".
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_Y-7A19p-Ed-ak6NoX_4Aeg_-1554401365")]
     [Description(@"Account is located in a financial institution outside the country where the transaction is taking place.")]
-    Abroad,
+    Abroad = SecuritiesAccountPurposeTypeCode.Abroad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account and all its related positions are held in one location.
-    /// Encoded/decoded by serializers as "Centralised".
+    /// Encoded/decoded by serializers as "CEND".
     /// </summary>
     [EnumMember(Value = "CEND")]
     [IsoId("_Y-7A2Np-Ed-ak6NoX_4Aeg_-1554401347")]
     [Description(@"Account and all its related positions are held in one location.")]
-    Centralised,
+    Centralised = SecuritiesAccountPurposeTypeCode.Centralised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is used for settlement upon delivery, or a collection on a delivery basis.
-    /// Encoded/decoded by serializers as "CashDVP".
+    /// Encoded/decoded by serializers as "DVPA".
     /// </summary>
     [EnumMember(Value = "DVPA")]
     [IsoId("_Y-7A2dp-Ed-ak6NoX_4Aeg_-1554401304")]
     [Description(@"Account is used for settlement upon delivery, or a collection on a delivery basis.")]
-    CashDVP,
+    CashDVP = SecuritiesAccountPurposeTypeCode.CashDVP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is used for physical domestic safekeeping.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Y_Ex0Np-Ed-ak6NoX_4Aeg_-1554401286")]
     [Description(@"Account is used for physical domestic safekeeping.")]
-    Physical,
+    Physical = SecuritiesAccountPurposeTypeCode.Physical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum SecuritiesAccountPurposeType1Code
 public static class SecuritiesAccountPurposeType1CodeMetadataExtensions
 {
     private static readonly SecuritiesAccountPurposeType1CodeDropdownSource _dropdownSource = new SecuritiesAccountPurposeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

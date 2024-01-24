@@ -21,84 +21,84 @@ public enum TypeOfAmount5Code
 {
     /// <summary>
     /// Cash-back amount.
-    /// Encoded/decoded by serializers as "Cashback".
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_JB5b0Xs1EeSTS7uHCe8FPQ")]
     [Description(@"Cash-back amount.")]
-    Cashback,
+    Cashback = TypeOfAmountCode.Cashback, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DCNT".
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_JW-7A3s1EeSTS7uHCe8FPQ")]
     [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
-    Discount,
+    Discount = TypeOfAmountCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "Fees".
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_KEPCk3s1EeSTS7uHCe8FPQ")]
     [Description(@"Fees.")]
-    Fees,
+    Fees = TypeOfAmountCode.Fees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gratuity amount.
-    /// Encoded/decoded by serializers as "Gratuity".
+    /// Encoded/decoded by serializers as "GRTY".
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_KM4oQXs1EeSTS7uHCe8FPQ")]
     [Description(@"Gratuity amount.")]
-    Gratuity,
+    Gratuity = TypeOfAmountCode.Gratuity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_KqKaI3s1EeSTS7uHCe8FPQ")]
     [Description(@"Extra fee for a purchase or a withdrawal.")]
-    Surcharge,
+    Surcharge = TypeOfAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value added tax amount.
-    /// Encoded/decoded by serializers as "ValueAddedTax".
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_KxCeM3s1EeSTS7uHCe8FPQ")]
     [Description(@"Value added tax amount.")]
-    ValueAddedTax,
+    ValueAddedTax = TypeOfAmountCode.ValueAddedTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission, for example for DCC (Dynamic Currency Conversion) transactions.
-    /// Encoded/decoded by serializers as "Commission".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_7D9GwdPHEeSFn54OzS96Iw")]
     [Description(@"Commission, for example for DCC (Dynamic Currency Conversion) transactions.")]
-    Commission,
+    Commission = TypeOfAmountCode.Commission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Donation amount.
-    /// Encoded/decoded by serializers as "Donation".
+    /// Encoded/decoded by serializers as "DONN".
     /// </summary>
     [EnumMember(Value = "DONN")]
     [IsoId("_Zu6dgS70EeWc7f-D6ByqMg")]
     [Description(@"Donation amount.")]
-    Donation,
+    Donation = TypeOfAmountCode.Donation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Taxes applicable to the transaction.
-    /// Encoded/decoded by serializers as "Tax".
+    /// Encoded/decoded by serializers as "TAXT".
     /// </summary>
     [EnumMember(Value = "TAXT")]
     [IsoId("_W5BZAS71EeWDa4uwlWChEA")]
     [Description(@"Taxes applicable to the transaction.")]
-    Tax,
+    Tax = TypeOfAmountCode.Tax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TypeOfAmount5Code
 public static class TypeOfAmount5CodeMetadataExtensions
 {
     private static readonly TypeOfAmount5CodeDropdownSource _dropdownSource = new TypeOfAmount5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

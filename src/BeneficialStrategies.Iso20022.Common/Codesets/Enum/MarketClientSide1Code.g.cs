@@ -21,21 +21,21 @@ public enum MarketClientSide1Code
 {
     /// <summary>
     /// Instruction is for a client side transaction.
-    /// Encoded/decoded by serializers as "ClientSide".
+    /// Encoded/decoded by serializers as "CLNT".
     /// </summary>
     [EnumMember(Value = "CLNT")]
     [IsoId("_ZWTI0Z05Eeet_4BCDEBLdQ")]
     [Description(@"Instruction is for a client side transaction.")]
-    ClientSide,
+    ClientSide = MarketClientSideCode.ClientSide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is for a market side transaction.
-    /// Encoded/decoded by serializers as "MarketSide".
+    /// Encoded/decoded by serializers as "MAKT".
     /// </summary>
     [EnumMember(Value = "MAKT")]
     [IsoId("_ZbqJ8Z05Eeet_4BCDEBLdQ")]
     [Description(@"Instruction is for a market side transaction.")]
-    MarketSide,
+    MarketSide = MarketClientSideCode.MarketSide, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MarketClientSide1Code
 public static class MarketClientSide1CodeMetadataExtensions
 {
     private static readonly MarketClientSide1CodeDropdownSource _dropdownSource = new MarketClientSide1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

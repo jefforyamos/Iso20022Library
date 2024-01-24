@@ -21,30 +21,30 @@ public enum ResolutionType1Code
 {
     /// <summary>
     /// Meeting resolution is extraordinary and may be subject to specific voting requirements.
-    /// Encoded/decoded by serializers as "Extraordinary".
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_ZU-JU9p-Ed-ak6NoX_4Aeg_1357307111")]
     [Description(@"Meeting resolution is extraordinary and may be subject to specific voting requirements.")]
-    Extraordinary,
+    Extraordinary = ResolutionTypeCode.Extraordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting resolution is ordinary and is not subject to any specific voting requirements.
-    /// Encoded/decoded by serializers as "Ordinary".
+    /// Encoded/decoded by serializers as "ORDI".
     /// </summary>
     [EnumMember(Value = "ORDI")]
     [IsoId("_ZU-JVNp-Ed-ak6NoX_4Aeg_1357307136")]
     [Description(@"Meeting resolution is ordinary and is not subject to any specific voting requirements.")]
-    Ordinary,
+    Ordinary = ResolutionTypeCode.Ordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).
-    /// Encoded/decoded by serializers as "Special".
+    /// Encoded/decoded by serializers as "SPCL".
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_ZU-JVdp-Ed-ak6NoX_4Aeg_-689950721")]
     [Description(@"Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).")]
-    Special,
+    Special = ResolutionTypeCode.Special, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ResolutionType1Code
 public static class ResolutionType1CodeMetadataExtensions
 {
     private static readonly ResolutionType1CodeDropdownSource _dropdownSource = new ResolutionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

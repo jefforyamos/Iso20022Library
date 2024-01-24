@@ -21,338 +21,336 @@ public enum PartyIdentificationType1Code
 {
     /// <summary>
     /// Member identification of the FX trading system.
-    /// Encoded/decoded by serializers as "FXMemberID".
+    /// Encoded/decoded by serializers as "FXID".
     /// </summary>
     [EnumMember(Value = "FXID")]
     [IsoId("_2jqYYYA2EeSUJZYcWGKkkw")]
     [Description(@"Member identification of the FX trading system.")]
-    FXMemberID,
+    FXMemberID = PartyIdentificationTypeCode.FXMemberID, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// English short name of FX system.
-    /// Encoded/decoded by serializers as "FXSystemEnglishShortName".
+    /// Encoded/decoded by serializers as "FXSN".
     /// </summary>
     [EnumMember(Value = "FXSN")]
     [IsoId("_2oP9cYA2EeSUJZYcWGKkkw")]
     [Description(@"English short name of FX system.")]
-    FXSystemEnglishShortName,
+    FXSystemEnglishShortName = PartyIdentificationTypeCode.FXSystemEnglishShortName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Name of the firm group.
-    /// Encoded/decoded by serializers as "InstitutionGroupName".
+    /// Encoded/decoded by serializers as "INGN".
     /// </summary>
     [EnumMember(Value = "INGN")]
     [IsoId("_2su00YA2EeSUJZYcWGKkkw")]
     [Description(@"Name of the firm group.")]
-    InstitutionGroupName,
+    InstitutionGroupName = PartyIdentificationTypeCode.InstitutionGroupName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Institution identification in com star system.
-    /// Encoded/decoded by serializers as "InstitutionIdentificationInComStarSystem".
+    /// Encoded/decoded by serializers as "IICS".
     /// </summary>
     [EnumMember(Value = "IICS")]
     [IsoId("_2xOTQYA2EeSUJZYcWGKkkw")]
     [Description(@"Institution identification in com star system.")]
-    InstitutionIdentificationInComStarSystem,
+    InstitutionIdentificationInComStarSystem = PartyIdentificationTypeCode.InstitutionIdentificationInComStarSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Internal team that traders belong.
-    /// 
-    /// Encoded/decoded by serializers as "InternalGroupTheTraderBelongedTo".
+    /// Encoded/decoded by serializers as "IGBT".
     /// </summary>
     [EnumMember(Value = "IGBT")]
     [IsoId("_21sjkYA2EeSUJZYcWGKkkw")]
-    [Description(@"Internal team that traders belong. ")]
-    InternalGroupTheTraderBelongedTo,
+    [Description(@"Internal team that traders belong.|")]
+    InternalGroupTheTraderBelongedTo = PartyIdentificationTypeCode.InternalGroupTheTraderBelongedTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the maket makers.
-    /// Encoded/decoded by serializers as "MarketMaker".
+    /// Encoded/decoded by serializers as "MAMA".
     /// </summary>
     [EnumMember(Value = "MAMA")]
     [IsoId("_26Q6gYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies the maket makers.")]
-    MarketMaker,
+    MarketMaker = PartyIdentificationTypeCode.MarketMaker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identify members or clients.
-    /// Encoded/decoded by serializers as "MembersOrClients".
+    /// Encoded/decoded by serializers as "MEOC".
     /// </summary>
     [EnumMember(Value = "MEOC")]
     [IsoId("_2-vx4YA2EeSUJZYcWGKkkw")]
     [Description(@"Identify members or clients.")]
-    MembersOrClients,
+    MembersOrClients = PartyIdentificationTypeCode.MembersOrClients, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of the trading members.
-    /// Encoded/decoded by serializers as "MemberType".
+    /// Encoded/decoded by serializers as "METY".
     /// </summary>
     [EnumMember(Value = "METY")]
     [IsoId("_3GA3gYA2EeSUJZYcWGKkkw")]
     [Description(@"Type of the trading members.")]
-    MemberType,
+    MemberType = PartyIdentificationTypeCode.MemberType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the non maket makers.
-    /// Encoded/decoded by serializers as "NonMarketMaker".
+    /// Encoded/decoded by serializers as "NOMM".
     /// </summary>
     [EnumMember(Value = "NOMM")]
     [IsoId("_3N1WwYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies the non maket makers.")]
-    NonMarketMaker,
+    NonMarketMaker = PartyIdentificationTypeCode.NonMarketMaker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies other system.
-    /// Encoded/decoded by serializers as "OtherSystemCode".
+    /// Encoded/decoded by serializers as "OSCO".
     /// </summary>
     [EnumMember(Value = "OSCO")]
     [IsoId("_3VsSQYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies other system.")]
-    OtherSystemCode,
+    OtherSystemCode = PartyIdentificationTypeCode.OtherSystemCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Password of the trading system.
-    /// Encoded/decoded by serializers as "Password".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_3bsMkYA2EeSUJZYcWGKkkw")]
     [Description(@"Password of the trading system.")]
-    Password,
+    Password = PartyIdentificationTypeCode.Password, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Phone number of the trading members.
-    /// Encoded/decoded by serializers as "PhoneNumber".
+    /// Encoded/decoded by serializers as "PONU".
     /// </summary>
     [EnumMember(Value = "PONU")]
     [IsoId("_3iIy0YA2EeSUJZYcWGKkkw")]
     [Description(@"Phone number of the trading members.")]
-    PhoneNumber,
+    PhoneNumber = PartyIdentificationTypeCode.PhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal address of the trading members.
-    /// Encoded/decoded by serializers as "PostalAddress".
+    /// Encoded/decoded by serializers as "POAD".
     /// </summary>
     [EnumMember(Value = "POAD")]
     [IsoId("_3nRxgYA2EeSUJZYcWGKkkw")]
     [Description(@"Postal address of the trading members.")]
-    PostalAddress,
+    PostalAddress = PartyIdentificationTypeCode.PostalAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member identification of the RMB trading system
-    /// 
-    /// Encoded/decoded by serializers as "RMBMemberIdentification".
+    /// Encoded/decoded by serializers as "RMID".
     /// </summary>
     [EnumMember(Value = "RMID")]
     [IsoId("_3soLkYA2EeSUJZYcWGKkkw")]
-    [Description(@"Member identification of the RMB trading system ")]
-    RMBMemberIdentification,
+    [Description(@"Member identification of the RMB trading system|")]
+    RMBMemberIdentification = PartyIdentificationTypeCode.RMBMemberIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal chinese short title of the trading members.
-    /// Encoded/decoded by serializers as "ShortLegalChineseNameOfFirm".
+    /// Encoded/decoded by serializers as "SLCN".
     /// </summary>
     [EnumMember(Value = "SLCN")]
     [IsoId("_3xxKQYA2EeSUJZYcWGKkkw")]
     [Description(@"Legal chinese short title of the trading members.")]
-    ShortLegalChineseNameOfFirm,
+    ShortLegalChineseNameOfFirm = PartyIdentificationTypeCode.ShortLegalChineseNameOfFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal short title of the trading members.
-    /// Encoded/decoded by serializers as "ShortLegalNameOfFirm".
+    /// Encoded/decoded by serializers as "SLNF".
     /// </summary>
     [EnumMember(Value = "SLNF")]
     [IsoId("_32Sd4YA2EeSUJZYcWGKkkw")]
     [Description(@"Legal short title of the trading members.")]
-    ShortLegalNameOfFirm,
+    ShortLegalNameOfFirm = PartyIdentificationTypeCode.ShortLegalNameOfFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Chinese names for the traders.
-    /// Encoded/decoded by serializers as "TraderChineseName".
+    /// Encoded/decoded by serializers as "TACN".
     /// </summary>
     [EnumMember(Value = "TACN")]
     [IsoId("_369igYA2EeSUJZYcWGKkkw")]
     [Description(@"Chinese names for the traders.")]
-    TraderChineseName,
+    TraderChineseName = PartyIdentificationTypeCode.TraderChineseName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the traders.
-    /// Encoded/decoded by serializers as "TraderCode".
+    /// Encoded/decoded by serializers as "TRCO".
     /// </summary>
     [EnumMember(Value = "TRCO")]
     [IsoId("_3_tfoYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies the traders.")]
-    TraderCode,
+    TraderCode = PartyIdentificationTypeCode.TraderCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Names for the traders.
-    /// Encoded/decoded by serializers as "TraderName".
+    /// Encoded/decoded by serializers as "TANA".
     /// </summary>
     [EnumMember(Value = "TANA")]
     [IsoId("_4FhzwYA2EeSUJZYcWGKkkw")]
     [Description(@"Names for the traders.")]
-    TraderName,
+    TraderName = PartyIdentificationTypeCode.TraderName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Input the user of trading system.
-    /// Encoded/decoded by serializers as "UserInputTrades".
+    /// Encoded/decoded by serializers as "USIT".
     /// </summary>
     [EnumMember(Value = "USIT")]
     [IsoId("_4QrT0YA2EeSUJZYcWGKkkw")]
     [Description(@"Input the user of trading system.")]
-    UserInputTrades,
+    UserInputTrades = PartyIdentificationTypeCode.UserInputTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// User name of the trading system.
-    /// Encoded/decoded by serializers as "UserName".
+    /// Encoded/decoded by serializers as "USNA".
     /// </summary>
     [EnumMember(Value = "USNA")]
     [IsoId("_4W8T4YA2EeSUJZYcWGKkkw")]
     [Description(@"User name of the trading system.")]
-    UserName,
+    UserName = PartyIdentificationTypeCode.UserName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent input the user of the trading system.
-    /// Encoded/decoded by serializers as "AgentUserInputTrades".
+    /// Encoded/decoded by serializers as "AUIT".
     /// </summary>
     [EnumMember(Value = "AUIT")]
     [IsoId("_5GMmkYA2EeSUJZYcWGKkkw")]
     [Description(@"Agent input the user of the trading system.")]
-    AgentUserInputTrades,
+    AgentUserInputTrades = PartyIdentificationTypeCode.AgentUserInputTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the branch.
-    /// Encoded/decoded by serializers as "BranchIdentification".
+    /// Encoded/decoded by serializers as "BRID".
     /// </summary>
     [EnumMember(Value = "BRID")]
     [IsoId("_5K12AYA2EeSUJZYcWGKkkw")]
     [Description(@"Identification of the branch.")]
-    BranchIdentification,
+    BranchIdentification = PartyIdentificationTypeCode.BranchIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies clearing institution.
-    /// Encoded/decoded by serializers as "ClearingInstitution".
+    /// Encoded/decoded by serializers as "CLIN".
     /// </summary>
     [EnumMember(Value = "CLIN")]
     [IsoId("_5m5f4YA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies clearing institution.")]
-    ClearingInstitution,
+    ClearingInstitution = PartyIdentificationTypeCode.ClearingInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the collateral management institution.
-    /// Encoded/decoded by serializers as "CollateralManagementInstitution".
+    /// Encoded/decoded by serializers as "CMID".
     /// </summary>
     [EnumMember(Value = "CMID")]
     [IsoId("_5rjWYYA2EeSUJZYcWGKkkw")]
     [Description(@"Identification of the collateral management institution.")]
-    CollateralManagementInstitution,
+    CollateralManagementInstitution = PartyIdentificationTypeCode.CollateralManagementInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Name of the collateral management institution.
-    /// Encoded/decoded by serializers as "CollateralManagementInstitutionName".
+    /// Encoded/decoded by serializers as "COIN".
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_5wEqAYA2EeSUJZYcWGKkkw")]
     [Description(@"Name of the collateral management institution.")]
-    CollateralManagementInstitutionName,
+    CollateralManagementInstitutionName = PartyIdentificationTypeCode.CollateralManagementInstitutionName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact method of the traders.
-    /// Encoded/decoded by serializers as "ContactMethodOfTrader".
+    /// Encoded/decoded by serializers as "CMOT".
     /// </summary>
     [EnumMember(Value = "CMOT")]
     [IsoId("_50mksYA2EeSUJZYcWGKkkw")]
     [Description(@"Contact method of the traders.")]
-    ContactMethodOfTrader,
+    ContactMethodOfTrader = PartyIdentificationTypeCode.ContactMethodOfTrader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact name of the trading members.
-    /// Encoded/decoded by serializers as "ContactName".
+    /// Encoded/decoded by serializers as "CONU".
     /// </summary>
     [EnumMember(Value = "CONU")]
     [IsoId("_55K7oYA2EeSUJZYcWGKkkw")]
     [Description(@"Contact name of the trading members.")]
-    ContactName,
+    ContactName = PartyIdentificationTypeCode.ContactName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Institution of custody management.
-    /// Encoded/decoded by serializers as "CustodyManagementInstitution".
+    /// Encoded/decoded by serializers as "CMIN".
     /// </summary>
     [EnumMember(Value = "CMIN")]
     [IsoId("_59rBIYA2EeSUJZYcWGKkkw")]
     [Description(@"Institution of custody management.")]
-    CustodyManagementInstitution,
+    CustodyManagementInstitution = PartyIdentificationTypeCode.CustodyManagementInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade confimation person name.
-    /// Encoded/decoded by serializers as "DealConfirmContactName".
+    /// Encoded/decoded by serializers as "DECN".
     /// </summary>
     [EnumMember(Value = "DECN")]
     [IsoId("_6CLGoYA2EeSUJZYcWGKkkw")]
     [Description(@"Trade confimation person name.")]
-    DealConfirmContactName,
+    DealConfirmContactName = PartyIdentificationTypeCode.DealConfirmContactName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Department of the trading members.
-    /// Encoded/decoded by serializers as "Department".
+    /// Encoded/decoded by serializers as "DEPA".
     /// </summary>
     [EnumMember(Value = "DEPA")]
     [IsoId("_6GsaQYA2EeSUJZYcWGKkkw")]
     [Description(@"Department of the trading members.")]
-    Department,
+    Department = PartyIdentificationTypeCode.Department, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies eligible of counterparty.
-    /// Encoded/decoded by serializers as "EligibleCounterparty".
+    /// Encoded/decoded by serializers as "ELCO".
     /// </summary>
     [EnumMember(Value = "ELCO")]
     [IsoId("_6LMfwYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies eligible of counterparty.")]
-    EligibleCounterparty,
+    EligibleCounterparty = PartyIdentificationTypeCode.EligibleCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of execution.
-    /// Encoded/decoded by serializers as "ExecutionVenue".
+    /// Encoded/decoded by serializers as "EXVE".
     /// </summary>
     [EnumMember(Value = "EXVE")]
     [IsoId("_6PuacYA2EeSUJZYcWGKkkw")]
     [Description(@"Place of execution.")]
-    ExecutionVenue,
+    ExecutionVenue = PartyIdentificationTypeCode.ExecutionVenue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the firm.
-    /// Encoded/decoded by serializers as "FirmCode".
+    /// Encoded/decoded by serializers as "FICO".
     /// </summary>
     [EnumMember(Value = "FICO")]
     [IsoId("_6VKUEYA2EeSUJZYcWGKkkw")]
     [Description(@"Specifies the firm.")]
-    FirmCode,
+    FirmCode = PartyIdentificationTypeCode.FirmCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the firm.
-    /// Encoded/decoded by serializers as "FirmIdentification".
+    /// Encoded/decoded by serializers as "FIID".
     /// </summary>
     [EnumMember(Value = "FIID")]
     [IsoId("_6bflkYA2EeSUJZYcWGKkkw")]
     [Description(@"Identification of the firm.")]
-    FirmIdentification,
+    FirmIdentification = PartyIdentificationTypeCode.FirmIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal chinese full title of the trading members.
-    /// Encoded/decoded by serializers as "FullLegalChineseNameOfFirm".
+    /// Encoded/decoded by serializers as "FLCN".
     /// </summary>
     [EnumMember(Value = "FLCN")]
     [IsoId("_6gFxsYA2EeSUJZYcWGKkkw")]
     [Description(@"Legal chinese full title of the trading members.")]
-    FullLegalChineseNameOfFirm,
+    FullLegalChineseNameOfFirm = PartyIdentificationTypeCode.FullLegalChineseNameOfFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal full title of the trading members.
-    /// Encoded/decoded by serializers as "FullLegalNameOfFirm".
+    /// Encoded/decoded by serializers as "FLNF".
     /// </summary>
     [EnumMember(Value = "FLNF")]
     [IsoId("_6knsYYA2EeSUJZYcWGKkkw")]
     [Description(@"Legal full title of the trading members.")]
-    FullLegalNameOfFirm,
+    FullLegalNameOfFirm = PartyIdentificationTypeCode.FullLegalNameOfFirm, // same ordinal as derivation source for type conversions
     
 }
 
@@ -363,7 +361,7 @@ public enum PartyIdentificationType1Code
 public static class PartyIdentificationType1CodeMetadataExtensions
 {
     private static readonly PartyIdentificationType1CodeDropdownSource _dropdownSource = new PartyIdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

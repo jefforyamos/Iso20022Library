@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oOpwzL3EeKU9IrkkToqcw_800966479")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined notice type.")]
 [Derivations(typeof(NoticeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NoticeTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum NoticeTypeCode
 public static class NoticeTypeCodeMetadataExtensions
 {
     private static readonly NoticeTypeCodeDropdownSource _dropdownSource = new NoticeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

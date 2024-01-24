@@ -21,30 +21,30 @@ public enum RejectionReason18Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zir1Ntp-Ed-ak6NoX_4Aeg_-940679430")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient balance.
-    /// Encoded/decoded by serializers as "InsufficientBalance".
+    /// Encoded/decoded by serializers as "INHO".
     /// </summary>
     [EnumMember(Value = "INHO")]
     [IsoId("_Zir1N9p-Ed-ak6NoX_4Aeg_-940679369")]
     [Description(@"Insufficient balance.")]
-    InsufficientBalance,
+    InsufficientBalance = RejectionReasonCode.InsufficientBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "Late".
+    /// Encoded/decoded by serializers as "LATT".
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_Zir1ONp-Ed-ak6NoX_4Aeg_-940679338")]
     [Description(@"Instruction/Request arrives too late.")]
-    Late,
+    Late = RejectionReasonCode.Late, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RejectionReason18Code
 public static class RejectionReason18CodeMetadataExtensions
 {
     private static readonly RejectionReason18CodeDropdownSource _dropdownSource = new RejectionReason18CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

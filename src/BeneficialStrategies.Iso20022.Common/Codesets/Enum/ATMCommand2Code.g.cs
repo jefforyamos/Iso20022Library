@@ -21,120 +21,120 @@ public enum ATMCommand2Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "ABAL".
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_y5cO4Yr2EeSvuOJS0mmL0g")]
     [Description(@"Provide the ATM counters, resetting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = ATMCommandCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the ATM required by the ATM manager.
-    /// Encoded/decoded by serializers as "ATMStatusUpdate".
+    /// Encoded/decoded by serializers as "ASTS".
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_zCoAE4r2EeSvuOJS0mmL0g")]
     [Description(@"Status of the ATM required by the ATM manager.")]
-    ATMStatusUpdate,
+    ATMStatusUpdate = ATMCommandCode.ATMStatusUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the ATM configuration parameters.
-    /// Encoded/decoded by serializers as "ConfigurationUpdate".
+    /// Encoded/decoded by serializers as "CFGT".
     /// </summary>
     [EnumMember(Value = "CFGT")]
     [IsoId("_zH5hoYr2EeSvuOJS0mmL0g")]
     [Description(@"Update the ATM configuration parameters.")]
-    ConfigurationUpdate,
+    ConfigurationUpdate = ATMCommandCode.ConfigurationUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "CCNT".
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_zRKLU4r2EeSvuOJS0mmL0g")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = ATMCommandCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Perform a disconnection followed by a reconnection.
-    /// Encoded/decoded by serializers as "Disconnect".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_zStqgYr2EeSvuOJS0mmL0g")]
     [Description(@"Perform a disconnection followed by a reconnection.")]
-    Disconnect,
+    Disconnect = ATMCommandCode.Disconnect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Activate cryptographic keys.
-    /// Encoded/decoded by serializers as "KeyActivation".
+    /// Encoded/decoded by serializers as "KACT".
     /// </summary>
     [EnumMember(Value = "KACT")]
     [IsoId("_zcTEU4r2EeSvuOJS0mmL0g")]
     [Description(@"Activate cryptographic keys.")]
-    KeyActivation,
+    KeyActivation = ATMCommandCode.KeyActivation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deactivate cryptographic keys.
-    /// Encoded/decoded by serializers as "KeyDeactivation".
+    /// Encoded/decoded by serializers as "KDAC".
     /// </summary>
     [EnumMember(Value = "KDAC")]
     [IsoId("_zd2jgYr2EeSvuOJS0mmL0g")]
     [Description(@"Deactivate cryptographic keys.")]
-    KeyDeactivation,
+    KeyDeactivation = ATMCommandCode.KeyDeactivation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Start a cryptographic key download.
-    /// Encoded/decoded by serializers as "KeyDownload".
+    /// Encoded/decoded by serializers as "KDWL".
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_zmgwQ4r2EeSvuOJS0mmL0g")]
     [Description(@"Start a cryptographic key download.")]
-    KeyDownload,
+    KeyDownload = ATMCommandCode.KeyDownload, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remove cryptographic keys.
-    /// Encoded/decoded by serializers as "KeyRemove".
+    /// Encoded/decoded by serializers as "KRMV".
     /// </summary>
     [EnumMember(Value = "KRMV")]
     [IsoId("_zsutAYr2EeSvuOJS0mmL0g")]
     [Description(@"Remove cryptographic keys.")]
-    KeyRemove,
+    KeyRemove = ATMCommandCode.KeyRemove, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the configuration of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SecurityDeviceConfigurationUpdate".
+    /// Encoded/decoded by serializers as "SCFU".
     /// </summary>
     [EnumMember(Value = "SCFU")]
     [IsoId("_z1YSs4r2EeSvuOJS0mmL0g")]
     [Description(@"Update the configuration of the hardware security module on the ATM.")]
-    SecurityDeviceConfigurationUpdate,
+    SecurityDeviceConfigurationUpdate = ATMCommandCode.SecurityDeviceConfigurationUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the security scheme of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SecurityDeviceSchemeUpdate".
+    /// Encoded/decoded by serializers as "SSCU".
     /// </summary>
     [EnumMember(Value = "SSCU")]
     [IsoId("_z6CJMYr2EeSvuOJS0mmL0g")]
     [Description(@"Update the security scheme of the hardware security module on the ATM.")]
-    SecurityDeviceSchemeUpdate,
+    SecurityDeviceSchemeUpdate = ATMCommandCode.SecurityDeviceSchemeUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the status of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SecurityDeviceStatusUpdate".
+    /// Encoded/decoded by serializers as "SSTU".
     /// </summary>
     [EnumMember(Value = "SSTU")]
     [IsoId("_0EJHc4r2EeSvuOJS0mmL0g")]
     [Description(@"Update the status of the hardware security module on the ATM.")]
-    SecurityDeviceStatusUpdate,
+    SecurityDeviceStatusUpdate = ATMCommandCode.SecurityDeviceStatusUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send a specific message to initiate a process.
-    /// Encoded/decoded by serializers as "SendMessage".
+    /// Encoded/decoded by serializers as "SNDM".
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_0Mvp04r2EeSvuOJS0mmL0g")]
     [Description(@"Send a specific message to initiate a process.")]
-    SendMessage,
+    SendMessage = ATMCommandCode.SendMessage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum ATMCommand2Code
 public static class ATMCommand2CodeMetadataExtensions
 {
     private static readonly ATMCommand2CodeDropdownSource _dropdownSource = new ATMCommand2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

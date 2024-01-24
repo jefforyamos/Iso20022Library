@@ -21,30 +21,30 @@ public enum FleetServiceType1Code
 {
     /// <summary>
     /// Self service
-    /// Encoded/decoded by serializers as "SelfService".
+    /// Encoded/decoded by serializers as "SLSV".
     /// </summary>
     [EnumMember(Value = "SLSV")]
     [IsoId("_1wy9YTEoEemzCpWiCwK4aQ")]
     [Description(@"Self service")]
-    SelfService,
+    SelfService = FleetServiceTypeCode.SelfService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// High speed dispenser that may or may not support varying flow rates. 
-    /// Encoded/decoded by serializers as "HighSpeedDispenser".
+    /// Encoded/decoded by serializers as "HSDI".
     /// </summary>
     [EnumMember(Value = "HSDI")]
     [IsoId("_2FW4ITEoEemzCpWiCwK4aQ")]
     [Description(@"High speed dispenser that may or may not support varying flow rates. ")]
-    HighSpeedDispenser,
+    HighSpeedDispenser = FleetServiceTypeCode.HighSpeedDispenser, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Full service
-    /// Encoded/decoded by serializers as "FullService".
+    /// Encoded/decoded by serializers as "FLSV".
     /// </summary>
     [EnumMember(Value = "FLSV")]
     [IsoId("_2cwrgTEoEemzCpWiCwK4aQ")]
     [Description(@"Full service")]
-    FullService,
+    FullService = FleetServiceTypeCode.FullService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FleetServiceType1Code
 public static class FleetServiceType1CodeMetadataExtensions
 {
     private static readonly FleetServiceType1CodeDropdownSource _dropdownSource = new FleetServiceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum OffMarket1Code
 {
     /// <summary>
     /// Trade was executed off-market.
-    /// Encoded/decoded by serializers as "OffMarket".
+    /// Encoded/decoded by serializers as "XOFF".
     /// </summary>
     [EnumMember(Value = "XOFF")]
     [IsoId("_aOfyUtp-Ed-ak6NoX_4Aeg_-2050871151")]
     [Description(@"Trade was executed off-market.")]
-    OffMarket,
+    OffMarket = OffMarketCode.OffMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade was executed off-exchange because the instrument is not admitted to trade on an exchange.
-    /// Encoded/decoded by serializers as "NotAdmittedOnExchange".
+    /// Encoded/decoded by serializers as "XXXX".
     /// </summary>
     [EnumMember(Value = "XXXX")]
     [IsoId("_aOfyU9p-Ed-ak6NoX_4Aeg_-103068136")]
     [Description(@"Trade was executed off-exchange because the instrument is not admitted to trade on an exchange.")]
-    NotAdmittedOnExchange,
+    NotAdmittedOnExchange = OffMarketCode.NotAdmittedOnExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OffMarket1Code
 public static class OffMarket1CodeMetadataExtensions
 {
     private static readonly OffMarket1CodeDropdownSource _dropdownSource = new OffMarket1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

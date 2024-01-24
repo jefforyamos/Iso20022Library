@@ -21,39 +21,39 @@ public enum LegSwapType1Code
 {
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to exchange principal.
-    /// Encoded/decoded by serializers as "ParForPar".
+    /// Encoded/decoded by serializers as "PFPR".
     /// </summary>
     [EnumMember(Value = "PFPR")]
     [IsoId("_aeSh0tp-Ed-ak6NoX_4Aeg_-130309149")]
     [Description(@"Type of leg involved in a swap whose purpose is to exchange principal.")]
-    ParForPar,
+    ParForPar = LegSwapTypeCode.ParForPar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to exchange price volatility.
-    /// Encoded/decoded by serializers as "ModifiedDuration".
+    /// Encoded/decoded by serializers as "MODU".
     /// </summary>
     [EnumMember(Value = "MODU")]
     [IsoId("_aeSh09p-Ed-ak6NoX_4Aeg_-130309107")]
     [Description(@"Type of leg involved in a swap whose purpose is to exchange price volatility.")]
-    ModifiedDuration,
+    ModifiedDuration = LegSwapTypeCode.ModifiedDuration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to increase the credit quality and reduce the default risk. Also known as quality swap.
-    /// Encoded/decoded by serializers as "Risk".
+    /// Encoded/decoded by serializers as "RISK".
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_aeSh1Np-Ed-ak6NoX_4Aeg_-130309063")]
     [Description(@"Type of leg involved in a swap whose purpose is to increase the credit quality and reduce the default risk. Also known as quality swap.")]
-    Risk,
+    Risk = LegSwapTypeCode.Risk, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of leg involved in a swap structured in the sale of a financial instrument and the simultaneous purchase of another instrument with the proceeds from the sale.
-    /// Encoded/decoded by serializers as "Proceeds".
+    /// Encoded/decoded by serializers as "PRCD".
     /// </summary>
     [EnumMember(Value = "PRCD")]
     [IsoId("_aeSh1dp-Ed-ak6NoX_4Aeg_-130309011")]
     [Description(@"Type of leg involved in a swap structured in the sale of a financial instrument and the simultaneous purchase of another instrument with the proceeds from the sale.")]
-    Proceeds,
+    Proceeds = LegSwapTypeCode.Proceeds, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum LegSwapType1Code
 public static class LegSwapType1CodeMetadataExtensions
 {
     private static readonly LegSwapType1CodeDropdownSource _dropdownSource = new LegSwapType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

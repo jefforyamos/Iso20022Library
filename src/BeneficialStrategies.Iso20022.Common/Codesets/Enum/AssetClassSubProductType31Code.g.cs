@@ -21,12 +21,12 @@ public enum AssetClassSubProductType31Code
 {
     /// <summary>
     /// Commodity of type dry freight.
-    /// Encoded/decoded by serializers as "Dry".
+    /// Encoded/decoded by serializers as "DRYF".
     /// </summary>
     [EnumMember(Value = "DRYF")]
     [IsoId("_MvTikVrdEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type dry freight.")]
-    Dry,
+    Dry = AssetClassSubProductTypeCode.Dry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType31Code
 public static class AssetClassSubProductType31CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType31CodeDropdownSource _dropdownSource = new AssetClassSubProductType31CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

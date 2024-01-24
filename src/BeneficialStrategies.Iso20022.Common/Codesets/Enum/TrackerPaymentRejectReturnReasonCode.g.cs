@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_RcQMN_rtEemIKt9hrQ9pJw")]
 [Description(@"Provides the reason for a reject or a return status in the tracker.")]
 [Derivations(typeof(TrackerPaymentRejectReturnReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerPaymentRejectReturnReasonCode
 {
     /// <summary>
@@ -227,7 +226,7 @@ public enum TrackerPaymentRejectReturnReasonCode
 public static class TrackerPaymentRejectReturnReasonCodeMetadataExtensions
 {
     private static readonly TrackerPaymentRejectReturnReasonCodeDropdownSource _dropdownSource = new TrackerPaymentRejectReturnReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

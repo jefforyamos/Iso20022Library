@@ -21,21 +21,21 @@ public enum MessageFunction9Code
 {
     /// <summary>
     /// Reject of a request or an advice message by an acquirer or an agent.
-    /// Encoded/decoded by serializers as "AcceptorRequestReject".
+    /// Encoded/decoded by serializers as "RJCQ".
     /// </summary>
     [EnumMember(Value = "RJCQ")]
     [IsoId("_XdFiUY0OEeWRYffwL7E13A")]
     [Description(@"Reject of a request or an advice message by an acquirer or an agent.")]
-    AcceptorRequestReject,
+    AcceptorRequestReject = MessageFunctionCode.AcceptorRequestReject, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reject of a response or an advice response message by a card acceptor or an agent.
-    /// Encoded/decoded by serializers as "AcceptorResponseReject".
+    /// Encoded/decoded by serializers as "RJCP".
     /// </summary>
     [EnumMember(Value = "RJCP")]
     [IsoId("_XmBb4Y0OEeWRYffwL7E13A")]
     [Description(@"Reject of a response or an advice response message by a card acceptor or an agent.")]
-    AcceptorResponseReject,
+    AcceptorResponseReject = MessageFunctionCode.AcceptorResponseReject, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MessageFunction9Code
 public static class MessageFunction9CodeMetadataExtensions
 {
     private static readonly MessageFunction9CodeDropdownSource _dropdownSource = new MessageFunction9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

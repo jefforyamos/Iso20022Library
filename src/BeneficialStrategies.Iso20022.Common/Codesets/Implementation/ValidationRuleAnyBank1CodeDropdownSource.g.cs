@@ -8,7 +8,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the confirmation for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IValidationRuleAnyBank1CodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.

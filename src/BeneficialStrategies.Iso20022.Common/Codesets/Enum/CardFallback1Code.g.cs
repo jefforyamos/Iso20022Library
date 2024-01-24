@@ -21,30 +21,30 @@ public enum CardFallback1Code
 {
     /// <summary>
     /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.
-    /// Encoded/decoded by serializers as "FallbackAfterFailure".
+    /// Encoded/decoded by serializers as "FFLB".
     /// </summary>
     [EnumMember(Value = "FFLB")]
     [IsoId("_p94cwWkCEeS7zPBpvm732w")]
     [Description(@"Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.")]
-    FallbackAfterFailure,
+    FallbackAfterFailure = CardFallbackCode.FallbackAfterFailure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.
-    /// Encoded/decoded by serializers as "FallbackAfterSuccess".
+    /// Encoded/decoded by serializers as "SFLB".
     /// </summary>
     [EnumMember(Value = "SFLB")]
     [IsoId("_qEHnoWkCEeS7zPBpvm732w")]
     [Description(@"Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.")]
-    FallbackAfterSuccess,
+    FallbackAfterSuccess = CardFallbackCode.FallbackAfterSuccess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No card fall-back during the transaction in progress.
-    /// Encoded/decoded by serializers as "NoFallback".
+    /// Encoded/decoded by serializers as "NFLB".
     /// </summary>
     [EnumMember(Value = "NFLB")]
     [IsoId("_qKU9UWkCEeS7zPBpvm732w")]
     [Description(@"No card fall-back during the transaction in progress.")]
-    NoFallback,
+    NoFallback = CardFallbackCode.NoFallback, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CardFallback1Code
 public static class CardFallback1CodeMetadataExtensions
 {
     private static readonly CardFallback1CodeDropdownSource _dropdownSource = new CardFallback1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

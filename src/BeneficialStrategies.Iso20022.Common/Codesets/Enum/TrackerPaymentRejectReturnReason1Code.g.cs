@@ -21,147 +21,147 @@ public enum TrackerPaymentRejectReturnReason1Code
 {
     /// <summary>
     /// Return following a cancellation request.
-    /// Encoded/decoded by serializers as "FollowingCancellationRequest".
+    /// Encoded/decoded by serializers as "FOCR".
     /// </summary>
     [EnumMember(Value = "FOCR")]
     [IsoId("_3ohS4frtEemIKt9hrQ9pJw")]
     [Description(@"Return following a cancellation request.")]
-    FollowingCancellationRequest,
+    FollowingCancellationRequest = TrackerPaymentRejectReturnReasonCode.FollowingCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "InconsistentWithEndCustomer".
+    /// Encoded/decoded by serializers as "BE01".
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_31oh0frtEemIKt9hrQ9pJw")]
     [Description(@"Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).")]
-    InconsistentWithEndCustomer,
+    InconsistentWithEndCustomer = TrackerPaymentRejectReturnReasonCode.InconsistentWithEndCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account number is invalid or missing
-    /// Encoded/decoded by serializers as "IncorrectAccountNumber".
+    /// Encoded/decoded by serializers as "AC01".
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_3-fi4frtEemIKt9hrQ9pJw")]
     [Description(@"Account number is invalid or missing")]
-    IncorrectAccountNumber,
+    IncorrectAccountNumber = TrackerPaymentRejectReturnReasonCode.IncorrectAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Routing code not valid for local clearing.
-    /// Encoded/decoded by serializers as "InvalidClearingSystemMemberIdentifier".
+    /// Encoded/decoded by serializers as "RC08".
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_4GdMEfrtEemIKt9hrQ9pJw")]
     [Description(@"Routing code not valid for local clearing.")]
-    InvalidClearingSystemMemberIdentifier,
+    InvalidClearingSystemMemberIdentifier = TrackerPaymentRejectReturnReasonCode.InvalidClearingSystemMemberIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Purpose is missing or invalid.
-    /// Encoded/decoded by serializers as "InvalidPurpose".
+    /// Encoded/decoded by serializers as "FF07".
     /// </summary>
     [EnumMember(Value = "FF07")]
     [IsoId("_4P-7gfrtEemIKt9hrQ9pJw")]
     [Description(@"Purpose is missing or invalid.")]
-    InvalidPurpose,
+    InvalidPurpose = TrackerPaymentRejectReturnReasonCode.InvalidPurpose, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specification of the creditor's name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "MissingCreditorNameOrAddress".
+    /// Encoded/decoded by serializers as "RR03".
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_4VUHcfrtEemIKt9hrQ9pJw")]
     [Description(@"Specification of the creditor's name and/or address needed for regulatory requirements is insufficient or missing.")]
-    MissingCreditorNameOrAddress,
+    MissingCreditorNameOrAddress = TrackerPaymentRejectReturnReasonCode.MissingCreditorNameOrAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Failed to contact beneficiary.
-    /// Encoded/decoded by serializers as "NoAnswerFromCustomer".
+    /// Encoded/decoded by serializers as "NOAS".
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_4cV8gfrtEemIKt9hrQ9pJw")]
     [Description(@"Failed to contact beneficiary.")]
-    NoAnswerFromCustomer,
+    NoAnswerFromCustomer = TrackerPaymentRejectReturnReasonCode.NoAnswerFromCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
+    /// Encoded/decoded by serializers as "MS03".
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_4lkxAfrtEemIKt9hrQ9pJw")]
     [Description(@"Reason has not been specified by agent.")]
-    NotSpecifiedReasonAgentGenerated,
+    NotSpecifiedReasonAgentGenerated = TrackerPaymentRejectReturnReasonCode.NotSpecifiedReasonAgentGenerated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regulatory or Central Bank Reporting information missing, incomplete or invalid.
-    /// Encoded/decoded by serializers as "RegulatoryInformationInvalid".
+    /// Encoded/decoded by serializers as "RR05".
     /// </summary>
     [EnumMember(Value = "RR05")]
     [IsoId("_4sMWYfrtEemIKt9hrQ9pJw")]
     [Description(@"Regulatory or Central Bank Reporting information missing, incomplete or invalid.")]
-    RegulatoryInformationInvalid,
+    RegulatoryInformationInvalid = TrackerPaymentRejectReturnReasonCode.RegulatoryInformationInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// At request of creditor.
-    /// Encoded/decoded by serializers as "RequestedByCustomer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_4xdQ4frtEemIKt9hrQ9pJw")]
     [Description(@"At request of creditor.")]
-    RequestedByCustomer,
+    RequestedByCustomer = TrackerPaymentRejectReturnReasonCode.RequestedByCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Below limit.
-    /// Encoded/decoded by serializers as "AmountTooLow".
+    /// Encoded/decoded by serializers as "AM06".
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_5O73EfrtEemIKt9hrQ9pJw")]
     [Description(@"Below limit.")]
-    AmountTooLow,
+    AmountTooLow = TrackerPaymentRejectReturnReasonCode.AmountTooLow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "BankIdentifierIncorrect".
+    /// Encoded/decoded by serializers as "RC01".
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_5VOsUfrtEemIKt9hrQ9pJw")]
     [Description(@"Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).")]
-    BankIdentifierIncorrect,
+    BankIdentifierIncorrect = TrackerPaymentRejectReturnReasonCode.BankIdentifierIncorrect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "BlockedAccount".
+    /// Encoded/decoded by serializers as "AC06".
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_5Z8NMfrtEemIKt9hrQ9pJw")]
     [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
-    BlockedAccount,
+    BlockedAccount = TrackerPaymentRejectReturnReasonCode.BlockedAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account number specified has been closed on the bank of account's books.
-    /// Encoded/decoded by serializers as "ClosedAccountNumber".
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_5f8ukfrtEemIKt9hrQ9pJw")]
     [Description(@"Account number specified has been closed on the bank of account's books.")]
-    ClosedAccountNumber,
+    ClosedAccountNumber = TrackerPaymentRejectReturnReasonCode.ClosedAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_5m5rIfrtEemIKt9hrQ9pJw")]
     [Description(@"Payment is a duplicate of another payment.")]
-    Duplication,
+    Duplication = TrackerPaymentRejectReturnReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
-    /// Encoded/decoded by serializers as "CreditPendingFunds".
+    /// Encoded/decoded by serializers as "G004".
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_qzu8YRd2EeqIn-BjQjNcxg")]
     [Description(@"Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.")]
-    CreditPendingFunds,
+    CreditPendingFunds = TrackerPaymentRejectReturnReasonCode.CreditPendingFunds, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum TrackerPaymentRejectReturnReason1Code
 public static class TrackerPaymentRejectReturnReason1CodeMetadataExtensions
 {
     private static readonly TrackerPaymentRejectReturnReason1CodeDropdownSource _dropdownSource = new TrackerPaymentRejectReturnReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

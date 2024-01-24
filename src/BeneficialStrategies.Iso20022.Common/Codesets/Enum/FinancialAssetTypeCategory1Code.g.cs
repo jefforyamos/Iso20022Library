@@ -21,57 +21,57 @@ public enum FinancialAssetTypeCategory1Code
 {
     /// <summary>
     /// Balance attributed to equities.
-    /// Encoded/decoded by serializers as "Equities".
+    /// Encoded/decoded by serializers as "EQTY".
     /// </summary>
     [EnumMember(Value = "EQTY")]
     [IsoId("_m9i30vNBEeCuA5Tr22BnwA_1063862993")]
     [Description(@"Balance attributed to equities.")]
-    Equities,
+    Equities = FinancialAssetTypeCategoryCode.Equities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance attributed to debt instruments.
-    /// Encoded/decoded by serializers as "DebtInstruments".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_m9i30_NBEeCuA5Tr22BnwA_250712475")]
     [Description(@"Balance attributed to debt instruments.")]
-    DebtInstruments,
+    DebtInstruments = FinancialAssetTypeCategoryCode.DebtInstruments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance attributed to entitlements.
-    /// Encoded/decoded by serializers as "Entitlements".
+    /// Encoded/decoded by serializers as "ENTL".
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_m9i31PNBEeCuA5Tr22BnwA_1925778616")]
     [Description(@"Balance attributed to entitlements.")]
-    Entitlements,
+    Entitlements = FinancialAssetTypeCategoryCode.Entitlements, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance attributed to derivatives.
-    /// Encoded/decoded by serializers as "Derivatives".
+    /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_m9i31fNBEeCuA5Tr22BnwA_853773557")]
     [Description(@"Balance attributed to derivatives.")]
-    Derivatives,
+    Derivatives = FinancialAssetTypeCategoryCode.Derivatives, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance attributed to money market instruments.
-    /// Encoded/decoded by serializers as "MoneyMarket".
+    /// Encoded/decoded by serializers as "MMKT".
     /// </summary>
     [EnumMember(Value = "MMKT")]
     [IsoId("_m9so0PNBEeCuA5Tr22BnwA_827954634")]
     [Description(@"Balance attributed to money market instruments.")]
-    MoneyMarket,
+    MoneyMarket = FinancialAssetTypeCategoryCode.MoneyMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other financial asset type balance according to a different classification, which is not explictly defined.
-    /// Encoded/decoded by serializers as "Others".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_m9so0fNBEeCuA5Tr22BnwA_714115568")]
     [Description(@"Other financial asset type balance according to a different classification, which is not explictly defined.")]
-    Others,
+    Others = FinancialAssetTypeCategoryCode.Others, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum FinancialAssetTypeCategory1Code
 public static class FinancialAssetTypeCategory1CodeMetadataExtensions
 {
     private static readonly FinancialAssetTypeCategory1CodeDropdownSource _dropdownSource = new FinancialAssetTypeCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

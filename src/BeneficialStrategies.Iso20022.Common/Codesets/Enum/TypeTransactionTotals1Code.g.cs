@@ -21,39 +21,39 @@ public enum TypeTransactionTotals1Code
 {
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_TUJ9QAEcEeCQm6a_G2yO_w_-1120595523")]
     [Description(@"Debit transactions on the cardholder account.")]
-    Debit,
+    Debit = TypeTransactionTotalsCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DebitReverse".
+    /// Encoded/decoded by serializers as "DBTR".
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_TUTHIAEcEeCQm6a_G2yO_w_-2003828810")]
     [Description(@"Reversal of debit transactions (cancellation).")]
-    DebitReverse,
+    DebitReverse = TypeTransactionTotalsCode.DebitReverse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TUTHIQEcEeCQm6a_G2yO_w_1152384112")]
     [Description(@"Credit transactions (refund, account, cash service, as defined in the transaction service type).")]
-    Credit,
+    Credit = TypeTransactionTotalsCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CreditReverse".
+    /// Encoded/decoded by serializers as "CRDR".
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_TUTHIgEcEeCQm6a_G2yO_w_-1205358011")]
     [Description(@"Reversal of credit transactions (cancellation).")]
-    CreditReverse,
+    CreditReverse = TypeTransactionTotalsCode.CreditReverse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TypeTransactionTotals1Code
 public static class TypeTransactionTotals1CodeMetadataExtensions
 {
     private static readonly TypeTransactionTotals1CodeDropdownSource _dropdownSource = new TypeTransactionTotals1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

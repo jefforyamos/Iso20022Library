@@ -21,30 +21,30 @@ public enum SettlementMethod2Code
 {
     /// <summary>
     /// Settlement is done by the agent instructed to execute a payment instruction.
-    /// Encoded/decoded by serializers as "InstructedAgent".
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_ZMCPx9p-Ed-ak6NoX_4Aeg_-673388466")]
     [Description(@"Settlement is done by the agent instructed to execute a payment instruction.")]
-    InstructedAgent,
+    InstructedAgent = SettlementMethodCode.InstructedAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.
-    /// Encoded/decoded by serializers as "InstructingAgent".
+    /// Encoded/decoded by serializers as "INGA".
     /// </summary>
     [EnumMember(Value = "INGA")]
     [IsoId("_ZMCPyNp-Ed-ak6NoX_4Aeg_-673388449")]
     [Description(@"Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.")]
-    InstructingAgent,
+    InstructingAgent = SettlementMethodCode.InstructingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is done through a payment clearing system.
-    /// Encoded/decoded by serializers as "ClearingSystem".
+    /// Encoded/decoded by serializers as "CLRG".
     /// </summary>
     [EnumMember(Value = "CLRG")]
     [IsoId("_ZMMAwNp-Ed-ak6NoX_4Aeg_-673388407")]
     [Description(@"Settlement is done through a payment clearing system.")]
-    ClearingSystem,
+    ClearingSystem = SettlementMethodCode.ClearingSystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SettlementMethod2Code
 public static class SettlementMethod2CodeMetadataExtensions
 {
     private static readonly SettlementMethod2CodeDropdownSource _dropdownSource = new SettlementMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

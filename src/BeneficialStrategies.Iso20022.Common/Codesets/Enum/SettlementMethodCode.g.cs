@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZMMAwdp-Ed-ak6NoX_4Aeg_712208049")]
 [Description(@"Specifies the method used to settle the payment instruction.")]
 [Derivations(typeof(SettlementMethod1Code),typeof(SettlementMethod2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementMethodCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum SettlementMethodCode
 public static class SettlementMethodCodeMetadataExtensions
 {
     private static readonly SettlementMethodCodeDropdownSource _dropdownSource = new SettlementMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

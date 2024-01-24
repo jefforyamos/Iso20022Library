@@ -21,21 +21,21 @@ public enum SubscriptionChargeApplicationType1Code
 {
     /// <summary>
     /// Charges are accumulated and charged later.
-    /// Encoded/decoded by serializers as "Accumulated".
+    /// Encoded/decoded by serializers as "ACCU".
     /// </summary>
     [EnumMember(Value = "ACCU")]
     [IsoId("_10dH5jL3EeKU9IrkkToqcw_800343679")]
     [Description(@"Charges are accumulated and charged later.")]
-    Accumulated,
+    Accumulated = SubscriptionChargeApplicationTypeCode.Accumulated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges are charged when instructed.
-    /// Encoded/decoded by serializers as "Immediate".
+    /// Encoded/decoded by serializers as "IMDT".
     /// </summary>
     [EnumMember(Value = "IMDT")]
     [IsoId("_10mR0DL3EeKU9IrkkToqcw_-2027474854")]
     [Description(@"Charges are charged when instructed.")]
-    Immediate,
+    Immediate = SubscriptionChargeApplicationTypeCode.Immediate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SubscriptionChargeApplicationType1Code
 public static class SubscriptionChargeApplicationType1CodeMetadataExtensions
 {
     private static readonly SubscriptionChargeApplicationType1CodeDropdownSource _dropdownSource = new SubscriptionChargeApplicationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

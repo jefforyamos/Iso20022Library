@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__wuqYdojEeC60axPepSq7g_-1147396921")]
 [Description(@"Specifies if the ETC service provider is to generate a settlement instruction or not.")]
 [Derivations(typeof(SettlementInstructionGeneration1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementInstructionGenerationCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SettlementInstructionGenerationCode
 public static class SettlementInstructionGenerationCodeMetadataExtensions
 {
     private static readonly SettlementInstructionGenerationCodeDropdownSource _dropdownSource = new SettlementInstructionGenerationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

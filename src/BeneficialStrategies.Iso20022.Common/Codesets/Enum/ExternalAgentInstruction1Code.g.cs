@@ -16,99 +16,99 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_rLbaINA4EeeCAfThR1cp_Q")]
-[Description(@"Specifies further instructions for the agent concerning the processing of an instruction. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies further instructions for the agent concerning the processing of an instruction.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalAgentInstructionCode))]
 public enum ExternalAgentInstruction1Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque. 
-    /// Encoded/decoded by serializers as "PayCreditorByCheque".
+    /// Encoded/decoded by serializers as "CHQB".
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_uaUAe_RYEeuLhpyIdtJzwg")]
     [Description(@"(Ultimate) creditor must be paid by cheque. ")]
-    PayCreditorByCheque,
+    PayCreditorByCheque = ExternalAgentInstructionCode.PayCreditorByCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification. 
-    /// Encoded/decoded by serializers as "HoldCashForCreditor".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_uaUAfvRYEeuLhpyIdtJzwg")]
     [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification. ")]
-    HoldCashForCreditor,
+    HoldCashForCreditor = ExternalAgentInstructionCode.HoldCashForCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional Information to an inquiry reason must be provided. 
-    /// Encoded/decoded by serializers as "InquiryReason".
+    /// Encoded/decoded by serializers as "INQR".
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_uadxcvRYEeuLhpyIdtJzwg")]
     [Description(@"Additional Information to an inquiry reason must be provided. ")]
-    InquiryReason,
+    InquiryReason = ExternalAgentInstructionCode.InquiryReason, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// (Ultimate) creditor to be paid only after verification of identity. 
-    /// Encoded/decoded by serializers as "PayTheBeneficiary".
+    /// Encoded/decoded by serializers as "PBEN".
     /// </summary>
     [EnumMember(Value = "PBEN")]
     [IsoId("_uadxdfRYEeuLhpyIdtJzwg")]
     [Description(@"(Ultimate) creditor to be paid only after verification of identity. ")]
-    PayTheBeneficiary,
+    PayTheBeneficiary = ExternalAgentInstructionCode.PayTheBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact next agent by phone. 
-    /// Encoded/decoded by serializers as "PhoneNextAgent".
+    /// Encoded/decoded by serializers as "PHOA".
     /// </summary>
     [EnumMember(Value = "PHOA")]
     [IsoId("_uam7YvRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact next agent by phone. ")]
-    PhoneNextAgent,
+    PhoneNextAgent = ExternalAgentInstructionCode.PhoneNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone. 
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_uam7ZfRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by phone. ")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = ExternalAgentInstructionCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact next agent by the most efficient means of telecommunication. 
-    /// Encoded/decoded by serializers as "TelecomNextAgent".
+    /// Encoded/decoded by serializers as "TELA".
     /// </summary>
     [EnumMember(Value = "TELA")]
     [IsoId("_uawsYvRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact next agent by the most efficient means of telecommunication. ")]
-    TelecomNextAgent,
+    TelecomNextAgent = ExternalAgentInstructionCode.TelecomNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication. 
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_uawsZfRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication. ")]
-    Telecom,
+    Telecom = ExternalAgentInstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction will be valid and eligible for execution from the date and time stipulated. 
-    /// Encoded/decoded by serializers as "TimeFrom".
+    /// Encoded/decoded by serializers as "TFRO".
     /// </summary>
     [EnumMember(Value = "TFRO")]
     [IsoId("_uawsaPRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction will be valid and eligible for execution from the date and time stipulated. ")]
-    TimeFrom,
+    TimeFrom = ExternalAgentInstructionCode.TimeFrom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected. 
-    /// Encoded/decoded by serializers as "TimeTill".
+    /// Encoded/decoded by serializers as "TTIL".
     /// </summary>
     [EnumMember(Value = "TTIL")]
     [IsoId("_ua6dYvRYEeuLhpyIdtJzwg")]
     [Description(@"Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected. ")]
-    TimeTill,
+    TimeTill = ExternalAgentInstructionCode.TimeTill, // same ordinal as derivation source for type conversions
     
 }
 
@@ -119,7 +119,7 @@ public enum ExternalAgentInstruction1Code
 public static class ExternalAgentInstruction1CodeMetadataExtensions
 {
     private static readonly ExternalAgentInstruction1CodeDropdownSource _dropdownSource = new ExternalAgentInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

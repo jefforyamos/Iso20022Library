@@ -21,12 +21,12 @@ public enum AssetClassSubProductType33Code
 {
     /// <summary>
     /// Commodity of type construction.
-    /// Encoded/decoded by serializers as "Construction".
+    /// Encoded/decoded by serializers as "CSTR".
     /// </summary>
     [EnumMember(Value = "CSTR")]
     [IsoId("_yRs7A1rfEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type construction.")]
-    Construction,
+    Construction = AssetClassSubProductTypeCode.Construction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType33Code
 public static class AssetClassSubProductType33CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType33CodeDropdownSource _dropdownSource = new AssetClassSubProductType33CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

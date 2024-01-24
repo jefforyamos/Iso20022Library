@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aUTfYdp-Ed-ak6NoX_4Aeg_-982611626")]
 [Description(@"Specifies if an instruction is for a market or client side transaction.")]
 [Derivations(typeof(MarketClientSide1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MarketClientSideCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MarketClientSideCode
 public static class MarketClientSideCodeMetadataExtensions
 {
     private static readonly MarketClientSideCodeDropdownSource _dropdownSource = new MarketClientSideCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

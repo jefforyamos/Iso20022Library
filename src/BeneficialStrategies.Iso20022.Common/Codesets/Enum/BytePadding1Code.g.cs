@@ -21,48 +21,48 @@ public enum BytePadding1Code
 {
     /// <summary>
     /// Message to encrypt is completed by a byte value containing the total number of added bytes.
-    /// Encoded/decoded by serializers as "LengthPadding".
+    /// Encoded/decoded by serializers as "LNGT".
     /// </summary>
     [EnumMember(Value = "LNGT")]
     [IsoId("_3sV-MWi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by a byte value containing the total number of added bytes.")]
-    LengthPadding,
+    LengthPadding = BytePaddingCode.LengthPadding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.
-    /// Encoded/decoded by serializers as "Null80Padding".
+    /// Encoded/decoded by serializers as "NUL8".
     /// </summary>
     [EnumMember(Value = "NUL8")]
     [IsoId("_3x6asWi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.")]
-    Null80Padding,
+    Null80Padding = BytePaddingCode.Null80Padding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.
-    /// Encoded/decoded by serializers as "NullLengthPadding".
+    /// Encoded/decoded by serializers as "NULG".
     /// </summary>
     [EnumMember(Value = "NULG")]
     [IsoId("_344lYWi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.")]
-    NullLengthPadding,
+    NullLengthPadding = BytePaddingCode.NullLengthPadding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to encrypt is completed by null bytes.
-    /// Encoded/decoded by serializers as "NullPadding".
+    /// Encoded/decoded by serializers as "NULL".
     /// </summary>
     [EnumMember(Value = "NULL")]
     [IsoId("_3-_NYWi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by null bytes.")]
-    NullPadding,
+    NullPadding = BytePaddingCode.NullPadding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to encrypt is completed by random value, the last byte containing the total number of added bytes.
-    /// Encoded/decoded by serializers as "RandomPadding".
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_4Hdz8Wi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by random value, the last byte containing the total number of added bytes.")]
-    RandomPadding,
+    RandomPadding = BytePaddingCode.RandomPadding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum BytePadding1Code
 public static class BytePadding1CodeMetadataExtensions
 {
     private static readonly BytePadding1CodeDropdownSource _dropdownSource = new BytePadding1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

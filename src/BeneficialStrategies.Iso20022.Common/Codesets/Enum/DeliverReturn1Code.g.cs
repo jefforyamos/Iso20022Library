@@ -21,21 +21,21 @@ public enum DeliverReturn1Code
 {
     /// <summary>
     /// Specifies that the collateral is to be delivered.
-    /// Encoded/decoded by serializers as "Deliver".
+    /// Encoded/decoded by serializers as "DELV".
     /// </summary>
     [EnumMember(Value = "DELV")]
     [IsoId("_YcMuQ9p-Ed-ak6NoX_4Aeg_1267443780")]
     [Description(@"Specifies that the collateral is to be delivered.")]
-    Deliver,
+    Deliver = DeliverReturnCode.Deliver, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the collateral is to be returned.
-    /// Encoded/decoded by serializers as "Return".
+    /// Encoded/decoded by serializers as "RETN".
     /// </summary>
     [EnumMember(Value = "RETN")]
     [IsoId("_YcMuRNp-Ed-ak6NoX_4Aeg_1710432272")]
     [Description(@"Specifies that the collateral is to be returned.")]
-    Return,
+    Return = DeliverReturnCode.Return, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DeliverReturn1Code
 public static class DeliverReturn1CodeMetadataExtensions
 {
     private static readonly DeliverReturn1CodeDropdownSource _dropdownSource = new DeliverReturn1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CorporateActionMandatoryVoluntary1Code
 {
     /// <summary>
     /// Participation in CA event is mandatory. Further instructions from the account owner are not required.
-    /// Encoded/decoded by serializers as "Mandatory".
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_bKsU0tp-Ed-ak6NoX_4Aeg_-1751624150")]
     [Description(@"Participation in CA event is mandatory. Further instructions from the account owner are not required.")]
-    Mandatory,
+    Mandatory = CorporateActionMandatoryVoluntaryCode.Mandatory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participation in the corporate action is mandatory and further instructions from the account owner are required, unless a default option has been specified.
-    /// Encoded/decoded by serializers as "MandatoryWithOptions".
+    /// Encoded/decoded by serializers as "CHOS".
     /// </summary>
     [EnumMember(Value = "CHOS")]
     [IsoId("_bKsU09p-Ed-ak6NoX_4Aeg_-1751624149")]
     [Description(@"Participation in the corporate action is mandatory and further instructions from the account owner are required, unless a default option has been specified.")]
-    MandatoryWithOptions,
+    MandatoryWithOptions = CorporateActionMandatoryVoluntaryCode.MandatoryWithOptions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participation in the corporate action is voluntary. If the owner wishes to take part in the event, instructions from the account owner are required.
-    /// Encoded/decoded by serializers as "Voluntary".
+    /// Encoded/decoded by serializers as "VOLU".
     /// </summary>
     [EnumMember(Value = "VOLU")]
     [IsoId("_bKsU1Np-Ed-ak6NoX_4Aeg_-1751624119")]
     [Description(@"Participation in the corporate action is voluntary. If the owner wishes to take part in the event, instructions from the account owner are required.")]
-    Voluntary,
+    Voluntary = CorporateActionMandatoryVoluntaryCode.Voluntary, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionMandatoryVoluntary1Code
 public static class CorporateActionMandatoryVoluntary1CodeMetadataExtensions
 {
     private static readonly CorporateActionMandatoryVoluntary1CodeDropdownSource _dropdownSource = new CorporateActionMandatoryVoluntary1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

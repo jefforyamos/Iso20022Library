@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yg0vmNp-Ed-ak6NoX_4Aeg_2120180285")]
 [Description(@"Defines how a warrant can be exercised.")]
 [Derivations(typeof(WarrantStyle1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum WarrantStyleCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum WarrantStyleCode
 public static class WarrantStyleCodeMetadataExtensions
 {
     private static readonly WarrantStyleCodeDropdownSource _dropdownSource = new WarrantStyleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

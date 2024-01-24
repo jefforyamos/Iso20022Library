@@ -21,39 +21,39 @@ public enum QRCodeEncodingMode1Code
 {
     /// <summary>
     /// Alphanumeric value provided in Barcode field.
-    /// Encoded/decoded by serializers as "Alphanumeric".
+    /// Encoded/decoded by serializers as "ALFA".
     /// </summary>
     [EnumMember(Value = "ALFA")]
     [IsoId("_C2JMYdudEeiB5uLfkg9ZJA")]
     [Description(@"Alphanumeric value provided in Barcode field.")]
-    Alphanumeric,
+    Alphanumeric = QRCodeEncodingModeCode.Alphanumeric, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Binary value provided in Quick Response Code Binary Value.
-    /// Encoded/decoded by serializers as "Binary".
+    /// Encoded/decoded by serializers as "BINA".
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_C6I7kdudEeiB5uLfkg9ZJA")]
     [Description(@"Binary value provided in Quick Response Code Binary Value.")]
-    Binary,
+    Binary = QRCodeEncodingModeCode.Binary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kanji value provided in Quick Response Code Binary Value.
-    /// Encoded/decoded by serializers as "Kanji".
+    /// Encoded/decoded by serializers as "KANJ".
     /// </summary>
     [EnumMember(Value = "KANJ")]
     [IsoId("_C-EZUdudEeiB5uLfkg9ZJA")]
     [Description(@"Kanji value provided in Quick Response Code Binary Value.")]
-    Kanji,
+    Kanji = QRCodeEncodingModeCode.Kanji, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Numeric value provided in Barcode field.
-    /// Encoded/decoded by serializers as "Numeric".
+    /// Encoded/decoded by serializers as "NUME".
     /// </summary>
     [EnumMember(Value = "NUME")]
     [IsoId("_DCOgkdudEeiB5uLfkg9ZJA")]
     [Description(@"Numeric value provided in Barcode field.")]
-    Numeric,
+    Numeric = QRCodeEncodingModeCode.Numeric, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum QRCodeEncodingMode1Code
 public static class QRCodeEncodingMode1CodeMetadataExtensions
 {
     private static readonly QRCodeEncodingMode1CodeDropdownSource _dropdownSource = new QRCodeEncodingMode1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

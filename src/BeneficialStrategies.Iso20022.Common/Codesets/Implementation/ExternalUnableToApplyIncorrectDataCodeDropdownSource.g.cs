@@ -9,7 +9,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.
 /// External code sets can be downloaded from www.iso20022.org.
-/// 
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IExternalUnableToApplyIncorrectDataCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Rar2EB0-EeiYoZGjIMHr2A")]
 [Description(@"Provides the reason as to why a payment cancellation request is pending.")]
 [Derivations(typeof(PendingPaymentCancellationReason1Code),typeof(PendingPaymentCancellationReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PendingPaymentCancellationReasonCode
 {
     /// <summary>
@@ -40,12 +39,11 @@ public enum PendingPaymentCancellationReasonCode
     
     /// <summary>
     /// Cancellation indemnity is required. 
-    /// 
     /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_1gtpEB0-EeiYoZGjIMHr2A")]
-    [Description(@"Cancellation indemnity is required.  ")]
+    [Description(@"Cancellation indemnity is required. |")]
     CancellationIndemnityRequired,
     
 }
@@ -57,7 +55,7 @@ public enum PendingPaymentCancellationReasonCode
 public static class PendingPaymentCancellationReasonCodeMetadataExtensions
 {
     private static readonly PendingPaymentCancellationReasonCodeDropdownSource _dropdownSource = new PendingPaymentCancellationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

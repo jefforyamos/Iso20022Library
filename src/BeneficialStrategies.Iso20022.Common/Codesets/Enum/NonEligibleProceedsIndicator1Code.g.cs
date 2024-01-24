@@ -21,30 +21,30 @@ public enum NonEligibleProceedsIndicator1Code
 {
     /// <summary>
     /// Currency not eligible for settlement in the Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "NonEligibleCurrency".
+    /// Encoded/decoded by serializers as "NELC".
     /// </summary>
     [EnumMember(Value = "NELC")]
     [IsoId("_aNcpd9p-Ed-ak6NoX_4Aeg_-1557787681")]
     [Description(@"Currency not eligible for settlement in the Central Securities Depository (CSD).")]
-    NonEligibleCurrency,
+    NonEligibleCurrency = NonEligibleProceedsIndicatorCode.NonEligibleCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant's account limitation.
-    /// Encoded/decoded by serializers as "AccountLimitation".
+    /// Encoded/decoded by serializers as "ACLI".
     /// </summary>
     [EnumMember(Value = "ACLI")]
     [IsoId("_aNmacNp-Ed-ak6NoX_4Aeg_-1557787656")]
     [Description(@"Participant's account limitation.")]
-    AccountLimitation,
+    AccountLimitation = NonEligibleProceedsIndicatorCode.AccountLimitation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other source of non eligibility.
-    /// Encoded/decoded by serializers as "OtherNonEligibility".
+    /// Encoded/decoded by serializers as "ONEL".
     /// </summary>
     [EnumMember(Value = "ONEL")]
     [IsoId("_aNmacdp-Ed-ak6NoX_4Aeg_-1557787373")]
     [Description(@"Other source of non eligibility.")]
-    OtherNonEligibility,
+    OtherNonEligibility = NonEligibleProceedsIndicatorCode.OtherNonEligibility, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NonEligibleProceedsIndicator1Code
 public static class NonEligibleProceedsIndicator1CodeMetadataExtensions
 {
     private static readonly NonEligibleProceedsIndicator1CodeDropdownSource _dropdownSource = new NonEligibleProceedsIndicator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

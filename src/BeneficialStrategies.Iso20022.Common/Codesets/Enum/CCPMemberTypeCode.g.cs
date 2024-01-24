@@ -17,58 +17,51 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_DohbkAGeEeutW5-TpeYJhA")]
 [Description(@"Specifies the type of membership the collateral provider holds with the CCP.")]
 [Derivations(typeof(CCPMemberType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CCPMemberTypeCode
 {
     /// <summary>
     /// Futures Commission Merchant.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "FCMC".
     /// </summary>
     [EnumMember(Value = "FCMC")]
     [IsoId("_P0ZikAGeEeutW5-TpeYJhA")]
-    [Description(@"Futures Commission Merchant.  ")]
+    [Description(@"Futures Commission Merchant.||")]
     FuturesCommissionMerchant,
     
     /// <summary>
     /// General Clearing Member.
-    /// 
     /// Encoded/decoded by serializers as "GCMB".
     /// </summary>
     [EnumMember(Value = "GCMB")]
     [IsoId("_clwVMAGeEeutW5-TpeYJhA")]
-    [Description(@"General Clearing Member. ")]
+    [Description(@"General Clearing Member.|")]
     GeneralClearingMember,
     
     /// <summary>
     /// Direct Clearing Member.
-    /// 
     /// Encoded/decoded by serializers as "DCMB".
     /// </summary>
     [EnumMember(Value = "DCMB")]
     [IsoId("_hDGqQAGeEeutW5-TpeYJhA")]
-    [Description(@"Direct Clearing Member. ")]
+    [Description(@"Direct Clearing Member.|")]
     DirectClearingMember,
     
     /// <summary>
     /// Sponsored Clearing Member.
-    ///  
     /// Encoded/decoded by serializers as "SCMB".
     /// </summary>
     [EnumMember(Value = "SCMB")]
     [IsoId("_rxAXYAGeEeutW5-TpeYJhA")]
-    [Description(@"Sponsored Clearing Member.  ")]
+    [Description(@"Sponsored Clearing Member.| ")]
     SponsoredClearingMember,
     
     /// <summary>
     /// Agent Clearing Member.
-    /// 
     /// Encoded/decoded by serializers as "ACMB".
     /// </summary>
     [EnumMember(Value = "ACMB")]
     [IsoId("_xBv4QAGeEeutW5-TpeYJhA")]
-    [Description(@"Agent Clearing Member. ")]
+    [Description(@"Agent Clearing Member.|")]
     AgentClearingMember,
     
     /// <summary>
@@ -89,7 +82,7 @@ public enum CCPMemberTypeCode
 public static class CCPMemberTypeCodeMetadataExtensions
 {
     private static readonly CCPMemberTypeCodeDropdownSource _dropdownSource = new CCPMemberTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_fynYkE9ZEeSn2-3swbRbzg")]
 [Description(@"Specifies the type of pledgee.")]
 [Derivations(typeof(PledgeeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PledgeeTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PledgeeTypeCode
 public static class PledgeeTypeCodeMetadataExtensions
 {
     private static readonly PledgeeTypeCodeDropdownSource _dropdownSource = new PledgeeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

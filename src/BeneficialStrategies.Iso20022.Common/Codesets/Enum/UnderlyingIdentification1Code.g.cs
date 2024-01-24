@@ -21,30 +21,30 @@ public enum UnderlyingIdentification1Code
 {
     /// <summary>
     /// Unknown (not available) underlying identification code.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_wlDTEXZWEeWM6LeFwEMTgg")]
     [Description(@"Unknown (not available) underlying identification code.")]
-    Unknown,
+    Unknown = UnderlyingIdentificationCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basket of indexes identification code.
-    /// Encoded/decoded by serializers as "Basket".
+    /// Encoded/decoded by serializers as "BSKT".
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_5NIMEea4EeW1iL_FRZt8bg")]
     [Description(@"Basket of indexes identification code.")]
-    Basket,
+    Basket = UnderlyingIdentificationCode.Basket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Index identification code.
-    /// Encoded/decoded by serializers as "Index".
+    /// Encoded/decoded by serializers as "INDX".
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_5X_YQea4EeW1iL_FRZt8bg")]
     [Description(@"Index identification code.")]
-    Index,
+    Index = UnderlyingIdentificationCode.Index, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum UnderlyingIdentification1Code
 public static class UnderlyingIdentification1CodeMetadataExtensions
 {
     private static readonly UnderlyingIdentification1CodeDropdownSource _dropdownSource = new UnderlyingIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bCWRJ9p-Ed-ak6NoX_4Aeg_-1110982463")]
 [Description(@"Specifies if this document is a copy, a duplicate, or a duplicate of a copy.")]
 [Derivations(typeof(CopyDuplicate1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CopyDuplicateCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CopyDuplicateCode
 public static class CopyDuplicateCodeMetadataExtensions
 {
     private static readonly CopyDuplicateCodeDropdownSource _dropdownSource = new CopyDuplicateCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

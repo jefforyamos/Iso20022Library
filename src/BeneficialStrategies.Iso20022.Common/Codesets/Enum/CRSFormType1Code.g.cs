@@ -21,75 +21,75 @@ public enum CRSFormType1Code
 {
     /// <summary>
     /// Certificate of Identification issued by a government.
-    /// Encoded/decoded by serializers as "CertificateIdentificationGovernment".
+    /// Encoded/decoded by serializers as "CER4".
     /// </summary>
     [EnumMember(Value = "CER4")]
     [IsoId("_VuWHoUNwEeaS-NnwLNvMPg")]
     [Description(@"Certificate of Identification issued by a government.")]
-    CertificateIdentificationGovernment,
+    CertificateIdentificationGovernment = CRSFormTypeCode.CertificateIdentificationGovernment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate of residence.
-    /// Encoded/decoded by serializers as "CertificateOfResidence".
+    /// Encoded/decoded by serializers as "CER3".
     /// </summary>
     [EnumMember(Value = "CER3")]
     [IsoId("_V4BBAUNwEeaS-NnwLNvMPg")]
     [Description(@"Certificate of residence.")]
-    CertificateOfResidence,
+    CertificateOfResidence = CRSFormTypeCode.CertificateOfResidence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Official documentation issued by a government for the entity.
-    /// Encoded/decoded by serializers as "OfficialDocumentGovernmentForEntity".
+    /// Encoded/decoded by serializers as "CER5".
     /// </summary>
     [EnumMember(Value = "CER5")]
     [IsoId("_WBshcUNwEeaS-NnwLNvMPg")]
     [Description(@"Official documentation issued by a government for the entity.")]
-    OfficialDocumentGovernmentForEntity,
+    OfficialDocumentGovernmentForEntity = CRSFormTypeCode.OfficialDocumentGovernmentForEntity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial statement, third party credit report, bankruptcy filing or a securities regulator report.
-    /// Encoded/decoded by serializers as "OtherDocumentOrReport".
+    /// Encoded/decoded by serializers as "CER6".
     /// </summary>
     [EnumMember(Value = "CER6")]
     [IsoId("_WE0G4UNwEeaS-NnwLNvMPg")]
     [Description(@"Financial statement, third party credit report, bankruptcy filing or a securities regulator report.")]
-    OtherDocumentOrReport,
+    OtherDocumentOrReport = CRSFormTypeCode.OtherDocumentOrReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Publicly available information for the entity.
-    /// Encoded/decoded by serializers as "PublicInformationEntity".
+    /// Encoded/decoded by serializers as "CER8".
     /// </summary>
     [EnumMember(Value = "CER8")]
     [IsoId("_WUloQUNwEeaS-NnwLNvMPg")]
     [Description(@"Publicly available information for the entity.")]
-    PublicInformationEntity,
+    PublicInformationEntity = CRSFormTypeCode.PublicInformationEntity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self certification as a separate document.
-    /// Encoded/decoded by serializers as "SelfCertificationSeparateDocument".
+    /// Encoded/decoded by serializers as "CER1".
     /// </summary>
     [EnumMember(Value = "CER1")]
     [IsoId("_WeQhoUNwEeaS-NnwLNvMPg")]
     [Description(@"Self certification as a separate document.")]
-    SelfCertificationSeparateDocument,
+    SelfCertificationSeparateDocument = CRSFormTypeCode.SelfCertificationSeparateDocument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self certification as a document included into contract of the account opening.
-    /// Encoded/decoded by serializers as "SelfCertificationWithAccountOpeningContract".
+    /// Encoded/decoded by serializers as "CER2".
     /// </summary>
     [EnumMember(Value = "CER2")]
     [IsoId("_WnxqAUNwEeaS-NnwLNvMPg")]
     [Description(@"Self certification as a document included into contract of the account opening.")]
-    SelfCertificationWithAccountOpeningContract,
+    SelfCertificationWithAccountOpeningContract = CRSFormTypeCode.SelfCertificationWithAccountOpeningContract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standardised industry coding system for the entity.
-    /// Encoded/decoded by serializers as "Standardised".
+    /// Encoded/decoded by serializers as "CER7".
     /// </summary>
     [EnumMember(Value = "CER7")]
     [IsoId("_WxTZcUNwEeaS-NnwLNvMPg")]
     [Description(@"Standardised industry coding system for the entity.")]
-    Standardised,
+    Standardised = CRSFormTypeCode.Standardised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum CRSFormType1Code
 public static class CRSFormType1CodeMetadataExtensions
 {
     private static readonly CRSFormType1CodeDropdownSource _dropdownSource = new CRSFormType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

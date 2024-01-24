@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aq9E1dp-Ed-ak6NoX_4Aeg_124504888")]
 [Description(@"Specifies the direction of a cash flow.")]
 [Derivations(typeof(FlowDirectionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FlowDirectionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FlowDirectionTypeCode
 public static class FlowDirectionTypeCodeMetadataExtensions
 {
     private static readonly FlowDirectionTypeCodeDropdownSource _dropdownSource = new FlowDirectionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

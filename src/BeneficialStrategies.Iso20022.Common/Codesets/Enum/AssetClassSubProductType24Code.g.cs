@@ -21,12 +21,12 @@ public enum AssetClassSubProductType24Code
 {
     /// <summary>
     /// Commodity of type coal.
-    /// Encoded/decoded by serializers as "Coal".
+    /// Encoded/decoded by serializers as "COAL".
     /// </summary>
     [EnumMember(Value = "COAL")]
     [IsoId("_fK85IVrKEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type coal.")]
-    Coal,
+    Coal = AssetClassSubProductTypeCode.Coal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType24Code
 public static class AssetClassSubProductType24CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType24CodeDropdownSource _dropdownSource = new AssetClassSubProductType24CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

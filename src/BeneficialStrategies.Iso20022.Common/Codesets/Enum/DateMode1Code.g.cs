@@ -26,7 +26,7 @@ public enum DateMode1Code
     [EnumMember(Value = "BODY")]
     [IsoId("_jKunEVuSEeSmO6RkXg92Lg")]
     [Description(@"Beginning of day.")]
-    BODY,
+    BODY = DateModeCode.BODY, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// End of day.
@@ -35,7 +35,7 @@ public enum DateMode1Code
     [EnumMember(Value = "EODY")]
     [IsoId("_jT6_UVuSEeSmO6RkXg92Lg")]
     [Description(@"End of day.")]
-    EODY,
+    EODY = DateModeCode.EODY, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DateMode1Code
 public static class DateMode1CodeMetadataExtensions
 {
     private static readonly DateMode1CodeDropdownSource _dropdownSource = new DateMode1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

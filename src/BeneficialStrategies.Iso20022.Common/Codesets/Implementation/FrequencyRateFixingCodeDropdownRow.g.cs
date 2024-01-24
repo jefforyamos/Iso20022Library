@@ -10,9 +10,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Frequencies for a floating rate transaction.
-/// 
 /// *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****
-/// 
 /// Provides values to be used in dropdown select lists and validation logic as instanced by <seealso cref="FrequencyRateFixingCodeDropdownSource"/>.
 /// Implements <seealso cref="IFrequencyRateFixingCodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
@@ -21,9 +19,7 @@ public partial class FrequencyRateFixingCodeDropdownRow : EnumMetadataItem<Frequ
 {
     /// <summary>
     /// Frequencies for a floating rate transaction.
-    /// 
     /// *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****
-    /// 
     /// Constructs row state using the specified enum value and reflected values.
     /// </summary>
     /// <param name="value">Enum value for this row.</param>

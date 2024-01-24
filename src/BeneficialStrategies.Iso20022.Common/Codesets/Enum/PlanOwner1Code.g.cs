@@ -21,48 +21,48 @@ public enum PlanOwner1Code
 {
     /// <summary>
     /// Plan owner is an acceptor.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_WpL9cTEuEemzCpWiCwK4aQ")]
     [Description(@"Plan owner is an acceptor.")]
-    Acceptor,
+    Acceptor = PlanOwnerCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Plan owner is an acquirer.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_XMzn4TEuEemzCpWiCwK4aQ")]
     [Description(@"Plan owner is an acquirer.")]
-    Acquirer,
+    Acquirer = PlanOwnerCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Plan owner is an issuer.
-    /// Encoded/decoded by serializers as "Issuer".
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_XNs_wTEuEemzCpWiCwK4aQ")]
     [Description(@"Plan owner is an issuer.")]
-    Issuer,
+    Issuer = PlanOwnerCode.Issuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// plan owner type is other national.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Xc55YTEuEemzCpWiCwK4aQ")]
     [Description(@"plan owner type is other national.")]
-    OtherNational,
+    OtherNational = PlanOwnerCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// plan owner type is other private.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_v8IiMTFLEemqWbBf8xprQQ")]
     [Description(@"plan owner type is other private.")]
-    OtherPrivate,
+    OtherPrivate = PlanOwnerCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PlanOwner1Code
 public static class PlanOwner1CodeMetadataExtensions
 {
     private static readonly PlanOwner1CodeDropdownSource _dropdownSource = new PlanOwner1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

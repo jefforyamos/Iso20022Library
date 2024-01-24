@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aLN009p-Ed-ak6NoX_4Aeg_-1445203123")]
 [Description(@"Specifies the processing status.")]
 [Derivations(typeof(ProcessingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProcessingStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ProcessingStatusCode
 public static class ProcessingStatusCodeMetadataExtensions
 {
     private static readonly ProcessingStatusCodeDropdownSource _dropdownSource = new ProcessingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

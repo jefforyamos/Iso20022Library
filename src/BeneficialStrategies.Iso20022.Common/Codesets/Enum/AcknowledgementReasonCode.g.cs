@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bpZDBtp-Ed-ak6NoX_4Aeg_423330067")]
 [Description(@"Specifies additional information about the processed instruction.")]
-[Derivations(typeof(AcknowledgementReason5Code),typeof(AcknowledgementReason6Code),typeof(AcknowledgementReason3Code),typeof(AcknowledgementReason4Code),typeof(AcknowledgementReason1Code),typeof(AcknowledgementReason2Code),typeof(AcknowledgementReason7Code),typeof(AcknowledgementReason8Code),typeof(AcknowledgementReason9Code),typeof(AcknowledgementReason10Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(AcknowledgementReason6Code),typeof(AcknowledgementReason2Code),typeof(AcknowledgementReason9Code),typeof(AcknowledgementReason4Code),typeof(AcknowledgementReason10Code),typeof(AcknowledgementReason7Code),typeof(AcknowledgementReason1Code),typeof(AcknowledgementReason8Code),typeof(AcknowledgementReason5Code),typeof(AcknowledgementReason3Code))]
 public enum AcknowledgementReasonCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum AcknowledgementReasonCode
 public static class AcknowledgementReasonCodeMetadataExtensions
 {
     private static readonly AcknowledgementReasonCodeDropdownSource _dropdownSource = new AcknowledgementReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum AccountOwnershipType5Code
 {
     /// <summary>
     /// The person is ...
-    /// Encoded/decoded by serializers as "Usufructuary".
+    /// Encoded/decoded by serializers as "USUF".
     /// </summary>
     [EnumMember(Value = "USUF")]
     [IsoId("_WUASAZNiEem9mu_a5rvrBw")]
     [Description(@"The person is ...")]
-    Usufructuary,
+    Usufructuary = AccountOwnershipTypeCode.Usufructuary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A person has full ownership on the asset. 
-    /// Encoded/decoded by serializers as "Owner".
+    /// Encoded/decoded by serializers as "OWNR".
     /// </summary>
     [EnumMember(Value = "OWNR")]
     [IsoId("_YKOz0ZNiEem9mu_a5rvrBw")]
     [Description(@"A person has full ownership on the asset. ")]
-    Owner,
+    Owner = AccountOwnershipTypeCode.Owner, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A person has bare ownership on the asset.
-    /// Encoded/decoded by serializers as "BareOwner".
+    /// Encoded/decoded by serializers as "BOWN".
     /// </summary>
     [EnumMember(Value = "BOWN")]
     [IsoId("_Yr5WcZNiEem9mu_a5rvrBw")]
     [Description(@"A person has bare ownership on the asset.")]
-    BareOwner,
+    BareOwner = AccountOwnershipTypeCode.BareOwner, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AccountOwnershipType5Code
 public static class AccountOwnershipType5CodeMetadataExtensions
 {
     private static readonly AccountOwnershipType5CodeDropdownSource _dropdownSource = new AccountOwnershipType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

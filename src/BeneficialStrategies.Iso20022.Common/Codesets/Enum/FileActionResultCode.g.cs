@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_K1GHcFEBEee94_dUz-hvgw")]
 [Description(@"File action processing result.")]
 [Derivations(typeof(FileActionResult1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FileActionResultCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum FileActionResultCode
 public static class FileActionResultCodeMetadataExtensions
 {
     private static readonly FileActionResultCodeDropdownSource _dropdownSource = new FileActionResultCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

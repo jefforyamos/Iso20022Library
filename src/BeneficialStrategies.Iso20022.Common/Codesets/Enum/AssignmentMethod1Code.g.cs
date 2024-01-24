@@ -21,21 +21,21 @@ public enum AssignmentMethod1Code
 {
     /// <summary>
     /// Assignment was conducted randomly.
-    /// Encoded/decoded by serializers as "Random".
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_bfaAktp-Ed-ak6NoX_4Aeg_-1560115838")]
     [Description(@"Assignment was conducted randomly.")]
-    Random,
+    Random = AssignmentMethodCode.Random, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Assignment was conducted on a prorata basis.
-    /// Encoded/decoded by serializers as "Prorata".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bfaAk9p-Ed-ak6NoX_4Aeg_-1560115837")]
     [Description(@"Assignment was conducted on a prorata basis.")]
-    Prorata,
+    Prorata = AssignmentMethodCode.Prorata, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssignmentMethod1Code
 public static class AssignmentMethod1CodeMetadataExtensions
 {
     private static readonly AssignmentMethod1CodeDropdownSource _dropdownSource = new AssignmentMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

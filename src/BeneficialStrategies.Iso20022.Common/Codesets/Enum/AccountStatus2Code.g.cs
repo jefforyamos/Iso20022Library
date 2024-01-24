@@ -21,30 +21,30 @@ public enum AccountStatus2Code
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brett9p-Ed-ak6NoX_4Aeg_-427843353")]
     [Description(@"Account can be used for its intended purpose.")]
-    Enabled,
+    Enabled = AccountStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_bretuNp-Ed-ak6NoX_4Aeg_-426923282")]
     [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
-    Disabled,
+    Disabled = AccountStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
-    /// Encoded/decoded by serializers as "ProForma".
+    /// Encoded/decoded by serializers as "FORM".
     /// </summary>
     [EnumMember(Value = "FORM")]
     [IsoId("_brn3oNp-Ed-ak6NoX_4Aeg_-413993874")]
     [Description(@"Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.")]
-    ProForma,
+    ProForma = AccountStatusCode.ProForma, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AccountStatus2Code
 public static class AccountStatus2CodeMetadataExtensions
 {
     private static readonly AccountStatus2CodeDropdownSource _dropdownSource = new AccountStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

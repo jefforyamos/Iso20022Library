@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vPbyYLXHEeiTob_PrFFUxA")]
 [Description(@"Specifies whether the event is an interim or a final event in a series of successive events. ")]
 [Derivations(typeof(EventSequenceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EventSequenceTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum EventSequenceTypeCode
 public static class EventSequenceTypeCodeMetadataExtensions
 {
     private static readonly EventSequenceTypeCodeDropdownSource _dropdownSource = new EventSequenceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

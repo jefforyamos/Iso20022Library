@@ -21,12 +21,12 @@ public enum SecuritiesTransactionType5Code
 {
     /// <summary>
     /// Relates to the settlement of a trade.
-    /// Encoded/decoded by serializers as "Trade".
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZIwSQdp-Ed-ak6NoX_4Aeg_2040871426")]
     [Description(@"Relates to the settlement of a trade.")]
-    Trade,
+    Trade = SecuritiesTransactionTypeV2Code.Trade, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SecuritiesTransactionType5Code
 public static class SecuritiesTransactionType5CodeMetadataExtensions
 {
     private static readonly SecuritiesTransactionType5CodeDropdownSource _dropdownSource = new SecuritiesTransactionType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

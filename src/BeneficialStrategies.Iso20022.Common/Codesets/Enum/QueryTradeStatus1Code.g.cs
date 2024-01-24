@@ -21,57 +21,57 @@ public enum QueryTradeStatus1Code
 {
     /// <summary>
     /// Query for all trades.
-    /// Encoded/decoded by serializers as "QueryAllStatus".
+    /// Encoded/decoded by serializers as "QAST".
     /// </summary>
     [EnumMember(Value = "QAST")]
     [IsoId("_vWekwaadEeSR8qifggAitQ")]
     [Description(@"Query for all trades.")]
-    QueryAllStatus,
+    QueryAllStatus = QueryTradeStatusCode.QueryAllStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for trades have been canceled.
-    /// Encoded/decoded by serializers as "QueryCanceledTrade".
+    /// Encoded/decoded by serializers as "QCTR".
     /// </summary>
     [EnumMember(Value = "QCTR")]
     [IsoId("_vcIg0aadEeSR8qifggAitQ")]
     [Description(@"Query for trades have been canceled.")]
-    QueryCanceledTrade,
+    QueryCanceledTrade = QueryTradeStatusCode.QueryCanceledTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for cancelling trades.
-    /// Encoded/decoded by serializers as "QueryCancellingTrade".
+    /// Encoded/decoded by serializers as "QCIR".
     /// </summary>
     [EnumMember(Value = "QCIR")]
     [IsoId("_vhor4aadEeSR8qifggAitQ")]
     [Description(@"Query for cancelling trades.")]
-    QueryCancellingTrade,
+    QueryCancellingTrade = QueryTradeStatusCode.QueryCancellingTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for emergency trades.
-    /// Encoded/decoded by serializers as "QueryEmergencyTrade".
+    /// Encoded/decoded by serializers as "QETR".
     /// </summary>
     [EnumMember(Value = "QETR")]
     [IsoId("_vnI28aadEeSR8qifggAitQ")]
     [Description(@"Query for emergency trades.")]
-    QueryEmergencyTrade,
+    QueryEmergencyTrade = QueryTradeStatusCode.QueryEmergencyTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for new trades.
-    /// Encoded/decoded by serializers as "QueryNewTrade".
+    /// Encoded/decoded by serializers as "QNTR".
     /// </summary>
     [EnumMember(Value = "QNTR")]
     [IsoId("_vsppEaadEeSR8qifggAitQ")]
     [Description(@"Query for new trades.")]
-    QueryNewTrade,
+    QueryNewTrade = QueryTradeStatusCode.QueryNewTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for trades have been replaced.
-    /// Encoded/decoded by serializers as "QueryReplacedTrade".
+    /// Encoded/decoded by serializers as "QRTR".
     /// </summary>
     [EnumMember(Value = "QRTR")]
     [IsoId("_vyQh0aadEeSR8qifggAitQ")]
     [Description(@"Query for trades have been replaced.")]
-    QueryReplacedTrade,
+    QueryReplacedTrade = QueryTradeStatusCode.QueryReplacedTrade, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum QueryTradeStatus1Code
 public static class QueryTradeStatus1CodeMetadataExtensions
 {
     private static readonly QueryTradeStatus1CodeDropdownSource _dropdownSource = new QueryTradeStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

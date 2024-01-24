@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TWF26gEcEeCQm6a_G2yO_w_1762343535")]
 [Description(@"Result of the cardholder verification address checks on the street number and the postal code from the cardholder's address.")]
 [Derivations(typeof(CardholderAddressVerificationResult1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CardholderAddressVerificationResultCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum CardholderAddressVerificationResultCode
 public static class CardholderAddressVerificationResultCodeMetadataExtensions
 {
     private static readonly CardholderAddressVerificationResultCodeDropdownSource _dropdownSource = new CardholderAddressVerificationResultCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

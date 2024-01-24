@@ -21,129 +21,129 @@ public enum PaymentType1Code
 {
     /// <summary>
     /// Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "CrossBorderPayment".
+    /// Encoded/decoded by serializers as "CBS".
     /// </summary>
     [EnumMember(Value = "CBS")]
     [IsoId("_Vl9g-Np-Ed-ak6NoX_4Aeg_193012472")]
     [Description(@"Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.")]
-    CrossBorderPayment,
+    CrossBorderPayment = PaymentTypeCode.CrossBorderPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.
-    /// Encoded/decoded by serializers as "BackUp".
+    /// Encoded/decoded by serializers as "BCK".
     /// </summary>
     [EnumMember(Value = "BCK")]
     [IsoId("_Vl9g-dp-Ed-ak6NoX_4Aeg_193012515")]
     [Description(@"Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.")]
-    BackUp,
+    BackUp = PaymentTypeCode.BackUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is linked to CLS activities.
-    /// Encoded/decoded by serializers as "CLSPayment".
+    /// Encoded/decoded by serializers as "CLS".
     /// </summary>
     [EnumMember(Value = "CLS")]
     [IsoId("_VmHR8Np-Ed-ak6NoX_4Aeg_193012532")]
     [Description(@"Payment is linked to CLS activities.")]
-    CLSPayment,
+    CLSPayment = PaymentTypeCode.CLSPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is made to settle an operation made with the central bank.
-    /// Encoded/decoded by serializers as "CentralBankOperation".
+    /// Encoded/decoded by serializers as "CTR".
     /// </summary>
     [EnumMember(Value = "CTR")]
     [IsoId("_VmHR8dp-Ed-ak6NoX_4Aeg_193012575")]
     [Description(@"Payment is made to settle an operation made with the central bank.")]
-    CentralBankOperation,
+    CentralBankOperation = PaymentTypeCode.CentralBankOperation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "CrossBorderHighValuePayment".
+    /// Encoded/decoded by serializers as "CBH".
     /// </summary>
     [EnumMember(Value = "CBH")]
     [IsoId("_VmHR8tp-Ed-ak6NoX_4Aeg_193012592")]
     [Description(@"Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.")]
-    CrossBorderHighValuePayment,
+    CrossBorderHighValuePayment = PaymentTypeCode.CrossBorderHighValuePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "CrossBorderPriorityPayment".
+    /// Encoded/decoded by serializers as "CBP".
     /// </summary>
     [EnumMember(Value = "CBP")]
     [IsoId("_VmHR89p-Ed-ak6NoX_4Aeg_193012627")]
     [Description(@"Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
-    CrossBorderPriorityPayment,
+    CrossBorderPriorityPayment = PaymentTypeCode.CrossBorderPriorityPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.
-    /// Encoded/decoded by serializers as "ExpressPayment".
+    /// Encoded/decoded by serializers as "EXP".
     /// </summary>
     [EnumMember(Value = "EXP")]
     [IsoId("_VmHR9Np-Ed-ak6NoX_4Aeg_193012887")]
     [Description(@"Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.")]
-    ExpressPayment,
+    ExpressPayment = PaymentTypeCode.ExpressPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
-    /// Encoded/decoded by serializers as "ThirdCurrencyHighValuePayment".
+    /// Encoded/decoded by serializers as "TCH".
     /// </summary>
     [EnumMember(Value = "TCH")]
     [IsoId("_VmHR9dp-Ed-ak6NoX_4Aeg_193012922")]
     [Description(@"Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.")]
-    ThirdCurrencyHighValuePayment,
+    ThirdCurrencyHighValuePayment = PaymentTypeCode.ThirdCurrencyHighValuePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.
-    /// Encoded/decoded by serializers as "LiquidityTransfer".
+    /// Encoded/decoded by serializers as "LIQ".
     /// </summary>
     [EnumMember(Value = "LIQ")]
     [IsoId("_VmHR9tp-Ed-ak6NoX_4Aeg_193012947")]
     [Description(@"Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.")]
-    LiquidityTransfer,
+    LiquidityTransfer = PaymentTypeCode.LiquidityTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "DomesticPriorityPayment".
+    /// Encoded/decoded by serializers as "DPP".
     /// </summary>
     [EnumMember(Value = "DPP")]
     [IsoId("_VmHR99p-Ed-ak6NoX_4Aeg_193012982")]
     [Description(@"Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.")]
-    DomesticPriorityPayment,
+    DomesticPriorityPayment = PaymentTypeCode.DomesticPriorityPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "DomesticHighValuePayment".
+    /// Encoded/decoded by serializers as "DPH".
     /// </summary>
     [EnumMember(Value = "DPH")]
     [IsoId("_VmHR-Np-Ed-ak6NoX_4Aeg_193013017")]
     [Description(@"Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.")]
-    DomesticHighValuePayment,
+    DomesticHighValuePayment = PaymentTypeCode.DomesticHighValuePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment has an origin and a destination in the same country, and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "DomesticPayment".
+    /// Encoded/decoded by serializers as "DPS".
     /// </summary>
     [EnumMember(Value = "DPS")]
     [IsoId("_VmHR-dp-Ed-ak6NoX_4Aeg_193013325")]
     [Description(@"Payment has an origin and a destination in the same country, and is made in the currency of that country.")]
-    DomesticPayment,
+    DomesticPayment = PaymentTypeCode.DomesticPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
-    /// Encoded/decoded by serializers as "ThirdCurrencyPayment".
+    /// Encoded/decoded by serializers as "TCS".
     /// </summary>
     [EnumMember(Value = "TCS")]
     [IsoId("_VmQb4Np-Ed-ak6NoX_4Aeg_193013367")]
     [Description(@"Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.")]
-    ThirdCurrencyPayment,
+    ThirdCurrencyPayment = PaymentTypeCode.ThirdCurrencyPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.
-    /// Encoded/decoded by serializers as "ThirdCurrencyPriorityPayment".
+    /// Encoded/decoded by serializers as "TCP".
     /// </summary>
     [EnumMember(Value = "TCP")]
     [IsoId("_VmQb4dp-Ed-ak6NoX_4Aeg_193013402")]
     [Description(@"Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.")]
-    ThirdCurrencyPriorityPayment,
+    ThirdCurrencyPriorityPayment = PaymentTypeCode.ThirdCurrencyPriorityPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum PaymentType1Code
 public static class PaymentType1CodeMetadataExtensions
 {
     private static readonly PaymentType1CodeDropdownSource _dropdownSource = new PaymentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

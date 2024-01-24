@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6WqIoZqlEeGSON8vddiWzQ_-379883890")]
 [Description(@"Qualifies the content of the subservice code.")]
 [Derivations(typeof(BillingSubServiceQualifier1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BillingSubServiceQualifierCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum BillingSubServiceQualifierCode
 public static class BillingSubServiceQualifierCodeMetadataExtensions
 {
     private static readonly BillingSubServiceQualifierCodeDropdownSource _dropdownSource = new BillingSubServiceQualifierCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

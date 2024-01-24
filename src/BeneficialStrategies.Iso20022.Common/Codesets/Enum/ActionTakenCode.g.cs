@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_zpu8sHdjEeeKH6vrEwvLHA")]
 [Description(@"Type of action taken as a disposition of a reported card payment fraud.")]
 [Derivations(typeof(ActionTaken1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ActionTakenCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ActionTakenCode
 public static class ActionTakenCodeMetadataExtensions
 {
     private static readonly ActionTakenCodeDropdownSource _dropdownSource = new ActionTakenCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

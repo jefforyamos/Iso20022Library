@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aytSp9p-Ed-ak6NoX_4Aeg_335336066")]
 [Description(@"Description of the nature of execution booking process.")]
 [Derivations(typeof(DayBookingInstruction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DayBookingInstructionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DayBookingInstructionCode
 public static class DayBookingInstructionCodeMetadataExtensions
 {
     private static readonly DayBookingInstructionCodeDropdownSource _dropdownSource = new DayBookingInstructionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum CalculationMethod1Code
 {
     /// <summary>
     /// Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.
-    /// Encoded/decoded by serializers as "Simple".
+    /// Encoded/decoded by serializers as "SIMP".
     /// </summary>
     [EnumMember(Value = "SIMP")]
     [IsoId("_Ya3Rh9p-Ed-ak6NoX_4Aeg_-26581330")]
     [Description(@"Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.")]
-    Simple,
+    Simple = CalculationMethodCode.Simple, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.
-    /// Encoded/decoded by serializers as "Compounding".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_Ya3RiNp-Ed-ak6NoX_4Aeg_1910643843")]
     [Description(@"Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.")]
-    Compounding,
+    Compounding = CalculationMethodCode.Compounding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CalculationMethod1Code
 public static class CalculationMethod1CodeMetadataExtensions
 {
     private static readonly CalculationMethod1CodeDropdownSource _dropdownSource = new CalculationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

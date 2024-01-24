@@ -21,201 +21,201 @@ public enum UnableToApplyIncorrectInfo1Code
 {
     /// <summary>
     /// RelatedReference is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectRelatedReference".
+    /// Encoded/decoded by serializers as "IN01".
     /// </summary>
     [EnumMember(Value = "IN01")]
     [IsoId("_Vncus9p-Ed-ak6NoX_4Aeg_-121794033")]
     [Description(@"RelatedReference is incorrect.")]
-    IncorrectRelatedReference,
+    IncorrectRelatedReference = UnableToApplyIncorrectInfoCode.IncorrectRelatedReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// BankOperationCode is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectBankOperationCode".
+    /// Encoded/decoded by serializers as "IN02".
     /// </summary>
     [EnumMember(Value = "IN02")]
     [IsoId("_VncutNp-Ed-ak6NoX_4Aeg_-121793700")]
     [Description(@"BankOperationCode is incorrect.")]
-    IncorrectBankOperationCode,
+    IncorrectBankOperationCode = UnableToApplyIncorrectInfoCode.IncorrectBankOperationCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// InstructionCode is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectInstructionCode".
+    /// Encoded/decoded by serializers as "IN03".
     /// </summary>
     [EnumMember(Value = "IN03")]
     [IsoId("_Vncutdp-Ed-ak6NoX_4Aeg_-121793665")]
     [Description(@"InstructionCode is incorrect.")]
-    IncorrectInstructionCode,
+    IncorrectInstructionCode = UnableToApplyIncorrectInfoCode.IncorrectInstructionCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// RequestedExecutionDate is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectRequestedExecutionDate".
+    /// Encoded/decoded by serializers as "IN04".
     /// </summary>
     [EnumMember(Value = "IN04")]
     [IsoId("_Vncuttp-Ed-ak6NoX_4Aeg_-121793630")]
     [Description(@"RequestedExecutionDate is incorrect.")]
-    IncorrectRequestedExecutionDate,
+    IncorrectRequestedExecutionDate = UnableToApplyIncorrectInfoCode.IncorrectRequestedExecutionDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ValueDate is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectValueDate".
+    /// Encoded/decoded by serializers as "IN05".
     /// </summary>
     [EnumMember(Value = "IN05")]
     [IsoId("_Vncut9p-Ed-ak6NoX_4Aeg_-121793588")]
     [Description(@"ValueDate is incorrect.")]
-    IncorrectValueDate,
+    IncorrectValueDate = UnableToApplyIncorrectInfoCode.IncorrectValueDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// InterbankSettledAmount is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectInterbankSettledAmount".
+    /// Encoded/decoded by serializers as "IN06".
     /// </summary>
     [EnumMember(Value = "IN06")]
     [IsoId("_VncuuNp-Ed-ak6NoX_4Aeg_-121793570")]
     [Description(@"InterbankSettledAmount is incorrect.")]
-    IncorrectInterbankSettledAmount,
+    IncorrectInterbankSettledAmount = UnableToApplyIncorrectInfoCode.IncorrectInterbankSettledAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debtor is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectDebtor".
+    /// Encoded/decoded by serializers as "IN07".
     /// </summary>
     [EnumMember(Value = "IN07")]
     [IsoId("_VnmfsNp-Ed-ak6NoX_4Aeg_-121793528")]
     [Description(@"Debtor is incorrect.")]
-    IncorrectDebtor,
+    IncorrectDebtor = UnableToApplyIncorrectInfoCode.IncorrectDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DebtorAccount is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectDebtorAccount".
+    /// Encoded/decoded by serializers as "IN08".
     /// </summary>
     [EnumMember(Value = "IN08")]
     [IsoId("_Vnmfsdp-Ed-ak6NoX_4Aeg_-121793493")]
     [Description(@"DebtorAccount is incorrect.")]
-    IncorrectDebtorAccount,
+    IncorrectDebtorAccount = UnableToApplyIncorrectInfoCode.IncorrectDebtorAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ReceiverCorrespondent is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectReceiverCorrespondent".
+    /// Encoded/decoded by serializers as "IN09".
     /// </summary>
     [EnumMember(Value = "IN09")]
     [IsoId("_Vnmfstp-Ed-ak6NoX_4Aeg_-121793233")]
     [Description(@"ReceiverCorrespondent is incorrect.")]
-    IncorrectReceiverCorrespondent,
+    IncorrectReceiverCorrespondent = UnableToApplyIncorrectInfoCode.IncorrectReceiverCorrespondent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ThirdReimbursementInstitution is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectThirdReimbursementInstitution".
+    /// Encoded/decoded by serializers as "IN10".
     /// </summary>
     [EnumMember(Value = "IN10")]
     [IsoId("_Vnmfs9p-Ed-ak6NoX_4Aeg_-121793198")]
     [Description(@"ThirdReimbursementInstitution is incorrect.")]
-    IncorrectThirdReimbursementInstitution,
+    IncorrectThirdReimbursementInstitution = UnableToApplyIncorrectInfoCode.IncorrectThirdReimbursementInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PaymentScheme is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectPaymentScheme".
+    /// Encoded/decoded by serializers as "IN11".
     /// </summary>
     [EnumMember(Value = "IN11")]
     [IsoId("_VnmftNp-Ed-ak6NoX_4Aeg_-121793156")]
     [Description(@"PaymentScheme is incorrect.")]
-    IncorrectPaymentScheme,
+    IncorrectPaymentScheme = UnableToApplyIncorrectInfoCode.IncorrectPaymentScheme, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// AccountOfBeneficiaryInstitution is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectAccountOfBeneficiaryInstitution".
+    /// Encoded/decoded by serializers as "IN12".
     /// </summary>
     [EnumMember(Value = "IN12")]
     [IsoId("_Vnmftdp-Ed-ak6NoX_4Aeg_-121793121")]
     [Description(@"AccountOfBeneficiaryInstitution is incorrect.")]
-    IncorrectAccountOfBeneficiaryInstitution,
+    IncorrectAccountOfBeneficiaryInstitution = UnableToApplyIncorrectInfoCode.IncorrectAccountOfBeneficiaryInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creditor is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectCreditor".
+    /// Encoded/decoded by serializers as "IN13".
     /// </summary>
     [EnumMember(Value = "IN13")]
     [IsoId("_Vnmfttp-Ed-ak6NoX_4Aeg_-121793078")]
     [Description(@"Creditor is incorrect.")]
-    IncorrectCreditor,
+    IncorrectCreditor = UnableToApplyIncorrectInfoCode.IncorrectCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CreditorAccount is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectCreditorAccount".
+    /// Encoded/decoded by serializers as "IN14".
     /// </summary>
     [EnumMember(Value = "IN14")]
     [IsoId("_Vnmft9p-Ed-ak6NoX_4Aeg_-121792795")]
     [Description(@"CreditorAccount is incorrect.")]
-    IncorrectCreditorAccount,
+    IncorrectCreditorAccount = UnableToApplyIncorrectInfoCode.IncorrectCreditorAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// RemittanceInformation is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectRemittanceInformation".
+    /// Encoded/decoded by serializers as "IN15".
     /// </summary>
     [EnumMember(Value = "IN15")]
     [IsoId("_VnmfuNp-Ed-ak6NoX_4Aeg_-121792734")]
     [Description(@"RemittanceInformation is incorrect.")]
-    IncorrectRemittanceInformation,
+    IncorrectRemittanceInformation = UnableToApplyIncorrectInfoCode.IncorrectRemittanceInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PaymentPurpose is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectPaymentPurpose".
+    /// Encoded/decoded by serializers as "IN16".
     /// </summary>
     [EnumMember(Value = "IN16")]
     [IsoId("_Vnmfudp-Ed-ak6NoX_4Aeg_-121792614")]
     [Description(@"PaymentPurpose is incorrect.")]
-    IncorrectPaymentPurpose,
+    IncorrectPaymentPurpose = UnableToApplyIncorrectInfoCode.IncorrectPaymentPurpose, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DetailsOfCharges is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectDetailsOfCharges".
+    /// Encoded/decoded by serializers as "IN17".
     /// </summary>
     [EnumMember(Value = "IN17")]
     [IsoId("_VnvpoNp-Ed-ak6NoX_4Aeg_-121792579")]
     [Description(@"DetailsOfCharges is incorrect.")]
-    IncorrectDetailsOfCharges,
+    IncorrectDetailsOfCharges = UnableToApplyIncorrectInfoCode.IncorrectDetailsOfCharges, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SenderToReceiverInformation is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectSenderToReceiverInformation".
+    /// Encoded/decoded by serializers as "IN18".
     /// </summary>
     [EnumMember(Value = "IN18")]
     [IsoId("_Vnvpodp-Ed-ak6NoX_4Aeg_-121792519")]
     [Description(@"SenderToReceiverInformation is incorrect.")]
-    IncorrectSenderToReceiverInformation,
+    IncorrectSenderToReceiverInformation = UnableToApplyIncorrectInfoCode.IncorrectSenderToReceiverInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// InstructionForFinalAgent is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectInstructionForFinalAgent".
+    /// Encoded/decoded by serializers as "IN19".
     /// </summary>
     [EnumMember(Value = "IN19")]
     [IsoId("_Vnvpotp-Ed-ak6NoX_4Aeg_-121792267")]
     [Description(@"InstructionForFinalAgent is incorrect.")]
-    IncorrectInstructionForFinalAgent,
+    IncorrectInstructionForFinalAgent = UnableToApplyIncorrectInfoCode.IncorrectInstructionForFinalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Name and Account of Creditor mismatched.
-    /// Encoded/decoded by serializers as "MismatchCreditorNameAccount".
+    /// Encoded/decoded by serializers as "MM20".
     /// </summary>
     [EnumMember(Value = "MM20")]
     [IsoId("_Vnvpo9p-Ed-ak6NoX_4Aeg_1717924661")]
     [Description(@"Name and Account of Creditor mismatched.")]
-    MismatchCreditorNameAccount,
+    MismatchCreditorNameAccount = UnableToApplyIncorrectInfoCode.MismatchCreditorNameAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Name and Account of Debtor mismatched.
-    /// Encoded/decoded by serializers as "MismatchDebtorNameAccount".
+    /// Encoded/decoded by serializers as "MM21".
     /// </summary>
     [EnumMember(Value = "MM21")]
     [IsoId("_VnvppNp-Ed-ak6NoX_4Aeg_1807504359")]
     [Description(@"Name and Account of Debtor mismatched.")]
-    MismatchDebtorNameAccount,
+    MismatchDebtorNameAccount = UnableToApplyIncorrectInfoCode.MismatchDebtorNameAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Name and Account of FinalAgent mismatched.
-    /// Encoded/decoded by serializers as "MismatchFinalAgentNameAccount".
+    /// Encoded/decoded by serializers as "MM22".
     /// </summary>
     [EnumMember(Value = "MM22")]
     [IsoId("_Vnvppdp-Ed-ak6NoX_4Aeg_1849988214")]
     [Description(@"Name and Account of FinalAgent mismatched.")]
-    MismatchFinalAgentNameAccount,
+    MismatchFinalAgentNameAccount = UnableToApplyIncorrectInfoCode.MismatchFinalAgentNameAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -226,7 +226,7 @@ public enum UnableToApplyIncorrectInfo1Code
 public static class UnableToApplyIncorrectInfo1CodeMetadataExtensions
 {
     private static readonly UnableToApplyIncorrectInfo1CodeDropdownSource _dropdownSource = new UnableToApplyIncorrectInfo1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

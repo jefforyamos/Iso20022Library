@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oiLwDL3EeKU9IrkkToqcw_-1432180896")]
 [Description(@"Specifies the type of account where the disbursed CUSIP will be allocated.")]
 [Derivations(typeof(DistributionAccount1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DistributionAccountCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DistributionAccountCode
 public static class DistributionAccountCodeMetadataExtensions
 {
     private static readonly DistributionAccountCodeDropdownSource _dropdownSource = new DistributionAccountCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

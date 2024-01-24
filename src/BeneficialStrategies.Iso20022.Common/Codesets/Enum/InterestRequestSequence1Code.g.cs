@@ -21,21 +21,21 @@ public enum InterestRequestSequence1Code
 {
     /// <summary>
     /// Indicates this is a new interest payment request.
-    /// Encoded/decoded by serializers as "Initial".
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_YbKMeNp-Ed-ak6NoX_4Aeg_-654514650")]
     [Description(@"Indicates this is a new interest payment request.")]
-    Initial,
+    Initial = InterestRequestSequenceCode.Initial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates this is an updated interest payement request.
-    /// Encoded/decoded by serializers as "Updated".
+    /// Encoded/decoded by serializers as "UPDA".
     /// </summary>
     [EnumMember(Value = "UPDA")]
     [IsoId("_YbT9cNp-Ed-ak6NoX_4Aeg_-200427381")]
     [Description(@"Indicates this is an updated interest payement request.")]
-    Updated,
+    Updated = InterestRequestSequenceCode.Updated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InterestRequestSequence1Code
 public static class InterestRequestSequence1CodeMetadataExtensions
 {
     private static readonly InterestRequestSequence1CodeDropdownSource _dropdownSource = new InterestRequestSequence1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum CardType1Code
 {
     /// <summary>
     /// Card where the holder has been granted a line of credit. The card enables the holder to make purchases and withdraw cash up to a pre-arranged ceiling.
-    /// Encoded/decoded by serializers as "CreditCard".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_zd5TUw93EeGeV5vP7Mvdig_-1511071309")]
     [Description(@"Card where the holder has been granted a line of credit. The card enables the holder to make purchases and withdraw cash up to a pre-arranged ceiling.")]
-    CreditCard,
+    CreditCard = CardTypeCode.CreditCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card enabling the holder to have its purchases directly charged to its account. The card may also combine other functions, for example, cash card or cheque guaranteed card.
-    /// Encoded/decoded by serializers as "DebitCard".
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_zd5TVA93EeGeV5vP7Mvdig_-502422457")]
     [Description(@"Card enabling the holder to have its purchases directly charged to its account. The card may also combine other functions, for example, cash card or cheque guaranteed card.")]
-    DebitCard,
+    DebitCard = CardTypeCode.DebitCard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CardType1Code
 public static class CardType1CodeMetadataExtensions
 {
     private static readonly CardType1CodeDropdownSource _dropdownSource = new CardType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum BorrowingReason1Code
 {
     /// <summary>
     /// The borrowing reason is for Self consumption.
-    /// Encoded/decoded by serializers as "SelfConsumption".
+    /// Encoded/decoded by serializers as "SFCT".
     /// </summary>
     [EnumMember(Value = "SFCT")]
     [IsoId("__0dT0NojEeC60axPepSq7g_-351803488")]
     [Description(@"The borrowing reason is for Self consumption.")]
-    SelfConsumption,
+    SelfConsumption = BorrowingReasonCode.SelfConsumption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The borrowing reason is for Transfer to thrid party.
-    /// Encoded/decoded by serializers as "TransferToThirdParty".
+    /// Encoded/decoded by serializers as "TTTP".
     /// </summary>
     [EnumMember(Value = "TTTP")]
     [IsoId("__0dT0dojEeC60axPepSq7g_1231215891")]
     [Description(@"The borrowing reason is for Transfer to thrid party.")]
-    TransferToThirdParty,
+    TransferToThirdParty = BorrowingReasonCode.TransferToThirdParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The borrowing reason is for Market making purpose.
-    /// Encoded/decoded by serializers as "MarketMakingPurpose".
+    /// Encoded/decoded by serializers as "MMPP".
     /// </summary>
     [EnumMember(Value = "MMPP")]
     [IsoId("__0dT0tojEeC60axPepSq7g_-1596602642")]
     [Description(@"The borrowing reason is for Market making purpose.")]
-    MarketMakingPurpose,
+    MarketMakingPurpose = BorrowingReasonCode.MarketMakingPurpose, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BorrowingReason1Code
 public static class BorrowingReason1CodeMetadataExtensions
 {
     private static readonly BorrowingReason1CodeDropdownSource _dropdownSource = new BorrowingReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

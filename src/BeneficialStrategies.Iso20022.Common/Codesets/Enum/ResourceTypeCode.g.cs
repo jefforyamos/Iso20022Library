@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_lu4ewC8CEeu125Ip9zFcsQ")]
 [Description(@"Type of resource.")]
 [Derivations(typeof(ResourceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResourceTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ResourceTypeCode
 public static class ResourceTypeCodeMetadataExtensions
 {
     private static readonly ResourceTypeCodeDropdownSource _dropdownSource = new ResourceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

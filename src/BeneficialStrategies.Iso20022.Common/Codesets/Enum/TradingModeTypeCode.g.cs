@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-aXGMESeEeS6cOLECtYLrA")]
 [Description(@"Identifies the type of the trading mode.")]
 [Derivations(typeof(TradingModeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingModeTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum TradingModeTypeCode
 public static class TradingModeTypeCodeMetadataExtensions
 {
     private static readonly TradingModeTypeCodeDropdownSource _dropdownSource = new TradingModeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

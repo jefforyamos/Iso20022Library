@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YhkWcNp-Ed-ak6NoX_4Aeg_-1906851692")]
 [Description(@"Specifies the reason a specific tax has not been levied/deducted on a given transaction.")]
 [Derivations(typeof(TaxExemptReason1Code),typeof(TaxExemptReason2Code),typeof(TaxExemptReason3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxExemptReasonCode
 {
     /// <summary>
@@ -193,7 +192,7 @@ public enum TaxExemptReasonCode
     
     /// <summary>
     /// 401k. Account is an optional retirement plan supported by many companies, in which income is invested before it is taxed (required for US).
-    /// Encoded/decoded by serializers as "_401K".
+    /// Encoded/decoded by serializers as "401K".
     /// </summary>
     [EnumMember(Value = "401K")]
     [IsoId("_Yh3RYNp-Ed-ak6NoX_4Aeg_1468189317")]
@@ -211,7 +210,7 @@ public enum TaxExemptReasonCode
     
     /// <summary>
     /// 403(b). Account is a tax-deferred investment and savings program for employees of hospitals, educational institutions and other non-profit organisations, to save and invest in their own retirement. The name refers to the relevant section in the US Internal Revenue Code (required for US).
-    /// Encoded/decoded by serializers as "_403B".
+    /// Encoded/decoded by serializers as "403B".
     /// </summary>
     [EnumMember(Value = "403B")]
     [IsoId("_Yh3RYtp-Ed-ak6NoX_4Aeg_1468189319")]
@@ -220,7 +219,7 @@ public enum TaxExemptReasonCode
     
     /// <summary>
     /// 457. Account is a non-qualified deferred compensation program that is available to state and local governments and not-for-profit employers (required for US).
-    /// Encoded/decoded by serializers as "_457X".
+    /// Encoded/decoded by serializers as "457X".
     /// </summary>
     [EnumMember(Value = "457X")]
     [IsoId("_Yh3RY9p-Ed-ak6NoX_4Aeg_1468189320")]
@@ -364,12 +363,11 @@ public enum TaxExemptReasonCode
     
     /// <summary>
     /// Account is for a pension fund for which a tax exemption is permitted.
-    /// 
     /// Encoded/decoded by serializers as "PENF".
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_HaUJUDaKEeWxoIK_IhudJg")]
-    [Description(@"Account is for a pension fund for which a tax exemption is permitted. ")]
+    [Description(@"Account is for a pension fund for which a tax exemption is permitted.|")]
     PensionFund,
     
     /// <summary>
@@ -426,7 +424,7 @@ public enum TaxExemptReasonCode
 public static class TaxExemptReasonCodeMetadataExtensions
 {
     private static readonly TaxExemptReasonCodeDropdownSource _dropdownSource = new TaxExemptReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

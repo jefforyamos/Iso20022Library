@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_BfWdUA2NEeSwB74WgTbh4Q")]
 [Description(@"Specifies the inquiry status of order.")]
 [Derivations(typeof(QueryOrderStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QueryOrderStatusCode
 {
     /// <summary>
@@ -31,12 +30,11 @@ public enum QueryOrderStatusCode
     
     /// <summary>
     /// Query for all orders.
-    /// 
     /// Encoded/decoded by serializers as "QUAO".
     /// </summary>
     [EnumMember(Value = "QUAO")]
     [IsoId("_KJzE8A2NEeSwB74WgTbh4Q")]
-    [Description(@"Query for all orders. ")]
+    [Description(@"Query for all orders.|")]
     QueryAllOrders,
     
     /// <summary>
@@ -75,7 +73,7 @@ public enum QueryOrderStatusCode
 public static class QueryOrderStatusCodeMetadataExtensions
 {
     private static readonly QueryOrderStatusCodeDropdownSource _dropdownSource = new QueryOrderStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

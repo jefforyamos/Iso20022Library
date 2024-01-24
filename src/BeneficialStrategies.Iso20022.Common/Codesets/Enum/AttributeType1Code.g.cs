@@ -21,48 +21,48 @@ public enum AttributeType1Code
 {
     /// <summary>
     /// Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).
-    /// Encoded/decoded by serializers as "CommonName".
+    /// Encoded/decoded by serializers as "CNAT".
     /// </summary>
     [EnumMember(Value = "CNAT")]
     [IsoId("_TSESiAEcEeCQm6a_G2yO_w_399531534")]
     [Description(@"Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).")]
-    CommonName,
+    CommonName = AttributeTypeCode.CommonName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).
-    /// Encoded/decoded by serializers as "Locality".
+    /// Encoded/decoded by serializers as "LATT".
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_TSESiQEcEeCQm6a_G2yO_w_807359888")]
     [Description(@"Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).")]
-    Locality,
+    Locality = AttributeTypeCode.Locality, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).
-    /// Encoded/decoded by serializers as "OrganisationName".
+    /// Encoded/decoded by serializers as "OATT".
     /// </summary>
     [EnumMember(Value = "OATT")]
     [IsoId("_TSESigEcEeCQm6a_G2yO_w_-1550382235")]
     [Description(@"Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).")]
-    OrganisationName,
+    OrganisationName = AttributeTypeCode.OrganisationName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).
-    /// Encoded/decoded by serializers as "OrganisationUnitName".
+    /// Encoded/decoded by serializers as "OUAT".
     /// </summary>
     [EnumMember(Value = "OUAT")]
     [IsoId("_TSESiwEcEeCQm6a_G2yO_w_-2013772510")]
     [Description(@"Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).")]
-    OrganisationUnitName,
+    OrganisationUnitName = AttributeTypeCode.OrganisationUnitName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).
-    /// Encoded/decoded by serializers as "CountryName".
+    /// Encoded/decoded by serializers as "CATT".
     /// </summary>
     [EnumMember(Value = "CATT")]
     [IsoId("_TSESjAEcEeCQm6a_G2yO_w_189442098")]
     [Description(@"Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).")]
-    CountryName,
+    CountryName = AttributeTypeCode.CountryName, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AttributeType1Code
 public static class AttributeType1CodeMetadataExtensions
 {
     private static readonly AttributeType1CodeDropdownSource _dropdownSource = new AttributeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

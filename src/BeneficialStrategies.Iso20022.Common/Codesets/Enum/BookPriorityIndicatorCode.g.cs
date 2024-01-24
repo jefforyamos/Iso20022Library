@@ -45,7 +45,7 @@ public enum BookPriorityIndicatorCode
 public static class BookPriorityIndicatorCodeMetadataExtensions
 {
     private static readonly BookPriorityIndicatorCodeDropdownSource _dropdownSource = new BookPriorityIndicatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

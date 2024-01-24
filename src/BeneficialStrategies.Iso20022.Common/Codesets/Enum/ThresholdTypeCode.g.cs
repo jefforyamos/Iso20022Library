@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YgYDpdp-Ed-ak6NoX_4Aeg_820677101")]
 [Description(@"Defines whether the threshold was applied on an unsecured or securited basis.")]
 [Derivations(typeof(ThresholdType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ThresholdTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ThresholdTypeCode
 public static class ThresholdTypeCodeMetadataExtensions
 {
     private static readonly ThresholdTypeCodeDropdownSource _dropdownSource = new ThresholdTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

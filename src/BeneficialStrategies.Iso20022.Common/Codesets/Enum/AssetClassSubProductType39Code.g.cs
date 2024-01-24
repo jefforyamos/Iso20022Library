@@ -21,12 +21,12 @@ public enum AssetClassSubProductType39Code
 {
     /// <summary>
     /// Commodity of type ammonia.
-    /// Encoded/decoded by serializers as "Ammonia".
+    /// Encoded/decoded by serializers as "AMMO".
     /// </summary>
     [EnumMember(Value = "AMMO")]
     [IsoId("_OjQNoVr3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type ammonia.")]
-    Ammonia,
+    Ammonia = AssetClassSubProductTypeCode.Ammonia, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType39Code
 public static class AssetClassSubProductType39CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType39CodeDropdownSource _dropdownSource = new AssetClassSubProductType39CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

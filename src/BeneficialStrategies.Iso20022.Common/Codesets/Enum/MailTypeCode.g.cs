@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OrfCICCXEeWJd9HF2tO7BA")]
 [Description(@"Specifies the type of mail service.")]
 [Derivations(typeof(MailType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MailTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum MailTypeCode
 public static class MailTypeCodeMetadataExtensions
 {
     private static readonly MailTypeCodeDropdownSource _dropdownSource = new MailTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

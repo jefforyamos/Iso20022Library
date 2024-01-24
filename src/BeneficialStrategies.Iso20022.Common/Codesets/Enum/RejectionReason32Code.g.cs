@@ -21,66 +21,66 @@ public enum RejectionReason32Code
 {
     /// <summary>
     /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_POtDckAuEeGeCKosDOIVvQ_290415620")]
     [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
-    SafekeepingAccountRejection,
+    SafekeepingAccountRejection = RejectionReasonV2Code.SafekeepingAccountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_POtDc0AuEeGeCKosDOIVvQ_1444288981")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV2Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_PO20cEAuEeGeCKosDOIVvQ_-127436514")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction could not be found.
-    /// Encoded/decoded by serializers as "NotFoundRejection".
+    /// Encoded/decoded by serializers as "NRGN".
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_PO20cUAuEeGeCKosDOIVvQ_-1085893749")]
     [Description(@"Instruction could not be found.")]
-    NotFoundRejection,
+    NotFoundRejection = RejectionReasonV2Code.NotFoundRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "ReferenceRejection".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_PO20ckAuEeGeCKosDOIVvQ_-489704418")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    ReferenceRejection,
+    ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// More than one instruction match the criteria.
-    /// Encoded/decoded by serializers as "NoMatch".
+    /// Encoded/decoded by serializers as "NRGM".
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_PO20c0AuEeGeCKosDOIVvQ_1877174322")]
     [Description(@"More than one instruction match the criteria.")]
-    NoMatch,
+    NoMatch = RejectionReasonV2Code.NoMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_PO20dEAuEeGeCKosDOIVvQ_1937778798")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum RejectionReason32Code
 public static class RejectionReason32CodeMetadataExtensions
 {
     private static readonly RejectionReason32CodeDropdownSource _dropdownSource = new RejectionReason32CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

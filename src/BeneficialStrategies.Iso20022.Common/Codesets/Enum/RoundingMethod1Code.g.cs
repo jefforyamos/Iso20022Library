@@ -21,39 +21,39 @@ public enum RoundingMethod1Code
 {
     /// <summary>
     /// Rounds the amount down.
-    /// Encoded/decoded by serializers as "Down".
+    /// Encoded/decoded by serializers as "DRDW".
     /// </summary>
     [EnumMember(Value = "DRDW")]
     [IsoId("_Yf7Xs9p-Ed-ak6NoX_4Aeg_857438224")]
     [Description(@"Rounds the amount down.")]
-    Down,
+    Down = RoundingMethodCode.Down, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rounds the amount up.
-    /// Encoded/decoded by serializers as "Up".
+    /// Encoded/decoded by serializers as "DRUP".
     /// </summary>
     [EnumMember(Value = "DRUP")]
     [IsoId("_Yf7XtNp-Ed-ak6NoX_4Aeg_-1995269424")]
     [Description(@"Rounds the amount up.")]
-    Up,
+    Up = RoundingMethodCode.Up, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Do not round.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_Yf7Xtdp-Ed-ak6NoX_4Aeg_718047814")]
     [Description(@"Do not round.")]
-    None,
+    None = RoundingMethodCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rounds the amount to the closer integral multiple specified.
-    /// Encoded/decoded by serializers as "Closer".
+    /// Encoded/decoded by serializers as "CLSR".
     /// </summary>
     [EnumMember(Value = "CLSR")]
     [IsoId("_Yf7Xttp-Ed-ak6NoX_4Aeg_-1257761254")]
     [Description(@"Rounds the amount to the closer integral multiple specified.")]
-    Closer,
+    Closer = RoundingMethodCode.Closer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RoundingMethod1Code
 public static class RoundingMethod1CodeMetadataExtensions
 {
     private static readonly RoundingMethod1CodeDropdownSource _dropdownSource = new RoundingMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum PendingCancellationReason7Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_REiosRUOEeuYppTwWp55gA")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "AwaitingConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_RTuUMRUOEeuYppTwWp55gA")]
     [Description(@"Awaiting confirmation from the counterparty.")]
-    AwaitingConfirmation,
+    AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_SVU7IRUOEeuYppTwWp55gA")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PendingCancellationReason7Code
 public static class PendingCancellationReason7CodeMetadataExtensions
 {
     private static readonly PendingCancellationReason7CodeDropdownSource _dropdownSource = new PendingCancellationReason7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1sQOJjL3EeKU9IrkkToqcw_321509472")]
 [Description(@"Specifies types of cash rounding.")]
 [Derivations(typeof(DTCCashRoundingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCCashRoundingTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum DTCCashRoundingTypeCode
 public static class DTCCashRoundingTypeCodeMetadataExtensions
 {
     private static readonly DTCCashRoundingTypeCodeDropdownSource _dropdownSource = new DTCCashRoundingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

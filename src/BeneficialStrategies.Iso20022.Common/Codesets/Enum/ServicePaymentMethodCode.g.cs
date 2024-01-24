@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6WDrtJqlEeGSON8vddiWzQ_387174603")]
 [Description(@"Defines the method for the payment of the tax applied on the services.")]
 [Derivations(typeof(ServicePaymentMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ServicePaymentMethodCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ServicePaymentMethodCode
 public static class ServicePaymentMethodCodeMetadataExtensions
 {
     private static readonly ServicePaymentMethodCodeDropdownSource _dropdownSource = new ServicePaymentMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

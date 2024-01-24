@@ -21,21 +21,21 @@ public enum IncomePreference2Code
 {
     /// <summary>
     /// Distribution in cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ril1cSFJEeWgV9SQSyaAog")]
     [Description(@"Distribution in cash.")]
-    Cash,
+    Cash = IncomePreferenceCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution in securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ryQpISFJEeWgV9SQSyaAog")]
     [Description(@"Distribution in securities.")]
-    Securities,
+    Securities = IncomePreferenceCode.Securities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum IncomePreference2Code
 public static class IncomePreference2CodeMetadataExtensions
 {
     private static readonly IncomePreference2CodeDropdownSource _dropdownSource = new IncomePreference2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

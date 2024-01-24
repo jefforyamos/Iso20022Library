@@ -21,21 +21,21 @@ public enum StatementSource1Code
 {
     /// <summary>
     /// Accounting.
-    /// Encoded/decoded by serializers as "Accounting".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_m5hTc_NBEeCuA5Tr22BnwA_770688282")]
     [Description(@"Accounting.")]
-    Accounting,
+    Accounting = StatementSourceCode.Accounting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custody.
-    /// Encoded/decoded by serializers as "Custody".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_m5hTdPNBEeCuA5Tr22BnwA_770688600")]
     [Description(@"Custody.")]
-    Custody,
+    Custody = StatementSourceCode.Custody, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StatementSource1Code
 public static class StatementSource1CodeMetadataExtensions
 {
     private static readonly StatementSource1CodeDropdownSource _dropdownSource = new StatementSource1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

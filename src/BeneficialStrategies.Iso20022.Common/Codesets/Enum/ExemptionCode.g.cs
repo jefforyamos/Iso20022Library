@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_g7FHoAxyEeqdx6buGpCCQw")]
 [Description(@"List of  available exemption codes to strong customer authentication.")]
 [Derivations(typeof(Exemption1Code),typeof(Exemption2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExemptionCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum ExemptionCode
 public static class ExemptionCodeMetadataExtensions
 {
     private static readonly ExemptionCodeDropdownSource _dropdownSource = new ExemptionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

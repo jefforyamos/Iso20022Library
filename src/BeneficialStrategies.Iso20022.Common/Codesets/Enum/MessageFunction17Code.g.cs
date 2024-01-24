@@ -16,36 +16,36 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_nDae0E92EeePXdaAO32Uew")]
-[Description(@"Identifies the type of process related to the reconciliation of financial totals. ISO 8583 MTI ")]
+[Description(@"Identifies the type of process related to the reconciliation of financial totals.|ISO 8583 MTI ")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction17Code
 {
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "Notification".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_6Wa1oemsEemNVKPwszFC-A")]
     [Description(@"Information about the transaction.")]
-    Notification,
+    Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_7dPTwemsEemNVKPwszFC-A")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVC".
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_8JbrYemsEemNVKPwszFC-A")]
     [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
-    Advice,
+    Advice = MessageFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +56,7 @@ public enum MessageFunction17Code
 public static class MessageFunction17CodeMetadataExtensions
 {
     private static readonly MessageFunction17CodeDropdownSource _dropdownSource = new MessageFunction17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

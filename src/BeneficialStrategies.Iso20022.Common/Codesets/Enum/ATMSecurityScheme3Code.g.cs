@@ -21,84 +21,84 @@ public enum ATMSecurityScheme3Code
 {
     /// <summary>
     /// Application key download protected by a share symmetric key.
-    /// Encoded/decoded by serializers as "ApplicationRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "APPK".
     /// </summary>
     [EnumMember(Value = "APPK")]
     [IsoId("_P2UZcV2VEeekzJIz1JxYSQ")]
     [Description(@"Application key download protected by a share symmetric key.")]
-    ApplicationRemoteKeyLoading,
+    ApplicationRemoteKeyLoading = ATMSecuritySchemeCode.ApplicationRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a certificate.
-    /// Encoded/decoded by serializers as "CertificateRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_P2UZc12VEeekzJIz1JxYSQ")]
     [Description(@"Key download protected by asymmetric keys authenticated by a certificate.")]
-    CertificateRemoteKeyLoading,
+    CertificateRemoteKeyLoading = ATMSecuritySchemeCode.CertificateRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download conform to the French ATM key download security scheme.
-    /// Encoded/decoded by serializers as "FrenchRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "FRAN".
     /// </summary>
     [EnumMember(Value = "FRAN")]
     [IsoId("_P2UZdV2VEeekzJIz1JxYSQ")]
     [Description(@"Key download conform to the French ATM key download security scheme.")]
-    FrenchRemoteKeyLoading,
+    FrenchRemoteKeyLoading = ATMSecuritySchemeCode.FrenchRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download conform to the German ATM key download security scheme.
-    /// Encoded/decoded by serializers as "GermanRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "DTCH".
     /// </summary>
     [EnumMember(Value = "DTCH")]
     [IsoId("_P2UZd12VEeekzJIz1JxYSQ")]
     [Description(@"Key download conform to the German ATM key download security scheme.")]
-    GermanRemoteKeyLoading,
+    GermanRemoteKeyLoading = ATMSecuritySchemeCode.GermanRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download conform to the Luxemburg ATM key download security scheme.
-    /// Encoded/decoded by serializers as "LuxemburgRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "LUXG".
     /// </summary>
     [EnumMember(Value = "LUXG")]
     [IsoId("_P2UZeV2VEeekzJIz1JxYSQ")]
     [Description(@"Key download conform to the Luxemburg ATM key download security scheme.")]
-    LuxemburgRemoteKeyLoading,
+    LuxemburgRemoteKeyLoading = ATMSecuritySchemeCode.LuxemburgRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manual key entry on the ATM.
-    /// Encoded/decoded by serializers as "ManualKeyEntry".
+    /// Encoded/decoded by serializers as "MANU".
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_P2UZe12VEeekzJIz1JxYSQ")]
     [Description(@"Manual key entry on the ATM.")]
-    ManualKeyEntry,
+    ManualKeyEntry = ATMSecuritySchemeCode.ManualKeyEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).
-    /// Encoded/decoded by serializers as "PKIKeyDownload".
+    /// Encoded/decoded by serializers as "PKIP".
     /// </summary>
     [EnumMember(Value = "PKIP")]
     [IsoId("_P2UZfV2VEeekzJIz1JxYSQ")]
     [Description(@"Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).")]
-    PKIKeyDownload,
+    PKIKeyDownload = ATMSecuritySchemeCode.PKIKeyDownload, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a digital signature.
-    /// Encoded/decoded by serializers as "SignatureRemoteKeyLoading".
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_P2UZf12VEeekzJIz1JxYSQ")]
     [Description(@"Key download protected by asymmetric keys authenticated by a digital signature.")]
-    SignatureRemoteKeyLoading,
+    SignatureRemoteKeyLoading = ATMSecuritySchemeCode.SignatureRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No key exchange performed, no security scheme defined.
-    /// Encoded/decoded by serializers as "Unitialised".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_P2UZgV2VEeekzJIz1JxYSQ")]
     [Description(@"No key exchange performed, no security scheme defined.")]
-    Unitialised,
+    Unitialised = ATMSecuritySchemeCode.Unitialised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ANSI X9 TR34 2012 scheme for the distribution of the symmetric public keys and the initial master key.
@@ -107,7 +107,7 @@ public enum ATMSecurityScheme3Code
     [EnumMember(Value = "TR34")]
     [IsoId("_RJAJUV2VEeekzJIz1JxYSQ")]
     [Description(@"ANSI X9 TR34 2012 scheme for the distribution of the symmetric public keys and the initial master key.")]
-    TR34,
+    TR34 = ATMSecuritySchemeCode.TR34, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum ATMSecurityScheme3Code
 public static class ATMSecurityScheme3CodeMetadataExtensions
 {
     private static readonly ATMSecurityScheme3CodeDropdownSource _dropdownSource = new ATMSecurityScheme3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

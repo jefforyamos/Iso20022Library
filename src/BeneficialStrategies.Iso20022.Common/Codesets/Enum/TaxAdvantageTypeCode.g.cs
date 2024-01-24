@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8nnPAVf1EeOuDtoQo1qilA")]
 [Description(@"Code for the form of tax advantage on the dividend.")]
 [Derivations(typeof(TaxAdvantageType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxAdvantageTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum TaxAdvantageTypeCode
 public static class TaxAdvantageTypeCodeMetadataExtensions
 {
     private static readonly TaxAdvantageTypeCodeDropdownSource _dropdownSource = new TaxAdvantageTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum NewSecuritiesIssuanceType3Code
 {
     /// <summary>
     /// Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "DefeasedSecurityIndicator".
+    /// Encoded/decoded by serializers as "DEFE".
     /// </summary>
     [EnumMember(Value = "DEFE")]
     [IsoId("_NdThQSp5EeO3oOoGGWHH4A")]
     [Description(@"Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
-    DefeasedSecurityIndicator,
+    DefeasedSecurityIndicator = NewSecuritiesIssuanceTypeCode.DefeasedSecurityIndicator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "NonDefeasedSecurityIndicator".
+    /// Encoded/decoded by serializers as "NDEF".
     /// </summary>
     [EnumMember(Value = "NDEF")]
     [IsoId("_NmX9sSp5EeO3oOoGGWHH4A")]
     [Description(@"Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
-    NonDefeasedSecurityIndicator,
+    NonDefeasedSecurityIndicator = NewSecuritiesIssuanceTypeCode.NonDefeasedSecurityIndicator, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NewSecuritiesIssuanceType3Code
 public static class NewSecuritiesIssuanceType3CodeMetadataExtensions
 {
     private static readonly NewSecuritiesIssuanceType3CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

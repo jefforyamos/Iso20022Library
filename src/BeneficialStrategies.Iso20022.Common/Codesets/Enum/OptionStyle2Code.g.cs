@@ -21,21 +21,21 @@ public enum OptionStyle2Code
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "American".
+    /// Encoded/decoded by serializers as "AMER".
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_aQIxF9p-Ed-ak6NoX_4Aeg_-1107826186")]
     [Description(@"Option can be exercised before or on expiry date.")]
-    American,
+    American = OptionStyleCode.American, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "European".
+    /// Encoded/decoded by serializers as "EURO".
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aQIxGNp-Ed-ak6NoX_4Aeg_-1107826168")]
     [Description(@"Option that can be exercised on expiry date only.")]
-    European,
+    European = OptionStyleCode.European, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OptionStyle2Code
 public static class OptionStyle2CodeMetadataExtensions
 {
     private static readonly OptionStyle2CodeDropdownSource _dropdownSource = new OptionStyle2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

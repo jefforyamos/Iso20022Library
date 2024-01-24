@@ -21,39 +21,39 @@ public enum OrderConfirmationStatus1Code
 {
     /// <summary>
     /// Order confirmation or order confirmation cancellation instruction or order confirmation amendment has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aQ4X8dp-Ed-ak6NoX_4Aeg_-1681562215")]
     [Description(@"Order confirmation or order confirmation cancellation instruction or order confirmation amendment has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderConfirmationStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CommunicationProblemNextParty".
+    /// Encoded/decoded by serializers as "CPNP".
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aQ4X8tp-Ed-ak6NoX_4Aeg_1277403271")]
     [Description(@"Communication problems with the next party.")]
-    CommunicationProblemNextParty,
+    CommunicationProblemNextParty = OrderConfirmationStatusCode.CommunicationProblemNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order confirmation or order confirmation amendment is accepted.
-    /// Encoded/decoded by serializers as "ConfirmationAccepted".
+    /// Encoded/decoded by serializers as "COAC".
     /// </summary>
     [EnumMember(Value = "COAC")]
     [IsoId("_aQ4X89p-Ed-ak6NoX_4Aeg_-1681562310")]
     [Description(@"Order confirmation or order confirmation amendment is accepted.")]
-    ConfirmationAccepted,
+    ConfirmationAccepted = OrderConfirmationStatusCode.ConfirmationAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order confirmation or order confirmation amendment is received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "ConfirmationReceived".
+    /// Encoded/decoded by serializers as "CREC".
     /// </summary>
     [EnumMember(Value = "CREC")]
     [IsoId("_aQ4X9Np-Ed-ak6NoX_4Aeg_-1681562275")]
     [Description(@"Order confirmation or order confirmation amendment is received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
-    ConfirmationReceived,
+    ConfirmationReceived = OrderConfirmationStatusCode.ConfirmationReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum OrderConfirmationStatus1Code
 public static class OrderConfirmationStatus1CodeMetadataExtensions
 {
     private static readonly OrderConfirmationStatus1CodeDropdownSource _dropdownSource = new OrderConfirmationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

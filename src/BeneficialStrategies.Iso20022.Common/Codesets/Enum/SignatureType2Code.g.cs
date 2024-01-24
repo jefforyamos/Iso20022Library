@@ -21,39 +21,39 @@ public enum SignatureType2Code
 {
     /// <summary>
     /// Technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
-    /// Encoded/decoded by serializers as "Digital".
+    /// Encoded/decoded by serializers as "DIGI".
     /// </summary>
     [EnumMember(Value = "DIGI")]
     [IsoId("_r15dAV-dEeavlvCtut5bgg")]
     [Description(@"Technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.")]
-    Digital,
+    Digital = SignatureTypeV2Code.Digital, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Copy of a physical or original signature in an electronic format.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_sBDkIV-dEeavlvCtut5bgg")]
     [Description(@"Copy of a physical or original signature in an electronic format.")]
-    Electronic,
+    Electronic = SignatureTypeV2Code.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No signature.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_sEVhoV-dEeavlvCtut5bgg")]
     [Description(@"No signature.")]
-    None,
+    None = SignatureTypeV2Code.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Written signature. May also be known as a physical or wet signature.
-    /// Encoded/decoded by serializers as "Original".
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_sJGF0V-dEeavlvCtut5bgg")]
     [Description(@"Written signature. May also be known as a physical or wet signature.")]
-    Original,
+    Original = SignatureTypeV2Code.Original, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SignatureType2Code
 public static class SignatureType2CodeMetadataExtensions
 {
     private static readonly SignatureType2CodeDropdownSource _dropdownSource = new SignatureType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum MultilegReportType1Code
 {
     /// <summary>
     /// Report by multileg security only (do not report legs).
-    /// Encoded/decoded by serializers as "BySecurity".
+    /// Encoded/decoded by serializers as "BYSE".
     /// </summary>
     [EnumMember(Value = "BYSE")]
     [IsoId("_aM2zldp-Ed-ak6NoX_4Aeg_-1005190054")]
     [Description(@"Report by multileg security only (do not report legs).")]
-    BySecurity,
+    BySecurity = MultilegReportTypeCode.BySecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report by multileg security and by instrument legs belonging to the multileg security.
-    /// Encoded/decoded by serializers as "BySecurityAndLeg".
+    /// Encoded/decoded by serializers as "BSBL".
     /// </summary>
     [EnumMember(Value = "BSBL")]
     [IsoId("_aM2zltp-Ed-ak6NoX_4Aeg_-1005189340")]
     [Description(@"Report by multileg security and by instrument legs belonging to the multileg security.")]
-    BySecurityAndLeg,
+    BySecurityAndLeg = MultilegReportTypeCode.BySecurityAndLeg, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report by instrument legs belonging to the multileg security only (do not report status of multileg security).
-    /// Encoded/decoded by serializers as "ByInstrumentLeg".
+    /// Encoded/decoded by serializers as "BYLE".
     /// </summary>
     [EnumMember(Value = "BYLE")]
     [IsoId("_aM2zl9p-Ed-ak6NoX_4Aeg_-1005188530")]
     [Description(@"Report by instrument legs belonging to the multileg security only (do not report status of multileg security).")]
-    ByInstrumentLeg,
+    ByInstrumentLeg = MultilegReportTypeCode.ByInstrumentLeg, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum MultilegReportType1Code
 public static class MultilegReportType1CodeMetadataExtensions
 {
     private static readonly MultilegReportType1CodeDropdownSource _dropdownSource = new MultilegReportType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

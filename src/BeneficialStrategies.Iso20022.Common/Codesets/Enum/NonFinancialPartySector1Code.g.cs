@@ -21,202 +21,192 @@ public enum NonFinancialPartySector1Code
 {
     /// <summary>
     /// Water supply, sewerage, waste management and remediation activities.
-    /// 
-    /// Encoded/decoded by serializers as "WaterSupplySewerageWasteManagementAndRemediation".
+    /// Encoded/decoded by serializers as "WTER".
     /// </summary>
     [EnumMember(Value = "WTER")]
     [IsoId("_wE0lARQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Water supply, sewerage, waste management and remediation activities. ")]
-    WaterSupplySewerageWasteManagementAndRemediation,
+    [Description(@"Water supply, sewerage, waste management and remediation activities.|")]
+    WaterSupplySewerageWasteManagementAndRemediation = NonFinancialPartySectorCode.WaterSupplySewerageWasteManagementAndRemediation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mining and quarrying activities.
-    /// 
-    /// Encoded/decoded by serializers as "MiningAndQuarrying".
+    /// Encoded/decoded by serializers as "MING".
     /// </summary>
     [EnumMember(Value = "MING")]
     [IsoId("_wMQpwRQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Mining and quarrying activities. ")]
-    MiningAndQuarrying,
+    [Description(@"Mining and quarrying activities.|")]
+    MiningAndQuarrying = NonFinancialPartySectorCode.MiningAndQuarrying, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manufacturing activities.
-    /// 
-    /// Encoded/decoded by serializers as "Manufacturing".
+    /// Encoded/decoded by serializers as "MAFG".
     /// </summary>
     [EnumMember(Value = "MAFG")]
     [IsoId("_wSLEgRQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Manufacturing activities. ")]
-    Manufacturing,
+    [Description(@"Manufacturing activities.|")]
+    Manufacturing = NonFinancialPartySectorCode.Manufacturing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electricity, gas, steam and air conditioning supply activities.
-    /// 
-    /// Encoded/decoded by serializers as "ElectricityGasSteamAndAirConditioningSupply".
+    /// Encoded/decoded by serializers as "SPLY".
     /// </summary>
     [EnumMember(Value = "SPLY")]
     [IsoId("_wXzLYRQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Electricity, gas, steam and air conditioning supply activities. ")]
-    ElectricityGasSteamAndAirConditioningSupply,
+    [Description(@"Electricity, gas, steam and air conditioning supply activities.|")]
+    ElectricityGasSteamAndAirConditioningSupply = NonFinancialPartySectorCode.ElectricityGasSteamAndAirConditioningSupply, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Construction activities.
-    /// Encoded/decoded by serializers as "Construction".
+    /// Encoded/decoded by serializers as "CSTR".
     /// </summary>
     [EnumMember(Value = "CSTR")]
     [IsoId("_wgMSYRQYEeWSI-Fz8Zwg6g")]
     [Description(@"Construction activities.")]
-    Construction,
+    Construction = NonFinancialPartySectorCode.Construction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agriculture, forestry and fishing activities.
-    /// 
-    /// Encoded/decoded by serializers as "AgricultureForestryAndFishing".
+    /// Encoded/decoded by serializers as "AGRI".
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_wnP8oRQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Agriculture, forestry and fishing activities. ")]
-    AgricultureForestryAndFishing,
+    [Description(@"Agriculture, forestry and fishing activities.|")]
+    AgricultureForestryAndFishing = NonFinancialPartySectorCode.AgricultureForestryAndFishing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accommodation and food service activities.
-    /// Encoded/decoded by serializers as "AccomodationAndFood".
+    /// Encoded/decoded by serializers as "ACAF".
     /// </summary>
     [EnumMember(Value = "ACAF")]
     [IsoId("_FRr48RVZEeWLrt6TQWUeiw")]
     [Description(@"Accommodation and food service activities.")]
-    AccomodationAndFood,
+    AccomodationAndFood = NonFinancialPartySectorCode.AccomodationAndFood, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Education activities.
-    /// Encoded/decoded by serializers as "Education".
+    /// Encoded/decoded by serializers as "EDUC".
     /// </summary>
     [EnumMember(Value = "EDUC")]
     [IsoId("_4UszMRVaEeWLrt6TQWUeiw")]
     [Description(@"Education activities.")]
-    Education,
+    Education = NonFinancialPartySectorCode.Education, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Arts, entertainment and recreation activities.
-    /// 
-    /// Encoded/decoded by serializers as "ArtsEntertainmentAndRecreation".
+    /// Encoded/decoded by serializers as "AEAR".
     /// </summary>
     [EnumMember(Value = "AEAR")]
     [IsoId("_4hDNIRVaEeWLrt6TQWUeiw")]
-    [Description(@"Arts, entertainment and recreation activities. ")]
-    ArtsEntertainmentAndRecreation,
+    [Description(@"Arts, entertainment and recreation activities.|")]
+    ArtsEntertainmentAndRecreation = NonFinancialPartySectorCode.ArtsEntertainmentAndRecreation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial and insurance activities.
-    /// Encoded/decoded by serializers as "FinancialAndInsuranceActivity".
+    /// Encoded/decoded by serializers as "FINA".
     /// </summary>
     [EnumMember(Value = "FINA")]
     [IsoId("_4tixARVaEeWLrt6TQWUeiw")]
     [Description(@"Financial and insurance activities.")]
-    FinancialAndInsuranceActivity,
+    FinancialAndInsuranceActivity = NonFinancialPartySectorCode.FinancialAndInsuranceActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Human health and social work activities.
-    /// Encoded/decoded by serializers as "HumanHealthAndSocialWorkActivity".
+    /// Encoded/decoded by serializers as "HHSW".
     /// </summary>
     [EnumMember(Value = "HHSW")]
     [IsoId("_455K8RVaEeWLrt6TQWUeiw")]
     [Description(@"Human health and social work activities.")]
-    HumanHealthAndSocialWorkActivity,
+    HumanHealthAndSocialWorkActivity = NonFinancialPartySectorCode.HumanHealthAndSocialWorkActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information and communication activities.
-    /// Encoded/decoded by serializers as "InformationAndCommunication".
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_5HIVsRVaEeWLrt6TQWUeiw")]
     [Description(@"Information and communication activities.")]
-    InformationAndCommunication,
+    InformationAndCommunication = NonFinancialPartySectorCode.InformationAndCommunication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wholesale and retail trade, repair of motor vehicles and motorcycles.
-    /// Encoded/decoded by serializers as "MotorVehiclesAndMotorcycles".
+    /// Encoded/decoded by serializers as "WRRM".
     /// </summary>
     [EnumMember(Value = "WRRM")]
     [IsoId("_5l7KgRVaEeWLrt6TQWUeiw")]
     [Description(@"Wholesale and retail trade, repair of motor vehicles and motorcycles.")]
-    MotorVehiclesAndMotorcycles,
+    MotorVehiclesAndMotorcycles = NonFinancialPartySectorCode.MotorVehiclesAndMotorcycles, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other service activities.
-    /// Encoded/decoded by serializers as "OtherServiceActivity".
+    /// Encoded/decoded by serializers as "OTSA".
     /// </summary>
     [EnumMember(Value = "OTSA")]
     [IsoId("_5y4BYRVaEeWLrt6TQWUeiw")]
     [Description(@"Other service activities.")]
-    OtherServiceActivity,
+    OtherServiceActivity = NonFinancialPartySectorCode.OtherServiceActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Professional, scientific and technical activities.
-    /// 
-    /// Encoded/decoded by serializers as "ProfessionalScientificAndTechnicalActivity".
+    /// Encoded/decoded by serializers as "PSTA".
     /// </summary>
     [EnumMember(Value = "PSTA")]
     [IsoId("_5_N0QRVaEeWLrt6TQWUeiw")]
-    [Description(@"Professional, scientific and technical activities. ")]
-    ProfessionalScientificAndTechnicalActivity,
+    [Description(@"Professional, scientific and technical activities.|")]
+    ProfessionalScientificAndTechnicalActivity = NonFinancialPartySectorCode.ProfessionalScientificAndTechnicalActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Public administration and defence, compulsory social security.
-    /// 
-    /// Encoded/decoded by serializers as "PublicAdministrationAndDefence".
+    /// Encoded/decoded by serializers as "PADS".
     /// </summary>
     [EnumMember(Value = "PADS")]
     [IsoId("_6LkOMRVaEeWLrt6TQWUeiw")]
-    [Description(@"Public administration and defence, compulsory social security. ")]
-    PublicAdministrationAndDefence,
+    [Description(@"Public administration and defence, compulsory social security.|")]
+    PublicAdministrationAndDefence = NonFinancialPartySectorCode.PublicAdministrationAndDefence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Real estate activities.
-    /// Encoded/decoded by serializers as "RealEstateActivity".
+    /// Encoded/decoded by serializers as "RESA".
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_60LtYRVaEeWLrt6TQWUeiw")]
     [Description(@"Real estate activities.")]
-    RealEstateActivity,
+    RealEstateActivity = NonFinancialPartySectorCode.RealEstateActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transportation and storage activities.
-    /// Encoded/decoded by serializers as "TransportationAndStorage".
+    /// Encoded/decoded by serializers as "TRAS".
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_7AiHURVaEeWLrt6TQWUeiw")]
     [Description(@"Transportation and storage activities.")]
-    TransportationAndStorage,
+    TransportationAndStorage = NonFinancialPartySectorCode.TransportationAndStorage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Administrative and support service activities.
-    /// 
-    /// Encoded/decoded by serializers as "AdministrativeAndSupportServiceActivity".
+    /// Encoded/decoded by serializers as "ASSA".
     /// </summary>
     [EnumMember(Value = "ASSA")]
     [IsoId("_BR290exnEeWDzYHCp-PB8g")]
-    [Description(@"Administrative and support service activities. ")]
-    AdministrativeAndSupportServiceActivity,
+    [Description(@"Administrative and support service activities.|")]
+    AdministrativeAndSupportServiceActivity = NonFinancialPartySectorCode.AdministrativeAndSupportServiceActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Activities of households as employers; undifferentiated goods – and services –producing activities of households for own use.
-    /// Encoded/decoded by serializers as "ActivityOfHouseholdsAsEmployer".
+    /// Encoded/decoded by serializers as "AHAE".
     /// </summary>
     [EnumMember(Value = "AHAE")]
     [IsoId("_CeDEIexnEeWDzYHCp-PB8g")]
     [Description(@"Activities of households as employers; undifferentiated goods – and services –producing activities of households for own use.")]
-    ActivityOfHouseholdsAsEmployer,
+    ActivityOfHouseholdsAsEmployer = NonFinancialPartySectorCode.ActivityOfHouseholdsAsEmployer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Activities of extraterritorial organisations and bodies.
-    /// 
-    /// Encoded/decoded by serializers as "ActivityOfExtraterritorialOrganisationAndBody".
+    /// Encoded/decoded by serializers as "AEOB".
     /// </summary>
     [EnumMember(Value = "AEOB")]
     [IsoId("_DXnwcexnEeWDzYHCp-PB8g")]
-    [Description(@"Activities of extraterritorial organisations and bodies. ")]
-    ActivityOfExtraterritorialOrganisationAndBody,
+    [Description(@"Activities of extraterritorial organisations and bodies.|")]
+    ActivityOfExtraterritorialOrganisationAndBody = NonFinancialPartySectorCode.ActivityOfExtraterritorialOrganisationAndBody, // same ordinal as derivation source for type conversions
     
 }
 
@@ -227,7 +217,7 @@ public enum NonFinancialPartySector1Code
 public static class NonFinancialPartySector1CodeMetadataExtensions
 {
     private static readonly NonFinancialPartySector1CodeDropdownSource _dropdownSource = new NonFinancialPartySector1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

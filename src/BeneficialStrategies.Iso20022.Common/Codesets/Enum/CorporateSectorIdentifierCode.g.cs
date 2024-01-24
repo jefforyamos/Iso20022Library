@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_PDxzgVBPEeOenoknK_-H2g")]
 [Description(@"Identifies the corporate sector of the counterparty for reporting to trade repositories.")]
 [Derivations(typeof(CorporateSectorIdentifier1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateSectorIdentifierCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum CorporateSectorIdentifierCode
 public static class CorporateSectorIdentifierCodeMetadataExtensions
 {
     private static readonly CorporateSectorIdentifierCodeDropdownSource _dropdownSource = new CorporateSectorIdentifierCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

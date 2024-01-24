@@ -21,39 +21,39 @@ public enum Priority5Code
 {
     /// <summary>
     /// Priority level is high.
-    /// Encoded/decoded by serializers as "High".
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_mcdxcH_QEeiik6YN_dzlEA")]
     [Description(@"Priority level is high.")]
-    High,
+    High = PriorityCode.High, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is low.
-    /// Encoded/decoded by serializers as "Low".
+    /// Encoded/decoded by serializers as "LOWW".
     /// </summary>
     [EnumMember(Value = "LOWW")]
     [IsoId("_mh3O0X_QEeiik6YN_dzlEA")]
     [Description(@"Priority level is low.")]
-    Low,
+    Low = PriorityCode.Low, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is normal.
-    /// Encoded/decoded by serializers as "Normal".
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_mpC04X_QEeiik6YN_dzlEA")]
     [Description(@"Priority level is normal.")]
-    Normal,
+    Normal = PriorityCode.Normal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is urgent (highest priority possible).
-    /// Encoded/decoded by serializers as "Urgent".
+    /// Encoded/decoded by serializers as "URGT".
     /// </summary>
     [EnumMember(Value = "URGT")]
     [IsoId("_muQFAX_QEeiik6YN_dzlEA")]
     [Description(@"Priority level is urgent (highest priority possible).")]
-    Urgent,
+    Urgent = PriorityCode.Urgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Priority5Code
 public static class Priority5CodeMetadataExtensions
 {
     private static readonly Priority5CodeDropdownSource _dropdownSource = new Priority5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aFGlxdp-Ed-ak6NoX_4Aeg_-870507202")]
 [Description(@"Specifies the reason the transaction/instruction is pending settlement, ie, pending delivery or receipt of the financial instrument. Settlement on the instructed settlement date is still possible.")]
 [Derivations(typeof(PendingSettlement2Code),typeof(PendingSettlementStatusReason1Code),typeof(PendingSettlementStatusReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PendingSettlementStatusReasonCode
 {
     /// <summary>
@@ -623,7 +622,7 @@ public enum PendingSettlementStatusReasonCode
 public static class PendingSettlementStatusReasonCodeMetadataExtensions
 {
     private static readonly PendingSettlementStatusReasonCodeDropdownSource _dropdownSource = new PendingSettlementStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

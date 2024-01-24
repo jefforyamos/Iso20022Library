@@ -17,45 +17,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_amL5ktp-Ed-ak6NoX_4Aeg_-2079691647")]
-[Description(@"Specifies the external account identification scheme name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external account identification scheme name code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalAccountIdentificationCode))]
 public enum ExternalAccountIdentification1Code
 {
     /// <summary>
     /// Issuer Identification Number (IIN) - identifies a card issuing institution in an international interchange environment. Issued by ABA (American Bankers Association).
-    /// Encoded/decoded by serializers as "IssuerIdentificationNumber".
+    /// Encoded/decoded by serializers as "AIIN".
     /// </summary>
     [EnumMember(Value = "AIIN")]
     [IsoId("_teaY4vRYEeuLhpyIdtJzwg")]
     [Description(@"Issuer Identification Number (IIN) - identifies a card issuing institution in an international interchange environment. Issued by ABA (American Bankers Association).")]
-    IssuerIdentificationNumber,
+    IssuerIdentificationNumber = ExternalAccountIdentificationCode.IssuerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer.
-    /// Encoded/decoded by serializers as "BBANIdentifier".
+    /// Encoded/decoded by serializers as "BBAN".
     /// </summary>
     [EnumMember(Value = "BBAN")]
     [IsoId("_teaY5fRYEeuLhpyIdtJzwg")]
     [Description(@"Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer.")]
-    BBANIdentifier,
+    BBANIdentifier = ExternalAccountIdentificationCode.BBANIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// (United States) Clearing House Interbank Payments System (CHIPS) Universal Identification (UID) - identifies entities that own accounts at CHIPS participating financial institutions, through which CHIPS payments are effected. The CHIPS UID is assigned by the New York Clearing House.
-    /// Encoded/decoded by serializers as "CHIPSUniversalIdentifier".
+    /// Encoded/decoded by serializers as "CUID".
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_teaY6PRYEeuLhpyIdtJzwg")]
     [Description(@"(United States) Clearing House Interbank Payments System (CHIPS) Universal Identification (UID) - identifies entities that own accounts at CHIPS participating financial institutions, through which CHIPS payments are effected. The CHIPS UID is assigned by the New York Clearing House.")]
-    CHIPSUniversalIdentifier,
+    CHIPSUniversalIdentifier = ExternalAccountIdentificationCode.CHIPSUniversalIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.
-    /// Encoded/decoded by serializers as "UPICIdentifier".
+    /// Encoded/decoded by serializers as "UPIC".
     /// </summary>
     [EnumMember(Value = "UPIC")]
     [IsoId("_teji0vRYEeuLhpyIdtJzwg")]
     [Description(@"Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.")]
-    UPICIdentifier,
+    UPICIdentifier = ExternalAccountIdentificationCode.UPICIdentifier, // same ordinal as derivation source for type conversions
     
 }
 
@@ -66,7 +66,7 @@ public enum ExternalAccountIdentification1Code
 public static class ExternalAccountIdentification1CodeMetadataExtensions
 {
     private static readonly ExternalAccountIdentification1CodeDropdownSource _dropdownSource = new ExternalAccountIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

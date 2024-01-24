@@ -21,21 +21,21 @@ public enum AdviceType1Code
 {
     /// <summary>
     /// Advice with transaction details is requested.
-    /// Encoded/decoded by serializers as "AdviceWithDetails".
+    /// Encoded/decoded by serializers as "ADWD".
     /// </summary>
     [EnumMember(Value = "ADWD")]
     [IsoId("_XiPt0e8XEemSR6j6KWQzCg")]
     [Description(@"Advice with transaction details is requested.")]
-    AdviceWithDetails,
+    AdviceWithDetails = AdviceTypeCode.AdviceWithDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice without  transaction details is requested.
-    /// Encoded/decoded by serializers as "AdviceWithoutDetails".
+    /// Encoded/decoded by serializers as "ADND".
     /// </summary>
     [EnumMember(Value = "ADND")]
     [IsoId("_Xz3CQe8XEemSR6j6KWQzCg")]
     [Description(@"Advice without  transaction details is requested.")]
-    AdviceWithoutDetails,
+    AdviceWithoutDetails = AdviceTypeCode.AdviceWithoutDetails, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AdviceType1Code
 public static class AdviceType1CodeMetadataExtensions
 {
     private static readonly AdviceType1CodeDropdownSource _dropdownSource = new AdviceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

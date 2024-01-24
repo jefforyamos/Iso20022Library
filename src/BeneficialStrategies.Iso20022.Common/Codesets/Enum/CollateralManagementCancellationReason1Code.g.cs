@@ -21,21 +21,21 @@ public enum CollateralManagementCancellationReason1Code
 {
     /// <summary>
     /// Cancellation due to message being sent in error.
-    /// Encoded/decoded by serializers as "ProcessingError".
+    /// Encoded/decoded by serializers as "PRER".
     /// </summary>
     [EnumMember(Value = "PRER")]
     [IsoId("_Ybm4adp-Ed-ak6NoX_4Aeg_809732037")]
     [Description(@"Cancellation due to message being sent in error.")]
-    ProcessingError,
+    ProcessingError = CollateralManagementCancellationReasonCode.ProcessingError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.
-    /// Encoded/decoded by serializers as "PendingNewSubmission".
+    /// Encoded/decoded by serializers as "PNSU".
     /// </summary>
     [EnumMember(Value = "PNSU")]
     [IsoId("_Ybm4atp-Ed-ak6NoX_4Aeg_1570497190")]
     [Description(@"Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.")]
-    PendingNewSubmission,
+    PendingNewSubmission = CollateralManagementCancellationReasonCode.PendingNewSubmission, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralManagementCancellationReason1Code
 public static class CollateralManagementCancellationReason1CodeMetadataExtensions
 {
     private static readonly CollateralManagementCancellationReason1CodeDropdownSource _dropdownSource = new CollateralManagementCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

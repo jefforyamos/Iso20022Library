@@ -21,30 +21,30 @@ public enum LinkageType1Code
 {
     /// <summary>
     /// Request is to link the referenced transactions.
-    /// Encoded/decoded by serializers as "Link".
+    /// Encoded/decoded by serializers as "LINK".
     /// </summary>
     [EnumMember(Value = "LINK")]
     [IsoId("_ae4Xt9p-Ed-ak6NoX_4Aeg_-2003821118")]
     [Description(@"Request is to link the referenced transactions.")]
-    Link,
+    Link = LinkageTypeCode.Link, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request is to unlink the referenced transactions.
-    /// Encoded/decoded by serializers as "Unlink".
+    /// Encoded/decoded by serializers as "UNLK".
     /// </summary>
     [EnumMember(Value = "UNLK")]
     [IsoId("_ae4XuNp-Ed-ak6NoX_4Aeg_-2003821117")]
     [Description(@"Request is to unlink the referenced transactions.")]
-    Unlink,
+    Unlink = LinkageTypeCode.Unlink, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request is to soft link the referenced transactions.
-    /// Encoded/decoded by serializers as "Soft".
+    /// Encoded/decoded by serializers as "SOFT".
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_ae4Xudp-Ed-ak6NoX_4Aeg_-2003821101")]
     [Description(@"Request is to soft link the referenced transactions.")]
-    Soft,
+    Soft = LinkageTypeCode.Soft, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum LinkageType1Code
 public static class LinkageType1CodeMetadataExtensions
 {
     private static readonly LinkageType1CodeDropdownSource _dropdownSource = new LinkageType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

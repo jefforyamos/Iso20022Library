@@ -21,30 +21,30 @@ public enum SubscriptionRequest1Code
 {
     /// <summary>
     /// Specifies that the request is to subscribe to snapshots.
-    /// Encoded/decoded by serializers as "Snapshot".
+    /// Encoded/decoded by serializers as "SNAP".
     /// </summary>
     [EnumMember(Value = "SNAP")]
     [IsoId("_ZQpqBdp-Ed-ak6NoX_4Aeg_-1044305239")]
     [Description(@"Specifies that the request is to subscribe to snapshots.")]
-    Snapshot,
+    Snapshot = SubscriptionRequestCode.Snapshot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the request is to subscribe to snapshots and updates.
-    /// Encoded/decoded by serializers as "Subscribe".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ZQpqBtp-Ed-ak6NoX_4Aeg_-1044305197")]
     [Description(@"Specifies that the request is to subscribe to snapshots and updates.")]
-    Subscribe,
+    Subscribe = SubscriptionRequestCode.Subscribe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).
-    /// Encoded/decoded by serializers as "Unsubscribe".
+    /// Encoded/decoded by serializers as "UNSU".
     /// </summary>
     [EnumMember(Value = "UNSU")]
     [IsoId("_ZQpqB9p-Ed-ak6NoX_4Aeg_-1044305162")]
     [Description(@"Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).")]
-    Unsubscribe,
+    Unsubscribe = SubscriptionRequestCode.Unsubscribe, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SubscriptionRequest1Code
 public static class SubscriptionRequest1CodeMetadataExtensions
 {
     private static readonly SubscriptionRequest1CodeDropdownSource _dropdownSource = new SubscriptionRequest1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

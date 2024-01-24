@@ -21,30 +21,30 @@ public enum ThresholdBasis1Code
 {
     /// <summary>
     /// Basis is the total number of shares issued.
-    /// Encoded/decoded by serializers as "AllIssuedShares".
+    /// Encoded/decoded by serializers as "ALSH".
     /// </summary>
     [EnumMember(Value = "ALSH")]
     [IsoId("_KOf5QRuOEeyhRdHRjakS2w")]
     [Description(@"Basis is the total number of shares issued.")]
-    AllIssuedShares,
+    AllIssuedShares = ThresholdBasisCode.AllIssuedShares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basis is the total number of shares represented at the meeting by attendees. 
-    /// Encoded/decoded by serializers as "AllSharesRepresentedAtMeeting".
+    /// Encoded/decoded by serializers as "ALSM".
     /// </summary>
     [EnumMember(Value = "ALSM")]
     [IsoId("_KUwSQRuOEeyhRdHRjakS2w")]
     [Description(@"Basis is the total number of shares represented at the meeting by attendees. ")]
-    AllSharesRepresentedAtMeeting,
+    AllSharesRepresentedAtMeeting = ThresholdBasisCode.AllSharesRepresentedAtMeeting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basis is the total number of vote cast for a resolution.
-    /// Encoded/decoded by serializers as "AllVoteCast".
+    /// Encoded/decoded by serializers as "ALVO".
     /// </summary>
     [EnumMember(Value = "ALVO")]
     [IsoId("_KbArQRuOEeyhRdHRjakS2w")]
     [Description(@"Basis is the total number of vote cast for a resolution.")]
-    AllVoteCast,
+    AllVoteCast = ThresholdBasisCode.AllVoteCast, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ThresholdBasis1Code
 public static class ThresholdBasis1CodeMetadataExtensions
 {
     private static readonly ThresholdBasis1CodeDropdownSource _dropdownSource = new ThresholdBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

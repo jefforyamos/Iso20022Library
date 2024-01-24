@@ -21,21 +21,21 @@ public enum UndertakingName1Code
 {
     /// <summary>
     /// Undertaking is a standby letter of credit.
-    /// Encoded/decoded by serializers as "StandbyLetterOfCredit".
+    /// Encoded/decoded by serializers as "STBY".
     /// </summary>
     [EnumMember(Value = "STBY")]
     [IsoId("_NKQpRnykEeGWJuGCfvwOsQ")]
     [Description(@"Undertaking is a standby letter of credit.")]
-    StandbyLetterOfCredit,
+    StandbyLetterOfCredit = UndertakingNameCode.StandbyLetterOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking is a demand guarantee.
-    /// Encoded/decoded by serializers as "DemandGuarantee".
+    /// Encoded/decoded by serializers as "DGAR".
     /// </summary>
     [EnumMember(Value = "DGAR")]
     [IsoId("_qkAn4doiEeGA-6DT389Lyw")]
     [Description(@"Undertaking is a demand guarantee.")]
-    DemandGuarantee,
+    DemandGuarantee = UndertakingNameCode.DemandGuarantee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum UndertakingName1Code
 public static class UndertakingName1CodeMetadataExtensions
 {
     private static readonly UndertakingName1CodeDropdownSource _dropdownSource = new UndertakingName1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

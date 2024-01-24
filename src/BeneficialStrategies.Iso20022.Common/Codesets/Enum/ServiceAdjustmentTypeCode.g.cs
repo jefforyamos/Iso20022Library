@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6V6hwpqlEeGSON8vddiWzQ_-380579229")]
 [Description(@"Defines the type of allowed service adjustment.")]
 [Derivations(typeof(ServiceAdjustmentType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ServiceAdjustmentTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ServiceAdjustmentTypeCode
 public static class ServiceAdjustmentTypeCodeMetadataExtensions
 {
     private static readonly ServiceAdjustmentTypeCodeDropdownSource _dropdownSource = new ServiceAdjustmentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

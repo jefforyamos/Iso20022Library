@@ -21,21 +21,21 @@ public enum EventCompletenessStatus1Code
 {
     /// <summary>
     /// Event details are complete.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ajDtFdp-Ed-ak6NoX_4Aeg_1572153086")]
     [Description(@"Event details are complete.")]
-    Complete,
+    Complete = EventCompletenessStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event details are not complete.
-    /// Encoded/decoded by serializers as "Incomplete".
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_ajDtFtp-Ed-ak6NoX_4Aeg_1572153199")]
     [Description(@"Event details are not complete.")]
-    Incomplete,
+    Incomplete = EventCompletenessStatusCode.Incomplete, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EventCompletenessStatus1Code
 public static class EventCompletenessStatus1CodeMetadataExtensions
 {
     private static readonly EventCompletenessStatus1CodeDropdownSource _dropdownSource = new EventCompletenessStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

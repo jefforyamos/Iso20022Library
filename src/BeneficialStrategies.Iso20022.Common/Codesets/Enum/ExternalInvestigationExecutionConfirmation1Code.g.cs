@@ -16,288 +16,288 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_iF0dsImxEeeKR__nUfxjwA")]
-[Description(@"Specifies the result of an investigation, as published in an external investigation execution confirmation code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the result of an investigation, as published in an external investigation execution confirmation code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalInvestigationExecutionConfirmationCode))]
 public enum ExternalInvestigationExecutionConfirmation1Code
 {
     /// <summary>
     /// Used when a creditor accepts the debit authorisation.
-    /// Encoded/decoded by serializers as "AcceptedDebitAuthorisation".
+    /// Encoded/decoded by serializers as "ACDA".
     /// </summary>
     [EnumMember(Value = "ACDA")]
     [IsoId("_uZRepfRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a creditor accepts the debit authorisation.")]
-    AcceptedDebitAuthorisation,
+    AcceptedDebitAuthorisation = ExternalInvestigationExecutionConfirmationCode.AcceptedDebitAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The claim for non-receipt of a payment instruction is accepted.
-    /// Encoded/decoded by serializers as "AcceptedClaimNonReceipt".
+    /// Encoded/decoded by serializers as "ACNR".
     /// </summary>
     [EnumMember(Value = "ACNR")]
     [IsoId("_uZReqPRYEeuLhpyIdtJzwg")]
     [Description(@"The claim for non-receipt of a payment instruction is accepted.")]
-    AcceptedClaimNonReceipt,
+    AcceptedClaimNonReceipt = ExternalInvestigationExecutionConfirmationCode.AcceptedClaimNonReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The claim for value date correction is accepted.
-    /// Encoded/decoded by serializers as "AcceptedValueDateAdjustment".
+    /// Encoded/decoded by serializers as "ACVA".
     /// </summary>
     [EnumMember(Value = "ACVA")]
     [IsoId("_uZaokvRYEeuLhpyIdtJzwg")]
     [Description(@"The claim for value date correction is accepted.")]
-    AcceptedValueDateAdjustment,
+    AcceptedValueDateAdjustment = ExternalInvestigationExecutionConfirmationCode.AcceptedValueDateAdjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Further charges details are provided to resolve the case.
-    /// Encoded/decoded by serializers as "ChargesDetailsProvided".
+    /// Encoded/decoded by serializers as "CHRG".
     /// </summary>
     [EnumMember(Value = "CHRG")]
     [IsoId("_uZaolfRYEeuLhpyIdtJzwg")]
     [Description(@"Further charges details are provided to resolve the case.")]
-    ChargesDetailsProvided,
+    ChargesDetailsProvided = ExternalInvestigationExecutionConfirmationCode.ChargesDetailsProvided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation is successful.
-    /// Encoded/decoded by serializers as "CancelledAsPerRequest".
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_uZaomPRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a requested cancellation is successful.")]
-    CancelledAsPerRequest,
+    CancelledAsPerRequest = ExternalInvestigationExecutionConfirmationCode.CancelledAsPerRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a payment has been checked and was correctly executed without any intervention.
-    /// Encoded/decoded by serializers as "ConfirmationOfPayment".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uZaom_RYEeuLhpyIdtJzwg")]
     [Description(@"Used when a payment has been checked and was correctly executed without any intervention.")]
-    ConfirmationOfPayment,
+    ConfirmationOfPayment = ExternalInvestigationExecutionConfirmationCode.ConfirmationOfPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The original value date was correct.
-    /// Encoded/decoded by serializers as "CorrectValueDateAlreadyApplied".
+    /// Encoded/decoded by serializers as "CVAA".
     /// </summary>
     [EnumMember(Value = "CVAA")]
     [IsoId("_uZkZkvRYEeuLhpyIdtJzwg")]
     [Description(@"The original value date was correct.")]
-    CorrectValueDateAlreadyApplied,
+    CorrectValueDateAlreadyApplied = ExternalInvestigationExecutionConfirmationCode.CorrectValueDateAlreadyApplied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a payment will be cancelled to solve an investigation case.
-    /// Encoded/decoded by serializers as "CancellationWillFollow".
+    /// Encoded/decoded by serializers as "CWFW".
     /// </summary>
     [EnumMember(Value = "CWFW")]
     [IsoId("_uZkZlfRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a payment will be cancelled to solve an investigation case.")]
-    CancellationWillFollow,
+    CancellationWillFollow = ExternalInvestigationExecutionConfirmationCode.CancellationWillFollow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cancellation request has been forwarded to the next agent for execution.|Usage: This code should only be utilised where a Case Id is not present.
-    /// Encoded/decoded by serializers as "CancellationRequestForwardedToTheNextAgent".
+    /// Encoded/decoded by serializers as "FTNA".
     /// </summary>
     [EnumMember(Value = "FTNA")]
     [IsoId("_uZkZmPRYEeuLhpyIdtJzwg")]
     [Description(@"The cancellation request has been forwarded to the next agent for execution.|Usage: This code should only be utilised where a Case Id is not present.")]
-    CancellationRequestForwardedToTheNextAgent,
+    CancellationRequestForwardedToTheNextAgent = ExternalInvestigationExecutionConfirmationCode.CancellationRequestForwardedToTheNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a transfer of funds has been initiated (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "CoverInitiated".
+    /// Encoded/decoded by serializers as "ICOV".
     /// </summary>
     [EnumMember(Value = "ICOV")]
     [IsoId("_uZkZm_RYEeuLhpyIdtJzwg")]
     [Description(@"Used when a transfer of funds has been initiated (a cover payment) to resolve a case.")]
-    CoverInitiated,
+    CoverInitiated = ExternalInvestigationExecutionConfirmationCode.CoverInitiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the requested check for a possible duplicate instruction is confirmed.
-    /// Encoded/decoded by serializers as "InstructionIsDuplicate".
+    /// Encoded/decoded by serializers as "IDUP".
     /// </summary>
     [EnumMember(Value = "IDUP")]
     [IsoId("_uZuKkvRYEeuLhpyIdtJzwg")]
     [Description(@"Used when the requested check for a possible duplicate instruction is confirmed.")]
-    InstructionIsDuplicate,
+    InstructionIsDuplicate = ExternalInvestigationExecutionConfirmationCode.InstructionIsDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the result of an investigation is, or will be, the initiation of a payment instruction.
-    /// Encoded/decoded by serializers as "PaymentInitiated".
+    /// Encoded/decoded by serializers as "IPAY".
     /// </summary>
     [EnumMember(Value = "IPAY")]
     [IsoId("_uZuKmPRYEeuLhpyIdtJzwg")]
     [Description(@"Used when the result of an investigation is, or will be, the initiation of a payment instruction.")]
-    PaymentInitiated,
+    PaymentInitiated = ExternalInvestigationExecutionConfirmationCode.PaymentInitiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a payment instruction (eg. MT103) has been initiated to resolve a case.
-    /// Encoded/decoded by serializers as "PaymentInstructionInitiated".
+    /// Encoded/decoded by serializers as "IPYI".
     /// </summary>
     [EnumMember(Value = "IPYI")]
     [IsoId("_uZuKm_RYEeuLhpyIdtJzwg")]
     [Description(@"Used when a payment instruction (eg. MT103) has been initiated to resolve a case.")]
-    PaymentInstructionInitiated,
+    PaymentInstructionInitiated = ExternalInvestigationExecutionConfirmationCode.PaymentInstructionInitiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a transfer of funds has been modified (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "CoverModified".
+    /// Encoded/decoded by serializers as "MCOV".
     /// </summary>
     [EnumMember(Value = "MCOV")]
     [IsoId("_uZuKnvRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a transfer of funds has been modified (a cover payment) to resolve a case.")]
-    CoverModified,
+    CoverModified = ExternalInvestigationExecutionConfirmationCode.CoverModified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested modification is successful.
-    /// Encoded/decoded by serializers as "ModifiedAsPerRequest".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_uZ3UgvRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a requested modification is successful.")]
-    ModifiedAsPerRequest,
+    ModifiedAsPerRequest = ExternalInvestigationExecutionConfirmationCode.ModifiedAsPerRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the payment will be modified to solve an investigation case.
-    /// Encoded/decoded by serializers as "ModificationWillFollow".
+    /// Encoded/decoded by serializers as "MWFW".
     /// </summary>
     [EnumMember(Value = "MWFW")]
     [IsoId("_uZ3UhfRYEeuLhpyIdtJzwg")]
     [Description(@"Used when the payment will be modified to solve an investigation case.")]
-    ModificationWillFollow,
+    ModificationWillFollow = ExternalInvestigationExecutionConfirmationCode.ModificationWillFollow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation is pending.
-    /// Encoded/decoded by serializers as "PendingCancellationRequest".
+    /// Encoded/decoded by serializers as "PDCR".
     /// </summary>
     [EnumMember(Value = "PDCR")]
     [IsoId("_uaBFgvRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a requested cancellation is pending.")]
-    PendingCancellationRequest,
+    PendingCancellationRequest = ExternalInvestigationExecutionConfirmationCode.PendingCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation has been partially executed.
-    /// Encoded/decoded by serializers as "PartiallyExecutedCancellationRequest".
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_uaBFhfRYEeuLhpyIdtJzwg")]
     [Description(@"Used when a requested cancellation has been partially executed.")]
-    PartiallyExecutedCancellationRequest,
+    PartiallyExecutedCancellationRequest = ExternalInvestigationExecutionConfirmationCode.PartiallyExecutedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Further purpose details are provided to resolve the case.
-    /// Encoded/decoded by serializers as "PurposeDetailsProvided".
+    /// Encoded/decoded by serializers as "PURP".
     /// </summary>
     [EnumMember(Value = "PURP")]
     [IsoId("_uaBFiPRYEeuLhpyIdtJzwg")]
     [Description(@"Further purpose details are provided to resolve the case.")]
-    PurposeDetailsProvided,
+    PurposeDetailsProvided = ExternalInvestigationExecutionConfirmationCode.PurposeDetailsProvided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation has been rejected.
-    /// Encoded/decoded by serializers as "RejectedCancellationRequest".
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_uaBFi_RYEeuLhpyIdtJzwg")]
     [Description(@"Used when a requested cancellation has been rejected.")]
-    RejectedCancellationRequest,
+    RejectedCancellationRequest = ExternalInvestigationExecutionConfirmationCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The claim for non-receipt of a payment instruction is rejected.
-    /// Encoded/decoded by serializers as "RejectedClaimNonReceipt".
+    /// Encoded/decoded by serializers as "RJNR".
     /// </summary>
     [EnumMember(Value = "RJNR")]
     [IsoId("_uaKPcvRYEeuLhpyIdtJzwg")]
     [Description(@"The claim for non-receipt of a payment instruction is rejected.")]
-    RejectedClaimNonReceipt,
+    RejectedClaimNonReceipt = ExternalInvestigationExecutionConfirmationCode.RejectedClaimNonReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The claim for value date correction is rejected.
-    /// Encoded/decoded by serializers as "RejectedValueDateAdjustment".
+    /// Encoded/decoded by serializers as "RJVA".
     /// </summary>
     [EnumMember(Value = "RJVA")]
     [IsoId("_uaKPdfRYEeuLhpyIdtJzwg")]
     [Description(@"The claim for value date correction is rejected.")]
-    RejectedValueDateAdjustment,
+    RejectedValueDateAdjustment = ExternalInvestigationExecutionConfirmationCode.RejectedValueDateAdjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the entry in the statement is correct.
-    /// Encoded/decoded by serializers as "StatementEntryCorrect".
+    /// Encoded/decoded by serializers as "SMTC".
     /// </summary>
     [EnumMember(Value = "SMTC")]
     [IsoId("_uaUAcvRYEeuLhpyIdtJzwg")]
     [Description(@"Used when the entry in the statement is correct.")]
-    StatementEntryCorrect,
+    StatementEntryCorrect = ExternalInvestigationExecutionConfirmationCode.StatementEntryCorrect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the entry in the statement is incorrect and further information is provided with the resolution.
-    /// Encoded/decoded by serializers as "StatementEntryIncorrect".
+    /// Encoded/decoded by serializers as "SMTI".
     /// </summary>
     [EnumMember(Value = "SMTI")]
     [IsoId("_uaUAdfRYEeuLhpyIdtJzwg")]
     [Description(@"Used when the entry in the statement is incorrect and further information is provided with the resolution.")]
-    StatementEntryIncorrect,
+    StatementEntryIncorrect = ExternalInvestigationExecutionConfirmationCode.StatementEntryIncorrect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when sender wants to respond to an assignment with an Unable To Apply workflow.
-    /// Encoded/decoded by serializers as "UnableToApplyWillFollow".
+    /// Encoded/decoded by serializers as "UWFW".
     /// </summary>
     [EnumMember(Value = "UWFW")]
     [IsoId("_uaUAePRYEeuLhpyIdtJzwg")]
     [Description(@"Used when sender wants to respond to an assignment with an Unable To Apply workflow.")]
-    UnableToApplyWillFollow,
+    UnableToApplyWillFollow = ExternalInvestigationExecutionConfirmationCode.UnableToApplyWillFollow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process a cancellation request but batch already settled.
-    /// Encoded/decoded by serializers as "BatchInstructionAlreadySettled".
+    /// Encoded/decoded by serializers as "BIAS".
     /// </summary>
     [EnumMember(Value = "BIAS")]
     [IsoId("_eSPVoQTrEey95qpfbNuEwg")]
     [Description(@"Process a cancellation request but batch already settled.")]
-    BatchInstructionAlreadySettled,
+    BatchInstructionAlreadySettled = ExternalInvestigationExecutionConfirmationCode.BatchInstructionAlreadySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process a  Batch Cancellation "using an incorrect batch sequence number”.
-    /// Encoded/decoded by serializers as "InstructionDoesNotExist".
+    /// Encoded/decoded by serializers as "IDNE".
     /// </summary>
     [EnumMember(Value = "IDNE")]
     [IsoId("_ekkbwQTrEey95qpfbNuEwg")]
     [Description(@"Process a  Batch Cancellation ""using an incorrect batch sequence number”.")]
-    InstructionDoesNotExist,
+    InstructionDoesNotExist = ExternalInvestigationExecutionConfirmationCode.InstructionDoesNotExist, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process a cancellation request with incorrect reference to original batch.
-    /// Encoded/decoded by serializers as "InvalidCancellationRequest".
+    /// Encoded/decoded by serializers as "IVCR".
     /// </summary>
     [EnumMember(Value = "IVCR")]
     [IsoId("_erSHwQTrEey95qpfbNuEwg")]
     [Description(@"Process a cancellation request with incorrect reference to original batch.")]
-    InvalidCancellationRequest,
+    InvalidCancellationRequest = ExternalInvestigationExecutionConfirmationCode.InvalidCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when additional information has been sent to the beneficiary of a payment.
-    /// Encoded/decoded by serializers as "AdditionalInformationSent".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_G4loYRRyEeyk6Lq9x6ij-w")]
     [Description(@"Used when additional information has been sent to the beneficiary of a payment.")]
-    AdditionalInformationSent,
+    AdditionalInformationSent = ExternalInvestigationExecutionConfirmationCode.AdditionalInformationSent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when no additional information is available.
-    /// Encoded/decoded by serializers as "NoInformationAvailable".
+    /// Encoded/decoded by serializers as "NINF".
     /// </summary>
     [EnumMember(Value = "NINF")]
     [IsoId("_pWiy8iemEe2VkIu7jTuNaA")]
     [Description(@"Used when no additional information is available.")]
-    NoInformationAvailable,
+    NoInformationAvailable = ExternalInvestigationExecutionConfirmationCode.NoInformationAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used to inform that a response to an investigation is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_H78O8ienEe2VkIu7jTuNaA")]
     [Description(@"Used to inform that a response to an investigation is pending.")]
-    Pending,
+    Pending = ExternalInvestigationExecutionConfirmationCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -308,7 +308,7 @@ public enum ExternalInvestigationExecutionConfirmation1Code
 public static class ExternalInvestigationExecutionConfirmation1CodeMetadataExtensions
 {
     private static readonly ExternalInvestigationExecutionConfirmation1CodeDropdownSource _dropdownSource = new ExternalInvestigationExecutionConfirmation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

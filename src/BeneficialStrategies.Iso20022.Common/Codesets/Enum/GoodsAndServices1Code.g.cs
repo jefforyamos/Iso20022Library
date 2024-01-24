@@ -21,30 +21,30 @@ public enum GoodsAndServices1Code
 {
     /// <summary>
     /// Electronic goods and services.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_cGi64VHiEeeJoafcMZup1w")]
     [Description(@"Electronic goods and services.")]
-    Electronic,
+    Electronic = GoodsAndServicesCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical goods or services.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_cTo7sVHiEeeJoafcMZup1w")]
     [Description(@"Physical goods or services.")]
-    Physical,
+    Physical = GoodsAndServicesCode.Physical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic and physical goods and services.
-    /// Encoded/decoded by serializers as "ElectronicAndPhysical".
+    /// Encoded/decoded by serializers as "ELPH".
     /// </summary>
     [EnumMember(Value = "ELPH")]
     [IsoId("_cjQsEVHiEeeJoafcMZup1w")]
     [Description(@"Electronic and physical goods and services.")]
-    ElectronicAndPhysical,
+    ElectronicAndPhysical = GoodsAndServicesCode.ElectronicAndPhysical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum GoodsAndServices1Code
 public static class GoodsAndServices1CodeMetadataExtensions
 {
     private static readonly GoodsAndServices1CodeDropdownSource _dropdownSource = new GoodsAndServices1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

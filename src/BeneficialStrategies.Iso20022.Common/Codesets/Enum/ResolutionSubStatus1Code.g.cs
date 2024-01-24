@@ -21,21 +21,21 @@ public enum ResolutionSubStatus1Code
 {
     /// <summary>
     /// Resolution voted at the meeting was amended.
-    /// Encoded/decoded by serializers as "AmendedResolution".
+    /// Encoded/decoded by serializers as "AMDR".
     /// </summary>
     [EnumMember(Value = "AMDR")]
     [IsoId("_Zd6yETUHEe2tRf29bleifQ")]
     [Description(@"Resolution voted at the meeting was amended.")]
-    AmendedResolution,
+    AmendedResolution = ResolutionSubStatusCode.AmendedResolution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resolution voted at the meeting is new. 
-    /// Encoded/decoded by serializers as "NewResolution".
+    /// Encoded/decoded by serializers as "NEWR".
     /// </summary>
     [EnumMember(Value = "NEWR")]
     [IsoId("_ZkxoATUHEe2tRf29bleifQ")]
     [Description(@"Resolution voted at the meeting is new. ")]
-    NewResolution,
+    NewResolution = ResolutionSubStatusCode.NewResolution, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResolutionSubStatus1Code
 public static class ResolutionSubStatus1CodeMetadataExtensions
 {
     private static readonly ResolutionSubStatus1CodeDropdownSource _dropdownSource = new ResolutionSubStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

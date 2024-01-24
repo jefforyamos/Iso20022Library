@@ -17,18 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_BNVEUE7bEeifNrXGwadPmg")]
 [Description(@"Specifies a reason for a withdrawal from the investment product.")]
 [Derivations(typeof(PortfolioWithdrawalReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PortfolioWithdrawalReasonCode
 {
     /// <summary>
     /// Withdrawal is for a first time residential property.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "FTRS".
     /// </summary>
     [EnumMember(Value = "FTRS")]
     [IsoId("_aXNDQF23EeiFXdiLi_Nf4A")]
-    [Description(@"Withdrawal is for a first time residential property.  ")]
+    [Description(@"Withdrawal is for a first time residential property.||")]
     FirstTimeResidentialProperty,
     
 }
@@ -40,7 +37,7 @@ public enum PortfolioWithdrawalReasonCode
 public static class PortfolioWithdrawalReasonCodeMetadataExtensions
 {
     private static readonly PortfolioWithdrawalReasonCodeDropdownSource _dropdownSource = new PortfolioWithdrawalReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

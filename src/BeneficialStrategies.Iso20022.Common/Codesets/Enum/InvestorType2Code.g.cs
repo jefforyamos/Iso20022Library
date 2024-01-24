@@ -21,30 +21,30 @@ public enum InvestorType2Code
 {
     /// <summary>
     /// Investor is both professional per se and elective professional.
-    /// Encoded/decoded by serializers as "BothProfessionalPerSeAndElectiveProfessional".
+    /// Encoded/decoded by serializers as "BOT3".
     /// </summary>
     [EnumMember(Value = "BOT3")]
     [IsoId("_Rk308ddbEeibyvRfU9vJ7w")]
     [Description(@"Investor is both professional per se and elective professional.")]
-    BothProfessionalPerSeAndElectiveProfessional,
+    BothProfessionalPerSeAndElectiveProfessional = InvestorTypeCode.BothProfessionalPerSeAndElectiveProfessional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is an elective professional.
-    /// Encoded/decoded by serializers as "ElectiveProfessional".
+    /// Encoded/decoded by serializers as "EPRO".
     /// </summary>
     [EnumMember(Value = "EPRO")]
     [IsoId("_SH1YEddbEeibyvRfU9vJ7w")]
     [Description(@"Investor is an elective professional.")]
-    ElectiveProfessional,
+    ElectiveProfessional = InvestorTypeCode.ElectiveProfessional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is professional or professional per se.
-    /// Encoded/decoded by serializers as "ProfessionalOrPerSe".
+    /// Encoded/decoded by serializers as "PRF2".
     /// </summary>
     [EnumMember(Value = "PRF2")]
     [IsoId("_TMkLgddbEeibyvRfU9vJ7w")]
     [Description(@"Investor is professional or professional per se.")]
-    ProfessionalOrPerSe,
+    ProfessionalOrPerSe = InvestorTypeCode.ProfessionalOrPerSe, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestorType2Code
 public static class InvestorType2CodeMetadataExtensions
 {
     private static readonly InvestorType2CodeDropdownSource _dropdownSource = new InvestorType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

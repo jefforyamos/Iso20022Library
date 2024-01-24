@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_SKYhDlhcEeS8HfHHd4stCA")]
 [Description(@"Specifies the denied reason.")]
 [Derivations(typeof(DeniedReason7Code),typeof(DeniedReason6Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementDeniedReasonCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum SettlementDeniedReasonCode
 public static class SettlementDeniedReasonCodeMetadataExtensions
 {
     private static readonly SettlementDeniedReasonCodeDropdownSource _dropdownSource = new SettlementDeniedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

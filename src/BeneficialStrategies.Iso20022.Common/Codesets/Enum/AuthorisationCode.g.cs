@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bjlV8Np-Ed-ak6NoX_4Aeg_-1874566431")]
 [Description(@"Specifies the level of approval depending on a number of factors, including payment type, threshold amount or local country or operations practice.")]
 [Derivations(typeof(Authorisation1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AuthorisationCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AuthorisationCode
 public static class AuthorisationCodeMetadataExtensions
 {
     private static readonly AuthorisationCodeDropdownSource _dropdownSource = new AuthorisationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

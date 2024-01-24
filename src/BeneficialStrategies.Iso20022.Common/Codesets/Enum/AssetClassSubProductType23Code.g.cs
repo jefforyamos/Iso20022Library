@@ -21,12 +21,12 @@ public enum AssetClassSubProductType23Code
 {
     /// <summary>
     /// Commodity of type seafood.
-    /// Encoded/decoded by serializers as "Seafood".
+    /// Encoded/decoded by serializers as "SEAF".
     /// </summary>
     [EnumMember(Value = "SEAF")]
     [IsoId("_0hERMVrBEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type seafood.")]
-    Seafood,
+    Seafood = AssetClassSubProductTypeCode.Seafood, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType23Code
 public static class AssetClassSubProductType23CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType23CodeDropdownSource _dropdownSource = new AssetClassSubProductType23CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

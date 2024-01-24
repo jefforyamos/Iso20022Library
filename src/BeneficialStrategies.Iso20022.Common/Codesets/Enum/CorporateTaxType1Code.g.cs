@@ -21,30 +21,30 @@ public enum CorporateTaxType1Code
 {
     /// <summary>
     /// Small Business
-    /// Encoded/decoded by serializers as "SmallBusiness".
+    /// Encoded/decoded by serializers as "SMBS".
     /// </summary>
     [EnumMember(Value = "SMBS")]
     [IsoId("_aEAucS7REemIy6A-26wnAg")]
     [Description(@"Small Business")]
-    SmallBusiness,
+    SmallBusiness = CorporateTaxTypeCode.SmallBusiness, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aIZfMS7REemIy6A-26wnAg")]
     [Description(@"Other")]
-    Other,
+    Other = CorporateTaxTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate
-    /// Encoded/decoded by serializers as "Corporate".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_aMSgsS7REemIy6A-26wnAg")]
     [Description(@"Corporate")]
-    Corporate,
+    Corporate = CorporateTaxTypeCode.Corporate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateTaxType1Code
 public static class CorporateTaxType1CodeMetadataExtensions
 {
     private static readonly CorporateTaxType1CodeDropdownSource _dropdownSource = new CorporateTaxType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

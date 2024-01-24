@@ -21,39 +21,39 @@ public enum InvestorType3Code
 {
     /// <summary>
     /// Investor is a retail investor.
-    /// Encoded/decoded by serializers as "Retail".
+    /// Encoded/decoded by serializers as "RETL".
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_KSbzAddkEeibyvRfU9vJ7w")]
     [Description(@"Investor is a retail investor.")]
-    Retail,
+    Retail = InvestorTypeCode.Retail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is professional or professional per se.
-    /// Encoded/decoded by serializers as "ProfessionalOrPerSe".
+    /// Encoded/decoded by serializers as "PRF2".
     /// </summary>
     [EnumMember(Value = "PRF2")]
     [IsoId("_LvkfYddkEeibyvRfU9vJ7w")]
     [Description(@"Investor is professional or professional per se.")]
-    ProfessionalOrPerSe,
+    ProfessionalOrPerSe = InvestorTypeCode.ProfessionalOrPerSe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is neither professional or retail.
-    /// Encoded/decoded by serializers as "NeitherProfessionalOrRetail".
+    /// Encoded/decoded by serializers as "NEI1".
     /// </summary>
     [EnumMember(Value = "NEI1")]
     [IsoId("_Mq77cddkEeibyvRfU9vJ7w")]
     [Description(@"Investor is neither professional or retail.")]
-    NeitherProfessionalOrRetail,
+    NeitherProfessionalOrRetail = InvestorTypeCode.NeitherProfessionalOrRetail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is both professional and retail.
-    /// Encoded/decoded by serializers as "BothProfessionalAndRetail".
+    /// Encoded/decoded by serializers as "BOT2".
     /// </summary>
     [EnumMember(Value = "BOT2")]
     [IsoId("_NgC-gddkEeibyvRfU9vJ7w")]
     [Description(@"Investor is both professional and retail.")]
-    BothProfessionalAndRetail,
+    BothProfessionalAndRetail = InvestorTypeCode.BothProfessionalAndRetail, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum InvestorType3Code
 public static class InvestorType3CodeMetadataExtensions
 {
     private static readonly InvestorType3CodeDropdownSource _dropdownSource = new InvestorType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

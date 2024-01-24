@@ -21,30 +21,30 @@ public enum OrderOriginatorEligibility1Code
 {
     /// <summary>
     /// Eligible counterparty - MiFID classification of counterparty. Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules defined under MiFID.
-    /// Encoded/decoded by serializers as "Eligible".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_aRLS4Np-Ed-ak6NoX_4Aeg_668089351")]
     [Description(@"Eligible counterparty - MiFID classification of counterparty. Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules defined under MiFID.")]
-    Eligible,
+    Eligible = OrderOriginatorEligibilityCode.Eligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retail client - MiFID classification of counterparty. Retail customers are the least sophisticated level of investor.
-    /// Encoded/decoded by serializers as "Retail".
+    /// Encoded/decoded by serializers as "RETL".
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_aRLS4dp-Ed-ak6NoX_4Aeg_679171670")]
     [Description(@"Retail client - MiFID classification of counterparty. Retail customers are the least sophisticated level of investor.")]
-    Retail,
+    Retail = OrderOriginatorEligibilityCode.Retail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Professional client - MiFID classification of counterparty. Professional customers are, for example, investment firms, credit institutions, insurance companies.
-    /// Encoded/decoded by serializers as "Professional".
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_aRLS4tp-Ed-ak6NoX_4Aeg_709649144")]
     [Description(@"Professional client - MiFID classification of counterparty. Professional customers are, for example, investment firms, credit institutions, insurance companies.")]
-    Professional,
+    Professional = OrderOriginatorEligibilityCode.Professional, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OrderOriginatorEligibility1Code
 public static class OrderOriginatorEligibility1CodeMetadataExtensions
 {
     private static readonly OrderOriginatorEligibility1CodeDropdownSource _dropdownSource = new OrderOriginatorEligibility1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

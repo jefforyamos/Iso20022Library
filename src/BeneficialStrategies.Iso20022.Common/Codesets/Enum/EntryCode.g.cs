@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ahQ9WNp-Ed-ak6NoX_4Aeg_-1271465048")]
 [Description(@"Specifies the type of an entry in a report.")]
 [Derivations(typeof(Entry2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EntryCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum EntryCode
 public static class EntryCodeMetadataExtensions
 {
     private static readonly EntryCodeDropdownSource _dropdownSource = new EntryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

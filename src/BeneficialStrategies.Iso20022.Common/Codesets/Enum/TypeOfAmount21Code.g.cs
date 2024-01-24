@@ -21,75 +21,75 @@ public enum TypeOfAmount21Code
 {
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "InterchangeFee".
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_EL_NsaH_EeuiuNcvKhXmNQ")]
     [Description(@"Interchange fee.")]
-    InterchangeFee,
+    InterchangeFee = TypeOfAmountCode.InterchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "ProcessingFees".
+    /// Encoded/decoded by serializers as "FEEP".
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_EL_Ns6H_EeuiuNcvKhXmNQ")]
     [Description(@"Processing fees.")]
-    ProcessingFees,
+    ProcessingFees = TypeOfAmountCode.ProcessingFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_EL_NtaH_EeuiuNcvKhXmNQ")]
     [Description(@"Other type of amount defined at national level.")]
-    OtherNational,
+    OtherNational = TypeOfAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_EL_Nt6H_EeuiuNcvKhXmNQ")]
     [Description(@"Other type of amount defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = TypeOfAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
+    /// Encoded/decoded by serializers as "FEEA".
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_EL_NuaH_EeuiuNcvKhXmNQ")]
     [Description(@"International service assessment fees.")]
-    InternationalServiceAssessmentFees,
+    InternationalServiceAssessmentFees = TypeOfAmountCode.InternationalServiceAssessmentFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interchange fee applicable to cash back amount.
-    /// Encoded/decoded by serializers as "CashBackInterchangeFee".
+    /// Encoded/decoded by serializers as "CSIF".
     /// </summary>
     [EnumMember(Value = "CSIF")]
     [IsoId("_UQGKgaH_EeuiuNcvKhXmNQ")]
     [Description(@"Interchange fee applicable to cash back amount.")]
-    CashBackInterchangeFee,
+    CashBackInterchangeFee = TypeOfAmountCode.CashBackInterchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum applicable interchange fee.
-    /// Encoded/decoded by serializers as "MaximumInterchangeFee".
+    /// Encoded/decoded by serializers as "MXIF".
     /// </summary>
     [EnumMember(Value = "MXIF")]
     [IsoId("_WF3ZUaH_EeuiuNcvKhXmNQ")]
     [Description(@"Maximum applicable interchange fee.")]
-    MaximumInterchangeFee,
+    MaximumInterchangeFee = TypeOfAmountCode.MaximumInterchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Minimum interchange fee applicable.
-    /// Encoded/decoded by serializers as "MinimumInterchangeFee".
+    /// Encoded/decoded by serializers as "MNIF".
     /// </summary>
     [EnumMember(Value = "MNIF")]
     [IsoId("_WpWg4aH_EeuiuNcvKhXmNQ")]
     [Description(@"Minimum interchange fee applicable.")]
-    MinimumInterchangeFee,
+    MinimumInterchangeFee = TypeOfAmountCode.MinimumInterchangeFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TypeOfAmount21Code
 public static class TypeOfAmount21CodeMetadataExtensions
 {
     private static readonly TypeOfAmount21CodeDropdownSource _dropdownSource = new TypeOfAmount21CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

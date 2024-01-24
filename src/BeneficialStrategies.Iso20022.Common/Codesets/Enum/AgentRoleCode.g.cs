@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bofrItp-Ed-ak6NoX_4Aeg_388156528")]
 [Description(@"Identification of the agent acting as main paying agent or sub paying agent.")]
 [Derivations(typeof(AgentRole1Code),typeof(AgentRole2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AgentRoleCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum AgentRoleCode
 public static class AgentRoleCodeMetadataExtensions
 {
     private static readonly AgentRoleCodeDropdownSource _dropdownSource = new AgentRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

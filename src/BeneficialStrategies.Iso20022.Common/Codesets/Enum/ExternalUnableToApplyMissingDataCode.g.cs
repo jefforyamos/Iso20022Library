@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_p-vHdN4jEeqt1ZcLzWyWFw")]
-[Description(@"Specifies the reason of an unable to apply due to missing data, as published in an external unable to apply missing data code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason of an unable to apply due to missing data, as published in an external unable to apply missing data code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalUnableToApplyMissingData1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalUnableToApplyMissingDataCode
 {
     /// <summary>
@@ -201,7 +200,7 @@ public enum ExternalUnableToApplyMissingDataCode
 public static class ExternalUnableToApplyMissingDataCodeMetadataExtensions
 {
     private static readonly ExternalUnableToApplyMissingDataCodeDropdownSource _dropdownSource = new ExternalUnableToApplyMissingDataCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum StampDutyType1Code
 {
     /// <summary>
     /// SDRT paid outside of CSD on corporate action.
-    /// Encoded/decoded by serializers as "OutsideCSD".
+    /// Encoded/decoded by serializers as "SDRU".
     /// </summary>
     [EnumMember(Value = "SDRU")]
     [IsoId("_ZPdXM9p-Ed-ak6NoX_4Aeg_497267445")]
     [Description(@"SDRT paid outside of CSD on corporate action.")]
-    OutsideCSD,
+    OutsideCSD = StampDutyTypeCode.OutsideCSD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// SDRT paid on another transaction.
-    /// Encoded/decoded by serializers as "Paid".
+    /// Encoded/decoded by serializers as "SDRT".
     /// </summary>
     [EnumMember(Value = "SDRT")]
     [IsoId("_ZPdXNNp-Ed-ak6NoX_4Aeg_514814980")]
     [Description(@"SDRT paid on another transaction.")]
-    Paid,
+    Paid = StampDutyTypeCode.Paid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stamp duty not applicable.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "SDRN".
     /// </summary>
     [EnumMember(Value = "SDRN")]
     [IsoId("_ZPdXNdp-Ed-ak6NoX_4Aeg_775244648")]
     [Description(@"Stamp duty not applicable.")]
-    NotApplicable,
+    NotApplicable = StampDutyTypeCode.NotApplicable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exempt, for any other reason.
-    /// Encoded/decoded by serializers as "Exemption".
+    /// Encoded/decoded by serializers as "SDRQ".
     /// </summary>
     [EnumMember(Value = "SDRQ")]
     [IsoId("_ZPdXNtp-Ed-ak6NoX_4Aeg_814957832")]
     [Description(@"Exempt, for any other reason.")]
-    Exemption,
+    Exemption = StampDutyTypeCode.Exemption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum StampDutyType1Code
 public static class StampDutyType1CodeMetadataExtensions
 {
     private static readonly StampDutyType1CodeDropdownSource _dropdownSource = new StampDutyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

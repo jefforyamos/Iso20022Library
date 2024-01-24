@@ -21,102 +21,102 @@ public enum Frequency17Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_fusgsclPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = FrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_futHx8lPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = FrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every two weeks.
-    /// Encoded/decoded by serializers as "Fortnightly".
+    /// Encoded/decoded by serializers as "FRTN".
     /// </summary>
     [EnumMember(Value = "FRTN")]
     [IsoId("_futHz8lPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every two weeks.")]
-    Fortnightly,
+    Fortnightly = FrequencyCode.Fortnightly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_futH0clPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = FrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarterly".
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_futH38lPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarterly,
+    Quarterly = FrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SemiAnnual".
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_futH7clPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every six months or two times a year.")]
-    SemiAnnual,
+    SemiAnnual = FrequencyCode.SemiAnnual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every ten business days.
-    /// Encoded/decoded by serializers as "TenDays".
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_futH9clPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place every ten business days.")]
-    TenDays,
+    TenDays = FrequencyCode.TenDays, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "Weekly".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_futH98lPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place once a week.")]
-    Weekly,
+    Weekly = FrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place on request or as necessary.
-    /// Encoded/decoded by serializers as "Adhoc".
+    /// Encoded/decoded by serializers as "ADHO".
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_pdb24MlPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place on request or as necessary.")]
-    Adhoc,
+    Adhoc = FrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event associated with a shift.
-    /// Encoded/decoded by serializers as "Shift".
+    /// Encoded/decoded by serializers as "SHFT".
     /// </summary>
     [EnumMember(Value = "SHFT")]
     [IsoId("_1TaJ4clQEeuJ35KoBRZFOg")]
     [Description(@"Event associated with a shift.")]
-    Shift,
+    Shift = FrequencyCode.Shift, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place on demand.
-    /// Encoded/decoded by serializers as "OnDemand".
+    /// Encoded/decoded by serializers as "ODMD".
     /// </summary>
     [EnumMember(Value = "ODMD")]
     [IsoId("_1uI-EclQEeuJ35KoBRZFOg")]
     [Description(@"Event takes place on demand.")]
-    OnDemand,
+    OnDemand = FrequencyCode.OnDemand, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum Frequency17Code
 public static class Frequency17CodeMetadataExtensions
 {
     private static readonly Frequency17CodeDropdownSource _dropdownSource = new Frequency17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

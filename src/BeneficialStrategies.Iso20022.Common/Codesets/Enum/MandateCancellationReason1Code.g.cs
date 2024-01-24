@@ -21,48 +21,48 @@ public enum MandateCancellationReason1Code
 {
     /// <summary>
     /// Agent details are incorrect or have changed.
-    /// Encoded/decoded by serializers as "IncorrectAgent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_afxvlNp-Ed-ak6NoX_4Aeg_1808299688")]
     [Description(@"Agent details are incorrect or have changed.")]
-    IncorrectAgent,
+    IncorrectAgent = MandateReasonCode.IncorrectAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Currency for the mandate is incorrect or has changed.
-    /// Encoded/decoded by serializers as "IncorrectCurrency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_afxvldp-Ed-ak6NoX_4Aeg_1808299933")]
     [Description(@"Currency for the mandate is incorrect or has changed.")]
-    IncorrectCurrency,
+    IncorrectCurrency = MandateReasonCode.IncorrectCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer requested the change.
-    /// Encoded/decoded by serializers as "RequestedByCustomer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_afxvltp-Ed-ak6NoX_4Aeg_1808299934")]
     [Description(@"Customer requested the change.")]
-    RequestedByCustomer,
+    RequestedByCustomer = MandateReasonCode.RequestedByCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor.
-    /// Encoded/decoded by serializers as "InsufficientDebtorDetails".
+    /// Encoded/decoded by serializers as "DBTR".
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_afxvl9p-Ed-ak6NoX_4Aeg_1808299964")]
     [Description(@"Insufficient or incoherent details about the debtor.")]
-    InsufficientDebtorDetails,
+    InsufficientDebtorDetails = MandateReasonCode.InsufficientDebtorDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor.
-    /// Encoded/decoded by serializers as "InsufficientCreditorDetails".
+    /// Encoded/decoded by serializers as "CDTR".
     /// </summary>
     [EnumMember(Value = "CDTR")]
     [IsoId("_afxvmNp-Ed-ak6NoX_4Aeg_1808299965")]
     [Description(@"Insufficient or incoherent details about the creditor.")]
-    InsufficientCreditorDetails,
+    InsufficientCreditorDetails = MandateReasonCode.InsufficientCreditorDetails, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum MandateCancellationReason1Code
 public static class MandateCancellationReason1CodeMetadataExtensions
 {
     private static readonly MandateCancellationReason1CodeDropdownSource _dropdownSource = new MandateCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

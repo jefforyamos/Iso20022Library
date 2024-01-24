@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_2y16wML_EeiKUovBlz9Jxg")]
-[Description(@"Specifies the role associated with a specific party in a payment instruction, as published in an external payment role code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the role associated with a specific party in a payment instruction, as published in an external payment role code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentRole1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentRoleCode
 {
     /// <summary>
@@ -84,7 +83,7 @@ public enum ExternalPaymentRoleCode
 public static class ExternalPaymentRoleCodeMetadataExtensions
 {
     private static readonly ExternalPaymentRoleCodeDropdownSource _dropdownSource = new ExternalPaymentRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

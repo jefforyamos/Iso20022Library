@@ -21,111 +21,111 @@ public enum TypeOfAmount6Code
 {
     /// <summary>
     /// Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.
-    /// Encoded/decoded by serializers as "ATMCommissionFee".
+    /// Encoded/decoded by serializers as "ATMF".
     /// </summary>
     [EnumMember(Value = "ATMF")]
     [IsoId("_ch5l0Xs3EeSTS7uHCe8FPQ")]
     [Description(@"Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.")]
-    ATMCommissionFee,
+    ATMCommissionFee = TypeOfAmountCode.ATMCommissionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AuthorisedAmount".
+    /// Encoded/decoded by serializers as "AMTH".
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_crbVQ3s3EeSTS7uHCe8FPQ")]
     [Description(@"Transaction amount that has been authorised.")]
-    AuthorisedAmount,
+    AuthorisedAmount = TypeOfAmountCode.AuthorisedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.
-    /// Encoded/decoded by serializers as "CardRemainingBalance".
+    /// Encoded/decoded by serializers as "CRDB".
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_dpya83s3EeSTS7uHCe8FPQ")]
     [Description(@"Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.")]
-    CardRemainingBalance,
+    CardRemainingBalance = TypeOfAmountCode.CardRemainingBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DCNT".
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_euupw3s3EeSTS7uHCe8FPQ")]
     [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
-    Discount,
+    Discount = TypeOfAmountCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "Fees".
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_e8LP43s3EeSTS7uHCe8FPQ")]
     [Description(@"Fees.")]
-    Fees,
+    Fees = TypeOfAmountCode.Fees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "MaximumAllowedAmount".
+    /// Encoded/decoded by serializers as "AMTX".
     /// </summary>
     [EnumMember(Value = "AMTX")]
     [IsoId("_fJJ783s3EeSTS7uHCe8FPQ")]
     [Description(@"Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.")]
-    MaximumAllowedAmount,
+    MaximumAllowedAmount = TypeOfAmountCode.MaximumAllowedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "MinimumAllowedAmount".
+    /// Encoded/decoded by serializers as "AMTN".
     /// </summary>
     [EnumMember(Value = "AMTN")]
     [IsoId("_fP3n83s3EeSTS7uHCe8FPQ")]
     [Description(@"Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.")]
-    MinimumAllowedAmount,
+    MinimumAllowedAmount = TypeOfAmountCode.MinimumAllowedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount that has been requested to be authorised.
-    /// Encoded/decoded by serializers as "RequestedAmount".
+    /// Encoded/decoded by serializers as "AMTQ".
     /// </summary>
     [EnumMember(Value = "AMTQ")]
     [IsoId("_greqU3s3EeSTS7uHCe8FPQ")]
     [Description(@"Transaction amount that has been requested to be authorised.")]
-    RequestedAmount,
+    RequestedAmount = TypeOfAmountCode.RequestedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_g34Hk3s3EeSTS7uHCe8FPQ")]
     [Description(@"Extra fee for a purchase or a withdrawal.")]
-    Surcharge,
+    Surcharge = TypeOfAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value added tax amount.
-    /// Encoded/decoded by serializers as "ValueAddedTax".
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_hFQcQ3s3EeSTS7uHCe8FPQ")]
     [Description(@"Value added tax amount.")]
-    ValueAddedTax,
+    ValueAddedTax = TypeOfAmountCode.ValueAddedTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission from the card issuer.
-    /// Encoded/decoded by serializers as "IssuerCommission".
+    /// Encoded/decoded by serializers as "COMI".
     /// </summary>
     [EnumMember(Value = "COMI")]
     [IsoId("_UJEOkYN6EeSNofOeou9G3A")]
     [Description(@"Commission from the card issuer.")]
-    IssuerCommission,
+    IssuerCommission = TypeOfAmountCode.IssuerCommission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees amount from the card issuer.
-    /// Encoded/decoded by serializers as "IssuerFees".
+    /// Encoded/decoded by serializers as "FEEI".
     /// </summary>
     [EnumMember(Value = "FEEI")]
     [IsoId("_UUHA8YN6EeSNofOeou9G3A")]
     [Description(@"Fees amount from the card issuer.")]
-    IssuerFees,
+    IssuerFees = TypeOfAmountCode.IssuerFees, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum TypeOfAmount6Code
 public static class TypeOfAmount6CodeMetadataExtensions
 {
     private static readonly TypeOfAmount6CodeDropdownSource _dropdownSource = new TypeOfAmount6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

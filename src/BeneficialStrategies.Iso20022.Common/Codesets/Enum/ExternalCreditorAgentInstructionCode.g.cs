@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_mn2q4MP9Eemsic1bQcEtLA")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction, as provided to the creditor agent.")]
 [Derivations(typeof(ExternalCreditorAgentInstruction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalCreditorAgentInstructionCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum ExternalCreditorAgentInstructionCode
 public static class ExternalCreditorAgentInstructionCodeMetadataExtensions
 {
     private static readonly ExternalCreditorAgentInstructionCodeDropdownSource _dropdownSource = new ExternalCreditorAgentInstructionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CollateralStatus1Code
 {
     /// <summary>
     /// Excess of collateral.
-    /// Encoded/decoded by serializers as "CollateralExcess".
+    /// Encoded/decoded by serializers as "EXCS".
     /// </summary>
     [EnumMember(Value = "EXCS")]
     [IsoId("_JpYjkcUcEeiF-qqyf1JQhg")]
     [Description(@"Excess of collateral.")]
-    CollateralExcess,
+    CollateralExcess = CollateralStatusCode.CollateralExcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Shortage of collateral.
-    /// Encoded/decoded by serializers as "CollateralShortage".
+    /// Encoded/decoded by serializers as "DEFI".
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_JuqsMcUcEeiF-qqyf1JQhg")]
     [Description(@"Shortage of collateral.")]
-    CollateralShortage,
+    CollateralShortage = CollateralStatusCode.CollateralShortage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral covers the exposure and there is no excess.
-    /// Encoded/decoded by serializers as "NoExcessCollateral".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_J0VPUcUcEeiF-qqyf1JQhg")]
     [Description(@"Collateral covers the exposure and there is no excess.")]
-    NoExcessCollateral,
+    NoExcessCollateral = CollateralStatusCode.NoExcessCollateral, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CollateralStatus1Code
 public static class CollateralStatus1CodeMetadataExtensions
 {
     private static readonly CollateralStatus1CodeDropdownSource _dropdownSource = new CollateralStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

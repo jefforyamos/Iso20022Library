@@ -21,156 +21,156 @@ public enum ChargeType13Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a81fBtp-Ed-ak6NoX_4Aeg_1141407780")]
     [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
-    BackEndLoad,
+    BackEndLoad = ChargeTypeCode.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a81fB9p-Ed-ak6NoX_4Aeg_1141407788")]
     [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
-    FrontEndLoad,
+    FrontEndLoad = ChargeTypeCode.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, charge related to a switch transaction.
-    /// Encoded/decoded by serializers as "Switch".
+    /// Encoded/decoded by serializers as "SWIT".
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_a81fCNp-Ed-ak6NoX_4Aeg_1141407811")]
     [Description(@"In investment funds, charge related to a switch transaction.")]
-    Switch,
+    Switch = ChargeTypeCode.Switch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
-    /// Encoded/decoded by serializers as "DilutionLevy".
+    /// Encoded/decoded by serializers as "DLEV".
     /// </summary>
     [EnumMember(Value = "DLEV")]
     [IsoId("_a8_QANp-Ed-ak6NoX_4Aeg_1141407841")]
     [Description(@"In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.")]
-    DilutionLevy,
+    DilutionLevy = ChargeTypeCode.DilutionLevy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_a8_QAdp-Ed-ak6NoX_4Aeg_1141407872")]
     [Description(@"Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.")]
-    Discount,
+    Discount = ChargeTypeCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged to the investor for early redemption of the fund.
-    /// Encoded/decoded by serializers as "Penalty".
+    /// Encoded/decoded by serializers as "PENA".
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_a8_QAtp-Ed-ak6NoX_4Aeg_1141407873")]
     [Description(@"Fee charged to the investor for early redemption of the fund.")]
-    Penalty,
+    Penalty = ChargeTypeCode.Penalty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "PostageCharge".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_a8_QA9p-Ed-ak6NoX_4Aeg_1141407903")]
     [Description(@"Charge paid for the postage.")]
-    PostageCharge,
+    PostageCharge = ChargeTypeCode.PostageCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "RegulatoryFee".
+    /// Encoded/decoded by serializers as "REGF".
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_a8_QBNp-Ed-ak6NoX_4Aeg_1141407933")]
     [Description(@"Fee charged by a regulatory authority, eg, Securities and Exchange fees.")]
-    RegulatoryFee,
+    RegulatoryFee = ChargeTypeCode.RegulatoryFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "ShippingCharge".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_a8_QBdp-Ed-ak6NoX_4Aeg_1141408212")]
     [Description(@"Charge for shipping, including the insurance of securities.")]
-    ShippingCharge,
+    ShippingCharge = ChargeTypeCode.ShippingCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "ServiceProvisionFee".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a8_QBtp-Ed-ak6NoX_4Aeg_1141408242")]
     [Description(@"Fee paid for the provision of financial services.")]
-    ServiceProvisionFee,
+    ServiceProvisionFee = ChargeTypeCode.ServiceProvisionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deferred sales charge.
-    /// Encoded/decoded by serializers as "ContingencyDeferredSalesCharge".
+    /// Encoded/decoded by serializers as "CDSC".
     /// </summary>
     [EnumMember(Value = "CDSC")]
     [IsoId("_a8_QB9p-Ed-ak6NoX_4Aeg_1141408273")]
     [Description(@"Deferred sales charge.")]
-    ContingencyDeferredSalesCharge,
+    ContingencyDeferredSalesCharge = ChargeTypeCode.ContingencyDeferredSalesCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, the charge of the correspondent bank for transferring money.
-    /// Encoded/decoded by serializers as "CorrespondentBankCharge".
+    /// Encoded/decoded by serializers as "CBCH".
     /// </summary>
     [EnumMember(Value = "CBCH")]
     [IsoId("_a8_QCNp-Ed-ak6NoX_4Aeg_1141408304")]
     [Description(@"In investment funds, the charge of the correspondent bank for transferring money.")]
-    CorrespondentBankCharge,
+    CorrespondentBankCharge = ChargeTypeCode.CorrespondentBankCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
-    /// Encoded/decoded by serializers as "Premium".
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_a8_QCdp-Ed-ak6NoX_4Aeg_1141408334")]
     [Description(@"In investment funds, pre-arranged addition to the trade amount based on the published net asset value.")]
-    Premium,
+    Premium = ChargeTypeCode.Premium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge paid at the time of the first subscription.
-    /// Encoded/decoded by serializers as "Initial".
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_a8_QCtp-Ed-ak6NoX_4Aeg_1141408365")]
     [Description(@"Charge paid at the time of the first subscription.")]
-    Initial,
+    Initial = ChargeTypeCode.Initial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BrokerageFee".
+    /// Encoded/decoded by serializers as "BRKF".
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_a9IZ8Np-Ed-ak6NoX_4Aeg_1141408366")]
     [Description(@"Fee paid to a broker for services provided.")]
-    BrokerageFee,
+    BrokerageFee = ChargeTypeCode.BrokerageFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges paid by the investor to the Fund Company for subscription and redemption orders.
-    /// Encoded/decoded by serializers as "UCITSCommission".
+    /// Encoded/decoded by serializers as "UCIC".
     /// </summary>
     [EnumMember(Value = "UCIC")]
     [IsoId("_a9IZ8dp-Ed-ak6NoX_4Aeg_1141408396")]
     [Description(@"Charges paid by the investor to the Fund Company for subscription and redemption orders.")]
-    UCITSCommission,
+    UCITSCommission = ChargeTypeCode.UCITSCommission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specially agreed front-end load.
-    /// Encoded/decoded by serializers as "SpeciallyAgreedFrontEndLoad".
+    /// Encoded/decoded by serializers as "SFEN".
     /// </summary>
     [EnumMember(Value = "SFEN")]
     [IsoId("_a9IZ8tp-Ed-ak6NoX_4Aeg_1182043721")]
     [Description(@"Specially agreed front-end load.")]
-    SpeciallyAgreedFrontEndLoad,
+    SpeciallyAgreedFrontEndLoad = ChargeTypeCode.SpeciallyAgreedFrontEndLoad, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum ChargeType13Code
 public static class ChargeType13CodeMetadataExtensions
 {
     private static readonly ChargeType13CodeDropdownSource _dropdownSource = new ChargeType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

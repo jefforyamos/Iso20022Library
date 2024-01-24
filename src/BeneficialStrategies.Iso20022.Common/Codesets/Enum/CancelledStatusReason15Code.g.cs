@@ -21,21 +21,21 @@ public enum CancelledStatusReason15Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CancelledByYourself".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_l1VXEZHsEeWL7bXuV2k5pg")]
     [Description(@"Transaction is cancelled by yourself.")]
-    CancelledByYourself,
+    CancelledByYourself = CancelledStatusReasonV2Code.CancelledByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_mcSCUpHsEeWL7bXuV2k5pg")]
     [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
-    CancelledByAgent,
+    CancelledByAgent = CancelledStatusReasonV2Code.CancelledByAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CancelledStatusReason15Code
 public static class CancelledStatusReason15CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason15CodeDropdownSource _dropdownSource = new CancelledStatusReason15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

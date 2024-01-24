@@ -21,21 +21,21 @@ public enum TransactionInitiator1Code
 {
     /// <summary>
     /// Merchant initiated transaction.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_KWdxcWzgEemD24gVaMSpeA")]
     [Description(@"Merchant initiated transaction.")]
-    Merchant,
+    Merchant = TransactionInitiatorCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer initiated transaction.
-    /// Encoded/decoded by serializers as "Customer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_KicX8WzgEemD24gVaMSpeA")]
     [Description(@"Customer initiated transaction.")]
-    Customer,
+    Customer = TransactionInitiatorCode.Customer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransactionInitiator1Code
 public static class TransactionInitiator1CodeMetadataExtensions
 {
     private static readonly TransactionInitiator1CodeDropdownSource _dropdownSource = new TransactionInitiator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

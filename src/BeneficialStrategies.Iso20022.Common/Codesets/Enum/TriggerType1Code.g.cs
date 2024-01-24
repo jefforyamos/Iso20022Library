@@ -21,39 +21,39 @@ public enum TriggerType1Code
 {
     /// <summary>
     /// Trigger Instructions come into effect in case of partial execution.
-    /// Encoded/decoded by serializers as "PartialExecution".
+    /// Encoded/decoded by serializers as "PAEX".
     /// </summary>
     [EnumMember(Value = "PAEX")]
     [IsoId("_YwKzJtp-Ed-ak6NoX_4Aeg_256297454")]
     [Description(@"Trigger Instructions come into effect in case of partial execution.")]
-    PartialExecution,
+    PartialExecution = TriggerTypeCode.PartialExecution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trigger Instructions come into effect at specified trading session.
-    /// Encoded/decoded by serializers as "SpecifiedTradingSession".
+    /// Encoded/decoded by serializers as "SPTS".
     /// </summary>
     [EnumMember(Value = "SPTS")]
     [IsoId("_YwKzJ9p-Ed-ak6NoX_4Aeg_256297489")]
     [Description(@"Trigger Instructions come into effect at specified trading session.")]
-    SpecifiedTradingSession,
+    SpecifiedTradingSession = TriggerTypeCode.SpecifiedTradingSession, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trigger Instructions come into effect at next auction.
-    /// Encoded/decoded by serializers as "NextAuction".
+    /// Encoded/decoded by serializers as "NEAU".
     /// </summary>
     [EnumMember(Value = "NEAU")]
     [IsoId("_YwKzKNp-Ed-ak6NoX_4Aeg_256297531")]
     [Description(@"Trigger Instructions come into effect at next auction.")]
-    NextAuction,
+    NextAuction = TriggerTypeCode.NextAuction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trigger Instructions come into effect in case of price movement.
-    /// Encoded/decoded by serializers as "PriceMovement".
+    /// Encoded/decoded by serializers as "PRMO".
     /// </summary>
     [EnumMember(Value = "PRMO")]
     [IsoId("_YwUkINp-Ed-ak6NoX_4Aeg_256297814")]
     [Description(@"Trigger Instructions come into effect in case of price movement.")]
-    PriceMovement,
+    PriceMovement = TriggerTypeCode.PriceMovement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TriggerType1Code
 public static class TriggerType1CodeMetadataExtensions
 {
     private static readonly TriggerType1CodeDropdownSource _dropdownSource = new TriggerType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

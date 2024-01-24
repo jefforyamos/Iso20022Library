@@ -21,30 +21,30 @@ public enum MarketType6Code
 {
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OverTheCounter".
+    /// Encoded/decoded by serializers as "OTCO".
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("__3I0YdojEeC60axPepSq7g_-615099029")]
     [Description(@"The place is over the counter.")]
-    OverTheCounter,
+    OverTheCounter = MarketTypeCode.OverTheCounter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "Various".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("__3I0YtojEeC60axPepSq7g_852049734")]
     [Description(@"Various places.")]
-    Various,
+    Various = MarketTypeCode.Various, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("__3I0Y9ojEeC60axPepSq7g_858735869")]
     [Description(@"The place is a stock exchange.")]
-    StockExchange,
+    StockExchange = MarketTypeCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum MarketType6Code
 public static class MarketType6CodeMetadataExtensions
 {
     private static readonly MarketType6CodeDropdownSource _dropdownSource = new MarketType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassProductType14Code
 {
     /// <summary>
     /// Commodity of type official economic statistic.
-    /// Encoded/decoded by serializers as "OfficialEconomicStatistic".
+    /// Encoded/decoded by serializers as "OEST".
     /// </summary>
     [EnumMember(Value = "OEST")]
     [IsoId("_Zkr-xVrLEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type official economic statistic.")]
-    OfficialEconomicStatistic,
+    OfficialEconomicStatistic = AssetClassProductTypeCode.OfficialEconomicStatistic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType14Code
 public static class AssetClassProductType14CodeMetadataExtensions
 {
     private static readonly AssetClassProductType14CodeDropdownSource _dropdownSource = new AssetClassProductType14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

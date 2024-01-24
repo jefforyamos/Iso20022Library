@@ -21,30 +21,30 @@ public enum AllegementStatus2Code
 {
     /// <summary>
     /// Allegement has been accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_75fyMa3DEeeBVbuVcoH9Nw")]
     [Description(@"Allegement has been accepted.")]
-    Accepted,
+    Accepted = AllegementStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Allegement is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_7_5VIa3DEeeBVbuVcoH9Nw")]
     [Description(@"Allegement is pending.")]
-    Pending,
+    Pending = AllegementStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_8LgIMa3DEeeBVbuVcoH9Nw")]
     [Description(@"Transaction or report has been rejected.")]
-    Rejected,
+    Rejected = AllegementStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AllegementStatus2Code
 public static class AllegementStatus2CodeMetadataExtensions
 {
     private static readonly AllegementStatus2CodeDropdownSource _dropdownSource = new AllegementStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

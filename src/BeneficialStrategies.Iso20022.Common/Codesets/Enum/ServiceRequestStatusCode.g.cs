@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_eXhhcvF5EemQ7oqCO5NTQw")]
 [Description(@"Specifies the status of a service request.")]
 [Derivations(typeof(ServiceRequestStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ServiceRequestStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ServiceRequestStatusCode
 public static class ServiceRequestStatusCodeMetadataExtensions
 {
     private static readonly ServiceRequestStatusCodeDropdownSource _dropdownSource = new ServiceRequestStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

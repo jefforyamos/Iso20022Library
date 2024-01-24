@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1zjwBDL3EeKU9IrkkToqcw_-811455456")]
 [Description(@"Specifies whether the foreign currency payment is offered.")]
 [Derivations(typeof(ForeignCurrencyPaymentElection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ForeignCurrencyPaymentElectionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ForeignCurrencyPaymentElectionCode
 public static class ForeignCurrencyPaymentElectionCodeMetadataExtensions
 {
     private static readonly ForeignCurrencyPaymentElectionCodeDropdownSource _dropdownSource = new ForeignCurrencyPaymentElectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

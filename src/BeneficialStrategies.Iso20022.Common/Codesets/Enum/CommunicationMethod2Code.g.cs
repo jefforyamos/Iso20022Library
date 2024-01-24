@@ -21,48 +21,48 @@ public enum CommunicationMethod2Code
 {
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "Email".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_mPNrgQ1fEeKGXqvMN6jpiw")]
     [Description(@"Transmission by e-mail.")]
-    Email,
+    Email = CommunicationMethodCode.Email, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "Fax".
+    /// Encoded/decoded by serializers as "FAXI".
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_mk0vIQ1fEeKGXqvMN6jpiw")]
     [Description(@"Transmission by fax.")]
-    Fax,
+    Fax = CommunicationMethodCode.Fax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by file transfer.
-    /// Encoded/decoded by serializers as "File".
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_myYqAQ1fEeKGXqvMN6jpiw")]
     [Description(@"Transmission by file transfer.")]
-    File,
+    File = CommunicationMethodCode.File, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission on line, for example, in a web portal.
-    /// Encoded/decoded by serializers as "Online".
+    /// Encoded/decoded by serializers as "ONLI".
     /// </summary>
     [EnumMember(Value = "ONLI")]
     [IsoId("_nNM9wQ1fEeKGXqvMN6jpiw")]
     [Description(@"Transmission on line, for example, in a web portal.")]
-    Online,
+    Online = CommunicationMethodCode.Online, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transmission by postal service.
-    /// Encoded/decoded by serializers as "PostalService".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_jEZ6YUp-EeKw5sECfP82rg")]
     [Description(@"Transmission by postal service.")]
-    PostalService,
+    PostalService = CommunicationMethodCode.PostalService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CommunicationMethod2Code
 public static class CommunicationMethod2CodeMetadataExtensions
 {
     private static readonly CommunicationMethod2CodeDropdownSource _dropdownSource = new CommunicationMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

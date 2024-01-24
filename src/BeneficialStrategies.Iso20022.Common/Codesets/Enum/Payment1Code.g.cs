@@ -21,21 +21,21 @@ public enum Payment1Code
 {
     /// <summary>
     /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
-    /// Encoded/decoded by serializers as "ActualPayment".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_Zy7Qp9p-Ed-ak6NoX_4Aeg_1133077747")]
     [Description(@"The cash payment occurs or will occur upon receipt of proceeds from the issuer.")]
-    ActualPayment,
+    ActualPayment = PaymentCode.ActualPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer.
-    /// Encoded/decoded by serializers as "ContractualPayment".
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_Zy7QqNp-Ed-ak6NoX_4Aeg_1133077769")]
     [Description(@"The cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer.")]
-    ContractualPayment,
+    ContractualPayment = PaymentCode.ContractualPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Payment1Code
 public static class Payment1CodeMetadataExtensions
 {
     private static readonly Payment1CodeDropdownSource _dropdownSource = new Payment1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

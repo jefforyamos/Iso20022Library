@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bVa-INp-Ed-ak6NoX_4Aeg_-1889057025")]
 [Description(@"Specifies the calculation basis.")]
 [Derivations(typeof(CalculationBasis1Code),typeof(CalculationBasis2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CalculationBasisCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum CalculationBasisCode
 public static class CalculationBasisCodeMetadataExtensions
 {
     private static readonly CalculationBasisCodeDropdownSource _dropdownSource = new CalculationBasisCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

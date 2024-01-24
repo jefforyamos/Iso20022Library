@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__yXpItojEeC60axPepSq7g_-160167061")]
 [Description(@"indicates if the Trade Regulatory Conditions is solicited or not.")]
 [Derivations(typeof(TradeRegulatoryConditions1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeRegulatoryConditionsCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TradeRegulatoryConditionsCode
 public static class TradeRegulatoryConditionsCodeMetadataExtensions
 {
     private static readonly TradeRegulatoryConditionsCodeDropdownSource _dropdownSource = new TradeRegulatoryConditionsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

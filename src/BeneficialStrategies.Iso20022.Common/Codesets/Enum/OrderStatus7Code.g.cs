@@ -21,30 +21,30 @@ public enum OrderStatus7Code
 {
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_WOpRl9p-Ed-ak6NoX_4Aeg_1655560203")]
     [Description(@"Order is accepted and is ready for execution (execution is the moment when pricing is applied).")]
-    Accepted,
+    Accepted = OrderStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_WOybgNp-Ed-ak6NoX_4Aeg_1655560233")]
     [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_WOybgdp-Ed-ak6NoX_4Aeg_1655560262")]
     [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
-    Received,
+    Received = OrderStatusCode.Received, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OrderStatus7Code
 public static class OrderStatus7CodeMetadataExtensions
 {
     private static readonly OrderStatus7CodeDropdownSource _dropdownSource = new OrderStatus7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

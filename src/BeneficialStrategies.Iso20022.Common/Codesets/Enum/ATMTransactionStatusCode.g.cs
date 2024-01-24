@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EBcskIqSEeSRT5rEzcAHEw")]
 [Description(@"Status of an ATM transaction.")]
 [Derivations(typeof(ATMTransactionStatus1Code),typeof(ATMTransactionStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMTransactionStatusCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ATMTransactionStatusCode
 public static class ATMTransactionStatusCodeMetadataExtensions
 {
     private static readonly ATMTransactionStatusCodeDropdownSource _dropdownSource = new ATMTransactionStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum TMSContactLevel1Code
 {
     /// <summary>
     /// Terminal management system has to be contacted before the next transaction.
-    /// Encoded/decoded by serializers as "Critical".
+    /// Encoded/decoded by serializers as "CRIT".
     /// </summary>
     [EnumMember(Value = "CRIT")]
     [IsoId("_TUAMNgEcEeCQm6a_G2yO_w_-1249727148")]
     [Description(@"Terminal management system has to be contacted before the next transaction.")]
-    Critical,
+    Critical = TMSContactLevelCode.Critical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
-    /// Encoded/decoded by serializers as "AsSoonAsPossible".
+    /// Encoded/decoded by serializers as "ASAP".
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_TUAMNwEcEeCQm6a_G2yO_w_-1944834992")]
     [Description(@"Terminal management system has to be contacted as soon as possible (for example after reconciliation).")]
-    AsSoonAsPossible,
+    AsSoonAsPossible = TMSContactLevelCode.AsSoonAsPossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal management system has to be contacted at the date and time provided.
-    /// Encoded/decoded by serializers as "DateTime".
+    /// Encoded/decoded by serializers as "DTIM".
     /// </summary>
     [EnumMember(Value = "DTIM")]
     [IsoId("_TUAMOAEcEeCQm6a_G2yO_w_2032355643")]
     [Description(@"Terminal management system has to be contacted at the date and time provided.")]
-    DateTime,
+    DateTime = TMSContactLevelCode.DateTime, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TMSContactLevel1Code
 public static class TMSContactLevel1CodeMetadataExtensions
 {
     private static readonly TMSContactLevel1CodeDropdownSource _dropdownSource = new TMSContactLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

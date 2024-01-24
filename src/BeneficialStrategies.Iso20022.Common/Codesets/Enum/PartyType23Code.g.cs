@@ -21,30 +21,30 @@ public enum PartyType23Code
 {
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_TverwVBBEeedyPuM0kK2EQ")]
     [Description(@"Other card payment entity type defined at national level")]
-    OtherNational,
+    OtherNational = PartyTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_UI7GglBBEeedyPuM0kK2EQ")]
     [Description(@"Other card payment entity type defined at private level")]
-    OtherPrivate,
+    OtherPrivate = PartyTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent in charge of clearing payment or related transactions.
-    /// Encoded/decoded by serializers as "ClearingAgent".
+    /// Encoded/decoded by serializers as "CLRA".
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_VLk2UlBBEeedyPuM0kK2EQ")]
     [Description(@"Agent in charge of clearing payment or related transactions.")]
-    ClearingAgent,
+    ClearingAgent = PartyTypeCode.ClearingAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PartyType23Code
 public static class PartyType23CodeMetadataExtensions
 {
     private static readonly PartyType23CodeDropdownSource _dropdownSource = new PartyType23CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

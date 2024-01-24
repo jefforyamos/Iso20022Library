@@ -21,12 +21,12 @@ public enum PriceStatus2Code
 {
     /// <summary>
     /// Price is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PNDG".
     /// </summary>
     [EnumMember(Value = "PNDG")]
     [IsoId("_DfTKsQbCEeqrW7Meu5r3kQ")]
     [Description(@"Price is pending.")]
-    Pending,
+    Pending = PriceStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PriceStatus2Code
 public static class PriceStatus2CodeMetadataExtensions
 {
     private static readonly PriceStatus2CodeDropdownSource _dropdownSource = new PriceStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

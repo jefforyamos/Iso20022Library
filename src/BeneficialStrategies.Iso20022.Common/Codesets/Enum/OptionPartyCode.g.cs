@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aP_AFdp-Ed-ak6NoX_4Aeg_1203136897")]
 [Description(@"Specifies if a trade party is a buyer or a seller.")]
 [Derivations(typeof(OptionParty1Code),typeof(OptionParty3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OptionPartyCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OptionPartyCode
 public static class OptionPartyCodeMetadataExtensions
 {
     private static readonly OptionPartyCodeDropdownSource _dropdownSource = new OptionPartyCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

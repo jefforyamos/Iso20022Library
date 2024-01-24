@@ -21,57 +21,57 @@ public enum QuoteResponseType1Code
 {
     /// <summary>
     /// Acceptance by a party of the conditions of a quote.
-    /// Encoded/decoded by serializers as "HitLift".
+    /// Encoded/decoded by serializers as "HILI".
     /// </summary>
     [EnumMember(Value = "HILI")]
     [IsoId("_ZX9L6Np-Ed-ak6NoX_4Aeg_-1103387160")]
     [Description(@"Acceptance by a party of the conditions of a quote.")]
-    HitLift,
+    HitLift = QuoteResponseTypeCode.HitLift, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejection of the conditions of a quote and proposition of new quote details.
-    /// Encoded/decoded by serializers as "CounterQuote".
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_ZYG84Np-Ed-ak6NoX_4Aeg_-1103386770")]
     [Description(@"Rejection of the conditions of a quote and proposition of new quote details.")]
-    CounterQuote,
+    CounterQuote = QuoteResponseTypeCode.CounterQuote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejection of the conditions of a quote due to its expiry.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_ZYG84dp-Ed-ak6NoX_4Aeg_-1103386727")]
     [Description(@"Rejection of the conditions of a quote due to its expiry.")]
-    Expired,
+    Expired = QuoteResponseTypeCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Purchase of a contract to offset a previously established short position.
-    /// Encoded/decoded by serializers as "Cover".
+    /// Encoded/decoded by serializers as "COVE".
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_ZYG84tp-Ed-ak6NoX_4Aeg_-1103386436")]
     [Description(@"Purchase of a contract to offset a previously established short position.")]
-    Cover,
+    Cover = QuoteResponseTypeCode.Cover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade completed with a third party, counter-party.
-    /// Encoded/decoded by serializers as "DoneAway".
+    /// Encoded/decoded by serializers as "DONE".
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_ZYG849p-Ed-ak6NoX_4Aeg_-1103386401")]
     [Description(@"Trade completed with a third party, counter-party.")]
-    DoneAway,
+    DoneAway = QuoteResponseTypeCode.DoneAway, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejection of the conditions of a quote because the offer is being declined.
-    /// Encoded/decoded by serializers as "Pass".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_ZYG85Np-Ed-ak6NoX_4Aeg_-1103386359")]
     [Description(@"Rejection of the conditions of a quote because the offer is being declined.")]
-    Pass,
+    Pass = QuoteResponseTypeCode.Pass, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum QuoteResponseType1Code
 public static class QuoteResponseType1CodeMetadataExtensions
 {
     private static readonly QuoteResponseType1CodeDropdownSource _dropdownSource = new QuoteResponseType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

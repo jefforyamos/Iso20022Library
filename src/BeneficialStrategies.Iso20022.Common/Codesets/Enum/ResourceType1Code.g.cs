@@ -21,21 +21,21 @@ public enum ResourceType1Code
 {
     /// <summary>
     /// Voice synthesis.
-    /// Encoded/decoded by serializers as "TextToSpeech".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_-HF_wS8CEeu125Ip9zFcsQ")]
     [Description(@"Voice synthesis.")]
-    TextToSpeech,
+    TextToSpeech = ResourceTypeCode.TextToSpeech, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// String of characters that unambiguously identifies a particular resource.
-    /// Encoded/decoded by serializers as "UniformResourceIdentifier".
+    /// Encoded/decoded by serializers as "URLI".
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_-K6v0S8CEeu125Ip9zFcsQ")]
     [Description(@"String of characters that unambiguously identifies a particular resource.")]
-    UniformResourceIdentifier,
+    UniformResourceIdentifier = ResourceTypeCode.UniformResourceIdentifier, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResourceType1Code
 public static class ResourceType1CodeMetadataExtensions
 {
     private static readonly ResourceType1CodeDropdownSource _dropdownSource = new ResourceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

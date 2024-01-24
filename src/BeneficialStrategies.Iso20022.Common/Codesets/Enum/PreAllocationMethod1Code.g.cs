@@ -21,21 +21,21 @@ public enum PreAllocationMethod1Code
 {
     /// <summary>
     /// Preallocation is proratised.
-    /// Encoded/decoded by serializers as "Prorata".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_aH73Vtp-Ed-ak6NoX_4Aeg_1246774126")]
     [Description(@"Preallocation is proratised.")]
-    Prorata,
+    Prorata = PreAllocationMethodCode.Prorata, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No prorata, discuss first.
-    /// Encoded/decoded by serializers as "SpeakFirst".
+    /// Encoded/decoded by serializers as "TALK".
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_aH73V9p-Ed-ak6NoX_4Aeg_1246774161")]
     [Description(@"No prorata, discuss first.")]
-    SpeakFirst,
+    SpeakFirst = PreAllocationMethodCode.SpeakFirst, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PreAllocationMethod1Code
 public static class PreAllocationMethod1CodeMetadataExtensions
 {
     private static readonly PreAllocationMethod1CodeDropdownSource _dropdownSource = new PreAllocationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

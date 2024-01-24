@@ -21,30 +21,30 @@ public enum BookingUnit1Code
 {
     /// <summary>
     /// Each partial execution is a bookable unit.
-    /// Encoded/decoded by serializers as "EachPartial".
+    /// Encoded/decoded by serializers as "EACP".
     /// </summary>
     [EnumMember(Value = "EACP")]
     [IsoId("_VuwQk9p-Ed-ak6NoX_4Aeg_-1874118380")]
     [Description(@"Each partial execution is a bookable unit.")]
-    EachPartial,
+    EachPartial = BookingUnitCode.EachPartial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Aggregate partial executions on this order, and book one trade per order.
-    /// Encoded/decoded by serializers as "AggregatePartial".
+    /// Encoded/decoded by serializers as "AGGP".
     /// </summary>
     [EnumMember(Value = "AGGP")]
     [IsoId("_VuwQlNp-Ed-ak6NoX_4Aeg_-1871346287")]
     [Description(@"Aggregate partial executions on this order, and book one trade per order.")]
-    AggregatePartial,
+    AggregatePartial = BookingUnitCode.AggregatePartial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Aggregate executions for this symbol, side and settlement date.
-    /// Encoded/decoded by serializers as "AggregateExecutions".
+    /// Encoded/decoded by serializers as "AGGE".
     /// </summary>
     [EnumMember(Value = "AGGE")]
     [IsoId("_VuwQldp-Ed-ak6NoX_4Aeg_-1861189086")]
     [Description(@"Aggregate executions for this symbol, side and settlement date.")]
-    AggregateExecutions,
+    AggregateExecutions = BookingUnitCode.AggregateExecutions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BookingUnit1Code
 public static class BookingUnit1CodeMetadataExtensions
 {
     private static readonly BookingUnit1CodeDropdownSource _dropdownSource = new BookingUnit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

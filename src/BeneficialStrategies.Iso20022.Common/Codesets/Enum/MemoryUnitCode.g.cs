@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_CoXPEAxzEeKa_56Jbsi1RQ")]
 [Description(@"Unit of the memory size.")]
 [Derivations(typeof(MemoryUnit1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MemoryUnitCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum MemoryUnitCode
 public static class MemoryUnitCodeMetadataExtensions
 {
     private static readonly MemoryUnitCodeDropdownSource _dropdownSource = new MemoryUnitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

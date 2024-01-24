@@ -21,183 +21,183 @@ public enum ActionType13Code
 {
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "Busy".
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_I3MIUXC7Ee2bmOA3bkVsMg")]
     [Description(@"Server busy, try later.")]
-    Busy,
+    Busy = ActionTypeCode.Busy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CaptureCard".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_I3MIU3C7Ee2bmOA3bkVsMg")]
     [Description(@"Capture the card.")]
-    CaptureCard,
+    CaptureCard = ActionTypeCode.CaptureCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DisplayMessage".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_I3MIVXC7Ee2bmOA3bkVsMg")]
     [Description(@"Message to display, print or log.")]
-    DisplayMessage,
+    DisplayMessage = ActionTypeCode.DisplayMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application cannot propose to the merchant an override of the payment transaction.
-    /// Encoded/decoded by serializers as "ForbidOverride".
+    /// Encoded/decoded by serializers as "NOVR".
     /// </summary>
     [EnumMember(Value = "NOVR")]
     [IsoId("_I3MIV3C7Ee2bmOA3bkVsMg")]
     [Description(@"Payment application cannot propose to the merchant an override of the payment transaction.")]
-    ForbidOverride,
+    ForbidOverride = ActionTypeCode.ForbidOverride, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "IdentificationRequired".
+    /// Encoded/decoded by serializers as "RQID".
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_I3MIWXC7Ee2bmOA3bkVsMg")]
     [Description(@"Additional identification required (passport, ID card, etc.).")]
-    IdentificationRequired,
+    IdentificationRequired = ActionTypeCode.IdentificationRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINLastTry".
+    /// Encoded/decoded by serializers as "PINL".
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_I3MIW3C7Ee2bmOA3bkVsMg")]
     [Description(@"Last PIN (Personal Identification Number) try.")]
-    PINLastTry,
+    PINLastTry = ActionTypeCode.PINLastTry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINRetry".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_I3MIXXC7Ee2bmOA3bkVsMg")]
     [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
-    PINRetry,
+    PINRetry = ActionTypeCode.PINRetry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PrintMessage".
+    /// Encoded/decoded by serializers as "PRNT".
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_I3MIX3C7Ee2bmOA3bkVsMg")]
     [Description(@"Print a message.")]
-    PrintMessage,
+    PrintMessage = ActionTypeCode.PrintMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "Referral".
+    /// Encoded/decoded by serializers as "RFRL".
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_I3MIYXC7Ee2bmOA3bkVsMg")]
     [Description(@"Referral has to be performed.")]
-    Referral,
+    Referral = ActionTypeCode.Referral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request additional data through a displayed text and request confirmation by an attendant.
-    /// Encoded/decoded by serializers as "RequestData".
+    /// Encoded/decoded by serializers as "RQDT".
     /// </summary>
     [EnumMember(Value = "RQDT")]
     [IsoId("_I3MIY3C7Ee2bmOA3bkVsMg")]
     [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
-    RequestData,
+    RequestData = ActionTypeCode.RequestData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ask the cardholder to accept the currency conversion.
-    /// Encoded/decoded by serializers as "AcceptCurrencyConversion".
+    /// Encoded/decoded by serializers as "DCCQ".
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_I3MIZXC7Ee2bmOA3bkVsMg")]
     [Description(@"Ask the cardholder to accept the currency conversion.")]
-    AcceptCurrencyConversion,
+    AcceptCurrencyConversion = ActionTypeCode.AcceptCurrencyConversion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fall-forward from contactless to chip card transaction required.
-    /// Encoded/decoded by serializers as "FallForward".
+    /// Encoded/decoded by serializers as "FLFW".
     /// </summary>
     [EnumMember(Value = "FLFW")]
     [IsoId("_I3MIZ3C7Ee2bmOA3bkVsMg")]
     [Description(@"Fall-forward from contactless to chip card transaction required.")]
-    FallForward,
+    FallForward = ActionTypeCode.FallForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request Cardholder Authentification through PIN insertion.
-    /// Encoded/decoded by serializers as "PINRequest".
+    /// Encoded/decoded by serializers as "PINQ".
     /// </summary>
     [EnumMember(Value = "PINQ")]
     [IsoId("_I3MIaXC7Ee2bmOA3bkVsMg")]
     [Description(@"Request Cardholder Authentification through PIN insertion.")]
-    PINRequest,
+    PINRequest = ActionTypeCode.PINRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.
-    /// Encoded/decoded by serializers as "ConsumerDeviceCardholderVerificationMethod".
+    /// Encoded/decoded by serializers as "CDCV".
     /// </summary>
     [EnumMember(Value = "CDCV")]
     [IsoId("_I3MIa3C7Ee2bmOA3bkVsMg")]
     [Description(@"Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.")]
-    ConsumerDeviceCardholderVerificationMethod,
+    ConsumerDeviceCardholderVerificationMethod = ActionTypeCode.ConsumerDeviceCardholderVerificationMethod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional authentication of cardholder required.
-    /// Encoded/decoded by serializers as "CardholderAuthentication".
+    /// Encoded/decoded by serializers as "CHDA".
     /// </summary>
     [EnumMember(Value = "CHDA")]
     [IsoId("_I3MIbXC7Ee2bmOA3bkVsMg")]
     [Description(@"Additional authentication of cardholder required.")]
-    CardholderAuthentication,
+    CardholderAuthentication = ActionTypeCode.CardholderAuthentication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recurring transactions is no more allowed for this card and for all merchants.
-    /// Encoded/decoded by serializers as "StopAllRecurring".
+    /// Encoded/decoded by serializers as "STAR".
     /// </summary>
     [EnumMember(Value = "STAR")]
     [IsoId("_I3MIb3C7Ee2bmOA3bkVsMg")]
     [Description(@"Recurring transactions is no more allowed for this card and for all merchants.")]
-    StopAllRecurring,
+    StopAllRecurring = ActionTypeCode.StopAllRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder has revocated this recurring transaction for this merchant.
-    /// Encoded/decoded by serializers as "StopOneRecurring".
+    /// Encoded/decoded by serializers as "STOR".
     /// </summary>
     [EnumMember(Value = "STOR")]
     [IsoId("_I3MIcXC7Ee2bmOA3bkVsMg")]
     [Description(@"Cardholder has revocated this recurring transaction for this merchant.")]
-    StopOneRecurring,
+    StopOneRecurring = ActionTypeCode.StopOneRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the account was updated and should be taken into account for future authorisation.
-    /// Encoded/decoded by serializers as "AccountUpdate".
+    /// Encoded/decoded by serializers as "ACUP".
     /// </summary>
     [EnumMember(Value = "ACUP")]
     [IsoId("_fAorsXC7Ee2bmOA3bkVsMg")]
     [Description(@"Indicates that the account was updated and should be taken into account for future authorisation.")]
-    AccountUpdate,
+    AccountUpdate = ActionTypeCode.AccountUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the authorization should be resubmitted at a later time.
-    /// Encoded/decoded by serializers as "TryAgainLater".
+    /// Encoded/decoded by serializers as "TALT".
     /// </summary>
     [EnumMember(Value = "TALT")]
     [IsoId("_dusxIXSJEe2HedJwQoP0gA")]
     [Description(@"Indicates that the authorization should be resubmitted at a later time.")]
-    TryAgainLater,
+    TryAgainLater = ActionTypeCode.TryAgainLater, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that this account shouldn't be used anymore.
-    /// Encoded/decoded by serializers as "DoNotTryAgain".
+    /// Encoded/decoded by serializers as "DNTA".
     /// </summary>
     [EnumMember(Value = "DNTA")]
     [IsoId("_fKy7sXSJEe2HedJwQoP0gA")]
     [Description(@"Indicates that this account shouldn't be used anymore.")]
-    DoNotTryAgain,
+    DoNotTryAgain = ActionTypeCode.DoNotTryAgain, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum ActionType13Code
 public static class ActionType13CodeMetadataExtensions
 {
     private static readonly ActionType13CodeDropdownSource _dropdownSource = new ActionType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

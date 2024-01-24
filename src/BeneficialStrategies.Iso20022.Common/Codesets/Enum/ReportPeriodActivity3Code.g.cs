@@ -21,21 +21,21 @@ public enum ReportPeriodActivity3Code
 {
     /// <summary>
     /// No transaction has been identified during the period.
-    /// Encoded/decoded by serializers as "NoTransaction".
+    /// Encoded/decoded by serializers as "NOTX".
     /// </summary>
     [EnumMember(Value = "NOTX")]
     [IsoId("_HW4DY8ESEea7jLfvGi1PDw")]
     [Description(@"No transaction has been identified during the period.")]
-    NoTransaction,
+    NoTransaction = ReportPeriodActivityCode.NoTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No report has been received from reporting agent.
-    /// Encoded/decoded by serializers as "NoReportFromAgent".
+    /// Encoded/decoded by serializers as "NORA".
     /// </summary>
     [EnumMember(Value = "NORA")]
     [IsoId("_LTDlEcESEea7jLfvGi1PDw")]
     [Description(@"No report has been received from reporting agent.")]
-    NoReportFromAgent,
+    NoReportFromAgent = ReportPeriodActivityCode.NoReportFromAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReportPeriodActivity3Code
 public static class ReportPeriodActivity3CodeMetadataExtensions
 {
     private static readonly ReportPeriodActivity3CodeDropdownSource _dropdownSource = new ReportPeriodActivity3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

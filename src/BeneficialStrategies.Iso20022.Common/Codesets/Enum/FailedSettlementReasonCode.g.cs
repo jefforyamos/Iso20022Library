@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_amyWh9p-Ed-ak6NoX_4Aeg_534843622")]
 [Description(@"Specifies the reason of a settlement failure.")]
 [Derivations(typeof(FailedSettlementReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FailedSettlementReasonCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum FailedSettlementReasonCode
 public static class FailedSettlementReasonCodeMetadataExtensions
 {
     private static readonly FailedSettlementReasonCodeDropdownSource _dropdownSource = new FailedSettlementReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

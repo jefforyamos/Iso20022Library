@@ -21,21 +21,21 @@ public enum AcceptedStatusReason1Code
 {
     /// <summary>
     /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the place.
-    /// Encoded/decoded by serializers as "PlaceNotAllowed".
+    /// Encoded/decoded by serializers as "PLAC".
     /// </summary>
     [EnumMember(Value = "PLAC")]
     [IsoId("_T391cWBnEeaR1OOiVxm3Gg")]
     [Description(@"Status of the account modification instruction is accepted but modification of the account data will not be carried out for the place.")]
-    PlaceNotAllowed,
+    PlaceNotAllowed = AcceptedStatusReasonCode.PlaceNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the sector code.
-    /// Encoded/decoded by serializers as "SectorNotAllowed".
+    /// Encoded/decoded by serializers as "SECT".
     /// </summary>
     [EnumMember(Value = "SECT")]
     [IsoId("_UBVz4WBnEeaR1OOiVxm3Gg")]
     [Description(@"Status of the account modification instruction is accepted but modification of the account data will not be carried out for the sector code.")]
-    SectorNotAllowed,
+    SectorNotAllowed = AcceptedStatusReasonCode.SectorNotAllowed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AcceptedStatusReason1Code
 public static class AcceptedStatusReason1CodeMetadataExtensions
 {
     private static readonly AcceptedStatusReason1CodeDropdownSource _dropdownSource = new AcceptedStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum StatementStatusType1Code
 {
     /// <summary>
     /// Transactions reported are confirmed.
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_raAf8dBVEeiirviLm7P0IA")]
     [Description(@"Transactions reported are confirmed.")]
-    Confirmed,
+    Confirmed = StatementStatusTypeCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructions or transactions  reported are pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_riiw4dBVEeiirviLm7P0IA")]
     [Description(@"Instructions or transactions  reported are pending.")]
-    Pending,
+    Pending = StatementStatusTypeCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StatementStatusType1Code
 public static class StatementStatusType1CodeMetadataExtensions
 {
     private static readonly StatementStatusType1CodeDropdownSource _dropdownSource = new StatementStatusType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

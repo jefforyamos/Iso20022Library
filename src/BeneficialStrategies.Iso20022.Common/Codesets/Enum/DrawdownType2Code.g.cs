@@ -21,30 +21,30 @@ public enum DrawdownType2Code
 {
     /// <summary>
     /// Drawdown type is both flexi-access and capped.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_i8LLEZNwEembCsVG-3f_AA")]
     [Description(@"Drawdown type is both flexi-access and capped.")]
-    Both,
+    Both = DrawdownTypeCode.Both, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Drawdown type is capped.
-    /// Encoded/decoded by serializers as "CappedIncomeDrawdown".
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_jBOqMZNwEembCsVG-3f_AA")]
     [Description(@"Drawdown type is capped.")]
-    CappedIncomeDrawdown,
+    CappedIncomeDrawdown = DrawdownTypeCode.CappedIncomeDrawdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Drawdown type is flexi-access.
-    /// Encoded/decoded by serializers as "FlexibleAccessDrawdown".
+    /// Encoded/decoded by serializers as "FLEX".
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_jHLhMZNwEembCsVG-3f_AA")]
     [Description(@"Drawdown type is flexi-access.")]
-    FlexibleAccessDrawdown,
+    FlexibleAccessDrawdown = DrawdownTypeCode.FlexibleAccessDrawdown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DrawdownType2Code
 public static class DrawdownType2CodeMetadataExtensions
 {
     private static readonly DrawdownType2CodeDropdownSource _dropdownSource = new DrawdownType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

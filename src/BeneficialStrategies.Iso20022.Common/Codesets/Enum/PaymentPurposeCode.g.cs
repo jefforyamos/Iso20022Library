@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Z5yGktp-Ed-ak6NoX_4Aeg_1855256934")]
 [Description(@"Specifies the type of transaction that resulted in a payment initiation.")]
 [Derivations(typeof(PaymentPurpose1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentPurposeCode
 {
     /// <summary>
@@ -884,7 +883,7 @@ public enum PaymentPurposeCode
 public static class PaymentPurposeCodeMetadataExtensions
 {
     private static readonly PaymentPurposeCodeDropdownSource _dropdownSource = new PaymentPurposeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

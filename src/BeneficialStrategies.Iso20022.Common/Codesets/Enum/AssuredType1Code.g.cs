@@ -21,39 +21,39 @@ public enum AssuredType1Code
 {
     /// <summary>
     /// The buyer should be the assured.
-    /// Encoded/decoded by serializers as "Buyer".
+    /// Encoded/decoded by serializers as "BUYE".
     /// </summary>
     [EnumMember(Value = "BUYE")]
     [IsoId("_bjRz8Np-Ed-ak6NoX_4Aeg_1342444833")]
     [Description(@"The buyer should be the assured.")]
-    Buyer,
+    Buyer = AssuredTypeCode.Buyer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The seller should be the assured.
-    /// Encoded/decoded by serializers as "Seller".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_bjRz8dp-Ed-ak6NoX_4Aeg_1345214881")]
     [Description(@"The seller should be the assured.")]
-    Seller,
+    Seller = AssuredTypeCode.Seller, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The buyer's bank should be the assured.
-    /// Encoded/decoded by serializers as "BuyerBank".
+    /// Encoded/decoded by serializers as "BUBA".
     /// </summary>
     [EnumMember(Value = "BUBA")]
     [IsoId("_bjRz8tp-Ed-ak6NoX_4Aeg_1370148507")]
     [Description(@"The buyer's bank should be the assured.")]
-    BuyerBank,
+    BuyerBank = AssuredTypeCode.BuyerBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The seller's bank should be the assured.
-    /// Encoded/decoded by serializers as "SellerBank".
+    /// Encoded/decoded by serializers as "SEBA".
     /// </summary>
     [EnumMember(Value = "SEBA")]
     [IsoId("_bjRz89p-Ed-ak6NoX_4Aeg_1384000890")]
     [Description(@"The seller's bank should be the assured.")]
-    SellerBank,
+    SellerBank = AssuredTypeCode.SellerBank, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AssuredType1Code
 public static class AssuredType1CodeMetadataExtensions
 {
     private static readonly AssuredType1CodeDropdownSource _dropdownSource = new AssuredType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

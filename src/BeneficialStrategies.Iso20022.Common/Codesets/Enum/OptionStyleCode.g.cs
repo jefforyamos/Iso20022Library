@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aQR7BNp-Ed-ak6NoX_4Aeg_195526371")]
 [Description(@"Defines how an option can be exercised.")]
-[Derivations(typeof(OptionStyle2Code),typeof(OptionStyle1Code),typeof(OptionStyle4Code),typeof(OptionStyle3Code),typeof(OptionStyle5Code),typeof(OptionStyle6Code),typeof(OptionStyle7Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(OptionStyle1Code),typeof(OptionStyle3Code),typeof(OptionStyle6Code),typeof(OptionStyle7Code),typeof(OptionStyle5Code),typeof(OptionStyle4Code),typeof(OptionStyle2Code))]
 public enum OptionStyleCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum OptionStyleCode
 public static class OptionStyleCodeMetadataExtensions
 {
     private static readonly OptionStyleCodeDropdownSource _dropdownSource = new OptionStyleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

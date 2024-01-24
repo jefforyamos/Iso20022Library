@@ -21,84 +21,84 @@ public enum TransactionOperationType3Code
 {
     /// <summary>
     /// Transaction corrects errors in a previously sent transaction.
-    /// Encoded/decoded by serializers as "Correction".
+    /// Encoded/decoded by serializers as "CORR".
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_ujf94RVlEeWXLoZC9OIRgg")]
     [Description(@"Transaction corrects errors in a previously sent transaction.")]
-    Correction,
+    Correction = TransactionOperationTypeCode.Correction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an early termination.
-    /// Encoded/decoded by serializers as "EarlyTermination".
+    /// Encoded/decoded by serializers as "ETRM".
     /// </summary>
     [EnumMember(Value = "ETRM")]
     [IsoId("_u-bmYRVlEeWXLoZC9OIRgg")]
     [Description(@"Transaction is an early termination.")]
-    EarlyTermination,
+    EarlyTermination = TransactionOperationTypeCode.EarlyTermination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.
-    /// Encoded/decoded by serializers as "Error".
+    /// Encoded/decoded by serializers as "EROR".
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_vKyAURVlEeWXLoZC9OIRgg")]
     [Description(@"Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.")]
-    Error,
+    Error = TransactionOperationTypeCode.Error, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NewTransaction".
+    /// Encoded/decoded by serializers as "NEWT".
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_vXRkMRVlEeWXLoZC9OIRgg")]
     [Description(@"Transaction is a new transaction.")]
-    NewTransaction,
+    NewTransaction = TransactionOperationTypeCode.NewTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract to be reported as a new trade and included in a separate position report on the same day.
-    /// Encoded/decoded by serializers as "PositionComponent".
+    /// Encoded/decoded by serializers as "POSC".
     /// </summary>
     [EnumMember(Value = "POSC")]
     [IsoId("_0sccoRVmEeWXLoZC9OIRgg")]
     [Description(@"Contract to be reported as a new trade and included in a separate position report on the same day.")]
-    PositionComponent,
+    PositionComponent = TransactionOperationTypeCode.PositionComponent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update of a contract valuation or collateral.
-    /// Encoded/decoded by serializers as "ValuationUpdate".
+    /// Encoded/decoded by serializers as "VALU".
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_08g48RVmEeWXLoZC9OIRgg")]
     [Description(@"Update of a contract valuation or collateral.")]
-    ValuationUpdate,
+    ValuationUpdate = TransactionOperationTypeCode.ValuationUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a compression.
-    /// Encoded/decoded by serializers as "Compression".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_1EZCkRVmEeWXLoZC9OIRgg")]
     [Description(@"Transaction is a compression.")]
-    Compression,
+    Compression = TransactionOperationTypeCode.Compression, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction modifies in a previously sent transaction.
-    /// Encoded/decoded by serializers as "Modification".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_1MRzQRVmEeWXLoZC9OIRgg")]
     [Description(@"Transaction modifies in a previously sent transaction.")]
-    Modification,
+    Modification = TransactionOperationTypeCode.Modification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_DrttMeleEeWv8d_RPCVG5g")]
     [Description(@"Other.")]
-    Other,
+    Other = TransactionOperationTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TransactionOperationType3Code
 public static class TransactionOperationType3CodeMetadataExtensions
 {
     private static readonly TransactionOperationType3CodeDropdownSource _dropdownSource = new TransactionOperationType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

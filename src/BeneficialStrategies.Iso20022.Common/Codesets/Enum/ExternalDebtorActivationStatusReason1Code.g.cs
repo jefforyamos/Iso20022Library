@@ -16,72 +16,72 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_pe4x4-IwEeqbls7Gk4-ckA")]
-[Description(@"Specifies the debtor activation status reason code, as published in an external debtor activation status reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the debtor activation status reason code, as published in an external debtor activation status reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalDebtorActivationStatusReasonCode))]
 public enum ExternalDebtorActivationStatusReason1Code
 {
     /// <summary>
     /// Already existing creditor.
-    /// Encoded/decoded by serializers as "AlreadyExistingCreditor".
+    /// Encoded/decoded by serializers as "ACRD".
     /// </summary>
     [EnumMember(Value = "ACRD")]
     [IsoId("_uvoJKPRYEeuLhpyIdtJzwg")]
     [Description(@"Already existing creditor.")]
-    AlreadyExistingCreditor,
+    AlreadyExistingCreditor = ExternalDebtorActivationStatusReasonCode.AlreadyExistingCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplication.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uvoJK_RYEeuLhpyIdtJzwg")]
     [Description(@"Duplication.")]
-    Duplication,
+    Duplication = ExternalDebtorActivationStatusReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid file format.
-    /// Encoded/decoded by serializers as "InvalidFileFormat".
+    /// Encoded/decoded by serializers as "FF01".
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_uvxTEvRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid file format.")]
-    InvalidFileFormat,
+    InvalidFileFormat = ExternalDebtorActivationStatusReasonCode.InvalidFileFormat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reference is not unique.
-    /// Encoded/decoded by serializers as "NotUniqueReference".
+    /// Encoded/decoded by serializers as "RF01".
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uvxTFfRYEeuLhpyIdtJzwg")]
     [Description(@"Reference is not unique.")]
-    NotUniqueReference,
+    NotUniqueReference = ExternalDebtorActivationStatusReasonCode.NotUniqueReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regulatory Reason.
-    /// Encoded/decoded by serializers as "RegulatoryReason".
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uvxTGPRYEeuLhpyIdtJzwg")]
     [Description(@"Regulatory Reason.")]
-    RegulatoryReason,
+    RegulatoryReason = ExternalDebtorActivationStatusReasonCode.RegulatoryReason, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid character set.
-    /// Encoded/decoded by serializers as "InvalidCharacterSet".
+    /// Encoded/decoded by serializers as "RR10".
     /// </summary>
     [EnumMember(Value = "RR10")]
     [IsoId("_uv7EEvRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid character set.")]
-    InvalidCharacterSet,
+    InvalidCharacterSet = ExternalDebtorActivationStatusReasonCode.InvalidCharacterSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Technical rejection.
-    /// Encoded/decoded by serializers as "TechnicalRejection".
+    /// Encoded/decoded by serializers as "TRJT".
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_uv7EFfRYEeuLhpyIdtJzwg")]
     [Description(@"Technical rejection.")]
-    TechnicalRejection,
+    TechnicalRejection = ExternalDebtorActivationStatusReasonCode.TechnicalRejection, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum ExternalDebtorActivationStatusReason1Code
 public static class ExternalDebtorActivationStatusReason1CodeMetadataExtensions
 {
     private static readonly ExternalDebtorActivationStatusReason1CodeDropdownSource _dropdownSource = new ExternalDebtorActivationStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

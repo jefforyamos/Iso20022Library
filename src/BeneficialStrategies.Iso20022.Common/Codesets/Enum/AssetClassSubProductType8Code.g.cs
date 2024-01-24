@@ -21,12 +21,12 @@ public enum AssetClassSubProductType8Code
 {
     /// <summary>
     /// Commodity of type oil.
-    /// Encoded/decoded by serializers as "Oil".
+    /// Encoded/decoded by serializers as "OILP".
     /// </summary>
     [EnumMember(Value = "OILP")]
     [IsoId("_913xIQnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type oil.")]
-    Oil,
+    Oil = AssetClassSubProductTypeCode.Oil, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType8Code
 public static class AssetClassSubProductType8CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType8CodeDropdownSource _dropdownSource = new AssetClassSubProductType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

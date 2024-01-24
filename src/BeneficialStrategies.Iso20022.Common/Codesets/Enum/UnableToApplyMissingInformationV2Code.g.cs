@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y11WR9p-Ed-ak6NoX_4Aeg_-1474250658")]
 [Description(@"Specifies the reason of an unable to apply due to missing information.")]
 [Derivations(typeof(UnableToApplyMissingInformation2Code),typeof(UnableToApplyMissingInformation3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnableToApplyMissingInformationV2Code
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum UnableToApplyMissingInformationV2Code
 public static class UnableToApplyMissingInformationV2CodeMetadataExtensions
 {
     private static readonly UnableToApplyMissingInformationV2CodeDropdownSource _dropdownSource = new UnableToApplyMissingInformationV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

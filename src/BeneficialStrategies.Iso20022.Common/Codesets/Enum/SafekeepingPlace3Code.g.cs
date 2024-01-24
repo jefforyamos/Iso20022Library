@@ -21,12 +21,12 @@ public enum SafekeepingPlace3Code
 {
     /// <summary>
     /// Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.
-    /// Encoded/decoded by serializers as "SharesHeldElsewhere".
+    /// Encoded/decoded by serializers as "SHHE".
     /// </summary>
     [EnumMember(Value = "SHHE")]
     [IsoId("_Y-oF6Np-Ed-ak6NoX_4Aeg_-505614155")]
     [Description(@"Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.")]
-    SharesHeldElsewhere,
+    SharesHeldElsewhere = SafekeepingPlaceCode.SharesHeldElsewhere, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SafekeepingPlace3Code
 public static class SafekeepingPlace3CodeMetadataExtensions
 {
     private static readonly SafekeepingPlace3CodeDropdownSource _dropdownSource = new SafekeepingPlace3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

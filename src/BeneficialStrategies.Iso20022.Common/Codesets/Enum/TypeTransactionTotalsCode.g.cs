@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TVfZ-gEcEeCQm6a_G2yO_w_-334806911")]
 [Description(@"Identification of the type of transactions which are included in the totals.")]
 [Derivations(typeof(TypeTransactionTotals1Code),typeof(TypeTransactionTotals2Code),typeof(TypeTransactionTotals3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TypeTransactionTotalsCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum TypeTransactionTotalsCode
 public static class TypeTransactionTotalsCodeMetadataExtensions
 {
     private static readonly TypeTransactionTotalsCodeDropdownSource _dropdownSource = new TypeTransactionTotalsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_d9DQsA4SEeKGXqvMN6jpiw")]
 [Description(@"Specifies if an item is added, modified, deleted or unchanged.")]
 [Derivations(typeof(Modification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ModificationCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ModificationCode
 public static class ModificationCodeMetadataExtensions
 {
     private static readonly ModificationCodeDropdownSource _dropdownSource = new ModificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

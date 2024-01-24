@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_P8v9YNHDEeaokquJJ-K6uA")]
 [Description(@"Specifies the status of the processing of an individual record within a message.")]
 [Derivations(typeof(ReportingRecordStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RecordStatusCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum RecordStatusCode
 public static class RecordStatusCodeMetadataExtensions
 {
     private static readonly RecordStatusCodeDropdownSource _dropdownSource = new RecordStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

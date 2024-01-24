@@ -21,21 +21,21 @@ public enum MoveType1Code
 {
     /// <summary>
     /// Indicates that the peg is static/fixed.
-    /// Encoded/decoded by serializers as "Static".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_aMtCl9p-Ed-ak6NoX_4Aeg_-1360046424")]
     [Description(@"Indicates that the peg is static/fixed.")]
-    Static,
+    Static = MoveTypeCode.Static, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that peg floats.
-    /// Encoded/decoded by serializers as "Float".
+    /// Encoded/decoded by serializers as "FLOA".
     /// </summary>
     [EnumMember(Value = "FLOA")]
     [IsoId("_aM2zkNp-Ed-ak6NoX_4Aeg_-1360046141")]
     [Description(@"Indicates that peg floats.")]
-    Float,
+    Float = MoveTypeCode.Float, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MoveType1Code
 public static class MoveType1CodeMetadataExtensions
 {
     private static readonly MoveType1CodeDropdownSource _dropdownSource = new MoveType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

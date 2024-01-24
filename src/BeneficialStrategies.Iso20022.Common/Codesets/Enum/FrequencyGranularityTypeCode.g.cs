@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jK9qADy5EeS4E7Ac8_OV3g")]
 [Description(@"Specifies the granularity of the frequency used for the reporting.")]
 [Derivations(typeof(FrequencyGranularityType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FrequencyGranularityTypeCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum FrequencyGranularityTypeCode
 public static class FrequencyGranularityTypeCodeMetadataExtensions
 {
     private static readonly FrequencyGranularityTypeCodeDropdownSource _dropdownSource = new FrequencyGranularityTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

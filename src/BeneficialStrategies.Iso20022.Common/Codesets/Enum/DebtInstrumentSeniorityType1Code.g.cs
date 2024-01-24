@@ -21,39 +21,39 @@ public enum DebtInstrumentSeniorityType1Code
 {
     /// <summary>
     /// Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.
-    /// Encoded/decoded by serializers as "SubordinatedDebt".
+    /// Encoded/decoded by serializers as "SBOD".
     /// </summary>
     [EnumMember(Value = "SBOD")]
     [IsoId("_PTlIkdDlEeSv_Pll20DdbA")]
     [Description(@"Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.")]
-    SubordinatedDebt,
+    SubordinatedDebt = DebtInstrumentSeniorityTypeCode.SubordinatedDebt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.
-    /// Encoded/decoded by serializers as "SeniorDebt".
+    /// Encoded/decoded by serializers as "SNDB".
     /// </summary>
     [EnumMember(Value = "SNDB")]
     [IsoId("_PZh_kdDlEeSv_Pll20DdbA")]
     [Description(@"Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.")]
-    SeniorDebt,
+    SeniorDebt = DebtInstrumentSeniorityTypeCode.SeniorDebt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Subordinated debt or preferred equity instrument that represents a claim on a company's assets which is senior only to that of the common shares.
-    /// Encoded/decoded by serializers as "MezzanineDebt".
+    /// Encoded/decoded by serializers as "MZZD".
     /// </summary>
     [EnumMember(Value = "MZZD")]
     [IsoId("_PfVsodDlEeSv_Pll20DdbA")]
     [Description(@"Subordinated debt or preferred equity instrument that represents a claim on a company's assets which is senior only to that of the common shares.")]
-    MezzanineDebt,
+    MezzanineDebt = DebtInstrumentSeniorityTypeCode.MezzanineDebt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debt that is either unsecured or has a lower priority than of another debt claim on the same asset or property.
-    /// Encoded/decoded by serializers as "JuniorDebt".
+    /// Encoded/decoded by serializers as "JUND".
     /// </summary>
     [EnumMember(Value = "JUND")]
     [IsoId("_PmxxYdDlEeSv_Pll20DdbA")]
     [Description(@"Debt that is either unsecured or has a lower priority than of another debt claim on the same asset or property.")]
-    JuniorDebt,
+    JuniorDebt = DebtInstrumentSeniorityTypeCode.JuniorDebt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DebtInstrumentSeniorityType1Code
 public static class DebtInstrumentSeniorityType1CodeMetadataExtensions
 {
     private static readonly DebtInstrumentSeniorityType1CodeDropdownSource _dropdownSource = new DebtInstrumentSeniorityType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,66 +21,66 @@ public enum FailedSettlementReason1Code
 {
     /// <summary>
     /// Credit account is not eligible.
-    /// Encoded/decoded by serializers as "CreditAccountNotEligible".
+    /// Encoded/decoded by serializers as "CANE".
     /// </summary>
     [EnumMember(Value = "CANE")]
     [IsoId("_amyWgNp-Ed-ak6NoX_4Aeg_-641474163")]
     [Description(@"Credit account is not eligible.")]
-    CreditAccountNotEligible,
+    CreditAccountNotEligible = FailedSettlementReasonCode.CreditAccountNotEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit account is disabled.
-    /// Encoded/decoded by serializers as "CreditAccountDisabled".
+    /// Encoded/decoded by serializers as "CADI".
     /// </summary>
     [EnumMember(Value = "CADI")]
     [IsoId("_amyWgdp-Ed-ak6NoX_4Aeg_-641474133")]
     [Description(@"Credit account is disabled.")]
-    CreditAccountDisabled,
+    CreditAccountDisabled = FailedSettlementReasonCode.CreditAccountDisabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit account is not eligible.
-    /// Encoded/decoded by serializers as "DebitAccountNotEligible".
+    /// Encoded/decoded by serializers as "DANE".
     /// </summary>
     [EnumMember(Value = "DANE")]
     [IsoId("_amyWgtp-Ed-ak6NoX_4Aeg_-641474102")]
     [Description(@"Debit account is not eligible.")]
-    DebitAccountNotEligible,
+    DebitAccountNotEligible = FailedSettlementReasonCode.DebitAccountNotEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit account is disabled.
-    /// Encoded/decoded by serializers as "DebitAccountDisabled".
+    /// Encoded/decoded by serializers as "AADI".
     /// </summary>
     [EnumMember(Value = "AADI")]
     [IsoId("_amyWg9p-Ed-ak6NoX_4Aeg_-641474101")]
     [Description(@"Debit account is disabled.")]
-    DebitAccountDisabled,
+    DebitAccountDisabled = FailedSettlementReasonCode.DebitAccountDisabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient securities on the account to settle.
-    /// Encoded/decoded by serializers as "InsufficientSecurities".
+    /// Encoded/decoded by serializers as "INSE".
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_amyWhNp-Ed-ak6NoX_4Aeg_-641474072")]
     [Description(@"Insufficient securities on the account to settle.")]
-    InsufficientSecurities,
+    InsufficientSecurities = FailedSettlementReasonCode.InsufficientSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The distribution is incomplete.
-    /// Encoded/decoded by serializers as "IncompleteDistribution".
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_amyWhdp-Ed-ak6NoX_4Aeg_-641473762")]
     [Description(@"The distribution is incomplete.")]
-    IncompleteDistribution,
+    IncompleteDistribution = FailedSettlementReasonCode.IncompleteDistribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient cash on the account to settle.
-    /// Encoded/decoded by serializers as "InsufficientCash".
+    /// Encoded/decoded by serializers as "INCA".
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_amyWhtp-Ed-ak6NoX_4Aeg_-641473739")]
     [Description(@"Insufficient cash on the account to settle.")]
-    InsufficientCash,
+    InsufficientCash = FailedSettlementReasonCode.InsufficientCash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum FailedSettlementReason1Code
 public static class FailedSettlementReason1CodeMetadataExtensions
 {
     private static readonly FailedSettlementReason1CodeDropdownSource _dropdownSource = new FailedSettlementReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

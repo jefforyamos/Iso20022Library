@@ -21,30 +21,30 @@ public enum PriceSource1Code
 {
     /// <summary>
     /// Source of price quotation is a fund, eg, transfer agent, fund itself.
-    /// Encoded/decoded by serializers as "Fund".
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aJIKINp-Ed-ak6NoX_4Aeg_-1087782704")]
     [Description(@"Source of price quotation is a fund, eg, transfer agent, fund itself.")]
-    Fund,
+    Fund = PriceSourceCode.Fund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of price quotation is a theoretical value based on the market yield.
-    /// Encoded/decoded by serializers as "Theoretical".
+    /// Encoded/decoded by serializers as "THEO".
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aJIKIdp-Ed-ak6NoX_4Aeg_-1073007545")]
     [Description(@"Source of price quotation is a theoretical value based on the market yield.")]
-    Theoretical,
+    Theoretical = PriceSourceCode.Theoretical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of price quotation is an external vendor.
-    /// Encoded/decoded by serializers as "Vendor".
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aJIKItp-Ed-ak6NoX_4Aeg_-1060076665")]
     [Description(@"Source of price quotation is an external vendor.")]
-    Vendor,
+    Vendor = PriceSourceCode.Vendor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PriceSource1Code
 public static class PriceSource1CodeMetadataExtensions
 {
     private static readonly PriceSource1CodeDropdownSource _dropdownSource = new PriceSource1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

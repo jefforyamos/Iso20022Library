@@ -21,93 +21,93 @@ public enum POIComponentType2Code
 {
     /// <summary>
     /// Payment or other software application.
-    /// Encoded/decoded by serializers as "Soft".
+    /// Encoded/decoded by serializers as "SOFT".
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_KTVhxH1DEeCF8NjrBemJWQ_1908221676")]
     [Description(@"Payment or other software application.")]
-    Soft,
+    Soft = POIComponentTypeCode.Soft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVKernel".
+    /// Encoded/decoded by serializers as "EMVK".
     /// </summary>
     [EnumMember(Value = "EMVK")]
     [IsoId("_KTVhxX1DEeCF8NjrBemJWQ_-847957178")]
     [Description(@"EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
-    EMVKernel,
+    EMVKernel = POIComponentTypeCode.EMVKernel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVLevel1".
+    /// Encoded/decoded by serializers as "EMVO".
     /// </summary>
     [EnumMember(Value = "EMVO")]
     [IsoId("_KTVhxn1DEeCF8NjrBemJWQ_-403699691")]
     [Description(@"EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
-    EMVLevel1,
+    EMVLevel1 = POIComponentTypeCode.EMVLevel1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant interface.
-    /// Encoded/decoded by serializers as "MerchantInterface".
+    /// Encoded/decoded by serializers as "MRIT".
     /// </summary>
     [EnumMember(Value = "MRIT")]
     [IsoId("_KTVhx31DEeCF8NjrBemJWQ_1135088751")]
     [Description(@"Merchant interface.")]
-    MerchantInterface,
+    MerchantInterface = POIComponentTypeCode.MerchantInterface, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Interface.
-    /// Encoded/decoded by serializers as "CardholderInterface".
+    /// Encoded/decoded by serializers as "CHIT".
     /// </summary>
     [EnumMember(Value = "CHIT")]
     [IsoId("_KTVhyH1DEeCF8NjrBemJWQ_1438145266")]
     [Description(@"Cardholder Interface.")]
-    CardholderInterface,
+    CardholderInterface = POIComponentTypeCode.CardholderInterface, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security module.
-    /// Encoded/decoded by serializers as "SecureModule".
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_KTersH1DEeCF8NjrBemJWQ_262954241")]
     [Description(@"Security module.")]
-    SecureModule,
+    SecureModule = POIComponentTypeCode.SecureModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Personal identification number (or PIN) entry device (PED).
-    /// Encoded/decoded by serializers as "PINEntryDevice".
+    /// Encoded/decoded by serializers as "PEDV".
     /// </summary>
     [EnumMember(Value = "PEDV")]
     [IsoId("_KTersX1DEeCF8NjrBemJWQ_-2048967126")]
     [Description(@"Personal identification number (or PIN) entry device (PED).")]
-    PINEntryDevice,
+    PINEntryDevice = POIComponentTypeCode.PINEntryDevice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AcquirerParameters".
+    /// Encoded/decoded by serializers as "AQPR".
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_KTersn1DEeCF8NjrBemJWQ_1452865412")]
     [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
-    AcquirerParameters,
+    AcquirerParameters = POIComponentTypeCode.AcquirerParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MerchantParameters".
+    /// Encoded/decoded by serializers as "MRPR".
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_KTers31DEeCF8NjrBemJWQ_-2037868349")]
     [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
-    MerchantParameters,
+    MerchantParameters = POIComponentTypeCode.MerchantParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
-    /// Encoded/decoded by serializers as "VendorParameters".
+    /// Encoded/decoded by serializers as "VDPR".
     /// </summary>
     [EnumMember(Value = "VDPR")]
     [IsoId("_KTertH1DEeCF8NjrBemJWQ_-1553071793")]
     [Description(@"Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.")]
-    VendorParameters,
+    VendorParameters = POIComponentTypeCode.VendorParameters, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum POIComponentType2Code
 public static class POIComponentType2CodeMetadataExtensions
 {
     private static readonly POIComponentType2CodeDropdownSource _dropdownSource = new POIComponentType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

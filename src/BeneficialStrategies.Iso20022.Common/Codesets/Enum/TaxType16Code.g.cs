@@ -21,147 +21,147 @@ public enum TaxType16Code
 {
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "ConsumptionTax".
+    /// Encoded/decoded by serializers as "COAX".
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_tcKxkRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
-    ConsumptionTax,
+    ConsumptionTax = TaxTypeCode.ConsumptionTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct reduction of an individual's tax liability.
-    /// Encoded/decoded by serializers as "TaxCredit".
+    /// Encoded/decoded by serializers as "CTAX".
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_u4j3ERuGEeOqSdXzJ0oydA")]
     [Description(@"Direct reduction of an individual's tax liability.")]
-    TaxCredit,
+    TaxCredit = TaxTypeCode.TaxCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTaxRetention".
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_vqGowRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTaxRetention,
+    EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax levied on a payment.
-    /// Encoded/decoded by serializers as "PaymentLevyTax".
+    /// Encoded/decoded by serializers as "LEVY".
     /// </summary>
     [EnumMember(Value = "LEVY")]
     [IsoId("_w-KRoRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax levied on a payment.")]
-    PaymentLevyTax,
+    PaymentLevyTax = TaxTypeCode.PaymentLevyTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is charged by a local settlement system or local jurisdiction.
-    /// Encoded/decoded by serializers as "LocalTax".
+    /// Encoded/decoded by serializers as "LOCL".
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_y1CTsRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax that is charged by a local settlement system or local jurisdiction.")]
-    LocalTax,
+    LocalTax = TaxTypeCode.LocalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NationalTax".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_0ZTi0RuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is a national tax.")]
-    NationalTax,
+    NationalTax = TaxTypeCode.NationalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "Provincial".
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_3Ia0cRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is a provincial tax.")]
-    Provincial,
+    Provincial = TaxTypeCode.Provincial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "StampDuty".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_359mIRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is on certain documents and transactions.")]
-    StampDuty,
+    StampDuty = TaxTypeCode.StampDuty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "StateTax".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_4Ts70RuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is a state tax.")]
-    StateTax,
+    StateTax = TaxTypeCode.StateTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax collected by a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchangeTax".
+    /// Encoded/decoded by serializers as "STEX".
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_6NsjURuGEeOqSdXzJ0oydA")]
     [Description(@"Tax collected by a stock exchange.")]
-    StockExchangeTax,
+    StockExchangeTax = TaxTypeCode.StockExchangeTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax levied on a transfer.
-    /// Encoded/decoded by serializers as "TransferTax".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_7EclIRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax levied on a transfer.")]
-    TransferTax,
+    TransferTax = TaxTypeCode.TransferTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax levied on a transaction.
-    /// Encoded/decoded by serializers as "TransactionTax".
+    /// Encoded/decoded by serializers as "TRAX".
     /// </summary>
     [EnumMember(Value = "TRAX")]
     [IsoId("_7j_A0RuGEeOqSdXzJ0oydA")]
     [Description(@"Tax levied on a transaction.")]
-    TransactionTax,
+    TransactionTax = TaxTypeCode.TransactionTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a value added tax.
-    /// Encoded/decoded by serializers as "ValueAddedTax".
+    /// Encoded/decoded by serializers as "VATA".
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_8KOhcRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is a value added tax.")]
-    ValueAddedTax,
+    ValueAddedTax = TaxTypeCode.ValueAddedTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_9CUAARuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WithholdingTax,
+    WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax recovery is due to capital loss.
-    /// Encoded/decoded by serializers as "CapitalLossCredit".
+    /// Encoded/decoded by serializers as "NKAP".
     /// </summary>
     [EnumMember(Value = "NKAP")]
     [IsoId("_-E9v0RuGEeOqSdXzJ0oydA")]
     [Description(@"Tax recovery is due to capital loss.")]
-    CapitalLossCredit,
+    CapitalLossCredit = TaxTypeCode.CapitalLossCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
-    /// Encoded/decoded by serializers as "CapitalGainTax".
+    /// Encoded/decoded by serializers as "KAPA".
     /// </summary>
     [EnumMember(Value = "KAPA")]
     [IsoId("___j0QRuGEeOqSdXzJ0oydA")]
     [Description(@"Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.")]
-    CapitalGainTax,
+    CapitalGainTax = TaxTypeCode.CapitalGainTax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum TaxType16Code
 public static class TaxType16CodeMetadataExtensions
 {
     private static readonly TaxType16CodeDropdownSource _dropdownSource = new TaxType16CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

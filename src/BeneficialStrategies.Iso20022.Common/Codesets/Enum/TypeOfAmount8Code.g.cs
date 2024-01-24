@@ -21,75 +21,75 @@ public enum TypeOfAmount8Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_gKHgEa11EeawR4FMacHsRQ")]
     [Description(@"Actual amount.")]
-    Actual,
+    Actual = TypeOfAmountCode.Actual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_gKHgE611EeawR4FMacHsRQ")]
     [Description(@"Estimated amount (the final amount could be above or below).")]
-    Estimated,
+    Estimated = TypeOfAmountCode.Estimated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "Maximum".
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_gKHgFa11EeawR4FMacHsRQ")]
     [Description(@"Maximum amount (the final amount must be less or equal).")]
-    Maximum,
+    Maximum = TypeOfAmountCode.Maximum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Default amount.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_gKHgF611EeawR4FMacHsRQ")]
     [Description(@"Default amount.")]
-    Default,
+    Default = TypeOfAmountCode.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Replacement amount.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "RPLT".
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_gKHgGa11EeawR4FMacHsRQ")]
     [Description(@"Replacement amount.")]
-    Replacement,
+    Replacement = TypeOfAmountCode.Replacement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Incremental amount for reservation.
-    /// Encoded/decoded by serializers as "Incremental".
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_ldQNoa11EeawR4FMacHsRQ")]
     [Description(@"Incremental amount for reservation.")]
-    Incremental,
+    Incremental = TypeOfAmountCode.Incremental, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Decremental amount for reservation.
-    /// Encoded/decoded by serializers as "Decremental".
+    /// Encoded/decoded by serializers as "DECR".
     /// </summary>
     [EnumMember(Value = "DECR")]
     [IsoId("_mJlvMa11EeawR4FMacHsRQ")]
     [Description(@"Decremental amount for reservation.")]
-    Decremental,
+    Decremental = TypeOfAmountCode.Decremental, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserved or updated reserved amount for reservation.
-    /// Encoded/decoded by serializers as "Reserved".
+    /// Encoded/decoded by serializers as "RESD".
     /// </summary>
     [EnumMember(Value = "RESD")]
     [IsoId("_m246Ea11EeawR4FMacHsRQ")]
     [Description(@"Reserved or updated reserved amount for reservation.")]
-    Reserved,
+    Reserved = TypeOfAmountCode.Reserved, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TypeOfAmount8Code
 public static class TypeOfAmount8CodeMetadataExtensions
 {
     private static readonly TypeOfAmount8CodeDropdownSource _dropdownSource = new TypeOfAmount8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

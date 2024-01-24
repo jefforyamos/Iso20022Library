@@ -21,30 +21,30 @@ public enum PendingCancellationReason2Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Z-Gl5dp-Ed-ak6NoX_4Aeg_608029315")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Prior payment credited to account based contractual income collection agreement has been collected from issuer.
-    /// Encoded/decoded by serializers as "ConfirmationOfPayment".
+    /// Encoded/decoded by serializers as "PCNF".
     /// </summary>
     [EnumMember(Value = "PCNF")]
     [IsoId("_Z-Gl5tp-Ed-ak6NoX_4Aeg_608031128")]
     [Description(@"Prior payment credited to account based contractual income collection agreement has been collected from issuer.")]
-    ConfirmationOfPayment,
+    ConfirmationOfPayment = PendingFailingReasonCode.ConfirmationOfPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "QuantityDisagreement".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Z-Gl59p-Ed-ak6NoX_4Aeg_608031188")]
     [Description(@"Quantity of financial instruments does not match.")]
-    QuantityDisagreement,
+    QuantityDisagreement = PendingFailingReasonCode.QuantityDisagreement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PendingCancellationReason2Code
 public static class PendingCancellationReason2CodeMetadataExtensions
 {
     private static readonly PendingCancellationReason2CodeDropdownSource _dropdownSource = new PendingCancellationReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

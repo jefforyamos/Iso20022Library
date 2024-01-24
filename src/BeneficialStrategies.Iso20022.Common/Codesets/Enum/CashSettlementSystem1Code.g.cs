@@ -21,66 +21,66 @@ public enum CashSettlementSystem1Code
 {
     /// <summary>
     /// Settle money through Bank of Korea Wire.
-    /// Encoded/decoded by serializers as "BankOfKoreaWire".
+    /// Encoded/decoded by serializers as "BOKW".
     /// </summary>
     [EnumMember(Value = "BOKW")]
     [IsoId("_a7MgRdp-Ed-ak6NoX_4Aeg_-523743781")]
     [Description(@"Settle money through Bank of Korea Wire.")]
-    BankOfKoreaWire,
+    BankOfKoreaWire = CashSettlementSystemCode.BankOfKoreaWire, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through cheque.
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHEC".
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_a7MgRtp-Ed-ak6NoX_4Aeg_-462790539")]
     [Description(@"Settle money through cheque.")]
-    Cheque,
+    Cheque = CashSettlementSystemCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through UK domestic.
-    /// Encoded/decoded by serializers as "UKDomestic".
+    /// Encoded/decoded by serializers as "GBSC".
     /// </summary>
     [EnumMember(Value = "GBSC")]
     [IsoId("_a7MgR9p-Ed-ak6NoX_4Aeg_-461866430")]
     [Description(@"Settle money through UK domestic.")]
-    UKDomestic,
+    UKDomestic = CashSettlementSystemCode.UKDomestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through gross settlement system.
-    /// Encoded/decoded by serializers as "GrossSettlementSystem".
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_a7MgSNp-Ed-ak6NoX_4Aeg_-454477927")]
     [Description(@"Settle money through gross settlement system.")]
-    GrossSettlementSystem,
+    GrossSettlementSystem = CashSettlementSystemCode.GrossSettlementSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through net settlement system.
-    /// Encoded/decoded by serializers as "NetSettlementSystem".
+    /// Encoded/decoded by serializers as "NETS".
     /// </summary>
     [EnumMember(Value = "NETS")]
     [IsoId("_a7WRQNp-Ed-ak6NoX_4Aeg_-453554748")]
     [Description(@"Settle money through net settlement system.")]
-    NetSettlementSystem,
+    NetSettlementSystem = CashSettlementSystemCode.NetSettlementSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through CHIPS (US).
-    /// Encoded/decoded by serializers as "USChips".
+    /// Encoded/decoded by serializers as "USCH".
     /// </summary>
     [EnumMember(Value = "USCH")]
     [IsoId("_a7WRQdp-Ed-ak6NoX_4Aeg_-452631692")]
     [Description(@"Settle money through CHIPS (US).")]
-    USChips,
+    USChips = CashSettlementSystemCode.USChips, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through Fedwire (US).
-    /// Encoded/decoded by serializers as "FedWireUS".
+    /// Encoded/decoded by serializers as "USFW".
     /// </summary>
     [EnumMember(Value = "USFW")]
     [IsoId("_a7WRQtp-Ed-ak6NoX_4Aeg_-449859823")]
     [Description(@"Settle money through Fedwire (US).")]
-    FedWireUS,
+    FedWireUS = CashSettlementSystemCode.FedWireUS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CashSettlementSystem1Code
 public static class CashSettlementSystem1CodeMetadataExtensions
 {
     private static readonly CashSettlementSystem1CodeDropdownSource _dropdownSource = new CashSettlementSystem1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

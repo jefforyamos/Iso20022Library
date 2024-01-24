@@ -21,30 +21,30 @@ public enum ChargeBearerType4Code
 {
     /// <summary>
     /// All transaction charges are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "BorneByDebtor".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_XaGi4fWfEemtd4wHZYvFUQ")]
     [Description(@"All transaction charges are to be borne by the debtor.")]
-    BorneByDebtor,
+    BorneByDebtor = ChargeBearerTypeCode.BorneByDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All transaction charges are to be borne by the creditor.
-    /// Encoded/decoded by serializers as "BorneByCreditor".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_XaGi4_WfEemtd4wHZYvFUQ")]
     [Description(@"All transaction charges are to be borne by the creditor.")]
-    BorneByCreditor,
+    BorneByCreditor = ChargeBearerTypeCode.BorneByCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "Shared".
+    /// Encoded/decoded by serializers as "SHAR".
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_XaGi5fWfEemtd4wHZYvFUQ")]
     [Description(@"In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.")]
-    Shared,
+    Shared = ChargeBearerTypeCode.Shared, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ChargeBearerType4Code
 public static class ChargeBearerType4CodeMetadataExtensions
 {
     private static readonly ChargeBearerType4CodeDropdownSource _dropdownSource = new ChargeBearerType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

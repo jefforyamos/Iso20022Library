@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aM2zkdp-Ed-ak6NoX_4Aeg_1618903822")]
 [Description(@"Describes whether peg or discretion price is static/fixed or floats.")]
 [Derivations(typeof(MoveType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MoveTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MoveTypeCode
 public static class MoveTypeCodeMetadataExtensions
 {
     private static readonly MoveTypeCodeDropdownSource _dropdownSource = new MoveTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

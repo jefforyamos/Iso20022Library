@@ -21,12 +21,12 @@ public enum AssetClassSubProductType29Code
 {
     /// <summary>
     /// Commodity of type carbon related.
-    /// Encoded/decoded by serializers as "CarbonRelated".
+    /// Encoded/decoded by serializers as "CRBR".
     /// </summary>
     [EnumMember(Value = "CRBR")]
     [IsoId("_ePRMoVrNEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type carbon related.")]
-    CarbonRelated,
+    CarbonRelated = AssetClassSubProductTypeCode.CarbonRelated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType29Code
 public static class AssetClassSubProductType29CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType29CodeDropdownSource _dropdownSource = new AssetClassSubProductType29CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

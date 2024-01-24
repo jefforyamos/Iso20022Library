@@ -21,48 +21,48 @@ public enum RiskReductionService1Code
 {
     /// <summary>
     /// There is no portfolio compression.
-    /// Encoded/decoded by serializers as "NoRiskReduction".
+    /// Encoded/decoded by serializers as "NORR".
     /// </summary>
     [EnumMember(Value = "NORR")]
     [IsoId("_IMhhYYKPEeyi6unpji8kcA")]
     [Description(@"There is no portfolio compression.")]
-    NoRiskReduction,
+    NoRiskReduction = RiskReductionServiceCode.NoRiskReduction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portfolio Compression without a third-party service provider.
-    /// Encoded/decoded by serializers as "NoThirdPartyPortfolioCompression".
+    /// Encoded/decoded by serializers as "PWOS".
     /// </summary>
     [EnumMember(Value = "PWOS")]
     [IsoId("_ITNYMYKPEeyi6unpji8kcA")]
     [Description(@"Portfolio Compression without a third-party service provider.")]
-    NoThirdPartyPortfolioCompression,
+    NoThirdPartyPortfolioCompression = RiskReductionServiceCode.NoThirdPartyPortfolioCompression, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other portfolio compression.
-    /// Encoded/decoded by serializers as "OtherCompression".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_IYeSsYKPEeyi6unpji8kcA")]
     [Description(@"Other portfolio compression.")]
-    OtherCompression,
+    OtherCompression = RiskReductionServiceCode.OtherCompression, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portfolio rebalancing or margin management.
-    /// Encoded/decoded by serializers as "PortfolioRebalancing".
+    /// Encoded/decoded by serializers as "PRBM".
     /// </summary>
     [EnumMember(Value = "PRBM")]
     [IsoId("_IeBhEYKPEeyi6unpji8kcA")]
     [Description(@"Portfolio rebalancing or margin management.")]
-    PortfolioRebalancing,
+    PortfolioRebalancing = RiskReductionServiceCode.PortfolioRebalancing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portfolio Compression with a third-party service provider or CCP.
-    /// Encoded/decoded by serializers as "ThirdPartyPortfolioCompression".
+    /// Encoded/decoded by serializers as "PWAS".
     /// </summary>
     [EnumMember(Value = "PWAS")]
     [IsoId("_IilQ8YKPEeyi6unpji8kcA")]
     [Description(@"Portfolio Compression with a third-party service provider or CCP.")]
-    ThirdPartyPortfolioCompression,
+    ThirdPartyPortfolioCompression = RiskReductionServiceCode.ThirdPartyPortfolioCompression, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RiskReductionService1Code
 public static class RiskReductionService1CodeMetadataExtensions
 {
     private static readonly RiskReductionService1CodeDropdownSource _dropdownSource = new RiskReductionService1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

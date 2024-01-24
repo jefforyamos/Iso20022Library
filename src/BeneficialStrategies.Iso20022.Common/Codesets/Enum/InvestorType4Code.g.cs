@@ -21,39 +21,39 @@ public enum InvestorType4Code
 {
     /// <summary>
     /// Investor is both professional per se and elective professional.
-    /// Encoded/decoded by serializers as "BothProfessionalPerSeAndElectiveProfessional".
+    /// Encoded/decoded by serializers as "BOT3".
     /// </summary>
     [EnumMember(Value = "BOT3")]
     [IsoId("__1XaobVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is both professional per se and elective professional.")]
-    BothProfessionalPerSeAndElectiveProfessional,
+    BothProfessionalPerSeAndElectiveProfessional = InvestorTypeV2Code.BothProfessionalPerSeAndElectiveProfessional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is neither professional per se or elective professional.
-    /// Encoded/decoded by serializers as "NotProfessionalPerSeElectiveProfessional".
+    /// Encoded/decoded by serializers as "NPRF".
     /// </summary>
     [EnumMember(Value = "NPRF")]
     [IsoId("_A9C0YbVNEeqkjqDuFVh1-A")]
     [Description(@"Investor is neither professional per se or elective professional.")]
-    NotProfessionalPerSeElectiveProfessional,
+    NotProfessionalPerSeElectiveProfessional = InvestorTypeV2Code.NotProfessionalPerSeElectiveProfessional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is professional per se but not elective professional.
-    /// Encoded/decoded by serializers as "ProfessionalPerSeNotElectiveProfessional".
+    /// Encoded/decoded by serializers as "PRF3".
     /// </summary>
     [EnumMember(Value = "PRF3")]
     [IsoId("_BkOJIbVNEeqkjqDuFVh1-A")]
     [Description(@"Investor is professional per se but not elective professional.")]
-    ProfessionalPerSeNotElectiveProfessional,
+    ProfessionalPerSeNotElectiveProfessional = InvestorTypeV2Code.ProfessionalPerSeNotElectiveProfessional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is an elective professional but not professional per se.
-    /// Encoded/decoded by serializers as "ElectiveProfessionalNotProfessionalPerSe".
+    /// Encoded/decoded by serializers as "PRF4".
     /// </summary>
     [EnumMember(Value = "PRF4")]
     [IsoId("_CeL3AbVNEeqkjqDuFVh1-A")]
     [Description(@"Investor is an elective professional but not professional per se.")]
-    ElectiveProfessionalNotProfessionalPerSe,
+    ElectiveProfessionalNotProfessionalPerSe = InvestorTypeV2Code.ElectiveProfessionalNotProfessionalPerSe, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum InvestorType4Code
 public static class InvestorType4CodeMetadataExtensions
 {
     private static readonly InvestorType4CodeDropdownSource _dropdownSource = new InvestorType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

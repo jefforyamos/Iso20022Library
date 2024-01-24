@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1ygnJjL3EeKU9IrkkToqcw_1746439852")]
 [Description(@"Non resident alien U.S. tax codes.")]
 [Derivations(typeof(NRATax1Code),typeof(NRATax2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NRATaxCode
 {
     /// <summary>
@@ -443,7 +442,7 @@ public enum NRATaxCode
 public static class NRATaxCodeMetadataExtensions
 {
     private static readonly NRATaxCodeDropdownSource _dropdownSource = new NRATaxCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

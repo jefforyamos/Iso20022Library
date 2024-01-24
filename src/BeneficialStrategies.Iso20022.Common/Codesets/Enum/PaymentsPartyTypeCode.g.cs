@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0lBckKHFEeagRbKvRt3LnA")]
 [Description(@"CodeSet identifying parties involved in a payments transaction.")]
 [Derivations(typeof(PaymentsPartyType1Code),typeof(PaymentsPartyType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentsPartyTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PaymentsPartyTypeCode
 public static class PaymentsPartyTypeCodeMetadataExtensions
 {
     private static readonly PaymentsPartyTypeCodeDropdownSource _dropdownSource = new PaymentsPartyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum TypeOfAmount17Code
 {
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_mpFfEVjqEeiTlKUpxxSxEw")]
     [Description(@"Other type of amount defined at national level.")]
-    OtherNational,
+    OtherNational = TypeOfAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_m0EnEVjqEeiTlKUpxxSxEw")]
     [Description(@"Other type of amount defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = TypeOfAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee applied by the card issuer to the cardholder.
-    /// Encoded/decoded by serializers as "IssuerCardholderFee".
+    /// Encoded/decoded by serializers as "ISCF".
     /// </summary>
     [EnumMember(Value = "ISCF")]
     [IsoId("_nw0jMVjqEeiTlKUpxxSxEw")]
     [Description(@"Fee applied by the card issuer to the cardholder.")]
-    IssuerCardholderFee,
+    IssuerCardholderFee = TypeOfAmountCode.IssuerCardholderFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount anticipated for the transaction
-    /// Encoded/decoded by serializers as "Anticipated".
+    /// Encoded/decoded by serializers as "ANTA".
     /// </summary>
     [EnumMember(Value = "ANTA")]
     [IsoId("_7nV2oa0pEeiBP5PZ97xcEA")]
     [Description(@"Amount anticipated for the transaction")]
-    Anticipated,
+    Anticipated = TypeOfAmountCode.Anticipated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TypeOfAmount17Code
 public static class TypeOfAmount17CodeMetadataExtensions
 {
     private static readonly TypeOfAmount17CodeDropdownSource _dropdownSource = new TypeOfAmount17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

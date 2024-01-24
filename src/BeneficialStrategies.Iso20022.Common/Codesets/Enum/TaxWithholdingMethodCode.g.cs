@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YlcJ1dp-Ed-ak6NoX_4Aeg_1304530864")]
 [Description(@"Specified the method by which the tax on the interests is to be processed i.e. either withheld at source or reported to tax authorities or a tax certificate has been provided by the beneficiary.")]
 [Derivations(typeof(TaxWithholdingMethod1Code),typeof(TaxWithholdingMethod2Code),typeof(TaxWithholdingMethod3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxWithholdingMethodCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum TaxWithholdingMethodCode
 public static class TaxWithholdingMethodCodeMetadataExtensions
 {
     private static readonly TaxWithholdingMethodCodeDropdownSource _dropdownSource = new TaxWithholdingMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

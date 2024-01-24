@@ -21,21 +21,21 @@ public enum ClosurePendingStatusReason1Code
 {
     /// <summary>
     /// Account closing is in process.
-    /// Encoded/decoded by serializers as "AccountClosingInProcess".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_gh-qIWCMEeabZtzjEVWYCQ")]
     [Description(@"Account closing is in process.")]
-    AccountClosingInProcess,
+    AccountClosingInProcess = ClosurePendingStatusReasonCode.AccountClosingInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account will be closed when conditions are met.
-    /// Encoded/decoded by serializers as "PendingConditions".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_grWokWCMEeabZtzjEVWYCQ")]
     [Description(@"Account will be closed when conditions are met.")]
-    PendingConditions,
+    PendingConditions = ClosurePendingStatusReasonCode.PendingConditions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ClosurePendingStatusReason1Code
 public static class ClosurePendingStatusReason1CodeMetadataExtensions
 {
     private static readonly ClosurePendingStatusReason1CodeDropdownSource _dropdownSource = new ClosurePendingStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

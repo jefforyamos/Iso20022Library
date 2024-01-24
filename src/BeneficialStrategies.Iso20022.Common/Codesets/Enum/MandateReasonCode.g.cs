@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_af7gkNp-Ed-ak6NoX_4Aeg_-586944687")]
 [Description(@"Specifies the reason for requesting the amendment or cancellation of a mandate.")]
 [Derivations(typeof(MandateAmendmentReason1Code),typeof(MandateCancellationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MandateReasonCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum MandateReasonCode
 public static class MandateReasonCodeMetadataExtensions
 {
     private static readonly MandateReasonCodeDropdownSource _dropdownSource = new MandateReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

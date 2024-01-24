@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_oLAXQD6IEemPvNTzinB5Vw")]
 [Description(@"Specifies the type of shareholding.")]
 [Derivations(typeof(ShareholdingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ShareholdingTypeCode
 {
     /// <summary>
@@ -27,7 +26,7 @@ public enum ShareholdingTypeCode
     /// </summary>
     [EnumMember(Value = "OOAC")]
     [IsoId("_tZ5eAD6IEemPvNTzinB5Vw")]
-    [Description(@"Shares are held by the responding intermediary for its own account. Usage: this type should only be used to report the intermediary’s own assets if and when the intermediary comingles them with the one of their clients.  Within jurisdictions where commingling is not allowed, this type should not be used.")]
+    [Description(@"Shares are held by the responding intermediary for its own account.|Usage: this type should only be used to report the intermediary’s own assets if and when the intermediary comingles them with the one of their clients.  Within jurisdictions where commingling is not allowed, this type should not be used.")]
     OnOwnAccount,
     
     /// <summary>
@@ -37,7 +36,7 @@ public enum ShareholdingTypeCode
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_MHyHoD6JEemPvNTzinB5Vw")]
-    [Description(@"Shares are held on behalf of an intermediary. Usage: this type should be used to report assets the intermediary holds on behalf of another intermediary.")]
+    [Description(@"Shares are held on behalf of an intermediary.|Usage: this type should be used to report assets the intermediary holds on behalf of another intermediary.")]
     NomineeShareholding,
     
     /// <summary>
@@ -47,7 +46,7 @@ public enum ShareholdingTypeCode
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_c6OKED6JEemPvNTzinB5Vw")]
-    [Description(@"Shares are held on behalf of the beneficial owner.  Usage: this type should be used to report assets the intermediary holds on behalf of a final beneficial owner.")]
+    [Description(@"Shares are held on behalf of the beneficial owner. |Usage: this type should be used to report assets the intermediary holds on behalf of a final beneficial owner.")]
     BeneficialShareholding,
     
     /// <summary>
@@ -57,7 +56,7 @@ public enum ShareholdingTypeCode
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_sibOAD6JEemPvNTzinB5Vw")]
-    [Description(@"Shareholding type is unknown. Usage: this type should be used when the intermediary’s client hasn’t been classified.")]
+    [Description(@"Shareholding type is unknown.|Usage: this type should be used when the intermediary’s client hasn’t been classified.")]
     Unknown,
     
 }
@@ -69,7 +68,7 @@ public enum ShareholdingTypeCode
 public static class ShareholdingTypeCodeMetadataExtensions
 {
     private static readonly ShareholdingTypeCodeDropdownSource _dropdownSource = new ShareholdingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,66 +21,66 @@ public enum FATCAFormType1Code
 {
     /// <summary>
     /// Certificate of foreign intermediary (also known as IRS form W-8IMY).
-    /// Encoded/decoded by serializers as "CertificateForeignIntermediary".
+    /// Encoded/decoded by serializers as "CER5".
     /// </summary>
     [EnumMember(Value = "CER5")]
     [IsoId("_nSQl4QjMEeS5F6qHcKOrew")]
     [Description(@"Certificate of foreign intermediary (also known as IRS form W-8IMY).")]
-    CertificateForeignIntermediary,
+    CertificateForeignIntermediary = FATCAFormTypeCode.CertificateForeignIntermediary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate of foreign person's claim that income is effectively connected with the conduct of a trade or business in the United States (also known as IRS form W-8BEN-E).
-    /// Encoded/decoded by serializers as "CertificateForeignPersonsClaim".
+    /// Encoded/decoded by serializers as "CER7".
     /// </summary>
     [EnumMember(Value = "CER7")]
     [IsoId("_nc-BEQjMEeS5F6qHcKOrew")]
     [Description(@"Certificate of foreign person's claim that income is effectively connected with the conduct of a trade or business in the United States (also known as IRS form W-8BEN-E).")]
-    CertificateForeignPersonsClaim,
+    CertificateForeignPersonsClaim = FATCAFormTypeCode.CertificateForeignPersonsClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate of foreign status of beneficial owner (also known as IRS form W-8BEN).
-    /// Encoded/decoded by serializers as "CertificateForeignStatusBeneficialOwner".
+    /// Encoded/decoded by serializers as "CER1".
     /// </summary>
     [EnumMember(Value = "CER1")]
     [IsoId("_nfphoQjMEeS5F6qHcKOrew")]
     [Description(@"Certificate of foreign status of beneficial owner (also known as IRS form W-8BEN).")]
-    CertificateForeignStatusBeneficialOwner,
+    CertificateForeignStatusBeneficialOwner = FATCAFormTypeCode.CertificateForeignStatusBeneficialOwner, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate of loss of nationality.
-    /// Encoded/decoded by serializers as "CertificateLossNationality".
+    /// Encoded/decoded by serializers as "CER2".
     /// </summary>
     [EnumMember(Value = "CER2")]
     [IsoId("_ntVYUQjMEeS5F6qHcKOrew")]
     [Description(@"Certificate of loss of nationality.")]
-    CertificateLossNationality,
+    CertificateLossNationality = FATCAFormTypeCode.CertificateLossNationality, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self certification.
-    /// Encoded/decoded by serializers as "SelfCertification".
+    /// Encoded/decoded by serializers as "CER3".
     /// </summary>
     [EnumMember(Value = "CER3")]
     [IsoId("_nwKC0QjMEeS5F6qHcKOrew")]
     [Description(@"Self certification.")]
-    SelfCertification,
+    SelfCertification = FATCAFormTypeCode.SelfCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self certificate of loss of nationality (also known as IRS form I-407).
-    /// Encoded/decoded by serializers as "SelfCertificationLossNationality".
+    /// Encoded/decoded by serializers as "CER4".
     /// </summary>
     [EnumMember(Value = "CER4")]
     [IsoId("_n4ffcQjMEeS5F6qHcKOrew")]
     [Description(@"Self certificate of loss of nationality (also known as IRS form I-407).")]
-    SelfCertificationLossNationality,
+    SelfCertificationLossNationality = FATCAFormTypeCode.SelfCertificationLossNationality, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Form is a request for taxpayer identification number and certification (also known as IRS form W9).
-    /// Encoded/decoded by serializers as "TaxpayerIdentificationNumberRequest".
+    /// Encoded/decoded by serializers as "CER6".
     /// </summary>
     [EnumMember(Value = "CER6")]
     [IsoId("_oA08EQjMEeS5F6qHcKOrew")]
     [Description(@"Form is a request for taxpayer identification number and certification (also known as IRS form W9).")]
-    TaxpayerIdentificationNumberRequest,
+    TaxpayerIdentificationNumberRequest = FATCAFormTypeCode.TaxpayerIdentificationNumberRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum FATCAFormType1Code
 public static class FATCAFormType1CodeMetadataExtensions
 {
     private static readonly FATCAFormType1CodeDropdownSource _dropdownSource = new FATCAFormType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

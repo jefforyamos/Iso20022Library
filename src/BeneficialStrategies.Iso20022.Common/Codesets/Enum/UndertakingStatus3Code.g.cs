@@ -21,57 +21,57 @@ public enum UndertakingStatus3Code
 {
     /// <summary>
     /// Accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_e_hVNn1VEeGlwNeVP9egyg")]
     [Description(@"Accepted.")]
-    Accepted,
+    Accepted = UndertakingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking not confirmed.
-    /// Encoded/decoded by serializers as "NonConfirmation".
+    /// Encoded/decoded by serializers as "NCON".
     /// </summary>
     [EnumMember(Value = "NCON")]
     [IsoId("_fUrs5n1VEeGlwNeVP9egyg")]
     [Description(@"Undertaking not confirmed.")]
-    NonConfirmation,
+    NonConfirmation = UndertakingStatusCode.NonConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_fr7INn1VEeGlwNeVP9egyg")]
     [Description(@"Rejected.")]
-    Rejected,
+    Rejected = UndertakingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Demand has been withdrawn.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_fyVSNn1VEeGlwNeVP9egyg")]
     [Description(@"Demand has been withdrawn.")]
-    Withdrawn,
+    Withdrawn = UndertakingStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change to counter-undertaking amount.
-    /// Encoded/decoded by serializers as "CounterUndertakingAmountChange".
+    /// Encoded/decoded by serializers as "AMTC".
     /// </summary>
     [EnumMember(Value = "AMTC")]
     [IsoId("_Emv1Fq-yEeGNi5z8K_XPKQ")]
     [Description(@"Change to counter-undertaking amount.")]
-    CounterUndertakingAmountChange,
+    CounterUndertakingAmountChange = UndertakingStatusCode.CounterUndertakingAmountChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change to undertaking amount.
-    /// Encoded/decoded by serializers as "UndertakingAmountChange".
+    /// Encoded/decoded by serializers as "AMTU".
     /// </summary>
     [EnumMember(Value = "AMTU")]
     [IsoId("_FA0h9q-yEeGNi5z8K_XPKQ")]
     [Description(@"Change to undertaking amount.")]
-    UndertakingAmountChange,
+    UndertakingAmountChange = UndertakingStatusCode.UndertakingAmountChange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum UndertakingStatus3Code
 public static class UndertakingStatus3CodeMetadataExtensions
 {
     private static readonly UndertakingStatus3CodeDropdownSource _dropdownSource = new UndertakingStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum TradeFinanceService2Code
 {
     /// <summary>
     /// Code for level 1 services.
-    /// Encoded/decoded by serializers as "Level1Services".
+    /// Encoded/decoded by serializers as "LEV1".
     /// </summary>
     [EnumMember(Value = "LEV1")]
     [IsoId("_Ymocptp-Ed-ak6NoX_4Aeg_-547265145")]
     [Description(@"Code for level 1 services.")]
-    Level1Services,
+    Level1Services = TradeFinanceServiceCode.Level1Services, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for level 2 services.
-    /// Encoded/decoded by serializers as "Level2Services".
+    /// Encoded/decoded by serializers as "LEV2".
     /// </summary>
     [EnumMember(Value = "LEV2")]
     [IsoId("_Ymocp9p-Ed-ak6NoX_4Aeg_-543571648")]
     [Description(@"Code for level 2 services.")]
-    Level2Services,
+    Level2Services = TradeFinanceServiceCode.Level2Services, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for level 3 services.
-    /// Encoded/decoded by serializers as "Level3Services".
+    /// Encoded/decoded by serializers as "LEV3".
     /// </summary>
     [EnumMember(Value = "LEV3")]
     [IsoId("_YmocqNp-Ed-ak6NoX_4Aeg_-530643751")]
     [Description(@"Code for level 3 services.")]
-    Level3Services,
+    Level3Services = TradeFinanceServiceCode.Level3Services, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TradeFinanceService2Code
 public static class TradeFinanceService2CodeMetadataExtensions
 {
     private static readonly TradeFinanceService2CodeDropdownSource _dropdownSource = new TradeFinanceService2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

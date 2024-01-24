@@ -21,39 +21,39 @@ public enum SettlingCapacity2Code
 {
     /// <summary>
     /// Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).
-    /// Encoded/decoded by serializers as "SettlingAgent".
+    /// Encoded/decoded by serializers as "SAGE".
     /// </summary>
     [EnumMember(Value = "SAGE")]
     [IsoId("_7ZoS4SW2EeOslcz0TJwprQ")]
     [Description(@"Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).")]
-    SettlingAgent,
+    SettlingAgent = SettlingCapacityCode.SettlingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.
-    /// Encoded/decoded by serializers as "SettlingCustodian".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_9j2HsSW2EeOslcz0TJwprQ")]
     [Description(@"Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.")]
-    SettlingCustodian,
+    SettlingCustodian = SettlingCapacityCode.SettlingCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement party is settling its own trades.
-    /// Encoded/decoded by serializers as "SettlingPrincipal".
+    /// Encoded/decoded by serializers as "SPRI".
     /// </summary>
     [EnumMember(Value = "SPRI")]
     [IsoId("_9rSMcSW2EeOslcz0TJwprQ")]
     [Description(@"Settlement party is settling its own trades.")]
-    SettlingPrincipal,
+    SettlingPrincipal = SettlingCapacityCode.SettlingPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party settles trades that were simultaneously offset.
-    /// Encoded/decoded by serializers as "SettlingRisklessPrincipal".
+    /// Encoded/decoded by serializers as "RISP".
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_9wCwoSW2EeOslcz0TJwprQ")]
     [Description(@"Party settles trades that were simultaneously offset.")]
-    SettlingRisklessPrincipal,
+    SettlingRisklessPrincipal = SettlingCapacityCode.SettlingRisklessPrincipal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SettlingCapacity2Code
 public static class SettlingCapacity2CodeMetadataExtensions
 {
     private static readonly SettlingCapacity2CodeDropdownSource _dropdownSource = new SettlingCapacity2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

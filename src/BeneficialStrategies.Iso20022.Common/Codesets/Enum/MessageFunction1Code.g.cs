@@ -21,192 +21,192 @@ public enum MessageFunction1Code
 {
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AuthorisationRequest".
+    /// Encoded/decoded by serializers as "AUTQ".
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_TTQlWQEcEeCQm6a_G2yO_w_-1182892698")]
     [Description(@"The initiator requests an authorisation without financial impact to complete the transaction.")]
-    AuthorisationRequest,
+    AuthorisationRequest = MessageFunctionCode.AuthorisationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response for authorisation without financial capture.
-    /// Encoded/decoded by serializers as "AuthorisationResponse".
+    /// Encoded/decoded by serializers as "AUTP".
     /// </summary>
     [EnumMember(Value = "AUTP")]
     [IsoId("_TTQlWgEcEeCQm6a_G2yO_w_-3200414")]
     [Description(@"Response for authorisation without financial capture.")]
-    AuthorisationResponse,
+    AuthorisationResponse = MessageFunctionCode.AuthorisationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FinancialAuthorisationRequest".
+    /// Encoded/decoded by serializers as "FAUQ".
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_TTQlWwEcEeCQm6a_G2yO_w_1760948185")]
     [Description(@"Request for authorisation with financial capture.")]
-    FinancialAuthorisationRequest,
+    FinancialAuthorisationRequest = MessageFunctionCode.FinancialAuthorisationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FinancialAuthorisationResponse".
+    /// Encoded/decoded by serializers as "FAUP".
     /// </summary>
     [EnumMember(Value = "FAUP")]
     [IsoId("_TTQlXAEcEeCQm6a_G2yO_w_-1520811809")]
     [Description(@"Response for authorisation with financial capture.")]
-    FinancialAuthorisationResponse,
+    FinancialAuthorisationResponse = MessageFunctionCode.FinancialAuthorisationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CompletionAdvice".
+    /// Encoded/decoded by serializers as "CMPV".
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_TTQlXQEcEeCQm6a_G2yO_w_1671233080")]
     [Description(@"Advice for completion without financial capture.")]
-    CompletionAdvice,
+    CompletionAdvice = MessageFunctionCode.CompletionAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice response for completion without financial capture.
-    /// Encoded/decoded by serializers as "CompletionAdviceResponse".
+    /// Encoded/decoded by serializers as "CMPK".
     /// </summary>
     [EnumMember(Value = "CMPK")]
     [IsoId("_TTQlXgEcEeCQm6a_G2yO_w_-948668075")]
     [Description(@"Advice response for completion without financial capture.")]
-    CompletionAdviceResponse,
+    CompletionAdviceResponse = MessageFunctionCode.CompletionAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FinancialCompletionAdvice".
+    /// Encoded/decoded by serializers as "FCMV".
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_TTQlXwEcEeCQm6a_G2yO_w_-500544520")]
     [Description(@"Advice for completion with financial capture.")]
-    FinancialCompletionAdvice,
+    FinancialCompletionAdvice = MessageFunctionCode.FinancialCompletionAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice response for completion with financial capture.
-    /// Encoded/decoded by serializers as "FinancialCompletionAdviceResponse".
+    /// Encoded/decoded by serializers as "FCMK".
     /// </summary>
     [EnumMember(Value = "FCMK")]
     [IsoId("_TTZvQAEcEeCQm6a_G2yO_w_-824573090")]
     [Description(@"Advice response for completion with financial capture.")]
-    FinancialCompletionAdviceResponse,
+    FinancialCompletionAdviceResponse = MessageFunctionCode.FinancialCompletionAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "ReversalAdvice".
+    /// Encoded/decoded by serializers as "RVRA".
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_TTZvQQEcEeCQm6a_G2yO_w_-1995950579")]
     [Description(@"Advice for reversal without financial capture.")]
-    ReversalAdvice,
+    ReversalAdvice = MessageFunctionCode.ReversalAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice response for reversal without financial capture.
-    /// Encoded/decoded by serializers as "ReversalAdviceResponse".
+    /// Encoded/decoded by serializers as "RVRR".
     /// </summary>
     [EnumMember(Value = "RVRR")]
     [IsoId("_TTZvQgEcEeCQm6a_G2yO_w_-1501098443")]
     [Description(@"Advice response for reversal without financial capture.")]
-    ReversalAdviceResponse,
+    ReversalAdviceResponse = MessageFunctionCode.ReversalAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FinancialReversalAdvice".
+    /// Encoded/decoded by serializers as "FRVA".
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_TTZvQwEcEeCQm6a_G2yO_w_17591425")]
     [Description(@"Advice for reversal with financial capture.")]
-    FinancialReversalAdvice,
+    FinancialReversalAdvice = MessageFunctionCode.FinancialReversalAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice response for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FinancialReversalAdviceResponse".
+    /// Encoded/decoded by serializers as "FRVR".
     /// </summary>
     [EnumMember(Value = "FRVR")]
     [IsoId("_TTZvRAEcEeCQm6a_G2yO_w_-1077358578")]
     [Description(@"Advice response for reversal with financial capture.")]
-    FinancialReversalAdviceResponse,
+    FinancialReversalAdviceResponse = MessageFunctionCode.FinancialReversalAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CancellationRequest".
+    /// Encoded/decoded by serializers as "CCAQ".
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_TTZvRQEcEeCQm6a_G2yO_w_-938894865")]
     [Description(@"Request for cancellation.")]
-    CancellationRequest,
+    CancellationRequest = MessageFunctionCode.CancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response for cancellation.
-    /// Encoded/decoded by serializers as "CancellationResponse".
+    /// Encoded/decoded by serializers as "CCAP".
     /// </summary>
     [EnumMember(Value = "CCAP")]
     [IsoId("_TTZvRgEcEeCQm6a_G2yO_w_892028304")]
     [Description(@"Response for cancellation.")]
-    CancellationResponse,
+    CancellationResponse = MessageFunctionCode.CancellationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CancellationAdvice".
+    /// Encoded/decoded by serializers as "CCAV".
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_TTZvRwEcEeCQm6a_G2yO_w_-1381883357")]
     [Description(@"Advice for cancellation.")]
-    CancellationAdvice,
+    CancellationAdvice = MessageFunctionCode.CancellationAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice response for cancellation.
-    /// Encoded/decoded by serializers as "CancellationAdviceResponse".
+    /// Encoded/decoded by serializers as "CCAK".
     /// </summary>
     [EnumMember(Value = "CCAK")]
     [IsoId("_TTZvSAEcEeCQm6a_G2yO_w_-1392982134")]
     [Description(@"Advice response for cancellation.")]
-    CancellationAdviceResponse,
+    CancellationAdviceResponse = MessageFunctionCode.CancellationAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DiagnosticRequest".
+    /// Encoded/decoded by serializers as "DGNP".
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_TTZvSQEcEeCQm6a_G2yO_w_-1465713819")]
     [Description(@"Request for diagnostic.")]
-    DiagnosticRequest,
+    DiagnosticRequest = MessageFunctionCode.DiagnosticRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response for diagnostic.
-    /// Encoded/decoded by serializers as "DiagnosticResponse".
+    /// Encoded/decoded by serializers as "DGNQ".
     /// </summary>
     [EnumMember(Value = "DGNQ")]
     [IsoId("_TTZvSgEcEeCQm6a_G2yO_w_-1988702370")]
     [Description(@"Response for diagnostic.")]
-    DiagnosticResponse,
+    DiagnosticResponse = MessageFunctionCode.DiagnosticResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "ReconciliationRequest".
+    /// Encoded/decoded by serializers as "RCLQ".
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_TTZvSwEcEeCQm6a_G2yO_w_1502430232")]
     [Description(@"Request for reconciliation.")]
-    ReconciliationRequest,
+    ReconciliationRequest = MessageFunctionCode.ReconciliationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response for reconciliation.
-    /// Encoded/decoded by serializers as "ReconciliationResponse".
+    /// Encoded/decoded by serializers as "RCLP".
     /// </summary>
     [EnumMember(Value = "RCLP")]
     [IsoId("_TTZvTAEcEeCQm6a_G2yO_w_-855311891")]
     [Description(@"Response for reconciliation.")]
-    ReconciliationResponse,
+    ReconciliationResponse = MessageFunctionCode.ReconciliationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reject a request or an advice.
-    /// Encoded/decoded by serializers as "Rejection".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_TTZvTQEcEeCQm6a_G2yO_w_-803583455")]
     [Description(@"Reject a request or an advice.")]
-    Rejection,
+    Rejection = MessageFunctionCode.Rejection, // same ordinal as derivation source for type conversions
     
 }
 
@@ -217,7 +217,7 @@ public enum MessageFunction1Code
 public static class MessageFunction1CodeMetadataExtensions
 {
     private static readonly MessageFunction1CodeDropdownSource _dropdownSource = new MessageFunction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

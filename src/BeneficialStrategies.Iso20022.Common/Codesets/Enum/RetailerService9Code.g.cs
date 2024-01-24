@@ -21,84 +21,84 @@ public enum RetailerService9Code
 {
     /// <summary>
     /// One system responds to the other system for a display request.
-    /// Encoded/decoded by serializers as "DeviceDisplayResponse".
+    /// Encoded/decoded by serializers as "DDYP".
     /// </summary>
     [EnumMember(Value = "DDYP")]
     [IsoId("_YsANsd7EEeiwsev40qZGEQ")]
     [Description(@"One system responds to the other system for a display request.")]
-    DeviceDisplayResponse,
+    DeviceDisplayResponse = RetailerServiceCode.DeviceDisplayResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a input request.
-    /// Encoded/decoded by serializers as "DeviceInputResponse".
+    /// Encoded/decoded by serializers as "DINP".
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_ZT7wYd7EEeiwsev40qZGEQ")]
     [Description(@"One system responds to the other System for a input request.")]
-    DeviceInputResponse,
+    DeviceInputResponse = RetailerServiceCode.DeviceInputResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a print request.
-    /// Encoded/decoded by serializers as "DevicePrintResponse".
+    /// Encoded/decoded by serializers as "DPRP".
     /// </summary>
     [EnumMember(Value = "DPRP")]
     [IsoId("_aC3S8d7EEeiwsev40qZGEQ")]
     [Description(@"One system responds to the other System for a print request.")]
-    DevicePrintResponse,
+    DevicePrintResponse = RetailerServiceCode.DevicePrintResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a play sound request.
-    /// Encoded/decoded by serializers as "DevicePlaySoundResponse".
+    /// Encoded/decoded by serializers as "DSOP".
     /// </summary>
     [EnumMember(Value = "DSOP")]
     [IsoId("_a3Assd7EEeiwsev40qZGEQ")]
     [Description(@"One system responds to the other System for a play sound request.")]
-    DevicePlaySoundResponse,
+    DevicePlaySoundResponse = RetailerServiceCode.DevicePlaySoundResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for secure data input.
-    /// Encoded/decoded by serializers as "DeviceSecureInputResponse".
+    /// Encoded/decoded by serializers as "DSIP".
     /// </summary>
     [EnumMember(Value = "DSIP")]
     [IsoId("_cnBRwd7EEeiwsev40qZGEQ")]
     [Description(@"One system responds to the other System for secure data input.")]
-    DeviceSecureInputResponse,
+    DeviceSecureInputResponse = RetailerServiceCode.DeviceSecureInputResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader initialisation.
-    /// Encoded/decoded by serializers as "DeviceInitialisationCardReaderResponse".
+    /// Encoded/decoded by serializers as "DCIP".
     /// </summary>
     [EnumMember(Value = "DCIP")]
     [IsoId("_dfCe4d7EEeiwsev40qZGEQ")]
     [Description(@"The POI system responds to the Sale System for a card reader initialisation.")]
-    DeviceInitialisationCardReaderResponse,
+    DeviceInitialisationCardReaderResponse = RetailerServiceCode.DeviceInitialisationCardReaderResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.
-    /// Encoded/decoded by serializers as "DeviceSendApplicationProtocolDataUnitCardReaderResponse".
+    /// Encoded/decoded by serializers as "DCAP".
     /// </summary>
     [EnumMember(Value = "DCAP")]
     [IsoId("_eE2hsd7EEeiwsev40qZGEQ")]
     [Description(@"The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.")]
-    DeviceSendApplicationProtocolDataUnitCardReaderResponse,
+    DeviceSendApplicationProtocolDataUnitCardReaderResponse = RetailerServiceCode.DeviceSendApplicationProtocolDataUnitCardReaderResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader power off.
-    /// Encoded/decoded by serializers as "DevicePowerOffCardRequestResponse".
+    /// Encoded/decoded by serializers as "DCPP".
     /// </summary>
     [EnumMember(Value = "DCPP")]
     [IsoId("_fRKj0d7EEeiwsev40qZGEQ")]
     [Description(@"The POI system responds to the Sale System for a card reader power off.")]
-    DevicePowerOffCardRequestResponse,
+    DevicePowerOffCardRequestResponse = RetailerServiceCode.DevicePowerOffCardRequestResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System after a message transmission.
-    /// Encoded/decoded by serializers as "DeviceTransmissionMessageResponse".
+    /// Encoded/decoded by serializers as "DCOP".
     /// </summary>
     [EnumMember(Value = "DCOP")]
     [IsoId("_gJwYsd7EEeiwsev40qZGEQ")]
     [Description(@"The POI system responds to the Sale System after a message transmission.")]
-    DeviceTransmissionMessageResponse,
+    DeviceTransmissionMessageResponse = RetailerServiceCode.DeviceTransmissionMessageResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum RetailerService9Code
 public static class RetailerService9CodeMetadataExtensions
 {
     private static readonly RetailerService9CodeDropdownSource _dropdownSource = new RetailerService9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

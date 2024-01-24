@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VqbxSNp-Ed-ak6NoX_4Aeg_384306495")]
 [Description(@"Type of service for which the commission is asked or paid.")]
 [Derivations(typeof(CommissionType5Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CommissionTypeCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum CommissionTypeCode
 public static class CommissionTypeCodeMetadataExtensions
 {
     private static readonly CommissionTypeCodeDropdownSource _dropdownSource = new CommissionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

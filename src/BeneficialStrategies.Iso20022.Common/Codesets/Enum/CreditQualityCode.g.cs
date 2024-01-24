@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VUiw4KcjEeaGcf8_qtd8Yw")]
 [Description(@"Credit quality rating of an issuer or financial obligation.")]
 [Derivations(typeof(CreditQuality1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CreditQualityCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum CreditQualityCode
 public static class CreditQualityCodeMetadataExtensions
 {
     private static readonly CreditQualityCodeDropdownSource _dropdownSource = new CreditQualityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

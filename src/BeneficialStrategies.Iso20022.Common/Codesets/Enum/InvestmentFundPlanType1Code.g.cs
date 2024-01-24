@@ -21,30 +21,30 @@ public enum InvestmentFundPlanType1Code
 {
     /// <summary>
     /// Savings investment plan.
-    /// Encoded/decoded by serializers as "SavingsInvestmentPlan".
+    /// Encoded/decoded by serializers as "INVP".
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_ORZ8sV9EEeicg40_9gK9vQ")]
     [Description(@"Savings investment plan.")]
-    SavingsInvestmentPlan,
+    SavingsInvestmentPlan = InvestmentFundPlanTypeCode.SavingsInvestmentPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Switch plan.
-    /// Encoded/decoded by serializers as "SwitchPlan".
+    /// Encoded/decoded by serializers as "SWIP".
     /// </summary>
     [EnumMember(Value = "SWIP")]
     [IsoId("_OW2dYV9EEeicg40_9gK9vQ")]
     [Description(@"Switch plan.")]
-    SwitchPlan,
+    SwitchPlan = InvestmentFundPlanTypeCode.SwitchPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal plan.
-    /// Encoded/decoded by serializers as "WithdrawalPlan".
+    /// Encoded/decoded by serializers as "WTHP".
     /// </summary>
     [EnumMember(Value = "WTHP")]
     [IsoId("_Oc3l0V9EEeicg40_9gK9vQ")]
     [Description(@"Withdrawal plan.")]
-    WithdrawalPlan,
+    WithdrawalPlan = InvestmentFundPlanTypeCode.WithdrawalPlan, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestmentFundPlanType1Code
 public static class InvestmentFundPlanType1CodeMetadataExtensions
 {
     private static readonly InvestmentFundPlanType1CodeDropdownSource _dropdownSource = new InvestmentFundPlanType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

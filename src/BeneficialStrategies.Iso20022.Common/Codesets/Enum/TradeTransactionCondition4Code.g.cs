@@ -21,203 +21,203 @@ public enum TradeTransactionCondition4Code
 {
     /// <summary>
     /// Indicates whether the trade is executed cum bonus.
-    /// Encoded/decoded by serializers as "CumBonus".
+    /// Encoded/decoded by serializers as "CBNS".
     /// </summary>
     [EnumMember(Value = "CBNS")]
     [IsoId("_YpBCQNp-Ed-ak6NoX_4Aeg_-166151120")]
     [Description(@"Indicates whether the trade is executed cum bonus.")]
-    CumBonus,
+    CumBonus = TradeTransactionConditionCode.CumBonus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed ex bonus.
-    /// Encoded/decoded by serializers as "ExBonus".
+    /// Encoded/decoded by serializers as "XBNS".
     /// </summary>
     [EnumMember(Value = "XBNS")]
     [IsoId("_YpBCQdp-Ed-ak6NoX_4Aeg_-1227503079")]
     [Description(@"Indicates whether the trade is executed ex bonus.")]
-    ExBonus,
+    ExBonus = TradeTransactionConditionCode.ExBonus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed cum coupon.
-    /// Encoded/decoded by serializers as "CumCoupon".
+    /// Encoded/decoded by serializers as "CCPN".
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_YpBCQtp-Ed-ak6NoX_4Aeg_-1049384407")]
     [Description(@"Indicates whether the trade is executed cum coupon.")]
-    CumCoupon,
+    CumCoupon = TradeTransactionConditionCode.CumCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
-    /// Encoded/decoded by serializers as "ExCoupon".
+    /// Encoded/decoded by serializers as "XCPN".
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_YpBCQ9p-Ed-ak6NoX_4Aeg_-1341342145")]
     [Description(@"Indicates whether the trade is executed ex coupon.")]
-    ExCoupon,
+    ExCoupon = TradeTransactionConditionCode.ExCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed cum dividend.
-    /// Encoded/decoded by serializers as "CumDividend".
+    /// Encoded/decoded by serializers as "CDIV".
     /// </summary>
     [EnumMember(Value = "CDIV")]
     [IsoId("_YpBCRNp-Ed-ak6NoX_4Aeg_-1163223473")]
     [Description(@"Indicates whether the trade is executed cum dividend.")]
-    CumDividend,
+    CumDividend = TradeTransactionConditionCode.CumDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed ex dividend.
-    /// Encoded/decoded by serializers as "ExDividend".
+    /// Encoded/decoded by serializers as "XDIV".
     /// </summary>
     [EnumMember(Value = "XDIV")]
     [IsoId("_YpBCRdp-Ed-ak6NoX_4Aeg_2070391864")]
     [Description(@"Indicates whether the trade is executed ex dividend.")]
-    ExDividend,
+    ExDividend = TradeTransactionConditionCode.ExDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed cum rights.
-    /// Encoded/decoded by serializers as "CumRights".
+    /// Encoded/decoded by serializers as "CRTS".
     /// </summary>
     [EnumMember(Value = "CRTS")]
     [IsoId("_YpBCRtp-Ed-ak6NoX_4Aeg_-2046456760")]
     [Description(@"Indicates whether the trade is executed cum rights.")]
-    CumRights,
+    CumRights = TradeTransactionConditionCode.CumRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed ex rights.
-    /// Encoded/decoded by serializers as "ExRights".
+    /// Encoded/decoded by serializers as "XRTS".
     /// </summary>
     [EnumMember(Value = "XRTS")]
     [IsoId("_YpBCR9p-Ed-ak6NoX_4Aeg_1956552798")]
     [Description(@"Indicates whether the trade is executed ex rights.")]
-    ExRights,
+    ExRights = TradeTransactionConditionCode.ExRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed cum warrant.
-    /// Encoded/decoded by serializers as "CumWarrant".
+    /// Encoded/decoded by serializers as "CWAR".
     /// </summary>
     [EnumMember(Value = "CWAR")]
     [IsoId("_YpBCSNp-Ed-ak6NoX_4Aeg_2134671470")]
     [Description(@"Indicates whether the trade is executed cum warrant.")]
-    CumWarrant,
+    CumWarrant = TradeTransactionConditionCode.CumWarrant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed ex warrant.
-    /// Encoded/decoded by serializers as "ExWarrant".
+    /// Encoded/decoded by serializers as "XWAR".
     /// </summary>
     [EnumMember(Value = "XWAR")]
     [IsoId("_YpBCSdp-Ed-ak6NoX_4Aeg_1073319511")]
     [Description(@"Indicates whether the trade is executed ex warrant.")]
-    ExWarrant,
+    ExWarrant = TradeTransactionConditionCode.ExWarrant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special cum 
     /// dividend, that is, buying after the ex date and getting the dividend.
-    /// Encoded/decoded by serializers as "SpecialCumDividend".
+    /// Encoded/decoded by serializers as "SPCU".
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_YpKzQNp-Ed-ak6NoX_4Aeg_1251438183")]
-    [Description(@"Indicates whether the trade is executed with a special cum  dividend, that is, buying after the ex date and getting the dividend.")]
-    SpecialCumDividend,
+    [Description(@"Indicates whether the trade is executed with a special cum |dividend, that is, buying after the ex date and getting the dividend.")]
+    SpecialCumDividend = TradeTransactionConditionCode.SpecialCumDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special ex 
     /// dividend, that is, selling before the ex date without the coupon.
-    /// Encoded/decoded by serializers as "SpecialExDividend".
+    /// Encoded/decoded by serializers as "SPEX".
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_YpKzQdp-Ed-ak6NoX_4Aeg_959480445")]
-    [Description(@"Indicates whether the trade is executed with a special ex  dividend, that is, selling before the ex date without the coupon.")]
-    SpecialExDividend,
+    [Description(@"Indicates whether the trade is executed with a special ex |dividend, that is, selling before the ex date without the coupon.")]
+    SpecialExDividend = TradeTransactionConditionCode.SpecialExDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
-    /// Encoded/decoded by serializers as "GuaranteedDelivery".
+    /// Encoded/decoded by serializers as "GTDL".
     /// </summary>
     [EnumMember(Value = "GTDL")]
     [IsoId("_YpKzQtp-Ed-ak6NoX_4Aeg_-920825195")]
     [Description(@"Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.")]
-    GuaranteedDelivery,
+    GuaranteedDelivery = TradeTransactionConditionCode.GuaranteedDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Result of option when set. (UK specific).
-    /// Encoded/decoded by serializers as "ResultOption".
+    /// Encoded/decoded by serializers as "BCRO".
     /// </summary>
     [EnumMember(Value = "BCRO")]
     [IsoId("_YpKzQ9p-Ed-ak6NoX_4Aeg_1444277001")]
     [Description(@"Result of option when set. (UK specific).")]
-    ResultOption,
+    ResultOption = TradeTransactionConditionCode.ResultOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Result of repo when set (UK specific).
-    /// Encoded/decoded by serializers as "ResultRepo".
+    /// Encoded/decoded by serializers as "BCRP".
     /// </summary>
     [EnumMember(Value = "BCRP")]
     [IsoId("_YpKzRNp-Ed-ak6NoX_4Aeg_382925042")]
     [Description(@"Result of repo when set (UK specific).")]
-    ResultRepo,
+    ResultRepo = TradeTransactionConditionCode.ResultRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Form of delivery, not for foreign registration when unset (UK specific).
-    /// Encoded/decoded by serializers as "DeliveryForm".
+    /// Encoded/decoded by serializers as "BCFD".
     /// </summary>
     [EnumMember(Value = "BCFD")]
     [IsoId("_YpKzRdp-Ed-ak6NoX_4Aeg_269085976")]
     [Description(@"Form of delivery, not for foreign registration when unset (UK specific).")]
-    DeliveryForm,
+    DeliveryForm = TradeTransactionConditionCode.DeliveryForm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Board lots, not set for odd lots (UK specific).
-    /// Encoded/decoded by serializers as "BoardLot".
+    /// Encoded/decoded by serializers as "BCBL".
     /// </summary>
     [EnumMember(Value = "BCBL")]
     [IsoId("_YpKzRtp-Ed-ak6NoX_4Aeg_447204648")]
     [Description(@"Board lots, not set for odd lots (UK specific).")]
-    BoardLot,
+    BoardLot = TradeTransactionConditionCode.BoardLot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bad names, not set for good names (UK specific).
-    /// Encoded/decoded by serializers as "BadName".
+    /// Encoded/decoded by serializers as "BCBN".
     /// </summary>
     [EnumMember(Value = "BCBN")]
     [IsoId("_YpKzR9p-Ed-ak6NoX_4Aeg_-614147311")]
     [Description(@"Bad names, not set for good names (UK specific).")]
-    BadName,
+    BadName = TradeTransactionConditionCode.BadName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade was executed at market price.
-    /// Encoded/decoded by serializers as "MarketPrice".
+    /// Encoded/decoded by serializers as "MAPR".
     /// </summary>
     [EnumMember(Value = "MAPR")]
     [IsoId("_YpKzSNp-Ed-ak6NoX_4Aeg_-436028639")]
     [Description(@"Trade was executed at market price.")]
-    MarketPrice,
+    MarketPrice = TradeTransactionConditionCode.MarketPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.
-    /// Encoded/decoded by serializers as "NegotiatedTrade".
+    /// Encoded/decoded by serializers as "NEGO".
     /// </summary>
     [EnumMember(Value = "NEGO")]
     [IsoId("_YpKzSdp-Ed-ak6NoX_4Aeg_-727986377")]
     [Description(@"Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.")]
-    NegotiatedTrade,
+    NegotiatedTrade = TradeTransactionConditionCode.NegotiatedTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.
-    /// Encoded/decoded by serializers as "NonMarketPrice".
+    /// Encoded/decoded by serializers as "NMPR".
     /// </summary>
     [EnumMember(Value = "NMPR")]
     [IsoId("_YpT9MNp-Ed-ak6NoX_4Aeg_-549867705")]
     [Description(@"Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.")]
-    NonMarketPrice,
+    NonMarketPrice = TradeTransactionConditionCode.NonMarketPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of delivery, in country of incorporation when unset (UK specific).
-    /// Encoded/decoded by serializers as "DeliverCountryIncorporation".
+    /// Encoded/decoded by serializers as "BCPD".
     /// </summary>
     [EnumMember(Value = "BCPD")]
     [IsoId("_YpT9Mdp-Ed-ak6NoX_4Aeg_-427588864")]
     [Description(@"Place of delivery, in country of incorporation when unset (UK specific).")]
-    DeliverCountryIncorporation,
+    DeliverCountryIncorporation = TradeTransactionConditionCode.DeliverCountryIncorporation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -228,7 +228,7 @@ public enum TradeTransactionCondition4Code
 public static class TradeTransactionCondition4CodeMetadataExtensions
 {
     private static readonly TradeTransactionCondition4CodeDropdownSource _dropdownSource = new TradeTransactionCondition4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

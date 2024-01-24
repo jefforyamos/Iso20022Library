@@ -21,30 +21,30 @@ public enum Frequency4Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_TTG0YgEcEeCQm6a_G2yO_w_1393201446")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = FrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_TTQlUAEcEeCQm6a_G2yO_w_2085392950")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = FrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_TTQlUQEcEeCQm6a_G2yO_w_753472293")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = FrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Frequency4Code
 public static class Frequency4CodeMetadataExtensions
 {
     private static readonly Frequency4CodeDropdownSource _dropdownSource = new Frequency4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

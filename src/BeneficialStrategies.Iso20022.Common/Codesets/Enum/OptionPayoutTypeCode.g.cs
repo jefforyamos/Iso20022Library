@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_paSd4abDEeSxuMLA5o46jQ")]
 [Description(@"Indicates the type of payout that will result from an in-the-money option.")]
 [Derivations(typeof(OptionPayoutType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OptionPayoutTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum OptionPayoutTypeCode
 public static class OptionPayoutTypeCodeMetadataExtensions
 {
     private static readonly OptionPayoutTypeCodeDropdownSource _dropdownSource = new OptionPayoutTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

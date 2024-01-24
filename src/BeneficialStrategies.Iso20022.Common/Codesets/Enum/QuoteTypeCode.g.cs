@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZY2jx9p-Ed-ak6NoX_4Aeg_336258538")]
 [Description(@"Identifies the type of quote. Can be either an indicative, a tradeable or a restricted tradeable quote.")]
 [Derivations(typeof(QuoteType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QuoteTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum QuoteTypeCode
 public static class QuoteTypeCodeMetadataExtensions
 {
     private static readonly QuoteTypeCodeDropdownSource _dropdownSource = new QuoteTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum DividendPolicy1Code
 {
     /// <summary>
     /// Dividend is paid in cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aw6i5tp-Ed-ak6NoX_4Aeg_119018465")]
     [Description(@"Dividend is paid in cash.")]
-    Cash,
+    Cash = DividendPolicyCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend is paid in units.
-    /// Encoded/decoded by serializers as "Units".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aw6i59p-Ed-ak6NoX_4Aeg_119018743")]
     [Description(@"Dividend is paid in units.")]
-    Units,
+    Units = DividendPolicyCode.Units, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend is paid in both Cash and Units.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_axET4Np-Ed-ak6NoX_4Aeg_119018774")]
     [Description(@"Dividend is paid in both Cash and Units.")]
-    Both,
+    Both = DividendPolicyCode.Both, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DividendPolicy1Code
 public static class DividendPolicy1CodeMetadataExtensions
 {
     private static readonly DividendPolicy1CodeDropdownSource _dropdownSource = new DividendPolicy1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

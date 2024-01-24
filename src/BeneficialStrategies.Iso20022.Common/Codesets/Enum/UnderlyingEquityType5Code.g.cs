@@ -21,39 +21,39 @@ public enum UnderlyingEquityType5Code
 {
     /// <summary>
     /// Underlying is of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Q7CIIYHCEeaalK9UbuVGFw")]
     [Description(@"Underlying is of other type.")]
-    Other,
+    Other = UnderlyingTypeV3Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is an exchange traded fund.
-    /// Encoded/decoded by serializers as "ExchangeTradedFund".
+    /// Encoded/decoded by serializers as "ETFS".
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_RTu8AYHCEeaalK9UbuVGFw")]
     [Description(@"Underlying is an exchange traded fund.")]
-    ExchangeTradedFund,
+    ExchangeTradedFund = UnderlyingTypeV3Code.ExchangeTradedFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a share.
-    /// Encoded/decoded by serializers as "Share".
+    /// Encoded/decoded by serializers as "SHRS".
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_SPsN8YHCEeaalK9UbuVGFw")]
     [Description(@"Underlying is a share.")]
-    Share,
+    Share = UnderlyingTypeV3Code.Share, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying is a stock dividend.
-    /// Encoded/decoded by serializers as "StockDividend".
+    /// Encoded/decoded by serializers as "DVSE".
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_Ta0kUYHCEeaalK9UbuVGFw")]
     [Description(@"Underlying is a stock dividend.")]
-    StockDividend,
+    StockDividend = UnderlyingTypeV3Code.StockDividend, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UnderlyingEquityType5Code
 public static class UnderlyingEquityType5CodeMetadataExtensions
 {
     private static readonly UnderlyingEquityType5CodeDropdownSource _dropdownSource = new UnderlyingEquityType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum ReceiptType1Code
 {
     /// <summary>
     /// Receipt transmitted by Email.
-    /// Encoded/decoded by serializers as "EMail".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_SvbgEUrHEeenp6hmNprBHg")]
     [Description(@"Receipt transmitted by Email.")]
-    EMail,
+    EMail = ReceiptTypeCode.EMail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of channel to transmit receipt information to the recipient.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_S7lFskrHEeenp6hmNprBHg")]
     [Description(@"Other type of channel to transmit receipt information to the recipient.")]
-    Other,
+    Other = ReceiptTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt in a paper form.
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_TKaL4krHEeenp6hmNprBHg")]
     [Description(@"Receipt in a paper form.")]
-    Paper,
+    Paper = ReceiptTypeCode.Paper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt transmitted by SMS message.
-    /// Encoded/decoded by serializers as "SMS".
+    /// Encoded/decoded by serializers as "SMSM".
     /// </summary>
     [EnumMember(Value = "SMSM")]
     [IsoId("_TV5DIkrHEeenp6hmNprBHg")]
     [Description(@"Receipt transmitted by SMS message.")]
-    SMS,
+    SMS = ReceiptTypeCode.SMS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt transmitted to a Uniform Resource Identifier (URI) address.
-    /// Encoded/decoded by serializers as "UniformResourceIdentifier".
+    /// Encoded/decoded by serializers as "URID".
     /// </summary>
     [EnumMember(Value = "URID")]
     [IsoId("_TnSVIkrHEeenp6hmNprBHg")]
     [Description(@"Receipt transmitted to a Uniform Resource Identifier (URI) address.")]
-    UniformResourceIdentifier,
+    UniformResourceIdentifier = ReceiptTypeCode.UniformResourceIdentifier, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ReceiptType1Code
 public static class ReceiptType1CodeMetadataExtensions
 {
     private static readonly ReceiptType1CodeDropdownSource _dropdownSource = new ReceiptType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

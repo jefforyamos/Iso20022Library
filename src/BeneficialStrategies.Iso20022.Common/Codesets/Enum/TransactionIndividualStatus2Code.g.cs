@@ -21,12 +21,12 @@ public enum TransactionIndividualStatus2Code
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Yr2T2Np-Ed-ak6NoX_4Aeg_916455781")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    Rejected,
+    Rejected = PaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum TransactionIndividualStatus2Code
 public static class TransactionIndividualStatus2CodeMetadataExtensions
 {
     private static readonly TransactionIndividualStatus2CodeDropdownSource _dropdownSource = new TransactionIndividualStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

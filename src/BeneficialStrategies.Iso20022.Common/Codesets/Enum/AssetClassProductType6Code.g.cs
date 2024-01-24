@@ -21,12 +21,12 @@ public enum AssetClassProductType6Code
 {
     /// <summary>
     /// Commodity of type industrial product.
-    /// Encoded/decoded by serializers as "IndustrialProduct".
+    /// Encoded/decoded by serializers as "INDP".
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_lpqhQQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type industrial product.")]
-    IndustrialProduct,
+    IndustrialProduct = AssetClassProductTypeCode.IndustrialProduct, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType6Code
 public static class AssetClassProductType6CodeMetadataExtensions
 {
     private static readonly AssetClassProductType6CodeDropdownSource _dropdownSource = new AssetClassProductType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

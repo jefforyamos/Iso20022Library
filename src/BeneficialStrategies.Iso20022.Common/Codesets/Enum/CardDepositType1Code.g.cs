@@ -21,48 +21,48 @@ public enum CardDepositType1Code
 {
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6AbV0S7TEemIy6A-26wnAg")]
     [Description(@"Other Private")]
-    OtherPrivate,
+    OtherPrivate = CardDepositTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6EiZwS7TEemIy6A-26wnAg")]
     [Description(@"Other National")]
-    OtherNational,
+    OtherNational = CardDepositTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Envelope
-    /// Encoded/decoded by serializers as "Envelope".
+    /// Encoded/decoded by serializers as "ENVL".
     /// </summary>
     [EnumMember(Value = "ENVL")]
     [IsoId("_6JHXwS7TEemIy6A-26wnAg")]
     [Description(@"Envelope")]
-    Envelope,
+    Envelope = CardDepositTypeCode.Envelope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHEC".
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_6KROUS7TEemIy6A-26wnAg")]
     [Description(@"Cheque")]
-    Cheque,
+    Cheque = CardDepositTypeCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_6L8CQS7TEemIy6A-26wnAg")]
     [Description(@"Cash")]
-    Cash,
+    Cash = CardDepositTypeCode.Cash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CardDepositType1Code
 public static class CardDepositType1CodeMetadataExtensions
 {
     private static readonly CardDepositType1CodeDropdownSource _dropdownSource = new CardDepositType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

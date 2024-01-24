@@ -21,30 +21,30 @@ public enum CorporateActionEventProcessingStatus1Code
 {
     /// <summary>
     /// Specifies that a corporate action event processing has been completed.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_bDZaA9p-Ed-ak6NoX_4Aeg_772412579")]
     [Description(@"Specifies that a corporate action event processing has been completed.")]
-    Complete,
+    Complete = CorporateActionEventProcessingStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that a corporate action event processing has not been completed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_bDZaBNp-Ed-ak6NoX_4Aeg_772412580")]
     [Description(@"Specifies that a corporate action event processing has not been completed.")]
-    Pending,
+    Pending = CorporateActionEventProcessingStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action event processing specifying that the funds paid have been reconciled with the funds received from the agent (meaning that there is no more risk of payment to be reversed).
-    /// Encoded/decoded by serializers as "Reconciled".
+    /// Encoded/decoded by serializers as "RECD".
     /// </summary>
     [EnumMember(Value = "RECD")]
     [IsoId("_bDZaBdp-Ed-ak6NoX_4Aeg_772412610")]
     [Description(@"Corporate action event processing specifying that the funds paid have been reconciled with the funds received from the agent (meaning that there is no more risk of payment to be reversed).")]
-    Reconciled,
+    Reconciled = CorporateActionEventProcessingStatusCode.Reconciled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionEventProcessingStatus1Code
 public static class CorporateActionEventProcessingStatus1CodeMetadataExtensions
 {
     private static readonly CorporateActionEventProcessingStatus1CodeDropdownSource _dropdownSource = new CorporateActionEventProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

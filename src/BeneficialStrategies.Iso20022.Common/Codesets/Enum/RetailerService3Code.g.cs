@@ -21,84 +21,84 @@ public enum RetailerService3Code
 {
     /// <summary>
     /// The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).
-    /// Encoded/decoded by serializers as "FinancialPaymentResponse".
+    /// Encoded/decoded by serializers as "FSPP".
     /// </summary>
     [EnumMember(Value = "FSPP")]
     [IsoId("_qmFC4dwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).")]
-    FinancialPaymentResponse,
+    FinancialPaymentResponse = RetailerServiceCode.FinancialPaymentResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a reversal request.
-    /// Encoded/decoded by serializers as "FinancialReversalResponse".
+    /// Encoded/decoded by serializers as "FSRP".
     /// </summary>
     [EnumMember(Value = "FSRP")]
     [IsoId("_rgA7kdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a reversal request.")]
-    FinancialReversalResponse,
+    FinancialReversalResponse = RetailerServiceCode.FinancialReversalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a Balance Inquiry request.
-    /// Encoded/decoded by serializers as "FinancialBalanceInquiryResponse".
+    /// Encoded/decoded by serializers as "FSIP".
     /// </summary>
     [EnumMember(Value = "FSIP")]
     [IsoId("_sPsFAdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a Balance Inquiry request.")]
-    FinancialBalanceInquiryResponse,
+    FinancialBalanceInquiryResponse = RetailerServiceCode.FinancialBalanceInquiryResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a batch processing request.
-    /// Encoded/decoded by serializers as "FinancialBatchResponse".
+    /// Encoded/decoded by serializers as "FSBP".
     /// </summary>
     [EnumMember(Value = "FSBP")]
     [IsoId("_s3K7wdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a batch processing request.")]
-    FinancialBatchResponse,
+    FinancialBatchResponse = RetailerServiceCode.FinancialBatchResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a loyalty processing request.
-    /// Encoded/decoded by serializers as "FinancialLoyaltyResponse".
+    /// Encoded/decoded by serializers as "FSLP".
     /// </summary>
     [EnumMember(Value = "FSLP")]
     [IsoId("_tcgdcdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a loyalty processing request.")]
-    FinancialLoyaltyResponse,
+    FinancialLoyaltyResponse = RetailerServiceCode.FinancialLoyaltyResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a stored value card or account request.
-    /// Encoded/decoded by serializers as "FinancialStoredValueResponse".
+    /// Encoded/decoded by serializers as "FSVP".
     /// </summary>
     [EnumMember(Value = "FSVP")]
     [IsoId("_uLJFEdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a stored value card or account request.")]
-    FinancialStoredValueResponse,
+    FinancialStoredValueResponse = RetailerServiceCode.FinancialStoredValueResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response after enabling or not some service.
-    /// Encoded/decoded by serializers as "FinancialEnableServiceResponse".
+    /// Encoded/decoded by serializers as "FSEP".
     /// </summary>
     [EnumMember(Value = "FSEP")]
     [IsoId("_uvJKAdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response after enabling or not some service.")]
-    FinancialEnableServiceResponse,
+    FinancialEnableServiceResponse = RetailerServiceCode.FinancialEnableServiceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a card data acquisition request.
-    /// Encoded/decoded by serializers as "FinancialCardAcquisitionResponse".
+    /// Encoded/decoded by serializers as "FSAP".
     /// </summary>
     [EnumMember(Value = "FSAP")]
     [IsoId("_vRGnkdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a card data acquisition request.")]
-    FinancialCardAcquisitionResponse,
+    FinancialCardAcquisitionResponse = RetailerServiceCode.FinancialCardAcquisitionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a reconciliation request.
-    /// Encoded/decoded by serializers as "FinancialReconciliationResponse".
+    /// Encoded/decoded by serializers as "FSCP".
     /// </summary>
     [EnumMember(Value = "FSCP")]
     [IsoId("_wGk3AdwtEeioifFt1dhnJA")]
     [Description(@"The POI System sends a response to a reconciliation request.")]
-    FinancialReconciliationResponse,
+    FinancialReconciliationResponse = RetailerServiceCode.FinancialReconciliationResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum RetailerService3Code
 public static class RetailerService3CodeMetadataExtensions
 {
     private static readonly RetailerService3CodeDropdownSource _dropdownSource = new RetailerService3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

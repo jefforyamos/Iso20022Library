@@ -21,48 +21,48 @@ public enum Response9Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_7ORlMQ1PEeqjM-rxn3HuXQ")]
     [Description(@"Service has been successfuly provided.")]
-    Approved,
+    Approved = ResponseCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "Declined".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_7ORlMw1PEeqjM-rxn3HuXQ")]
     [Description(@"Service is declined.")]
-    Declined,
+    Declined = ResponseCode.Declined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PartialApproved".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_7ORlNQ1PEeqjM-rxn3HuXQ")]
     [Description(@"Service has been partialy provided.")]
-    PartialApproved,
+    PartialApproved = ResponseCode.PartialApproved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been received but hasn't been processed.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_9uQ1sQ1PEeqjM-rxn3HuXQ")]
     [Description(@"Transaction has been received but hasn't been processed.")]
-    Suspended,
+    Suspended = ResponseCode.Suspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TechnicalError".
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_92_68Q1PEeqjM-rxn3HuXQ")]
     [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
-    TechnicalError,
+    TechnicalError = ResponseCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum Response9Code
 public static class Response9CodeMetadataExtensions
 {
     private static readonly Response9CodeDropdownSource _dropdownSource = new Response9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

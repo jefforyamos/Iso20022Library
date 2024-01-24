@@ -21,21 +21,21 @@ public enum PairedReconciled1Code
 {
     /// <summary>
     /// Paired.
-    /// Encoded/decoded by serializers as "Paired".
+    /// Encoded/decoded by serializers as "PARD".
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_NFpVIGJuEeiVRNxFJ2pSfQ")]
     [Description(@"Paired.")]
-    Paired,
+    Paired = PairedReconciledCode.Paired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciled.
-    /// Encoded/decoded by serializers as "Reconciled".
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_NWlUIWJuEeiVRNxFJ2pSfQ")]
     [Description(@"Reconciled.")]
-    Reconciled,
+    Reconciled = PairedReconciledCode.Reconciled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PairedReconciled1Code
 public static class PairedReconciled1CodeMetadataExtensions
 {
     private static readonly PairedReconciled1CodeDropdownSource _dropdownSource = new PairedReconciled1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

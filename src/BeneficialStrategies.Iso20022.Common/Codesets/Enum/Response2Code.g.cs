@@ -21,21 +21,21 @@ public enum Response2Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_-2kqIWqHEeS8RZDTbvnB_A")]
     [Description(@"Service has been successfuly provided.")]
-    Approved,
+    Approved = ResponseCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "Declined".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("__G0Fk2qHEeS8RZDTbvnB_A")]
     [Description(@"Service is declined.")]
-    Declined,
+    Declined = ResponseCode.Declined, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Response2Code
 public static class Response2CodeMetadataExtensions
 {
     private static readonly Response2CodeDropdownSource _dropdownSource = new Response2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

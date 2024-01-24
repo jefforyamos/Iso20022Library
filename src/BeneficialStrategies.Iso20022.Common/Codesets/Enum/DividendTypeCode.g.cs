@@ -63,7 +63,7 @@ public enum DividendTypeCode
 public static class DividendTypeCodeMetadataExtensions
 {
     private static readonly DividendTypeCodeDropdownSource _dropdownSource = new DividendTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

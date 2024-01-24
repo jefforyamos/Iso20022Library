@@ -21,122 +21,120 @@ public enum ReportingWaiverType3Code
 {
     /// <summary>
     /// Benchmark transaction.
-    /// Encoded/decoded by serializers as "BenchmarkTransaction".
+    /// Encoded/decoded by serializers as "BENC".
     /// </summary>
     [EnumMember(Value = "BENC")]
     [IsoId("_ilaniGhhEea4QYLbGPVDhg")]
     [Description(@"Benchmark transaction.")]
-    BenchmarkTransaction,
+    BenchmarkTransaction = ReportingWaiverTypeCode.BenchmarkTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agency cross transaction.
-    /// Encoded/decoded by serializers as "AgencyCrossTransaction".
+    /// Encoded/decoded by serializers as "ACTX".
     /// </summary>
     [EnumMember(Value = "ACTX")]
     [IsoId("_ilaniWhhEea4QYLbGPVDhg")]
     [Description(@"Agency cross transaction.")]
-    AgencyCrossTransaction,
+    AgencyCrossTransaction = ReportingWaiverTypeCode.AgencyCrossTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "IlliquidInstrumentTransaction".
+    /// Encoded/decoded by serializers as "ILQD".
     /// </summary>
     [EnumMember(Value = "ILQD")]
     [IsoId("_ilanhGhhEea4QYLbGPVDhg")]
     [Description(@"Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.")]
-    IlliquidInstrumentTransaction,
+    IlliquidInstrumentTransaction = ReportingWaiverTypeCode.IlliquidInstrumentTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "AboveSpecificSizeTransaction".
+    /// Encoded/decoded by serializers as "SIZE".
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_ilani2hhEea4QYLbGPVDhg")]
     [Description(@"Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.")]
-    AboveSpecificSizeTransaction,
+    AboveSpecificSizeTransaction = ReportingWaiverTypeCode.AboveSpecificSizeTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellations.
-    /// 
-    /// Encoded/decoded by serializers as "Cancellations".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_ilanh2hhEea4QYLbGPVDhg")]
-    [Description(@"Cancellations. ")]
-    Cancellations,
+    [Description(@"Cancellations.|")]
+    Cancellations = ReportingWaiverTypeCode.Cancellations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amendments.
-    /// Encoded/decoded by serializers as "Amendments".
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_ilangmhhEea4QYLbGPVDhg")]
     [Description(@"Amendments.")]
-    Amendments,
+    Amendments = ReportingWaiverTypeCode.Amendments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Special dividend transactions.
-    /// 
-    /// Encoded/decoded by serializers as "SpecialDividendTransaction".
+    /// Encoded/decoded by serializers as "SDIV".
     /// </summary>
     [EnumMember(Value = "SDIV")]
     [IsoId("_ilang2hhEea4QYLbGPVDhg")]
-    [Description(@"Special dividend transactions. ")]
-    SpecialDividendTransaction,
+    [Description(@"Special dividend transactions.|")]
+    SpecialDividendTransaction = ReportingWaiverTypeCode.SpecialDividendTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transactions which have received price improvement. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "TransactionWithPriceImprovment".
+    /// Encoded/decoded by serializers as "RPRI".
     /// </summary>
     [EnumMember(Value = "RPRI")]
     [IsoId("_ilangWhhEea4QYLbGPVDhg")]
     [Description(@"Transactions which have received price improvement. Applicable to equity instruments.")]
-    TransactionWithPriceImprovment,
+    TransactionWithPriceImprovment = ReportingWaiverTypeCode.TransactionWithPriceImprovment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplicative trade reports.
-    /// Encoded/decoded by serializers as "DuplicativeTradeReport".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_ilanhmhhEea4QYLbGPVDhg")]
     [Description(@"Duplicative trade reports.")]
-    DuplicativeTradeReport,
+    DuplicativeTradeReport = ReportingWaiverTypeCode.DuplicativeTradeReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Large-in-scale transactions. Applicable for all instruments.
-    /// Encoded/decoded by serializers as "LargeInScale".
+    /// Encoded/decoded by serializers as "LRGS".
     /// </summary>
     [EnumMember(Value = "LRGS")]
     [IsoId("_ilangGhhEea4QYLbGPVDhg")]
     [Description(@"Large-in-scale transactions. Applicable for all instruments.")]
-    LargeInScale,
+    LargeInScale = ReportingWaiverTypeCode.LargeInScale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transactions not contributing to the price discovery process.
-    /// Encoded/decoded by serializers as "TransactionNotContributingToPriceDiscovery".
+    /// Encoded/decoded by serializers as "TNCP".
     /// </summary>
     [EnumMember(Value = "TNCP")]
     [IsoId("_ilanhWhhEea4QYLbGPVDhg")]
     [Description(@"Transactions not contributing to the price discovery process.")]
-    TransactionNotContributingToPriceDiscovery,
+    TransactionNotContributingToPriceDiscovery = ReportingWaiverTypeCode.TransactionNotContributingToPriceDiscovery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Package transaction.
-    /// Encoded/decoded by serializers as "PackageTransaction".
+    /// Encoded/decoded by serializers as "TPAC".
     /// </summary>
     [EnumMember(Value = "TPAC")]
     [IsoId("_ilanimhhEea4QYLbGPVDhg")]
     [Description(@"Package transaction.")]
-    PackageTransaction,
+    PackageTransaction = ReportingWaiverTypeCode.PackageTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction where the contract on a commodity is exchanged for the actual physical good.
-    /// Encoded/decoded by serializers as "ExchangeForPhysical".
+    /// Encoded/decoded by serializers as "XFPH".
     /// </summary>
     [EnumMember(Value = "XFPH")]
     [IsoId("_ilanf2hhEea4QYLbGPVDhg")]
     [Description(@"Transaction where the contract on a commodity is exchanged for the actual physical good.")]
-    ExchangeForPhysical,
+    ExchangeForPhysical = ReportingWaiverTypeCode.ExchangeForPhysical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -147,7 +145,7 @@ public enum ReportingWaiverType3Code
 public static class ReportingWaiverType3CodeMetadataExtensions
 {
     private static readonly ReportingWaiverType3CodeDropdownSource _dropdownSource = new ReportingWaiverType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

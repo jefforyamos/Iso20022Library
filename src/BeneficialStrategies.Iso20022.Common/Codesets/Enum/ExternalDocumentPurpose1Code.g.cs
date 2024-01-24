@@ -16,27 +16,27 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_TRd1lAEcEeCQm6a_G2yO_w_37780651")]
-[Description(@"Specifies the document purpose as published in an external document purpose code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the document purpose as published in an external document purpose code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalDocumentPurposeCode))]
 public enum ExternalDocumentPurpose1Code
 {
     /// <summary>
     /// The document represents a document that has been confirmed, for example an invoice that has been confirmed by the buyer for payment.|
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uHFiePRYEeuLhpyIdtJzwg")]
     [Description(@"The document represents a document that has been confirmed, for example an invoice that has been confirmed by the buyer for payment.|")]
-    Confirmed,
+    Confirmed = ExternalDocumentPurposeCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The document represents an invoice submitted under a factoring arrangment. 
-    /// Encoded/decoded by serializers as "Factoredinvoice".
+    /// Encoded/decoded by serializers as "FINV".
     /// </summary>
     [EnumMember(Value = "FINV")]
     [IsoId("_uHPTcvRYEeuLhpyIdtJzwg")]
     [Description(@"The document represents an invoice submitted under a factoring arrangment. ")]
-    Factoredinvoice,
+    Factoredinvoice = ExternalDocumentPurposeCode.Factoredinvoice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +47,7 @@ public enum ExternalDocumentPurpose1Code
 public static class ExternalDocumentPurpose1CodeMetadataExtensions
 {
     private static readonly ExternalDocumentPurpose1CodeDropdownSource _dropdownSource = new ExternalDocumentPurpose1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

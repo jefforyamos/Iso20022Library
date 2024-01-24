@@ -45,7 +45,7 @@ public enum DebitCreditCode
 public static class DebitCreditCodeMetadataExtensions
 {
     private static readonly DebitCreditCodeDropdownSource _dropdownSource = new DebitCreditCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

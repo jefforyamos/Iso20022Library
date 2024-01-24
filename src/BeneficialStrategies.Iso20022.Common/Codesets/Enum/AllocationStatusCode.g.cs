@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_boymEtp-Ed-ak6NoX_4Aeg_-1844046552")]
 [Description(@"Specifies the status of allocation of collateral to cover the instruction.")]
 [Derivations(typeof(AllocationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AllocationStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AllocationStatusCode
 public static class AllocationStatusCodeMetadataExtensions
 {
     private static readonly AllocationStatusCodeDropdownSource _dropdownSource = new AllocationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

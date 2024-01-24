@@ -21,84 +21,84 @@ public enum Identification2Code
 {
     /// <summary>
     /// Driver licence identification.
-    /// Encoded/decoded by serializers as "DriverLicenceIdentification".
+    /// Encoded/decoded by serializers as "DRID".
     /// </summary>
     [EnumMember(Value = "DRID")]
     [IsoId("_QK1H0QwTEeiHgJ0O2VQ-kg")]
     [Description(@"Driver licence identification.")]
-    DriverLicenceIdentification,
+    DriverLicenceIdentification = IdentificationCode.DriverLicenceIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// National identification.
-    /// Encoded/decoded by serializers as "NationalIdentifier".
+    /// Encoded/decoded by serializers as "NTID".
     /// </summary>
     [EnumMember(Value = "NTID")]
     [IsoId("_Sxb9sQwTEeiHgJ0O2VQ-kg")]
     [Description(@"National identification.")]
-    NationalIdentifier,
+    NationalIdentifier = IdentificationCode.NationalIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Passport number.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_YPMm4QwTEeiHgJ0O2VQ-kg")]
     [Description(@"Passport number.")]
-    PassportNumber,
+    PassportNumber = IdentificationCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Social security number.
-    /// Encoded/decoded by serializers as "SocialSecurityNumber".
+    /// Encoded/decoded by serializers as "SSYN".
     /// </summary>
     [EnumMember(Value = "SSYN")]
     [IsoId("_Y9AIEQwTEeiHgJ0O2VQ-kg")]
     [Description(@"Social security number.")]
-    SocialSecurityNumber,
+    SocialSecurityNumber = IdentificationCode.SocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Alien registration number.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNB".
     /// </summary>
     [EnumMember(Value = "ARNB")]
     [IsoId("_alYbIQwTEeiHgJ0O2VQ-kg")]
     [Description(@"Alien registration number.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = IdentificationCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other identification provided at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_R8pjYQwWEeiHgJ0O2VQ-kg")]
     [Description(@"Other identification provided at private level.")]
-    OtherPrivate,
+    OtherPrivate = IdentificationCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other identification assigned at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_SGkUYQwWEeiHgJ0O2VQ-kg")]
     [Description(@"Other identification assigned at national level.")]
-    OtherNational,
+    OtherNational = IdentificationCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// E-mail.
-    /// Encoded/decoded by serializers as "Email".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_P7TigaetEeiva6IOmhpVHw")]
     [Description(@"E-mail.")]
-    Email,
+    Email = IdentificationCode.Email, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Phone number.
-    /// Encoded/decoded by serializers as "PhoneNumber".
+    /// Encoded/decoded by serializers as "PHNB".
     /// </summary>
     [EnumMember(Value = "PHNB")]
     [IsoId("_QOUlIaetEeiva6IOmhpVHw")]
     [Description(@"Phone number.")]
-    PhoneNumber,
+    PhoneNumber = IdentificationCode.PhoneNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum Identification2Code
 public static class Identification2CodeMetadataExtensions
 {
     private static readonly Identification2CodeDropdownSource _dropdownSource = new Identification2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

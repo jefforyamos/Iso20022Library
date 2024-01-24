@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zsq3otp-Ed-ak6NoX_4Aeg_159300519")]
 [Description(@"Specifies the renounceable status.")]
 [Derivations(typeof(RenounceableStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RenounceableStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RenounceableStatusCode
 public static class RenounceableStatusCodeMetadataExtensions
 {
     private static readonly RenounceableStatusCodeDropdownSource _dropdownSource = new RenounceableStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

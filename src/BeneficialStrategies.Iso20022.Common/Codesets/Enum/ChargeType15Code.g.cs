@@ -21,48 +21,48 @@ public enum ChargeType15Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_WOC0otp-Ed-ak6NoX_4Aeg_-70267990")]
     [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
-    BackEndLoad,
+    BackEndLoad = ChargeTypeCode.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_WOC0o9p-Ed-ak6NoX_4Aeg_-70267989")]
     [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
-    FrontEndLoad,
+    FrontEndLoad = ChargeTypeCode.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_WOC0pNp-Ed-ak6NoX_4Aeg_-70267958")]
     [Description(@"Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.")]
-    Discount,
+    Discount = ChargeTypeCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges paid by the investor to the Fund Company for subscription and redemption orders.
-    /// Encoded/decoded by serializers as "UCITSCommission".
+    /// Encoded/decoded by serializers as "UCIC".
     /// </summary>
     [EnumMember(Value = "UCIC")]
     [IsoId("_WOC0pdp-Ed-ak6NoX_4Aeg_-70267587")]
     [Description(@"Charges paid by the investor to the Fund Company for subscription and redemption orders.")]
-    UCITSCommission,
+    UCITSCommission = ChargeTypeCode.UCITSCommission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "ServiceProvisionFee".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_WOC0ptp-Ed-ak6NoX_4Aeg_467608750")]
     [Description(@"Fee paid for the provision of financial services.")]
-    ServiceProvisionFee,
+    ServiceProvisionFee = ChargeTypeCode.ServiceProvisionFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ChargeType15Code
 public static class ChargeType15CodeMetadataExtensions
 {
     private static readonly ChargeType15CodeDropdownSource _dropdownSource = new ChargeType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

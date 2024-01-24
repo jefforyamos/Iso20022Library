@@ -21,21 +21,21 @@ public enum AccountLevel1Code
 {
     /// <summary>
     /// Intermediate level within an account hierarchy.
-    /// Encoded/decoded by serializers as "Intermediate".
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_6Uas9JqlEeGSON8vddiWzQ_1340728454")]
     [Description(@"Intermediate level within an account hierarchy.")]
-    Intermediate,
+    Intermediate = AccountLevelCode.Intermediate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Highest level within an account hierarchy.
-    /// Encoded/decoded by serializers as "Summary".
+    /// Encoded/decoded by serializers as "SMRY".
     /// </summary>
     [EnumMember(Value = "SMRY")]
     [IsoId("_6Uas9ZqlEeGSON8vddiWzQ_1794815723")]
     [Description(@"Highest level within an account hierarchy.")]
-    Summary,
+    Summary = AccountLevelCode.Summary, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountLevel1Code
 public static class AccountLevel1CodeMetadataExtensions
 {
     private static readonly AccountLevel1CodeDropdownSource _dropdownSource = new AccountLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

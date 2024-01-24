@@ -21,39 +21,39 @@ public enum RiskAssessment1Code
 {
     /// <summary>
     /// Recommended to approve conditionally.
-    /// Encoded/decoded by serializers as "ApproveConditionally".
+    /// Encoded/decoded by serializers as "APPC".
     /// </summary>
     [EnumMember(Value = "APPC")]
     [IsoId("_5HcuQZljEeu76rs9yGlfEg")]
     [Description(@"Recommended to approve conditionally.")]
-    ApproveConditionally,
+    ApproveConditionally = RiskAssessmentCode.ApproveConditionally, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recommended to approve conditionally; high risk conditions exist.
-    /// Encoded/decoded by serializers as "ApproveConditionallyWithHighRisk".
+    /// Encoded/decoded by serializers as "APPH".
     /// </summary>
     [EnumMember(Value = "APPH")]
     [IsoId("_5PkIcZljEeu76rs9yGlfEg")]
     [Description(@"Recommended to approve conditionally; high risk conditions exist.")]
-    ApproveConditionallyWithHighRisk,
+    ApproveConditionallyWithHighRisk = RiskAssessmentCode.ApproveConditionallyWithHighRisk, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recommended to approve unconditionally.
-    /// Encoded/decoded by serializers as "ApproveUnconditionally".
+    /// Encoded/decoded by serializers as "APPU".
     /// </summary>
     [EnumMember(Value = "APPU")]
     [IsoId("_5xslIZljEeu76rs9yGlfEg")]
     [Description(@"Recommended to approve unconditionally.")]
-    ApproveUnconditionally,
+    ApproveUnconditionally = RiskAssessmentCode.ApproveUnconditionally, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recommended to not approve.
-    /// Encoded/decoded by serializers as "DoNotApprove".
+    /// Encoded/decoded by serializers as "DONT".
     /// </summary>
     [EnumMember(Value = "DONT")]
     [IsoId("_56CBwZljEeu76rs9yGlfEg")]
     [Description(@"Recommended to not approve.")]
-    DoNotApprove,
+    DoNotApprove = RiskAssessmentCode.DoNotApprove, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RiskAssessment1Code
 public static class RiskAssessment1CodeMetadataExtensions
 {
     private static readonly RiskAssessment1CodeDropdownSource _dropdownSource = new RiskAssessment1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

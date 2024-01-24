@@ -21,120 +21,120 @@ public enum TradeStatus1Code
 {
     /// <summary>
     /// Trade is invalid.
-    /// Encoded/decoded by serializers as "Invalid".
+    /// Encoded/decoded by serializers as "INVA".
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_YmyNptp-Ed-ak6NoX_4Aeg_836680949")]
     [Description(@"Trade is invalid.")]
-    Invalid,
+    Invalid = TradeStatusCode.Invalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is validated.
-    /// Encoded/decoded by serializers as "Validated".
+    /// Encoded/decoded by serializers as "VALI".
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_YmyNp9p-Ed-ak6NoX_4Aeg_836680906")]
     [Description(@"Trade is validated.")]
-    Validated,
+    Validated = TradeStatusCode.Validated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade passed regulatory check.
-    /// Encoded/decoded by serializers as "RegulatoryChecked".
+    /// Encoded/decoded by serializers as "REGC".
     /// </summary>
     [EnumMember(Value = "REGC")]
     [IsoId("_Ym7XkNp-Ed-ak6NoX_4Aeg_836680924")]
     [Description(@"Trade passed regulatory check.")]
-    RegulatoryChecked,
+    RegulatoryChecked = TradeStatusCode.RegulatoryChecked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is unmatched.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "UMTC".
     /// </summary>
     [EnumMember(Value = "UMTC")]
     [IsoId("_Ym7Xkdp-Ed-ak6NoX_4Aeg_836681257")]
     [Description(@"Trade is unmatched.")]
-    Unmatched,
+    Unmatched = TradeStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.
-    /// Encoded/decoded by serializers as "MatchedValued".
+    /// Encoded/decoded by serializers as "VMTC".
     /// </summary>
     [EnumMember(Value = "VMTC")]
     [IsoId("_Ym7Xktp-Ed-ak6NoX_4Aeg_1565770714")]
     [Description(@"Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.")]
-    MatchedValued,
+    MatchedValued = TradeStatusCode.MatchedValued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is rescinded.
-    /// Encoded/decoded by serializers as "Rescinded".
+    /// Encoded/decoded by serializers as "RSCD".
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_Ym7Xk9p-Ed-ak6NoX_4Aeg_836681327")]
     [Description(@"Trade is rescinded.")]
-    Rescinded,
+    Rescinded = TradeStatusCode.Rescinded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "STLD".
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_Ym7XlNp-Ed-ak6NoX_4Aeg_836681352")]
     [Description(@"Settlement is complete.")]
-    Settled,
+    Settled = TradeStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
-    /// Encoded/decoded by serializers as "PartiallySettled".
+    /// Encoded/decoded by serializers as "PSTL".
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_Ym7Xldp-Ed-ak6NoX_4Aeg_836681369")]
     [Description(@"Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.")]
-    PartiallySettled,
+    PartiallySettled = TradeStatusCode.PartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is suspended for regulatory reasons.
-    /// Encoded/decoded by serializers as "RegulatorySuspended".
+    /// Encoded/decoded by serializers as "REGS".
     /// </summary>
     [EnumMember(Value = "REGS")]
     [IsoId("_Ym7Xltp-Ed-ak6NoX_4Aeg_836680966")]
     [Description(@"Trade is suspended for regulatory reasons.")]
-    RegulatorySuspended,
+    RegulatorySuspended = TradeStatusCode.RegulatorySuspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "FMTC".
     /// </summary>
     [EnumMember(Value = "FMTC")]
     [IsoId("_Ym7Xl9p-Ed-ak6NoX_4Aeg_836681309")]
     [Description(@"Trade is matched.")]
-    Matched,
+    Matched = TradeStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade settlement is rejected.
-    /// Encoded/decoded by serializers as "SettlementRejected".
+    /// Encoded/decoded by serializers as "SRJC".
     /// </summary>
     [EnumMember(Value = "SRJC")]
     [IsoId("_Ym7XmNp-Ed-ak6NoX_4Aeg_836680950")]
     [Description(@"Trade settlement is rejected.")]
-    SettlementRejected,
+    SettlementRejected = TradeStatusCode.SettlementRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Ym7Xmdp-Ed-ak6NoX_4Aeg_95065536")]
     [Description(@"Trade is rejected.")]
-    Rejected,
+    Rejected = TradeStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option has matured.
-    /// Encoded/decoded by serializers as "OptionMature".
+    /// Encoded/decoded by serializers as "OPMA".
     /// </summary>
     [EnumMember(Value = "OPMA")]
     [IsoId("_YnFIkNp-Ed-ak6NoX_4Aeg_-1415104975")]
     [Description(@"Option has matured.")]
-    OptionMature,
+    OptionMature = TradeStatusCode.OptionMature, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum TradeStatus1Code
 public static class TradeStatus1CodeMetadataExtensions
 {
     private static readonly TradeStatus1CodeDropdownSource _dropdownSource = new TradeStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

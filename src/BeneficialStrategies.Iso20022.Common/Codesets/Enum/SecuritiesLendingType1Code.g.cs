@@ -21,30 +21,30 @@ public enum SecuritiesLendingType1Code
 {
     /// <summary>
     /// Securities lending contract is new and registered.
-    /// Encoded/decoded by serializers as "NewRegistration".
+    /// Encoded/decoded by serializers as "NWRG".
     /// </summary>
     [EnumMember(Value = "NWRG")]
     [IsoId("__wINctojEeC60axPepSq7g_-1300895809")]
     [Description(@"Securities lending contract is new and registered.")]
-    NewRegistration,
+    NewRegistration = SecuritiesLendingTypeCode.NewRegistration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities lending contract is renewed.
-    /// Encoded/decoded by serializers as "RollOverRenewal".
+    /// Encoded/decoded by serializers as "RENW".
     /// </summary>
     [EnumMember(Value = "RENW")]
     [IsoId("__wINc9ojEeC60axPepSq7g_166252954")]
     [Description(@"Securities lending contract is renewed.")]
-    RollOverRenewal,
+    RollOverRenewal = SecuritiesLendingTypeCode.RollOverRenewal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities lending contract is called back.
-    /// Encoded/decoded by serializers as "CallBack".
+    /// Encoded/decoded by serializers as "CABK".
     /// </summary>
     [EnumMember(Value = "CABK")]
     [IsoId("__wINdNojEeC60axPepSq7g_-1719429399")]
     [Description(@"Securities lending contract is called back.")]
-    CallBack,
+    CallBack = SecuritiesLendingTypeCode.CallBack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SecuritiesLendingType1Code
 public static class SecuritiesLendingType1CodeMetadataExtensions
 {
     private static readonly SecuritiesLendingType1CodeDropdownSource _dropdownSource = new SecuritiesLendingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

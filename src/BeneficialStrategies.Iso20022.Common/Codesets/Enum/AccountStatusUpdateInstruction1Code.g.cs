@@ -21,21 +21,21 @@ public enum AccountStatusUpdateInstruction1Code
 {
     /// <summary>
     /// Account is to be closed.
-    /// Encoded/decoded by serializers as "Close".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_SuwCEXi6EeaRm5xIK6nGuQ")]
     [Description(@"Account is to be closed.")]
-    Close,
+    Close = AccountStatusUpdateInstructionCode.Close, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is to be reactivated, any previous instruction to close the account is rescinded.
-    /// Encoded/decoded by serializers as "Reactive".
+    /// Encoded/decoded by serializers as "REAC".
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_S6f_EXi6EeaRm5xIK6nGuQ")]
     [Description(@"Account is to be reactivated, any previous instruction to close the account is rescinded.")]
-    Reactive,
+    Reactive = AccountStatusUpdateInstructionCode.Reactive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountStatusUpdateInstruction1Code
 public static class AccountStatusUpdateInstruction1CodeMetadataExtensions
 {
     private static readonly AccountStatusUpdateInstruction1CodeDropdownSource _dropdownSource = new AccountStatusUpdateInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

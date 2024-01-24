@@ -21,39 +21,39 @@ public enum AccountUsageType2Code
 {
     /// <summary>
     /// Investor.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_FcoZMb-FEeWfsa741pI6WA")]
     [Description(@"Investor.")]
-    Investor,
+    Investor = AccountUsageTypeCode.Investor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuing participant.
-    /// Encoded/decoded by serializers as "IssuingParticipant".
+    /// Encoded/decoded by serializers as "ISSP".
     /// </summary>
     [EnumMember(Value = "ISSP")]
     [IsoId("_FjxjAb-FEeWfsa741pI6WA")]
     [Description(@"Issuing participant.")]
-    IssuingParticipant,
+    IssuingParticipant = AccountUsageTypeCode.IssuingParticipant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement participant.
-    /// Encoded/decoded by serializers as "SettlementParticipant".
+    /// Encoded/decoded by serializers as "SETP".
     /// </summary>
     [EnumMember(Value = "SETP")]
     [IsoId("_Fqw70b-FEeWfsa741pI6WA")]
     [Description(@"Settlement participant.")]
-    SettlementParticipant,
+    SettlementParticipant = AccountUsageTypeCode.SettlementParticipant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading participant.
-    /// Encoded/decoded by serializers as "TradingParticipant".
+    /// Encoded/decoded by serializers as "TRDP".
     /// </summary>
     [EnumMember(Value = "TRDP")]
     [IsoId("_FyD2ob-FEeWfsa741pI6WA")]
     [Description(@"Trading participant.")]
-    TradingParticipant,
+    TradingParticipant = AccountUsageTypeCode.TradingParticipant, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AccountUsageType2Code
 public static class AccountUsageType2CodeMetadataExtensions
 {
     private static readonly AccountUsageType2CodeDropdownSource _dropdownSource = new AccountUsageType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

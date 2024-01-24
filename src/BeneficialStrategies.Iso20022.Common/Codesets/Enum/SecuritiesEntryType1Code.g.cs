@@ -21,93 +21,93 @@ public enum SecuritiesEntryType1Code
 {
     /// <summary>
     /// Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLOK".
     /// </summary>
     [EnumMember(Value = "BLOK")]
     [IsoId("_Vo78cNp-Ed-ak6NoX_4Aeg_-3409008")]
     [Description(@"Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.")]
-    Blocked,
+    Blocked = SecuritiesEntryTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total number of securities eligible for this event.
-    /// Encoded/decoded by serializers as "Eligible".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_Vo78cdp-Ed-ak6NoX_4Aeg_-3408991")]
     [Description(@"Total number of securities eligible for this event.")]
-    Eligible,
+    Eligible = SecuritiesEntryTypeCode.Eligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are pending delivery.
-    /// Encoded/decoded by serializers as "PendingDelivery".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_Vo78ctp-Ed-ak6NoX_4Aeg_-3408990")]
     [Description(@"Balance of securities that are pending delivery.")]
-    PendingDelivery,
+    PendingDelivery = SecuritiesEntryTypeCode.PendingDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are pending receipt.
-    /// Encoded/decoded by serializers as "PendingReceipt".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_Vo78c9p-Ed-ak6NoX_4Aeg_-3408973")]
     [Description(@"Balance of securities that are pending receipt.")]
-    PendingReceipt,
+    PendingReceipt = SecuritiesEntryTypeCode.PendingReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are registered (in the name of a nominee or of the beneficial owner).
-    /// Encoded/decoded by serializers as "Registered".
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_Vo78dNp-Ed-ak6NoX_4Aeg_-3408956")]
     [Description(@"Balance of securities that are registered (in the name of a nominee or of the beneficial owner).")]
-    Registered,
+    Registered = SecuritiesEntryTypeCode.Registered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities representing only settled transactions.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "SETD".
     /// </summary>
     [EnumMember(Value = "SETD")]
     [IsoId("_VpFtcNp-Ed-ak6NoX_4Aeg_464815535")]
     [Description(@"Balance of securities representing only settled transactions.")]
-    Settled,
+    Settled = SecuritiesEntryTypeCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that have been borrowed from another party.
-    /// Encoded/decoded by serializers as "Borrowed".
+    /// Encoded/decoded by serializers as "BORR".
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_VpFtcdp-Ed-ak6NoX_4Aeg_935568190")]
     [Description(@"Balance of securities that have been borrowed from another party.")]
-    Borrowed,
+    Borrowed = SecuritiesEntryTypeCode.Borrowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that have been loaned to a third party.
-    /// Encoded/decoded by serializers as "OnLoan".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_VpFtctp-Ed-ak6NoX_4Aeg_1188610881")]
     [Description(@"Balance of securities that have been loaned to a third party.")]
-    OnLoan,
+    OnLoan = SecuritiesEntryTypeCode.OnLoan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that remain registered in the name of the prior beneficial owner of securities.
-    /// Encoded/decoded by serializers as "StreetPosition".
+    /// Encoded/decoded by serializers as "SPOS".
     /// </summary>
     [EnumMember(Value = "SPOS")]
     [IsoId("_VpFtc9p-Ed-ak6NoX_4Aeg_1695625369")]
     [Description(@"Balance of securities that remain registered in the name of the prior beneficial owner of securities.")]
-    StreetPosition,
+    StreetPosition = SecuritiesEntryTypeCode.StreetPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities representing traded transactions.
-    /// Encoded/decoded by serializers as "Traded".
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_VpFtdNp-Ed-ak6NoX_4Aeg_1761193858")]
     [Description(@"Balance of securities representing traded transactions.")]
-    Traded,
+    Traded = SecuritiesEntryTypeCode.Traded, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum SecuritiesEntryType1Code
 public static class SecuritiesEntryType1CodeMetadataExtensions
 {
     private static readonly SecuritiesEntryType1CodeDropdownSource _dropdownSource = new SecuritiesEntryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum RedemptionCompletion1Code
 {
     /// <summary>
     /// It is not necessary to send more redemption order instructions to the executing party to complete the redemption, the executing will generate redemption confirmations automatically.
-    /// Encoded/decoded by serializers as "RedemptionNo".
+    /// Encoded/decoded by serializers as "RED0".
     /// </summary>
     [EnumMember(Value = "RED0")]
     [IsoId("_MMME0TwxEeaFzejt0Yw_3A")]
     [Description(@"It is not necessary to send more redemption order instructions to the executing party to complete the redemption, the executing will generate redemption confirmations automatically.")]
-    RedemptionNo,
+    RedemptionNo = RedemptionCompletionCode.RedemptionNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional redemption order instructions must be sent to the executing party order to have the rest of the redemption executed.
-    /// Encoded/decoded by serializers as "RedemptionYes".
+    /// Encoded/decoded by serializers as "RED1".
     /// </summary>
     [EnumMember(Value = "RED1")]
     [IsoId("_MWTqITwxEeaFzejt0Yw_3A")]
     [Description(@"Additional redemption order instructions must be sent to the executing party order to have the rest of the redemption executed.")]
-    RedemptionYes,
+    RedemptionYes = RedemptionCompletionCode.RedemptionYes, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RedemptionCompletion1Code
 public static class RedemptionCompletion1CodeMetadataExtensions
 {
     private static readonly RedemptionCompletion1CodeDropdownSource _dropdownSource = new RedemptionCompletion1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

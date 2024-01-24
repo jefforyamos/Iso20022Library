@@ -21,48 +21,48 @@ public enum UserInterface8Code
 {
     /// <summary>
     /// Interface used in case of disputes or chargebacks.
-    /// Encoded/decoded by serializers as "Dispute".
+    /// Encoded/decoded by serializers as "DSPU".
     /// </summary>
     [EnumMember(Value = "DSPU")]
     [IsoId("_sHJJoX0mEemfrNOe0zHQyg")]
     [Description(@"Interface used in case of disputes or chargebacks.")]
-    Dispute,
+    Dispute = UserInterfaceCode.Dispute, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File used to store the message.
-    /// Encoded/decoded by serializers as "File".
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_sHJJo30mEemfrNOe0zHQyg")]
     [Description(@"File used to store the message.")]
-    File,
+    File = UserInterfaceCode.File, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information dedicated to a log file.
-    /// Encoded/decoded by serializers as "Log".
+    /// Encoded/decoded by serializers as "LOGF".
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_sHJJpX0mEemfrNOe0zHQyg")]
     [Description(@"Information dedicated to a log file.")]
-    Log,
+    Log = UserInterfaceCode.Log, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of interface defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_sHJJp30mEemfrNOe0zHQyg")]
     [Description(@"Other type of interface defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = UserInterfaceCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of interface defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_sHJJqX0mEemfrNOe0zHQyg")]
     [Description(@"Other type of interface defined at national level.")]
-    OtherNational,
+    OtherNational = UserInterfaceCode.OtherNational, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum UserInterface8Code
 public static class UserInterface8CodeMetadataExtensions
 {
     private static readonly UserInterface8CodeDropdownSource _dropdownSource = new UserInterface8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

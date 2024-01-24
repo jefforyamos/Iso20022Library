@@ -21,21 +21,21 @@ public enum PriceStatus1Code
 {
     /// <summary>
     /// Price is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PNDG".
     /// </summary>
     [EnumMember(Value = "PNDG")]
     [IsoId("_O0HaIezYEeSBf_ghFpb9rQ")]
     [Description(@"Price is pending.")]
-    Pending,
+    Pending = PriceStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No price for transaction (e.g. transfer between accounts).
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_Cc6kEI-TEeWtN7rsKJRs8Q")]
     [Description(@"No price for transaction (e.g. transfer between accounts).")]
-    NotApplicable,
+    NotApplicable = PriceStatusCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PriceStatus1Code
 public static class PriceStatus1CodeMetadataExtensions
 {
     private static readonly PriceStatus1CodeDropdownSource _dropdownSource = new PriceStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum EnabledStatusReason1Code
 {
     /// <summary>
     /// Modification to the account data is in process.
-    /// Encoded/decoded by serializers as "Modified".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_MrP-0WBhEeaR1OOiVxm3Gg")]
     [Description(@"Modification to the account data is in process.")]
-    Modified,
+    Modified = EnabledStatusReasonCode.Modified, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum EnabledStatusReason1Code
 public static class EnabledStatusReason1CodeMetadataExtensions
 {
     private static readonly EnabledStatusReason1CodeDropdownSource _dropdownSource = new EnabledStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-jd2ENt3EeiXqq0XHEoNUA")]
 [Description(@"Possible types of Loyalty processing.")]
 [Derivations(typeof(LoyaltyHandling1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LoyaltyHandlingCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum LoyaltyHandlingCode
 public static class LoyaltyHandlingCodeMetadataExtensions
 {
     private static readonly LoyaltyHandlingCodeDropdownSource _dropdownSource = new LoyaltyHandlingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

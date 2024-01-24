@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_7DQxQGw4EeWD9e8QDBgUOw")]
 [Description(@"Specifies the reason capturing a non trading day.")]
 [Derivations(typeof(NonTradingDayReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonTradingDayReasonCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum NonTradingDayReasonCode
 public static class NonTradingDayReasonCodeMetadataExtensions
 {
     private static readonly NonTradingDayReasonCodeDropdownSource _dropdownSource = new NonTradingDayReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

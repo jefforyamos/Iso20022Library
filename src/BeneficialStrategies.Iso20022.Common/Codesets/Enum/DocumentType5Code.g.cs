@@ -21,138 +21,138 @@ public enum DocumentType5Code
 {
     /// <summary>
     /// Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.
-    /// Encoded/decoded by serializers as "MeteredServiceInvoice".
+    /// Encoded/decoded by serializers as "MSIN".
     /// </summary>
     [EnumMember(Value = "MSIN")]
     [IsoId("_agYMgNp-Ed-ak6NoX_4Aeg_1566612217")]
     [Description(@"Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.")]
-    MeteredServiceInvoice,
+    MeteredServiceInvoice = DocumentTypeCode.MeteredServiceInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a credit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "CreditNoteRelatedToFinancialAdjustment".
+    /// Encoded/decoded by serializers as "CNFA".
     /// </summary>
     [EnumMember(Value = "CNFA")]
     [IsoId("_agYMgdp-Ed-ak6NoX_4Aeg_1566612248")]
     [Description(@"Document is a credit note for the final amount settled for a commercial transaction.")]
-    CreditNoteRelatedToFinancialAdjustment,
+    CreditNoteRelatedToFinancialAdjustment = DocumentTypeCode.CreditNoteRelatedToFinancialAdjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a debit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "DebitNoteRelatedToFinancialAdjustment".
+    /// Encoded/decoded by serializers as "DNFA".
     /// </summary>
     [EnumMember(Value = "DNFA")]
     [IsoId("_agYMgtp-Ed-ak6NoX_4Aeg_1566612249")]
     [Description(@"Document is a debit note for the final amount settled for a commercial transaction.")]
-    DebitNoteRelatedToFinancialAdjustment,
+    DebitNoteRelatedToFinancialAdjustment = DocumentTypeCode.DebitNoteRelatedToFinancialAdjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CommercialInvoice".
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_agYMg9p-Ed-ak6NoX_4Aeg_1566612526")]
     [Description(@"Document is an invoice.")]
-    CommercialInvoice,
+    CommercialInvoice = DocumentTypeCode.CommercialInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a credit note.
-    /// Encoded/decoded by serializers as "CreditNote".
+    /// Encoded/decoded by serializers as "CREN".
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_agYMhNp-Ed-ak6NoX_4Aeg_1566612557")]
     [Description(@"Document is a credit note.")]
-    CreditNote,
+    CreditNote = DocumentTypeCode.CreditNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a debit note.
-    /// Encoded/decoded by serializers as "DebitNote".
+    /// Encoded/decoded by serializers as "DEBN".
     /// </summary>
     [EnumMember(Value = "DEBN")]
     [IsoId("_agYMhdp-Ed-ak6NoX_4Aeg_1566612588")]
     [Description(@"Document is a debit note.")]
-    DebitNote,
+    DebitNote = DocumentTypeCode.DebitNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an invoice for the hiring of human resources or renting goods or equipment.
-    /// Encoded/decoded by serializers as "HireInvoice".
+    /// Encoded/decoded by serializers as "HIRI".
     /// </summary>
     [EnumMember(Value = "HIRI")]
     [IsoId("_agYMhtp-Ed-ak6NoX_4Aeg_1566612618")]
     [Description(@"Document is an invoice for the hiring of human resources or renting goods or equipment.")]
-    HireInvoice,
+    HireInvoice = DocumentTypeCode.HireInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an invoice issued by the debtor.
-    /// Encoded/decoded by serializers as "SelfBilledInvoice".
+    /// Encoded/decoded by serializers as "SBIN".
     /// </summary>
     [EnumMember(Value = "SBIN")]
     [IsoId("_agYMh9p-Ed-ak6NoX_4Aeg_1566612649")]
     [Description(@"Document is an invoice issued by the debtor.")]
-    SelfBilledInvoice,
+    SelfBilledInvoice = DocumentTypeCode.SelfBilledInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
-    /// Encoded/decoded by serializers as "CommercialContract".
+    /// Encoded/decoded by serializers as "CMCN".
     /// </summary>
     [EnumMember(Value = "CMCN")]
     [IsoId("_agYMiNp-Ed-ak6NoX_4Aeg_1566612680")]
     [Description(@"Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.")]
-    CommercialContract,
+    CommercialContract = DocumentTypeCode.CommercialContract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a statement of the transactions posted to the debtor's account at the supplier.
-    /// Encoded/decoded by serializers as "StatementOfAccount".
+    /// Encoded/decoded by serializers as "SOAC".
     /// </summary>
     [EnumMember(Value = "SOAC")]
     [IsoId("_agYMidp-Ed-ak6NoX_4Aeg_1566612681")]
     [Description(@"Document is a statement of the transactions posted to the debtor's account at the supplier.")]
-    StatementOfAccount,
+    StatementOfAccount = DocumentTypeCode.StatementOfAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a dispatch advice.
-    /// Encoded/decoded by serializers as "DispatchAdvice".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_aghWcNp-Ed-ak6NoX_4Aeg_1566612710")]
     [Description(@"Document is a dispatch advice.")]
-    DispatchAdvice,
+    DispatchAdvice = DocumentTypeCode.DispatchAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a shipping notice.
-    /// Encoded/decoded by serializers as "BillOfLading".
+    /// Encoded/decoded by serializers as "BOLD".
     /// </summary>
     [EnumMember(Value = "BOLD")]
     [IsoId("_aghWcdp-Ed-ak6NoX_4Aeg_2010826154")]
     [Description(@"Document is a shipping notice.")]
-    BillOfLading,
+    BillOfLading = DocumentTypeCode.BillOfLading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an electronic payment document.
-    /// Encoded/decoded by serializers as "Voucher".
+    /// Encoded/decoded by serializers as "VCHR".
     /// </summary>
     [EnumMember(Value = "VCHR")]
     [IsoId("_aghWctp-Ed-ak6NoX_4Aeg_2027448669")]
     [Description(@"Document is an electronic payment document.")]
-    Voucher,
+    Voucher = DocumentTypeCode.Voucher, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a payment that applies to a specific source document.
-    /// Encoded/decoded by serializers as "AccountReceivableOpenItem".
+    /// Encoded/decoded by serializers as "AROI".
     /// </summary>
     [EnumMember(Value = "AROI")]
     [IsoId("_aghWc9p-Ed-ak6NoX_4Aeg_2039452669")]
     [Description(@"Document is a payment that applies to a specific source document.")]
-    AccountReceivableOpenItem,
+    AccountReceivableOpenItem = DocumentTypeCode.AccountReceivableOpenItem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a transaction identifier as assigned by the Trade Services Utility.
-    /// Encoded/decoded by serializers as "TradeServicesUtilityTransaction".
+    /// Encoded/decoded by serializers as "TSUT".
     /// </summary>
     [EnumMember(Value = "TSUT")]
     [IsoId("_aghWdNp-Ed-ak6NoX_4Aeg_1739893330")]
     [Description(@"Document is a transaction identifier as assigned by the Trade Services Utility.")]
-    TradeServicesUtilityTransaction,
+    TradeServicesUtilityTransaction = DocumentTypeCode.TradeServicesUtilityTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum DocumentType5Code
 public static class DocumentType5CodeMetadataExtensions
 {
     private static readonly DocumentType5CodeDropdownSource _dropdownSource = new DocumentType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

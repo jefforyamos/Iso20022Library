@@ -21,21 +21,21 @@ public enum AdjustmentDirection1Code
 {
     /// <summary>
     /// Adjustment amount must be added to the total amount.
-    /// Encoded/decoded by serializers as "Added".
+    /// Encoded/decoded by serializers as "ADDD".
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_bnKOYdp-Ed-ak6NoX_4Aeg_-512177233")]
     [Description(@"Adjustment amount must be added to the total amount.")]
-    Added,
+    Added = AdjustmentDirectionCode.Added, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment amount must be substracted from the total amount.
-    /// Encoded/decoded by serializers as "Substracted".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_bnKOYtp-Ed-ak6NoX_4Aeg_-512177198")]
     [Description(@"Adjustment amount must be substracted from the total amount.")]
-    Substracted,
+    Substracted = AdjustmentDirectionCode.Substracted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AdjustmentDirection1Code
 public static class AdjustmentDirection1CodeMetadataExtensions
 {
     private static readonly AdjustmentDirection1CodeDropdownSource _dropdownSource = new AdjustmentDirection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

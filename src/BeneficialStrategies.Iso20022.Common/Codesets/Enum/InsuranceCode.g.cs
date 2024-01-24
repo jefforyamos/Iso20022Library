@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gQ8SUxQaEeKebsB9eKJSkA")]
 [Description(@"Specifies the type of insurance.")]
 [Derivations(typeof(Insurance1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InsuranceCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InsuranceCode
 public static class InsuranceCodeMetadataExtensions
 {
     private static readonly InsuranceCodeDropdownSource _dropdownSource = new InsuranceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

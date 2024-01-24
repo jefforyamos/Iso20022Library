@@ -21,21 +21,21 @@ public enum ConsentType1Code
 {
     /// <summary>
     /// Change in the terms and conditions of the bond.
-    /// Encoded/decoded by serializers as "ChangeInTerms".
+    /// Encoded/decoded by serializers as "CTRM".
     /// </summary>
     [EnumMember(Value = "CTRM")]
     [IsoId("_Wr3YgSHnEeOQ7qT4JUI53A")]
     [Description(@"Change in the terms and conditions of the bond.")]
-    ChangeInTerms,
+    ChangeInTerms = ConsentTypeCode.ChangeInTerms, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Change in the due and payable conditions.
-    /// Encoded/decoded by serializers as "DueAndPayable".
+    /// Encoded/decoded by serializers as "DUPY".
     /// </summary>
     [EnumMember(Value = "DUPY")]
     [IsoId("_WzTdQSHnEeOQ7qT4JUI53A")]
     [Description(@"Change in the due and payable conditions.")]
-    DueAndPayable,
+    DueAndPayable = ConsentTypeCode.DueAndPayable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ConsentType1Code
 public static class ConsentType1CodeMetadataExtensions
 {
     private static readonly ConsentType1CodeDropdownSource _dropdownSource = new ConsentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

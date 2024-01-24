@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vLUjgBE3EeafpqhYGpTDnw")]
 [Description(@"Specifies the processing window in which the balance transfer will be processed on the switch date.")]
 [Derivations(typeof(BalanceTransferWindow1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BalanceTransferWindowCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum BalanceTransferWindowCode
 public static class BalanceTransferWindowCodeMetadataExtensions
 {
     private static readonly BalanceTransferWindowCodeDropdownSource _dropdownSource = new BalanceTransferWindowCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9YEBsCxJEeyg-aG5nXcnfg")]
 [Description(@"Specifies the initiator of the fee collection message.")]
 [Derivations(typeof(FeeCollectionInitiator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FeeCollectionInitiatorCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum FeeCollectionInitiatorCode
 public static class FeeCollectionInitiatorCodeMetadataExtensions
 {
     private static readonly FeeCollectionInitiatorCodeDropdownSource _dropdownSource = new FeeCollectionInitiatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

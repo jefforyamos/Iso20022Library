@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_w6pwoCDYEeWCLu74WLgP4w")]
 [Description(@"Specifes the operational status.")]
 [Derivations(typeof(OperationalStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OperationalStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum OperationalStatusCode
 public static class OperationalStatusCodeMetadataExtensions
 {
     private static readonly OperationalStatusCodeDropdownSource _dropdownSource = new OperationalStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,27 +16,27 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_6gewcN6mEeiwsev40qZGEQ")]
-[Description(@"Type of the Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print or store), or input (keyboard) for the Cashier  or the Customer.")]
+[Description(@"Type of the Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print or store), or input (keyboard) for the Cashier |or the Customer.")]
 [DerivedFrom(typeof(SaleCapabilitiesCode))]
 public enum SaleCapabilities2Code
 {
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.
-    /// Encoded/decoded by serializers as "CashierInput".
+    /// Encoded/decoded by serializers as "CHIN".
     /// </summary>
     [EnumMember(Value = "CHIN")]
     [IsoId("_AwtYYd6nEeiwsev40qZGEQ")]
     [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.")]
-    CashierInput,
+    CashierInput = SaleCapabilitiesCode.CashierInput, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).
-    /// Encoded/decoded by serializers as "CustomerInput".
+    /// Encoded/decoded by serializers as "CUIN".
     /// </summary>
     [EnumMember(Value = "CUIN")]
     [IsoId("_BTpGUd6nEeiwsev40qZGEQ")]
     [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).")]
-    CustomerInput,
+    CustomerInput = SaleCapabilitiesCode.CustomerInput, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +47,7 @@ public enum SaleCapabilities2Code
 public static class SaleCapabilities2CodeMetadataExtensions
 {
     private static readonly SaleCapabilities2CodeDropdownSource _dropdownSource = new SaleCapabilities2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

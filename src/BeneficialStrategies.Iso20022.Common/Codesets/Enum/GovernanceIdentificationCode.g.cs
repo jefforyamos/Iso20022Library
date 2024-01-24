@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6AaZoHyaEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the identification of the rules and laws governing the undertaking.")]
 [Derivations(typeof(GovernanceIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GovernanceIdentificationCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum GovernanceIdentificationCode
 public static class GovernanceIdentificationCodeMetadataExtensions
 {
     private static readonly GovernanceIdentificationCodeDropdownSource _dropdownSource = new GovernanceIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

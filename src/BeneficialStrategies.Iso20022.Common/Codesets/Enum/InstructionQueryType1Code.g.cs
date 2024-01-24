@@ -21,30 +21,30 @@ public enum InstructionQueryType1Code
 {
     /// <summary>
     /// Query is performed on settlement transactions.
-    /// Encoded/decoded by serializers as "SettlementInstruction".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_jjvIlu5NEeCisYr99QEiWA_351623035")]
     [Description(@"Query is performed on settlement transactions.")]
-    SettlementInstruction,
+    SettlementInstruction = InstructionQueryTypeCode.SettlementInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query is performed on intra-position movements.
-    /// Encoded/decoded by serializers as "IntraPositionMovement".
+    /// Encoded/decoded by serializers as "IPOS".
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_jj4SgO5NEeCisYr99QEiWA_1818771798")]
     [Description(@"Query is performed on intra-position movements.")]
-    IntraPositionMovement,
+    IntraPositionMovement = InstructionQueryTypeCode.IntraPositionMovement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query is performed on both settlement transactions and intra-position movements.
-    /// Encoded/decoded by serializers as "SettlementAndIntraPosition".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_jj4Sge5NEeCisYr99QEiWA_-645449318")]
     [Description(@"Query is performed on both settlement transactions and intra-position movements.")]
-    SettlementAndIntraPosition,
+    SettlementAndIntraPosition = InstructionQueryTypeCode.SettlementAndIntraPosition, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InstructionQueryType1Code
 public static class InstructionQueryType1CodeMetadataExtensions
 {
     private static readonly InstructionQueryType1CodeDropdownSource _dropdownSource = new InstructionQueryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

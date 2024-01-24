@@ -21,66 +21,66 @@ public enum WeekDay2Code
 {
     /// <summary>
     /// Wednesday.
-    /// Encoded/decoded by serializers as "Wednesday".
+    /// Encoded/decoded by serializers as "WEDD".
     /// </summary>
     [EnumMember(Value = "WEDD")]
     [IsoId("_ArjrhS-pEeWvZpCvNOLJLQ")]
     [Description(@"Wednesday.")]
-    Wednesday,
+    Wednesday = WeekDayCode.Wednesday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tuesday.
-    /// Encoded/decoded by serializers as "Tuesday".
+    /// Encoded/decoded by serializers as "TUED".
     /// </summary>
     [EnumMember(Value = "TUED")]
     [IsoId("_Arjrhy-pEeWvZpCvNOLJLQ")]
     [Description(@"Tuesday.")]
-    Tuesday,
+    Tuesday = WeekDayCode.Tuesday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Thursday.
-    /// Encoded/decoded by serializers as "Thursday".
+    /// Encoded/decoded by serializers as "THUD".
     /// </summary>
     [EnumMember(Value = "THUD")]
     [IsoId("_ArjriS-pEeWvZpCvNOLJLQ")]
     [Description(@"Thursday.")]
-    Thursday,
+    Thursday = WeekDayCode.Thursday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sunday.
-    /// Encoded/decoded by serializers as "Sunday".
+    /// Encoded/decoded by serializers as "SUND".
     /// </summary>
     [EnumMember(Value = "SUND")]
     [IsoId("_Arjriy-pEeWvZpCvNOLJLQ")]
     [Description(@"Sunday.")]
-    Sunday,
+    Sunday = WeekDayCode.Sunday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Saturday.
-    /// Encoded/decoded by serializers as "Saturday".
+    /// Encoded/decoded by serializers as "SATD".
     /// </summary>
     [EnumMember(Value = "SATD")]
     [IsoId("_ArjrjS-pEeWvZpCvNOLJLQ")]
     [Description(@"Saturday.")]
-    Saturday,
+    Saturday = WeekDayCode.Saturday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Monday.
-    /// Encoded/decoded by serializers as "Monday".
+    /// Encoded/decoded by serializers as "MOND".
     /// </summary>
     [EnumMember(Value = "MOND")]
     [IsoId("_Arjrjy-pEeWvZpCvNOLJLQ")]
     [Description(@"Monday.")]
-    Monday,
+    Monday = WeekDayCode.Monday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Friday.
-    /// Encoded/decoded by serializers as "Friday".
+    /// Encoded/decoded by serializers as "FRID".
     /// </summary>
     [EnumMember(Value = "FRID")]
     [IsoId("_ArjrkS-pEeWvZpCvNOLJLQ")]
     [Description(@"Friday.")]
-    Friday,
+    Friday = WeekDayCode.Friday, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum WeekDay2Code
 public static class WeekDay2CodeMetadataExtensions
 {
     private static readonly WeekDay2CodeDropdownSource _dropdownSource = new WeekDay2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

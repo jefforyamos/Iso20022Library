@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cJMIICC9EeWPMvNwVtiMsA")]
 [Description(@"Specifies whether the item is eligible or not eligible.")]
 [Derivations(typeof(Eligible1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EligibleCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum EligibleCode
 public static class EligibleCodeMetadataExtensions
 {
     private static readonly EligibleCodeDropdownSource _dropdownSource = new EligibleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

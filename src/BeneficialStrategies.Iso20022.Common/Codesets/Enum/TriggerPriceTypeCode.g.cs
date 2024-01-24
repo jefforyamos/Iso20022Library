@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YwBCJdp-Ed-ak6NoX_4Aeg_781187809")]
 [Description(@"Specifies the type of price that the trigger is compared to.")]
 [Derivations(typeof(TriggerPriceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TriggerPriceTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum TriggerPriceTypeCode
 public static class TriggerPriceTypeCodeMetadataExtensions
 {
     private static readonly TriggerPriceTypeCodeDropdownSource _dropdownSource = new TriggerPriceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

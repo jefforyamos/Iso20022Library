@@ -21,57 +21,57 @@ public enum BeneficiaryCertificationType1Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "AccreditedInvestor".
+    /// Encoded/decoded by serializers as "ACCI".
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_bdxB09p-Ed-ak6NoX_4Aeg_609609119")]
     [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
-    AccreditedInvestor,
+    AccreditedInvestor = BeneficiaryCertificationTypeCode.AccreditedInvestor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify his domicile.
-    /// Encoded/decoded by serializers as "DomicileCountry".
+    /// Encoded/decoded by serializers as "DOMI".
     /// </summary>
     [EnumMember(Value = "DOMI")]
     [IsoId("_bdxB1Np-Ed-ak6NoX_4Aeg_609609150")]
     [Description(@"The holder of the security has to certify his domicile.")]
-    DomicileCountry,
+    DomicileCountry = BeneficiaryCertificationTypeCode.DomicileCountry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.
-    /// Encoded/decoded by serializers as "FullBeneficialOwnerBreakdown".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_bdxB1dp-Ed-ak6NoX_4Aeg_609609151")]
     [Description(@"The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.")]
-    FullBeneficialOwnerBreakdown,
+    FullBeneficialOwnerBreakdown = BeneficiaryCertificationTypeCode.FullBeneficialOwnerBreakdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBCertification".
+    /// Encoded/decoded by serializers as "QIBB".
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_bdxB1tp-Ed-ak6NoX_4Aeg_609609160")]
     [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-    QIBCertification,
+    QIBCertification = BeneficiaryCertificationTypeCode.QIBCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.
-    /// Encoded/decoded by serializers as "TaxRateBreakdown".
+    /// Encoded/decoded by serializers as "TRBD".
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_bdxB19p-Ed-ak6NoX_4Aeg_609609180")]
     [Description(@"The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.")]
-    TaxRateBreakdown,
+    TaxRateBreakdown = BeneficiaryCertificationTypeCode.TaxRateBreakdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NonCompany".
+    /// Encoded/decoded by serializers as "NCOM".
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_bdxB2Np-Ed-ak6NoX_4Aeg_609609181")]
     [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
-    NonCompany,
+    NonCompany = BeneficiaryCertificationTypeCode.NonCompany, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum BeneficiaryCertificationType1Code
 public static class BeneficiaryCertificationType1CodeMetadataExtensions
 {
     private static readonly BeneficiaryCertificationType1CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

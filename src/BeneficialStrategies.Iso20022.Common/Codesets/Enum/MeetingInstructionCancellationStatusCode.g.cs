@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VpiZYNp-Ed-ak6NoX_4Aeg_-1662861442")]
 [Description(@"Status of a meeting instruction cancellation request.")]
 [Derivations(typeof(MeetingInstructionCancellationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MeetingInstructionCancellationStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum MeetingInstructionCancellationStatusCode
 public static class MeetingInstructionCancellationStatusCodeMetadataExtensions
 {
     private static readonly MeetingInstructionCancellationStatusCodeDropdownSource _dropdownSource = new MeetingInstructionCancellationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

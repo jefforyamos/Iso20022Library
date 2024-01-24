@@ -21,21 +21,21 @@ public enum ChargePaymentMethod1Code
 {
     /// <summary>
     /// Payment is with cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_T2UeMRXzEeOBE-jZfcm4KQ")]
     [Description(@"Payment is with cash.")]
-    Cash,
+    Cash = ChargePaymentMethodCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Units are redeemed to cover payment.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_UAJIkRXzEeOBE-jZfcm4KQ")]
     [Description(@"Units are redeemed to cover payment.")]
-    Unit,
+    Unit = ChargePaymentMethodCode.Unit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ChargePaymentMethod1Code
 public static class ChargePaymentMethod1CodeMetadataExtensions
 {
     private static readonly ChargePaymentMethod1CodeDropdownSource _dropdownSource = new ChargePaymentMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

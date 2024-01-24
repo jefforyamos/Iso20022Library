@@ -21,66 +21,66 @@ public enum CancellationReason3Code
 {
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "RequestedByCustomer".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bYGettp-Ed-ak6NoX_4Aeg_-553056545")]
     [Description(@"Cancellation requested by the Debtor.")]
-    RequestedByCustomer,
+    RequestedByCustomer = CancellationReasonCode.RequestedByCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DuplicatePayment".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bYGet9p-Ed-ak6NoX_4Aeg_-553056520")]
     [Description(@"Payment is a duplicate of another payment.")]
-    DuplicatePayment,
+    DuplicatePayment = CancellationReasonCode.DuplicatePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectAgent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bYGeuNp-Ed-ak6NoX_4Aeg_-553056503")]
     [Description(@"Agent in the payment workflow is incorrect.")]
-    IncorrectAgent,
+    IncorrectAgent = CancellationReasonCode.IncorrectAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectCurrency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bYQPsNp-Ed-ak6NoX_4Aeg_-553056460")]
     [Description(@"Currency of the payment is incorrect.")]
-    IncorrectCurrency,
+    IncorrectCurrency = CancellationReasonCode.IncorrectCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UnduePayment".
+    /// Encoded/decoded by serializers as "UPAY".
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bYQPsdp-Ed-ak6NoX_4Aeg_-553056459")]
     [Description(@"Payment is not justified.")]
-    UnduePayment,
+    UnduePayment = CancellationReasonCode.UnduePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "InsufficientDebtorDetails".
+    /// Encoded/decoded by serializers as "MM23".
     /// </summary>
     [EnumMember(Value = "MM23")]
     [IsoId("_bYQPstp-Ed-ak6NoX_4Aeg_-212277718")]
     [Description(@"Insufficient or incoherent details about the debtor with respect to regulatory requirements.")]
-    InsufficientDebtorDetails,
+    InsufficientDebtorDetails = CancellationReasonCode.InsufficientDebtorDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "InsufficientCreditorDetails".
+    /// Encoded/decoded by serializers as "MM24".
     /// </summary>
     [EnumMember(Value = "MM24")]
     [IsoId("_bYQPs9p-Ed-ak6NoX_4Aeg_-212277392")]
     [Description(@"Insufficient or incoherent details about the creditor with respect to regulatory requirements.")]
-    InsufficientCreditorDetails,
+    InsufficientCreditorDetails = CancellationReasonCode.InsufficientCreditorDetails, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CancellationReason3Code
 public static class CancellationReason3CodeMetadataExtensions
 {
     private static readonly CancellationReason3CodeDropdownSource _dropdownSource = new CancellationReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

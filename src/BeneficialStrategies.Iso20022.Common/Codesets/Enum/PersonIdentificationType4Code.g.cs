@@ -21,39 +21,39 @@ public enum PersonIdentificationType4Code
 {
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_TTtRSAEcEeCQm6a_G2yO_w_1917785203")]
     [Description(@"Number assigned by a passport authority to a passport.")]
-    PassportNumber,
+    PassportNumber = PersonIdentificationTypeCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DriversLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_TTtRSQEcEeCQm6a_G2yO_w_349884811")]
     [Description(@"Number assigned by a license authority to a driver's license.")]
-    DriversLicenseNumber,
+    DriversLicenseNumber = PersonIdentificationTypeCode.DriversLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Employee number assigned by the company.
-    /// Encoded/decoded by serializers as "EmployeeNumber".
+    /// Encoded/decoded by serializers as "EEID".
     /// </summary>
     [EnumMember(Value = "EEID")]
     [IsoId("_TTtRSgEcEeCQm6a_G2yO_w_338786034")]
     [Description(@"Employee number assigned by the company.")]
-    EmployeeNumber,
+    EmployeeNumber = PersonIdentificationTypeCode.EmployeeNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Driver number, assigned by the fleet manager.
-    /// Encoded/decoded by serializers as "DriverNumber".
+    /// Encoded/decoded by serializers as "DRVR".
     /// </summary>
     [EnumMember(Value = "DRVR")]
     [IsoId("_TTtRSwEcEeCQm6a_G2yO_w_-1660072047")]
     [Description(@"Driver number, assigned by the fleet manager.")]
-    DriverNumber,
+    DriverNumber = PersonIdentificationTypeCode.DriverNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PersonIdentificationType4Code
 public static class PersonIdentificationType4CodeMetadataExtensions
 {
     private static readonly PersonIdentificationType4CodeDropdownSource _dropdownSource = new PersonIdentificationType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

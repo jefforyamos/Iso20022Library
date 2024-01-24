@@ -21,12 +21,12 @@ public enum PriceValueType13Code
 {
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "Unspecified".
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_M2HEYQ-zEeuE0Pnt-OcNOA")]
     [Description(@"Price is not required to be specified by account owner.")]
-    Unspecified,
+    Unspecified = PriceValueTypeCode.Unspecified, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PriceValueType13Code
 public static class PriceValueType13CodeMetadataExtensions
 {
     private static readonly PriceValueType13CodeDropdownSource _dropdownSource = new PriceValueType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

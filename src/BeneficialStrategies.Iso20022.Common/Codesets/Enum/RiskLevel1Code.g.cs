@@ -21,30 +21,30 @@ public enum RiskLevel1Code
 {
     /// <summary>
     /// High.
-    /// Encoded/decoded by serializers as "High".
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_Lx6w4RdxEeKYM7Bc71nDlA")]
     [Description(@"High.")]
-    High,
+    High = RiskLevelCode.High, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Low.
-    /// Encoded/decoded by serializers as "Low".
+    /// Encoded/decoded by serializers as "LOWW".
     /// </summary>
     [EnumMember(Value = "LOWW")]
     [IsoId("_L595oRdxEeKYM7Bc71nDlA")]
     [Description(@"Low.")]
-    Low,
+    Low = RiskLevelCode.Low, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Medium.
-    /// Encoded/decoded by serializers as "Medium".
+    /// Encoded/decoded by serializers as "MEDM".
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_MDqBIRdxEeKYM7Bc71nDlA")]
     [Description(@"Medium.")]
-    Medium,
+    Medium = RiskLevelCode.Medium, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RiskLevel1Code
 public static class RiskLevel1CodeMetadataExtensions
 {
     private static readonly RiskLevel1CodeDropdownSource _dropdownSource = new RiskLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

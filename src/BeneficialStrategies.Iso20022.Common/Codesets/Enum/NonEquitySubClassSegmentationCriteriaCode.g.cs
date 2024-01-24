@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_qDY5UGkfEeqf6OGS6ti91w")]
 [Description(@"Criteria used to segment classes of non-equity instruments into sub classes as per local regulation.")]
 [Derivations(typeof(NonEquitySubClassSegmentationCriteria1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonEquitySubClassSegmentationCriteriaCode
 {
     /// <summary>
@@ -353,7 +352,7 @@ public enum NonEquitySubClassSegmentationCriteriaCode
 public static class NonEquitySubClassSegmentationCriteriaCodeMetadataExtensions
 {
     private static readonly NonEquitySubClassSegmentationCriteriaCodeDropdownSource _dropdownSource = new NonEquitySubClassSegmentationCriteriaCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

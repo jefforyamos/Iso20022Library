@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZQ9MANp-Ed-ak6NoX_4Aeg_-174233081")]
 [Description(@"Specifies the reason for a suspended status.")]
 [Derivations(typeof(SuspendedStatusReason1Code),typeof(SuspendedStatusReason2Code),typeof(SuspendedStatusReason3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SuspendedStatusReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SuspendedStatusReasonCode
 public static class SuspendedStatusReasonCodeMetadataExtensions
 {
     private static readonly SuspendedStatusReasonCodeDropdownSource _dropdownSource = new SuspendedStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

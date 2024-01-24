@@ -21,39 +21,39 @@ public enum MarketType1Code
 {
     /// <summary>
     /// The place is a primary market.
-    /// Encoded/decoded by serializers as "PrimaryMarket".
+    /// Encoded/decoded by serializers as "PRIM".
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_aUTfZdp-Ed-ak6NoX_4Aeg_2050094305")]
     [Description(@"The place is a primary market.")]
-    PrimaryMarket,
+    PrimaryMarket = MarketTypeCode.PrimaryMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a secondary market.
-    /// Encoded/decoded by serializers as "SecondaryMarket".
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_aUTfZtp-Ed-ak6NoX_4Aeg_2051015336")]
     [Description(@"The place is a secondary market.")]
-    SecondaryMarket,
+    SecondaryMarket = MarketTypeCode.SecondaryMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a third market.
-    /// Encoded/decoded by serializers as "ThirdMarket".
+    /// Encoded/decoded by serializers as "THIM".
     /// </summary>
     [EnumMember(Value = "THIM")]
     [IsoId("_aUTfZ9p-Ed-ak6NoX_4Aeg_-1860687416")]
     [Description(@"The place is a third market.")]
-    ThirdMarket,
+    ThirdMarket = MarketTypeCode.ThirdMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a fourth market.
-    /// Encoded/decoded by serializers as "FourthMarket".
+    /// Encoded/decoded by serializers as "FOUM".
     /// </summary>
     [EnumMember(Value = "FOUM")]
     [IsoId("_aUdQYNp-Ed-ak6NoX_4Aeg_-1831136197")]
     [Description(@"The place is a fourth market.")]
-    FourthMarket,
+    FourthMarket = MarketTypeCode.FourthMarket, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum MarketType1Code
 public static class MarketType1CodeMetadataExtensions
 {
     private static readonly MarketType1CodeDropdownSource _dropdownSource = new MarketType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

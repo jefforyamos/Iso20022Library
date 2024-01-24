@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_brn3odp-Ed-ak6NoX_4Aeg_-1657976569")]
 [Description(@"Specifies the current state of an account.")]
 [Derivations(typeof(AccountStatus2Code),typeof(AccountStatus1Code),typeof(AccountStatus3Code),typeof(AccountStatus4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AccountStatusCode
 public static class AccountStatusCodeMetadataExtensions
 {
     private static readonly AccountStatusCodeDropdownSource _dropdownSource = new AccountStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

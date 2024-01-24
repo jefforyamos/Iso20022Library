@@ -21,21 +21,21 @@ public enum RegistrationProcessingStatus1Code
 {
     /// <summary>
     /// Registration has been acknowledged/accepted by the issuer/registrar.
-    /// Encoded/decoded by serializers as "AcknowledgedAccepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZbFYYdp-Ed-ak6NoX_4Aeg_-586829178")]
     [Description(@"Registration has been acknowledged/accepted by the issuer/registrar.")]
-    AcknowledgedAccepted,
+    AcknowledgedAccepted = RegistrationProcessingStatusCode.AcknowledgedAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Registration has been rejected by the issuer/registrar.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZbFYYtp-Ed-ak6NoX_4Aeg_-586829177")]
     [Description(@"Registration has been rejected by the issuer/registrar.")]
-    Rejected,
+    Rejected = RegistrationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RegistrationProcessingStatus1Code
 public static class RegistrationProcessingStatus1CodeMetadataExtensions
 {
     private static readonly RegistrationProcessingStatus1CodeDropdownSource _dropdownSource = new RegistrationProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

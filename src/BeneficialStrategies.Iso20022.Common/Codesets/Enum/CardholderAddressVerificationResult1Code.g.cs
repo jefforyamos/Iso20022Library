@@ -21,111 +21,111 @@ public enum CardholderAddressVerificationResult1Code
 {
     /// <summary>
     /// Address numeric match.
-    /// Encoded/decoded by serializers as "AddressMatch".
+    /// Encoded/decoded by serializers as "AMCH".
     /// </summary>
     [EnumMember(Value = "AMCH")]
     [IsoId("_TSXNewEcEeCQm6a_G2yO_w_-1881917421")]
     [Description(@"Address numeric match.")]
-    AddressMatch,
+    AddressMatch = CardholderAddressVerificationResultCode.AddressMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address numerics do not match.
-    /// Encoded/decoded by serializers as "AddressNotMatch".
+    /// Encoded/decoded by serializers as "ANMH".
     /// </summary>
     [EnumMember(Value = "ANMH")]
     [IsoId("_TSXNfAEcEeCQm6a_G2yO_w_-2071134870")]
     [Description(@"Address numerics do not match.")]
-    AddressNotMatch,
+    AddressNotMatch = CardholderAddressVerificationResultCode.AddressNotMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address numeric not processed for technical reason.
-    /// Encoded/decoded by serializers as "AddressTechnical".
+    /// Encoded/decoded by serializers as "ANMT".
     /// </summary>
     [EnumMember(Value = "ANMT")]
     [IsoId("_TSXNfQEcEeCQm6a_G2yO_w_-133909697")]
     [Description(@"Address numeric not processed for technical reason.")]
-    AddressTechnical,
+    AddressTechnical = CardholderAddressVerificationResultCode.AddressTechnical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address numeric not processed for non-technical reason.
-    /// Encoded/decoded by serializers as "AddressNotTechnical".
+    /// Encoded/decoded by serializers as "ANMO".
     /// </summary>
     [EnumMember(Value = "ANMO")]
     [IsoId("_TSXNfgEcEeCQm6a_G2yO_w_-656898248")]
     [Description(@"Address numeric not processed for non-technical reason.")]
-    AddressNotTechnical,
+    AddressNotTechnical = CardholderAddressVerificationResultCode.AddressNotTechnical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address numeric missing in request.
-    /// Encoded/decoded by serializers as "AddressMissing".
+    /// Encoded/decoded by serializers as "AMSS".
     /// </summary>
     [EnumMember(Value = "AMSS")]
     [IsoId("_TSXNfwEcEeCQm6a_G2yO_w_1280326925")]
     [Description(@"Address numeric missing in request.")]
-    AddressMissing,
+    AddressMissing = CardholderAddressVerificationResultCode.AddressMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address numeric not used by issuer.
-    /// Encoded/decoded by serializers as "AddressNotUsed".
+    /// Encoded/decoded by serializers as "ANUS".
     /// </summary>
     [EnumMember(Value = "ANUS")]
     [IsoId("_TSXNgAEcEeCQm6a_G2yO_w_-694884291")]
     [Description(@"Address numeric not used by issuer.")]
-    AddressNotUsed,
+    AddressNotUsed = CardholderAddressVerificationResultCode.AddressNotUsed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code matches.
-    /// Encoded/decoded by serializers as "PostalMatch".
+    /// Encoded/decoded by serializers as "PMCH".
     /// </summary>
     [EnumMember(Value = "PMCH")]
     [IsoId("_TSXNgQEcEeCQm6a_G2yO_w_1242340882")]
     [Description(@"Postal code matches.")]
-    PostalMatch,
+    PostalMatch = CardholderAddressVerificationResultCode.PostalMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code does not match.
-    /// Encoded/decoded by serializers as "PostalNotMatch".
+    /// Encoded/decoded by serializers as "PNMH".
     /// </summary>
     [EnumMember(Value = "PNMH")]
     [IsoId("_TSXNggEcEeCQm6a_G2yO_w_-1449634165")]
     [Description(@"Postal code does not match.")]
-    PostalNotMatch,
+    PostalNotMatch = CardholderAddressVerificationResultCode.PostalNotMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code not processed for technical reason.
-    /// Encoded/decoded by serializers as "PostalTechnical".
+    /// Encoded/decoded by serializers as "PNMT".
     /// </summary>
     [EnumMember(Value = "PNMT")]
     [IsoId("_TSg-cAEcEeCQm6a_G2yO_w_487591008")]
     [Description(@"Postal code not processed for technical reason.")]
-    PostalTechnical,
+    PostalTechnical = CardholderAddressVerificationResultCode.PostalTechnical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code not processed for non-technical reason.
-    /// Encoded/decoded by serializers as "PostalNotTechnical".
+    /// Encoded/decoded by serializers as "PNMO".
     /// </summary>
     [EnumMember(Value = "PNMO")]
     [IsoId("_TSg-cQEcEeCQm6a_G2yO_w_-2084666011")]
     [Description(@"Postal code not processed for non-technical reason.")]
-    PostalNotTechnical,
+    PostalNotTechnical = CardholderAddressVerificationResultCode.PostalNotTechnical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code missing in request.
-    /// Encoded/decoded by serializers as "PostalMissing".
+    /// Encoded/decoded by serializers as "PMSS".
     /// </summary>
     [EnumMember(Value = "PMSS")]
     [IsoId("_TSg-cgEcEeCQm6a_G2yO_w_-147440838")]
     [Description(@"Postal code missing in request.")]
-    PostalMissing,
+    PostalMissing = CardholderAddressVerificationResultCode.PostalMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Postal code not used by issuer.
-    /// Encoded/decoded by serializers as "PostalNotUsed".
+    /// Encoded/decoded by serializers as "PNUS".
     /// </summary>
     [EnumMember(Value = "PNUS")]
     [IsoId("_TSg-cwEcEeCQm6a_G2yO_w_-1006645673")]
     [Description(@"Postal code not used by issuer.")]
-    PostalNotUsed,
+    PostalNotUsed = CardholderAddressVerificationResultCode.PostalNotUsed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum CardholderAddressVerificationResult1Code
 public static class CardholderAddressVerificationResult1CodeMetadataExtensions
 {
     private static readonly CardholderAddressVerificationResult1CodeDropdownSource _dropdownSource = new CardholderAddressVerificationResult1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

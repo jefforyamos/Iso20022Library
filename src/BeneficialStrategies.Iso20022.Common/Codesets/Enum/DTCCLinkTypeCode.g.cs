@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1rziMDL3EeKU9IrkkToqcw_1576727948")]
 [Description(@"Specifies types of linked events.")]
 [Derivations(typeof(DTCCLinkType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCCLinkTypeCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum DTCCLinkTypeCode
 public static class DTCCLinkTypeCodeMetadataExtensions
 {
     private static readonly DTCCLinkTypeCodeDropdownSource _dropdownSource = new DTCCLinkTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

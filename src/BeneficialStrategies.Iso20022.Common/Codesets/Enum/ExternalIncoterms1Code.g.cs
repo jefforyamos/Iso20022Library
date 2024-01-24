@@ -16,108 +16,108 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_TRd1lgEcEeCQm6a_G2yO_w_-958842910")]
-[Description(@"Specifies the incoterms, as published in an external incoterms code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the incoterms, as published in an external incoterms code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalIncotermsCode))]
 public enum ExternalIncoterms1Code
 {
     /// <summary>
     /// Cost and Freight (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CostAndFreight".
+    /// Encoded/decoded by serializers as "CFR".
     /// </summary>
     [EnumMember(Value = "CFR")]
     [IsoId("_uH-6UvRYEeuLhpyIdtJzwg")]
     [Description(@"Cost and Freight (sea and inland waterway transport) - Incoterms 2010")]
-    CostAndFreight,
+    CostAndFreight = ExternalIncotermsCode.CostAndFreight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cost, Insurance and Freight (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CostInsuranceAndFreight".
+    /// Encoded/decoded by serializers as "CIF".
     /// </summary>
     [EnumMember(Value = "CIF")]
     [IsoId("_uH-6VfRYEeuLhpyIdtJzwg")]
     [Description(@"Cost, Insurance and Freight (sea and inland waterway transport) - Incoterms 2010")]
-    CostInsuranceAndFreight,
+    CostInsuranceAndFreight = ExternalIncotermsCode.CostInsuranceAndFreight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Carriage and Insurance Paid To (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CarriageAndInsurancePaid".
+    /// Encoded/decoded by serializers as "CIP".
     /// </summary>
     [EnumMember(Value = "CIP")]
     [IsoId("_uIIrUvRYEeuLhpyIdtJzwg")]
     [Description(@"Carriage and Insurance Paid To (any mode of transport, including multimodal) - Incoterms 2010")]
-    CarriageAndInsurancePaid,
+    CarriageAndInsurancePaid = ExternalIncotermsCode.CarriageAndInsurancePaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Carriage Paid To (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CarriagePaid".
+    /// Encoded/decoded by serializers as "CPT".
     /// </summary>
     [EnumMember(Value = "CPT")]
     [IsoId("_uIIrVfRYEeuLhpyIdtJzwg")]
     [Description(@"Carriage Paid To (any mode of transport, including multimodal) - Incoterms 2010")]
-    CarriagePaid,
+    CarriagePaid = ExternalIncotermsCode.CarriagePaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered at Place (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DeliveredAtPlace".
+    /// Encoded/decoded by serializers as "DAP".
     /// </summary>
     [EnumMember(Value = "DAP")]
     [IsoId("_uIIrWPRYEeuLhpyIdtJzwg")]
     [Description(@"Delivered at Place (any mode of transport, including multimodal) - Incoterms 2010")]
-    DeliveredAtPlace,
+    DeliveredAtPlace = ExternalIncotermsCode.DeliveredAtPlace, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered at Terminal (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DeliveredAtTerminal".
+    /// Encoded/decoded by serializers as "DAT".
     /// </summary>
     [EnumMember(Value = "DAT")]
     [IsoId("_uIIrW_RYEeuLhpyIdtJzwg")]
     [Description(@"Delivered at Terminal (any mode of transport, including multimodal) - Incoterms 2010")]
-    DeliveredAtTerminal,
+    DeliveredAtTerminal = ExternalIncotermsCode.DeliveredAtTerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered Duty Paid (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DeliveredDutyPaid".
+    /// Encoded/decoded by serializers as "DDP".
     /// </summary>
     [EnumMember(Value = "DDP")]
     [IsoId("_uIR1QvRYEeuLhpyIdtJzwg")]
     [Description(@"Delivered Duty Paid (any mode of transport, including multimodal) - Incoterms 2010")]
-    DeliveredDutyPaid,
+    DeliveredDutyPaid = ExternalIncotermsCode.DeliveredDutyPaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ex Works (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "ExWorks".
+    /// Encoded/decoded by serializers as "EXW".
     /// </summary>
     [EnumMember(Value = "EXW")]
     [IsoId("_uIR1RfRYEeuLhpyIdtJzwg")]
     [Description(@"Ex Works (any mode of transport, including multimodal) - Incoterms 2010")]
-    ExWorks,
+    ExWorks = ExternalIncotermsCode.ExWorks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free Alongside Ship (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FreeAlongsideShip".
+    /// Encoded/decoded by serializers as "FAS".
     /// </summary>
     [EnumMember(Value = "FAS")]
     [IsoId("_uIR1SPRYEeuLhpyIdtJzwg")]
     [Description(@"Free Alongside Ship (sea and inland waterway transport) - Incoterms 2010")]
-    FreeAlongsideShip,
+    FreeAlongsideShip = ExternalIncotermsCode.FreeAlongsideShip, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free Carrier (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FreeCarrier".
+    /// Encoded/decoded by serializers as "FCA".
     /// </summary>
     [EnumMember(Value = "FCA")]
     [IsoId("_uIR1S_RYEeuLhpyIdtJzwg")]
     [Description(@"Free Carrier (any mode of transport, including multimodal) - Incoterms 2010")]
-    FreeCarrier,
+    FreeCarrier = ExternalIncotermsCode.FreeCarrier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free On Board (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FreeOnBoard".
+    /// Encoded/decoded by serializers as "FOB".
     /// </summary>
     [EnumMember(Value = "FOB")]
     [IsoId("_uIR1TvRYEeuLhpyIdtJzwg")]
     [Description(@"Free On Board (sea and inland waterway transport) - Incoterms 2010")]
-    FreeOnBoard,
+    FreeOnBoard = ExternalIncotermsCode.FreeOnBoard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -128,7 +128,7 @@ public enum ExternalIncoterms1Code
 public static class ExternalIncoterms1CodeMetadataExtensions
 {
     private static readonly ExternalIncoterms1CodeDropdownSource _dropdownSource = new ExternalIncoterms1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

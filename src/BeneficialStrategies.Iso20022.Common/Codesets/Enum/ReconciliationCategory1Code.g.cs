@@ -21,48 +21,48 @@ public enum ReconciliationCategory1Code
 {
     /// <summary>
     /// Reconciliation category is reversal.
-    /// Encoded/decoded by serializers as "Reversal".
+    /// Encoded/decoded by serializers as "RVSL".
     /// </summary>
     [EnumMember(Value = "RVSL")]
     [IsoId("_cav5IS7NEemIy6A-26wnAg")]
     [Description(@"Reconciliation category is reversal.")]
-    Reversal,
+    Reversal = ReconciliationCategoryCode.Reversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation category is other private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_cfaWsS7NEemIy6A-26wnAg")]
     [Description(@"Reconciliation category is other private")]
-    OtherPrivate,
+    OtherPrivate = ReconciliationCategoryCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation category is other national.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_cjOfsS7NEemIy6A-26wnAg")]
     [Description(@"Reconciliation category is other national.")]
-    OtherNational,
+    OtherNational = ReconciliationCategoryCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation category is financial.
-    /// Encoded/decoded by serializers as "Financial".
+    /// Encoded/decoded by serializers as "FNCL".
     /// </summary>
     [EnumMember(Value = "FNCL")]
     [IsoId("_cquO0S7NEemIy6A-26wnAg")]
     [Description(@"Reconciliation category is financial.")]
-    Financial,
+    Financial = ReconciliationCategoryCode.Financial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation category is a chargeback.
-    /// Encoded/decoded by serializers as "Chargeback".
+    /// Encoded/decoded by serializers as "CGBK".
     /// </summary>
     [EnumMember(Value = "CGBK")]
     [IsoId("_cu_DwS7NEemIy6A-26wnAg")]
     [Description(@"Reconciliation category is a chargeback.")]
-    Chargeback,
+    Chargeback = ReconciliationCategoryCode.Chargeback, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ReconciliationCategory1Code
 public static class ReconciliationCategory1CodeMetadataExtensions
 {
     private static readonly ReconciliationCategory1CodeDropdownSource _dropdownSource = new ReconciliationCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

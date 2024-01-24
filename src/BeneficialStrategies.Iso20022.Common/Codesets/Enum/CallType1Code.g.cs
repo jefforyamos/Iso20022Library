@@ -21,21 +21,21 @@ public enum CallType1Code
 {
     /// <summary>
     /// Type of execution of the call feature is a lottery.
-    /// Encoded/decoded by serializers as "Lottery".
+    /// Encoded/decoded by serializers as "LOTT".
     /// </summary>
     [EnumMember(Value = "LOTT")]
     [IsoId("_ha1jv2liEeGaMcKyqKNRfQ_1557320145")]
     [Description(@"Type of execution of the call feature is a lottery.")]
-    Lottery,
+    Lottery = CallTypeCode.Lottery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of execution of the call feature is pro-rata.
-    /// Encoded/decoded by serializers as "ProRata".
+    /// Encoded/decoded by serializers as "PRTA".
     /// </summary>
     [EnumMember(Value = "PRTA")]
     [IsoId("_ha1jwGliEeGaMcKyqKNRfQ_-906723982")]
     [Description(@"Type of execution of the call feature is pro-rata.")]
-    ProRata,
+    ProRata = CallTypeCode.ProRata, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CallType1Code
 public static class CallType1CodeMetadataExtensions
 {
     private static readonly CallType1CodeDropdownSource _dropdownSource = new CallType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

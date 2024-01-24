@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a1h9Itp-Ed-ak6NoX_4Aeg_1210390507")]
 [Description(@"See narrative field for reason.")]
-[Derivations(typeof(CancelledStatusReason9Code),typeof(CancelledStatusReason13Code),typeof(CancelledStatusReason5Code),typeof(CancelledStatusReason6Code),typeof(CancelledStatusReason11Code),typeof(CancelledStatusReason10Code),typeof(CancelledStatusReason12Code),typeof(CancelledStatusReason4Code),typeof(CancelledStatusReason7Code),typeof(CancelledStatusReason14Code),typeof(CancelledStatusReason15Code),typeof(CancelledStatusReason16Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(CancelledStatusReason10Code),typeof(CancelledStatusReason14Code),typeof(CancelledStatusReason16Code),typeof(CancelledStatusReason15Code),typeof(CancelledStatusReason6Code),typeof(CancelledStatusReason7Code),typeof(CancelledStatusReason5Code),typeof(CancelledStatusReason11Code),typeof(CancelledStatusReason13Code),typeof(CancelledStatusReason12Code),typeof(CancelledStatusReason4Code),typeof(CancelledStatusReason9Code))]
 public enum CancelledStatusReasonV2Code
 {
     /// <summary>
@@ -200,7 +199,7 @@ public enum CancelledStatusReasonV2Code
 public static class CancelledStatusReasonV2CodeMetadataExtensions
 {
     private static readonly CancelledStatusReasonV2CodeDropdownSource _dropdownSource = new CancelledStatusReasonV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

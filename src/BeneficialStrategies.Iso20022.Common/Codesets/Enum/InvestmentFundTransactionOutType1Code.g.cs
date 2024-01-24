@@ -21,39 +21,39 @@ public enum InvestmentFundTransactionOutType1Code
 {
     /// <summary>
     /// Transaction is a redemption of an investment fund.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_aczUFNp-Ed-ak6NoX_4Aeg_1717851866")]
     [Description(@"Transaction is a redemption of an investment fund.")]
-    Redemption,
+    Redemption = InvestmentFundTransactionTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SwitchOut".
+    /// Encoded/decoded by serializers as "SWIO".
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_aczUFdp-Ed-ak6NoX_4Aeg_1717851883")]
     [Description(@"Transaction is a subscription leg of a switch order execution.")]
-    SwitchOut,
+    SwitchOut = InvestmentFundTransactionTypeCode.SwitchOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "INSP".
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_aczUFtp-Ed-ak6NoX_4Aeg_1717851901")]
     [Description(@"Transaction is an InSpecie.")]
-    InSpecie,
+    InSpecie = InvestmentFundTransactionTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a cross out.
-    /// Encoded/decoded by serializers as "CrossOut".
+    /// Encoded/decoded by serializers as "CROO".
     /// </summary>
     [EnumMember(Value = "CROO")]
     [IsoId("_aczUF9p-Ed-ak6NoX_4Aeg_1717851902")]
     [Description(@"Transaction is a cross out.")]
-    CrossOut,
+    CrossOut = InvestmentFundTransactionTypeCode.CrossOut, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum InvestmentFundTransactionOutType1Code
 public static class InvestmentFundTransactionOutType1CodeMetadataExtensions
 {
     private static readonly InvestmentFundTransactionOutType1CodeDropdownSource _dropdownSource = new InvestmentFundTransactionOutType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

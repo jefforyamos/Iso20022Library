@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_pvUNgENuEeaS-NnwLNvMPg")]
 [Description(@"Specifies the type of Common Reporting Standard (CRS) form.")]
 [Derivations(typeof(CRSFormType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CRSFormTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum CRSFormTypeCode
 public static class CRSFormTypeCodeMetadataExtensions
 {
     private static readonly CRSFormTypeCodeDropdownSource _dropdownSource = new CRSFormTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

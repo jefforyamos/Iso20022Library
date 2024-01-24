@@ -16,198 +16,198 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_amL5k9p-Ed-ak6NoX_4Aeg_-1218783633")]
-[Description(@"Specifies the balance sub-type, as published in an external balance sub-type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the balance sub-type, as published in an external balance sub-type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalBalanceSubTypeCode))]
 public enum ExternalBalanceSubType1Code
 {
     /// <summary>
     /// Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.
-    /// Encoded/decoded by serializers as "Adjustment".
+    /// Encoded/decoded by serializers as "ADJT".
     /// </summary>
     [EnumMember(Value = "ADJT")]
     [IsoId("_teji1fRYEeuLhpyIdtJzwg")]
     [Description(@"Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.")]
-    Adjustment,
+    Adjustment = ExternalBalanceSubTypeCode.Adjustment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount in the domestic or base accounting currency. 
-    /// Encoded/decoded by serializers as "BaseCurrency".
+    /// Encoded/decoded by serializers as "BCUR".
     /// </summary>
     [EnumMember(Value = "BCUR")]
     [IsoId("_tetT0vRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount in the domestic or base accounting currency. ")]
-    BaseCurrency,
+    BaseCurrency = ExternalBalanceSubTypeCode.BaseCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_tetT1fRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.")]
-    Blocked,
+    Blocked = ExternalBalanceSubTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing funds that cannot be touched by the account owner.
-    /// Encoded/decoded by serializers as "BlockedFunds".
+    /// Encoded/decoded by serializers as "BLKD".
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_te3E0vRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing funds that cannot be touched by the account owner.")]
-    BlockedFunds,
+    BlockedFunds = ExternalBalanceSubTypeCode.BlockedFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.
-    /// Encoded/decoded by serializers as "DaylightOverdraft".
+    /// Encoded/decoded by serializers as "DLOD".
     /// </summary>
     [EnumMember(Value = "DLOD")]
     [IsoId("_te3E1fRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.")]
-    DaylightOverdraft,
+    DaylightOverdraft = ExternalBalanceSubTypeCode.DaylightOverdraft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.
-    /// Encoded/decoded by serializers as "EligibleAssets".
+    /// Encoded/decoded by serializers as "EAST".
     /// </summary>
     [EnumMember(Value = "EAST")]
     [IsoId("_te3E2PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.")]
-    EligibleAssets,
+    EligibleAssets = ExternalBalanceSubTypeCode.EligibleAssets, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.
-    /// Encoded/decoded by serializers as "FirmCollateralization".
+    /// Encoded/decoded by serializers as "FCOL".
     /// </summary>
     [EnumMember(Value = "FCOL")]
     [IsoId("_tfAOwvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.")]
-    FirmCollateralization,
+    FirmCollateralization = ExternalBalanceSubTypeCode.FirmCollateralization, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.
-    /// Encoded/decoded by serializers as "AmountsThatHaveBeenUsedToServeAsFirmCollateral".
+    /// Encoded/decoded by serializers as "FCOU".
     /// </summary>
     [EnumMember(Value = "FCOU")]
     [IsoId("_tfAOxfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.")]
-    AmountsThatHaveBeenUsedToServeAsFirmCollateral,
+    AmountsThatHaveBeenUsedToServeAsFirmCollateral = ExternalBalanceSubTypeCode.AmountsThatHaveBeenUsedToServeAsFirmCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the total of all balance types representing the forecast of transactions to settle, blocked items, custody transactions and corporate actions cash disbursements.
-    /// Encoded/decoded by serializers as "SecuritiesForecast".
+    /// Encoded/decoded by serializers as "FORC".
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_tfAOyPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of all balance types representing the forecast of transactions to settle, blocked items, custody transactions and corporate actions cash disbursements.")]
-    SecuritiesForecast,
+    SecuritiesForecast = ExternalBalanceSubTypeCode.SecuritiesForecast, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the net amount to be funded resulting from the difference between the total of all transactions with a cash impact and the existing cash coverage.
-    /// Encoded/decoded by serializers as "NetFunding".
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_tfJ_wvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the net amount to be funded resulting from the difference between the total of all transactions with a cash impact and the existing cash coverage.")]
-    NetFunding,
+    NetFunding = ExternalBalanceSubTypeCode.NetFunding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing an intermediate amount such as the opening or closing balance incrementally carried forward from one page to the next in a multi-page statement or report.
-    /// Encoded/decoded by serializers as "Intermediate".
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_tfJ_xfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing an intermediate amount such as the opening or closing balance incrementally carried forward from one page to the next in a multi-page statement or report.")]
-    Intermediate,
+    Intermediate = ExternalBalanceSubTypeCode.Intermediate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount in the local market currency for which the asset is held. 
-    /// Encoded/decoded by serializers as "LocalCurrency".
+    /// Encoded/decoded by serializers as "LCUR".
     /// </summary>
     [EnumMember(Value = "LCUR")]
     [IsoId("_tfJ_yPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount in the local market currency for which the asset is held. ")]
-    LocalCurrency,
+    LocalCurrency = ExternalBalanceSubTypeCode.LocalCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.
-    /// Encoded/decoded by serializers as "LimitRelated".
+    /// Encoded/decoded by serializers as "LRLD".
     /// </summary>
     [EnumMember(Value = "LRLD")]
     [IsoId("_tfTJsvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.")]
-    LimitRelated,
+    LimitRelated = ExternalBalanceSubTypeCode.LimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available. In the context of CSDs, reservation of liquidity made to meet settlement obligations.
-    /// Encoded/decoded by serializers as "ReservedLiquidity".
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_tfTJtfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available. In the context of CSDs, reservation of liquidity made to meet settlement obligations.")]
-    ReservedLiquidity,
+    ReservedLiquidity = ExternalBalanceSubTypeCode.ReservedLiquidity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending delivery, such as orders to sell securities have been executed but settlement of the open transactions has not been confirmed.
-    /// Encoded/decoded by serializers as "SecuritiesPending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_tfTJuPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of securities pending delivery, such as orders to sell securities have been executed but settlement of the open transactions has not been confirmed.")]
-    SecuritiesPending,
+    SecuritiesPending = ExternalBalanceSubTypeCode.SecuritiesPending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the fictive amount of automated direct debits or payment based on standing arrangements between the CSD and the user. Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.
-    /// Encoded/decoded by serializers as "PayInPayOut".
+    /// Encoded/decoded by serializers as "PIPO".
     /// </summary>
     [EnumMember(Value = "PIPO")]
     [IsoId("_tfTJu_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the fictive amount of automated direct debits or payment based on standing arrangements between the CSD and the user. Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
-    PayInPayOut,
+    PayInPayOut = ExternalBalanceSubTypeCode.PayInPayOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.
-    /// Encoded/decoded by serializers as "ProgressiveAverage".
+    /// Encoded/decoded by serializers as "PRAV".
     /// </summary>
     [EnumMember(Value = "PRAV")]
     [IsoId("_tfc6svRYEeuLhpyIdtJzwg")]
     [Description(@"Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.")]
-    ProgressiveAverage,
+    ProgressiveAverage = ExternalBalanceSubTypeCode.ProgressiveAverage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. 
-    /// Encoded/decoded by serializers as "Reserve".
+    /// Encoded/decoded by serializers as "RESV".
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_tfc6tfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. ")]
-    Reserve,
+    Reserve = ExternalBalanceSubTypeCode.Reserve, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.
-    /// Encoded/decoded by serializers as "SelfCollateralization".
+    /// Encoded/decoded by serializers as "SCOL".
     /// </summary>
     [EnumMember(Value = "SCOL")]
     [IsoId("_tfc6uPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.")]
-    SelfCollateralization,
+    SelfCollateralization = ExternalBalanceSubTypeCode.SelfCollateralization, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process. 
-    /// Encoded/decoded by serializers as "AmountsThatHaveBeenUsedToServeAsSelfCollateral".
+    /// Encoded/decoded by serializers as "SCOU".
     /// </summary>
     [EnumMember(Value = "SCOU")]
     [IsoId("_tfc6u_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process. ")]
-    AmountsThatHaveBeenUsedToServeAsSelfCollateral,
+    AmountsThatHaveBeenUsedToServeAsSelfCollateral = ExternalBalanceSubTypeCode.AmountsThatHaveBeenUsedToServeAsSelfCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.
-    /// Encoded/decoded by serializers as "Threshold".
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_tfc6vvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.")]
-    Threshold,
+    Threshold = ExternalBalanceSubTypeCode.Threshold, // same ordinal as derivation source for type conversions
     
 }
 
@@ -218,7 +218,7 @@ public enum ExternalBalanceSubType1Code
 public static class ExternalBalanceSubType1CodeMetadataExtensions
 {
     private static readonly ExternalBalanceSubType1CodeDropdownSource _dropdownSource = new ExternalBalanceSubType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

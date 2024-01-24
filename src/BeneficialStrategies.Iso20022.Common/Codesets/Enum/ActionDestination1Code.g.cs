@@ -21,57 +21,57 @@ public enum ActionDestination1Code
 {
     /// <summary>
     /// Data file
-    /// Encoded/decoded by serializers as "File".
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_3O1WAU0wEeea0Mdu1TOzDQ")]
     [Description(@"Data file")]
-    File,
+    File = ActionDestinationCode.File, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mobile telephone
-    /// Encoded/decoded by serializers as "Mobile".
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_3bOMMk0wEeea0Mdu1TOzDQ")]
     [Description(@"Mobile telephone")]
-    Mobile,
+    Mobile = ActionDestinationCode.Mobile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of destination for action defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_3jrkok0wEeea0Mdu1TOzDQ")]
     [Description(@"Other type of destination for action defined at national level.")]
-    OtherNational,
+    OtherNational = ActionDestinationCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of destination for action defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_3tJCok0wEeea0Mdu1TOzDQ")]
     [Description(@"Other type of destination for action defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = ActionDestinationCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Personal computer.
-    /// Encoded/decoded by serializers as "PersonalComputer".
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_39Imck0wEeea0Mdu1TOzDQ")]
     [Description(@"Personal computer.")]
-    PersonalComputer,
+    PersonalComputer = ActionDestinationCode.PersonalComputer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of sale terminal.
-    /// Encoded/decoded by serializers as "PointOfSale".
+    /// Encoded/decoded by serializers as "POFS".
     /// </summary>
     [EnumMember(Value = "POFS")]
     [IsoId("_4Fl-4U0wEeea0Mdu1TOzDQ")]
     [Description(@"Point of sale terminal.")]
-    PointOfSale,
+    PointOfSale = ActionDestinationCode.PointOfSale, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ActionDestination1Code
 public static class ActionDestination1CodeMetadataExtensions
 {
     private static readonly ActionDestination1CodeDropdownSource _dropdownSource = new ActionDestination1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,129 +21,129 @@ public enum ClearingFeeType1Code
 {
     /// <summary>
     /// Member of the Chicago Board Of Exchange.
-    /// Encoded/decoded by serializers as "CBOEMember".
+    /// Encoded/decoded by serializers as "CBOE".
     /// </summary>
     [EnumMember(Value = "CBOE")]
     [IsoId("_a_X1ptp-Ed-ak6NoX_4Aeg_-26409555")]
     [Description(@"Member of the Chicago Board Of Exchange.")]
-    CBOEMember,
+    CBOEMember = ClearingFeeTypeCode.CBOEMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-member and customer.
-    /// Encoded/decoded by serializers as "NonMemberAndCustomer".
+    /// Encoded/decoded by serializers as "NONM".
     /// </summary>
     [EnumMember(Value = "NONM")]
     [IsoId("_a_X1p9p-Ed-ak6NoX_4Aeg_-26409537")]
     [Description(@"Non-member and customer.")]
-    NonMemberAndCustomer,
+    NonMemberAndCustomer = ClearingFeeTypeCode.NonMemberAndCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity member and clearing member.
-    /// Encoded/decoded by serializers as "EquityClearingMember".
+    /// Encoded/decoded by serializers as "EQCL".
     /// </summary>
     [EnumMember(Value = "EQCL")]
     [IsoId("_a_X1qNp-Ed-ak6NoX_4Aeg_-26409494")]
     [Description(@"Equity member and clearing member.")]
-    EquityClearingMember,
+    EquityClearingMember = ClearingFeeTypeCode.EquityClearingMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Full and associate member trading for own account and as floor brokers.
-    /// Encoded/decoded by serializers as "FullAssociateMember".
+    /// Encoded/decoded by serializers as "FUAS".
     /// </summary>
     [EnumMember(Value = "FUAS")]
     [IsoId("_a_X1qdp-Ed-ak6NoX_4Aeg_-26409234")]
     [Description(@"Full and associate member trading for own account and as floor brokers.")]
-    FullAssociateMember,
+    FullAssociateMember = ClearingFeeTypeCode.FullAssociateMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// 106.J and 106.H Firms.
-    /// Encoded/decoded by serializers as "J106AndHFirms".
+    /// Encoded/decoded by serializers as "JANF".
     /// </summary>
     [EnumMember(Value = "JANF")]
     [IsoId("_a_g_kNp-Ed-ak6NoX_4Aeg_-26409199")]
     [Description(@"106.J and 106.H Firms.")]
-    J106AndHFirms,
+    J106AndHFirms = ClearingFeeTypeCode.J106AndHFirms, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GIM, IDEM and COM Membership Interest Holders.
-    /// Encoded/decoded by serializers as "GICInterestHolders".
+    /// Encoded/decoded by serializers as "GICI".
     /// </summary>
     [EnumMember(Value = "GICI")]
     [IsoId("_a_g_kdp-Ed-ak6NoX_4Aeg_-26409164")]
     [Description(@"GIM, IDEM and COM Membership Interest Holders.")]
-    GICInterestHolders,
+    GICInterestHolders = ClearingFeeTypeCode.GICInterestHolders, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lessee and 106.F Employees.
-    /// Encoded/decoded by serializers as "LesseeAnd106FFirms".
+    /// Encoded/decoded by serializers as "LESF".
     /// </summary>
     [EnumMember(Value = "LESF")]
     [IsoId("_a_g_ktp-Ed-ak6NoX_4Aeg_-26409104")]
     [Description(@"Lessee and 106.F Employees.")]
-    LesseeAnd106FFirms,
+    LesseeAnd106FFirms = ClearingFeeTypeCode.LesseeAnd106FFirms, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous type of clearing membership.
-    /// Encoded/decoded by serializers as "OtherOwnershipTypes".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a_g_k9p-Ed-ak6NoX_4Aeg_-26409062")]
     [Description(@"Miscellaneous type of clearing membership.")]
-    OtherOwnershipTypes,
+    OtherOwnershipTypes = ClearingFeeTypeCode.OtherOwnershipTypes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// First year delegate trading for his own account.
-    /// Encoded/decoded by serializers as "FirstYearOwnAccount".
+    /// Encoded/decoded by serializers as "YTR1".
     /// </summary>
     [EnumMember(Value = "YTR1")]
     [IsoId("_a_g_lNp-Ed-ak6NoX_4Aeg_-26408779")]
     [Description(@"First year delegate trading for his own account.")]
-    FirstYearOwnAccount,
+    FirstYearOwnAccount = ClearingFeeTypeCode.FirstYearOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Second year delegate trading for his own account.
-    /// Encoded/decoded by serializers as "SecondYearOwnAccount".
+    /// Encoded/decoded by serializers as "YTR2".
     /// </summary>
     [EnumMember(Value = "YTR2")]
     [IsoId("_a_g_ldp-Ed-ak6NoX_4Aeg_-26408719")]
     [Description(@"Second year delegate trading for his own account.")]
-    SecondYearOwnAccount,
+    SecondYearOwnAccount = ClearingFeeTypeCode.SecondYearOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Third year delegate trading for his own account.
-    /// Encoded/decoded by serializers as "ThirdYearOwnAccount".
+    /// Encoded/decoded by serializers as "YTR3".
     /// </summary>
     [EnumMember(Value = "YTR3")]
     [IsoId("_a_g_ltp-Ed-ak6NoX_4Aeg_-26408676")]
     [Description(@"Third year delegate trading for his own account.")]
-    ThirdYearOwnAccount,
+    ThirdYearOwnAccount = ClearingFeeTypeCode.ThirdYearOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fourth year delegate trading for his own account.
-    /// Encoded/decoded by serializers as "FourthYearOwnAccount".
+    /// Encoded/decoded by serializers as "YTR4".
     /// </summary>
     [EnumMember(Value = "YTR4")]
     [IsoId("_a_g_l9p-Ed-ak6NoX_4Aeg_-26408659")]
     [Description(@"Fourth year delegate trading for his own account.")]
-    FourthYearOwnAccount,
+    FourthYearOwnAccount = ClearingFeeTypeCode.FourthYearOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fifth year delegate trading for his own account.
-    /// Encoded/decoded by serializers as "FifthYearOwnAccount".
+    /// Encoded/decoded by serializers as "YTR5".
     /// </summary>
     [EnumMember(Value = "YTR5")]
     [IsoId("_a_g_mNp-Ed-ak6NoX_4Aeg_-26408641")]
     [Description(@"Fifth year delegate trading for his own account.")]
-    FifthYearOwnAccount,
+    FifthYearOwnAccount = ClearingFeeTypeCode.FifthYearOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sixth year and beyond delegate trading for his own account.
-    /// Encoded/decoded by serializers as "MoreThanFiveYearOwnAccount".
+    /// Encoded/decoded by serializers as "NYTR".
     /// </summary>
     [EnumMember(Value = "NYTR")]
     [IsoId("_a_g_mdp-Ed-ak6NoX_4Aeg_-26408624")]
     [Description(@"Sixth year and beyond delegate trading for his own account.")]
-    MoreThanFiveYearOwnAccount,
+    MoreThanFiveYearOwnAccount = ClearingFeeTypeCode.MoreThanFiveYearOwnAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum ClearingFeeType1Code
 public static class ClearingFeeType1CodeMetadataExtensions
 {
     private static readonly ClearingFeeType1CodeDropdownSource _dropdownSource = new ClearingFeeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

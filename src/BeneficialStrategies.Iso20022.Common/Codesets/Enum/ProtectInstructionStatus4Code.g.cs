@@ -21,12 +21,12 @@ public enum ProtectInstructionStatus4Code
 {
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_BshVMbpcEeilsanBGAzy4A")]
     [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
-    Open,
+    Open = DTCInstructionStatusCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ProtectInstructionStatus4Code
 public static class ProtectInstructionStatus4CodeMetadataExtensions
 {
     private static readonly ProtectInstructionStatus4CodeDropdownSource _dropdownSource = new ProtectInstructionStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

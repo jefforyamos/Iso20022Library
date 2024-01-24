@@ -21,21 +21,21 @@ public enum BalanceStatus1Code
 {
     /// <summary>
     /// Balance corresponding to the pending transactions.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_bkLL0Np-Ed-ak6NoX_4Aeg_992302531")]
     [Description(@"Balance corresponding to the pending transactions.")]
-    Pending,
+    Pending = BalanceStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final status of a transaction when the associated transfer of cash has been successfully processed.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "STLD".
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_bkLL0dp-Ed-ak6NoX_4Aeg_992302584")]
     [Description(@"Final status of a transaction when the associated transfer of cash has been successfully processed.")]
-    Settled,
+    Settled = BalanceStatusCode.Settled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BalanceStatus1Code
 public static class BalanceStatus1CodeMetadataExtensions
 {
     private static readonly BalanceStatus1CodeDropdownSource _dropdownSource = new BalanceStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

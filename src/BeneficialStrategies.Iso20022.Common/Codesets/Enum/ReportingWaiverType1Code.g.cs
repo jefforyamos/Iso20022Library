@@ -21,57 +21,57 @@ public enum ReportingWaiverType1Code
 {
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "NegotiatedTransactionInIlliquidFinancialInstrument".
+    /// Encoded/decoded by serializers as "OILQ".
     /// </summary>
     [EnumMember(Value = "OILQ")]
     [IsoId("_PgjKge8WEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.")]
-    NegotiatedTransactionInIlliquidFinancialInstrument,
+    NegotiatedTransactionInIlliquidFinancialInstrument = ReportingWaiverTypeCode.NegotiatedTransactionInIlliquidFinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "NegotiatedTransactionInLiquidFinancialInstrument".
+    /// Encoded/decoded by serializers as "NLIQ".
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_PnWWEe8WEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.")]
-    NegotiatedTransactionInLiquidFinancialInstrument,
+    NegotiatedTransactionInLiquidFinancialInstrument = ReportingWaiverTypeCode.NegotiatedTransactionInLiquidFinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "NegotiatedTransactionWithConditions".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_PxNcse8WEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.")]
-    NegotiatedTransactionWithConditions,
+    NegotiatedTransactionWithConditions = ReportingWaiverTypeCode.NegotiatedTransactionWithConditions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "IlliquidInstrumentTransaction".
+    /// Encoded/decoded by serializers as "ILQD".
     /// </summary>
     [EnumMember(Value = "ILQD")]
     [IsoId("_oQTBwe8WEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.")]
-    IlliquidInstrumentTransaction,
+    IlliquidInstrumentTransaction = ReportingWaiverTypeCode.IlliquidInstrumentTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "ReferencePriceTransaction".
+    /// Encoded/decoded by serializers as "RFPT".
     /// </summary>
     [EnumMember(Value = "RFPT")]
     [IsoId("_KcKw0fPbEeS_qLctCs2aRQ")]
     [Description(@"Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.")]
-    ReferencePriceTransaction,
+    ReferencePriceTransaction = ReportingWaiverTypeCode.ReferencePriceTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "AboveSpecificSizeTransaction".
+    /// Encoded/decoded by serializers as "SIZE".
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_H_1TMIIjEeW_KPkCyw2GUA")]
     [Description(@"Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.")]
-    AboveSpecificSizeTransaction,
+    AboveSpecificSizeTransaction = ReportingWaiverTypeCode.AboveSpecificSizeTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ReportingWaiverType1Code
 public static class ReportingWaiverType1CodeMetadataExtensions
 {
     private static readonly ReportingWaiverType1CodeDropdownSource _dropdownSource = new ReportingWaiverType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

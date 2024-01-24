@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_JdeN8PeZEee0h5ZXun0VTA")]
-[Description(@"Specifies the packaging type as published in an external packaging type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the packaging type as published in an external packaging type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPackagingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPackagingTypeCode
 {
     /// <summary>
@@ -66,7 +65,7 @@ public enum ExternalPackagingTypeCode
 public static class ExternalPackagingTypeCodeMetadataExtensions
 {
     private static readonly ExternalPackagingTypeCodeDropdownSource _dropdownSource = new ExternalPackagingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

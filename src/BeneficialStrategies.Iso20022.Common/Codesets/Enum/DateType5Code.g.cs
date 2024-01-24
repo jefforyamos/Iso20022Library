@@ -21,12 +21,12 @@ public enum DateType5Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhoNp-Ed-ak6NoX_4Aeg_957934914")]
     [Description(@"Open-dated, which indicates that the date has not been established.")]
-    Open,
+    Open = DateTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DateType5Code
 public static class DateType5CodeMetadataExtensions
 {
     private static readonly DateType5CodeDropdownSource _dropdownSource = new DateType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

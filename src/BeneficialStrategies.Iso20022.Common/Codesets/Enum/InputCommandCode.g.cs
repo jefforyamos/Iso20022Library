@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jBTTwN6nEeiwsev40qZGEQ")]
 [Description(@"Type of requested input.")]
 [Derivations(typeof(InputCommand1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InputCommandCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum InputCommandCode
 public static class InputCommandCodeMetadataExtensions
 {
     private static readonly InputCommandCodeDropdownSource _dropdownSource = new InputCommandCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

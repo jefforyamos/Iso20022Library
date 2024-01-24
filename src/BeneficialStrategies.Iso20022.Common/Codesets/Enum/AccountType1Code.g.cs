@@ -21,21 +21,21 @@ public enum AccountType1Code
 {
     /// <summary>
     /// Cash account.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_brn3p9p-Ed-ak6NoX_4Aeg_-1349793499")]
     [Description(@"Cash account.")]
-    Cash,
+    Cash = AccountTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities account.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_brn3qNp-Ed-ak6NoX_4Aeg_-1327628324")]
     [Description(@"Securities account.")]
-    Securities,
+    Securities = AccountTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountType1Code
 public static class AccountType1CodeMetadataExtensions
 {
     private static readonly AccountType1CodeDropdownSource _dropdownSource = new AccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

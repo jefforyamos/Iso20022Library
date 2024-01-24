@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yb-YIbu8EeSXxOgurgHGgw")]
 [Description(@"Specifies the type of overnight index swap transaction.")]
 [Derivations(typeof(OvernightIndexSwapType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OvernightIndexSwapTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum OvernightIndexSwapTypeCode
 public static class OvernightIndexSwapTypeCodeMetadataExtensions
 {
     private static readonly OvernightIndexSwapTypeCodeDropdownSource _dropdownSource = new OvernightIndexSwapTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

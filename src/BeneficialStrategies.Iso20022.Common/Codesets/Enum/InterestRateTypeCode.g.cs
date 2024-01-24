@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_b3lpIO7nEeK-Kt3xkpFJcA_1739924161")]
 [Description(@"Specifies the type of interest rate.")]
 [Derivations(typeof(RateType7Code),typeof(RateType1Code),typeof(InterestRateType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestRateTypeCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum InterestRateTypeCode
 public static class InterestRateTypeCodeMetadataExtensions
 {
     private static readonly InterestRateTypeCodeDropdownSource _dropdownSource = new InterestRateTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

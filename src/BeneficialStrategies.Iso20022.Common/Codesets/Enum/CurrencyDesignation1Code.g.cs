@@ -21,21 +21,21 @@ public enum CurrencyDesignation1Code
 {
     /// <summary>
     /// Onshore.
-    /// Encoded/decoded by serializers as "Onshore".
+    /// Encoded/decoded by serializers as "ONSH".
     /// </summary>
     [EnumMember(Value = "ONSH")]
     [IsoId("_D0dk8Qd2EeSPHJIdUs1USg")]
     [Description(@"Onshore.")]
-    Onshore,
+    Onshore = CurrencyDesignationCode.Onshore, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offshore.
-    /// Encoded/decoded by serializers as "Offshore".
+    /// Encoded/decoded by serializers as "OFFS".
     /// </summary>
     [EnumMember(Value = "OFFS")]
     [IsoId("_D8gGoQd2EeSPHJIdUs1USg")]
     [Description(@"Offshore.")]
-    Offshore,
+    Offshore = CurrencyDesignationCode.Offshore, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CurrencyDesignation1Code
 public static class CurrencyDesignation1CodeMetadataExtensions
 {
     private static readonly CurrencyDesignation1CodeDropdownSource _dropdownSource = new CurrencyDesignation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

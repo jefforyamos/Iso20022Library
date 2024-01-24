@@ -21,21 +21,21 @@ public enum MarketClaimType1Code
 {
     /// <summary>
     /// Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.
-    /// Encoded/decoded by serializers as "MarketClaim".
+    /// Encoded/decoded by serializers as "MKTC".
     /// </summary>
     [EnumMember(Value = "MKTC")]
     [IsoId("_vZwygS2rEeuVt5XRmyhHiA")]
     [Description(@"Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.")]
-    MarketClaim,
+    MarketClaim = MarketClaimTypeCode.MarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.
-    /// Encoded/decoded by serializers as "ReverseMarketClaim".
+    /// Encoded/decoded by serializers as "RVMC".
     /// </summary>
     [EnumMember(Value = "RVMC")]
     [IsoId("_vgJuYS2rEeuVt5XRmyhHiA")]
     [Description(@"Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.")]
-    ReverseMarketClaim,
+    ReverseMarketClaim = MarketClaimTypeCode.ReverseMarketClaim, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MarketClaimType1Code
 public static class MarketClaimType1CodeMetadataExtensions
 {
     private static readonly MarketClaimType1CodeDropdownSource _dropdownSource = new MarketClaimType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

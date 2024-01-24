@@ -21,30 +21,30 @@ public enum ObligationType1Code
 {
     /// <summary>
     /// Specifies that the obligation is related to a failed trade.
-    /// Encoded/decoded by serializers as "Fails".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_YZ95odp-Ed-ak6NoX_4Aeg_-590738382")]
     [Description(@"Specifies that the obligation is related to a failed trade.")]
-    Fails,
+    Fails = ObligationTypeCode.Fails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the obligation is related to new a trade.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEW1".
     /// </summary>
     [EnumMember(Value = "NEW1")]
     [IsoId("_YZ95otp-Ed-ak6NoX_4Aeg_155306625")]
     [Description(@"Specifies that the obligation is related to new a trade.")]
-    New,
+    New = ObligationTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the obligation is related to a corporate event.
-    /// Encoded/decoded by serializers as "CorporateEvent".
+    /// Encoded/decoded by serializers as "COEV".
     /// </summary>
     [EnumMember(Value = "COEV")]
     [IsoId("_YZ95o9p-Ed-ak6NoX_4Aeg_-1536873572")]
     [Description(@"Specifies that the obligation is related to a corporate event.")]
-    CorporateEvent,
+    CorporateEvent = ObligationTypeCode.CorporateEvent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ObligationType1Code
 public static class ObligationType1CodeMetadataExtensions
 {
     private static readonly ObligationType1CodeDropdownSource _dropdownSource = new ObligationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

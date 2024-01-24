@@ -21,12 +21,12 @@ public enum AssetClassSubProductType7Code
 {
     /// <summary>
     /// Commodity of type natural gas.
-    /// Encoded/decoded by serializers as "NaturalGas".
+    /// Encoded/decoded by serializers as "NGAS".
     /// </summary>
     [EnumMember(Value = "NGAS")]
     [IsoId("_8eix0QnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type natural gas.")]
-    NaturalGas,
+    NaturalGas = AssetClassSubProductTypeCode.NaturalGas, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType7Code
 public static class AssetClassSubProductType7CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType7CodeDropdownSource _dropdownSource = new AssetClassSubProductType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

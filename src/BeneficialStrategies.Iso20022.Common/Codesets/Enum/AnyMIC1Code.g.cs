@@ -21,12 +21,12 @@ public enum AnyMIC1Code
 {
     /// <summary>
     /// Any MIC code.
-    /// Encoded/decoded by serializers as "AnyMIC".
+    /// Encoded/decoded by serializers as "ANYM".
     /// </summary>
     [EnumMember(Value = "ANYM")]
     [IsoId("_SW4c0R3ZEeWNp95x0ENf8w")]
     [Description(@"Any MIC code.")]
-    AnyMIC,
+    AnyMIC = SpecialPurposeCode.AnyMIC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AnyMIC1Code
 public static class AnyMIC1CodeMetadataExtensions
 {
     private static readonly AnyMIC1CodeDropdownSource _dropdownSource = new AnyMIC1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

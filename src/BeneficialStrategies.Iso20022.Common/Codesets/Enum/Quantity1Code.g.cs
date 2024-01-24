@@ -21,12 +21,12 @@ public enum Quantity1Code
 {
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "AllSecurities".
+    /// Encoded/decoded by serializers as "QALL".
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_ZXWu9dp-Ed-ak6NoX_4Aeg_1332281018")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    AllSecurities,
+    AllSecurities = QuantityCode.AllSecurities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum Quantity1Code
 public static class Quantity1CodeMetadataExtensions
 {
     private static readonly Quantity1CodeDropdownSource _dropdownSource = new Quantity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

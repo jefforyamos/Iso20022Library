@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__uywsNojEeC60axPepSq7g_-615097257")]
 [Description(@"Specifies the conditions under which the order/trade is to be settled.")]
 [Derivations(typeof(SettlementTransactionCondition7Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementTransactionConditionV2Code
 {
     /// <summary>
@@ -211,32 +210,29 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Change
-    /// 
     /// Encoded/decoded by serializers as "YBEN".
     /// </summary>
     [EnumMember(Value = "YBEN")]
     [IsoId("_O4sYcdUjEeOz093LM8f3Hw")]
-    [Description(@"Change ")]
+    [Description(@"Change|")]
     Change,
     
     /// <summary>
     /// Do Not Change
-    /// 
     /// Encoded/decoded by serializers as "NBEN".
     /// </summary>
     [EnumMember(Value = "NBEN")]
     [IsoId("_RwlLkdUjEeOz093LM8f3Hw")]
-    [Description(@"Do Not Change ")]
+    [Description(@"Do Not Change|")]
     DoNotChange,
     
     /// <summary>
     /// Eligible for netting
-    /// 
     /// Encoded/decoded by serializers as "YNET".
     /// </summary>
     [EnumMember(Value = "YNET")]
     [IsoId("_Ta9CsdUjEeOz093LM8f3Hw")]
-    [Description(@"Eligible for netting ")]
+    [Description(@"Eligible for netting|")]
     EligibleForNetting,
     
     /// <summary>
@@ -259,12 +255,11 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Letter of guarantee is accepted
-    /// 
     /// Encoded/decoded by serializers as "YLEG".
     /// </summary>
     [EnumMember(Value = "YLEG")]
     [IsoId("_a0hRQtUjEeOz093LM8f3Hw")]
-    [Description(@"Letter of guarantee is accepted ")]
+    [Description(@"Letter of guarantee is accepted|")]
     LetterOfGuaranteeIsAccepted,
     
     /// <summary>
@@ -278,42 +273,38 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Not eligible for netting
-    /// 
     /// Encoded/decoded by serializers as "NNET".
     /// </summary>
     [EnumMember(Value = "NNET")]
     [IsoId("_dl2wc9UjEeOz093LM8f3Hw")]
-    [Description(@"Not eligible for netting ")]
+    [Description(@"Not eligible for netting|")]
     NotEligibleForNetting,
     
     /// <summary>
     /// Partial Settlement
-    /// 
     /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_dl2wdNUjEeOz093LM8f3Hw")]
-    [Description(@"Partial Settlement ")]
+    [Description(@"Partial Settlement|")]
     PartialSettlement,
     
     /// <summary>
     /// Partial Settlement Not Allowed
-    /// 
     /// Encoded/decoded by serializers as "NPAR".
     /// </summary>
     [EnumMember(Value = "NPAR")]
     [IsoId("_dl2wddUjEeOz093LM8f3Hw")]
-    [Description(@"Partial Settlement Not Allowed ")]
+    [Description(@"Partial Settlement Not Allowed|")]
     PartialSettlementNotAllowed,
     
     /// <summary>
     /// Re-hypothecation
-    /// 
     /// Encoded/decoded by serializers as "RHYP".
     /// </summary>
     [EnumMember(Value = "RHYP")]
     [IsoId("_lulLF9UjEeOz093LM8f3Hw")]
-    [Description(@"Re-hypothecation ")]
+    [Description(@"Re-hypothecation|")]
     ReHypothecation,
     
     /// <summary>
@@ -327,22 +318,20 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Security not eligible for collateral purposes
-    /// 
     /// Encoded/decoded by serializers as "COLN".
     /// </summary>
     [EnumMember(Value = "COLN")]
     [IsoId("_lulLGdUjEeOz093LM8f3Hw")]
-    [Description(@"Security not eligible for collateral purposes ")]
+    [Description(@"Security not eligible for collateral purposes|")]
     SecurityNotEligibleForCollateralPurposes,
     
     /// <summary>
     /// Settlement Instruction is CCP eligible
-    /// 
     /// Encoded/decoded by serializers as "YCCP".
     /// </summary>
     [EnumMember(Value = "YCCP")]
     [IsoId("_lulLGtUjEeOz093LM8f3Hw")]
-    [Description(@"Settlement Instruction is CCP eligible ")]
+    [Description(@"Settlement Instruction is CCP eligible|")]
     SettlementInstructionIsCCPEligible,
     
     /// <summary>
@@ -365,22 +354,20 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Settle through the RTGS System
-    /// 
     /// Encoded/decoded by serializers as "YRTG".
     /// </summary>
     [EnumMember(Value = "YRTG")]
     [IsoId("_lulLHdUjEeOz093LM8f3Hw")]
-    [Description(@"Settle through the RTGS System ")]
+    [Description(@"Settle through the RTGS System|")]
     SettleThroughTheRTGSSystem,
     
     /// <summary>
     /// Uncertified Securities Tax not applicable
-    /// 
     /// Encoded/decoded by serializers as "USTN".
     /// </summary>
     [EnumMember(Value = "USTN")]
     [IsoId("_rLBlo9UjEeOz093LM8f3Hw")]
-    [Description(@"Uncertified Securities Tax not applicable ")]
+    [Description(@"Uncertified Securities Tax not applicable|")]
     UncertifiedSecuritiesTaxNotApplicable,
     
     /// <summary>
@@ -394,12 +381,11 @@ public enum SettlementTransactionConditionV2Code
     
     /// <summary>
     /// Zengin (JP)
-    /// 
     /// Encoded/decoded by serializers as "ZENG".
     /// </summary>
     [EnumMember(Value = "ZENG")]
     [IsoId("_rLBlpdUjEeOz093LM8f3Hw")]
-    [Description(@"Zengin (JP) ")]
+    [Description(@"Zengin (JP)|")]
     Zengin,
     
     /// <summary>
@@ -420,7 +406,7 @@ public enum SettlementTransactionConditionV2Code
 public static class SettlementTransactionConditionV2CodeMetadataExtensions
 {
     private static readonly SettlementTransactionConditionV2CodeDropdownSource _dropdownSource = new SettlementTransactionConditionV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum CashAll1Code
 {
     /// <summary>
     /// All assets in a portfolio should be liquidated and transferred as cash.
-    /// Encoded/decoded by serializers as "LiquidatedTransferAsCash".
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_S1Ptsc4FEeiAhd-njDxLnA")]
     [Description(@"All assets in a portfolio should be liquidated and transferred as cash.")]
-    LiquidatedTransferAsCash,
+    LiquidatedTransferAsCash = CashAllCode.LiquidatedTransferAsCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All assets in a portfolio should not be liquidated and transferred as cash.
-    /// Encoded/decoded by serializers as "NotLiquidatedTransferAsCash".
+    /// Encoded/decoded by serializers as "NLIQ".
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_S7Dawc4FEeiAhd-njDxLnA")]
     [Description(@"All assets in a portfolio should not be liquidated and transferred as cash.")]
-    NotLiquidatedTransferAsCash,
+    NotLiquidatedTransferAsCash = CashAllCode.NotLiquidatedTransferAsCash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CashAll1Code
 public static class CashAll1CodeMetadataExtensions
 {
     private static readonly CashAll1CodeDropdownSource _dropdownSource = new CashAll1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

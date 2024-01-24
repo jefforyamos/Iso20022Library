@@ -21,30 +21,30 @@ public enum EventGroup2Code
 {
     /// <summary>
     /// Distribution domain events.
-    /// Encoded/decoded by serializers as "Distribution".
+    /// Encoded/decoded by serializers as "DISN".
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_rxKTga2oEea8JNaCEJBGAA")]
     [Description(@"Distribution domain events.")]
-    Distribution,
+    Distribution = EventGroupCode.Distribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption domain events.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_r2Nyoa2oEea8JNaCEJBGAA")]
     [Description(@"Redemption domain events.")]
-    Redemption,
+    Redemption = EventGroupCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganization domain events.
-    /// Encoded/decoded by serializers as "Reorganization".
+    /// Encoded/decoded by serializers as "REOR".
     /// </summary>
     [EnumMember(Value = "REOR")]
     [IsoId("_r7bCwa2oEea8JNaCEJBGAA")]
     [Description(@"Reorganization domain events.")]
-    Reorganization,
+    Reorganization = EventGroupCode.Reorganization, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EventGroup2Code
 public static class EventGroup2CodeMetadataExtensions
 {
     private static readonly EventGroup2CodeDropdownSource _dropdownSource = new EventGroup2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,120 +21,120 @@ public enum StoredValueAccountType1Code
 {
     /// <summary>
     /// Prepaid account managed by a financial institution for low income customers.
-    /// Encoded/decoded by serializers as "BankPrepaidAccount".
+    /// Encoded/decoded by serializers as "BNKA".
     /// </summary>
     [EnumMember(Value = "BNKA")]
     [IsoId("_swkJEdtfEeipuvJHTHIw9A")]
     [Description(@"Prepaid account managed by a financial institution for low income customers.")]
-    BankPrepaidAccount,
+    BankPrepaidAccount = StoredValueAccountTypeCode.BankPrepaidAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Car wash specific account.
-    /// Encoded/decoded by serializers as "CarwashVoucher".
+    /// Encoded/decoded by serializers as "CWVC".
     /// </summary>
     [EnumMember(Value = "CWVC")]
     [IsoId("_sz7mIdtfEeipuvJHTHIw9A")]
     [Description(@"Car wash specific account.")]
-    CarwashVoucher,
+    CarwashVoucher = StoredValueAccountTypeCode.CarwashVoucher, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specific prepaid account for companies or professionals expenses.
-    /// Encoded/decoded by serializers as "CompanyPrepaidAccount".
+    /// Encoded/decoded by serializers as "CPYA".
     /// </summary>
     [EnumMember(Value = "CPYA")]
     [IsoId("_s4Kl4dtfEeipuvJHTHIw9A")]
     [Description(@"Specific prepaid account for companies or professionals expenses.")]
-    CompanyPrepaidAccount,
+    CompanyPrepaidAccount = StoredValueAccountTypeCode.CompanyPrepaidAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account supporting e-money issued by an electronic money issuer.
-    /// Encoded/decoded by serializers as "ElectronicMoneyAccount".
+    /// Encoded/decoded by serializers as "ELMY".
     /// </summary>
     [EnumMember(Value = "ELMY")]
     [IsoId("_s8hhcdtfEeipuvJHTHIw9A")]
     [Description(@"Account supporting e-money issued by an electronic money issuer.")]
-    ElectronicMoneyAccount,
+    ElectronicMoneyAccount = StoredValueAccountTypeCode.ElectronicMoneyAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment mean issued by retailers or banks as a substitute to a non-monetary gift. Usually, this Stored Value item is used only once.
-    /// Encoded/decoded by serializers as "GiftCard".
+    /// Encoded/decoded by serializers as "GIFT".
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_tBb2odtfEeipuvJHTHIw9A")]
     [Description(@"Payment mean issued by retailers or banks as a substitute to a non-monetary gift. Usually, this Stored Value item is used only once.")]
-    GiftCard,
+    GiftCard = StoredValueAccountTypeCode.GiftCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate to be given to a customer. Usually one shot voucher.
-    /// Encoded/decoded by serializers as "GiftCertificate".
+    /// Encoded/decoded by serializers as "GCER".
     /// </summary>
     [EnumMember(Value = "GCER")]
     [IsoId("_tGYBAdtfEeipuvJHTHIw9A")]
     [Description(@"Certificate to be given to a customer. Usually one shot voucher.")]
-    GiftCertificate,
+    GiftCertificate = StoredValueAccountTypeCode.GiftCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meal and check voucher for restaurants.
-    /// Encoded/decoded by serializers as "MealVoucher".
+    /// Encoded/decoded by serializers as "MLVC".
     /// </summary>
     [EnumMember(Value = "MLVC")]
     [IsoId("_tKV7AdtfEeipuvJHTHIw9A")]
     [Description(@"Meal and check voucher for restaurants.")]
-    MealVoucher,
+    MealVoucher = StoredValueAccountTypeCode.MealVoucher, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Voucher that can be used online once or in several times.
-    /// Encoded/decoded by serializers as "OnlineVoucher".
+    /// Encoded/decoded by serializers as "OLVC".
     /// </summary>
     [EnumMember(Value = "OLVC")]
     [IsoId("_tPUhodtfEeipuvJHTHIw9A")]
     [Description(@"Voucher that can be used online once or in several times.")]
-    OnlineVoucher,
+    OnlineVoucher = StoredValueAccountTypeCode.OnlineVoucher, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Prepaid account open with a merchant or big retailers.
-    /// Encoded/decoded by serializers as "MerchantAccount".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_tVqaMdtfEeipuvJHTHIw9A")]
     [Description(@"Prepaid account open with a merchant or big retailers.")]
-    MerchantAccount,
+    MerchantAccount = StoredValueAccountTypeCode.MerchantAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other non listed stored value instrument.
-    /// Encoded/decoded by serializers as "OtherPrepaidAccount".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tdEpwdtfEeipuvJHTHIw9A")]
     [Description(@"Other non listed stored value instrument.")]
-    OtherPrepaidAccount,
+    OtherPrepaidAccount = StoredValueAccountTypeCode.OtherPrepaidAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stored value instrument used to pay telephone services (e.g. card or identifier).
-    /// Encoded/decoded by serializers as "PhoneCard".
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_thugQdtfEeipuvJHTHIw9A")]
     [Description(@"Stored value instrument used to pay telephone services (e.g. card or identifier).")]
-    PhoneCard,
+    PhoneCard = StoredValueAccountTypeCode.PhoneCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stored value account hold on the chip of a smart card. 
-    /// Encoded/decoded by serializers as "SmartCardTag".
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_tmPz4dtfEeipuvJHTHIw9A")]
     [Description(@"Stored value account hold on the chip of a smart card. ")]
-    SmartCardTag,
+    SmartCardTag = StoredValueAccountTypeCode.SmartCardTag, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Travel prepaid account.
-    /// Encoded/decoded by serializers as "Travel".
+    /// Encoded/decoded by serializers as "TRVL".
     /// </summary>
     [EnumMember(Value = "TRVL")]
     [IsoId("_tquEMdtfEeipuvJHTHIw9A")]
     [Description(@"Travel prepaid account.")]
-    Travel,
+    Travel = StoredValueAccountTypeCode.Travel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum StoredValueAccountType1Code
 public static class StoredValueAccountType1CodeMetadataExtensions
 {
     private static readonly StoredValueAccountType1CodeDropdownSource _dropdownSource = new StoredValueAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

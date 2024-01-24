@@ -21,75 +21,75 @@ public enum MessageItemCondition2Code
 {
     /// <summary>
     /// Message item must be present.
-    /// Encoded/decoded by serializers as "Mandatory".
+    /// Encoded/decoded by serializers as "MNDT".
     /// </summary>
     [EnumMember(Value = "MNDT")]
     [IsoId("_a4Tu8XC8Ee2bmOA3bkVsMg")]
     [Description(@"Message item must be present.")]
-    Mandatory,
+    Mandatory = MessageItemConditionCode.Mandatory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item must be present with the configured value.
-    /// Encoded/decoded by serializers as "ConfiguredValue".
+    /// Encoded/decoded by serializers as "CFVL".
     /// </summary>
     [EnumMember(Value = "CFVL")]
     [IsoId("_a4Tu83C8Ee2bmOA3bkVsMg")]
     [Description(@"Message item must be present with the configured value.")]
-    ConfiguredValue,
+    ConfiguredValue = MessageItemConditionCode.ConfiguredValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item has the configured value if the item is absent.
-    /// Encoded/decoded by serializers as "DefaultValue".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_a4Tu9XC8Ee2bmOA3bkVsMg")]
     [Description(@"Message item has the configured value if the item is absent.")]
-    DefaultValue,
+    DefaultValue = MessageItemConditionCode.DefaultValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item must have one of the configured values.
-    /// Encoded/decoded by serializers as "AllowedValues".
+    /// Encoded/decoded by serializers as "ALWV".
     /// </summary>
     [EnumMember(Value = "ALWV")]
     [IsoId("_a4Tu93C8Ee2bmOA3bkVsMg")]
     [Description(@"Message item must have one of the configured values.")]
-    AllowedValues,
+    AllowedValues = MessageItemConditionCode.AllowedValues, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item has to be present if available.
-    /// Encoded/decoded by serializers as "IfAvailable".
+    /// Encoded/decoded by serializers as "IFAV".
     /// </summary>
     [EnumMember(Value = "IFAV")]
     [IsoId("_a4Tu-XC8Ee2bmOA3bkVsMg")]
     [Description(@"Message item has to be present if available.")]
-    IfAvailable,
+    IfAvailable = MessageItemConditionCode.IfAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item is present if it was present in a previous related message with the same value.
-    /// Encoded/decoded by serializers as "Copy".
+    /// Encoded/decoded by serializers as "COPY".
     /// </summary>
     [EnumMember(Value = "COPY")]
     [IsoId("_a4Tu-3C8Ee2bmOA3bkVsMg")]
     [Description(@"Message item is present if it was present in a previous related message with the same value.")]
-    Copy,
+    Copy = MessageItemConditionCode.Copy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message item is not supported and has to be absent.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_a4Tu_XC8Ee2bmOA3bkVsMg")]
     [Description(@"Message item is not supported and has to be absent.")]
-    NotSupported,
+    NotSupported = MessageItemConditionCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Minimum set of values to use in messages.
-    /// Encoded/decoded by serializers as "ListMinimumValues".
+    /// Encoded/decoded by serializers as "LMNV".
     /// </summary>
     [EnumMember(Value = "LMNV")]
     [IsoId("_ediJMXC8Ee2bmOA3bkVsMg")]
     [Description(@"Minimum set of values to use in messages.")]
-    ListMinimumValues,
+    ListMinimumValues = MessageItemConditionCode.ListMinimumValues, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum MessageItemCondition2Code
 public static class MessageItemCondition2CodeMetadataExtensions
 {
     private static readonly MessageItemCondition2CodeDropdownSource _dropdownSource = new MessageItemCondition2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

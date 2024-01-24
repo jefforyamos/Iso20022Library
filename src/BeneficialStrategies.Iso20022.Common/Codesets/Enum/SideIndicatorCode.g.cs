@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_uQQC4y5SEeK7-OZOLIksSw")]
 [Description(@"To indicate either the reference for the Central Counterparty (CCP) leg or the reference for the client leg of the transaction.")]
 [Derivations(typeof(SideIndicator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SideIndicatorCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SideIndicatorCode
 public static class SideIndicatorCodeMetadataExtensions
 {
     private static readonly SideIndicatorCodeDropdownSource _dropdownSource = new SideIndicatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

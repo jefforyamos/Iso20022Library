@@ -21,39 +21,39 @@ public enum Registration2Code
 {
     /// <summary>
     /// You or your party set the instruction in a hold/frozen/preadvice mode.
-    /// Encoded/decoded by serializers as "PartyHold".
+    /// Encoded/decoded by serializers as "PTYH".
     /// </summary>
     [EnumMember(Value = "PTYH")]
     [IsoId("_q5kOJGtdEeCY4-KZ9JEyUQ_105432583")]
     [Description(@"You or your party set the instruction in a hold/frozen/preadvice mode.")]
-    PartyHold,
+    PartyHold = RegistrationCode.PartyHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central securities depository sets the instruction in a hold/frozen/preadvice mode.
-    /// Encoded/decoded by serializers as "CSDHold".
+    /// Encoded/decoded by serializers as "CSDH".
     /// </summary>
     [EnumMember(Value = "CSDH")]
     [IsoId("_q5kOJWtdEeCY4-KZ9JEyUQ_-891639770")]
     [Description(@"Central securities depository sets the instruction in a hold/frozen/preadvice mode.")]
-    CSDHold,
+    CSDHold = RegistrationCode.CSDHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.
-    /// Encoded/decoded by serializers as "ConditionalDelivery".
+    /// Encoded/decoded by serializers as "CDEL".
     /// </summary>
     [EnumMember(Value = "CDEL")]
     [IsoId("_q5kOJmtdEeCY4-KZ9JEyUQ_-914504853")]
     [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.")]
-    ConditionalDelivery,
+    ConditionalDelivery = RegistrationCode.ConditionalDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.
-    /// Encoded/decoded by serializers as "CSDValidation".
+    /// Encoded/decoded by serializers as "CVAL".
     /// </summary>
     [EnumMember(Value = "CVAL")]
     [IsoId("_q5t_IGtdEeCY4-KZ9JEyUQ_7658457")]
     [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.")]
-    CSDValidation,
+    CSDValidation = RegistrationCode.CSDValidation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Registration2Code
 public static class Registration2CodeMetadataExtensions
 {
     private static readonly Registration2CodeDropdownSource _dropdownSource = new Registration2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

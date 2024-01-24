@@ -21,75 +21,75 @@ public enum CollateralType3Code
 {
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("__1WEotojEeC60axPepSq7g_-80556502")]
     [Description(@"Collateral type is cash.")]
-    Cash,
+    Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("__1WEo9ojEeC60axPepSq7g_680208651")]
     [Description(@"Collateral type is securities.")]
-    Securities,
+    Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.
-    /// Encoded/decoded by serializers as "PhysicalEntities".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("__1WEpNojEeC60axPepSq7g_2147357414")]
     [Description(@"Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.")]
-    PhysicalEntities,
+    PhysicalEntities = CollateralTypeCode.PhysicalEntities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is an insurance contract.
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("__1WEpdojEeC60axPepSq7g_1134295920")]
     [Description(@"Collateral type is an insurance contract.")]
-    Insurance,
+    Insurance = CollateralTypeCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is stock certificates.
-    /// Encoded/decoded by serializers as "StockCertificate".
+    /// Encoded/decoded by serializers as "STCF".
     /// </summary>
     [EnumMember(Value = "STCF")]
     [IsoId("__1f1oNojEeC60axPepSq7g_-1329748207")]
     [Description(@"Collateral type is stock certificates.")]
-    StockCertificate,
+    StockCertificate = CollateralTypeCode.StockCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is bonds.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("__1f1odojEeC60axPepSq7g_137400556")]
     [Description(@"Collateral type is bonds.")]
-    Bond,
+    Bond = CollateralTypeCode.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is a bank guarantee.
-    /// Encoded/decoded by serializers as "BankGuarantee".
+    /// Encoded/decoded by serializers as "GBBK".
     /// </summary>
     [EnumMember(Value = "GBBK")]
     [IsoId("__1f1otojEeC60axPepSq7g_-875660938")]
     [Description(@"Collateral type is a bank guarantee.")]
-    BankGuarantee,
+    BankGuarantee = CollateralTypeCode.BankGuarantee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other assets that could be used as collateral.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("__1f1o9ojEeC60axPepSq7g_-702733106")]
     [Description(@"Other assets that could be used as collateral.")]
-    Other,
+    Other = CollateralTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum CollateralType3Code
 public static class CollateralType3CodeMetadataExtensions
 {
     private static readonly CollateralType3CodeDropdownSource _dropdownSource = new CollateralType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

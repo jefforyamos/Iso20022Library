@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZUFYg9p-Ed-ak6NoX_4Aeg_1488265087")]
 [Description(@"Specifies the coded status of invoice financing request.")]
 [Derivations(typeof(RequestStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RequestStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum RequestStatusCode
 public static class RequestStatusCodeMetadataExtensions
 {
     private static readonly RequestStatusCodeDropdownSource _dropdownSource = new RequestStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

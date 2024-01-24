@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Uq4csc4tEeSc85GUbgBycw")]
 [Description(@"Specifies the seniority type of a specific debt instrument.")]
 [Derivations(typeof(DebtInstrumentSeniorityType1Code),typeof(DebtInstrumentSeniorityType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DebtInstrumentSeniorityTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum DebtInstrumentSeniorityTypeCode
 public static class DebtInstrumentSeniorityTypeCodeMetadataExtensions
 {
     private static readonly DebtInstrumentSeniorityTypeCodeDropdownSource _dropdownSource = new DebtInstrumentSeniorityTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

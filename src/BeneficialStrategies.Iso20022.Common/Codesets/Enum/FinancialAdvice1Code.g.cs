@@ -21,30 +21,30 @@ public enum FinancialAdvice1Code
 {
     /// <summary>
     /// Advice has been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_an-pUdp-Ed-ak6NoX_4Aeg_236854692")]
     [Description(@"Advice has been received from an independent financial advisor.")]
-    Received,
+    Received = FinancialAdviceCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice has not been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "NotReceived".
+    /// Encoded/decoded by serializers as "NREC".
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_an-pUtp-Ed-ak6NoX_4Aeg_240547799")]
     [Description(@"Advice has not been received from an independent financial advisor.")]
-    NotReceived,
+    NotReceived = FinancialAdviceCode.NotReceived, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// It is not known whether or not advice has been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_an-pU9p-Ed-ak6NoX_4Aeg_244241759")]
     [Description(@"It is not known whether or not advice has been received from an independent financial advisor.")]
-    Unknown,
+    Unknown = FinancialAdviceCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FinancialAdvice1Code
 public static class FinancialAdvice1CodeMetadataExtensions
 {
     private static readonly FinancialAdvice1CodeDropdownSource _dropdownSource = new FinancialAdvice1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

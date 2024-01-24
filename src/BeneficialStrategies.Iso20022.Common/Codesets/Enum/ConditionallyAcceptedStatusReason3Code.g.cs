@@ -21,174 +21,174 @@ public enum ConditionallyAcceptedStatusReason3Code
 {
     /// <summary>
     /// Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.
-    /// Encoded/decoded by serializers as "AwaitingDocuments".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_bBmqQNp-Ed-ak6NoX_4Aeg_22639830")]
     [Description(@"Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.")]
-    AwaitingDocuments,
+    AwaitingDocuments = ConditionallyAcceptedStatusReasonCode.AwaitingDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.
-    /// Encoded/decoded by serializers as "AwaitingSubscriptionMoney".
+    /// Encoded/decoded by serializers as "AWSM".
     /// </summary>
     [EnumMember(Value = "AWSM")]
     [IsoId("_bBmqQdp-Ed-ak6NoX_4Aeg_22639907")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.")]
-    AwaitingSubscriptionMoney,
+    AwaitingSubscriptionMoney = ConditionallyAcceptedStatusReasonCode.AwaitingSubscriptionMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing pending the result of the investigation for possible duplicates.
-    /// Encoded/decoded by serializers as "PossibleDuplicate".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bBmqQtp-Ed-ak6NoX_4Aeg_22639950")]
     [Description(@"Order is accepted for further processing pending the result of the investigation for possible duplicates.")]
-    PossibleDuplicate,
+    PossibleDuplicate = ConditionallyAcceptedStatusReasonCode.PossibleDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing pending the extension of the trading limit.
-    /// Encoded/decoded by serializers as "TradingLimitExceeded".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_bBmqQ9p-Ed-ak6NoX_4Aeg_22640002")]
     [Description(@"Order is accepted for further processing pending the extension of the trading limit.")]
-    TradingLimitExceeded,
+    TradingLimitExceeded = ConditionallyAcceptedStatusReasonCode.TradingLimitExceeded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending the benefit plan investor (BPI) declaration.
-    /// Encoded/decoded by serializers as "BenefitPlanDeclaration".
+    /// Encoded/decoded by serializers as "BPID".
     /// </summary>
     [EnumMember(Value = "BPID")]
     [IsoId("_bBmqRNp-Ed-ak6NoX_4Aeg_2058481387")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending the benefit plan investor (BPI) declaration.")]
-    BenefitPlanDeclaration,
+    BenefitPlanDeclaration = ConditionallyAcceptedStatusReasonCode.BenefitPlanDeclaration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending the ERISA declaration.
-    /// Encoded/decoded by serializers as "ERISADeclaration".
+    /// Encoded/decoded by serializers as "ERIS".
     /// </summary>
     [EnumMember(Value = "ERIS")]
     [IsoId("_bBmqRdp-Ed-ak6NoX_4Aeg_2058481422")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending the ERISA declaration.")]
-    ERISADeclaration,
+    ERISADeclaration = ConditionallyAcceptedStatusReasonCode.ERISADeclaration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending until the required anti-money laundering documentation is presented to the transfer agent.
-    /// Encoded/decoded by serializers as "AMLDocuments".
+    /// Encoded/decoded by serializers as "AMLD".
     /// </summary>
     [EnumMember(Value = "AMLD")]
     [IsoId("_bBmqRtp-Ed-ak6NoX_4Aeg_2058481482")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending until the required anti-money laundering documentation is presented to the transfer agent.")]
-    AMLDocuments,
+    AMLDocuments = ConditionallyAcceptedStatusReasonCode.AMLDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending the investment manager's approval.
-    /// Encoded/decoded by serializers as "AwaitingApproval".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_bBwbQNp-Ed-ak6NoX_4Aeg_2058481790")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending the investment manager's approval.")]
-    AwaitingApproval,
+    AwaitingApproval = ConditionallyAcceptedStatusReasonCode.AwaitingApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the subscription order is pending as additional funding is required.
-    /// Encoded/decoded by serializers as "AdditionalFundingRequired".
+    /// Encoded/decoded by serializers as "AFUN".
     /// </summary>
     [EnumMember(Value = "AFUN")]
     [IsoId("_bBwbQdp-Ed-ak6NoX_4Aeg_2058481825")]
     [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as additional funding is required.")]
-    AdditionalFundingRequired,
+    AdditionalFundingRequired = ConditionallyAcceptedStatusReasonCode.AdditionalFundingRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending as the order is below the minimum initial investment amount and is subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "BelowMinimumInitialInvestmentAmount".
+    /// Encoded/decoded by serializers as "BMIN".
     /// </summary>
     [EnumMember(Value = "BMIN")]
     [IsoId("_bBwbQtp-Ed-ak6NoX_4Aeg_2058481868")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending as the order is below the minimum initial investment amount and is subject to the investment manager's approval.")]
-    BelowMinimumInitialInvestmentAmount,
+    BelowMinimumInitialInvestmentAmount = ConditionallyAcceptedStatusReasonCode.BelowMinimumInitialInvestmentAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum top-up investment and is subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "BelowMinimumTopUpAmount".
+    /// Encoded/decoded by serializers as "BMTO".
     /// </summary>
     [EnumMember(Value = "BMTO")]
     [IsoId("_bBwbQ9p-Ed-ak6NoX_4Aeg_2058481928")]
     [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum top-up investment and is subject to the investment manager's approval.")]
-    BelowMinimumTopUpAmount,
+    BelowMinimumTopUpAmount = ConditionallyAcceptedStatusReasonCode.BelowMinimumTopUpAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending as there is insufficient capacity and the order is subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "InsufficientCapacity".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_bBwbRNp-Ed-ak6NoX_4Aeg_2058481980")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending as there is insufficient capacity and the order is subject to the investment manager's approval.")]
-    InsufficientCapacity,
+    InsufficientCapacity = ConditionallyAcceptedStatusReasonCode.InsufficientCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending because of a percentage holding breach, eg, PPM rules; taxation rules (ERISA).
-    /// Encoded/decoded by serializers as "PercentageHoldingBreach".
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_bBwbRdp-Ed-ak6NoX_4Aeg_2058482040")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending because of a percentage holding breach, eg, PPM rules; taxation rules (ERISA).")]
-    PercentageHoldingBreach,
+    PercentageHoldingBreach = ConditionallyAcceptedStatusReasonCode.PercentageHoldingBreach, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the redemption order is pending as it is below the minimum redemption amount and subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "BelowMinimumRedemptionAmount".
+    /// Encoded/decoded by serializers as "BMRA".
     /// </summary>
     [EnumMember(Value = "BMRA")]
     [IsoId("_bBwbRtp-Ed-ak6NoX_4Aeg_2058482300")]
     [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as it is below the minimum redemption amount and subject to the investment manager's approval.")]
-    BelowMinimumRedemptionAmount,
+    BelowMinimumRedemptionAmount = ConditionallyAcceptedStatusReasonCode.BelowMinimumRedemptionAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the redemption order is pending as the holding will be below the minimum retained value and subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "BelowMinimumRetainedAmount".
+    /// Encoded/decoded by serializers as "BMRV".
     /// </summary>
     [EnumMember(Value = "BMRV")]
     [IsoId("_bBwbR9p-Ed-ak6NoX_4Aeg_2058482352")]
     [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as the holding will be below the minimum retained value and subject to the investment manager's approval.")]
-    BelowMinimumRetainedAmount,
+    BelowMinimumRetainedAmount = ConditionallyAcceptedStatusReasonCode.BelowMinimumRetainedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending as a lock-up period is in place and subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "LockUp".
+    /// Encoded/decoded by serializers as "LOCK".
     /// </summary>
     [EnumMember(Value = "LOCK")]
     [IsoId("_bBwbSNp-Ed-ak6NoX_4Aeg_2058482430")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending as a lock-up period is in place and subject to the investment manager's approval.")]
-    LockUp,
+    LockUp = ConditionallyAcceptedStatusReasonCode.LockUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the redemption order is pending as assets are illiquid and the order is subject to the investment manager's approval.
-    /// Encoded/decoded by serializers as "AssetsIlliquid".
+    /// Encoded/decoded by serializers as "ILLI".
     /// </summary>
     [EnumMember(Value = "ILLI")]
     [IsoId("_bBwbSdp-Ed-ak6NoX_4Aeg_2059402419")]
     [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as assets are illiquid and the order is subject to the investment manager's approval.")]
-    AssetsIlliquid,
+    AssetsIlliquid = ConditionallyAcceptedStatusReasonCode.AssetsIlliquid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the redemption order is pending as it is subject to the investment manager's discretion.
-    /// Encoded/decoded by serializers as "Discretion".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_bB5lMNp-Ed-ak6NoX_4Aeg_2059402444")]
     [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as it is subject to the investment manager's discretion.")]
-    Discretion,
+    Discretion = ConditionallyAcceptedStatusReasonCode.Discretion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum investment and a top-up is required.
-    /// Encoded/decoded by serializers as "SubscriptionTopUpAmount".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_bB5lMdp-Ed-ak6NoX_4Aeg_93259506")]
     [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum investment and a top-up is required.")]
-    SubscriptionTopUpAmount,
+    SubscriptionTopUpAmount = ConditionallyAcceptedStatusReasonCode.SubscriptionTopUpAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum ConditionallyAcceptedStatusReason3Code
 public static class ConditionallyAcceptedStatusReason3CodeMetadataExtensions
 {
     private static readonly ConditionallyAcceptedStatusReason3CodeDropdownSource _dropdownSource = new ConditionallyAcceptedStatusReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

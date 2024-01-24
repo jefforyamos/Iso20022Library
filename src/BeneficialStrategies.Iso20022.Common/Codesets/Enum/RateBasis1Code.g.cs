@@ -21,39 +21,39 @@ public enum RateBasis1Code
 {
     /// <summary>
     /// Rate is reported in days.
-    /// Encoded/decoded by serializers as "Days".
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_Oxb24c5KEeSc85GUbgBycw")]
     [Description(@"Rate is reported in days.")]
-    Days,
+    Days = RateBasisCode.Days, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is reported in months.
-    /// Encoded/decoded by serializers as "Months".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_O4WXMc5KEeSc85GUbgBycw")]
     [Description(@"Rate is reported in months.")]
-    Months,
+    Months = RateBasisCode.Months, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is reported in weeks.
-    /// Encoded/decoded by serializers as "Weeks".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_O9mqoc5KEeSc85GUbgBycw")]
     [Description(@"Rate is reported in weeks.")]
-    Weeks,
+    Weeks = RateBasisCode.Weeks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is reported in years.
-    /// Encoded/decoded by serializers as "Years".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_PCi1Ac5KEeSc85GUbgBycw")]
     [Description(@"Rate is reported in years.")]
-    Years,
+    Years = RateBasisCode.Years, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RateBasis1Code
 public static class RateBasis1CodeMetadataExtensions
 {
     private static readonly RateBasis1CodeDropdownSource _dropdownSource = new RateBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aQk199p-Ed-ak6NoX_4Aeg_336257331")]
 [Description(@"Identifies the classification and thus the restrictions associated with an order (for regulatory purposes).")]
 [Derivations(typeof(OrderRestrictions1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderClassificationCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum OrderClassificationCode
 public static class OrderClassificationCodeMetadataExtensions
 {
     private static readonly OrderClassificationCodeDropdownSource _dropdownSource = new OrderClassificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

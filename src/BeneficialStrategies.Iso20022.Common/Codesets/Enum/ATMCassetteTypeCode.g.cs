@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_W-ddQIqfEeS4a4abTJTSSw")]
 [Description(@"Type of cassette.")]
 [Derivations(typeof(ATMCassetteType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMCassetteTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ATMCassetteTypeCode
 public static class ATMCassetteTypeCodeMetadataExtensions
 {
     private static readonly ATMCassetteTypeCodeDropdownSource _dropdownSource = new ATMCassetteTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

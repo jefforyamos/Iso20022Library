@@ -21,84 +21,84 @@ public enum Exemption2Code
 {
     /// <summary>
     /// Payment is processed in a environment where strong customer authentication is inappropriate.
-    /// Encoded/decoded by serializers as "TransportFareOrParkingFeeUnattendedPaymentExemption".
+    /// Encoded/decoded by serializers as "PKGE".
     /// </summary>
     [EnumMember(Value = "PKGE")]
     [IsoId("_8TKpYQMjEeujMs2LsB3mMw")]
     [Description(@"Payment is processed in a environment where strong customer authentication is inappropriate.")]
-    TransportFareOrParkingFeeUnattendedPaymentExemption,
+    TransportFareOrParkingFeeUnattendedPaymentExemption = ExemptionCode.TransportFareOrParkingFeeUnattendedPaymentExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder has enrolled the Card Acceptor in the exemption list of strong customer authentication.
-    /// Encoded/decoded by serializers as "TrustedMerchantBeneficiaryExemption".
+    /// Encoded/decoded by serializers as "TMBE".
     /// </summary>
     [EnumMember(Value = "TMBE")]
     [IsoId("_87kGIQMjEeujMs2LsB3mMw")]
     [Description(@"Cardholder has enrolled the Card Acceptor in the exemption list of strong customer authentication.")]
-    TrustedMerchantBeneficiaryExemption,
+    TrustedMerchantBeneficiaryExemption = ExemptionCode.TrustedMerchantBeneficiaryExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is one of a series of recurring payment.
-    /// Encoded/decoded by serializers as "RecurringPayment".
+    /// Encoded/decoded by serializers as "RECP".
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_9rAmEQMjEeujMs2LsB3mMw")]
     [Description(@"Transaction is one of a series of recurring payment.")]
-    RecurringPayment,
+    RecurringPayment = ExemptionCode.RecurringPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction's amount is low and could be processed without strong customer authentication.
-    /// Encoded/decoded by serializers as "LowAmountExemption".
+    /// Encoded/decoded by serializers as "LOWA".
     /// </summary>
     [EnumMember(Value = "LOWA")]
     [IsoId("__qDFoQMjEeujMs2LsB3mMw")]
     [Description(@"Transaction's amount is low and could be processed without strong customer authentication.")]
-    LowAmountExemption,
+    LowAmountExemption = ExemptionCode.LowAmountExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a secure corporate payment.
-    /// Encoded/decoded by serializers as "SecureCorporatePaymentExemption".
+    /// Encoded/decoded by serializers as "SCPE".
     /// </summary>
     [EnumMember(Value = "SCPE")]
     [IsoId("_BmPFgQMkEeujMs2LsB3mMw")]
     [Description(@"Transaction is a secure corporate payment.")]
-    SecureCorporatePaymentExemption,
+    SecureCorporatePaymentExemption = ExemptionCode.SecureCorporatePaymentExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// According to the transaction risk analysis the strong customer authentication is not mandated.
-    /// Encoded/decoded by serializers as "TransactionRiskAnalysisExemption".
+    /// Encoded/decoded by serializers as "TRAE".
     /// </summary>
     [EnumMember(Value = "TRAE")]
     [IsoId("_CKDkQQMkEeujMs2LsB3mMw")]
     [Description(@"According to the transaction risk analysis the strong customer authentication is not mandated.")]
-    TransactionRiskAnalysisExemption,
+    TransactionRiskAnalysisExemption = ExemptionCode.TransactionRiskAnalysisExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless payment at point of sale exemption.
-    /// Encoded/decoded by serializers as "ContactlessExemption".
+    /// Encoded/decoded by serializers as "CTLS".
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_qE6A0RkqEeuGbrXbitsqoQ")]
     [Description(@"Contactless payment at point of sale exemption.")]
-    ContactlessExemption,
+    ContactlessExemption = ExemptionCode.ContactlessExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment account information exemption.
-    /// Encoded/decoded by serializers as "PaymentAccountExemption".
+    /// Encoded/decoded by serializers as "PAAC".
     /// </summary>
     [EnumMember(Value = "PAAC")]
     [IsoId("_rXxW4RkqEeuGbrXbitsqoQ")]
     [Description(@"Payment account information exemption.")]
-    PaymentAccountExemption,
+    PaymentAccountExemption = ExemptionCode.PaymentAccountExemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit transfer between accounts held by the same natural or legal person exemption.
-    /// Encoded/decoded by serializers as "TransferSamePersonExemption".
+    /// Encoded/decoded by serializers as "TRSP".
     /// </summary>
     [EnumMember(Value = "TRSP")]
     [IsoId("_svszIRkqEeuGbrXbitsqoQ")]
     [Description(@"Credit transfer between accounts held by the same natural or legal person exemption.")]
-    TransferSamePersonExemption,
+    TransferSamePersonExemption = ExemptionCode.TransferSamePersonExemption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum Exemption2Code
 public static class Exemption2CodeMetadataExtensions
 {
     private static readonly Exemption2CodeDropdownSource _dropdownSource = new Exemption2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

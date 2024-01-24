@@ -21,39 +21,39 @@ public enum ProcessingStatus1Code
 {
     /// <summary>
     /// Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer's chosen official source. Further updates to the event are still possible.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aLED2Np-Ed-ak6NoX_4Aeg_-1833350782")]
     [Description(@"Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer's chosen official source. Further updates to the event are still possible.")]
-    Complete,
+    Complete = ProcessingStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message may not contain complete details of the corporate action event,|however, the occurrence of the event is confirmed.
-    /// Encoded/decoded by serializers as "PreliminaryConfirmed".
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_aLN00Np-Ed-ak6NoX_4Aeg_-1833350781")]
     [Description(@"Message may not contain complete details of the corporate action event,|however, the occurrence of the event is confirmed.")]
-    PreliminaryConfirmed,
+    PreliminaryConfirmed = ProcessingStatusCode.PreliminaryConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message may not contain complete details of the corporate action event and|the occurrence of the event is not yet confirmed.
-    /// Encoded/decoded by serializers as "PreliminaryUnconfirmed".
+    /// Encoded/decoded by serializers as "PREU".
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_aLN00dp-Ed-ak6NoX_4Aeg_-1833350780")]
     [Description(@"Message may not contain complete details of the corporate action event and|the occurrence of the event is not yet confirmed.")]
-    PreliminaryUnconfirmed,
+    PreliminaryUnconfirmed = ProcessingStatusCode.PreliminaryUnconfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The message is for information only.
-    /// Encoded/decoded by serializers as "ForInformationOnly".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_aLN00tp-Ed-ak6NoX_4Aeg_-1833350752")]
     [Description(@"The message is for information only.")]
-    ForInformationOnly,
+    ForInformationOnly = ProcessingStatusCode.ForInformationOnly, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProcessingStatus1Code
 public static class ProcessingStatus1CodeMetadataExtensions
 {
     private static readonly ProcessingStatus1CodeDropdownSource _dropdownSource = new ProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

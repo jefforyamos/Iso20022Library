@@ -21,30 +21,30 @@ public enum CancellationStatus6Code
 {
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_RaR74bLQEemDyeh7tbvg1w")]
     [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = CancellationStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_RaR75bLQEemDyeh7tbvg1w")]
     [Description(@"Cancellation instruction / request has been accepted and processed, the cancellation is complete.")]
-    Complete,
+    Complete = CancellationStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request has been received by issuer or registrar.
-    /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_RaR757LQEemDyeh7tbvg1w")]
     [Description(@"Cancellation instruction / request has been received by issuer or registrar.")]
-    ReceivedByIssuerOrRegistrar,
+    ReceivedByIssuerOrRegistrar = CancellationStatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CancellationStatus6Code
 public static class CancellationStatus6CodeMetadataExtensions
 {
     private static readonly CancellationStatus6CodeDropdownSource _dropdownSource = new CancellationStatus6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

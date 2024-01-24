@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_wNAYIJSkEeeh5JjedkaA_g")]
 [Description(@"Specifies the type of a deemed rate.")]
 [Derivations(typeof(DeemedRateType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeemedRateTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum DeemedRateTypeCode
 public static class DeemedRateTypeCodeMetadataExtensions
 {
     private static readonly DeemedRateTypeCodeDropdownSource _dropdownSource = new DeemedRateTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_tyUxkVf8EeOuDtoQo1qilA")]
 [Description(@"Indicates the specific reinvestment plan type.")]
 [Derivations(typeof(ReinvestmentPlan1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReinvestmentPlanCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReinvestmentPlanCode
 public static class ReinvestmentPlanCodeMetadataExtensions
 {
     private static readonly ReinvestmentPlanCodeDropdownSource _dropdownSource = new ReinvestmentPlanCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

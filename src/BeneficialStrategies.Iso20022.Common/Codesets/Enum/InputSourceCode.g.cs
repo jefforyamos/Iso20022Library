@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_XuZk8MmMEeWAGphE2LvqeA")]
 [Description(@"Specifies the input source for the generation of the file.")]
 [Derivations(typeof(InputSource1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InputSourceCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InputSourceCode
 public static class InputSourceCodeMetadataExtensions
 {
     private static readonly InputSourceCodeDropdownSource _dropdownSource = new InputSourceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

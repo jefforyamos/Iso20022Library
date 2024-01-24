@@ -21,39 +21,39 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
 {
     /// <summary>
     /// Netural or has no impact.
-    /// Encoded/decoded by serializers as "Neutral".
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_v07ggdAKEeuSBa1PsnseFg")]
     [Description(@"Netural or has no impact.")]
-    Neutral,
+    Neutral = ESGCategoryGermanStructuredSecuritiesMarketCode.Neutral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Impact-related bond according to recognised market standards (for example, Green/Social Bond Principles, EU Green Bond Standards).
-    /// Encoded/decoded by serializers as "ImpactSS".
+    /// Encoded/decoded by serializers as "IMPS".
     /// </summary>
     [EnumMember(Value = "IMPS")]
     [IsoId("_v7CvkdAKEeuSBa1PsnseFg")]
     [Description(@"Impact-related bond according to recognised market standards (for example, Green/Social Bond Principles, EU Green Bond Standards).")]
-    ImpactSS,
+    ImpactSS = ESGCategoryGermanStructuredSecuritiesMarketCode.ImpactSS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product manufacturer attains at least with one rating agency the status of a sustainable company.
-    /// Encoded/decoded by serializers as "ESGStrategySS".
+    /// Encoded/decoded by serializers as "ESGS".
     /// </summary>
     [EnumMember(Value = "ESGS")]
     [IsoId("_v_9r0dAKEeuSBa1PsnseFg")]
     [Description(@"Product manufacturer attains at least with one rating agency the status of a sustainable company.")]
-    ESGStrategySS,
+    ESGStrategySS = ESGCategoryGermanStructuredSecuritiesMarketCode.ESGStrategySS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product manufacturer follows environmental, social and corporate governance (ESG) product and transparency standard.
-    /// Encoded/decoded by serializers as "BasicCategorySS".
+    /// Encoded/decoded by serializers as "BASS".
     /// </summary>
     [EnumMember(Value = "BASS")]
     [IsoId("_wHHcsdAKEeuSBa1PsnseFg")]
     [Description(@"Product manufacturer follows environmental, social and corporate governance (ESG) product and transparency standard.")]
-    BasicCategorySS,
+    BasicCategorySS = ESGCategoryGermanStructuredSecuritiesMarketCode.BasicCategorySS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
 public static class ESGCategoryGermanStructuredSecuritiesMarket1CodeMetadataExtensions
 {
     private static readonly ESGCategoryGermanStructuredSecuritiesMarket1CodeDropdownSource _dropdownSource = new ESGCategoryGermanStructuredSecuritiesMarket1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

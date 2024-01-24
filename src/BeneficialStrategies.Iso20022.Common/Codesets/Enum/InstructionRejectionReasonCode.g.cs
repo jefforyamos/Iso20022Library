@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vvgkkMYMEeexPc-mfUU5zQ")]
 [Description(@"Reason for rejection of a corporate action instruction or of an instruction cancellation.")]
 [Derivations(typeof(InstructionRejectionReason1Code),typeof(InstructionRejectionReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstructionRejectionReasonCode
 {
     /// <summary>
@@ -1244,7 +1243,7 @@ public enum InstructionRejectionReasonCode
 public static class InstructionRejectionReasonCodeMetadataExtensions
 {
     private static readonly InstructionRejectionReasonCodeDropdownSource _dropdownSource = new InstructionRejectionReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

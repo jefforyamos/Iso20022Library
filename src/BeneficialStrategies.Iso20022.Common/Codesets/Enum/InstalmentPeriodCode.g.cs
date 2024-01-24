@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ji4689uTEei2qvU6FBLZYA")]
 [Description(@"Instalment period.")]
 [Derivations(typeof(InstalmentPeriod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstalmentPeriodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InstalmentPeriodCode
 public static class InstalmentPeriodCodeMetadataExtensions
 {
     private static readonly InstalmentPeriodCodeDropdownSource _dropdownSource = new InstalmentPeriodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

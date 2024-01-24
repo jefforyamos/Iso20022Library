@@ -21,30 +21,30 @@ public enum RegulatoryReportingType1Code
 {
     /// <summary>
     /// Regulatory information applies to the credit side.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_ZbFYZ9p-Ed-ak6NoX_4Aeg_-1519759906")]
     [Description(@"Regulatory information applies to the credit side.")]
-    Credit,
+    Credit = RegulatoryReportingTypeCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regulatory information applies to the debit side.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_ZbPJYNp-Ed-ak6NoX_4Aeg_-1464346584")]
     [Description(@"Regulatory information applies to the debit side.")]
-    Debit,
+    Debit = RegulatoryReportingTypeCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regulatory information applies to both credit and debit sides.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_ZbPJYdp-Ed-ak6NoX_4Aeg_-1237159367")]
     [Description(@"Regulatory information applies to both credit and debit sides.")]
-    Both,
+    Both = RegulatoryReportingTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RegulatoryReportingType1Code
 public static class RegulatoryReportingType1CodeMetadataExtensions
 {
     private static readonly RegulatoryReportingType1CodeDropdownSource _dropdownSource = new RegulatoryReportingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

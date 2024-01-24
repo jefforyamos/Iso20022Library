@@ -21,12 +21,12 @@ public enum DateType7Code
 {
     /// <summary>
     /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "Ongoing".
+    /// Encoded/decoded by serializers as "ONGO".
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhptp-Ed-ak6NoX_4Aeg_24028541")]
     [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
-    Ongoing,
+    Ongoing = DateTypeCode.Ongoing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DateType7Code
 public static class DateType7CodeMetadataExtensions
 {
     private static readonly DateType7CodeDropdownSource _dropdownSource = new DateType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

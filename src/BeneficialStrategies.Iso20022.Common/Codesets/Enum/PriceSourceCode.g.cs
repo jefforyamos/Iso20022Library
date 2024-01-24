@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aJIKI9p-Ed-ak6NoX_4Aeg_-1943381521")]
 [Description(@"Specifies the source of a price quotation.")]
 [Derivations(typeof(PriceSource1Code),typeof(PriceSource2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PriceSourceCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PriceSourceCode
 public static class PriceSourceCodeMetadataExtensions
 {
     private static readonly PriceSourceCodeDropdownSource _dropdownSource = new PriceSourceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

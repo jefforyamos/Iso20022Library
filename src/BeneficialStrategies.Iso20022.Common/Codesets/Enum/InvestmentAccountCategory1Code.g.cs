@@ -21,21 +21,21 @@ public enum InvestmentAccountCategory1Code
 {
     /// <summary>
     /// Account is fully managed by the financial institution, that is, an investor gives a 'mandate' to the financial institution to execute a mutually agreed investment strategy on its behalf.
-    /// Encoded/decoded by serializers as "MandateAccount".
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_HQJ88RRIEeOKWo1NF21OVw")]
     [Description(@"Account is fully managed by the financial institution, that is, an investor gives a 'mandate' to the financial institution to execute a mutually agreed investment strategy on its behalf.")]
-    MandateAccount,
+    MandateAccount = InvestmentAccountCategoryCode.MandateAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is a standard account managed by the investor. The investor issues instructions for the account to the financial institution.
-    /// Encoded/decoded by serializers as "RetailAccount".
+    /// Encoded/decoded by serializers as "RETA".
     /// </summary>
     [EnumMember(Value = "RETA")]
     [IsoId("_HZh7YRRIEeOKWo1NF21OVw")]
     [Description(@"Account is a standard account managed by the investor. The investor issues instructions for the account to the financial institution.")]
-    RetailAccount,
+    RetailAccount = InvestmentAccountCategoryCode.RetailAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InvestmentAccountCategory1Code
 public static class InvestmentAccountCategory1CodeMetadataExtensions
 {
     private static readonly InvestmentAccountCategory1CodeDropdownSource _dropdownSource = new InvestmentAccountCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

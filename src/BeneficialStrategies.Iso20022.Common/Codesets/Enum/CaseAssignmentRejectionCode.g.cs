@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a2IaFtp-Ed-ak6NoX_4Aeg_-898092331")]
 [Description(@"Specifies the reason for not accepting a Case.")]
 [Derivations(typeof(CaseAssignmentRejection1Code),typeof(CaseAssignmentRejection2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CaseAssignmentRejectionCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CaseAssignmentRejectionCode
 public static class CaseAssignmentRejectionCodeMetadataExtensions
 {
     private static readonly CaseAssignmentRejectionCodeDropdownSource _dropdownSource = new CaseAssignmentRejectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

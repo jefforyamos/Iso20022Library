@@ -21,57 +21,57 @@ public enum EncryptedDataFormat1Code
 {
     /// <summary>
     /// ASCII Format.
-    /// Encoded/decoded by serializers as "ASCII".
+    /// Encoded/decoded by serializers as "ASCI".
     /// </summary>
     [EnumMember(Value = "ASCI")]
     [IsoId("_kQkL0QHzEeiJObvChJn-OA")]
     [Description(@"ASCII Format.")]
-    ASCII,
+    ASCII = EncryptedDataFormatCode.ASCII, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Binary format.
-    /// Encoded/decoded by serializers as "Binary".
+    /// Encoded/decoded by serializers as "BINF".
     /// </summary>
     [EnumMember(Value = "BINF")]
     [IsoId("_kd9HkgHzEeiJObvChJn-OA")]
     [Description(@"Binary format.")]
-    Binary,
+    Binary = EncryptedDataFormatCode.Binary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EBCDIC format.
-    /// Encoded/decoded by serializers as "EBCDIC".
+    /// Encoded/decoded by serializers as "EBCD".
     /// </summary>
     [EnumMember(Value = "EBCD")]
     [IsoId("_kryvQgHzEeiJObvChJn-OA")]
     [Description(@"EBCDIC format.")]
-    EBCDIC,
+    EBCDIC = EncryptedDataFormatCode.EBCDIC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// HEX Format.
-    /// Encoded/decoded by serializers as "HEX".
+    /// Encoded/decoded by serializers as "HEXF".
     /// </summary>
     [EnumMember(Value = "HEXF")]
     [IsoId("_k-1AAgHzEeiJObvChJn-OA")]
     [Description(@"HEX Format.")]
-    HEX,
+    HEX = EncryptedDataFormatCode.HEX, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other format defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_lNtJggHzEeiJObvChJn-OA")]
     [Description(@"Other format defined at national level.")]
-    OtherNational,
+    OtherNational = EncryptedDataFormatCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of format defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_lb_dIgHzEeiJObvChJn-OA")]
     [Description(@"Other type of format defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = EncryptedDataFormatCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum EncryptedDataFormat1Code
 public static class EncryptedDataFormat1CodeMetadataExtensions
 {
     private static readonly EncryptedDataFormat1CodeDropdownSource _dropdownSource = new EncryptedDataFormat1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

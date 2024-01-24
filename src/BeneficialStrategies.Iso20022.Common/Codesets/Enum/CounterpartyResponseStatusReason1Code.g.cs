@@ -21,30 +21,30 @@ public enum CounterpartyResponseStatusReason1Code
 {
     /// <summary>
     /// Specifies that the response is related to an allegement from the counterparty.
-    /// Encoded/decoded by serializers as "CounterpartyTransaction".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_0mWuhQlIEeGATtfOBToyew_1912527419")]
     [Description(@"Specifies that the response is related to an allegement from the counterparty.")]
-    CounterpartyTransaction,
+    CounterpartyTransaction = CounterpartyResponseStatusReasonCode.CounterpartyTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the response is related to the cancellation request of the counterparty.
-    /// Encoded/decoded by serializers as "CounterpartyCancellation".
+    /// Encoded/decoded by serializers as "CPCX".
     /// </summary>
     [EnumMember(Value = "CPCX")]
     [IsoId("_0mgfgAlIEeGATtfOBToyew_1029294132")]
     [Description(@"Specifies that the response is related to the cancellation request of the counterparty.")]
-    CounterpartyCancellation,
+    CounterpartyCancellation = CounterpartyResponseStatusReasonCode.CounterpartyCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the response is related to the modification request of the counterparty.
-    /// Encoded/decoded by serializers as "CounterpartyModification".
+    /// Encoded/decoded by serializers as "CPMD".
     /// </summary>
     [EnumMember(Value = "CPMD")]
     [IsoId("_0mgfgQlIEeGATtfOBToyew_2030398404")]
     [Description(@"Specifies that the response is related to the modification request of the counterparty.")]
-    CounterpartyModification,
+    CounterpartyModification = CounterpartyResponseStatusReasonCode.CounterpartyModification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CounterpartyResponseStatusReason1Code
 public static class CounterpartyResponseStatusReason1CodeMetadataExtensions
 {
     private static readonly CounterpartyResponseStatusReason1CodeDropdownSource _dropdownSource = new CounterpartyResponseStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

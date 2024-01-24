@@ -21,75 +21,75 @@ public enum ChargeType12Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a8ruB9p-Ed-ak6NoX_4Aeg_-1066086887")]
     [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
-    BackEndLoad,
+    BackEndLoad = ChargeTypeCode.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_a8ruCNp-Ed-ak6NoX_4Aeg_-1066086869")]
     [Description(@"Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.")]
-    Discount,
+    Discount = ChargeTypeCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a8ruCdp-Ed-ak6NoX_4Aeg_-1066086844")]
     [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
-    FrontEndLoad,
+    FrontEndLoad = ChargeTypeCode.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "PostageCharge".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_a81fANp-Ed-ak6NoX_4Aeg_-1066086827")]
     [Description(@"Charge paid for the postage.")]
-    PostageCharge,
+    PostageCharge = ChargeTypeCode.PostageCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "RegulatoryFee".
+    /// Encoded/decoded by serializers as "REGF".
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_a81fAdp-Ed-ak6NoX_4Aeg_-1066086809")]
     [Description(@"Fee charged by a regulatory authority, eg, Securities and Exchange fees.")]
-    RegulatoryFee,
+    RegulatoryFee = ChargeTypeCode.RegulatoryFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "ShippingCharge".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_a81fAtp-Ed-ak6NoX_4Aeg_-1066086792")]
     [Description(@"Charge for shipping, including the insurance of securities.")]
-    ShippingCharge,
+    ShippingCharge = ChargeTypeCode.ShippingCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SpecialConcessions".
+    /// Encoded/decoded by serializers as "SPCN".
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_a81fA9p-Ed-ak6NoX_4Aeg_-1066086774")]
     [Description(@"Charges, drawdown, or other reduction from or in addition to the deal price.")]
-    SpecialConcessions,
+    SpecialConcessions = ChargeTypeCode.SpecialConcessions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TransferFee".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_a81fBNp-Ed-ak6NoX_4Aeg_-1066086749")]
     [Description(@"In investment funds, a fee charged for the transfer of ownership of an investment fund.")]
-    TransferFee,
+    TransferFee = ChargeTypeCode.TransferFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum ChargeType12Code
 public static class ChargeType12CodeMetadataExtensions
 {
     private static readonly ChargeType12CodeDropdownSource _dropdownSource = new ChargeType12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

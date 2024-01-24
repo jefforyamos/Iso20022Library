@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_t4qL0FKiEeiSDqv62fL07g")]
 [Description(@"Specifies a drawdown status.")]
 [Derivations(typeof(DrawdownStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DrawdownStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DrawdownStatusCode
 public static class DrawdownStatusCodeMetadataExtensions
 {
     private static readonly DrawdownStatusCodeDropdownSource _dropdownSource = new DrawdownStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum SecuritiesExitReason1Code
 {
     /// <summary>
     /// Shares are restricted.
-    /// Encoded/decoded by serializers as "Restricted".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_10TW5TL3EeKU9IrkkToqcw_480606307")]
     [Description(@"Shares are restricted.")]
-    Restricted,
+    Restricted = SecuritiesExitReasonCode.Restricted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Shares are non transferable.
-    /// Encoded/decoded by serializers as "NonTransferable".
+    /// Encoded/decoded by serializers as "NTRN".
     /// </summary>
     [EnumMember(Value = "NTRN")]
     [IsoId("_10dH4DL3EeKU9IrkkToqcw_1947755070")]
     [Description(@"Shares are non transferable.")]
-    NonTransferable,
+    NonTransferable = SecuritiesExitReasonCode.NonTransferable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other reason.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_10dH4TL3EeKU9IrkkToqcw_1012448860")]
     [Description(@"Other reason.")]
-    Other,
+    Other = SecuritiesExitReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SecuritiesExitReason1Code
 public static class SecuritiesExitReason1CodeMetadataExtensions
 {
     private static readonly SecuritiesExitReason1CodeDropdownSource _dropdownSource = new SecuritiesExitReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum RepoCallAcknowledgementReason2Code
 {
     /// <summary>
     /// Repurchase agreement call is in process.
-    /// Encoded/decoded by serializers as "InProcess".
+    /// Encoded/decoded by serializers as "CALD".
     /// </summary>
     [EnumMember(Value = "CALD")]
     [IsoId("_ZSvUtdp-Ed-ak6NoX_4Aeg_-364881931")]
     [Description(@"Repurchase agreement call is in process.")]
-    InProcess,
+    InProcess = RepoCallAcknowledgementReasonCode.InProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repurchase agreement call is processed.
-    /// Encoded/decoded by serializers as "Processed".
+    /// Encoded/decoded by serializers as "CALP".
     /// </summary>
     [EnumMember(Value = "CALP")]
     [IsoId("_ZSvUttp-Ed-ak6NoX_4Aeg_-478720997")]
     [Description(@"Repurchase agreement call is processed.")]
-    Processed,
+    Processed = RepoCallAcknowledgementReasonCode.Processed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZSvUt9p-Ed-ak6NoX_4Aeg_1840624684")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RepoCallAcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RepoCallAcknowledgementReason2Code
 public static class RepoCallAcknowledgementReason2CodeMetadataExtensions
 {
     private static readonly RepoCallAcknowledgementReason2CodeDropdownSource _dropdownSource = new RepoCallAcknowledgementReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVWQDwEcEeCQm6a_G2yO_w_-259543426")]
 [Description(@"Identification or qualification of the type of amount.")]
-[Derivations(typeof(TypeOfAmount3Code),typeof(TypeOfAmount1Code),typeof(TypeOfAmount2Code),typeof(TypeOfAmount4Code),typeof(TypeOfAmount7Code),typeof(TypeOfAmount6Code),typeof(TypeOfAmount5Code),typeof(TypeOfAmount8Code),typeof(TypeOfAmount9Code),typeof(TypeOfAmount18Code),typeof(TypeOfAmount17Code),typeof(TypeOfAmount19Code),typeof(TypeOfAmount11Code),typeof(TypeOfAmount10Code),typeof(TypeOfAmount12Code),typeof(TypeOfAmount22Code),typeof(TypeOfAmount21Code),typeof(TypeOfAmount20Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TypeOfAmount2Code),typeof(TypeOfAmount21Code),typeof(TypeOfAmount11Code),typeof(TypeOfAmount17Code),typeof(TypeOfAmount1Code),typeof(TypeOfAmount3Code),typeof(TypeOfAmount9Code),typeof(TypeOfAmount22Code),typeof(TypeOfAmount19Code),typeof(TypeOfAmount8Code),typeof(TypeOfAmount5Code),typeof(TypeOfAmount10Code),typeof(TypeOfAmount20Code),typeof(TypeOfAmount4Code),typeof(TypeOfAmount6Code),typeof(TypeOfAmount12Code),typeof(TypeOfAmount7Code),typeof(TypeOfAmount18Code))]
 public enum TypeOfAmountCode
 {
     /// <summary>
@@ -333,7 +332,7 @@ public enum TypeOfAmountCode
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_McjMM6HjEeagRbKvRt3LnA")]
-    [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")]
+    [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.|Usage: This amount has to be transported unchanged through the transaction chain.")]
     InstructedAmount,
     
     /// <summary>
@@ -858,7 +857,7 @@ public enum TypeOfAmountCode
 public static class TypeOfAmountCodeMetadataExtensions
 {
     private static readonly TypeOfAmountCodeDropdownSource _dropdownSource = new TypeOfAmountCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

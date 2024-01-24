@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KCcGUJfQEeuqNYk2TG3bTg")]
 [Description(@"Type of operating system deployed on device.")]
 [Derivations(typeof(DeviceOperatingSystemType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeviceOperatingSystemTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum DeviceOperatingSystemTypeCode
 public static class DeviceOperatingSystemTypeCodeMetadataExtensions
 {
     private static readonly DeviceOperatingSystemTypeCodeDropdownSource _dropdownSource = new DeviceOperatingSystemTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

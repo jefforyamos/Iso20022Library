@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aZrHltp-Ed-ak6NoX_4Aeg_1988747412")]
 [Description(@"Specifies the method used to compute accruing interest of a financial instrument.")]
 [Derivations(typeof(InterestComputationMethod2Code),typeof(InterestComputationMethod1Code),typeof(InterestComputationMethod4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestComputationMethodCode
 {
     /// <summary>
@@ -180,7 +179,7 @@ public enum InterestComputationMethodCode
     /// </summary>
     [EnumMember(Value = "A017")]
     [IsoId("_sXfC8NUtEeeRlY872jYMtQ")]
-    [Description(@"Method whereby interest is calculated based on the actual number of accrued days in the interest period divided by 364. Method equal to Act364 in the FixML model.")]
+    [Description(@"Method whereby interest is calculated based on the actual number of accrued days in the interest period divided by 364.|Method equal to Act364 in the FixML model.")]
     Actual364,
     
     /// <summary>
@@ -191,7 +190,7 @@ public enum InterestComputationMethodCode
     /// </summary>
     [EnumMember(Value = "A018")]
     [IsoId("_sgtQYNUtEeeRlY872jYMtQ")]
-    [Description(@"Method whereby interest is calculated based on the actual number of business days in the interest period divided by 252.  Usage: Brazilian Currency Swaps.  Method equal to BUS/252 in the FpML model and BusTwoFiftyTwo in the FixML model.")]
+    [Description(@"Method whereby interest is calculated based on the actual number of business days in the interest period divided by 252. |Usage: Brazilian Currency Swaps. |Method equal to BUS/252 in the FpML model and BusTwoFiftyTwo in the FixML model.")]
     Business252,
     
     /// <summary>
@@ -210,7 +209,7 @@ public enum InterestComputationMethodCode
     /// </summary>
     [EnumMember(Value = "A020")]
     [IsoId("_G0OC0OQIEeeRf5TTRSrZDA")]
-    [Description(@"Also named 1/1. | ELABORATION: If parties specify the Day Count Fraction to be 1/1 then in calculating the applicable amount, 1 is simply input into the calculation as the relevant Day Count Fraction. See also 2006 ISDA Definitions, Section 4.16. Day Count Fraction, paragraph (a).")]
+    [Description(@"Also named 1/1. ||ELABORATION: If parties specify the Day Count Fraction to be 1/1 then in calculating the applicable amount, 1 is simply input into the calculation as the relevant Day Count Fraction. See also 2006 ISDA Definitions, Section 4.16. Day Count Fraction, paragraph (a).")]
     OneOne,
     
     /// <summary>
@@ -231,7 +230,7 @@ public enum InterestComputationMethodCode
 public static class InterestComputationMethodCodeMetadataExtensions
 {
     private static readonly InterestComputationMethodCodeDropdownSource _dropdownSource = new InterestComputationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

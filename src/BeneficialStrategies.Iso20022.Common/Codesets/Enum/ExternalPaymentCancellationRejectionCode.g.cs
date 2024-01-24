@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_qcZCgYluEeePr-EGJjGYzQ")]
-[Description(@"Specifies the reason for the rejection of a cancellation, as published in an external payment cancellation rejection code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for the rejection of a cancellation, as published in an external payment cancellation rejection code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentCancellationRejection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentCancellationRejectionCode
 {
     /// <summary>
@@ -255,7 +254,7 @@ public enum ExternalPaymentCancellationRejectionCode
 public static class ExternalPaymentCancellationRejectionCodeMetadataExtensions
 {
     private static readonly ExternalPaymentCancellationRejectionCodeDropdownSource _dropdownSource = new ExternalPaymentCancellationRejectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

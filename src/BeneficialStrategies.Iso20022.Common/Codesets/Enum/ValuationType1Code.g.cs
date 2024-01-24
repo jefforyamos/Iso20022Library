@@ -21,33 +21,30 @@ public enum ValuationType1Code
 {
     /// <summary>
     /// Central counterparty (CCP) valuation.
-    /// Encoded/decoded by serializers as "CCPValuation".
+    /// Encoded/decoded by serializers as "CCPV".
     /// </summary>
     [EnumMember(Value = "CCPV")]
     [IsoId("_wGC2AfP4EeS_qLctCs2aRQ")]
     [Description(@"Central counterparty (CCP) valuation.")]
-    CCPValuation,
+    CCPValuation = ValuationTypeCode.CCPValuation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mark to market valuation.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "MarkToMarket".
+    /// Encoded/decoded by serializers as "MTMA".
     /// </summary>
     [EnumMember(Value = "MTMA")]
     [IsoId("_wQAqUfP4EeS_qLctCs2aRQ")]
-    [Description(@"Mark to market valuation.  ")]
-    MarkToMarket,
+    [Description(@"Mark to market valuation.||")]
+    MarkToMarket = ValuationTypeCode.MarkToMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mark to model valuation.
-    /// 
-    /// Encoded/decoded by serializers as "MarkToModel".
+    /// Encoded/decoded by serializers as "MTMO".
     /// </summary>
     [EnumMember(Value = "MTMO")]
     [IsoId("_wbndY_P4EeS_qLctCs2aRQ")]
-    [Description(@"Mark to model valuation. ")]
-    MarkToModel,
+    [Description(@"Mark to model valuation.|")]
+    MarkToModel = ValuationTypeCode.MarkToModel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -58,7 +55,7 @@ public enum ValuationType1Code
 public static class ValuationType1CodeMetadataExtensions
 {
     private static readonly ValuationType1CodeDropdownSource _dropdownSource = new ValuationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

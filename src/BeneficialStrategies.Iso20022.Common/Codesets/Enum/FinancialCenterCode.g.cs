@@ -540,7 +540,7 @@ public enum FinancialCenterCode
 public static class FinancialCenterCodeMetadataExtensions
 {
     private static readonly FinancialCenterCodeDropdownSource _dropdownSource = new FinancialCenterCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

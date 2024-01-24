@@ -21,21 +21,21 @@ public enum TypeOfRequest1Code
 {
     /// <summary>
     /// Request for information.
-    /// Encoded/decoded by serializers as "Information".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_GYj0kdveEeqxGfKJubfhIw")]
     [Description(@"Request for information.")]
-    Information,
+    Information = TypeOfRequestCode.Information, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request for status.
-    /// Encoded/decoded by serializers as "Status".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_GhCbIdveEeqxGfKJubfhIw")]
     [Description(@"Request for status.")]
-    Status,
+    Status = TypeOfRequestCode.Status, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TypeOfRequest1Code
 public static class TypeOfRequest1CodeMetadataExtensions
 {
     private static readonly TypeOfRequest1CodeDropdownSource _dropdownSource = new TypeOfRequest1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

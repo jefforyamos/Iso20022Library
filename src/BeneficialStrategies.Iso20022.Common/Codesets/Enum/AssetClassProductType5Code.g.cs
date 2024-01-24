@@ -21,12 +21,12 @@ public enum AssetClassProductType5Code
 {
     /// <summary>
     /// Commodity of type fertilizer.
-    /// Encoded/decoded by serializers as "Fertilizer".
+    /// Encoded/decoded by serializers as "FRTL".
     /// </summary>
     [EnumMember(Value = "FRTL")]
     [IsoId("_ie4nUQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type fertilizer.")]
-    Fertilizer,
+    Fertilizer = AssetClassProductTypeCode.Fertilizer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType5Code
 public static class AssetClassProductType5CodeMetadataExtensions
 {
     private static readonly AssetClassProductType5CodeDropdownSource _dropdownSource = new AssetClassProductType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

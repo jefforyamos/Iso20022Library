@@ -21,48 +21,48 @@ public enum RestrictionType1Code
 {
     /// <summary>
     /// Selling restriction.
-    /// Encoded/decoded by serializers as "Selling".
+    /// Encoded/decoded by serializers as "SELR".
     /// </summary>
     [EnumMember(Value = "SELR")]
     [IsoId("_hbcAr2liEeGaMcKyqKNRfQ_-1297174021")]
     [Description(@"Selling restriction.")]
-    Selling,
+    Selling = RestrictionTypeCode.Selling, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buying restriction.
-    /// Encoded/decoded by serializers as "Buying".
+    /// Encoded/decoded by serializers as "BUYR".
     /// </summary>
     [EnumMember(Value = "BUYR")]
     [IsoId("_hbcAsGliEeGaMcKyqKNRfQ_-268302593")]
     [Description(@"Buying restriction.")]
-    Buying,
+    Buying = RestrictionTypeCode.Buying, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Placing restriction.
-    /// Encoded/decoded by serializers as "Placing".
+    /// Encoded/decoded by serializers as "PLAR".
     /// </summary>
     [EnumMember(Value = "PLAR")]
     [IsoId("_hbcAsWliEeGaMcKyqKNRfQ_809717745")]
     [Description(@"Placing restriction.")]
-    Placing,
+    Placing = RestrictionTypeCode.Placing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holding restriction.
-    /// Encoded/decoded by serializers as "Holding".
+    /// Encoded/decoded by serializers as "HOLR".
     /// </summary>
     [EnumMember(Value = "HOLR")]
     [IsoId("_hblKkGliEeGaMcKyqKNRfQ_-1548024378")]
     [Description(@"Holding restriction.")]
-    Holding,
+    Holding = RestrictionTypeCode.Holding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Voting restriction.
-    /// Encoded/decoded by serializers as "Voting".
+    /// Encoded/decoded by serializers as "VOTR".
     /// </summary>
     [EnumMember(Value = "VOTR")]
     [IsoId("_hblKkWliEeGaMcKyqKNRfQ_798618968")]
     [Description(@"Voting restriction.")]
-    Voting,
+    Voting = RestrictionTypeCode.Voting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RestrictionType1Code
 public static class RestrictionType1CodeMetadataExtensions
 {
     private static readonly RestrictionType1CodeDropdownSource _dropdownSource = new RestrictionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

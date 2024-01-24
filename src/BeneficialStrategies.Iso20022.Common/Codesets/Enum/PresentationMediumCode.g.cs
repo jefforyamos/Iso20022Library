@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_oH14wHyeEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the presentation medium.")]
 [Derivations(typeof(PresentationMedium1Code),typeof(PresentationMedium2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PresentationMediumCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PresentationMediumCode
 public static class PresentationMediumCodeMetadataExtensions
 {
     private static readonly PresentationMediumCodeDropdownSource _dropdownSource = new PresentationMediumCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,336 +21,336 @@ public enum DTCUnallocatedAdjustmentReason4Code
 {
     /// <summary>
     /// Issues funded and/or identified after the cycle cut off.
-    /// Encoded/decoded by serializers as "AfterCycleCutOff".
+    /// Encoded/decoded by serializers as "LFID".
     /// </summary>
     [EnumMember(Value = "LFID")]
     [IsoId("_7nigwcMSEee-Vv_OVx0uAQ")]
     [Description(@"Issues funded and/or identified after the cycle cut off.")]
-    AfterCycleCutOff,
+    AfterCycleCutOff = DTCUnallocatedAdjustmentReasonV2Code.AfterCycleCutOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is not final. Rate is approximate.
-    /// Encoded/decoded by serializers as "ApproximateRate".
+    /// Encoded/decoded by serializers as "APRR".
     /// </summary>
     [EnumMember(Value = "APRR")]
     [IsoId("_7tWN0cMSEee-Vv_OVx0uAQ")]
     [Description(@"Rate is not final. Rate is approximate.")]
-    ApproximateRate,
+    ApproximateRate = DTCUnallocatedAdjustmentReasonV2Code.ApproximateRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Incorrect announcement.
-    /// Encoded/decoded by serializers as "BadAnnouncement".
+    /// Encoded/decoded by serializers as "ANNG".
     /// </summary>
     [EnumMember(Value = "ANNG")]
     [IsoId("_7ysn4cMSEee-Vv_OVx0uAQ")]
     [Description(@"Incorrect announcement.")]
-    BadAnnouncement,
+    BadAnnouncement = DTCUnallocatedAdjustmentReasonV2Code.BadAnnouncement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Incorrect payable date.
-    /// Encoded/decoded by serializers as "BadPayableDate".
+    /// Encoded/decoded by serializers as "BDPD".
     /// </summary>
     [EnumMember(Value = "BDPD")]
     [IsoId("_74DpAcMSEee-Vv_OVx0uAQ")]
     [Description(@"Incorrect payable date.")]
-    BadPayableDate,
+    BadPayableDate = DTCUnallocatedAdjustmentReasonV2Code.BadPayableDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a call rescinded.
-    /// Encoded/decoded by serializers as "CallRescinded".
+    /// Encoded/decoded by serializers as "RESC".
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_75_iscMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a call rescinded.")]
-    CallRescinded,
+    CallRescinded = DTCUnallocatedAdjustmentReasonV2Code.CallRescinded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a Canadian depository inventory.
-    /// Encoded/decoded by serializers as "CanadianDepositoryInventory".
+    /// Encoded/decoded by serializers as "CDIN".
     /// </summary>
     [EnumMember(Value = "CDIN")]
     [IsoId("_7-wG4cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a Canadian depository inventory.")]
-    CanadianDepositoryInventory,
+    CanadianDepositoryInventory = DTCUnallocatedAdjustmentReasonV2Code.CanadianDepositoryInventory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash rate for allocation is zero.
-    /// Encoded/decoded by serializers as "CashRateUnknown".
+    /// Encoded/decoded by serializers as "CSHR".
     /// </summary>
     [EnumMember(Value = "CSHR")]
     [IsoId("_8DzmAcMSEee-Vv_OVx0uAQ")]
     [Description(@"Cash rate for allocation is zero.")]
-    CashRateUnknown,
+    CashRateUnknown = DTCUnallocatedAdjustmentReasonV2Code.CashRateUnknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a CD accelerated maturity.
-    /// Encoded/decoded by serializers as "CDAcceleratedMaturity".
+    /// Encoded/decoded by serializers as "ERLY".
     /// </summary>
     [EnumMember(Value = "ERLY")]
     [IsoId("_8L2HscMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a CD accelerated maturity.")]
-    CDAcceleratedMaturity,
+    CDAcceleratedMaturity = DTCUnallocatedAdjustmentReasonV2Code.CDAcceleratedMaturity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is conditional and conditions have not been met yet.
-    /// Encoded/decoded by serializers as "ConditionalPayment".
+    /// Encoded/decoded by serializers as "COND".
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_8NefYcMSEee-Vv_OVx0uAQ")]
     [Description(@"Payment is conditional and conditions have not been met yet.")]
-    ConditionalPayment,
+    ConditionalPayment = DTCUnallocatedAdjustmentReasonV2Code.ConditionalPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issue is in default.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_8PHeIcMSEee-Vv_OVx0uAQ")]
     [Description(@"Issue is in default.")]
-    Default,
+    Default = DTCUnallocatedAdjustmentReasonV2Code.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a five day grace period.
-    /// Encoded/decoded by serializers as "FiveDayGracePeriod".
+    /// Encoded/decoded by serializers as "FVDG".
     /// </summary>
     [EnumMember(Value = "FVDG")]
     [IsoId("_8akgMcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a five day grace period.")]
-    FiveDayGracePeriod,
+    FiveDayGracePeriod = DTCUnallocatedAdjustmentReasonV2Code.FiveDayGracePeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funds were not received by the agent.
-    /// Encoded/decoded by serializers as "FundsNotReceivedByAgent".
+    /// Encoded/decoded by serializers as "ANFI".
     /// </summary>
     [EnumMember(Value = "ANFI")]
     [IsoId("_8cNe8cMSEee-Vv_OVx0uAQ")]
     [Description(@"Funds were not received by the agent.")]
-    FundsNotReceivedByAgent,
+    FundsNotReceivedByAgent = DTCUnallocatedAdjustmentReasonV2Code.FundsNotReceivedByAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Company is taking a 30 day grace period.
-    /// Encoded/decoded by serializers as "GracePeriod".
+    /// Encoded/decoded by serializers as "SAGA".
     /// </summary>
     [EnumMember(Value = "SAGA")]
     [IsoId("_8d12ocMSEee-Vv_OVx0uAQ")]
     [Description(@"Company is taking a 30 day grace period.")]
-    GracePeriod,
+    GracePeriod = DTCUnallocatedAdjustmentReasonV2Code.GracePeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to holiday in country of origin.
-    /// Encoded/decoded by serializers as "HolidayInCountryOfOrigin".
+    /// Encoded/decoded by serializers as "HICO".
     /// </summary>
     [EnumMember(Value = "HICO")]
     [IsoId("_8i580cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to holiday in country of origin.")]
-    HolidayInCountryOfOrigin,
+    HolidayInCountryOfOrigin = DTCUnallocatedAdjustmentReasonV2Code.HolidayInCountryOfOrigin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to issue that was not funded.
-    /// Encoded/decoded by serializers as "IssueNotFunded".
+    /// Encoded/decoded by serializers as "ISNF".
     /// </summary>
     [EnumMember(Value = "ISNF")]
     [IsoId("_8uW-4cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to issue that was not funded.")]
-    IssueNotFunded,
+    IssueNotFunded = DTCUnallocatedAdjustmentReasonV2Code.IssueNotFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to issue that is not maturing.
-    /// Encoded/decoded by serializers as "IssueNotMaturing".
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_8wJHkcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to issue that is not maturing.")]
-    IssueNotMaturing,
+    IssueNotMaturing = DTCUnallocatedAdjustmentReasonV2Code.IssueNotMaturing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to items pending.
-    /// Encoded/decoded by serializers as "ItemIsPending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_81DcwcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to items pending.")]
-    ItemIsPending,
+    ItemIsPending = DTCUnallocatedAdjustmentReasonV2Code.ItemIsPending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issue is being liquidated.
-    /// Encoded/decoded by serializers as "Liquidation".
+    /// Encoded/decoded by serializers as "LIQD".
     /// </summary>
     [EnumMember(Value = "LIQD")]
     [IsoId("_82r0ccMSEee-Vv_OVx0uAQ")]
     [Description(@"Issue is being liquidated.")]
-    Liquidation,
+    Liquidation = DTCUnallocatedAdjustmentReasonV2Code.Liquidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to maturity for stock payment option.
-    /// Encoded/decoded by serializers as "MaturityForStockPaymentOption".
+    /// Encoded/decoded by serializers as "MSTK".
     /// </summary>
     [EnumMember(Value = "MSTK")]
     [IsoId("_87c_scMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to maturity for stock payment option.")]
-    MaturityForStockPaymentOption,
+    MaturityForStockPaymentOption = DTCUnallocatedAdjustmentReasonV2Code.MaturityForStockPaymentOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notional balance principal will not be paid.
-    /// Encoded/decoded by serializers as "NotionalBalance".
+    /// Encoded/decoded by serializers as "NOTL".
     /// </summary>
     [EnumMember(Value = "NOTL")]
     [IsoId("_888NccMSEee-Vv_OVx0uAQ")]
     [Description(@"Notional balance principal will not be paid.")]
-    NotionalBalance,
+    NotionalBalance = DTCUnallocatedAdjustmentReasonV2Code.NotionalBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to insufficient funds received from the agent.
-    /// Encoded/decoded by serializers as "InsufficientFundsReceivedFromAgent".
+    /// Encoded/decoded by serializers as "MASF".
     /// </summary>
     [EnumMember(Value = "MASF")]
     [IsoId("_9SXD0cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to insufficient funds received from the agent.")]
-    InsufficientFundsReceivedFromAgent,
+    InsufficientFundsReceivedFromAgent = DTCUnallocatedAdjustmentReasonV2Code.InsufficientFundsReceivedFromAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to funds held at Chase for official foreign asset control.
-    /// Encoded/decoded by serializers as "FundsHeldAtChaseForOFAC".
+    /// Encoded/decoded by serializers as "OFAC".
     /// </summary>
     [EnumMember(Value = "OFAC")]
     [IsoId("_9aY-ccMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to funds held at Chase for official foreign asset control.")]
-    FundsHeldAtChaseForOFAC,
+    FundsHeldAtChaseForOFAC = DTCUnallocatedAdjustmentReasonV2Code.FundsHeldAtChaseForOFAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a failed bank; Federal Deposit Insurance Corporation assumed.
-    /// Encoded/decoded by serializers as "FederalDepositInsuranceCorporation".
+    /// Encoded/decoded by serializers as "FDIC".
     /// </summary>
     [EnumMember(Value = "FDIC")]
     [IsoId("_9fdEocMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a failed bank; Federal Deposit Insurance Corporation assumed.")]
-    FederalDepositInsuranceCorporation,
+    FederalDepositInsuranceCorporation = DTCUnallocatedAdjustmentReasonV2Code.FederalDepositInsuranceCorporation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a church bond not funded.
-    /// Encoded/decoded by serializers as "ChurchBondNotFunded".
+    /// Encoded/decoded by serializers as "CHBD".
     /// </summary>
     [EnumMember(Value = "CHBD")]
     [IsoId("_9mSsccMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a church bond not funded.")]
-    ChurchBondNotFunded,
+    ChurchBondNotFunded = DTCUnallocatedAdjustmentReasonV2Code.ChurchBondNotFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to a CHIPS Payment.
-    /// Encoded/decoded by serializers as "CHIPSPayment".
+    /// Encoded/decoded by serializers as "CHIP".
     /// </summary>
     [EnumMember(Value = "CHIP")]
     [IsoId("_9sjFccMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to a CHIPS Payment.")]
-    CHIPSPayment,
+    CHIPSPayment = DTCUnallocatedAdjustmentReasonV2Code.CHIPSPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash rate for allocation is zero.
-    /// Encoded/decoded by serializers as "CashRateZero".
+    /// Encoded/decoded by serializers as "CSHU".
     /// </summary>
     [EnumMember(Value = "CSHU")]
     [IsoId("_90bPEcMSEee-Vv_OVx0uAQ")]
     [Description(@"Cash rate for allocation is zero.")]
-    CashRateZero,
+    CashRateZero = DTCUnallocatedAdjustmentReasonV2Code.CashRateZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specific issues have been suppressed.
-    /// Encoded/decoded by serializers as "SpecificIssuesSuppressed".
+    /// Encoded/decoded by serializers as "PUVF".
     /// </summary>
     [EnumMember(Value = "PUVF")]
     [IsoId("_-T-R0cMSEee-Vv_OVx0uAQ")]
     [Description(@"Specific issues have been suppressed.")]
-    SpecificIssuesSuppressed,
+    SpecificIssuesSuppressed = DTCUnallocatedAdjustmentReasonV2Code.SpecificIssuesSuppressed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to special distribution and the issue was not funded.
-    /// Encoded/decoded by serializers as "SpecialDistributionNotYetFunded".
+    /// Encoded/decoded by serializers as "SPNF".
     /// </summary>
     [EnumMember(Value = "SPNF")]
     [IsoId("_-Zec4cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to special distribution and the issue was not funded.")]
-    SpecialDistributionNotYetFunded,
+    SpecialDistributionNotYetFunded = DTCUnallocatedAdjustmentReasonV2Code.SpecialDistributionNotYetFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to same day position capture.
-    /// Encoded/decoded by serializers as "SameDayPositionCapture".
+    /// Encoded/decoded by serializers as "SDPC".
     /// </summary>
     [EnumMember(Value = "SDPC")]
     [IsoId("_-eh8AcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to same day position capture.")]
-    SameDayPositionCapture,
+    SameDayPositionCapture = DTCUnallocatedAdjustmentReasonV2Code.SameDayPositionCapture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is that due to sale of asset, issue was not funded.
-    /// Encoded/decoded by serializers as "SaleOfAssetsNotYetFunded".
+    /// Encoded/decoded by serializers as "SANF".
     /// </summary>
     [EnumMember(Value = "SANF")]
     [IsoId("_-jmCMcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is that due to sale of asset, issue was not funded.")]
-    SaleOfAssetsNotYetFunded,
+    SaleOfAssetsNotYetFunded = DTCUnallocatedAdjustmentReasonV2Code.SaleOfAssetsNotYetFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to released pledge position.
-    /// Encoded/decoded by serializers as "ReleasedPledgePosition".
+    /// Encoded/decoded by serializers as "RPLG".
     /// </summary>
     [EnumMember(Value = "RPLG")]
     [IsoId("_-ozSUcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to released pledge position.")]
-    ReleasedPledgePosition,
+    ReleasedPledgePosition = DTCUnallocatedAdjustmentReasonV2Code.ReleasedPledgePosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is that due to redemption of rates, issue was not funded.
-    /// Encoded/decoded by serializers as "RedemptionOfRatesNotYetFunded".
+    /// Encoded/decoded by serializers as "RRNF".
     /// </summary>
     [EnumMember(Value = "RRNF")]
     [IsoId("_-uAiccMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is that due to redemption of rates, issue was not funded.")]
-    RedemptionOfRatesNotYetFunded,
+    RedemptionOfRatesNotYetFunded = DTCUnallocatedAdjustmentReasonV2Code.RedemptionOfRatesNotYetFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to recapitalisation and issue not funded.
-    /// Encoded/decoded by serializers as "RecapitalisationNotFunded".
+    /// Encoded/decoded by serializers as "RCNF".
     /// </summary>
     [EnumMember(Value = "RCNF")]
     [IsoId("_-zNykcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to recapitalisation and issue not funded.")]
-    RecapitalisationNotFunded,
+    RecapitalisationNotFunded = DTCUnallocatedAdjustmentReasonV2Code.RecapitalisationNotFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to pledged position.
-    /// Encoded/decoded by serializers as "PledgedPosition".
+    /// Encoded/decoded by serializers as "PLEG".
     /// </summary>
     [EnumMember(Value = "PLEG")]
     [IsoId("_-1JFMcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to pledged position.")]
-    PledgedPosition,
+    PledgedPosition = DTCUnallocatedAdjustmentReasonV2Code.PledgedPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due to pending conversion of funds.
-    /// Encoded/decoded by serializers as "PendingConversionOfFunds".
+    /// Encoded/decoded by serializers as "RRFX".
     /// </summary>
     [EnumMember(Value = "RRFX")]
     [IsoId("_-9Lm4cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due to pending conversion of funds.")]
-    PendingConversionOfFunds,
+    PendingConversionOfFunds = DTCUnallocatedAdjustmentReasonV2Code.PendingConversionOfFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason is due paid upon receipt of check.
-    /// Encoded/decoded by serializers as "PaidUponReceiptOfCheck".
+    /// Encoded/decoded by serializers as "PCHK".
     /// </summary>
     [EnumMember(Value = "PCHK")]
     [IsoId("__CF8EcMSEee-Vv_OVx0uAQ")]
     [Description(@"Reason is due paid upon receipt of check.")]
-    PaidUponReceiptOfCheck,
+    PaidUponReceiptOfCheck = DTCUnallocatedAdjustmentReasonV2Code.PaidUponReceiptOfCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserved for new user defined reason codes.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("__IyZ8cMSEee-Vv_OVx0uAQ")]
     [Description(@"Reserved for new user defined reason codes.")]
-    Other,
+    Other = DTCUnallocatedAdjustmentReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -361,7 +361,7 @@ public enum DTCUnallocatedAdjustmentReason4Code
 public static class DTCUnallocatedAdjustmentReason4CodeMetadataExtensions
 {
     private static readonly DTCUnallocatedAdjustmentReason4CodeDropdownSource _dropdownSource = new DTCUnallocatedAdjustmentReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

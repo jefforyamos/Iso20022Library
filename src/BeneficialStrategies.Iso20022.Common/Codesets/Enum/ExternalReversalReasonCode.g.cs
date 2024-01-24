@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_UBzAwLf9Eee9KIDjEHK7ZQ")]
-[Description(@"Specifies the reversal reason, as published in an external reversal reason code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reversal reason, as published in an external reversal reason code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalReversalReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalReversalReasonCode
 {
     /// <summary>
@@ -129,7 +128,7 @@ public enum ExternalReversalReasonCode
 public static class ExternalReversalReasonCodeMetadataExtensions
 {
     private static readonly ExternalReversalReasonCodeDropdownSource _dropdownSource = new ExternalReversalReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

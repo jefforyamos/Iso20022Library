@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_q1VvAF1xEeeu75xdwwAXQw")]
 [Description(@"Car rental service in addition to main car rental.")]
 [Derivations(typeof(CarRentalServiceType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CarRentalServiceTypeCode
 {
     /// <summary>
@@ -389,7 +388,7 @@ public enum CarRentalServiceTypeCode
 public static class CarRentalServiceTypeCodeMetadataExtensions
 {
     private static readonly CarRentalServiceTypeCodeDropdownSource _dropdownSource = new CarRentalServiceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

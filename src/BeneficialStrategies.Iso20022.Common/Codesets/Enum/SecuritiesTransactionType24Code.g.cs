@@ -21,336 +21,336 @@ public enum SecuritiesTransactionType24Code
 {
     /// <summary>
     /// Relates to an auto-collateralisation movement.
-    /// Encoded/decoded by serializers as "AutoCollateralisation".
+    /// Encoded/decoded by serializers as "AUTO".
     /// </summary>
     [EnumMember(Value = "AUTO")]
     [IsoId("_kjxwcdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to an auto-collateralisation movement.")]
-    AutoCollateralisation,
+    AutoCollateralisation = SecuritiesTransactionTypeV4Code.AutoCollateralisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a buy-in by the market following a delivery transaction failure.
-    /// Encoded/decoded by serializers as "BuyIn".
+    /// Encoded/decoded by serializers as "BYIY".
     /// </summary>
     [EnumMember(Value = "BYIY")]
     [IsoId("_mprF8dEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a buy-in by the market following a delivery transaction failure.")]
-    BuyIn,
+    BuyIn = SecuritiesTransactionTypeV4Code.BuyIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a buy sell back transaction.
-    /// Encoded/decoded by serializers as "BuySellBack".
+    /// Encoded/decoded by serializers as "BSBK".
     /// </summary>
     [EnumMember(Value = "BSBK")]
     [IsoId("_yb9BMdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a buy sell back transaction.")]
-    BuySellBack,
+    BuySellBack = SecuritiesTransactionTypeV4Code.BuySellBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a collateral delivery/receipt to a national central bank for central bank credit operations.
-    /// Encoded/decoded by serializers as "CentralBankCollateralOperation".
+    /// Encoded/decoded by serializers as "CNCB".
     /// </summary>
     [EnumMember(Value = "CNCB")]
     [IsoId("_y7WS8dEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a collateral delivery/receipt to a national central bank for central bank credit operations.")]
-    CentralBankCollateralOperation,
+    CentralBankCollateralOperation = SecuritiesTransactionTypeV4Code.CentralBankCollateralOperation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a collateral transaction, from the point of view of the collateral taker or its agent.
-    /// Encoded/decoded by serializers as "CollateralIn".
+    /// Encoded/decoded by serializers as "COLI".
     /// </summary>
     [EnumMember(Value = "COLI")]
     [IsoId("_zYp6AdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a collateral transaction, from the point of view of the collateral taker or its agent.")]
-    CollateralIn,
+    CollateralIn = SecuritiesTransactionTypeV4Code.CollateralIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a collateral transaction, from the point of view of the collateral giver or its agent.
-    /// Encoded/decoded by serializers as "CollateralOut".
+    /// Encoded/decoded by serializers as "COLO".
     /// </summary>
     [EnumMember(Value = "COLO")]
     [IsoId("_zgsbsdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a collateral transaction, from the point of view of the collateral giver or its agent.")]
-    CollateralOut,
+    CollateralOut = SecuritiesTransactionTypeV4Code.CollateralOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a corporate action.
-    /// Encoded/decoded by serializers as "CorporateAction".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_0ArjUdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a corporate action.")]
-    CorporateAction,
+    CorporateAction = SecuritiesTransactionTypeV4Code.CorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a depository receipt conversion.
-    /// Encoded/decoded by serializers as "DepositoryReceiptConversion".
+    /// Encoded/decoded by serializers as "CONV".
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_0bJ40dEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a depository receipt conversion.")]
-    DepositoryReceiptConversion,
+    DepositoryReceiptConversion = SecuritiesTransactionTypeV4Code.DepositoryReceiptConversion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a release (into/from local) of depository receipt operation.
-    /// Encoded/decoded by serializers as "DepositoryReceiptReleaseCancellation".
+    /// Encoded/decoded by serializers as "RELE".
     /// </summary>
     [EnumMember(Value = "RELE")]
     [IsoId("_0wugMdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a release (into/from local) of depository receipt operation.")]
-    DepositoryReceiptReleaseCancellation,
+    DepositoryReceiptReleaseCancellation = SecuritiesTransactionTypeV4Code.DepositoryReceiptReleaseCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to an ETF creation or redemption.
-    /// Encoded/decoded by serializers as "ExchangeTradedFunds".
+    /// Encoded/decoded by serializers as "ETFT".
     /// </summary>
     [EnumMember(Value = "ETFT")]
     [IsoId("_1m4sIdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to an ETF creation or redemption.")]
-    ExchangeTradedFunds,
+    ExchangeTradedFunds = SecuritiesTransactionTypeV4Code.ExchangeTradedFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to an account transfer involving more than one instructing party (message sender) and/or account servicer (messages receiver).
-    /// Encoded/decoded by serializers as "ExternalAccountTransfer".
+    /// Encoded/decoded by serializers as "OWNE".
     /// </summary>
     [EnumMember(Value = "OWNE")]
     [IsoId("_2CHPkdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to an account transfer involving more than one instructing party (message sender) and/or account servicer (messages receiver).")]
-    ExternalAccountTransfer,
+    ExternalAccountTransfer = SecuritiesTransactionTypeV4Code.ExternalAccountTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to an account transfer involving one instructing party (message sender) at one account servicer (messages receiver).
-    /// Encoded/decoded by serializers as "InternalAccountTransfer".
+    /// Encoded/decoded by serializers as "OWNI".
     /// </summary>
     [EnumMember(Value = "OWNI")]
     [IsoId("_2uJPIdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to an account transfer involving one instructing party (message sender) at one account servicer (messages receiver).")]
-    InternalAccountTransfer,
+    InternalAccountTransfer = SecuritiesTransactionTypeV4Code.InternalAccountTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the issuance of a security such as an equity or a depositary receipt.
-    /// Encoded/decoded by serializers as "Issuance".
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_3Lc2MdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to the issuance of a security such as an equity or a depositary receipt.")]
-    Issuance,
+    Issuance = SecuritiesTransactionTypeV4Code.Issuance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the decrease of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).
-    /// Encoded/decoded by serializers as "MarkDown".
+    /// Encoded/decoded by serializers as "MKDW".
     /// </summary>
     [EnumMember(Value = "MKDW")]
     [IsoId("__jxzEdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to the decrease of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).")]
-    MarkDown,
+    MarkDown = SecuritiesTransactionTypeV4Code.MarkDown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a market claim.
-    /// Encoded/decoded by serializers as "MarketClaim".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("__61oMdEwEeiO-eodGv5iKQ")]
     [Description(@"Relates to a market claim.")]
-    MarketClaim,
+    MarketClaim = SecuritiesTransactionTypeV4Code.MarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the increase of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).
-    /// Encoded/decoded by serializers as "MarkUp".
+    /// Encoded/decoded by serializers as "MKUP".
     /// </summary>
     [EnumMember(Value = "MKUP")]
     [IsoId("_AI1A4dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the increase of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).")]
-    MarkUp,
+    MarkUp = SecuritiesTransactionTypeV4Code.MarkUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the netting of settlement instructions.
-    /// Encoded/decoded by serializers as "Netting".
+    /// Encoded/decoded by serializers as "NETT".
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_AkWfQdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the netting of settlement instructions.")]
-    Netting,
+    Netting = SecuritiesTransactionTypeV4Code.Netting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes) under a program and without syndication arrangement.
-    /// Encoded/decoded by serializers as "NonSyndicated".
+    /// Encoded/decoded by serializers as "NSYN".
     /// </summary>
     [EnumMember(Value = "NSYN")]
     [IsoId("_BPV9AdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the issue of medium and short term paper (CP, CD, MTN, notes) under a program and without syndication arrangement.")]
-    NonSyndicated,
+    NonSyndicated = SecuritiesTransactionTypeV4Code.NonSyndicated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
-    /// Encoded/decoded by serializers as "PairOff".
+    /// Encoded/decoded by serializers as "PAIR".
     /// </summary>
     [EnumMember(Value = "PAIR")]
     [IsoId("_BoCw4dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.")]
-    PairOff,
+    PairOff = SecuritiesTransactionTypeV4Code.PairOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the placement/new issue of a financial instrument.
-    /// Encoded/decoded by serializers as "Placement".
+    /// Encoded/decoded by serializers as "PLAC".
     /// </summary>
     [EnumMember(Value = "PLAC")]
     [IsoId("_CBekkdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the placement/new issue of a financial instrument.")]
-    Placement,
+    Placement = SecuritiesTransactionTypeV4Code.Placement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a portfolio move from one investment manager to another and/or from an account servicer to another. It is generally charged differently than another account transfer, hence the need to identify this type of transfer as such.
-    /// Encoded/decoded by serializers as "PortfolioMove".
+    /// Encoded/decoded by serializers as "PORT".
     /// </summary>
     [EnumMember(Value = "PORT")]
     [IsoId("_CWnHEdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a portfolio move from one investment manager to another and/or from an account servicer to another. It is generally charged differently than another account transfer, hence the need to identify this type of transfer as such.")]
-    PortfolioMove,
+    PortfolioMove = SecuritiesTransactionTypeV4Code.PortfolioMove, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a realignment of positions.
-    /// Encoded/decoded by serializers as "Realignment".
+    /// Encoded/decoded by serializers as "REAL".
     /// </summary>
     [EnumMember(Value = "REAL")]
     [IsoId("_DBwV0dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a realignment of positions.")]
-    Realignment,
+    Realignment = SecuritiesTransactionTypeV4Code.Realignment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a redemption of funds (funds industry only).
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_DXeHIdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a redemption of funds (funds industry only).")]
-    Redemption,
+    Redemption = SecuritiesTransactionTypeV4Code.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "Repo".
+    /// Encoded/decoded by serializers as "REPU".
     /// </summary>
     [EnumMember(Value = "REPU")]
     [IsoId("_DzcRcdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a repurchase agreement transaction.")]
-    Repo,
+    Repo = SecuritiesTransactionTypeV4Code.Repo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "ReverseRepurchaseAgreement".
+    /// Encoded/decoded by serializers as "RVPO".
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_Eaki4dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a reverse repurchase agreement transaction.")]
-    ReverseRepurchaseAgreement,
+    ReverseRepurchaseAgreement = SecuritiesTransactionTypeV4Code.ReverseRepurchaseAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities borrowing operation.
-    /// Encoded/decoded by serializers as "SecuritiesBorrowing".
+    /// Encoded/decoded by serializers as "SECB".
     /// </summary>
     [EnumMember(Value = "SECB")]
     [IsoId("_FDe9AdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a securities borrowing operation.")]
-    SecuritiesBorrowing,
+    SecuritiesBorrowing = SecuritiesTransactionTypeV4Code.SecuritiesBorrowing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities lending operation.
-    /// Encoded/decoded by serializers as "SecuritiesLending".
+    /// Encoded/decoded by serializers as "SECL".
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_FW0vwdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a securities lending operation.")]
-    SecuritiesLending,
+    SecuritiesLending = SecuritiesTransactionTypeV4Code.SecuritiesLending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a sell buy back transaction.
-    /// Encoded/decoded by serializers as "SellBuyBack".
+    /// Encoded/decoded by serializers as "SBBK".
     /// </summary>
     [EnumMember(Value = "SBBK")]
     [IsoId("_Lqvk4dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a sell buy back transaction.")]
-    SellBuyBack,
+    SellBuyBack = SecuritiesTransactionTypeV4Code.SellBuyBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a subscription to funds (funds industry only).
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_MUiv0dExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a subscription to funds (funds industry only).")]
-    Subscription,
+    Subscription = SecuritiesTransactionTypeV4Code.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a change of an investment from one sub-fund to another sub-fund (redemption-leg).
-    /// Encoded/decoded by serializers as "SwitchFrom".
+    /// Encoded/decoded by serializers as "SWIF".
     /// </summary>
     [EnumMember(Value = "SWIF")]
     [IsoId("_NDti8dExEeiO-eodGv5iKQ")]
     [Description(@"Transaction is a change of an investment from one sub-fund to another sub-fund (redemption-leg).")]
-    SwitchFrom,
+    SwitchFrom = SecuritiesTransactionTypeV4Code.SwitchFrom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a change of an investment from one sub-fund to another sub-fund (subscription-leg).
-    /// Encoded/decoded by serializers as "SwitchTo".
+    /// Encoded/decoded by serializers as "SWIT".
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_NPwa4dExEeiO-eodGv5iKQ")]
     [Description(@"Transaction is a change of an investment from one sub-fund to another sub-fund (subscription-leg).")]
-    SwitchTo,
+    SwitchTo = SecuritiesTransactionTypeV4Code.SwitchTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
-    /// Encoded/decoded by serializers as "SyndicateUnderwriters".
+    /// Encoded/decoded by serializers as "SYND".
     /// </summary>
     [EnumMember(Value = "SYND")]
     [IsoId("_Nm0QAdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.")]
-    SyndicateUnderwriters,
+    SyndicateUnderwriters = SecuritiesTransactionTypeV4Code.SyndicateUnderwriters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the settlement of a trade.
-    /// Encoded/decoded by serializers as "Trade".
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_N7zBgdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the settlement of a trade.")]
-    Trade,
+    Trade = SecuritiesTransactionTypeV4Code.Trade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a triparty repurchase agreement.
-    /// Encoded/decoded by serializers as "TripartyRepo".
+    /// Encoded/decoded by serializers as "TRPO".
     /// </summary>
     [EnumMember(Value = "TRPO")]
     [IsoId("_Ox8mYdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a triparty repurchase agreement.")]
-    TripartyRepo,
+    TripartyRepo = SecuritiesTransactionTypeV4Code.TripartyRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a triparty reverse repurchase agreement.
-    /// Encoded/decoded by serializers as "TripartyReverseRepo".
+    /// Encoded/decoded by serializers as "TRVO".
     /// </summary>
     [EnumMember(Value = "TRVO")]
     [IsoId("_POEhsdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a triparty reverse repurchase agreement.")]
-    TripartyReverseRepo,
+    TripartyReverseRepo = SecuritiesTransactionTypeV4Code.TripartyReverseRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a turnaround: the same security is bought and sold to settle the same day, to or from different brokers.
-    /// Encoded/decoded by serializers as "Turnaround".
+    /// Encoded/decoded by serializers as "TURN".
     /// </summary>
     [EnumMember(Value = "TURN")]
     [IsoId("_QDoQsdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to a turnaround: the same security is bought and sold to settle the same day, to or from different brokers.")]
-    Turnaround,
+    Turnaround = SecuritiesTransactionTypeV4Code.Turnaround, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the withdrawal of specified amounts from specified subaccounts.
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "REDI".
     /// </summary>
     [EnumMember(Value = "REDI")]
     [IsoId("_Qe_-EdExEeiO-eodGv5iKQ")]
     [Description(@"Relates to the withdrawal of specified amounts from specified subaccounts.")]
-    Withdrawal,
+    Withdrawal = SecuritiesTransactionTypeV4Code.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -361,7 +361,7 @@ public enum SecuritiesTransactionType24Code
 public static class SecuritiesTransactionType24CodeMetadataExtensions
 {
     private static readonly SecuritiesTransactionType24CodeDropdownSource _dropdownSource = new SecuritiesTransactionType24CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

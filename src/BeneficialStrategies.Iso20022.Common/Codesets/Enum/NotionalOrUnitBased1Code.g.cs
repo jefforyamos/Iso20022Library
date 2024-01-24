@@ -21,21 +21,21 @@ public enum NotionalOrUnitBased1Code
 {
     /// <summary>
     /// Basis of a financial instrument is unit.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_1AhQoZ9WEeqxTNfi5y7ywQ")]
     [Description(@"Basis of a financial instrument is unit.")]
-    Unit,
+    Unit = NotionalOrUnitBasedCode.Unit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basis of a financial instrument is notional.
-    /// Encoded/decoded by serializers as "Notional".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_1G6zkZ9WEeqxTNfi5y7ywQ")]
     [Description(@"Basis of a financial instrument is notional.")]
-    Notional,
+    Notional = NotionalOrUnitBasedCode.Notional, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NotionalOrUnitBased1Code
 public static class NotionalOrUnitBased1CodeMetadataExtensions
 {
     private static readonly NotionalOrUnitBased1CodeDropdownSource _dropdownSource = new NotionalOrUnitBased1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

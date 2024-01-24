@@ -21,12 +21,12 @@ public enum AmountPriceType2Code
 {
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
-    /// Encoded/decoded by serializers as "ActualAmount".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_beqZtNp-Ed-ak6NoX_4Aeg_-777647527")]
     [Description(@"Price expressed as a currency and amount per unit or per share.")]
-    ActualAmount,
+    ActualAmount = AmountPriceTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AmountPriceType2Code
 public static class AmountPriceType2CodeMetadataExtensions
 {
     private static readonly AmountPriceType2CodeDropdownSource _dropdownSource = new AmountPriceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum Priority4Code
 {
     /// <summary>
     /// Priority level is normal.
-    /// Encoded/decoded by serializers as "Normal".
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_nOxC4cmJEeWAGphE2LvqeA")]
     [Description(@"Priority level is normal.")]
-    Normal,
+    Normal = PriorityCode.Normal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is urgent (highest priority possible).
-    /// Encoded/decoded by serializers as "Urgent".
+    /// Encoded/decoded by serializers as "URGT".
     /// </summary>
     [EnumMember(Value = "URGT")]
     [IsoId("_nbaXwsmJEeWAGphE2LvqeA")]
     [Description(@"Priority level is urgent (highest priority possible).")]
-    Urgent,
+    Urgent = PriorityCode.Urgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Priority4Code
 public static class Priority4CodeMetadataExtensions
 {
     private static readonly Priority4CodeDropdownSource _dropdownSource = new Priority4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

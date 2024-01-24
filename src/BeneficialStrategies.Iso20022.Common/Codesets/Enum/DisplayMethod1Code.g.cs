@@ -21,30 +21,30 @@ public enum DisplayMethod1Code
 {
     /// <summary>
     /// Indicates that original quantity must be used.
-    /// Encoded/decoded by serializers as "Initial".
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_awK8CNp-Ed-ak6NoX_4Aeg_1639154433")]
     [Description(@"Indicates that original quantity must be used.")]
-    Initial,
+    Initial = DisplayMethodCode.Initial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that Quantity must be refreshed.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEW1".
     /// </summary>
     [EnumMember(Value = "NEW1")]
     [IsoId("_awUtANp-Ed-ak6NoX_4Aeg_1639154468")]
     [Description(@"Indicates that Quantity must be refreshed.")]
-    New,
+    New = DisplayMethodCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Randomize value.
-    /// Encoded/decoded by serializers as "Random".
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_awUtAdp-Ed-ak6NoX_4Aeg_1639154503")]
     [Description(@"Randomize value.")]
-    Random,
+    Random = DisplayMethodCode.Random, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DisplayMethod1Code
 public static class DisplayMethod1CodeMetadataExtensions
 {
     private static readonly DisplayMethod1CodeDropdownSource _dropdownSource = new DisplayMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

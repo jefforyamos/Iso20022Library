@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bmticdp-Ed-ak6NoX_4Aeg_-456866775")]
 [Description(@"Define specific rights that the shareholder has (for example, the right to ask questions, the right to add items to the agenda or table draft resolutions).")]
 [Derivations(typeof(AdditionalRight1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AdditionalRightCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum AdditionalRightCode
 public static class AdditionalRightCodeMetadataExtensions
 {
     private static readonly AdditionalRightCodeDropdownSource _dropdownSource = new AdditionalRightCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

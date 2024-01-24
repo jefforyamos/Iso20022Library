@@ -21,48 +21,48 @@ public enum ATMOperation1Code
 {
     /// <summary>
     /// Adjust logical counters of the cassette.
-    /// Encoded/decoded by serializers as "Adjust".
+    /// Encoded/decoded by serializers as "ADJU".
     /// </summary>
     [EnumMember(Value = "ADJU")]
     [IsoId("_EHHP0ehBEeSbwP3G-MV9YA")]
     [Description(@"Adjust logical counters of the cassette.")]
-    Adjust,
+    Adjust = ATMOperationCode.Adjust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Add physically media to cassette.
-    /// Encoded/decoded by serializers as "InsertMedia".
+    /// Encoded/decoded by serializers as "INSR".
     /// </summary>
     [EnumMember(Value = "INSR")]
     [IsoId("_EQDwc-hBEeSbwP3G-MV9YA")]
     [Description(@"Add physically media to cassette.")]
-    InsertMedia,
+    InsertMedia = ATMOperationCode.InsertMedia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Loading cassette.
-    /// Encoded/decoded by serializers as "Loading".
+    /// Encoded/decoded by serializers as "LOAD".
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_ERi-MehBEeSbwP3G-MV9YA")]
     [Description(@"Loading cassette.")]
-    Loading,
+    Loading = ATMOperationCode.Loading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Substract physically media from cassette.
-    /// Encoded/decoded by serializers as "RemoveMedia".
+    /// Encoded/decoded by serializers as "REMV".
     /// </summary>
     [EnumMember(Value = "REMV")]
     [IsoId("_EZ5B4ehBEeSbwP3G-MV9YA")]
     [Description(@"Substract physically media from cassette.")]
-    RemoveMedia,
+    RemoveMedia = ATMOperationCode.RemoveMedia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unloading cassette.
-    /// Encoded/decoded by serializers as "Unloading".
+    /// Encoded/decoded by serializers as "UNLD".
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_Ei-sc-hBEeSbwP3G-MV9YA")]
     [Description(@"Unloading cassette.")]
-    Unloading,
+    Unloading = ATMOperationCode.Unloading, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ATMOperation1Code
 public static class ATMOperation1CodeMetadataExtensions
 {
     private static readonly ATMOperation1CodeDropdownSource _dropdownSource = new ATMOperation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

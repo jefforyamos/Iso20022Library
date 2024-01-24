@@ -21,48 +21,48 @@ public enum RequestModeType1Code
 {
     /// <summary>
     /// Forecast query type and mode.
-    /// Encoded/decoded by serializers as "Forecast".
+    /// Encoded/decoded by serializers as "FCST".
     /// </summary>
     [EnumMember(Value = "FCST")]
     [IsoId("_qNDQwcm8EeWAGphE2LvqeA")]
     [Description(@"Forecast query type and mode.")]
-    Forecast,
+    Forecast = RequestModeTypeCode.Forecast, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Day information query type, in on-demand mode.
-    /// Encoded/decoded by serializers as "OnDemandDayInformation".
+    /// Encoded/decoded by serializers as "ONDD".
     /// </summary>
     [EnumMember(Value = "ONDD")]
     [IsoId("_qcFLQsm8EeWAGphE2LvqeA")]
     [Description(@"Day information query type, in on-demand mode.")]
-    OnDemandDayInformation,
+    OnDemandDayInformation = RequestModeTypeCode.OnDemandDayInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Future information query type, in on-demand mode.
-    /// Encoded/decoded by serializers as "OnDemandFutureInformation".
+    /// Encoded/decoded by serializers as "ONDF".
     /// </summary>
     [EnumMember(Value = "ONDF")]
     [IsoId("_qfzNocm8EeWAGphE2LvqeA")]
     [Description(@"Future information query type, in on-demand mode.")]
-    OnDemandFutureInformation,
+    OnDemandFutureInformation = RequestModeTypeCode.OnDemandFutureInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Day information query type, in scheduled mode.
-    /// Encoded/decoded by serializers as "ScheduledDayInformation".
+    /// Encoded/decoded by serializers as "SCHD".
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_qscigsm8EeWAGphE2LvqeA")]
     [Description(@"Day information query type, in scheduled mode.")]
-    ScheduledDayInformation,
+    ScheduledDayInformation = RequestModeTypeCode.ScheduledDayInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Future information query type, in scheduled mode.
-    /// Encoded/decoded by serializers as "ScheduledFutureInformation".
+    /// Encoded/decoded by serializers as "SCHF".
     /// </summary>
     [EnumMember(Value = "SCHF")]
     [IsoId("_qtfEUcm8EeWAGphE2LvqeA")]
     [Description(@"Future information query type, in scheduled mode.")]
-    ScheduledFutureInformation,
+    ScheduledFutureInformation = RequestModeTypeCode.ScheduledFutureInformation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RequestModeType1Code
 public static class RequestModeType1CodeMetadataExtensions
 {
     private static readonly RequestModeType1CodeDropdownSource _dropdownSource = new RequestModeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

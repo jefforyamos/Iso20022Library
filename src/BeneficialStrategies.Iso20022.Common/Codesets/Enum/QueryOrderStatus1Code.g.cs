@@ -21,49 +21,48 @@ public enum QueryOrderStatus1Code
 {
     /// <summary>
     /// Query for orders which are not confirmed by a party.
-    /// Encoded/decoded by serializers as "QueryUnconfirmedOrder".
+    /// Encoded/decoded by serializers as "QUCO".
     /// </summary>
     [EnumMember(Value = "QUCO")]
     [IsoId("_TUJ7sQ2NEeSwB74WgTbh4Q")]
     [Description(@"Query for orders which are not confirmed by a party.")]
-    QueryUnconfirmedOrder,
+    QueryUnconfirmedOrder = QueryOrderStatusCode.QueryUnconfirmedOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for all orders for a party.
-    /// Encoded/decoded by serializers as "QueryOrdersForTheParty".
+    /// Encoded/decoded by serializers as "QOFP".
     /// </summary>
     [EnumMember(Value = "QOFP")]
     [IsoId("_ThlTsQ2NEeSwB74WgTbh4Q")]
     [Description(@"Query for all orders for a party.")]
-    QueryOrdersForTheParty,
+    QueryOrdersForTheParty = QueryOrderStatusCode.QueryOrdersForTheParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for orders have been completely executed.
-    /// Encoded/decoded by serializers as "QueryFullyExecutedOrder".
+    /// Encoded/decoded by serializers as "QFEO".
     /// </summary>
     [EnumMember(Value = "QFEO")]
     [IsoId("_HaAlAQ4pEeSvVsudrRLaVg")]
     [Description(@"Query for orders have been completely executed.")]
-    QueryFullyExecutedOrder,
+    QueryFullyExecutedOrder = QueryOrderStatusCode.QueryFullyExecutedOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for orders have been partially executed.
-    /// Encoded/decoded by serializers as "QueryPartiallyExecutedOrder".
+    /// Encoded/decoded by serializers as "QPEO".
     /// </summary>
     [EnumMember(Value = "QPEO")]
     [IsoId("_HcB-QQ4pEeSvVsudrRLaVg")]
     [Description(@"Query for orders have been partially executed.")]
-    QueryPartiallyExecutedOrder,
+    QueryPartiallyExecutedOrder = QueryOrderStatusCode.QueryPartiallyExecutedOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for all orders.
-    /// 
-    /// Encoded/decoded by serializers as "QueryAllOrders".
+    /// Encoded/decoded by serializers as "QUAO".
     /// </summary>
     [EnumMember(Value = "QUAO")]
     [IsoId("_V2KK8YA3EeSUJZYcWGKkkw")]
-    [Description(@"Query for all orders. ")]
-    QueryAllOrders,
+    [Description(@"Query for all orders.|")]
+    QueryAllOrders = QueryOrderStatusCode.QueryAllOrders, // same ordinal as derivation source for type conversions
     
 }
 
@@ -74,7 +73,7 @@ public enum QueryOrderStatus1Code
 public static class QueryOrderStatus1CodeMetadataExtensions
 {
     private static readonly QueryOrderStatus1CodeDropdownSource _dropdownSource = new QueryOrderStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

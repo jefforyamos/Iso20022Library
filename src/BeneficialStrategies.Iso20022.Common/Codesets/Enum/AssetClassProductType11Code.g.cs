@@ -21,12 +21,12 @@ public enum AssetClassProductType11Code
 {
     /// <summary>
     /// Commodity of other type C10.
-    /// Encoded/decoded by serializers as "OtherC10".
+    /// Encoded/decoded by serializers as "OTHC".
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_Xwy0MQ3oEeWc7_0KPiuk6w")]
     [Description(@"Commodity of other type C10.")]
-    OtherC10,
+    OtherC10 = AssetClassProductTypeCode.OtherC10, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType11Code
 public static class AssetClassProductType11CodeMetadataExtensions
 {
     private static readonly AssetClassProductType11CodeDropdownSource _dropdownSource = new AssetClassProductType11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

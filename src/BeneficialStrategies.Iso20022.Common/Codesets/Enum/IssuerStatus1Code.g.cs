@@ -21,174 +21,174 @@ public enum IssuerStatus1Code
 {
     /// <summary>
     /// Event is approved by SEC (Securities and Exchange Commission).
-    /// Encoded/decoded by serializers as "ApprovedBySEC".
+    /// Encoded/decoded by serializers as "ASEC".
     /// </summary>
     [EnumMember(Value = "ASEC")]
     [IsoId("_1ss6ETL3EeKU9IrkkToqcw_549706816")]
     [Description(@"Event is approved by SEC (Securities and Exchange Commission).")]
-    ApprovedBySEC,
+    ApprovedBySEC = IssuerStatusCode.ApprovedBySEC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is approved by shareholders.
-    /// Encoded/decoded by serializers as "ApprovedByShareholders".
+    /// Encoded/decoded by serializers as "ASHH".
     /// </summary>
     [EnumMember(Value = "ASHH")]
     [IsoId("_1ss6EjL3EeKU9IrkkToqcw_435867750")]
     [Description(@"Event is approved by shareholders.")]
-    ApprovedByShareholders,
+    ApprovedByShareholders = IssuerStatusCode.ApprovedByShareholders, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is approved by SEC (Securities and Exchange Commission and shareholders.
-    /// Encoded/decoded by serializers as "ApprovedByShareholdersAndSEC".
+    /// Encoded/decoded by serializers as "ASHS".
     /// </summary>
     [EnumMember(Value = "ASHS")]
     [IsoId("_1ss6EzL3EeKU9IrkkToqcw_1003794085")]
     [Description(@"Event is approved by SEC (Securities and Exchange Commission and shareholders.")]
-    ApprovedByShareholdersAndSEC,
+    ApprovedByShareholdersAndSEC = IssuerStatusCode.ApprovedByShareholdersAndSEC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event has approximate rate.
-    /// Encoded/decoded by serializers as "ApproximateRate".
+    /// Encoded/decoded by serializers as "APRT".
     /// </summary>
     [EnumMember(Value = "APRT")]
     [IsoId("_1ss6FDL3EeKU9IrkkToqcw_1328911592")]
     [Description(@"Event has approximate rate.")]
-    ApproximateRate,
+    ApproximateRate = IssuerStatusCode.ApproximateRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting information from company on the event.
-    /// Encoded/decoded by serializers as "AwaitingInformationFromCompany".
+    /// Encoded/decoded by serializers as "AIFC".
     /// </summary>
     [EnumMember(Value = "AIFC")]
     [IsoId("_1ss6FTL3EeKU9IrkkToqcw_1215072526")]
     [Description(@"Awaiting information from company on the event.")]
-    AwaitingInformationFromCompany,
+    AwaitingInformationFromCompany = IssuerStatusCode.AwaitingInformationFromCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event has day grace period.
-    /// Encoded/decoded by serializers as "DayGracePeriod".
+    /// Encoded/decoded by serializers as "DGRP".
     /// </summary>
     [EnumMember(Value = "DGRP")]
     [IsoId("_1s2rEDL3EeKU9IrkkToqcw_-1006162773")]
     [Description(@"Event has day grace period.")]
-    DayGracePeriod,
+    DayGracePeriod = IssuerStatusCode.DayGracePeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event distribution was rejected.
-    /// Encoded/decoded by serializers as "DistributionRejected".
+    /// Encoded/decoded by serializers as "DREJ".
     /// </summary>
     [EnumMember(Value = "DREJ")]
     [IsoId("_1s2rETL3EeKU9IrkkToqcw_-681045266")]
     [Description(@"Event distribution was rejected.")]
-    DistributionRejected,
+    DistributionRejected = IssuerStatusCode.DistributionRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event has free form comments for review.
-    /// Encoded/decoded by serializers as "SeeComments".
+    /// Encoded/decoded by serializers as "FFCO".
     /// </summary>
     [EnumMember(Value = "FFCO")]
     [IsoId("_1s2rEjL3EeKU9IrkkToqcw_-794884332")]
     [Description(@"Event has free form comments for review.")]
-    SeeComments,
+    SeeComments = IssuerStatusCode.SeeComments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holiday in country of origin of the event.
-    /// Encoded/decoded by serializers as "HolidayInCountryofOrigin".
+    /// Encoded/decoded by serializers as "HOCO".
     /// </summary>
     [EnumMember(Value = "HOCO")]
     [IsoId("_1s2rEzL3EeKU9IrkkToqcw_396975072")]
     [Description(@"Holiday in country of origin of the event.")]
-    HolidayInCountryofOrigin,
+    HolidayInCountryofOrigin = IssuerStatusCode.HolidayInCountryofOrigin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event issue is not funded.
-    /// Encoded/decoded by serializers as "IssueNotFunded".
+    /// Encoded/decoded by serializers as "INFN".
     /// </summary>
     [EnumMember(Value = "INFN")]
     [IsoId("_1s2rFDL3EeKU9IrkkToqcw_283136006")]
     [Description(@"Event issue is not funded.")]
-    IssueNotFunded,
+    IssueNotFunded = IssuerStatusCode.IssueNotFunded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event issue is trading flat.
-    /// Encoded/decoded by serializers as "IssueTradingFlat".
+    /// Encoded/decoded by serializers as "ITFL".
     /// </summary>
     [EnumMember(Value = "ITFL")]
     [IsoId("_1s2rFTL3EeKU9IrkkToqcw_1448108144")]
     [Description(@"Event issue is trading flat.")]
-    IssueTradingFlat,
+    IssueTradingFlat = IssuerStatusCode.IssueTradingFlat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is a late announcement with elections.
-    /// Encoded/decoded by serializers as "LateAnnouncementWithElections".
+    /// Encoded/decoded by serializers as "LAWE".
     /// </summary>
     [EnumMember(Value = "LAWE")]
     [IsoId("_1s2rFjL3EeKU9IrkkToqcw_-395760845")]
     [Description(@"Event is a late announcement with elections.")]
-    LateAnnouncementWithElections,
+    LateAnnouncementWithElections = IssuerStatusCode.LateAnnouncementWithElections, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is a liquidation.
-    /// Encoded/decoded by serializers as "Liquidation".
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_1s2rFzL3EeKU9IrkkToqcw_-509599911")]
     [Description(@"Event is a liquidation.")]
-    Liquidation,
+    Liquidation = IssuerStatusCode.Liquidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event proceeds will be paid upon receipt of funds.
-    /// Encoded/decoded by serializers as "PaidUponrReceiptOfFunds".
+    /// Encoded/decoded by serializers as "PURF".
     /// </summary>
     [EnumMember(Value = "PURF")]
     [IsoId("_1s_1ADL3EeKU9IrkkToqcw_365004308")]
     [Description(@"Event proceeds will be paid upon receipt of funds.")]
-    PaidUponrReceiptOfFunds,
+    PaidUponrReceiptOfFunds = IssuerStatusCode.PaidUponrReceiptOfFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event processed are pending conversion of funds.
-    /// Encoded/decoded by serializers as "PendingConversionOfFunds".
+    /// Encoded/decoded by serializers as "PCOF".
     /// </summary>
     [EnumMember(Value = "PCOF")]
     [IsoId("_1s_1ATL3EeKU9IrkkToqcw_1582093987")]
     [Description(@"Event processed are pending conversion of funds.")]
-    PendingConversionOfFunds,
+    PendingConversionOfFunds = IssuerStatusCode.PendingConversionOfFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is pending election dividend services elections.
-    /// Encoded/decoded by serializers as "PendingEDSElections".
+    /// Encoded/decoded by serializers as "PELE".
     /// </summary>
     [EnumMember(Value = "PELE")]
     [IsoId("_1s_1AjL3EeKU9IrkkToqcw_1468254921")]
     [Description(@"Event is pending election dividend services elections.")]
-    PendingEDSElections,
+    PendingEDSElections = IssuerStatusCode.PendingEDSElections, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is pending SEC (Securities and Exchange Commission approval.
-    /// Encoded/decoded by serializers as "PendingSECApproval".
+    /// Encoded/decoded by serializers as "PSEC".
     /// </summary>
     [EnumMember(Value = "PSEC")]
     [IsoId("_1s_1AzL3EeKU9IrkkToqcw_-110086210")]
     [Description(@"Event is pending SEC (Securities and Exchange Commission approval.")]
-    PendingSECApproval,
+    PendingSECApproval = IssuerStatusCode.PendingSECApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is pending SEC (Securities and Exchange Commission and shareholders approval.
-    /// Encoded/decoded by serializers as "PendingShareholderAndSECApproval".
+    /// Encoded/decoded by serializers as "PSHS".
     /// </summary>
     [EnumMember(Value = "PSHS")]
     [IsoId("_1s_1BDL3EeKU9IrkkToqcw_344001059")]
     [Description(@"Event is pending SEC (Securities and Exchange Commission and shareholders approval.")]
-    PendingShareholderAndSECApproval,
+    PendingShareholderAndSECApproval = IssuerStatusCode.PendingShareholderAndSECApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is pending shareholder approval.
-    /// Encoded/decoded by serializers as "PendingShareholderApproval".
+    /// Encoded/decoded by serializers as "PSHA".
     /// </summary>
     [EnumMember(Value = "PSHA")]
     [IsoId("_1s_1BTL3EeKU9IrkkToqcw_230161993")]
     [Description(@"Event is pending shareholder approval.")]
-    PendingShareholderApproval,
+    PendingShareholderApproval = IssuerStatusCode.PendingShareholderApproval, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum IssuerStatus1Code
 public static class IssuerStatus1CodeMetadataExtensions
 {
     private static readonly IssuerStatus1CodeDropdownSource _dropdownSource = new IssuerStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

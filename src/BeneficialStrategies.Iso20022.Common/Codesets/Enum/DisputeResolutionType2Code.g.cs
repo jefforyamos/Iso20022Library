@@ -21,66 +21,66 @@ public enum DisputeResolutionType2Code
 {
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the collateral.
-    /// Encoded/decoded by serializers as "ReconcileCollateral".
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_YcgQQ9p-Ed-ak6NoX_4Aeg_1772378657")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the collateral.")]
-    ReconcileCollateral,
+    ReconcileCollateral = DisputeResolutionTypeCode.ReconcileCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the exposure.
-    /// Encoded/decoded by serializers as "ReconcileExposure".
+    /// Encoded/decoded by serializers as "REEX".
     /// </summary>
     [EnumMember(Value = "REEX")]
     [IsoId("_YcgQRNp-Ed-ak6NoX_4Aeg_1658539591")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the exposure.")]
-    ReconcileExposure,
+    ReconcileExposure = DisputeResolutionTypeCode.ReconcileExposure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the threshold.
-    /// Encoded/decoded by serializers as "ReconcileThreshold".
+    /// Encoded/decoded by serializers as "RETH".
     /// </summary>
     [EnumMember(Value = "RETH")]
     [IsoId("_YcgQRdp-Ed-ak6NoX_4Aeg_1939398552")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the threshold.")]
-    ReconcileThreshold,
+    ReconcileThreshold = DisputeResolutionTypeCode.ReconcileThreshold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the minimum transfer amount.
-    /// Encoded/decoded by serializers as "ReconcileMinimumTransferAmount".
+    /// Encoded/decoded by serializers as "RMTA".
     /// </summary>
     [EnumMember(Value = "RMTA")]
     [IsoId("_YcgQRtp-Ed-ak6NoX_4Aeg_1825559486")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the minimum transfer amount.")]
-    ReconcileMinimumTransferAmount,
+    ReconcileMinimumTransferAmount = DisputeResolutionTypeCode.ReconcileMinimumTransferAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the rounding.
-    /// Encoded/decoded by serializers as "ReconcileRounding".
+    /// Encoded/decoded by serializers as "RERO".
     /// </summary>
     [EnumMember(Value = "RERO")]
     [IsoId("_YcgQR9p-Ed-ak6NoX_4Aeg_-460290170")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the rounding.")]
-    ReconcileRounding,
+    ReconcileRounding = DisputeResolutionTypeCode.ReconcileRounding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the valuation frequency.
-    /// Encoded/decoded by serializers as "ReconcileValuationFrequency".
+    /// Encoded/decoded by serializers as "REVF".
     /// </summary>
     [EnumMember(Value = "REVF")]
     [IsoId("_YcgQSNp-Ed-ak6NoX_4Aeg_-1215040044")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the valuation frequency.")]
-    ReconcileValuationFrequency,
+    ReconcileValuationFrequency = DisputeResolutionTypeCode.ReconcileValuationFrequency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the independent amount.
-    /// Encoded/decoded by serializers as "ReconcileNettedIndependentAmount".
+    /// Encoded/decoded by serializers as "RNIA".
     /// </summary>
     [EnumMember(Value = "RNIA")]
     [IsoId("_YcpaMNp-Ed-ak6NoX_4Aeg_-1850071890")]
     [Description(@"Indicates that the disputed collateral amount should be confirmed through reconciliation of the independent amount.")]
-    ReconcileNettedIndependentAmount,
+    ReconcileNettedIndependentAmount = DisputeResolutionTypeCode.ReconcileNettedIndependentAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum DisputeResolutionType2Code
 public static class DisputeResolutionType2CodeMetadataExtensions
 {
     private static readonly DisputeResolutionType2CodeDropdownSource _dropdownSource = new DisputeResolutionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,99 +17,99 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_ame0hdp-Ed-ak6NoX_4Aeg_-1698163033")]
-[Description(@"Specifies the external person identification scheme name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external person identification scheme name code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalPersonIdentificationCode))]
 public enum ExternalPersonIdentification1Code
 {
     /// <summary>
     /// Number assigned by a social security agency to identify a non-resident person.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_tsaYqPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a social security agency to identify a non-resident person.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = ExternalPersonIdentificationCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an authority to identify the passport number of a person.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "CCPT".
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_tsaYq_RYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the passport number of a person.")]
-    PassportNumber,
+    PassportNumber = ExternalPersonIdentificationCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an issuer to identify a customer.
-    /// Encoded/decoded by serializers as "CustomerIdentificationNumber".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_tsaYrvRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an issuer to identify a customer.")]
-    CustomerIdentificationNumber,
+    CustomerIdentificationNumber = ExternalPersonIdentificationCode.CustomerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an authority to identify a driver's license.
-    /// Encoded/decoded by serializers as "DriversLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_tskJovRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify a driver's license.")]
-    DriversLicenseNumber,
+    DriversLicenseNumber = ExternalPersonIdentificationCode.DriversLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a registration authority to an employee.
-    /// Encoded/decoded by serializers as "EmployeeIdentificationNumber".
+    /// Encoded/decoded by serializers as "EMPL".
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_tskJpfRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a registration authority to an employee.")]
-    EmployeeIdentificationNumber,
+    EmployeeIdentificationNumber = ExternalPersonIdentificationCode.EmployeeIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an authority to identify the national identity number of a person.
-    /// Encoded/decoded by serializers as "NationalIdentityNumber".
+    /// Encoded/decoded by serializers as "NIDN".
     /// </summary>
     [EnumMember(Value = "NIDN")]
     [IsoId("_tskJqPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the national identity number of a person.")]
-    NationalIdentityNumber,
+    NationalIdentityNumber = ExternalPersonIdentificationCode.NationalIdentityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an authority to identify the social security number of a person.
-    /// Encoded/decoded by serializers as "SocialSecurityNumber".
+    /// Encoded/decoded by serializers as "SOSE".
     /// </summary>
     [EnumMember(Value = "SOSE")]
     [IsoId("_tskJq_RYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the social security number of a person.")]
-    SocialSecurityNumber,
+    SocialSecurityNumber = ExternalPersonIdentificationCode.SocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a telephone or mobile phone operator to identify a person. A person may have multiple phone numbers.
-    /// Encoded/decoded by serializers as "TelephoneNumber".
+    /// Encoded/decoded by serializers as "TELE".
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_tskJrvRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a telephone or mobile phone operator to identify a person. A person may have multiple phone numbers.")]
-    TelephoneNumber,
+    TelephoneNumber = ExternalPersonIdentificationCode.TelephoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a tax authority to identify a person.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_tst6ovRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a tax authority to identify a person.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = ExternalPersonIdentificationCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commercial identification of the person.
-    /// Encoded/decoded by serializers as "PersonCommercialIdentification".
+    /// Encoded/decoded by serializers as "POID".
     /// </summary>
     [EnumMember(Value = "POID")]
     [IsoId("_vcc8QVEFEey6cYDbEubNXg")]
     [Description(@"Commercial identification of the person.")]
-    PersonCommercialIdentification,
+    PersonCommercialIdentification = ExternalPersonIdentificationCode.PersonCommercialIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -120,7 +120,7 @@ public enum ExternalPersonIdentification1Code
 public static class ExternalPersonIdentification1CodeMetadataExtensions
 {
     private static readonly ExternalPersonIdentification1CodeDropdownSource _dropdownSource = new ExternalPersonIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

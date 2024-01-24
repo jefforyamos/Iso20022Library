@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_E0Tvl8yyEeiqqJhU2tqK8A")]
 [Description(@"Contains the reconciliation type")]
 [Derivations(typeof(ReconciliationMessageType1Code),typeof(ReconciliationMessageType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationMessageTypeCode
 {
     /// <summary>
@@ -416,7 +415,7 @@ public enum ReconciliationMessageTypeCode
 public static class ReconciliationMessageTypeCodeMetadataExtensions
 {
     private static readonly ReconciliationMessageTypeCodeDropdownSource _dropdownSource = new ReconciliationMessageTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

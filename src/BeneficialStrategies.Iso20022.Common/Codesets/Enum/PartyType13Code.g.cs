@@ -21,48 +21,48 @@ public enum PartyType13Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_rR52MYp8EeS3NqNpgnMh2w")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_rlIUM4p8EeS3NqNpgnMh2w")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DelegateIssuer".
+    /// Encoded/decoded by serializers as "DLIS".
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_sTWsI4p8EeS3NqNpgnMh2w")]
     [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
-    DelegateIssuer,
+    DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "ITAG".
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_stIeE4p8EeS3NqNpgnMh2w")]
     [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OriginatingTerminal".
+    /// Encoded/decoded by serializers as "OTRM".
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_tFbCQ4p8EeS3NqNpgnMh2w")]
     [Description(@"Application on the terminal which has initiated the transaction.")]
-    OriginatingTerminal,
+    OriginatingTerminal = PartyTypeCode.OriginatingTerminal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PartyType13Code
 public static class PartyType13CodeMetadataExtensions
 {
     private static readonly PartyType13CodeDropdownSource _dropdownSource = new PartyType13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

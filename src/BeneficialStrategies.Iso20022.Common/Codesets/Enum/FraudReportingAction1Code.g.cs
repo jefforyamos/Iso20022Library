@@ -21,66 +21,66 @@ public enum FraudReportingAction1Code
 {
     /// <summary>
     /// Fraud information already reported.
-    /// Encoded/decoded by serializers as "Duplicate".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_SrO4QZgFEee-7IkMvqfAcA")]
     [Description(@"Fraud information already reported.")]
-    Duplicate,
+    Duplicate = FraudReportingActionCode.Duplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Closing a previously reported fraud.
-    /// Encoded/decoded by serializers as "Close".
+    /// Encoded/decoded by serializers as "CLSE".
     /// </summary>
     [EnumMember(Value = "CLSE")]
     [IsoId("_SzSoEZgFEee-7IkMvqfAcA")]
     [Description(@"Closing a previously reported fraud.")]
-    Close,
+    Close = FraudReportingActionCode.Close, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// New fraud information not reported yet.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWF".
     /// </summary>
     [EnumMember(Value = "NEWF")]
     [IsoId("_S7ilIZgFEee-7IkMvqfAcA")]
     [Description(@"New fraud information not reported yet.")]
-    New,
+    New = FraudReportingActionCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other process about a fraud already reported defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_TD-vcZgFEee-7IkMvqfAcA")]
     [Description(@"Other process about a fraud already reported defined at national level.")]
-    OtherNational,
+    OtherNational = FraudReportingActionCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other process about a fraud already reported defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_TPeNwZgFEee-7IkMvqfAcA")]
     [Description(@"Other process about a fraud already reported defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = FraudReportingActionCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reopen a previously closed reported fraud case
-    /// Encoded/decoded by serializers as "Reopen".
+    /// Encoded/decoded by serializers as "REOP".
     /// </summary>
     [EnumMember(Value = "REOP")]
     [IsoId("_TXxOIZgFEee-7IkMvqfAcA")]
     [Description(@"Reopen a previously closed reported fraud case")]
-    Reopen,
+    Reopen = FraudReportingActionCode.Reopen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update information about a fraud already reported.
-    /// Encoded/decoded by serializers as "Update".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_TgMKUZgFEee-7IkMvqfAcA")]
     [Description(@"Update information about a fraud already reported.")]
-    Update,
+    Update = FraudReportingActionCode.Update, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum FraudReportingAction1Code
 public static class FraudReportingAction1CodeMetadataExtensions
 {
     private static readonly FraudReportingAction1CodeDropdownSource _dropdownSource = new FraudReportingAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

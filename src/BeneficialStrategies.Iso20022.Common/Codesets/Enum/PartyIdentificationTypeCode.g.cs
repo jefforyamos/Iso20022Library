@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yG5lsEU8EeSGWeX3z5zSZQ")]
 [Description(@"Specifies an alternative identification of a trading party, for example, trader code, trader name, short legal name of firm and so on.")]
 [Derivations(typeof(PartyIdentificationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PartyIdentificationTypeCode
 {
     /// <summary>
@@ -220,12 +219,11 @@ public enum PartyIdentificationTypeCode
     
     /// <summary>
     /// Internal team that traders belong.
-    /// 
     /// Encoded/decoded by serializers as "IGBT".
     /// </summary>
     [EnumMember(Value = "IGBT")]
     [IsoId("_qPaA0EVDEeSGWeX3z5zSZQ")]
-    [Description(@"Internal team that traders belong. ")]
+    [Description(@"Internal team that traders belong.|")]
     InternalGroupTheTraderBelongedTo,
     
     /// <summary>
@@ -239,12 +237,11 @@ public enum PartyIdentificationTypeCode
     
     /// <summary>
     /// Member identification of the RMB trading system
-    /// 
     /// Encoded/decoded by serializers as "RMID".
     /// </summary>
     [EnumMember(Value = "RMID")]
     [IsoId("_hsAKcEVFEeSGWeX3z5zSZQ")]
-    [Description(@"Member identification of the RMB trading system ")]
+    [Description(@"Member identification of the RMB trading system|")]
     RMBMemberIdentification,
     
     /// <summary>
@@ -373,7 +370,7 @@ public enum PartyIdentificationTypeCode
 public static class PartyIdentificationTypeCodeMetadataExtensions
 {
     private static readonly PartyIdentificationTypeCodeDropdownSource _dropdownSource = new PartyIdentificationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum SuspendedStatusReason1Code
 {
     /// <summary>
     /// Transaction/instruction is suspended following your earlier suspension instruction.
-    /// Encoded/decoded by serializers as "SuspendedByYourself".
+    /// Encoded/decoded by serializers as "SUBY".
     /// </summary>
     [EnumMember(Value = "SUBY")]
     [IsoId("_ZQzbBNp-Ed-ak6NoX_4Aeg_689720894")]
     [Description(@"Transaction/instruction is suspended following your earlier suspension instruction.")]
-    SuspendedByYourself,
+    SuspendedByYourself = SuspendedStatusReasonCode.SuspendedByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction is suspended following a system suspension instruction.
-    /// Encoded/decoded by serializers as "SuspendedBySystem".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ZQzbBdp-Ed-ak6NoX_4Aeg_689720895")]
     [Description(@"Transaction/instruction is suspended following a system suspension instruction.")]
-    SuspendedBySystem,
+    SuspendedBySystem = SuspendedStatusReasonCode.SuspendedBySystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SuspendedStatusReason1Code
 public static class SuspendedStatusReason1CodeMetadataExtensions
 {
     private static readonly SuspendedStatusReason1CodeDropdownSource _dropdownSource = new SuspendedStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

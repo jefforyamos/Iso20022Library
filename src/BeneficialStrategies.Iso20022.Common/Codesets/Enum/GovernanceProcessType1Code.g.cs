@@ -21,39 +21,39 @@ public enum GovernanceProcessType1Code
 {
     /// <summary>
     /// Product governance procedure is comparable to MiFID II.
-    /// Encoded/decoded by serializers as "ComparibleMiFID".
+    /// Encoded/decoded by serializers as "BMIF".
     /// </summary>
     [EnumMember(Value = "BMIF")]
     [IsoId("_z5Y1oYD5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is comparable to MiFID II.")]
-    ComparibleMiFID,
+    ComparibleMiFID = GovernanceProcessTypeCode.ComparibleMiFID, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No information is requested from the issuer.
-    /// Encoded/decoded by serializers as "NoInformation".
+    /// Encoded/decoded by serializers as "NINF".
     /// </summary>
     [EnumMember(Value = "NINF")]
     [IsoId("_z-SjwYD5Eeiw-daIkkmMqQ")]
     [Description(@"No information is requested from the issuer.")]
-    NoInformation,
+    NoInformation = GovernanceProcessTypeCode.NoInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product governance procedure is not in accordance with MiFID II.
-    /// Encoded/decoded by serializers as "NotMiFID".
+    /// Encoded/decoded by serializers as "CMIF".
     /// </summary>
     [EnumMember(Value = "CMIF")]
     [IsoId("_0CwNAYD5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is not in accordance with MiFID II.")]
-    NotMiFID,
+    NotMiFID = GovernanceProcessTypeCode.NotMiFID, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product governance procedure is pursuant to MiFID II.
-    /// Encoded/decoded by serializers as "PursuantMiFID".
+    /// Encoded/decoded by serializers as "AMIF".
     /// </summary>
     [EnumMember(Value = "AMIF")]
     [IsoId("_0HN2QYD5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is pursuant to MiFID II.")]
-    PursuantMiFID,
+    PursuantMiFID = GovernanceProcessTypeCode.PursuantMiFID, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum GovernanceProcessType1Code
 public static class GovernanceProcessType1CodeMetadataExtensions
 {
     private static readonly GovernanceProcessType1CodeDropdownSource _dropdownSource = new GovernanceProcessType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

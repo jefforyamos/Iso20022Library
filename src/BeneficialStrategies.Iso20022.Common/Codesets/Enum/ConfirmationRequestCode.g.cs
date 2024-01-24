@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0IqGIAJhEeS2H9l84F_isg")]
 [Description(@"Identifies the type of confirmation message being sent.")]
 [Derivations(typeof(ConfirmationRequest1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ConfirmationRequestCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ConfirmationRequestCode
 public static class ConfirmationRequestCodeMetadataExtensions
 {
     private static readonly ConfirmationRequestCodeDropdownSource _dropdownSource = new ConfirmationRequestCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

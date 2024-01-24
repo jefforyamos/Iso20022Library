@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_uQbcgCDMEeWPMvNwVtiMsA")]
 [Description(@"Specifies the party responsible for the liability.")]
 [Derivations(typeof(Liability1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LiabilityCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum LiabilityCode
 public static class LiabilityCodeMetadataExtensions
 {
     private static readonly LiabilityCodeDropdownSource _dropdownSource = new LiabilityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

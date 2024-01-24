@@ -21,21 +21,21 @@ public enum PairingStatus1Code
 {
     /// <summary>
     /// Transaction has been paired.
-    /// Encoded/decoded by serializers as "Paired".
+    /// Encoded/decoded by serializers as "PARD".
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_sPf1AV54Ee2a_-MvhEjKmA")]
     [Description(@"Transaction has been paired.")]
-    Paired,
+    Paired = PairingStatusCode.Paired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has not been paired.
-    /// Encoded/decoded by serializers as "Unpaired".
+    /// Encoded/decoded by serializers as "UNPR".
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_sPf1Al54Ee2a_-MvhEjKmA")]
     [Description(@"Transaction has not been paired.")]
-    Unpaired,
+    Unpaired = PairingStatusCode.Unpaired, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PairingStatus1Code
 public static class PairingStatus1CodeMetadataExtensions
 {
     private static readonly PairingStatus1CodeDropdownSource _dropdownSource = new PairingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

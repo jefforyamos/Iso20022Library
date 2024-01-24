@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_waUkkqMOEeCojJW5vEuTEQ_951032316")]
 [Description(@"Specifies the collateral account type.")]
 [Derivations(typeof(CollateralAccountType1Code),typeof(CollateralAccountType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralAccountTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum CollateralAccountTypeCode
 public static class CollateralAccountTypeCodeMetadataExtensions
 {
     private static readonly CollateralAccountTypeCodeDropdownSource _dropdownSource = new CollateralAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gI-FsCeFEeOXAt_43VmZGw")]
 [Description(@"Specifies the type of withholding tax rate.")]
 [Derivations(typeof(WithholdingTaxRateType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum WithholdingTaxRateTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum WithholdingTaxRateTypeCode
 public static class WithholdingTaxRateTypeCodeMetadataExtensions
 {
     private static readonly WithholdingTaxRateTypeCodeDropdownSource _dropdownSource = new WithholdingTaxRateTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

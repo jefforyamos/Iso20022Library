@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVpK_AEcEeCQm6a_G2yO_w_454879121")]
 [Description(@"Identification of the MAC algorithm.")]
-[Derivations(typeof(Algorithm1Code),typeof(Algorithm7Code),typeof(Algorithm5Code),typeof(Algorithm8Code),typeof(Algorithm2Code),typeof(Algorithm3Code),typeof(Algorithm4Code),typeof(Algorithm6Code),typeof(Algorithm9Code),typeof(Algorithm10Code),typeof(Algorithm11Code),typeof(Algorithm14Code),typeof(Algorithm12Code),typeof(Algorithm15Code),typeof(Algorithm13Code),typeof(Algorithm16Code),typeof(Algorithm17Code),typeof(Algorithm18Code),typeof(Algorithm19Code),typeof(Algorithm23Code),typeof(Algorithm20Code),typeof(Algorithm24Code),typeof(Algorithm25Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(Algorithm10Code),typeof(Algorithm8Code),typeof(Algorithm7Code),typeof(Algorithm4Code),typeof(Algorithm13Code),typeof(Algorithm14Code),typeof(Algorithm3Code),typeof(Algorithm16Code),typeof(Algorithm23Code),typeof(Algorithm1Code),typeof(Algorithm9Code),typeof(Algorithm18Code),typeof(Algorithm11Code),typeof(Algorithm17Code),typeof(Algorithm2Code),typeof(Algorithm6Code),typeof(Algorithm20Code),typeof(Algorithm15Code),typeof(Algorithm19Code),typeof(Algorithm5Code),typeof(Algorithm12Code),typeof(Algorithm24Code),typeof(Algorithm25Code))]
 public enum AlgorithmCode
 {
     /// <summary>
@@ -713,7 +712,7 @@ public enum AlgorithmCode
 public static class AlgorithmCodeMetadataExtensions
 {
     private static readonly AlgorithmCodeDropdownSource _dropdownSource = new AlgorithmCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

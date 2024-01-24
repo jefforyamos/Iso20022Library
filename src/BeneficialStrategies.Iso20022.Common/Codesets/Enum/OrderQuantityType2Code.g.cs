@@ -21,21 +21,21 @@ public enum OrderQuantityType2Code
 {
     /// <summary>
     /// Order is placed by unit.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD4dp-Ed-ak6NoX_4Aeg_-1092421681")]
     [Description(@"Order is placed by unit.")]
-    Unit,
+    Unit = OrderQuantityTypeCode.Unit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is placed by amount of money.
-    /// Encoded/decoded by serializers as "Amount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aRVD4tp-Ed-ak6NoX_4Aeg_-1092421663")]
     [Description(@"Order is placed by amount of money.")]
-    Amount,
+    Amount = OrderQuantityTypeCode.Amount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OrderQuantityType2Code
 public static class OrderQuantityType2CodeMetadataExtensions
 {
     private static readonly OrderQuantityType2CodeDropdownSource _dropdownSource = new OrderQuantityType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,75 +21,75 @@ public enum JourneyType1Code
 {
     /// <summary>
     /// Coach number
-    /// Encoded/decoded by serializers as "CoachNumber".
+    /// Encoded/decoded by serializers as "COAC".
     /// </summary>
     [EnumMember(Value = "COAC")]
     [IsoId("__3usEV1jEeeu75xdwwAXQw")]
     [Description(@"Coach number")]
-    CoachNumber,
+    CoachNumber = JourneyTypeCode.CoachNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Early arrival or departure
-    /// Encoded/decoded by serializers as "Early".
+    /// Encoded/decoded by serializers as "EARL".
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_ALOP0l1kEeeu75xdwwAXQw")]
     [Description(@"Early arrival or departure")]
-    Early,
+    Early = JourneyTypeCode.Early, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Flight number.
-    /// Encoded/decoded by serializers as "FlightNumber".
+    /// Encoded/decoded by serializers as "FLGT".
     /// </summary>
     [EnumMember(Value = "FLGT")]
     [IsoId("_AXa4wl1kEeeu75xdwwAXQw")]
     [Description(@"Flight number.")]
-    FlightNumber,
+    FlightNumber = JourneyTypeCode.FlightNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Late arrival or departure.
-    /// Encoded/decoded by serializers as "Late".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_AgfVMl1kEeeu75xdwwAXQw")]
     [Description(@"Late arrival or departure.")]
-    Late,
+    Late = JourneyTypeCode.Late, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On-time arrival or departure
-    /// Encoded/decoded by serializers as "OnTime".
+    /// Encoded/decoded by serializers as "ONTM".
     /// </summary>
     [EnumMember(Value = "ONTM")]
     [IsoId("_As_gIl1kEeeu75xdwwAXQw")]
     [Description(@"On-time arrival or departure")]
-    OnTime,
+    OnTime = JourneyTypeCode.OnTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of journey.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_A7kusl1kEeeu75xdwwAXQw")]
     [Description(@"Other type of journey.")]
-    Other,
+    Other = JourneyTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Train number.
-    /// Encoded/decoded by serializers as "TrainNumber".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_BGlE0l1kEeeu75xdwwAXQw")]
     [Description(@"Train number.")]
-    TrainNumber,
+    TrainNumber = JourneyTypeCode.TrainNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vessel number
-    /// Encoded/decoded by serializers as "VesselNumber".
+    /// Encoded/decoded by serializers as "VESS".
     /// </summary>
     [EnumMember(Value = "VESS")]
     [IsoId("_BRla8l1kEeeu75xdwwAXQw")]
     [Description(@"Vessel number")]
-    VesselNumber,
+    VesselNumber = JourneyTypeCode.VesselNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum JourneyType1Code
 public static class JourneyType1CodeMetadataExtensions
 {
     private static readonly JourneyType1CodeDropdownSource _dropdownSource = new JourneyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

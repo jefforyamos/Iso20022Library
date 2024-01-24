@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_7DGFoCpUEeuUucRY0yCMTA")]
 [Description(@"Available criterion to group transactions when a reconliation is made.")]
 [Derivations(typeof(ReconciliationCriteria1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationCriteriaCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReconciliationCriteriaCode
 public static class ReconciliationCriteriaCodeMetadataExtensions
 {
     private static readonly ReconciliationCriteriaCodeDropdownSource _dropdownSource = new ReconciliationCriteriaCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

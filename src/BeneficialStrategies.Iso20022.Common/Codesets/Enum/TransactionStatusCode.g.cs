@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YuO5ddp-Ed-ak6NoX_4Aeg_-163376568")]
 [Description(@"Specifies the processing status of an investment fund transaction.")]
 [Derivations(typeof(TransactionStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransactionStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TransactionStatusCode
 public static class TransactionStatusCodeMetadataExtensions
 {
     private static readonly TransactionStatusCodeDropdownSource _dropdownSource = new TransactionStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

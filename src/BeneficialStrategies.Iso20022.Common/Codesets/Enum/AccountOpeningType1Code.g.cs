@@ -21,21 +21,21 @@ public enum AccountOpeningType1Code
 {
     /// <summary>
     /// Account request is to open a new account.
-    /// Encoded/decoded by serializers as "NewAccountOpening".
+    /// Encoded/decoded by serializers as "NEWA".
     /// </summary>
     [EnumMember(Value = "NEWA")]
     [IsoId("_bq4Qwtp-Ed-ak6NoX_4Aeg_-1409903872")]
     [Description(@"Account request is to open a new account.")]
-    NewAccountOpening,
+    NewAccountOpening = AccountOpeningTypeCode.NewAccountOpening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account request is to open a supplementary account, that is, based on an existing account.
-    /// Encoded/decoded by serializers as "SupplementaryAccountOpening".
+    /// Encoded/decoded by serializers as "SUPA".
     /// </summary>
     [EnumMember(Value = "SUPA")]
     [IsoId("_bq4Qw9p-Ed-ak6NoX_4Aeg_-1409903871")]
     [Description(@"Account request is to open a supplementary account, that is, based on an existing account.")]
-    SupplementaryAccountOpening,
+    SupplementaryAccountOpening = AccountOpeningTypeCode.SupplementaryAccountOpening, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountOpeningType1Code
 public static class AccountOpeningType1CodeMetadataExtensions
 {
     private static readonly AccountOpeningType1CodeDropdownSource _dropdownSource = new AccountOpeningType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

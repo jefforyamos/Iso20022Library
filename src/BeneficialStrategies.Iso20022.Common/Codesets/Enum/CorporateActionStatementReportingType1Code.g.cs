@@ -21,21 +21,21 @@ public enum CorporateActionStatementReportingType1Code
 {
     /// <summary>
     /// The reporting is for a single event and for multiple accounts.
-    /// Encoded/decoded by serializers as "MultipleAccounts".
+    /// Encoded/decoded by serializers as "MASE".
     /// </summary>
     [EnumMember(Value = "MASE")]
     [IsoId("_bTCYhtp-Ed-ak6NoX_4Aeg_-1322387625")]
     [Description(@"The reporting is for a single event and for multiple accounts.")]
-    MultipleAccounts,
+    MultipleAccounts = CorporateActionStatementReportingTypeCode.MultipleAccounts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The reporting is for multiple events for a single account.
-    /// Encoded/decoded by serializers as "MultipleEvents".
+    /// Encoded/decoded by serializers as "SAME".
     /// </summary>
     [EnumMember(Value = "SAME")]
     [IsoId("_bTCYh9p-Ed-ak6NoX_4Aeg_144761138")]
     [Description(@"The reporting is for multiple events for a single account.")]
-    MultipleEvents,
+    MultipleEvents = CorporateActionStatementReportingTypeCode.MultipleEvents, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionStatementReportingType1Code
 public static class CorporateActionStatementReportingType1CodeMetadataExtensions
 {
     private static readonly CorporateActionStatementReportingType1CodeDropdownSource _dropdownSource = new CorporateActionStatementReportingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

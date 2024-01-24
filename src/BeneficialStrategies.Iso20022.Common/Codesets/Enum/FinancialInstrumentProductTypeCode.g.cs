@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_apBLINp-Ed-ak6NoX_4Aeg_335334060")]
 [Description(@"Specifies the type of product or financial instrument.")]
 [Derivations(typeof(FinancialInstrumentProductType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentProductTypeCode
 {
     /// <summary>
@@ -794,7 +793,7 @@ public enum FinancialInstrumentProductTypeCode
 public static class FinancialInstrumentProductTypeCodeMetadataExtensions
 {
     private static readonly FinancialInstrumentProductTypeCodeDropdownSource _dropdownSource = new FinancialInstrumentProductTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

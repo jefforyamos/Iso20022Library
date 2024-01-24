@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aGcpkdp-Ed-ak6NoX_4Aeg_1893653072")]
 [Description(@"Specifies the type of Transfer, PEP or ISA.")]
 [Derivations(typeof(PEPISA1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PEPISACode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PEPISACode
 public static class PEPISACodeMetadataExtensions
 {
     private static readonly PEPISACodeDropdownSource _dropdownSource = new PEPISACodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

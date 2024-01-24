@@ -21,23 +21,21 @@ public enum BrokeredDeal1Code
 {
     /// <summary>
     /// Transaction was arranged directly by the reporting agent.
-    /// Encoded/decoded by serializers as "BilateralTransaction".
+    /// Encoded/decoded by serializers as "BILA".
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_kvdzoXvREeWrWYBng3OpVw")]
     [Description(@"Transaction was arranged directly by the reporting agent.")]
-    BilateralTransaction,
+    BilateralTransaction = BrokeredDealCode.BilateralTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was arranged by a third party broking agent.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "BrokeredTransaction".
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_k2VQoXvREeWrWYBng3OpVw")]
-    [Description(@"Transaction was arranged by a third party broking agent.  ")]
-    BrokeredTransaction,
+    [Description(@"Transaction was arranged by a third party broking agent.||")]
+    BrokeredTransaction = BrokeredDealCode.BrokeredTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -48,7 +46,7 @@ public enum BrokeredDeal1Code
 public static class BrokeredDeal1CodeMetadataExtensions
 {
     private static readonly BrokeredDeal1CodeDropdownSource _dropdownSource = new BrokeredDeal1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

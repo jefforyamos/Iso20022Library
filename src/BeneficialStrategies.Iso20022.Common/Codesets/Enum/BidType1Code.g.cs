@@ -21,30 +21,30 @@ public enum BidType1Code
 {
     /// <summary>
     /// Bid type is non disclosed.
-    /// Encoded/decoded by serializers as "NonDisclosed".
+    /// Encoded/decoded by serializers as "NDIS".
     /// </summary>
     [EnumMember(Value = "NDIS")]
     [IsoId("_beXexdp-Ed-ak6NoX_4Aeg_943753955")]
     [Description(@"Bid type is non disclosed.")]
-    NonDisclosed,
+    NonDisclosed = BidTypeCode.NonDisclosed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bid type is disclosed.
-    /// Encoded/decoded by serializers as "Disclosed".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_beXextp-Ed-ak6NoX_4Aeg_943753997")]
     [Description(@"Bid type is disclosed.")]
-    Disclosed,
+    Disclosed = BidTypeCode.Disclosed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// List order is not related to a bid.
-    /// Encoded/decoded by serializers as "NoBid".
+    /// Encoded/decoded by serializers as "NOBI".
     /// </summary>
     [EnumMember(Value = "NOBI")]
     [IsoId("_beXex9p-Ed-ak6NoX_4Aeg_943754015")]
     [Description(@"List order is not related to a bid.")]
-    NoBid,
+    NoBid = BidTypeCode.NoBid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BidType1Code
 public static class BidType1CodeMetadataExtensions
 {
     private static readonly BidType1CodeDropdownSource _dropdownSource = new BidType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

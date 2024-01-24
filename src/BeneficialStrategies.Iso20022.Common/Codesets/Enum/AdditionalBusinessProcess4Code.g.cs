@@ -21,84 +21,84 @@ public enum AdditionalBusinessProcess4Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "ClaimOrCompensation".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_V_8rhwFpEeGXDp73SgCmsg")]
     [Description(@"Relates to a claim on the associated corporate action event.")]
-    ClaimOrCompensation,
+    ClaimOrCompensation = AdditionalBusinessProcessCode.ClaimOrCompensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TaxRefund".
+    /// Encoded/decoded by serializers as "TAXR".
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_V_8riwFpEeGXDp73SgCmsg")]
     [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
-    TaxRefund,
+    TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "AutomaticMarketClaim".
+    /// Encoded/decoded by serializers as "ACLA".
     /// </summary>
     [EnumMember(Value = "ACLA")]
     [IsoId("_XHoFSgFpEeGXDp73SgCmsg")]
     [Description(@"Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).")]
-    AutomaticMarketClaim,
+    AutomaticMarketClaim = AdditionalBusinessProcessCode.AutomaticMarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
-    /// Encoded/decoded by serializers as "SubjectToTransformation".
+    /// Encoded/decoded by serializers as "ATXF".
     /// </summary>
     [EnumMember(Value = "ATXF")]
     [IsoId("_XoQtIgFpEeGXDp73SgCmsg")]
     [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).")]
-    SubjectToTransformation,
+    SubjectToTransformation = AdditionalBusinessProcessCode.SubjectToTransformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelUnderlyingTrades".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_YP578gFpEeGXDp73SgCmsg")]
     [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.")]
-    CancelUnderlyingTrades,
+    CancelUnderlyingTrades = AdditionalBusinessProcessCode.CancelUnderlyingTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
-    /// Encoded/decoded by serializers as "Consent".
+    /// Encoded/decoded by serializers as "CONS".
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_Y-ijkgFpEeGXDp73SgCmsg")]
     [Description(@"Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).")]
-    Consent,
+    Consent = AdditionalBusinessProcessCode.Consent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "NoAutomaticMarketClaimsAndTransformations".
+    /// Encoded/decoded by serializers as "NAMC".
     /// </summary>
     [EnumMember(Value = "NAMC")]
     [IsoId("_Zcpb6gFpEeGXDp73SgCmsg")]
     [Description(@"Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).")]
-    NoAutomaticMarketClaimsAndTransformations,
+    NoAutomaticMarketClaimsAndTransformations = AdditionalBusinessProcessCode.NoAutomaticMarketClaimsAndTransformations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer only allows a single option to be selected per designated holding.
-    /// Encoded/decoded by serializers as "NoSplitElection".
+    /// Encoded/decoded by serializers as "NPLE".
     /// </summary>
     [EnumMember(Value = "NPLE")]
     [IsoId("_Z4EMmgFpEeGXDp73SgCmsg")]
     [Description(@"Issuer only allows a single option to be selected per designated holding.")]
-    NoSplitElection,
+    NoSplitElection = AdditionalBusinessProcessCode.NoSplitElection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
-    /// Encoded/decoded by serializers as "SchemeOrPlanOfArrangement".
+    /// Encoded/decoded by serializers as "SCHM".
     /// </summary>
     [EnumMember(Value = "SCHM")]
     [IsoId("_afjqYgFpEeGXDp73SgCmsg")]
     [Description(@"Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.")]
-    SchemeOrPlanOfArrangement,
+    SchemeOrPlanOfArrangement = AdditionalBusinessProcessCode.SchemeOrPlanOfArrangement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum AdditionalBusinessProcess4Code
 public static class AdditionalBusinessProcess4CodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcess4CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum RepoTerminationOption2Code
 {
     /// <summary>
     /// Evergreen termination option.
-    /// Encoded/decoded by serializers as "Evergreen".
+    /// Encoded/decoded by serializers as "EGRN".
     /// </summary>
     [EnumMember(Value = "EGRN")]
     [IsoId("_cqq1Me83EeiYJN4CMdaY8A")]
     [Description(@"Evergreen termination option.")]
-    Evergreen,
+    Evergreen = RepoTerminationOptionCode.Evergreen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Evergreen and extendable termination option. 
-    /// Encoded/decoded by serializers as "EvergreenAndExtendable".
+    /// Encoded/decoded by serializers as "EGAE".
     /// </summary>
     [EnumMember(Value = "EGAE")]
     [IsoId("_cwfwYe83EeiYJN4CMdaY8A")]
     [Description(@"Evergreen and extendable termination option. ")]
-    EvergreenAndExtendable,
+    EvergreenAndExtendable = RepoTerminationOptionCode.EvergreenAndExtendable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extendable termination option.
-    /// Encoded/decoded by serializers as "Extendable".
+    /// Encoded/decoded by serializers as "ETSB".
     /// </summary>
     [EnumMember(Value = "ETSB")]
     [IsoId("_c7BlYe83EeiYJN4CMdaY8A")]
     [Description(@"Extendable termination option.")]
-    Extendable,
+    Extendable = RepoTerminationOptionCode.Extendable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Search for requested data not complete yet.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_dBKpoO83EeiYJN4CMdaY8A")]
     [Description(@"Search for requested data not complete yet.")]
-    NotApplicable,
+    NotApplicable = RepoTerminationOptionCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RepoTerminationOption2Code
 public static class RepoTerminationOption2CodeMetadataExtensions
 {
     private static readonly RepoTerminationOption2CodeDropdownSource _dropdownSource = new RepoTerminationOption2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

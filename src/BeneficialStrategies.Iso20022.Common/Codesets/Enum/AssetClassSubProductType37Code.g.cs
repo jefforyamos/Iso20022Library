@@ -21,12 +21,12 @@ public enum AssetClassSubProductType37Code
 {
     /// <summary>
     /// Commodity of type pulp.
-    /// Encoded/decoded by serializers as "Pulp".
+    /// Encoded/decoded by serializers as "PULP".
     /// </summary>
     [EnumMember(Value = "PULP")]
     [IsoId("_2IP0JVryEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type pulp.")]
-    Pulp,
+    Pulp = AssetClassSubProductTypeCode.Pulp, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType37Code
 public static class AssetClassSubProductType37CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType37CodeDropdownSource _dropdownSource = new AssetClassSubProductType37CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

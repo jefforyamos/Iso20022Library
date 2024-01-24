@@ -21,39 +21,39 @@ public enum Reporting3Code
 {
     /// <summary>
     /// Relates to a buy-in by the market following a delivery transaction failure.
-    /// Encoded/decoded by serializers as "BuyIn".
+    /// Encoded/decoded by serializers as "BYIY".
     /// </summary>
     [EnumMember(Value = "BYIY")]
     [IsoId("_7EMzAdB4EeihG9bKfarOOA")]
     [Description(@"Relates to a buy-in by the market following a delivery transaction failure.")]
-    BuyIn,
+    BuyIn = ReportingCode.BuyIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report is deferred, for example, because the order was executed in partial fills.
-    /// Encoded/decoded by serializers as "DeferredReport".
+    /// Encoded/decoded by serializers as "DEFR".
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_7Nt7YdB4EeihG9bKfarOOA")]
     [Description(@"Report is deferred, for example, because the order was executed in partial fills.")]
-    DeferredReport,
+    DeferredReport = ReportingCode.DeferredReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade details are to be reported to a regulatory organisation.
-    /// Encoded/decoded by serializers as "RegulatoryOrganisation".
+    /// Encoded/decoded by serializers as "REGU".
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_7UkKQdB4EeihG9bKfarOOA")]
     [Description(@"Trade details are to be reported to a regulatory organisation.")]
-    RegulatoryOrganisation,
+    RegulatoryOrganisation = ReportingCode.RegulatoryOrganisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade details are to be reported to a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "STEX".
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_7a9GIdB4EeihG9bKfarOOA")]
     [Description(@"Trade details are to be reported to a stock exchange.")]
-    StockExchange,
+    StockExchange = ReportingCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Reporting3Code
 public static class Reporting3CodeMetadataExtensions
 {
     private static readonly Reporting3CodeDropdownSource _dropdownSource = new Reporting3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

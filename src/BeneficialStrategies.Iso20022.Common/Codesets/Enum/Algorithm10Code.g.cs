@@ -21,30 +21,30 @@ public enum Algorithm10Code
 {
     /// <summary>
     /// Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).
-    /// Encoded/decoded by serializers as "RetailCBCMAC".
+    /// Encoded/decoded by serializers as "MACC".
     /// </summary>
     [EnumMember(Value = "MACC")]
     [IsoId("_K3kEITF2EeO118ZQJgaQSQ")]
     [Description(@"Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).")]
-    RetailCBCMAC,
+    RetailCBCMAC = AlgorithmCode.RetailCBCMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).
-    /// Encoded/decoded by serializers as "RetailSHA256MAC".
+    /// Encoded/decoded by serializers as "MCCS".
     /// </summary>
     [EnumMember(Value = "MCCS")]
     [IsoId("_K3kEIzF2EeO118ZQJgaQSQ")]
     [Description(@"Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).")]
-    RetailSHA256MAC,
+    RetailSHA256MAC = AlgorithmCode.RetailSHA256MAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.
-    /// Encoded/decoded by serializers as "SHA256CMACwithAES128".
+    /// Encoded/decoded by serializers as "CMA1".
     /// </summary>
     [EnumMember(Value = "CMA1")]
     [IsoId("_K3kEJTF2EeO118ZQJgaQSQ")]
     [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.")]
-    SHA256CMACwithAES128,
+    SHA256CMACwithAES128 = AlgorithmCode.SHA256CMACwithAES128, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Algorithm10Code
 public static class Algorithm10CodeMetadataExtensions
 {
     private static readonly Algorithm10CodeDropdownSource _dropdownSource = new Algorithm10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

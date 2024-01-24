@@ -21,30 +21,30 @@ public enum InitialPhysicalForm1Code
 {
     /// <summary>
     /// Initial Physical Form is GT.
-    /// Encoded/decoded by serializers as "GT".
+    /// Encoded/decoded by serializers as "GTGT".
     /// </summary>
     [EnumMember(Value = "GTGT")]
     [IsoId("_hblKnWliEeGaMcKyqKNRfQ_-933244343")]
     [Description(@"Initial Physical Form is GT.")]
-    GT,
+    GT = InitialPhysicalFormCode.GT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initial Physical Form is GP.
-    /// Encoded/decoded by serializers as "GP".
+    /// Encoded/decoded by serializers as "GPGP".
     /// </summary>
     [EnumMember(Value = "GPGP")]
     [IsoId("_hblKnmliEeGaMcKyqKNRfQ_1809811702")]
     [Description(@"Initial Physical Form is GP.")]
-    GP,
+    GP = InitialPhysicalFormCode.GP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initial Physical Form is definitive.
-    /// Encoded/decoded by serializers as "Definitive".
+    /// Encoded/decoded by serializers as "DERN".
     /// </summary>
     [EnumMember(Value = "DERN")]
     [IsoId("_hblKn2liEeGaMcKyqKNRfQ_-2031068325")]
     [Description(@"Initial Physical Form is definitive.")]
-    Definitive,
+    Definitive = InitialPhysicalFormCode.Definitive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InitialPhysicalForm1Code
 public static class InitialPhysicalForm1CodeMetadataExtensions
 {
     private static readonly InitialPhysicalForm1CodeDropdownSource _dropdownSource = new InitialPhysicalForm1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

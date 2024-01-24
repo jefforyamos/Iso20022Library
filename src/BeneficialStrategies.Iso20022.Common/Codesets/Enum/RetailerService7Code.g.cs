@@ -21,21 +21,21 @@ public enum RetailerService7Code
 {
     /// <summary>
     /// The POI System responds to a transaction report request.
-    /// Encoded/decoded by serializers as "AdministrativeReportTransactionResponse".
+    /// Encoded/decoded by serializers as "RPTP".
     /// </summary>
     [EnumMember(Value = "RPTP")]
     [IsoId("_c4lHMd6VEeiwsev40qZGEQ")]
     [Description(@"The POI System responds to a transaction report request.")]
-    AdministrativeReportTransactionResponse,
+    AdministrativeReportTransactionResponse = RetailerServiceCode.AdministrativeReportTransactionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a totals figures request.
-    /// Encoded/decoded by serializers as "AdministrativeReportGetTotalsResponse".
+    /// Encoded/decoded by serializers as "RPAP".
     /// </summary>
     [EnumMember(Value = "RPAP")]
     [IsoId("_dKVlkd6VEeiwsev40qZGEQ")]
     [Description(@"The POI System responds to a totals figures request.")]
-    AdministrativeReportGetTotalsResponse,
+    AdministrativeReportGetTotalsResponse = RetailerServiceCode.AdministrativeReportGetTotalsResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RetailerService7Code
 public static class RetailerService7CodeMetadataExtensions
 {
     private static readonly RetailerService7CodeDropdownSource _dropdownSource = new RetailerService7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

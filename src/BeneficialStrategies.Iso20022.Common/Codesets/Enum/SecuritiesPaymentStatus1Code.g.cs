@@ -21,30 +21,30 @@ public enum SecuritiesPaymentStatus1Code
 {
     /// <summary>
     /// Security is fully paid.
-    /// Encoded/decoded by serializers as "FullyPaid".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_ZFoFx9p-Ed-ak6NoX_4Aeg_-1185567647")]
     [Description(@"Security is fully paid.")]
-    FullyPaid,
+    FullyPaid = SecuritiesPaymentStatusCode.FullyPaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security is nill paid.
-    /// Encoded/decoded by serializers as "NillPaid".
+    /// Encoded/decoded by serializers as "NILL".
     /// </summary>
     [EnumMember(Value = "NILL")]
     [IsoId("_ZFoFyNp-Ed-ak6NoX_4Aeg_-899273641")]
     [Description(@"Security is nill paid.")]
-    NillPaid,
+    NillPaid = SecuritiesPaymentStatusCode.NillPaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security is partially paid.
-    /// Encoded/decoded by serializers as "PartiallyPaid".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZFx2wNp-Ed-ak6NoX_4Aeg_-862334871")]
     [Description(@"Security is partially paid.")]
-    PartiallyPaid,
+    PartiallyPaid = SecuritiesPaymentStatusCode.PartiallyPaid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SecuritiesPaymentStatus1Code
 public static class SecuritiesPaymentStatus1CodeMetadataExtensions
 {
     private static readonly SecuritiesPaymentStatus1CodeDropdownSource _dropdownSource = new SecuritiesPaymentStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

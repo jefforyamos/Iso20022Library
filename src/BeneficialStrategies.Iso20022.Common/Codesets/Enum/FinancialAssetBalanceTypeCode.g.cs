@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_m34UtfNBEeCuA5Tr22BnwA_1170507866")]
 [Description(@"Specifies balances of assets and other balances.")]
 [Derivations(typeof(FinancialAssetBalanceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialAssetBalanceTypeCode
 {
     /// <summary>
@@ -587,7 +586,7 @@ public enum FinancialAssetBalanceTypeCode
 public static class FinancialAssetBalanceTypeCodeMetadataExtensions
 {
     private static readonly FinancialAssetBalanceTypeCodeDropdownSource _dropdownSource = new FinancialAssetBalanceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

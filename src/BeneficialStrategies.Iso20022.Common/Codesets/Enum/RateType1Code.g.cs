@@ -21,30 +21,30 @@ public enum RateType1Code
 {
     /// <summary>
     /// Rate is fixed.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_ZZJetdp-Ed-ak6NoX_4Aeg_570159113")]
     [Description(@"Rate is fixed.")]
-    Fixed,
+    Fixed = InterestRateTypeCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No specific repurchase rate applies to the transaction Repo, only a forfeit.
-    /// Encoded/decoded by serializers as "Forfeit".
+    /// Encoded/decoded by serializers as "FORF".
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_ZZJettp-Ed-ak6NoX_4Aeg_570159130")]
     [Description(@"No specific repurchase rate applies to the transaction Repo, only a forfeit.")]
-    Forfeit,
+    Forfeit = InterestRateTypeCode.Forfeit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is variable.
-    /// Encoded/decoded by serializers as "Variable".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_ZZJet9p-Ed-ak6NoX_4Aeg_570159131")]
     [Description(@"Rate is variable.")]
-    Variable,
+    Variable = InterestRateTypeCode.Variable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RateType1Code
 public static class RateType1CodeMetadataExtensions
 {
     private static readonly RateType1CodeDropdownSource _dropdownSource = new RateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

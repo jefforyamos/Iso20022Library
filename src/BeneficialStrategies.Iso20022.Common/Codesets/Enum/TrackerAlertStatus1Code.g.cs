@@ -21,39 +21,39 @@ public enum TrackerAlertStatus1Code
 {
     /// <summary>
     /// Tracker notification is related to an invalid update.
-    /// Encoded/decoded by serializers as "Invalid".
+    /// Encoded/decoded by serializers as "INVA".
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_QEn4kfryEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to an invalid update.")]
-    Invalid,
+    Invalid = TrackerAlertStatusCode.Invalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tracker notification is related to a rejected cancellation request.
-    /// Encoded/decoded by serializers as "RejectedCancellationRequest".
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_QK5fsfryEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to a rejected cancellation request.")]
-    RejectedCancellationRequest,
+    RejectedCancellationRequest = TrackerAlertStatusCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tracker notification is related to a rejected investigation.
-    /// Encoded/decoded by serializers as "RejectedInvestigation".
+    /// Encoded/decoded by serializers as "RJIN".
     /// </summary>
     [EnumMember(Value = "RJIN")]
     [IsoId("_QQH98fryEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to a rejected investigation.")]
-    RejectedInvestigation,
+    RejectedInvestigation = TrackerAlertStatusCode.RejectedInvestigation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tracker notification is a warning.
-    /// Encoded/decoded by serializers as "Warning".
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_QV510fryEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is a warning.")]
-    Warning,
+    Warning = TrackerAlertStatusCode.Warning, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TrackerAlertStatus1Code
 public static class TrackerAlertStatus1CodeMetadataExtensions
 {
     private static readonly TrackerAlertStatus1CodeDropdownSource _dropdownSource = new TrackerAlertStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

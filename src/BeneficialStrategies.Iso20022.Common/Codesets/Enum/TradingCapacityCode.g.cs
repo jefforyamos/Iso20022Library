@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YqqBBtp-Ed-ak6NoX_4Aeg_-1705783512")]
 [Description(@"Specifies the role of a trading party in a transaction.")]
-[Derivations(typeof(TradingCapacity4Code),typeof(TradingCapacity6Code),typeof(TradingCapacity3Code),typeof(TradingCapacity5Code),typeof(TradingCapacity7Code),typeof(TradingCapacity8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TradingCapacity6Code),typeof(TradingCapacity3Code),typeof(TradingCapacity8Code),typeof(TradingCapacity4Code),typeof(TradingCapacity5Code),typeof(TradingCapacity7Code))]
 public enum TradingCapacityCode
 {
     /// <summary>
@@ -164,7 +163,7 @@ public enum TradingCapacityCode
 public static class TradingCapacityCodeMetadataExtensions
 {
     private static readonly TradingCapacityCodeDropdownSource _dropdownSource = new TradingCapacityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

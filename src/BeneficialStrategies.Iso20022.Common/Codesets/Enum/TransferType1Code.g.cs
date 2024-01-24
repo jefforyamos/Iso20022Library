@@ -21,21 +21,21 @@ public enum TransferType1Code
 {
     /// <summary>
     /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YvbMSNp-Ed-ak6NoX_4Aeg_-1303244696")]
     [Description(@"Transfer the security as an asset in specie, that is, 'in its actual form'.")]
-    InSpecie,
+    InSpecie = TransferTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Yvk9QNp-Ed-ak6NoX_4Aeg_-1291238985")]
     [Description(@"Transfer as cash.")]
-    Cash,
+    Cash = TransferTypeCode.Cash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransferType1Code
 public static class TransferType1CodeMetadataExtensions
 {
     private static readonly TransferType1CodeDropdownSource _dropdownSource = new TransferType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

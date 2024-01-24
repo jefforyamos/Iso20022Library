@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YrGs8Np-Ed-ak6NoX_4Aeg_627416882")]
 [Description(@"Specifies the method used for the negotiation and execution of a trade.")]
 [Derivations(typeof(Trading1MethodCode))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingMethodCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TradingMethodCode
 public static class TradingMethodCodeMetadataExtensions
 {
     private static readonly TradingMethodCodeDropdownSource _dropdownSource = new TradingMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

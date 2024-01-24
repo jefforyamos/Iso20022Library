@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YvRbQ9p-Ed-ak6NoX_4Aeg_-141526851")]
 [Description(@"Specifies the transfer or settlement instruction status.")]
-[Derivations(typeof(TransferStatus1Code),typeof(TransferStatus2Code),typeof(TransferStatus3Code),typeof(TransferStatus4Code),typeof(TransferStatus6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TransferStatus3Code),typeof(TransferStatus1Code),typeof(TransferStatus4Code),typeof(TransferStatus6Code),typeof(TransferStatus2Code))]
 public enum TransferStatusCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum TransferStatusCode
 public static class TransferStatusCodeMetadataExtensions
 {
     private static readonly TransferStatusCodeDropdownSource _dropdownSource = new TransferStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

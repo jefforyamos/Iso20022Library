@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zg1qsLABEeah1_v59tW6Rg")]
 [Description(@"Specifies the result of authentication done.")]
 [Derivations(typeof(AuthenticationResult1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AuthenticationResultCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum AuthenticationResultCode
 public static class AuthenticationResultCodeMetadataExtensions
 {
     private static readonly AuthenticationResultCodeDropdownSource _dropdownSource = new AuthenticationResultCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

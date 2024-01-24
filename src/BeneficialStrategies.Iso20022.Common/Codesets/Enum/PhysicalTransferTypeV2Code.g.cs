@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jiYPJYBAEeall68-KLgmUw")]
 [Description(@"Specifies whether the financial instrument is to be physically delivered or is a dematerilized transfer.")]
 [Derivations(typeof(PhysicalTransferType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PhysicalTransferTypeV2Code
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PhysicalTransferTypeV2Code
 public static class PhysicalTransferTypeV2CodeMetadataExtensions
 {
     private static readonly PhysicalTransferTypeV2CodeDropdownSource _dropdownSource = new PhysicalTransferTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

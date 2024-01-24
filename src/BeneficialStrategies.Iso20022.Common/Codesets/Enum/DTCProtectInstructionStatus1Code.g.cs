@@ -21,48 +21,48 @@ public enum DTCProtectInstructionStatus1Code
 {
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PendingApproval".
+    /// Encoded/decoded by serializers as "PENA".
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_MS-eUZIdEeaNbfbSYshZYw")]
     [Description(@"Instruction pending release or delete from approval function.")]
-    PendingApproval,
+    PendingApproval = DTCInstructionStatusCode.PendingApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_McjREZIdEeaNbfbSYshZYw")]
     [Description(@"Client instruction withdrawn for events with withdrawal privilege.")]
-    Withdrawn,
+    Withdrawn = DTCInstructionStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect instruction has been fully covered.
-    /// Encoded/decoded by serializers as "FullyCovered".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_MoTOEZIdEeaNbfbSYshZYw")]
     [Description(@"Protect instruction has been fully covered.")]
-    FullyCovered,
+    FullyCovered = DTCInstructionStatusCode.FullyCovered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect instruction has expired.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_NdphsZIdEeaNbfbSYshZYw")]
     [Description(@"Protect instruction has expired.")]
-    Expired,
+    Expired = DTCInstructionStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_N2nbUZIdEeaNbfbSYshZYw")]
     [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
-    Open,
+    Open = DTCInstructionStatusCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum DTCProtectInstructionStatus1Code
 public static class DTCProtectInstructionStatus1CodeMetadataExtensions
 {
     private static readonly DTCProtectInstructionStatus1CodeDropdownSource _dropdownSource = new DTCProtectInstructionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

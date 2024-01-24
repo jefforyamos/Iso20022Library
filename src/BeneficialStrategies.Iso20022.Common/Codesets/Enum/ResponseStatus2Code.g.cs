@@ -21,22 +21,21 @@ public enum ResponseStatus2Code
 {
     /// <summary>
     /// Collateral giver instruction details are confirmed.
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_FtcUocf1EemlRYW9CHJ8_Q")]
     [Description(@"Collateral giver instruction details are confirmed.")]
-    Confirmed,
+    Confirmed = ResponseStatusCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral giver instruction details are not recognised.
-    /// 
-    /// Encoded/decoded by serializers as "NotRecognised".
+    /// Encoded/decoded by serializers as "DKNY".
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_Fzstocf1EemlRYW9CHJ8_Q")]
-    [Description(@"Collateral giver instruction details are not recognised. ")]
-    NotRecognised,
+    [Description(@"Collateral giver instruction details are not recognised.|")]
+    NotRecognised = ResponseStatusCode.NotRecognised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +46,7 @@ public enum ResponseStatus2Code
 public static class ResponseStatus2CodeMetadataExtensions
 {
     private static readonly ResponseStatus2CodeDropdownSource _dropdownSource = new ResponseStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

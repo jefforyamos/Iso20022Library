@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yh4FcNNsEeKdOs2hjJ_3WQ")]
 [Description(@"Specifies the role of the bank in the transaction.")]
 [Derivations(typeof(BankRole1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BankRoleCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum BankRoleCode
 public static class BankRoleCodeMetadataExtensions
 {
     private static readonly BankRoleCodeDropdownSource _dropdownSource = new BankRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

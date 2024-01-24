@@ -21,21 +21,21 @@ public enum ModificationLevel1Code
 {
     /// <summary>
     /// Modification applies to a position.
-    /// Encoded/decoded by serializers as "Position".
+    /// Encoded/decoded by serializers as "PSTN".
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_YvcnEbSZEeeTnocDRx5mhw")]
     [Description(@"Modification applies to a position.")]
-    Position,
+    Position = ModificationLevelCode.Position, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification applies to a transaction.
-    /// Encoded/decoded by serializers as "Transaction".
+    /// Encoded/decoded by serializers as "TCTN".
     /// </summary>
     [EnumMember(Value = "TCTN")]
     [IsoId("_Y83YAbSZEeeTnocDRx5mhw")]
     [Description(@"Modification applies to a transaction.")]
-    Transaction,
+    Transaction = ModificationLevelCode.Transaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ModificationLevel1Code
 public static class ModificationLevel1CodeMetadataExtensions
 {
     private static readonly ModificationLevel1CodeDropdownSource _dropdownSource = new ModificationLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

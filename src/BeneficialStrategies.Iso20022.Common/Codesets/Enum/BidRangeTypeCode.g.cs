@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vkpAsO3MEeqc-LCjwLsUVg")]
 [Description(@"Types of acceptable bid range values.")]
 [Derivations(typeof(BidRangeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BidRangeTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BidRangeTypeCode
 public static class BidRangeTypeCodeMetadataExtensions
 {
     private static readonly BidRangeTypeCodeDropdownSource _dropdownSource = new BidRangeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

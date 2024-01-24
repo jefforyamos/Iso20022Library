@@ -21,48 +21,48 @@ public enum AssetClassDetailedSubProductType11Code
 {
     /// <summary>
     /// Commodity attribute of type gold.
-    /// Encoded/decoded by serializers as "Gold".
+    /// Encoded/decoded by serializers as "GOLD".
     /// </summary>
     [EnumMember(Value = "GOLD")]
     [IsoId("_lDcOQQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type gold.")]
-    Gold,
+    Gold = AssetClassDetailedSubProductTypeCode.Gold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_mf1TwQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type palladium.
-    /// Encoded/decoded by serializers as "Palladium".
+    /// Encoded/decoded by serializers as "PLDM".
     /// </summary>
     [EnumMember(Value = "PLDM")]
     [IsoId("_mnaicQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type palladium.")]
-    Palladium,
+    Palladium = AssetClassDetailedSubProductTypeCode.Palladium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type platinum.
-    /// Encoded/decoded by serializers as "Platinum".
+    /// Encoded/decoded by serializers as "PTNM".
     /// </summary>
     [EnumMember(Value = "PTNM")]
     [IsoId("_my3kgQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type platinum.")]
-    Platinum,
+    Platinum = AssetClassDetailedSubProductTypeCode.Platinum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type silver.
-    /// Encoded/decoded by serializers as "Silver".
+    /// Encoded/decoded by serializers as "SLVR".
     /// </summary>
     [EnumMember(Value = "SLVR")]
     [IsoId("_naSw4Q2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type silver.")]
-    Silver,
+    Silver = AssetClassDetailedSubProductTypeCode.Silver, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AssetClassDetailedSubProductType11Code
 public static class AssetClassDetailedSubProductType11CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType11CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

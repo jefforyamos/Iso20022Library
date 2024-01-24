@@ -21,21 +21,21 @@ public enum CollateralType2Code
 {
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_YZhNt9p-Ed-ak6NoX_4Aeg_-490160893")]
     [Description(@"Collateral type is cash.")]
-    Cash,
+    Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YZhNuNp-Ed-ak6NoX_4Aeg_-2046528295")]
     [Description(@"Collateral type is securities.")]
-    Securities,
+    Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralType2Code
 public static class CollateralType2CodeMetadataExtensions
 {
     private static readonly CollateralType2CodeDropdownSource _dropdownSource = new CollateralType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

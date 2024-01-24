@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aLXl1dp-Ed-ak6NoX_4Aeg_-1571134896")]
 [Description(@"Classifies the meeting type.")]
 [Derivations(typeof(MeetingTypeClassification1Code),typeof(MeetingTypeClassification2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MeetingTypeClassificationCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum MeetingTypeClassificationCode
 public static class MeetingTypeClassificationCodeMetadataExtensions
 {
     private static readonly MeetingTypeClassificationCodeDropdownSource _dropdownSource = new MeetingTypeClassificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

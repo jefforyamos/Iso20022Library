@@ -21,12 +21,12 @@ public enum CorporateActionFrequencyType4Code
 {
     /// <summary>
     /// Special Dividend with reinvestment component.
-    /// Encoded/decoded by serializers as "SpecialDividendWithReinvestment".
+    /// Encoded/decoded by serializers as "SPRE".
     /// </summary>
     [EnumMember(Value = "SPRE")]
     [IsoId("_udHZoaFUEeSK_vfd3NHBGg")]
     [Description(@"Special Dividend with reinvestment component.")]
-    SpecialDividendWithReinvestment,
+    SpecialDividendWithReinvestment = CorporateActionFrequencyTypeV2Code.SpecialDividendWithReinvestment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum CorporateActionFrequencyType4Code
 public static class CorporateActionFrequencyType4CodeMetadataExtensions
 {
     private static readonly CorporateActionFrequencyType4CodeDropdownSource _dropdownSource = new CorporateActionFrequencyType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,93 +21,93 @@ public enum OrderRestrictions1Code
 {
     /// <summary>
     /// Purchase or sale of a large number of stocks. Originally called program trading when index funds and other institutional|investors began to embark on large-scale buying and selling campaigns or programs to replicate a target stock index. The|term includes computer aided stock market buying or selling programs, portfolio insurance and index arbitrage.
-    /// Encoded/decoded by serializers as "ProgramTrade".
+    /// Encoded/decoded by serializers as "PROG".
     /// </summary>
     [EnumMember(Value = "PROG")]
     [IsoId("_aReN1Np-Ed-ak6NoX_4Aeg_1960362266")]
     [Description(@"Purchase or sale of a large number of stocks. Originally called program trading when index funds and other institutional|investors began to embark on large-scale buying and selling campaigns or programs to replicate a target stock index. The|term includes computer aided stock market buying or selling programs, portfolio insurance and index arbitrage.")]
-    ProgramTrade,
+    ProgramTrade = OrderClassificationCode.ProgramTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Program trade on a stock index. Simultaneous purchase and sale of an index future and the index underlying securities to|profit from intermarket spreads between the future and the index itself.
-    /// Encoded/decoded by serializers as "IndexArbitrage".
+    /// Encoded/decoded by serializers as "ARBT".
     /// </summary>
     [EnumMember(Value = "ARBT")]
     [IsoId("_aReN1dp-Ed-ak6NoX_4Aeg_1960362301")]
     [Description(@"Program trade on a stock index. Simultaneous purchase and sale of an index future and the index underlying securities to|profit from intermarket spreads between the future and the index itself.")]
-    IndexArbitrage,
+    IndexArbitrage = OrderClassificationCode.IndexArbitrage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Simultaneous purchase and sale of a large number of securities to profit from intermarket spreads between financial|instruments that do not include stock indexes.
-    /// Encoded/decoded by serializers as "NonIndexArbitrage".
+    /// Encoded/decoded by serializers as "NARB".
     /// </summary>
     [EnumMember(Value = "NARB")]
     [IsoId("_aReN1tp-Ed-ak6NoX_4Aeg_1960362319")]
     [Description(@"Simultaneous purchase and sale of a large number of securities to profit from intermarket spreads between financial|instruments that do not include stock indexes.")]
-    NonIndexArbitrage,
+    NonIndexArbitrage = OrderClassificationCode.NonIndexArbitrage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker bidding and offering over-the-counter.
-    /// Encoded/decoded by serializers as "CompetingMarketMaker".
+    /// Encoded/decoded by serializers as "CMAR".
     /// </summary>
     [EnumMember(Value = "CMAR")]
     [IsoId("_aReN19p-Ed-ak6NoX_4Aeg_1960362379")]
     [Description(@"Specialist or market maker registered as such on a registered stock exchange, or a market maker bidding and offering over-the-counter.")]
-    CompetingMarketMaker,
+    CompetingMarketMaker = OrderClassificationCode.CompetingMarketMaker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined security.
-    /// Encoded/decoded by serializers as "SpecialistInSecurity".
+    /// Encoded/decoded by serializers as "SSPE".
     /// </summary>
     [EnumMember(Value = "SSPE")]
     [IsoId("_aReN2Np-Ed-ak6NoX_4Aeg_1960362421")]
     [Description(@"Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined security.")]
-    SpecialistInSecurity,
+    SpecialistInSecurity = OrderClassificationCode.SpecialistInSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined underlying security of a derivative product.
-    /// Encoded/decoded by serializers as "SpecialistInUnderlyingSecurity".
+    /// Encoded/decoded by serializers as "USPE".
     /// </summary>
     [EnumMember(Value = "USPE")]
     [IsoId("_aRn-0Np-Ed-ak6NoX_4Aeg_1960362456")]
     [Description(@"Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined underlying security of a derivative product.")]
-    SpecialistInUnderlyingSecurity,
+    SpecialistInUnderlyingSecurity = OrderClassificationCode.SpecialistInUnderlyingSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non domestic business entity, foreign government or regulatory jurisdiction.
-    /// Encoded/decoded by serializers as "ForeignEntity".
+    /// Encoded/decoded by serializers as "FORE".
     /// </summary>
     [EnumMember(Value = "FORE")]
     [IsoId("_aRn-0dp-Ed-ak6NoX_4Aeg_1960362516")]
     [Description(@"Non domestic business entity, foreign government or regulatory jurisdiction.")]
-    ForeignEntity,
+    ForeignEntity = OrderClassificationCode.ForeignEntity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participating entity not registered on an exchange.
-    /// Encoded/decoded by serializers as "ExternalMarketParticipant".
+    /// Encoded/decoded by serializers as "EXMA".
     /// </summary>
     [EnumMember(Value = "EXMA")]
     [IsoId("_aRn-0tp-Ed-ak6NoX_4Aeg_1960362776")]
     [Description(@"Participating entity not registered on an exchange.")]
-    ExternalMarketParticipant,
+    ExternalMarketParticipant = OrderClassificationCode.ExternalMarketParticipant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participating entity linked but not registered on an exchange.
-    /// Encoded/decoded by serializers as "ExternalInterConnectedMarketLinkage".
+    /// Encoded/decoded by serializers as "MALI".
     /// </summary>
     [EnumMember(Value = "MALI")]
     [IsoId("_aRn-09p-Ed-ak6NoX_4Aeg_1960362828")]
     [Description(@"Participating entity linked but not registered on an exchange.")]
-    ExternalInterConnectedMarketLinkage,
+    ExternalInterConnectedMarketLinkage = OrderClassificationCode.ExternalInterConnectedMarketLinkage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Risk-free transaction consisting of purchasing an asset at one price and simultaneously selling that same asset at a higher|price, generating a profit on the difference.
-    /// Encoded/decoded by serializers as "RisklessArbitrage".
+    /// Encoded/decoded by serializers as "RARB".
     /// </summary>
     [EnumMember(Value = "RARB")]
     [IsoId("_aRn-1Np-Ed-ak6NoX_4Aeg_1960362888")]
     [Description(@"Risk-free transaction consisting of purchasing an asset at one price and simultaneously selling that same asset at a higher|price, generating a profit on the difference.")]
-    RisklessArbitrage,
+    RisklessArbitrage = OrderClassificationCode.RisklessArbitrage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum OrderRestrictions1Code
 public static class OrderRestrictions1CodeMetadataExtensions
 {
     private static readonly OrderRestrictions1CodeDropdownSource _dropdownSource = new OrderRestrictions1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

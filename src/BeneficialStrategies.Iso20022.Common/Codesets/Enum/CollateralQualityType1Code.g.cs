@@ -21,39 +21,39 @@ public enum CollateralQualityType1Code
 {
     /// <summary>
     /// Security that is classified as investment grade according to external ratings.
-    /// Encoded/decoded by serializers as "InvestmentGrade".
+    /// Encoded/decoded by serializers as "INVG".
     /// </summary>
     [EnumMember(Value = "INVG")]
     [IsoId("_zUP6kckVEeeiAIB1i4AlQw")]
     [Description(@"Security that is classified as investment grade according to external ratings.")]
-    InvestmentGrade,
+    InvestmentGrade = CollateralQualityTypeCode.InvestmentGrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security with a rating different than investment grade.
-    /// Encoded/decoded by serializers as "NonInvestmentGrade".
+    /// Encoded/decoded by serializers as "NIVG".
     /// </summary>
     [EnumMember(Value = "NIVG")]
     [IsoId("_zeO9AckVEeeiAIB1i4AlQw")]
     [Description(@"Security with a rating different than investment grade.")]
-    NonInvestmentGrade,
+    NonInvestmentGrade = CollateralQualityTypeCode.NonInvestmentGrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security without a rating assigned.
-    /// Encoded/decoded by serializers as "NotRated".
+    /// Encoded/decoded by serializers as "NOTR".
     /// </summary>
     [EnumMember(Value = "NOTR")]
     [IsoId("_zkWMEckVEeeiAIB1i4AlQw")]
     [Description(@"Security without a rating assigned.")]
-    NotRated,
+    NotRated = CollateralQualityTypeCode.NotRated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral quality type is not applicable.
-    /// Encoded/decoded by serializers as "NonApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_xAID4dQuEee86YlULvwLbQ")]
     [Description(@"Collateral quality type is not applicable.")]
-    NonApplicable,
+    NonApplicable = CollateralQualityTypeCode.NonApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CollateralQualityType1Code
 public static class CollateralQualityType1CodeMetadataExtensions
 {
     private static readonly CollateralQualityType1CodeDropdownSource _dropdownSource = new CollateralQualityType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

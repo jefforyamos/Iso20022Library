@@ -21,66 +21,66 @@ public enum TradingModeType1Code
 {
     /// <summary>
     /// Members could click When market makers quote continuously,or enter RFQ trading process, and make a deal with market makers finally.
-    /// Encoded/decoded by serializers as "QuotationDriven".
+    /// Encoded/decoded by serializers as "QUDR".
     /// </summary>
     [EnumMember(Value = "QUDR")]
     [IsoId("_i_oaQYBFEeSUJZYcWGKkkw")]
     [Description(@"Members could click When market makers quote continuously,or enter RFQ trading process, and make a deal with market makers finally.")]
-    QuotationDriven,
+    QuotationDriven = TradingModeTypeCode.QuotationDriven, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Using matchmaking mechanism to match orders which are submitted by members.
-    /// Encoded/decoded by serializers as "OrderDriven".
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_jFLBkYBFEeSUJZYcWGKkkw")]
     [Description(@"Using matchmaking mechanism to match orders which are submitted by members.")]
-    OrderDriven,
+    OrderDriven = TradingModeTypeCode.OrderDriven, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Members send advertisements, and then other members could enter negotiation trade process. In the negotiation trade process, the member completes product elements and submits, and the counterpart just confirms the deal to make a negotiation trade.
-    /// Encoded/decoded by serializers as "NegotiationTrade".
+    /// Encoded/decoded by serializers as "NETR".
     /// </summary>
     [EnumMember(Value = "NETR")]
     [IsoId("_jKBFUYBFEeSUJZYcWGKkkw")]
     [Description(@"Members send advertisements, and then other members could enter negotiation trade process. In the negotiation trade process, the member completes product elements and submits, and the counterpart just confirms the deal to make a negotiation trade.")]
-    NegotiationTrade,
+    NegotiationTrade = TradingModeTypeCode.NegotiationTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// When issuer issues the deposits, market members subscribe the deposits.
-    /// Encoded/decoded by serializers as "Auction".
+    /// Encoded/decoded by serializers as "AUCT".
     /// </summary>
     [EnumMember(Value = "AUCT")]
     [IsoId("_jO6MYYBFEeSUJZYcWGKkkw")]
     [Description(@"When issuer issues the deposits, market members subscribe the deposits.")]
-    Auction,
+    Auction = TradingModeTypeCode.Auction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trades are executed through matching system.
-    /// Encoded/decoded by serializers as "Matching".
+    /// Encoded/decoded by serializers as "MARC".
     /// </summary>
     [EnumMember(Value = "MARC")]
     [IsoId("_HLbbQaUrEeSgR8TUIX6rXQ")]
     [Description(@"Trades are executed through matching system.")]
-    Matching,
+    Matching = TradingModeTypeCode.Matching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparties neogiate trading details to execute trades.
-    /// Encoded/decoded by serializers as "Bilateral".
+    /// Encoded/decoded by serializers as "BILA".
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_HTB4EaUrEeSgR8TUIX6rXQ")]
     [Description(@"Counterparties neogiate trading details to execute trades.")]
-    Bilateral,
+    Bilateral = TradingModeTypeCode.Bilateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trades are executed anonymously to each counterparty, based on rule "pritority of price and time" to match trade.
-    /// Encoded/decoded by serializers as "Anonymous".
+    /// Encoded/decoded by serializers as "ANON".
     /// </summary>
     [EnumMember(Value = "ANON")]
     [IsoId("_HZXwoaUrEeSgR8TUIX6rXQ")]
     [Description(@"Trades are executed anonymously to each counterparty, based on rule ""pritority of price and time"" to match trade.")]
-    Anonymous,
+    Anonymous = TradingModeTypeCode.Anonymous, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TradingModeType1Code
 public static class TradingModeType1CodeMetadataExtensions
 {
     private static readonly TradingModeType1CodeDropdownSource _dropdownSource = new TradingModeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

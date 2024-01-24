@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hjeiUmliEeGaMcKyqKNRfQ_-1442503299")]
 [Description(@"Lists the type of the securities account specific for a system.")]
 [Derivations(typeof(SystemSecuritiesAccountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemSecuritiesAccountTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum SystemSecuritiesAccountTypeCode
 public static class SystemSecuritiesAccountTypeCodeMetadataExtensions
 {
     private static readonly SystemSecuritiesAccountTypeCodeDropdownSource _dropdownSource = new SystemSecuritiesAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

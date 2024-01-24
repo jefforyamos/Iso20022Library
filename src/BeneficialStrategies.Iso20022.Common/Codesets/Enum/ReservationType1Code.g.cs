@@ -21,48 +21,48 @@ public enum ReservationType1Code
 {
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing cash withdrawals.
-    /// Encoded/decoded by serializers as "CashReservation".
+    /// Encoded/decoded by serializers as "CARE".
     /// </summary>
     [EnumMember(Value = "CARE")]
     [IsoId("_ZUiEddp-Ed-ak6NoX_4Aeg_937272384")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing cash withdrawals.")]
-    CashReservation,
+    CashReservation = ReservationTypeCode.CashReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.
-    /// Encoded/decoded by serializers as "UrgentPaymentReservation".
+    /// Encoded/decoded by serializers as "UPAR".
     /// </summary>
     [EnumMember(Value = "UPAR")]
     [IsoId("_ZUiEdtp-Ed-ak6NoX_4Aeg_952974761")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.")]
-    UrgentPaymentReservation,
+    UrgentPaymentReservation = ReservationTypeCode.UrgentPaymentReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.
-    /// Encoded/decoded by serializers as "NetSSSReservation".
+    /// Encoded/decoded by serializers as "NSSR".
     /// </summary>
     [EnumMember(Value = "NSSR")]
     [IsoId("_ZUiEd9p-Ed-ak6NoX_4Aeg_998225402")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.")]
-    NetSSSReservation,
+    NetSSSReservation = ReservationTypeCode.NetSSSReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.
-    /// Encoded/decoded by serializers as "HighlyUrgentPaymentReservation".
+    /// Encoded/decoded by serializers as "HPAR".
     /// </summary>
     [EnumMember(Value = "HPAR")]
     [IsoId("_ZUiEeNp-Ed-ak6NoX_4Aeg_1227258206")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.")]
-    HighlyUrgentPaymentReservation,
+    HighlyUrgentPaymentReservation = ReservationTypeCode.HighlyUrgentPaymentReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount above which funds will be destined for investment.
-    /// Encoded/decoded by serializers as "ThresholdForInvestment".
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_ZUiEedp-Ed-ak6NoX_4Aeg_1253119695")]
     [Description(@"Amount above which funds will be destined for investment.")]
-    ThresholdForInvestment,
+    ThresholdForInvestment = ReservationTypeCode.ThresholdForInvestment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ReservationType1Code
 public static class ReservationType1CodeMetadataExtensions
 {
     private static readonly ReservationType1CodeDropdownSource _dropdownSource = new ReservationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

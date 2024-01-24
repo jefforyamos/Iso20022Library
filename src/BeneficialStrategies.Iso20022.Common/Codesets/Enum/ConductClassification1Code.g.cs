@@ -21,30 +21,30 @@ public enum ConductClassification1Code
 {
     /// <summary>
     /// Non standard or unusual.
-    /// Encoded/decoded by serializers as "NonStandard".
+    /// Encoded/decoded by serializers as "NSTA".
     /// </summary>
     [EnumMember(Value = "NSTA")]
     [IsoId("_rUP-0RjoEeKxeog5DTmtgg")]
     [Description(@"Non standard or unusual.")]
-    NonStandard,
+    NonStandard = ConductClassificationCode.NonStandard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reluctant.
-    /// Encoded/decoded by serializers as "Reluctant".
+    /// Encoded/decoded by serializers as "RCLT".
     /// </summary>
     [EnumMember(Value = "RCLT")]
     [IsoId("_rfkeARjoEeKxeog5DTmtgg")]
     [Description(@"Reluctant.")]
-    Reluctant,
+    Reluctant = ConductClassificationCode.Reluctant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard.
-    /// Encoded/decoded by serializers as "Standard".
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_roqIkRjoEeKxeog5DTmtgg")]
     [Description(@"Standard.")]
-    Standard,
+    Standard = ConductClassificationCode.Standard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ConductClassification1Code
 public static class ConductClassification1CodeMetadataExtensions
 {
     private static readonly ConductClassification1CodeDropdownSource _dropdownSource = new ConductClassification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

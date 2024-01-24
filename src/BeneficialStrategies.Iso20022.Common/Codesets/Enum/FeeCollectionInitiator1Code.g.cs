@@ -21,48 +21,48 @@ public enum FeeCollectionInitiator1Code
 {
     /// <summary>
     /// Entity acquiring card transaction.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_Qd1jQSxLEeyg-aG5nXcnfg")]
     [Description(@"Entity acquiring card transaction.")]
-    Acquirer,
+    Acquirer = FeeCollectionInitiatorCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_Qih2ASxLEeyg-aG5nXcnfg")]
     [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer")]
-    Agent,
+    Agent = FeeCollectionInitiatorCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity issuing card.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_QnBUcSxLEeyg-aG5nXcnfg")]
     [Description(@"Entity issuing card.")]
-    CardIssuer,
+    CardIssuer = FeeCollectionInitiatorCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other entity initiates fee collection defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Qs3dwSxLEeyg-aG5nXcnfg")]
     [Description(@"Other entity initiates fee collection defined at national level.")]
-    OtherNational,
+    OtherNational = FeeCollectionInitiatorCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other entity initiates fee collection defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_Qw30ASxLEeyg-aG5nXcnfg")]
     [Description(@"Other entity initiates fee collection defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = FeeCollectionInitiatorCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum FeeCollectionInitiator1Code
 public static class FeeCollectionInitiator1CodeMetadataExtensions
 {
     private static readonly FeeCollectionInitiator1CodeDropdownSource _dropdownSource = new FeeCollectionInitiator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

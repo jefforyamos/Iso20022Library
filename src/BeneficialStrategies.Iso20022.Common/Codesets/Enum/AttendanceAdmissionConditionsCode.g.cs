@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0DaqkK4kEemG7MmivSuE5g")]
 [Description(@"Conditions for physical admittance to general meetings.")]
 [Derivations(typeof(AttendanceAdmissionConditions1Code),typeof(AttendanceAdmissionConditions2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AttendanceAdmissionConditionsCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum AttendanceAdmissionConditionsCode
 public static class AttendanceAdmissionConditionsCodeMetadataExtensions
 {
     private static readonly AttendanceAdmissionConditionsCodeDropdownSource _dropdownSource = new AttendanceAdmissionConditionsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

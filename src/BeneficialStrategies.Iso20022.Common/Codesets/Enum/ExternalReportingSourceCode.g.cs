@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_229eQLf8Eee9KIDjEHK7ZQ")]
-[Description(@"Specifies the reporting source, as published in an external reporting source code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reporting source, as published in an external reporting source code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalReportingSource1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalReportingSourceCode
 {
     /// <summary>
@@ -129,7 +128,7 @@ public enum ExternalReportingSourceCode
 public static class ExternalReportingSourceCodeMetadataExtensions
 {
     private static readonly ExternalReportingSourceCodeDropdownSource _dropdownSource = new ExternalReportingSourceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

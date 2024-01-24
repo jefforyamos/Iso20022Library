@@ -21,30 +21,30 @@ public enum ExternalGarnishmentType1Code
 {
     /// <summary>
     /// Garnishment from a third party payer for Child Support
-    /// Encoded/decoded by serializers as "GarnishmentForChildSupport".
+    /// Encoded/decoded by serializers as "GNCS".
     /// </summary>
     [EnumMember(Value = "GNCS")]
     [IsoId("_uTKPlfRYEeuLhpyIdtJzwg")]
     [Description(@"Garnishment from a third party payer for Child Support")]
-    GarnishmentForChildSupport,
+    GarnishmentForChildSupport = ExternalGarnishmentTypeCode.GarnishmentForChildSupport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Garnishment from a direct payer for Child Support
-    /// Encoded/decoded by serializers as "GarnishmentForChildSupportFromDirectPayer".
+    /// Encoded/decoded by serializers as "GNDP".
     /// </summary>
     [EnumMember(Value = "GNDP")]
     [IsoId("_uTUAkvRYEeuLhpyIdtJzwg")]
     [Description(@"Garnishment from a direct payer for Child Support")]
-    GarnishmentForChildSupportFromDirectPayer,
+    GarnishmentForChildSupportFromDirectPayer = ExternalGarnishmentTypeCode.GarnishmentForChildSupportFromDirectPayer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Garnishment from a third party payer to taxing agency
-    /// Encoded/decoded by serializers as "GarnishmentToTaxingAgency".
+    /// Encoded/decoded by serializers as "GTPP".
     /// </summary>
     [EnumMember(Value = "GTPP")]
     [IsoId("_uTUAlfRYEeuLhpyIdtJzwg")]
     [Description(@"Garnishment from a third party payer to taxing agency")]
-    GarnishmentToTaxingAgency,
+    GarnishmentToTaxingAgency = ExternalGarnishmentTypeCode.GarnishmentToTaxingAgency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ExternalGarnishmentType1Code
 public static class ExternalGarnishmentType1CodeMetadataExtensions
 {
     private static readonly ExternalGarnishmentType1CodeDropdownSource _dropdownSource = new ExternalGarnishmentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

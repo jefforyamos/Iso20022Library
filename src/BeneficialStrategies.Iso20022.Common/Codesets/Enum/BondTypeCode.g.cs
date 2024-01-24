@@ -17,17 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_5al_gc4lEeSc85GUbgBycw")]
 [Description(@"Specifies the type of bonds.")]
 [Derivations(typeof(BondType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BondTypeCode
 {
     /// <summary>
     /// Bond of type sovereign bond.
-    /// 
     /// Encoded/decoded by serializers as "EUSB".
     /// </summary>
     [EnumMember(Value = "EUSB")]
     [IsoId("_BKKTQM4mEeSc85GUbgBycw")]
-    [Description(@"Bond of type sovereign bond. ")]
+    [Description(@"Bond of type sovereign bond.|")]
     SovereignBond,
     
     /// <summary>
@@ -68,12 +66,11 @@ public enum BondTypeCode
     
     /// <summary>
     /// Bond of type corporate Bond.
-    /// 
     /// Encoded/decoded by serializers as "CRPB".
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_BkWU4M4mEeSc85GUbgBycw")]
-    [Description(@"Bond of type corporate Bond. ")]
+    [Description(@"Bond of type corporate Bond.|")]
     CorporateBond,
     
     /// <summary>
@@ -103,7 +100,7 @@ public enum BondTypeCode
 public static class BondTypeCodeMetadataExtensions
 {
     private static readonly BondTypeCodeDropdownSource _dropdownSource = new BondTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

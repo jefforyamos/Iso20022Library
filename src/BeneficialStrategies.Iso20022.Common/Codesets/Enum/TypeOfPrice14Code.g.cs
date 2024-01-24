@@ -21,12 +21,12 @@ public enum TypeOfPrice14Code
 {
     /// <summary>
     /// Price is an average execution price.
-    /// Encoded/decoded by serializers as "Average".
+    /// Encoded/decoded by serializers as "AVER".
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_Yx9i4dp-Ed-ak6NoX_4Aeg_-1357807596")]
     [Description(@"Price is an average execution price.")]
-    Average,
+    Average = TypeOfPriceCode.Average, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum TypeOfPrice14Code
 public static class TypeOfPrice14CodeMetadataExtensions
 {
     private static readonly TypeOfPrice14CodeDropdownSource _dropdownSource = new TypeOfPrice14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum ModificationProcessingStatus1Code
 {
     /// <summary>
     /// Modification request has been acknowledged for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_jQgqku5NEeCisYr99QEiWA_1714788286")]
     [Description(@"Modification request has been acknowledged for further processing by the account servicer.")]
-    Accepted,
+    Accepted = ModificationProcessingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification has been rejected for further processing.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_jQgqk-5NEeCisYr99QEiWA_1892906958")]
     [Description(@"Modification has been rejected for further processing.")]
-    Rejected,
+    Rejected = ModificationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "MODC".
     /// </summary>
     [EnumMember(Value = "MODC")]
     [IsoId("_jQgqlO5NEeCisYr99QEiWA_-1404987985")]
     [Description(@"Modification has been completed.")]
-    Completed,
+    Completed = ModificationProcessingStatusCode.Completed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification will not be executed.
-    /// Encoded/decoded by serializers as "Denied".
+    /// Encoded/decoded by serializers as "DEND".
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_jQp0gO5NEeCisYr99QEiWA_2006746024")]
     [Description(@"Modification will not be executed.")]
-    Denied,
+    Denied = ModificationProcessingStatusCode.Denied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification is pending. It is not known at this time whether modified can be executed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "MODP".
     /// </summary>
     [EnumMember(Value = "MODP")]
     [IsoId("_jQp0ge5NEeCisYr99QEiWA_1828627352")]
     [Description(@"Modification is pending. It is not known at this time whether modified can be executed.")]
-    Pending,
+    Pending = ModificationProcessingStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification request is in repair.
-    /// Encoded/decoded by serializers as "InRepair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_jQp0gu5NEeCisYr99QEiWA_831554999")]
     [Description(@"Modification request is in repair.")]
-    InRepair,
+    InRepair = ModificationProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ModificationProcessingStatus1Code
 public static class ModificationProcessingStatus1CodeMetadataExtensions
 {
     private static readonly ModificationProcessingStatus1CodeDropdownSource _dropdownSource = new ModificationProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

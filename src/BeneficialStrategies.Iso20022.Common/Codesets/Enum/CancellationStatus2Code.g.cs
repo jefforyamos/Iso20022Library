@@ -21,21 +21,21 @@ public enum CancellationStatus2Code
 {
     /// <summary>
     /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_bYs7qNp-Ed-ak6NoX_4Aeg_-1024226245")]
     [Description(@"Cancellation instruction/request has been sent to the next party, that is, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = CancellationStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bY2soNp-Ed-ak6NoX_4Aeg_-1024226221")]
     [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = CancellationStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CancellationStatus2Code
 public static class CancellationStatus2CodeMetadataExtensions
 {
     private static readonly CancellationStatus2CodeDropdownSource _dropdownSource = new CancellationStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum DisclosureRequestType1Code
 {
     /// <summary>
     /// New disclosure request.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_SWm1QUV3EemRx7jyevcLwg")]
     [Description(@"New disclosure request.")]
-    New,
+    New = DisclosureRequestTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Disclosure request replacing a previously sent request.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_SdTTIUV3EemRx7jyevcLwg")]
     [Description(@"Disclosure request replacing a previously sent request.")]
-    Replacement,
+    Replacement = DisclosureRequestTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DisclosureRequestType1Code
 public static class DisclosureRequestType1CodeMetadataExtensions
 {
     private static readonly DisclosureRequestType1CodeDropdownSource _dropdownSource = new DisclosureRequestType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

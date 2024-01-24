@@ -21,57 +21,57 @@ public enum AccountChoiceMethod1Code
 {
     /// <summary>
     /// Account selected in an account list.
-    /// Encoded/decoded by serializers as "AccountSelected".
+    /// Encoded/decoded by serializers as "ACSL".
     /// </summary>
     [EnumMember(Value = "ACSL")]
     [IsoId("_ojWosXs7EeSTS7uHCe8FPQ")]
     [Description(@"Account selected in an account list.")]
-    AccountSelected,
+    AccountSelected = AccountChoiceMethodCode.AccountSelected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account identification is entered by the customer.
-    /// Encoded/decoded by serializers as "Entered".
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_ot0MQ3s7EeSTS7uHCe8FPQ")]
     [Description(@"Account identification is entered by the customer.")]
-    Entered,
+    Entered = AccountChoiceMethodCode.Entered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "ImplicitAccount".
+    /// Encoded/decoded by serializers as "IMAC".
     /// </summary>
     [EnumMember(Value = "IMAC")]
     [IsoId("_o4i1k3s7EeSTS7uHCe8FPQ")]
     [Description(@"Account is selected according to the configuration.")]
-    ImplicitAccount,
+    ImplicitAccount = AccountChoiceMethodCode.ImplicitAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "ImplicitType".
+    /// Encoded/decoded by serializers as "IMPL".
     /// </summary>
     [EnumMember(Value = "IMPL")]
     [IsoId("_o--0wXs7EeSTS7uHCe8FPQ")]
     [Description(@"Type of account is selected according to the configuration.")]
-    ImplicitType,
+    ImplicitType = AccountChoiceMethodCode.ImplicitType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is not selected by the customer or a profile, but by the issuer.
-    /// Encoded/decoded by serializers as "NoSelection".
+    /// Encoded/decoded by serializers as "NOSL".
     /// </summary>
     [EnumMember(Value = "NOSL")]
     [IsoId("_pJsP83s7EeSTS7uHCe8FPQ")]
     [Description(@"Account is not selected by the customer or a profile, but by the issuer.")]
-    NoSelection,
+    NoSelection = AccountChoiceMethodCode.NoSelection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of account selected in a list.
-    /// Encoded/decoded by serializers as "TypeSelected".
+    /// Encoded/decoded by serializers as "TPSL".
     /// </summary>
     [EnumMember(Value = "TPSL")]
     [IsoId("_pREDQ3s7EeSTS7uHCe8FPQ")]
     [Description(@"Type of account selected in a list.")]
-    TypeSelected,
+    TypeSelected = AccountChoiceMethodCode.TypeSelected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AccountChoiceMethod1Code
 public static class AccountChoiceMethod1CodeMetadataExtensions
 {
     private static readonly AccountChoiceMethod1CodeDropdownSource _dropdownSource = new AccountChoiceMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

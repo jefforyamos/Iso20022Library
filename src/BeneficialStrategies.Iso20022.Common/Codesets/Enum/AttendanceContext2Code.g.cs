@@ -21,48 +21,48 @@ public enum AttendanceContext2Code
 {
     /// <summary>
     /// Delivery by an attendant.
-    /// Encoded/decoded by serializers as "AttendantDelivery".
+    /// Encoded/decoded by serializers as "ATTL".
     /// </summary>
     [EnumMember(Value = "ATTL")]
     [IsoId("_f2LJwZVJEeWu36UkS2TkoQ")]
     [Description(@"Delivery by an attendant.")]
-    AttendantDelivery,
+    AttendantDelivery = AttendanceContextCode.AttendantDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery by a carrier.
-    /// Encoded/decoded by serializers as "CarrierDelivery".
+    /// Encoded/decoded by serializers as "CARR".
     /// </summary>
     [EnumMember(Value = "CARR")]
     [IsoId("_f-q-cZVJEeWu36UkS2TkoQ")]
     [Description(@"Delivery by a carrier.")]
-    CarrierDelivery,
+    CarrierDelivery = AttendanceContextCode.CarrierDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery by the customer.
-    /// Encoded/decoded by serializers as "CustomerDelivery".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_gRMR0ZVJEeWu36UkS2TkoQ")]
     [Description(@"Delivery by the customer.")]
-    CustomerDelivery,
+    CustomerDelivery = AttendanceContextCode.CustomerDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Full service for fuel distribution.
-    /// Encoded/decoded by serializers as "FullServe".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_gcBo0ZVJEeWu36UkS2TkoQ")]
     [Description(@"Full service for fuel distribution.")]
-    FullServe,
+    FullServe = AttendanceContextCode.FullServe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self service for fuel distribution.
-    /// Encoded/decoded by serializers as "SelfServe".
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_gpQMgZVJEeWu36UkS2TkoQ")]
     [Description(@"Self service for fuel distribution.")]
-    SelfServe,
+    SelfServe = AttendanceContextCode.SelfServe, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AttendanceContext2Code
 public static class AttendanceContext2CodeMetadataExtensions
 {
     private static readonly AttendanceContext2CodeDropdownSource _dropdownSource = new AttendanceContext2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_99IlkA8SEeSFHsNYty4C9Q")]
 [Description(@"Specifies whether the value is net (inclusive of tax) or gross.")]
 [Derivations(typeof(ClearingMethod1Code),typeof(ClearingMethod2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingMethodCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum ClearingMethodCode
 public static class ClearingMethodCodeMetadataExtensions
 {
     private static readonly ClearingMethodCodeDropdownSource _dropdownSource = new ClearingMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

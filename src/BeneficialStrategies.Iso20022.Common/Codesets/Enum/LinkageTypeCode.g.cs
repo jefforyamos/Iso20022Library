@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_afCIsNp-Ed-ak6NoX_4Aeg_1075790667")]
 [Description(@"Type of linkage requested.")]
 [Derivations(typeof(LinkageType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LinkageTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum LinkageTypeCode
 public static class LinkageTypeCodeMetadataExtensions
 {
     private static readonly LinkageTypeCodeDropdownSource _dropdownSource = new LinkageTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

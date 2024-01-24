@@ -21,84 +21,84 @@ public enum Verification2Code
 {
     /// <summary>
     /// Verification failed.
-    /// Encoded/decoded by serializers as "Failed".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_1vp8AX0mEemfrNOe0zHQyg")]
     [Description(@"Verification failed.")]
-    Failed,
+    Failed = VerificationCode.Failed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Further action required.
-    /// Encoded/decoded by serializers as "FurtherAction".
+    /// Encoded/decoded by serializers as "FUTA".
     /// </summary>
     [EnumMember(Value = "FUTA")]
     [IsoId("_1vp8A30mEemfrNOe0zHQyg")]
     [Description(@"Further action required.")]
-    FurtherAction,
+    FurtherAction = VerificationCode.FurtherAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information required to perform the verification was missing.
-    /// Encoded/decoded by serializers as "Missing".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_1vp8BX0mEemfrNOe0zHQyg")]
     [Description(@"Information required to perform the verification was missing.")]
-    Missing,
+    Missing = VerificationCode.Missing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification has not been performed.
-    /// Encoded/decoded by serializers as "NotPerformed".
+    /// Encoded/decoded by serializers as "NOVF".
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_1vp8B30mEemfrNOe0zHQyg")]
     [Description(@"Verification has not been performed.")]
-    NotPerformed,
+    NotPerformed = VerificationCode.NotPerformed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other result of verification defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_1vp8CX0mEemfrNOe0zHQyg")]
     [Description(@"Other result of verification defined at national level.")]
-    OtherNational,
+    OtherNational = VerificationCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other result of verification defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_1vp8C30mEemfrNOe0zHQyg")]
     [Description(@"Other result of verification defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = VerificationCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification was partially successful.
-    /// Encoded/decoded by serializers as "PartialMatch".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_1vp8DX0mEemfrNOe0zHQyg")]
     [Description(@"Verification was partially successful.")]
-    PartialMatch,
+    PartialMatch = VerificationCode.PartialMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification was successful.
-    /// Encoded/decoded by serializers as "Successful".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_1vp8D30mEemfrNOe0zHQyg")]
     [Description(@"Verification was successful.")]
-    Successful,
+    Successful = VerificationCode.Successful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device or entity to perform the verification was unavailable.
-    /// Encoded/decoded by serializers as "TechnicalError".
+    /// Encoded/decoded by serializers as "ERRR".
     /// </summary>
     [EnumMember(Value = "ERRR")]
     [IsoId("_1vp8EX0mEemfrNOe0zHQyg")]
     [Description(@"Device or entity to perform the verification was unavailable.")]
-    TechnicalError,
+    TechnicalError = VerificationCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum Verification2Code
 public static class Verification2CodeMetadataExtensions
 {
     private static readonly Verification2CodeDropdownSource _dropdownSource = new Verification2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

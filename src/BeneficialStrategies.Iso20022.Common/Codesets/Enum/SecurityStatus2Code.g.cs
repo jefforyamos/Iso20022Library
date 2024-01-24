@@ -21,30 +21,30 @@ public enum SecurityStatus2Code
 {
     /// <summary>
     /// The status is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ha1jsGliEeGaMcKyqKNRfQ_1830027418")]
     [Description(@"The status is active.")]
-    Active,
+    Active = SecurityStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The status is inactive.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ha1jsWliEeGaMcKyqKNRfQ_-1878992852")]
     [Description(@"The status is inactive.")]
-    Inactive,
+    Inactive = SecurityStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The status is suspended.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ha1jsmliEeGaMcKyqKNRfQ_-387389187")]
     [Description(@"The status is suspended.")]
-    Suspended,
+    Suspended = SecurityStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SecurityStatus2Code
 public static class SecurityStatus2CodeMetadataExtensions
 {
     private static readonly SecurityStatus2CodeDropdownSource _dropdownSource = new SecurityStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

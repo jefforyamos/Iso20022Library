@@ -21,57 +21,57 @@ public enum FractionDispositionType11Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BuyUp".
+    /// Encoded/decoded by serializers as "BUYU".
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_gXwooWSCEeKFfdK0gKYFLQ")]
     [Description(@"Buy securities up to next whole number.")]
-    BuyUp,
+    BuyUp = FractionDispositionTypeV2Code.BuyUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CashInLieuOfFraction".
+    /// Encoded/decoded by serializers as "CINL".
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_ggtJQWSCEeKFfdK0gKYFLQ")]
     [Description(@"Fractional part of cash. Take cash in lieu of fractions.")]
-    CashInLieuOfFraction,
+    CashInLieuOfFraction = FractionDispositionTypeV2Code.CashInLieuOfFraction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "IssueFraction".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_g-qQkWSCEeKFfdK0gKYFLQ")]
     [Description(@"Take distribution of fractions in the form of securities.")]
-    IssueFraction,
+    IssueFraction = FractionDispositionTypeV2Code.IssueFraction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round the entitlement down to the last full unit/minimum nominal quantity, fractions are discarded.
-    /// Encoded/decoded by serializers as "RoundDown".
+    /// Encoded/decoded by serializers as "RDDN".
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_hv_m4WSCEeKFfdK0gKYFLQ")]
     [Description(@"Round the entitlement down to the last full unit/minimum nominal quantity, fractions are discarded.")]
-    RoundDown,
+    RoundDown = FractionDispositionTypeV2Code.RoundDown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down as specified in the respective RDUP and RDDN codes.
-    /// Encoded/decoded by serializers as "RoundToNearest".
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_h4yWgWSCEeKFfdK0gKYFLQ")]
     [Description(@"If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down as specified in the respective RDUP and RDDN codes.")]
-    RoundToNearest,
+    RoundToNearest = FractionDispositionTypeV2Code.RoundToNearest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round up to the next full unit/minimum nominal quantity at no cost.
-    /// Encoded/decoded by serializers as "RoundUp".
+    /// Encoded/decoded by serializers as "RDUP".
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_h7d3EWSCEeKFfdK0gKYFLQ")]
     [Description(@"Round up to the next full unit/minimum nominal quantity at no cost.")]
-    RoundUp,
+    RoundUp = FractionDispositionTypeV2Code.RoundUp, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum FractionDispositionType11Code
 public static class FractionDispositionType11CodeMetadataExtensions
 {
     private static readonly FractionDispositionType11CodeDropdownSource _dropdownSource = new FractionDispositionType11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

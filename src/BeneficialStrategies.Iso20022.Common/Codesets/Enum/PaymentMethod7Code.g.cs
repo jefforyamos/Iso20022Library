@@ -21,21 +21,21 @@ public enum PaymentMethod7Code
 {
     /// <summary>
     /// Written order to a bank to pay a certain amount of money from one person to another person.
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHK".
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_YbT9ddp-Ed-ak6NoX_4Aeg_-1320976702")]
     [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
-    Cheque,
+    Cheque = PaymentMethodCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "CreditTransfer".
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_YbT9dtp-Ed-ak6NoX_4Aeg_-2113712619")]
     [Description(@"Transfer of an amount of money in the books of the account servicer.")]
-    CreditTransfer,
+    CreditTransfer = PaymentMethodCode.CreditTransfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PaymentMethod7Code
 public static class PaymentMethod7CodeMetadataExtensions
 {
     private static readonly PaymentMethod7CodeDropdownSource _dropdownSource = new PaymentMethod7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

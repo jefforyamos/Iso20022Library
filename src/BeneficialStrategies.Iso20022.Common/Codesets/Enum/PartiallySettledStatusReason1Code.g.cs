@@ -21,48 +21,48 @@ public enum PartiallySettledStatusReason1Code
 {
     /// <summary>
     /// Units are partially settled.
-    /// Encoded/decoded by serializers as "UnitsPartiallySettled".
+    /// Encoded/decoded by serializers as "UPST".
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZxSR6Np-Ed-ak6NoX_4Aeg_289532051")]
     [Description(@"Units are partially settled.")]
-    UnitsPartiallySettled,
+    UnitsPartiallySettled = PartiallySettledStatusReasonCode.UnitsPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash is partially settled.
-    /// Encoded/decoded by serializers as "CashPartiallySettled".
+    /// Encoded/decoded by serializers as "CPST".
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZxSR6dp-Ed-ak6NoX_4Aeg_289532363")]
     [Description(@"Cash is partially settled.")]
-    CashPartiallySettled,
+    CashPartiallySettled = PartiallySettledStatusReasonCode.CashPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Units and cash are both partially settled.
-    /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
+    /// Encoded/decoded by serializers as "UCPS".
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZxcC4Np-Ed-ak6NoX_4Aeg_289532483")]
     [Description(@"Units and cash are both partially settled.")]
-    UnitsCashPartiallySettled,
+    UnitsCashPartiallySettled = PartiallySettledStatusReasonCode.UnitsCashPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final redemption proceeds are held back, pending annual financial audit approval.
-    /// Encoded/decoded by serializers as "HoldBackPendingAudit".
+    /// Encoded/decoded by serializers as "HOLA".
     /// </summary>
     [EnumMember(Value = "HOLA")]
     [IsoId("_ZxcC4dp-Ed-ak6NoX_4Aeg_237753692")]
     [Description(@"Final redemption proceeds are held back, pending annual financial audit approval.")]
-    HoldBackPendingAudit,
+    HoldBackPendingAudit = PartiallySettledStatusReasonCode.HoldBackPendingAudit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.
-    /// Encoded/decoded by serializers as "HoldBackLiquidation".
+    /// Encoded/decoded by serializers as "HOLL".
     /// </summary>
     [EnumMember(Value = "HOLL")]
     [IsoId("_ZxcC4tp-Ed-ak6NoX_4Aeg_237753727")]
     [Description(@"Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.")]
-    HoldBackLiquidation,
+    HoldBackLiquidation = PartiallySettledStatusReasonCode.HoldBackLiquidation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PartiallySettledStatusReason1Code
 public static class PartiallySettledStatusReason1CodeMetadataExtensions
 {
     private static readonly PartiallySettledStatusReason1CodeDropdownSource _dropdownSource = new PartiallySettledStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

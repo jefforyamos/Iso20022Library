@@ -16,7 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_5Wnq8DcdEeOA3chqL9a4Rw")]
-[Description(@"Specifies the external purpose code for the  the underlying reason for an SSI instruction in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.")]
+[Description(@"Specifies the external purpose code for the  the underlying reason for an SSI instruction in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.")]
 public enum ExternalPurposeAndMarketAreaCode
 {
     /// <summary>
@@ -192,10 +192,9 @@ public enum ExternalPurposeAndMarketAreaCode
     
     /// <summary>
     /// Relates to Collateral Management
-    /// ATTENTION: Name was changed from "COLL" to "COLL2" due to a name clash in the published ISO specification.
-    /// During deserialization, you may see some ambiguity between this and <seealso cref="COLL"/>
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
-    [EnumMember(Value = "COLL")] // Beware deserialization issues here because of ambiguity
+    [EnumMember(Value = "COLL")]
     [IsoId("_uU8YSfRYEeuLhpyIdtJzwg")]
     [Description(@"Relates to Collateral Management")]
     CollateralManagement,
@@ -227,7 +226,7 @@ public enum ExternalPurposeAndMarketAreaCode
 public static class ExternalPurposeAndMarketAreaCodeMetadataExtensions
 {
     private static readonly ExternalPurposeAndMarketAreaCodeDropdownSource _dropdownSource = new ExternalPurposeAndMarketAreaCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

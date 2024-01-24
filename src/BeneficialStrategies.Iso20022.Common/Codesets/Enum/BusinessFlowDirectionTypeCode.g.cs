@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6_ikE_skEeCIi9ZETLBv8g")]
 [Description(@"Identifies the business flow, in order to determine the role of the parties in the business process. This indicator is very important when there are multiple intermediaries in the exchange of information process.")]
 [Derivations(typeof(BusinessFlowDirectionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BusinessFlowDirectionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum BusinessFlowDirectionTypeCode
 public static class BusinessFlowDirectionTypeCodeMetadataExtensions
 {
     private static readonly BusinessFlowDirectionTypeCodeDropdownSource _dropdownSource = new BusinessFlowDirectionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

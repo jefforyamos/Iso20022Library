@@ -21,21 +21,21 @@ public enum ATMCommand3Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "ABAL".
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_pwUjQYtvEeSLQutgI1Ulfw")]
     [Description(@"Provide the ATM counters, resetting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = ATMCommandCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "CCNT".
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_qQqQM4tvEeSLQutgI1Ulfw")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = ATMCommandCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ATMCommand3Code
 public static class ATMCommand3CodeMetadataExtensions
 {
     private static readonly ATMCommand3CodeDropdownSource _dropdownSource = new ATMCommand3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

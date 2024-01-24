@@ -21,21 +21,21 @@ public enum CreditDebit3Code
 {
     /// <summary>
     /// Operation is an increase.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_s9EFxzzcEeWg1_uD_bF5Og")]
     [Description(@"Operation is an increase.")]
-    Credit,
+    Credit = AmountDirectionCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Operation is a decrease.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_s9EFyDzcEeWg1_uD_bF5Og")]
     [Description(@"Operation is a decrease.")]
-    Debit,
+    Debit = AmountDirectionCode.Debit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CreditDebit3Code
 public static class CreditDebit3CodeMetadataExtensions
 {
     private static readonly CreditDebit3CodeDropdownSource _dropdownSource = new CreditDebit3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

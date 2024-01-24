@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Oxs3y2-BEeKuY41pq1-dog")]
 [Description(@"Specifies whether a date is actual or estimated.")]
 [Derivations(typeof(TypeOfDate1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TypeOfDateCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TypeOfDateCode
 public static class TypeOfDateCodeMetadataExtensions
 {
     private static readonly TypeOfDateCodeDropdownSource _dropdownSource = new TypeOfDateCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

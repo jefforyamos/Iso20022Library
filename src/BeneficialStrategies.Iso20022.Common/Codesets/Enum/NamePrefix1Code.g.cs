@@ -21,39 +21,39 @@ public enum NamePrefix1Code
 {
     /// <summary>
     /// Title of the person is Doctor or Dr.
-    /// Encoded/decoded by serializers as "Doctor".
+    /// Encoded/decoded by serializers as "DOCT".
     /// </summary>
     [EnumMember(Value = "DOCT")]
     [IsoId("_jXsywYc0EeeO5vQpPey46w")]
     [Description(@"Title of the person is Doctor or Dr.")]
-    Doctor,
+    Doctor = NamePrefixCode.Doctor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Mister or Mr.
-    /// Encoded/decoded by serializers as "Mister".
+    /// Encoded/decoded by serializers as "MIST".
     /// </summary>
     [EnumMember(Value = "MIST")]
     [IsoId("_jp59EYc0EeeO5vQpPey46w")]
     [Description(@"Title of the person is Mister or Mr.")]
-    Mister,
+    Mister = NamePrefixCode.Mister, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Miss.
-    /// Encoded/decoded by serializers as "Miss".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_jkbAIYc0EeeO5vQpPey46w")]
     [Description(@"Title of the person is Miss.")]
-    Miss,
+    Miss = NamePrefixCode.Miss, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Madam.
-    /// Encoded/decoded by serializers as "Madam".
+    /// Encoded/decoded by serializers as "MADM".
     /// </summary>
     [EnumMember(Value = "MADM")]
     [IsoId("_jehMcYc0EeeO5vQpPey46w")]
     [Description(@"Title of the person is Madam.")]
-    Madam,
+    Madam = NamePrefixCode.Madam, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum NamePrefix1Code
 public static class NamePrefix1CodeMetadataExtensions
 {
     private static readonly NamePrefix1CodeDropdownSource _dropdownSource = new NamePrefix1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

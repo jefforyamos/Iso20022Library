@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bKsU1dp-Ed-ak6NoX_4Aeg_735779459")]
 [Description(@"Specifies whether the event is mandatory, mandatory with options or voluntary.")]
 [Derivations(typeof(CorporateActionMandatoryVoluntary1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionMandatoryVoluntaryCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CorporateActionMandatoryVoluntaryCode
 public static class CorporateActionMandatoryVoluntaryCodeMetadataExtensions
 {
     private static readonly CorporateActionMandatoryVoluntaryCodeDropdownSource _dropdownSource = new CorporateActionMandatoryVoluntaryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

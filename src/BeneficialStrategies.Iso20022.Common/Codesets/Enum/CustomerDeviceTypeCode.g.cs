@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Q1arsEesEee9r7QjOdsbFw")]
 [Description(@"Type of customer device used for a card payment transaction.")]
 [Derivations(typeof(CustomerDeviceType1Code),typeof(CustomerDeviceType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustomerDeviceTypeCode
 {
     /// <summary>
@@ -173,7 +172,7 @@ public enum CustomerDeviceTypeCode
 public static class CustomerDeviceTypeCodeMetadataExtensions
 {
     private static readonly CustomerDeviceTypeCodeDropdownSource _dropdownSource = new CustomerDeviceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

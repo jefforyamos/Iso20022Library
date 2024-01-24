@@ -54,7 +54,7 @@ public enum AmountFullfilTypeCode
 public static class AmountFullfilTypeCodeMetadataExtensions
 {
     private static readonly AmountFullfilTypeCodeDropdownSource _dropdownSource = new AmountFullfilTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

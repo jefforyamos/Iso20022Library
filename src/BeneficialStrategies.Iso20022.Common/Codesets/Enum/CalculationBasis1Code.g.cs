@@ -21,30 +21,30 @@ public enum CalculationBasis1Code
 {
     /// <summary>
     /// Average basis.
-    /// Encoded/decoded by serializers as "Average".
+    /// Encoded/decoded by serializers as "AVER".
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_VjbKV9p-Ed-ak6NoX_4Aeg_-1571364153")]
     [Description(@"Average basis.")]
-    Average,
+    Average = CalculationBasisCode.Average, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Daily basis.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_VjbKWNp-Ed-ak6NoX_4Aeg_-1568592785")]
     [Description(@"Daily basis.")]
-    Daily,
+    Daily = CalculationBasisCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of calculation basis.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vjk7UNp-Ed-ak6NoX_4Aeg_-855201061")]
     [Description(@"Another type of calculation basis.")]
-    Other,
+    Other = CalculationBasisCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CalculationBasis1Code
 public static class CalculationBasis1CodeMetadataExtensions
 {
     private static readonly CalculationBasis1CodeDropdownSource _dropdownSource = new CalculationBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

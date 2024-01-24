@@ -21,30 +21,30 @@ public enum AssetClassSubProductMetal1Code
 {
     /// <summary>
     /// Commodity of type non precious metals.
-    /// Encoded/decoded by serializers as "NonPrecious".
+    /// Encoded/decoded by serializers as "NPRM".
     /// </summary>
     [EnumMember(Value = "NPRM")]
     [IsoId("_aFAcEdDrEeS8V88MH4oPOQ")]
     [Description(@"Commodity of type non precious metals.")]
-    NonPrecious,
+    NonPrecious = AssetClassSubProductTypeCode.NonPrecious, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type precious metals.
-    /// Encoded/decoded by serializers as "Precious".
+    /// Encoded/decoded by serializers as "PRME".
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_aSQN4dDrEeS8V88MH4oPOQ")]
     [Description(@"Commodity of type precious metals.")]
-    Precious,
+    Precious = AssetClassSubProductTypeCode.Precious, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_IOVEkAFLEeaDfK-zDSyB6A")]
     [Description(@"Commodity of other type.")]
-    Other,
+    Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AssetClassSubProductMetal1Code
 public static class AssetClassSubProductMetal1CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductMetal1CodeDropdownSource _dropdownSource = new AssetClassSubProductMetal1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

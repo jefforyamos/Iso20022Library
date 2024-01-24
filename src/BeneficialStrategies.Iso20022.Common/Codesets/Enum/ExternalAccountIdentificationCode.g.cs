@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_hmCfsIKFEeeCI5iKR7LsYQ")]
-[Description(@"Specifies the external account identification scheme name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external account identification scheme name code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalAccountIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalAccountIdentificationCode
 {
     /// <summary>
@@ -67,7 +66,7 @@ public enum ExternalAccountIdentificationCode
 public static class ExternalAccountIdentificationCodeMetadataExtensions
 {
     private static readonly ExternalAccountIdentificationCodeDropdownSource _dropdownSource = new ExternalAccountIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

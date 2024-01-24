@@ -21,93 +21,93 @@ public enum DeniedReason4Code
 {
     /// <summary>
     /// Received after the account servicer's deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_avRkJNp-Ed-ak6NoX_4Aeg_271179160")]
     [Description(@"Received after the account servicer's deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = DeniedReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was denied since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DeniedSinceAlreadyCancelled".
+    /// Encoded/decoded by serializers as "DCAN".
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_avRkJdp-Ed-ak6NoX_4Aeg_714167652")]
     [Description(@"Cancellation request was denied since the instruction has already been cancelled.")]
-    DeniedSinceAlreadyCancelled,
+    DeniedSinceAlreadyCancelled = DeniedReasonCode.DeniedSinceAlreadyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was denied because the process of settlement is in progress.
-    /// Encoded/decoded by serializers as "DeniedSinceInProgress".
+    /// Encoded/decoded by serializers as "DPRG".
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_avRkJtp-Ed-ak6NoX_4Aeg_-1295789206")]
     [Description(@"Cancellation request was denied because the process of settlement is in progress.")]
-    DeniedSinceInProgress,
+    DeniedSinceInProgress = DeniedReasonCode.DeniedSinceInProgress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was denied because the repo was cancelled.
-    /// Encoded/decoded by serializers as "DeniedSinceRepoEnded".
+    /// Encoded/decoded by serializers as "DREP".
     /// </summary>
     [EnumMember(Value = "DREP")]
     [IsoId("_avRkJ9p-Ed-ak6NoX_4Aeg_118447416")]
     [Description(@"Cancellation request was denied because the repo was cancelled.")]
-    DeniedSinceRepoEnded,
+    DeniedSinceRepoEnded = DeniedReasonCode.DeniedSinceRepoEnded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was denied because the instruction was already settled.
-    /// Encoded/decoded by serializers as "DeniedSinceAlreadySettled".
+    /// Encoded/decoded by serializers as "DSET".
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_avRkKNp-Ed-ak6NoX_4Aeg_1767928195")]
     [Description(@"Cancellation request was denied because the instruction was already settled.")]
-    DeniedSinceAlreadySettled,
+    DeniedSinceAlreadySettled = DeniedReasonCode.DeniedSinceAlreadySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_avbVINp-Ed-ak6NoX_4Aeg_1013178321")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = DeniedReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_avbVIdp-Ed-ak6NoX_4Aeg_1002079544")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = DeniedReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is denied due to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "ConditionalRegistrar".
+    /// Encoded/decoded by serializers as "CDRG".
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_avbVItp-Ed-ak6NoX_4Aeg_675012735")]
     [Description(@"Execution is denied due to the execution of a process at the registrar.")]
-    ConditionalRegistrar,
+    ConditionalRegistrar = DeniedReasonCode.ConditionalRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is denied due to a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "ConditionalCurrency".
+    /// Encoded/decoded by serializers as "CDCY".
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_avbVI9p-Ed-ak6NoX_4Aeg_383054997")]
     [Description(@"Execution is denied due to a process linked to the currency of the transaction.")]
-    ConditionalCurrency,
+    ConditionalCurrency = DeniedReasonCode.ConditionalCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is denied due to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "ConditionalRealignement".
+    /// Encoded/decoded by serializers as "CDRE".
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_avbVJNp-Ed-ak6NoX_4Aeg_561173669")]
     [Description(@"Execution is denied due to the execution of a process of realignment at the issuer CSD.")]
-    ConditionalRealignement,
+    ConditionalRealignement = DeniedReasonCode.ConditionalRealignement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum DeniedReason4Code
 public static class DeniedReason4CodeMetadataExtensions
 {
     private static readonly DeniedReason4CodeDropdownSource _dropdownSource = new DeniedReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

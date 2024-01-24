@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_FFBTeDNnEe2UWZuK9pqFtg")]
-[Description(@"Specifies the external benchmark curve name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external benchmark curve name code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBenchmarkCurveName1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalBenchmarkCurveNameCode
 {
     /// <summary>
@@ -42,13 +41,12 @@ public enum ExternalBenchmarkCurveNameCode
     
     /// <summary>
     /// Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.
-    /// 
     /// London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.
     /// Encoded/decoded by serializers as "LIBI".
     /// </summary>
     [EnumMember(Value = "LIBI")]
     [IsoId("_FFB6YTNnEe2UWZuK9pqFtg")]
-    [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.  London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
+    [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.||London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
     LIBID,
     
     /// <summary>
@@ -373,7 +371,7 @@ public enum ExternalBenchmarkCurveNameCode
     /// </summary>
     [EnumMember(Value = "TONA")]
     [IsoId("_xwyAsDOhEe2AEsHTM-bt1w")]
-    [Description(@"Tokyo Overnight Average Rate: Interest rate benchmark - also known as a reference rate or a benchmark rate. It is a measure of the cost of borrowing in the Japanese yen unsecured overnight money market and is the near risk-free rate (RFR) for Japanese yen markets, administered and published by the Bank of Japan. It is sometimes referred to as “TONAR”.")]
+    [Description(@"Tokyo Overnight Average Rate:|Interest rate benchmark - also known as a reference rate or a benchmark rate. It is a measure of the cost of borrowing in the Japanese yen unsecured overnight money market and is the near risk-free rate (RFR) for Japanese yen markets, administered and published by the Bank of Japan. It is sometimes referred to as “TONAR”.")]
     TONA,
     
     /// <summary>
@@ -383,17 +381,16 @@ public enum ExternalBenchmarkCurveNameCode
     /// </summary>
     [EnumMember(Value = "TORF")]
     [IsoId("_8odU4DOhEe2AEsHTM-bt1w")]
-    [Description(@"Tokyo Term Risk Free Rate: Interest rate Benchmark based on the uncollateralized overnight call rate which involves almost no credit risk of financial institutions, based on the Japanese Yen ""Risk-Free-Rate"" (RFR), administered and published by QUICK Benchmarks, Inc.")]
+    [Description(@"Tokyo Term Risk Free Rate:|Interest rate Benchmark based on the uncollateralized overnight call rate which involves almost no credit risk of financial institutions, based on the Japanese Yen ""Risk-Free-Rate"" (RFR), administered and published by QUICK Benchmarks, Inc.")]
     TORF,
     
     /// <summary>
     /// Singapore Interbank Offered Rate.
-    /// 
     /// Encoded/decoded by serializers as "SIBO".
     /// </summary>
     [EnumMember(Value = "SIBO")]
     [IsoId("_S8SzQXC_Ee2QDe42vpiOiA")]
-    [Description(@"Singapore Interbank Offered Rate. ")]
+    [Description(@"Singapore Interbank Offered Rate.|")]
     SIBOR,
     
     /// <summary>
@@ -423,7 +420,7 @@ public enum ExternalBenchmarkCurveNameCode
 public static class ExternalBenchmarkCurveNameCodeMetadataExtensions
 {
     private static readonly ExternalBenchmarkCurveNameCodeDropdownSource _dropdownSource = new ExternalBenchmarkCurveNameCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

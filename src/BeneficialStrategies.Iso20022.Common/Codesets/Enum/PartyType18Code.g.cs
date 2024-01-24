@@ -21,39 +21,39 @@ public enum PartyType18Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_kWWKsUqLEeenp6hmNprBHg")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_lyQIAUqLEeenp6hmNprBHg")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CardScheme".
+    /// Encoded/decoded by serializers as "CSCH".
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_l_O0EUqLEeenp6hmNprBHg")]
     [Description(@"Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.")]
-    CardScheme,
+    CardScheme = PartyTypeCode.CardScheme, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_pSO14UqLEeenp6hmNprBHg")]
     [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
-    Agent,
+    Agent = PartyTypeCode.Agent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PartyType18Code
 public static class PartyType18CodeMetadataExtensions
 {
     private static readonly PartyType18CodeDropdownSource _dropdownSource = new PartyType18CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

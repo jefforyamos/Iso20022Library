@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_LjTZABKCEeKj15WxqwlXPw")]
 [Description(@"Specifies the type of usage of the account.")]
 [Derivations(typeof(AccountUsageType1Code),typeof(AccountUsageType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountUsageTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AccountUsageTypeCode
 public static class AccountUsageTypeCodeMetadataExtensions
 {
     private static readonly AccountUsageTypeCodeDropdownSource _dropdownSource = new AccountUsageTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

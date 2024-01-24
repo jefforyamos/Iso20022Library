@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bU-SMtp-Ed-ak6NoX_4Aeg_-1785739759")]
 [Description(@"Method for booking out an order. Used when notifying a broker that an order to be settled by that broker is to be booked out as an OTC derivative (e.g. CFD or similar).")]
 [Derivations(typeof(BookingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BookingTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BookingTypeCode
 public static class BookingTypeCodeMetadataExtensions
 {
     private static readonly BookingTypeCodeDropdownSource _dropdownSource = new BookingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

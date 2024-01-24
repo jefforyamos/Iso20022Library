@@ -21,84 +21,84 @@ public enum StoredValueTransactionType2Code
 {
     /// <summary>
     /// Activate the account or the card.
-    /// Encoded/decoded by serializers as "Activate".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_pFpYUYYKEemxIqbaFEE8-w")]
     [Description(@"Activate the account or the card.")]
-    Activate,
+    Activate = StoredValueTransactionTypeCode.Activate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplicate the code or number provided by the loading or activation.
-    /// Encoded/decoded by serializers as "Duplicate".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_pFpYU4YKEemxIqbaFEE8-w")]
     [Description(@"Duplicate the code or number provided by the loading or activation.")]
-    Duplicate,
+    Duplicate = StoredValueTransactionTypeCode.Duplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Load the account or the card with money.
-    /// Encoded/decoded by serializers as "Load".
+    /// Encoded/decoded by serializers as "LOAD".
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_pFpYVYYKEemxIqbaFEE8-w")]
     [Description(@"Load the account or the card with money.")]
-    Load,
+    Load = StoredValueTransactionTypeCode.Load, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserve the account (e.g. get an activation code).
-    /// Encoded/decoded by serializers as "Reserve".
+    /// Encoded/decoded by serializers as "RESV".
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_pFpYV4YKEemxIqbaFEE8-w")]
     [Description(@"Reserve the account (e.g. get an activation code).")]
-    Reserve,
+    Reserve = StoredValueTransactionTypeCode.Reserve, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reverse an activation or loading.
-    /// Encoded/decoded by serializers as "Reverse".
+    /// Encoded/decoded by serializers as "REVS".
     /// </summary>
     [EnumMember(Value = "REVS")]
     [IsoId("_pFpYWYYKEemxIqbaFEE8-w")]
     [Description(@"Reverse an activation or loading.")]
-    Reverse,
+    Reverse = StoredValueTransactionTypeCode.Reverse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unload the account.
-    /// Encoded/decoded by serializers as "Unload".
+    /// Encoded/decoded by serializers as "ULOA".
     /// </summary>
     [EnumMember(Value = "ULOA")]
     [IsoId("_pFpYW4YKEemxIqbaFEE8-w")]
     [Description(@"Unload the account.")]
-    Unload,
+    Unload = StoredValueTransactionTypeCode.Unload, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Close the account.
-    /// Encoded/decoded by serializers as "CloseAccount".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_ezGTwYa1EemfPtKsRXC1Ag")]
     [Description(@"Close the account.")]
-    CloseAccount,
+    CloseAccount = StoredValueTransactionTypeCode.CloseAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deactivate the account or the card.
-    /// Encoded/decoded by serializers as "Deactivate".
+    /// Encoded/decoded by serializers as "DCTV".
     /// </summary>
     [EnumMember(Value = "DCTV")]
     [IsoId("_e6GToYa1EemfPtKsRXC1Ag")]
     [Description(@"Deactivate the account or the card.")]
-    Deactivate,
+    Deactivate = StoredValueTransactionTypeCode.Deactivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Open the account.
-    /// Encoded/decoded by serializers as "OpenAccount".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_fEp90Ya1EemfPtKsRXC1Ag")]
     [Description(@"Open the account.")]
-    OpenAccount,
+    OpenAccount = StoredValueTransactionTypeCode.OpenAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum StoredValueTransactionType2Code
 public static class StoredValueTransactionType2CodeMetadataExtensions
 {
     private static readonly StoredValueTransactionType2CodeDropdownSource _dropdownSource = new StoredValueTransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

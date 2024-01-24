@@ -21,39 +21,39 @@ public enum UserInterface1Code
 {
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CardholderDisplay".
+    /// Encoded/decoded by serializers as "CDSP".
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_TUc4MwEcEeCQm6a_G2yO_w_1612057850")]
     [Description(@"Cardholder display or interface.")]
-    CardholderDisplay,
+    CardholderDisplay = UserInterfaceCode.CardholderDisplay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder receipt.
-    /// Encoded/decoded by serializers as "CardholderReceipt".
+    /// Encoded/decoded by serializers as "CRCP".
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_TUc4NAEcEeCQm6a_G2yO_w_728824563")]
     [Description(@"Cardholder receipt.")]
-    CardholderReceipt,
+    CardholderReceipt = UserInterfaceCode.CardholderReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant display or interface.
-    /// Encoded/decoded by serializers as "MerchantDisplay".
+    /// Encoded/decoded by serializers as "MDSP".
     /// </summary>
     [EnumMember(Value = "MDSP")]
     [IsoId("_TUmCEAEcEeCQm6a_G2yO_w_804922611")]
     [Description(@"Merchant display or interface.")]
-    MerchantDisplay,
+    MerchantDisplay = UserInterfaceCode.MerchantDisplay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant receipt.
-    /// Encoded/decoded by serializers as "MerchantReceipt".
+    /// Encoded/decoded by serializers as "MRCP".
     /// </summary>
     [EnumMember(Value = "MRCP")]
     [IsoId("_TUmCEQEcEeCQm6a_G2yO_w_-1552819512")]
     [Description(@"Merchant receipt.")]
-    MerchantReceipt,
+    MerchantReceipt = UserInterfaceCode.MerchantReceipt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UserInterface1Code
 public static class UserInterface1CodeMetadataExtensions
 {
     private static readonly UserInterface1CodeDropdownSource _dropdownSource = new UserInterface1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

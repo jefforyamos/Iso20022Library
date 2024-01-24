@@ -21,165 +21,165 @@ public enum TaxRecordPeriod1Code
 {
     /// <summary>
     /// Tax is related to the second month of the period.
-    /// Encoded/decoded by serializers as "FirstMonth".
+    /// Encoded/decoded by serializers as "MM01".
     /// </summary>
     [EnumMember(Value = "MM01")]
     [IsoId("_YiT9Vdp-Ed-ak6NoX_4Aeg_-1322025421")]
     [Description(@"Tax is related to the second month of the period.")]
-    FirstMonth,
+    FirstMonth = TaxRecordPeriodCode.FirstMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the first month of the period.
-    /// Encoded/decoded by serializers as "SecondMonth".
+    /// Encoded/decoded by serializers as "MM02".
     /// </summary>
     [EnumMember(Value = "MM02")]
     [IsoId("_YiT9Vtp-Ed-ak6NoX_4Aeg_-1322025391")]
     [Description(@"Tax is related to the first month of the period.")]
-    SecondMonth,
+    SecondMonth = TaxRecordPeriodCode.SecondMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the third month of the period.
-    /// Encoded/decoded by serializers as "ThirdMonth".
+    /// Encoded/decoded by serializers as "MM03".
     /// </summary>
     [EnumMember(Value = "MM03")]
     [IsoId("_YiT9V9p-Ed-ak6NoX_4Aeg_-1322025390")]
     [Description(@"Tax is related to the third month of the period.")]
-    ThirdMonth,
+    ThirdMonth = TaxRecordPeriodCode.ThirdMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the fourth month of the period.
-    /// Encoded/decoded by serializers as "FourthMonth".
+    /// Encoded/decoded by serializers as "MM04".
     /// </summary>
     [EnumMember(Value = "MM04")]
     [IsoId("_YiT9WNp-Ed-ak6NoX_4Aeg_-1322025360")]
     [Description(@"Tax is related to the fourth month of the period.")]
-    FourthMonth,
+    FourthMonth = TaxRecordPeriodCode.FourthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the fifth month of the period.
-    /// Encoded/decoded by serializers as "FifthMonth".
+    /// Encoded/decoded by serializers as "MM05".
     /// </summary>
     [EnumMember(Value = "MM05")]
     [IsoId("_YiduUNp-Ed-ak6NoX_4Aeg_-1322025330")]
     [Description(@"Tax is related to the fifth month of the period.")]
-    FifthMonth,
+    FifthMonth = TaxRecordPeriodCode.FifthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the sixth month of the period.
-    /// Encoded/decoded by serializers as "SixthMonth".
+    /// Encoded/decoded by serializers as "MM06".
     /// </summary>
     [EnumMember(Value = "MM06")]
     [IsoId("_YiduUdp-Ed-ak6NoX_4Aeg_-1322025329")]
     [Description(@"Tax is related to the sixth month of the period.")]
-    SixthMonth,
+    SixthMonth = TaxRecordPeriodCode.SixthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the seventh month of the period.
-    /// Encoded/decoded by serializers as "SeventhMonth".
+    /// Encoded/decoded by serializers as "MM07".
     /// </summary>
     [EnumMember(Value = "MM07")]
     [IsoId("_YiduUtp-Ed-ak6NoX_4Aeg_-1322025299")]
     [Description(@"Tax is related to the seventh month of the period.")]
-    SeventhMonth,
+    SeventhMonth = TaxRecordPeriodCode.SeventhMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the eighth month of the period.
-    /// Encoded/decoded by serializers as "EighthMonth".
+    /// Encoded/decoded by serializers as "MM08".
     /// </summary>
     [EnumMember(Value = "MM08")]
     [IsoId("_YiduU9p-Ed-ak6NoX_4Aeg_-1322025268")]
     [Description(@"Tax is related to the eighth month of the period.")]
-    EighthMonth,
+    EighthMonth = TaxRecordPeriodCode.EighthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the ninth month of the period.
-    /// Encoded/decoded by serializers as "NinthMonth".
+    /// Encoded/decoded by serializers as "MM09".
     /// </summary>
     [EnumMember(Value = "MM09")]
     [IsoId("_YiduVNp-Ed-ak6NoX_4Aeg_-1322024990")]
     [Description(@"Tax is related to the ninth month of the period.")]
-    NinthMonth,
+    NinthMonth = TaxRecordPeriodCode.NinthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the tenth month of the period.
-    /// Encoded/decoded by serializers as "TenthMonth".
+    /// Encoded/decoded by serializers as "MM10".
     /// </summary>
     [EnumMember(Value = "MM10")]
     [IsoId("_YiduVdp-Ed-ak6NoX_4Aeg_-1322024989")]
     [Description(@"Tax is related to the tenth month of the period.")]
-    TenthMonth,
+    TenthMonth = TaxRecordPeriodCode.TenthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the eleventh month of the period.
-    /// Encoded/decoded by serializers as "EleventhMonth".
+    /// Encoded/decoded by serializers as "MM11".
     /// </summary>
     [EnumMember(Value = "MM11")]
     [IsoId("_YiduVtp-Ed-ak6NoX_4Aeg_-1322024959")]
     [Description(@"Tax is related to the eleventh month of the period.")]
-    EleventhMonth,
+    EleventhMonth = TaxRecordPeriodCode.EleventhMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the twelfth month of the period.
-    /// Encoded/decoded by serializers as "TwelfthMonth".
+    /// Encoded/decoded by serializers as "MM12".
     /// </summary>
     [EnumMember(Value = "MM12")]
     [IsoId("_YiduV9p-Ed-ak6NoX_4Aeg_-1322024929")]
     [Description(@"Tax is related to the twelfth month of the period.")]
-    TwelfthMonth,
+    TwelfthMonth = TaxRecordPeriodCode.TwelfthMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the first quarter of the period.
-    /// Encoded/decoded by serializers as "FirstQuarter".
+    /// Encoded/decoded by serializers as "QTR1".
     /// </summary>
     [EnumMember(Value = "QTR1")]
     [IsoId("_YiduWNp-Ed-ak6NoX_4Aeg_-1322024928")]
     [Description(@"Tax is related to the first quarter of the period.")]
-    FirstQuarter,
+    FirstQuarter = TaxRecordPeriodCode.FirstQuarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the second quarter of the period.
-    /// Encoded/decoded by serializers as "SecondQuarter".
+    /// Encoded/decoded by serializers as "QTR2".
     /// </summary>
     [EnumMember(Value = "QTR2")]
     [IsoId("_YiduWdp-Ed-ak6NoX_4Aeg_-1322024898")]
     [Description(@"Tax is related to the second quarter of the period.")]
-    SecondQuarter,
+    SecondQuarter = TaxRecordPeriodCode.SecondQuarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the third quarter of the period.
-    /// Encoded/decoded by serializers as "ThirdQuarter".
+    /// Encoded/decoded by serializers as "QTR3".
     /// </summary>
     [EnumMember(Value = "QTR3")]
     [IsoId("_Yim4QNp-Ed-ak6NoX_4Aeg_-1322024867")]
     [Description(@"Tax is related to the third quarter of the period.")]
-    ThirdQuarter,
+    ThirdQuarter = TaxRecordPeriodCode.ThirdQuarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the forth quarter of the period.
-    /// Encoded/decoded by serializers as "FourthQuarter".
+    /// Encoded/decoded by serializers as "QTR4".
     /// </summary>
     [EnumMember(Value = "QTR4")]
     [IsoId("_Yim4Qdp-Ed-ak6NoX_4Aeg_-1322024866")]
     [Description(@"Tax is related to the forth quarter of the period.")]
-    FourthQuarter,
+    FourthQuarter = TaxRecordPeriodCode.FourthQuarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the first half of the period.
-    /// Encoded/decoded by serializers as "FirstHalf".
+    /// Encoded/decoded by serializers as "HLF1".
     /// </summary>
     [EnumMember(Value = "HLF1")]
     [IsoId("_Yim4Qtp-Ed-ak6NoX_4Aeg_-1322024837")]
     [Description(@"Tax is related to the first half of the period.")]
-    FirstHalf,
+    FirstHalf = TaxRecordPeriodCode.FirstHalf, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is related to the second half of the period.
-    /// Encoded/decoded by serializers as "SecondHalf".
+    /// Encoded/decoded by serializers as "HLF2".
     /// </summary>
     [EnumMember(Value = "HLF2")]
     [IsoId("_Yim4Q9p-Ed-ak6NoX_4Aeg_-1322024806")]
     [Description(@"Tax is related to the second half of the period.")]
-    SecondHalf,
+    SecondHalf = TaxRecordPeriodCode.SecondHalf, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum TaxRecordPeriod1Code
 public static class TaxRecordPeriod1CodeMetadataExtensions
 {
     private static readonly TaxRecordPeriod1CodeDropdownSource _dropdownSource = new TaxRecordPeriod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,75 +21,75 @@ public enum PartyType26Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_UUqwkZmMEee_M7tURHTZTQ")]
     [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
-    Acceptor,
+    Acceptor = PartyTypeCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_UjpAsZmMEee_M7tURHTZTQ")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Application in the smart card.
-    /// Encoded/decoded by serializers as "CardApplication".
+    /// Encoded/decoded by serializers as "ICCA".
     /// </summary>
     [EnumMember(Value = "ICCA")]
     [IsoId("_VJ4hUZmMEee_M7tURHTZTQ")]
     [Description(@"Application in the smart card.")]
-    CardApplication,
+    CardApplication = PartyTypeCode.CardApplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_ViAtcZmMEee_M7tURHTZTQ")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DelegateIssuer".
+    /// Encoded/decoded by serializers as "DLIS".
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_Wz7oUZmMEee_M7tURHTZTQ")]
     [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
-    DelegateIssuer,
+    DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_X5jMkZmMEee_M7tURHTZTQ")]
     [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
-    Agent,
+    Agent = PartyTypeCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_fdQOkZmMEee_M7tURHTZTQ")]
     [Description(@"Other card payment entity type defined at national level")]
-    OtherNational,
+    OtherNational = PartyTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_frdpsZmMEee_M7tURHTZTQ")]
     [Description(@"Other card payment entity type defined at private level")]
-    OtherPrivate,
+    OtherPrivate = PartyTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum PartyType26Code
 public static class PartyType26CodeMetadataExtensions
 {
     private static readonly PartyType26CodeDropdownSource _dropdownSource = new PartyType26CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum UnaffirmedReason1Code
 {
     /// <summary>
     /// Specifies the reason the counterparty has not affirmed.
-    /// Encoded/decoded by serializers as "CounterpartyNotAffirmed".
+    /// Encoded/decoded by serializers as "NAFF".
     /// </summary>
     [EnumMember(Value = "NAFF")]
     [IsoId("__qxMU9ojEeC60axPepSq7g_2031513196")]
     [Description(@"Specifies the reason the counterparty has not affirmed.")]
-    CounterpartyNotAffirmed,
+    CounterpartyNotAffirmed = UnaffirmedReasonCode.CounterpartyNotAffirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum UnaffirmedReason1Code
 public static class UnaffirmedReason1CodeMetadataExtensions
 {
     private static readonly UnaffirmedReason1CodeDropdownSource _dropdownSource = new UnaffirmedReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

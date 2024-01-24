@@ -21,30 +21,30 @@ public enum AccountLevel2Code
 {
     /// <summary>
     /// Intermediate level within an account hierarchy.
-    /// Encoded/decoded by serializers as "Intermediate".
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_6Uas95qlEeGSON8vddiWzQ_-77486222")]
     [Description(@"Intermediate level within an account hierarchy.")]
-    Intermediate,
+    Intermediate = AccountLevelCode.Intermediate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Highest level within an account hierarchy.
-    /// Encoded/decoded by serializers as "Summary".
+    /// Encoded/decoded by serializers as "SMRY".
     /// </summary>
     [EnumMember(Value = "SMRY")]
     [IsoId("_6Ukd8JqlEeGSON8vddiWzQ_1446759063")]
     [Description(@"Highest level within an account hierarchy.")]
-    Summary,
+    Summary = AccountLevelCode.Summary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is a real deposit/current account.
-    /// Encoded/decoded by serializers as "Detail".
+    /// Encoded/decoded by serializers as "DETL".
     /// </summary>
     [EnumMember(Value = "DETL")]
     [IsoId("_6Ukd8ZqlEeGSON8vddiWzQ_-2087443080")]
     [Description(@"Account is a real deposit/current account.")]
-    Detail,
+    Detail = AccountLevelCode.Detail, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AccountLevel2Code
 public static class AccountLevel2CodeMetadataExtensions
 {
     private static readonly AccountLevel2CodeDropdownSource _dropdownSource = new AccountLevel2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum ValidationRuleCreditSettlement1Code
 {
     /// <summary>
     /// AcceptedCreditSettlementCompleted
-    /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_yFd3gSE5EeuIZ4Hf6difAw")]
     [Description(@"AcceptedCreditSettlementCompleted")]
-    AcceptedCreditSettlementCompleted,
+    AcceptedCreditSettlementCompleted = ValidationRuleCode.AcceptedCreditSettlementCompleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRuleCreditSettlement1Code
 public static class ValidationRuleCreditSettlement1CodeMetadataExtensions
 {
     private static readonly ValidationRuleCreditSettlement1CodeDropdownSource _dropdownSource = new ValidationRuleCreditSettlement1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

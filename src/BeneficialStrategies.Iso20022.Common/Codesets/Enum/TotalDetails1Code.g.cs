@@ -21,48 +21,48 @@ public enum TotalDetails1Code
 {
     /// <summary>
     /// Give the totals result per Operator Identification value.
-    /// Encoded/decoded by serializers as "PerCashierIdentification".
+    /// Encoded/decoded by serializers as "OPID".
     /// </summary>
     [EnumMember(Value = "OPID")]
     [IsoId("_KYx18d6TEeiwsev40qZGEQ")]
     [Description(@"Give the totals result per Operator Identification value.")]
-    PerCashierIdentification,
+    PerCashierIdentification = TotalDetailsCode.PerCashierIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Give the totals result per POI Identification value.
-    /// Encoded/decoded by serializers as "PerPOIIdentification".
+    /// Encoded/decoded by serializers as "PIID".
     /// </summary>
     [EnumMember(Value = "PIID")]
     [IsoId("_KcKhId6TEeiwsev40qZGEQ")]
     [Description(@"Give the totals result per POI Identification value.")]
-    PerPOIIdentification,
+    PerPOIIdentification = TotalDetailsCode.PerPOIIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Give the totals result per Totals Group Identification value.
-    /// Encoded/decoded by serializers as "PerTotalsGroup".
+    /// Encoded/decoded by serializers as "TGID".
     /// </summary>
     [EnumMember(Value = "TGID")]
     [IsoId("_KplSEd6TEeiwsev40qZGEQ")]
     [Description(@"Give the totals result per Totals Group Identification value.")]
-    PerTotalsGroup,
+    PerTotalsGroup = TotalDetailsCode.PerTotalsGroup, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Give the totals result per Shift Number Identification value.
-    /// Encoded/decoded by serializers as "PerShiftNumber".
+    /// Encoded/decoded by serializers as "SNID".
     /// </summary>
     [EnumMember(Value = "SNID")]
     [IsoId("_Ks-kUd6TEeiwsev40qZGEQ")]
     [Description(@"Give the totals result per Shift Number Identification value.")]
-    PerShiftNumber,
+    PerShiftNumber = TotalDetailsCode.PerShiftNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Give the totals result per Sale Identification value.
-    /// Encoded/decoded by serializers as "PerSaleIdentification".
+    /// Encoded/decoded by serializers as "SAID".
     /// </summary>
     [EnumMember(Value = "SAID")]
     [IsoId("_KwBRQd6TEeiwsev40qZGEQ")]
     [Description(@"Give the totals result per Sale Identification value.")]
-    PerSaleIdentification,
+    PerSaleIdentification = TotalDetailsCode.PerSaleIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TotalDetails1Code
 public static class TotalDetails1CodeMetadataExtensions
 {
     private static readonly TotalDetails1CodeDropdownSource _dropdownSource = new TotalDetails1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

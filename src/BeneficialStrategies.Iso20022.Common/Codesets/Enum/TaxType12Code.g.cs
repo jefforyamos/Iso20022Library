@@ -21,57 +21,57 @@ public enum TaxType12Code
 {
     /// <summary>
     /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
-    /// Encoded/decoded by serializers as "InterimProfitTax".
+    /// Encoded/decoded by serializers as "INPO".
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_YkP3A9p-Ed-ak6NoX_4Aeg_-582177215")]
     [Description(@"Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.")]
-    InterimProfitTax,
+    InterimProfitTax = TaxTypeCode.InterimProfitTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTaxRetention".
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_YkP3BNp-Ed-ak6NoX_4Aeg_-581256561")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTaxRetention,
+    EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "Aktiengewinn1".
+    /// Encoded/decoded by serializers as "AKT1".
     /// </summary>
     [EnumMember(Value = "AKT1")]
     [IsoId("_YkP3Bdp-Ed-ak6NoX_4Aeg_-581256518")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).")]
-    Aktiengewinn1,
+    Aktiengewinn1 = TaxTypeCode.Aktiengewinn1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "Aktiengewinn2".
+    /// Encoded/decoded by serializers as "AKT2".
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_YkP3Btp-Ed-ak6NoX_4Aeg_-581256501")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
-    Aktiengewinn2,
+    Aktiengewinn2 = TaxTypeCode.Aktiengewinn2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "Zwischengewinn".
+    /// Encoded/decoded by serializers as "ZWIS".
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_YkP3B9p-Ed-ak6NoX_4Aeg_-581256483")]
     [Description(@"Zwischengewinn.")]
-    Zwischengewinn,
+    Zwischengewinn = TaxTypeCode.Zwischengewinn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Earnings from renting.
-    /// Encoded/decoded by serializers as "Mietgewinn".
+    /// Encoded/decoded by serializers as "MIET".
     /// </summary>
     [EnumMember(Value = "MIET")]
     [IsoId("_YkP3CNp-Ed-ak6NoX_4Aeg_-523997623")]
     [Description(@"Earnings from renting.")]
-    Mietgewinn,
+    Mietgewinn = TaxTypeCode.Mietgewinn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum TaxType12Code
 public static class TaxType12CodeMetadataExtensions
 {
     private static readonly TaxType12CodeDropdownSource _dropdownSource = new TaxType12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

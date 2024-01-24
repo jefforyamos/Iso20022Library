@@ -21,30 +21,30 @@ public enum InvestigationStatus1Code
 {
     /// <summary>
     /// Search for requested data is complete, the data has been found and will be sent using a separate message flow.
-    /// Encoded/decoded by serializers as "DataFound".
+    /// Encoded/decoded by serializers as "FOUN".
     /// </summary>
     [EnumMember(Value = "FOUN")]
     [IsoId("_xZMG1llIEeGYqvgbBHXAZw")]
     [Description(@"Search for requested data is complete, the data has been found and will be sent using a separate message flow.")]
-    DataFound,
+    DataFound = InvestigationStatusCode.DataFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Search for requested data is complete, data not found.
-    /// Encoded/decoded by serializers as "DataNotFound".
+    /// Encoded/decoded by serializers as "NFOU".
     /// </summary>
     [EnumMember(Value = "NFOU")]
     [IsoId("_xeGcBllIEeGYqvgbBHXAZw")]
     [Description(@"Search for requested data is complete, data not found.")]
-    DataNotFound,
+    DataNotFound = InvestigationStatusCode.DataNotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Search for requested data not complete yet.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_xj6wJllIEeGYqvgbBHXAZw")]
     [Description(@"Search for requested data not complete yet.")]
-    NotApplicable,
+    NotApplicable = InvestigationStatusCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestigationStatus1Code
 public static class InvestigationStatus1CodeMetadataExtensions
 {
     private static readonly InvestigationStatus1CodeDropdownSource _dropdownSource = new InvestigationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

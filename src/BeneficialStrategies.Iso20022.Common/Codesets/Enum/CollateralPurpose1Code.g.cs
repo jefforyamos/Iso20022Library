@@ -21,21 +21,21 @@ public enum CollateralPurpose1Code
 {
     /// <summary>
     /// Collateral has been posted against the variation margin.
-    /// Encoded/decoded by serializers as "VariationMargin".
+    /// Encoded/decoded by serializers as "VAMA".
     /// </summary>
     [EnumMember(Value = "VAMA")]
     [IsoId("_YZXcttp-Ed-ak6NoX_4Aeg_-761638906")]
     [Description(@"Collateral has been posted against the variation margin.")]
-    VariationMargin,
+    VariationMargin = CollateralPurposeCode.VariationMargin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral has been posted against the segregated independent amount.
-    /// Encoded/decoded by serializers as "SegregatedIndependentAmount".
+    /// Encoded/decoded by serializers as "SINA".
     /// </summary>
     [EnumMember(Value = "SINA")]
     [IsoId("_YZXct9p-Ed-ak6NoX_4Aeg_2062598685")]
     [Description(@"Collateral has been posted against the segregated independent amount.")]
-    SegregatedIndependentAmount,
+    SegregatedIndependentAmount = CollateralPurposeCode.SegregatedIndependentAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralPurpose1Code
 public static class CollateralPurpose1CodeMetadataExtensions
 {
     private static readonly CollateralPurpose1CodeDropdownSource _dropdownSource = new CollateralPurpose1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

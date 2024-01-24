@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_S2Sb8J9WEeqxTNfi5y7ywQ")]
 [Description(@"Specifies the unit basis of a financial instrument.")]
 [Derivations(typeof(NotionalOrUnitBased1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NotionalOrUnitBasedCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum NotionalOrUnitBasedCode
 public static class NotionalOrUnitBasedCodeMetadataExtensions
 {
     private static readonly NotionalOrUnitBasedCodeDropdownSource _dropdownSource = new NotionalOrUnitBasedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

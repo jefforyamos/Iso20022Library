@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_awK8BNp-Ed-ak6NoX_4Aeg_1863385862")]
 [Description(@"Specifies the direction of a payment.")]
 [Derivations(typeof(Direction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DirectionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DirectionCode
 public static class DirectionCodeMetadataExtensions
 {
     private static readonly DirectionCodeDropdownSource _dropdownSource = new DirectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

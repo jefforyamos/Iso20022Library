@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_4ZREgJlhEeu76rs9yGlfEg")]
 [Description(@"Risk assessment of activity.")]
 [Derivations(typeof(RiskAssessment1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RiskAssessmentCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum RiskAssessmentCode
 public static class RiskAssessmentCodeMetadataExtensions
 {
     private static readonly RiskAssessmentCodeDropdownSource _dropdownSource = new RiskAssessmentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

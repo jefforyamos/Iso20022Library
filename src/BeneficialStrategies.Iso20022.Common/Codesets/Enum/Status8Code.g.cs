@@ -21,57 +21,57 @@ public enum Status8Code
 {
     /// <summary>
     /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CancelledBySubcustodian".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_T6q-oa-nEemJ1NnLPsTFaw")]
     [Description(@"Instruction has been cancelled by the agent, for example, due to an event deadline extension.")]
-    CancelledBySubcustodian,
+    CancelledBySubcustodian = StatusCode.CancelledBySubcustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_T6q-o6-nEemJ1NnLPsTFaw")]
     [Description(@"Instruction has been accepted and is validated for further processing.")]
-    Accepted,
+    Accepted = StatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_T6q-pa-nEemJ1NnLPsTFaw")]
     [Description(@"Instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = StatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been received by Issuer.
-    /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_T6q-q6-nEemJ1NnLPsTFaw")]
     [Description(@"Instruction has been received by Issuer.")]
-    ReceivedByIssuerOrRegistrar,
+    ReceivedByIssuerOrRegistrar = StatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "StandingInstruction".
+    /// Encoded/decoded by serializers as "STIN".
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_T6q-ra-nEemJ1NnLPsTFaw")]
     [Description(@"Standing instruction is applied.")]
-    StandingInstruction,
+    StandingInstruction = StatusCode.StandingInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accepted and sent along the chain.
-    /// Encoded/decoded by serializers as "Forwarded".
+    /// Encoded/decoded by serializers as "FRWD".
     /// </summary>
     [EnumMember(Value = "FRWD")]
     [IsoId("_OS6H0bUsEem2T48lBgJbww")]
     [Description(@"Accepted and sent along the chain.")]
-    Forwarded,
+    Forwarded = StatusCode.Forwarded, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum Status8Code
 public static class Status8CodeMetadataExtensions
 {
     private static readonly Status8CodeDropdownSource _dropdownSource = new Status8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

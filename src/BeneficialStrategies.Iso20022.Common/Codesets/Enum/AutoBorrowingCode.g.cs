@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bjuf5dp-Ed-ak6NoX_4Aeg_1205177778")]
 [Description(@"Specifies the condition under which automatic borrowing is allowed.")]
 [Derivations(typeof(AutoBorrowing1Code),typeof(AutoBorrowing2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AutoBorrowingCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AutoBorrowingCode
 public static class AutoBorrowingCodeMetadataExtensions
 {
     private static readonly AutoBorrowingCodeDropdownSource _dropdownSource = new AutoBorrowingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

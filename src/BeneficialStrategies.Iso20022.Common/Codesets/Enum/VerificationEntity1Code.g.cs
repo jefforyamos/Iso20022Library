@@ -21,57 +21,57 @@ public enum VerificationEntity1Code
 {
     /// <summary>
     /// Acceptor (for example signature verification by the attendant).
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_NSJxcRZOEeiXa46FI4OtcQ")]
     [Description(@"Acceptor (for example signature verification by the attendant).")]
-    Acceptor,
+    Acceptor = VerificationEntityCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer of the transaction.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_Ne8QQhZOEeiXa46FI4OtcQ")]
     [Description(@"Acquirer of the transaction.")]
-    Acquirer,
+    Acquirer = VerificationEntityCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between (or on behalf of) an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_NonJohZOEeiXa46FI4OtcQ")]
     [Description(@"Entity providing card payment processing services acting as an intermediary between (or on behalf of) an acquirer and an issuer.")]
-    Agent,
+    Agent = VerificationEntityCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card issuer.
-    /// Encoded/decoded by serializers as "Issuer".
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_OG95khZOEeiXa46FI4OtcQ")]
     [Description(@"Card issuer.")]
-    Issuer,
+    Issuer = VerificationEntityCode.Issuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of authentication entity defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_OVPmIhZOEeiXa46FI4OtcQ")]
     [Description(@"Other type of authentication entity defined at national level.")]
-    OtherNational,
+    OtherNational = VerificationEntityCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of authentication entity defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_OifX8hZOEeiXa46FI4OtcQ")]
     [Description(@"Other type of authentication entity defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = VerificationEntityCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum VerificationEntity1Code
 public static class VerificationEntity1CodeMetadataExtensions
 {
     private static readonly VerificationEntity1CodeDropdownSource _dropdownSource = new VerificationEntity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

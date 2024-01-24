@@ -21,21 +21,21 @@ public enum DateType4Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayZwpdp-Ed-ak6NoX_4Aeg_-753628532")]
     [Description(@"Open-dated, which indicates that the date has not been established.")]
-    Open,
+    Open = DateTypeCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ayZwptp-Ed-ak6NoX_4Aeg_-739775519")]
     [Description(@"Date is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DateType4Code
 public static class DateType4CodeMetadataExtensions
 {
     private static readonly DateType4CodeDropdownSource _dropdownSource = new DateType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

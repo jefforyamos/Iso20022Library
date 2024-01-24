@@ -21,30 +21,30 @@ public enum AccountStatus1Code
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brets9p-Ed-ak6NoX_4Aeg_-910847163")]
     [Description(@"Account can be used for its intended purpose.")]
-    Enabled,
+    Enabled = AccountStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_brettNp-Ed-ak6NoX_4Aeg_-898842246")]
     [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
-    Disabled,
+    Disabled = AccountStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account cannot be used any longer.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DELE".
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_brettdp-Ed-ak6NoX_4Aeg_-885910656")]
     [Description(@"Account cannot be used any longer.")]
-    Deleted,
+    Deleted = AccountStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AccountStatus1Code
 public static class AccountStatus1CodeMetadataExtensions
 {
     private static readonly AccountStatus1CodeDropdownSource _dropdownSource = new AccountStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

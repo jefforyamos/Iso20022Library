@@ -21,21 +21,21 @@ public enum UnitOfMeasure10Code
 {
     /// <summary>
     /// Unit of measure that is equal to 1, 000 meters.
-    /// Encoded/decoded by serializers as "Kilometre".
+    /// Encoded/decoded by serializers as "KMET".
     /// </summary>
     [EnumMember(Value = "KMET")]
     [IsoId("_l6goQX0mEemfrNOe0zHQyg")]
     [Description(@"Unit of measure that is equal to 1, 000 meters.")]
-    Kilometre,
+    Kilometre = UnitOfMeasureCode.Kilometre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "Mile".
+    /// Encoded/decoded by serializers as "MILE".
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_l6goQ30mEemfrNOe0zHQyg")]
     [Description(@"Unit of length equal to 1, 760 yards.")]
-    Mile,
+    Mile = UnitOfMeasureCode.Mile, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum UnitOfMeasure10Code
 public static class UnitOfMeasure10CodeMetadataExtensions
 {
     private static readonly UnitOfMeasure10CodeDropdownSource _dropdownSource = new UnitOfMeasure10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

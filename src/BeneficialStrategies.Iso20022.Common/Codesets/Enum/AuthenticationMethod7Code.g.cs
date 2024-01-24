@@ -21,84 +21,84 @@ public enum AuthenticationMethod7Code
 {
     /// <summary>
     /// A token is used to verify an already performed authentication.
-    /// Encoded/decoded by serializers as "AuthenticationToken".
+    /// Encoded/decoded by serializers as "TOKA".
     /// </summary>
     [EnumMember(Value = "TOKA")]
     [IsoId("_BIbxIYobEeSirOZJBRz_nA")]
     [Description(@"A token is used to verify an already performed authentication.")]
-    AuthenticationToken,
+    AuthenticationToken = AuthenticationMethodCode.AuthenticationToken, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Biometric authentication of the cardholder.
-    /// Encoded/decoded by serializers as "Biometry".
+    /// Encoded/decoded by serializers as "BIOM".
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_CGhKAYobEeSirOZJBRz_nA")]
     [Description(@"Biometric authentication of the cardholder.")]
-    Biometry,
+    Biometry = AuthenticationMethodCode.Biometry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer mobile device.
-    /// Encoded/decoded by serializers as "Mobile".
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_CV8tIYobEeSirOZJBRz_nA")]
     [Description(@"Customer mobile device.")]
-    Mobile,
+    Mobile = AuthenticationMethodCode.Mobile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other customer authentication.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ChAGkYobEeSirOZJBRz_nA")]
     [Description(@"Other customer authentication.")]
-    Other,
+    Other = AuthenticationMethodCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePIN".
+    /// Encoded/decoded by serializers as "FPIN".
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_DaprYYobEeSirOZJBRz_nA")]
     [Description(@"Off-line PIN authentication (Personal Identification Number).")]
-    OfflinePIN,
+    OfflinePIN = AuthenticationMethodCode.OfflinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OnLinePIN".
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_DgP9EYobEeSirOZJBRz_nA")]
     [Description(@"On-line PIN authentication (Personal Identification Number).")]
-    OnLinePIN,
+    OnLinePIN = AuthenticationMethodCode.OnLinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "Password".
+    /// Encoded/decoded by serializers as "PSWD".
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_FZTJYYobEeSirOZJBRz_nA")]
     [Description(@"Authentication by a password.")]
-    Password,
+    Password = AuthenticationMethodCode.Password, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SecureCertificate".
+    /// Encoded/decoded by serializers as "SCRT".
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_FquQkYobEeSirOZJBRz_nA")]
     [Description(@"Electronic commerce transaction secured with the X.509 certificate of a customer.")]
-    SecureCertificate,
+    SecureCertificate = AuthenticationMethodCode.SecureCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SecuredChannel".
+    /// Encoded/decoded by serializers as "SCNL".
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_G1VpkYobEeSirOZJBRz_nA")]
     [Description(@"Channel-encrypted transaction.")]
-    SecuredChannel,
+    SecuredChannel = AuthenticationMethodCode.SecuredChannel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum AuthenticationMethod7Code
 public static class AuthenticationMethod7CodeMetadataExtensions
 {
     private static readonly AuthenticationMethod7CodeDropdownSource _dropdownSource = new AuthenticationMethod7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

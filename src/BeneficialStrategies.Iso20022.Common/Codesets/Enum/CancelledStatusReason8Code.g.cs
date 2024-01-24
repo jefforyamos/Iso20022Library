@@ -21,12 +21,12 @@ public enum CancelledStatusReason8Code
 {
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CancelledByOther".
+    /// Encoded/decoded by serializers as "CANO".
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_WOybg9p-Ed-ak6NoX_4Aeg_-1191324296")]
     [Description(@"Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.")]
-    CancelledByOther,
+    CancelledByOther = CancelledStatusReasonCode.CancelledByOther, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum CancelledStatusReason8Code
 public static class CancelledStatusReason8CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason8CodeDropdownSource _dropdownSource = new CancelledStatusReason8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

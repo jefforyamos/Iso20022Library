@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1GyxYHsKEeSR68OJvMfxJQ")]
 [Description(@"Reason to indicate a certain level of risk for the transaction.")]
 [Derivations(typeof(CardTransactionRiskReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CardTransactionRiskReasonCode
 {
     /// <summary>
@@ -209,7 +208,7 @@ public enum CardTransactionRiskReasonCode
 public static class CardTransactionRiskReasonCodeMetadataExtensions
 {
     private static readonly CardTransactionRiskReasonCodeDropdownSource _dropdownSource = new CardTransactionRiskReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

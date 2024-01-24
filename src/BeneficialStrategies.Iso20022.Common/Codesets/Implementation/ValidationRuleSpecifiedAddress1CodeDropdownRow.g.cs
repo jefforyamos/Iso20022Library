@@ -10,7 +10,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the confirmation for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// Provides values to be used in dropdown select lists and validation logic as instanced by <seealso cref="ValidationRuleSpecifiedAddress1CodeDropdownSource"/>.
 /// Implements <seealso cref="IValidationRuleSpecifiedAddress1CodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
@@ -20,7 +19,6 @@ public partial class ValidationRuleSpecifiedAddress1CodeDropdownRow : EnumMetada
 {
     /// <summary>
     /// Specifies the confirmation for the cross-element validation rules.
-    /// 
     /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
     /// Constructs row state using the specified enum value and reflected values.
     /// </summary>

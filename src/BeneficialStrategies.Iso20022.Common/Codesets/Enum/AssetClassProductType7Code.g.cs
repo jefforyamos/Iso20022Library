@@ -21,12 +21,12 @@ public enum AssetClassProductType7Code
 {
     /// <summary>
     /// Commodity of type metal.
-    /// Encoded/decoded by serializers as "Metal".
+    /// Encoded/decoded by serializers as "METL".
     /// </summary>
     [EnumMember(Value = "METL")]
     [IsoId("_n9PtcQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type metal.")]
-    Metal,
+    Metal = AssetClassProductTypeCode.Metal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType7Code
 public static class AssetClassProductType7CodeMetadataExtensions
 {
     private static readonly AssetClassProductType7CodeDropdownSource _dropdownSource = new AssetClassProductType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

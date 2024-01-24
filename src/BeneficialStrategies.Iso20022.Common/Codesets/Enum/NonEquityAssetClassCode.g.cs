@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9f_awHBYEeqTZuDtO9NgaQ")]
 [Description(@"Specifies the asset class of a non-equity financial instrument.")]
 [Derivations(typeof(NonEquityAssetClass1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonEquityAssetClassCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum NonEquityAssetClassCode
 public static class NonEquityAssetClassCodeMetadataExtensions
 {
     private static readonly NonEquityAssetClassCodeDropdownSource _dropdownSource = new NonEquityAssetClassCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

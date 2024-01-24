@@ -26,7 +26,7 @@ public enum ProrationType1Code
     [EnumMember(Value = "PRND")]
     [IsoId("_d7XV5jFsEeGKkIZzgd38VA")]
     [Description(@"Pro ration is not decided.")]
-    NotDecided,
+    NotDecided = ProrationTypeCode.NotDecided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pro ration is not used.
@@ -35,7 +35,7 @@ public enum ProrationType1Code
     [EnumMember(Value = "PRNU")]
     [IsoId("_DIpHtjVFEeGIoujPqYSZDw")]
     [Description(@"Pro ration is not used.")]
-    NotUsed,
+    NotUsed = ProrationTypeCode.NotUsed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ProrationType1Code
 public static class ProrationType1CodeMetadataExtensions
 {
     private static readonly ProrationType1CodeDropdownSource _dropdownSource = new ProrationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

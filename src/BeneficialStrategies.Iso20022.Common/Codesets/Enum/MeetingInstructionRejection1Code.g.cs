@@ -21,102 +21,102 @@ public enum MeetingInstructionRejection1Code
 {
     /// <summary>
     /// Instruction contains an invalid meeting reference.
-    /// Encoded/decoded by serializers as "InvalidMeetingReference".
+    /// Encoded/decoded by serializers as "INMR".
     /// </summary>
     [EnumMember(Value = "INMR")]
     [IsoId("_VpPeedp-Ed-ak6NoX_4Aeg_700506198")]
     [Description(@"Instruction contains an invalid meeting reference.")]
-    InvalidMeetingReference,
+    InvalidMeetingReference = MeetingInstructionRejectionCode.InvalidMeetingReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction contains an invalid account identification.
-    /// Encoded/decoded by serializers as "InvalidAccount".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_VpYoYNp-Ed-ak6NoX_4Aeg_704197272")]
     [Description(@"Instruction contains an invalid account identification.")]
-    InvalidAccount,
+    InvalidAccount = MeetingInstructionRejectionCode.InvalidAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Position is less than required threshold to be allowed to vote.
-    /// Encoded/decoded by serializers as "InsufficientSecurityPosition".
+    /// Encoded/decoded by serializers as "IPOS".
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_VpYoYdp-Ed-ak6NoX_4Aeg_1494487379")]
     [Description(@"Position is less than required threshold to be allowed to vote.")]
-    InsufficientSecurityPosition,
+    InsufficientSecurityPosition = MeetingInstructionRejectionCode.InsufficientSecurityPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction contains an invalid instructed quantity (eg the instructed quantity is greater than the entitlement).
-    /// Encoded/decoded by serializers as "InvalidInstructedQuantity".
+    /// Encoded/decoded by serializers as "INQY".
     /// </summary>
     [EnumMember(Value = "INQY")]
     [IsoId("_VpYoYtp-Ed-ak6NoX_4Aeg_714356552")]
     [Description(@"Instruction contains an invalid instructed quantity (eg the instructed quantity is greater than the entitlement).")]
-    InvalidInstructedQuantity,
+    InvalidInstructedQuantity = MeetingInstructionRejectionCode.InvalidInstructedQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction received after the specified deadline.
-    /// Encoded/decoded by serializers as "InvalidDate".
+    /// Encoded/decoded by serializers as "INDT".
     /// </summary>
     [EnumMember(Value = "INDT")]
     [IsoId("_VpYoY9p-Ed-ak6NoX_4Aeg_717129391")]
     [Description(@"Instruction received after the specified deadline.")]
-    InvalidDate,
+    InvalidDate = MeetingInstructionRejectionCode.InvalidDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Split voting is not allowed.
-    /// Encoded/decoded by serializers as "SplitVoteNotAllowed".
+    /// Encoded/decoded by serializers as "SPLT".
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_VpYoZNp-Ed-ak6NoX_4Aeg_1091710118")]
     [Description(@"Split voting is not allowed.")]
-    SplitVoteNotAllowed,
+    SplitVoteNotAllowed = MeetingInstructionRejectionCode.SplitVoteNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial voting is not allowed.
-    /// Encoded/decoded by serializers as "PartialVoteNotAllowed".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_VpYoZdp-Ed-ak6NoX_4Aeg_1122184465")]
     [Description(@"Partial voting is not allowed.")]
-    PartialVoteNotAllowed,
+    PartialVoteNotAllowed = MeetingInstructionRejectionCode.PartialVoteNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
+    /// Encoded/decoded by serializers as "IPOA".
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_VpYoZtp-Ed-ak6NoX_4Aeg_1349369580")]
     [Description(@"Missing or invalid power of attorney.")]
-    MissingOrInvalidPOA,
+    MissingOrInvalidPOA = MeetingInstructionRejectionCode.MissingOrInvalidPOA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid proxy information.
-    /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_VpYoZ9p-Ed-ak6NoX_4Aeg_1367840945")]
     [Description(@"Invalid proxy information.")]
-    ProxyCardDiscrepancy,
+    ProxyCardDiscrepancy = MeetingInstructionRejectionCode.ProxyCardDiscrepancy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer has rejected the instruction.
-    /// Encoded/decoded by serializers as "RejectedByIssuer".
+    /// Encoded/decoded by serializers as "RBIS".
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_VpYoaNp-Ed-ak6NoX_4Aeg_534839775")]
     [Description(@"Issuer has rejected the instruction.")]
-    RejectedByIssuer,
+    RejectedByIssuer = MeetingInstructionRejectionCode.RejectedByIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other errors.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VpYoadp-Ed-ak6NoX_4Aeg_1423253062")]
     [Description(@"Other errors.")]
-    Other,
+    Other = MeetingInstructionRejectionCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum MeetingInstructionRejection1Code
 public static class MeetingInstructionRejection1CodeMetadataExtensions
 {
     private static readonly MeetingInstructionRejection1CodeDropdownSource _dropdownSource = new MeetingInstructionRejection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

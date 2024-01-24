@@ -21,21 +21,21 @@ public enum TradingSession1Code
 {
     /// <summary>
     /// Orders that are traded in regularly occuring auctions: orders are accumulated and executed on basis of defined algorithms.
-    /// Encoded/decoded by serializers as "Auction".
+    /// Encoded/decoded by serializers as "AUCT".
     /// </summary>
     [EnumMember(Value = "AUCT")]
     [IsoId("_zdcnYw93EeGeV5vP7Mvdig_407428199")]
     [Description(@"Orders that are traded in regularly occuring auctions: orders are accumulated and executed on basis of defined algorithms.")]
-    Auction,
+    Auction = TradingSessionCode.Auction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading process where orders are executed directly against each others as they hit the marketplace.
-    /// Encoded/decoded by serializers as "Continuous".
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_zdcnZA93EeGeV5vP7Mvdig_574841635")]
     [Description(@"Trading process where orders are executed directly against each others as they hit the marketplace.")]
-    Continuous,
+    Continuous = TradingSessionCode.Continuous, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradingSession1Code
 public static class TradingSession1CodeMetadataExtensions
 {
     private static readonly TradingSession1CodeDropdownSource _dropdownSource = new TradingSession1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

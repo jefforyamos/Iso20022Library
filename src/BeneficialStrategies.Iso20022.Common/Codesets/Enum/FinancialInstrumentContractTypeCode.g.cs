@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9MdW8QOAEeWs3sTa9Sj6Lg")]
 [Description(@"Specifies the contract type of a derivative financial instrument.")]
 [Derivations(typeof(FinancialInstrumentContractType1Code),typeof(FinancialInstrumentContractType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentContractTypeCode
 {
     /// <summary>
@@ -49,53 +48,47 @@ public enum FinancialInstrumentContractTypeCode
     
     /// <summary>
     /// Contract of type forward.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "FORW".
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_L_Zm0AOBEeWs3sTa9Sj6Lg")]
-    [Description(@"Contract of type forward.  ")]
+    [Description(@"Contract of type forward.||")]
     Forward,
     
     /// <summary>
     /// Contract of type option.
-    /// 
     /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_NBv0oAOBEeWs3sTa9Sj6Lg")]
-    [Description(@"Contract of type option. ")]
+    [Description(@"Contract of type option.|")]
     Option,
     
     /// <summary>
     /// Contract of type swap.
-    /// 
     /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_OY7qAAOBEeWs3sTa9Sj6Lg")]
-    [Description(@"Contract of type swap. ")]
+    [Description(@"Contract of type swap.|")]
     Swap,
     
     /// <summary>
     /// Contract of type spread betting.
-    /// 
     /// Encoded/decoded by serializers as "SPDB".
     /// </summary>
     [EnumMember(Value = "SPDB")]
     [IsoId("_PdhTgAOBEeWs3sTa9Sj6Lg")]
-    [Description(@"Contract of type spread betting. ")]
+    [Description(@"Contract of type spread betting.|")]
     SpreadBetting,
     
     /// <summary>
     /// Contract of type swaption.
-    /// 
     /// Encoded/decoded by serializers as "SWPT".
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("_QjvUsAOBEeWs3sTa9Sj6Lg")]
-    [Description(@"Contract of type swaption. ")]
+    [Description(@"Contract of type swaption.|")]
     Swaption,
     
     /// <summary>
@@ -152,7 +145,7 @@ public enum FinancialInstrumentContractTypeCode
 public static class FinancialInstrumentContractTypeCodeMetadataExtensions
 {
     private static readonly FinancialInstrumentContractTypeCodeDropdownSource _dropdownSource = new FinancialInstrumentContractTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

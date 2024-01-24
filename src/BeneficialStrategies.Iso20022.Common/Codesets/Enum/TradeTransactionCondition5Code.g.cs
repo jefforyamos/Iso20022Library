@@ -21,21 +21,21 @@ public enum TradeTransactionCondition5Code
 {
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
-    /// Encoded/decoded by serializers as "ExCoupon".
+    /// Encoded/decoded by serializers as "XCPN".
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_iNUDEV-mEeavlvCtut5bgg")]
     [Description(@"Indicates whether the trade is executed ex coupon.")]
-    ExCoupon,
+    ExCoupon = TradeTransactionConditionCode.ExCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed cum coupon.
-    /// Encoded/decoded by serializers as "CumCoupon".
+    /// Encoded/decoded by serializers as "CCPN".
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_iYxsMV-mEeavlvCtut5bgg")]
     [Description(@"Indicates whether the trade is executed cum coupon.")]
-    CumCoupon,
+    CumCoupon = TradeTransactionConditionCode.CumCoupon, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradeTransactionCondition5Code
 public static class TradeTransactionCondition5CodeMetadataExtensions
 {
     private static readonly TradeTransactionCondition5CodeDropdownSource _dropdownSource = new TradeTransactionCondition5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,45 +16,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_TRd1mAEcEeCQm6a_G2yO_w_337823132")]
-[Description(@"Specifies the packaging type as published in an external packaging type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the packaging type as published in an external packaging type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalPackagingTypeCode))]
 public enum ExternalPackagingType1Code
 {
     /// <summary>
     /// Packaging is high density polyethylene.
-    /// Encoded/decoded by serializers as "HighDensityPolyethylene".
+    /// Encoded/decoded by serializers as "HDPE".
     /// </summary>
     [EnumMember(Value = "HDPE")]
     [IsoId("_uIlXS_RYEeuLhpyIdtJzwg")]
     [Description(@"Packaging is high density polyethylene.")]
-    HighDensityPolyethylene,
+    HighDensityPolyethylene = ExternalPackagingTypeCode.HighDensityPolyethylene, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Packaging is low density polyethylene.
-    /// Encoded/decoded by serializers as "LowDensityPolyethylene".
+    /// Encoded/decoded by serializers as "LDPE".
     /// </summary>
     [EnumMember(Value = "LDPE")]
     [IsoId("_uIlXTvRYEeuLhpyIdtJzwg")]
     [Description(@"Packaging is low density polyethylene.")]
-    LowDensityPolyethylene,
+    LowDensityPolyethylene = ExternalPackagingTypeCode.LowDensityPolyethylene, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Packaging is linear low density polyethylene.
-    /// Encoded/decoded by serializers as "LinearLowDensityPolyethylene".
+    /// Encoded/decoded by serializers as "LLDP".
     /// </summary>
     [EnumMember(Value = "LLDP")]
     [IsoId("_uIvIQvRYEeuLhpyIdtJzwg")]
     [Description(@"Packaging is linear low density polyethylene.")]
-    LinearLowDensityPolyethylene,
+    LinearLowDensityPolyethylene = ExternalPackagingTypeCode.LinearLowDensityPolyethylene, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other packaging type not otherwise specified.
-    /// Encoded/decoded by serializers as "OtherPackagingType".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uIvIRfRYEeuLhpyIdtJzwg")]
     [Description(@"Other packaging type not otherwise specified.")]
-    OtherPackagingType,
+    OtherPackagingType = ExternalPackagingTypeCode.OtherPackagingType, // same ordinal as derivation source for type conversions
     
 }
 
@@ -65,7 +65,7 @@ public enum ExternalPackagingType1Code
 public static class ExternalPackagingType1CodeMetadataExtensions
 {
     private static readonly ExternalPackagingType1CodeDropdownSource _dropdownSource = new ExternalPackagingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

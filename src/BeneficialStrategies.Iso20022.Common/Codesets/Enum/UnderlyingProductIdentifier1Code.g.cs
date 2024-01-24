@@ -21,39 +21,39 @@ public enum UnderlyingProductIdentifier1Code
 {
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange Forward.
-    /// Encoded/decoded by serializers as "ForeignExchangeForward".
+    /// Encoded/decoded by serializers as "FORW".
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_iRz_kSjvEeK1Sbo8NpBROA")]
     [Description(@"Underlying product type of the transaction is a Foreign Exchange Forward.")]
-    ForeignExchangeForward,
+    ForeignExchangeForward = UnderlyingProductIdentifierCode.ForeignExchangeForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange Non Deliverable Forward.
-    /// Encoded/decoded by serializers as "ForeignExchangeNonDeliverableForward".
+    /// Encoded/decoded by serializers as "NDFO".
     /// </summary>
     [EnumMember(Value = "NDFO")]
     [IsoId("_iWttsSjvEeK1Sbo8NpBROA")]
     [Description(@"Underlying product type of the transaction is a Foreign Exchange Non Deliverable Forward.")]
-    ForeignExchangeNonDeliverableForward,
+    ForeignExchangeNonDeliverableForward = UnderlyingProductIdentifierCode.ForeignExchangeNonDeliverableForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying product type of the transaction is Foreign Exchange Spot.
-    /// Encoded/decoded by serializers as "ForeignExchangeSpot".
+    /// Encoded/decoded by serializers as "SPOT".
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_ibYyUSjvEeK1Sbo8NpBROA")]
     [Description(@"Underlying product type of the transaction is Foreign Exchange Spot.")]
-    ForeignExchangeSpot,
+    ForeignExchangeSpot = UnderlyingProductIdentifierCode.ForeignExchangeSpot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange SWAP.
-    /// Encoded/decoded by serializers as "ForeignExchangeSWAP".
+    /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_ij84cSjvEeK1Sbo8NpBROA")]
     [Description(@"Underlying product type of the transaction is a Foreign Exchange SWAP.")]
-    ForeignExchangeSWAP,
+    ForeignExchangeSWAP = UnderlyingProductIdentifierCode.ForeignExchangeSWAP, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UnderlyingProductIdentifier1Code
 public static class UnderlyingProductIdentifier1CodeMetadataExtensions
 {
     private static readonly UnderlyingProductIdentifier1CodeDropdownSource _dropdownSource = new UnderlyingProductIdentifier1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

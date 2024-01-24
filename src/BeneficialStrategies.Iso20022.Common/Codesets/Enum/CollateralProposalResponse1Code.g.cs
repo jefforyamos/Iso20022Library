@@ -21,21 +21,21 @@ public enum CollateralProposalResponse1Code
 {
     /// <summary>
     /// Indicates that the collateral proposal response is an initial proposal.
-    /// Encoded/decoded by serializers as "InitialProposal".
+    /// Encoded/decoded by serializers as "INPR".
     /// </summary>
     [EnumMember(Value = "INPR")]
     [IsoId("_YbwCVNp-Ed-ak6NoX_4Aeg_542981423")]
     [Description(@"Indicates that the collateral proposal response is an initial proposal.")]
-    InitialProposal,
+    InitialProposal = CollateralProposalResponseCode.InitialProposal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the collateral proposal response is a counter proposal.
-    /// Encoded/decoded by serializers as "CounterProposal".
+    /// Encoded/decoded by serializers as "COPR".
     /// </summary>
     [EnumMember(Value = "COPR")]
     [IsoId("_YbwCVdp-Ed-ak6NoX_4Aeg_531882646")]
     [Description(@"Indicates that the collateral proposal response is a counter proposal.")]
-    CounterProposal,
+    CounterProposal = CollateralProposalResponseCode.CounterProposal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralProposalResponse1Code
 public static class CollateralProposalResponse1CodeMetadataExtensions
 {
     private static readonly CollateralProposalResponse1CodeDropdownSource _dropdownSource = new CollateralProposalResponse1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

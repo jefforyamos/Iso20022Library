@@ -21,21 +21,21 @@ public enum EventWorkflowStatus2Code
 {
     /// <summary>
     /// Announcement record has been deleted/ removed as an invalid record.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "WSDE".
     /// </summary>
     [EnumMember(Value = "WSDE")]
     [IsoId("_1ygnJDL3EeKU9IrkkToqcw_-651436427")]
     [Description(@"Announcement record has been deleted/ removed as an invalid record.")]
-    Deleted,
+    Deleted = EventWorkflowStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation has determined event is being cancelled by the issuer/offeror. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "WSCN".
     /// </summary>
     [EnumMember(Value = "WSCN")]
     [IsoId("_1ygnJTL3EeKU9IrkkToqcw_-1341432055")]
     [Description(@"Validation has determined event is being cancelled by the issuer/offeror. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.")]
-    Cancelled,
+    Cancelled = EventWorkflowStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EventWorkflowStatus2Code
 public static class EventWorkflowStatus2CodeMetadataExtensions
 {
     private static readonly EventWorkflowStatus2CodeDropdownSource _dropdownSource = new EventWorkflowStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

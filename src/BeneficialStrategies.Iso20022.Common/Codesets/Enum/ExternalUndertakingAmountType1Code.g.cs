@@ -16,27 +16,27 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MhZAm7iEeKo25nLKvGr8w_-1404704925")]
-[Description(@"Specifies the external undertaking amount type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external undertaking amount type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUndertakingAmountTypeCode))]
 public enum ExternalUndertakingAmountType1Code
 {
     /// <summary>
     /// Amount is an increase.
-    /// Encoded/decoded by serializers as "Increase".
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_uQxp-_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount is an increase.")]
-    Increase,
+    Increase = ExternalUndertakingAmountTypeCode.Increase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount is a reduction.
-    /// Encoded/decoded by serializers as "Reduction".
+    /// Encoded/decoded by serializers as "REDC".
     /// </summary>
     [EnumMember(Value = "REDC")]
     [IsoId("_uQ7a8vRYEeuLhpyIdtJzwg")]
     [Description(@"Amount is a reduction.")]
-    Reduction,
+    Reduction = ExternalUndertakingAmountTypeCode.Reduction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +47,7 @@ public enum ExternalUndertakingAmountType1Code
 public static class ExternalUndertakingAmountType1CodeMetadataExtensions
 {
     private static readonly ExternalUndertakingAmountType1CodeDropdownSource _dropdownSource = new ExternalUndertakingAmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

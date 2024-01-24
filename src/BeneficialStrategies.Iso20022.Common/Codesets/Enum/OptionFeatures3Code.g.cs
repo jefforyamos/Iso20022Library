@@ -21,102 +21,102 @@ public enum OptionFeatures3Code
 {
     /// <summary>
     /// Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.
-    /// Encoded/decoded by serializers as "OptionApplicability".
+    /// Encoded/decoded by serializers as "CAOS".
     /// </summary>
     [EnumMember(Value = "CAOS")]
     [IsoId("_q5HiMWtdEeCY4-KZ9JEyUQ_-1152865500")]
     [Description(@"Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.")]
-    OptionApplicability,
+    OptionApplicability = OptionFeaturesCode.OptionApplicability, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
-    /// Encoded/decoded by serializers as "Conditional".
+    /// Encoded/decoded by serializers as "COND".
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_q5HiMmtdEeCY4-KZ9JEyUQ_1881015850")]
     [Description(@"Feature whereby the holder can elect to place a condition on the acceptance of the option.")]
-    Conditional,
+    Conditional = OptionFeaturesCode.Conditional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
-    /// Encoded/decoded by serializers as "MaximumCash".
+    /// Encoded/decoded by serializers as "MAXC".
     /// </summary>
     [EnumMember(Value = "MAXC")]
     [IsoId("_q5HiM2tdEeCY4-KZ9JEyUQ_1245984004")]
     [Description(@"Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.")]
-    MaximumCash,
+    MaximumCash = OptionFeaturesCode.MaximumCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
-    /// Encoded/decoded by serializers as "MaximumSecurities".
+    /// Encoded/decoded by serializers as "MAXS".
     /// </summary>
     [EnumMember(Value = "MAXS")]
     [IsoId("_q5HiNGtdEeCY4-KZ9JEyUQ_-1970962954")]
     [Description(@"Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.")]
-    MaximumSecurities,
+    MaximumSecurities = OptionFeaturesCode.MaximumSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OddLotPreference".
+    /// Encoded/decoded by serializers as "OPLF".
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_q5HiNWtdEeCY4-KZ9JEyUQ_1326931989")]
     [Description(@"Tender or exchange with the odd lot preference.")]
-    OddLotPreference,
+    OddLotPreference = OptionFeaturesCode.OddLotPreference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
-    /// Encoded/decoded by serializers as "Proration".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_q5HiNmtdEeCY4-KZ9JEyUQ_-613151998")]
     [Description(@"Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.")]
-    Proration,
+    Proration = OptionFeaturesCode.Proration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder can elect a quantity to receive over and above normal ensured entitlement.
-    /// Encoded/decoded by serializers as "OverAndAbove".
+    /// Encoded/decoded by serializers as "QOVE".
     /// </summary>
     [EnumMember(Value = "QOVE")]
     [IsoId("_q5RTMGtdEeCY4-KZ9JEyUQ_1531268425")]
     [Description(@"Feature whereby the holder can elect a quantity to receive over and above normal ensured entitlement.")]
-    OverAndAbove,
+    OverAndAbove = OptionFeaturesCode.OverAndAbove, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder can elect a quantity to receive.
-    /// Encoded/decoded by serializers as "QuantityToReceive".
+    /// Encoded/decoded by serializers as "QREC".
     /// </summary>
     [EnumMember(Value = "QREC")]
     [IsoId("_q5RTMWtdEeCY4-KZ9JEyUQ_534196072")]
     [Description(@"Feature whereby the holder can elect a quantity to receive.")]
-    QuantityToReceive,
+    QuantityToReceive = OptionFeaturesCode.QuantityToReceive, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reduced withholding tax rate applies to the option.
-    /// Encoded/decoded by serializers as "ReducedWithholdingTax".
+    /// Encoded/decoded by serializers as "VVPR".
     /// </summary>
     [EnumMember(Value = "VVPR")]
     [IsoId("_q5RTMmtdEeCY4-KZ9JEyUQ_-2002933718")]
     [Description(@"Reduced withholding tax rate applies to the option.")]
-    ReducedWithholdingTax,
+    ReducedWithholdingTax = OptionFeaturesCode.ReducedWithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).
-    /// Encoded/decoded by serializers as "NoServiceOffered".
+    /// Encoded/decoded by serializers as "NOSE".
     /// </summary>
     [EnumMember(Value = "NOSE")]
     [IsoId("_q5RTM2tdEeCY4-KZ9JEyUQ_-2014032495")]
     [Description(@"Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).")]
-    NoServiceOffered,
+    NoServiceOffered = OptionFeaturesCode.NoServiceOffered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.
-    /// Encoded/decoded by serializers as "PreviousInstructionInvalidity".
+    /// Encoded/decoded by serializers as "PINS".
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_q5RTNGtdEeCY4-KZ9JEyUQ_1283862448")]
     [Description(@"Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.")]
-    PreviousInstructionInvalidity,
+    PreviousInstructionInvalidity = OptionFeaturesCode.PreviousInstructionInvalidity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum OptionFeatures3Code
 public static class OptionFeatures3CodeMetadataExtensions
 {
     private static readonly OptionFeatures3CodeDropdownSource _dropdownSource = new OptionFeatures3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

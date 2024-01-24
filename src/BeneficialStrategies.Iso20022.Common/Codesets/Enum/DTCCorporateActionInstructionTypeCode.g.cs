@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_12ZBkjL3EeKU9IrkkToqcw_1778386754")]
 [Description(@"Specifies the type of the corporate action instruction.")]
 [Derivations(typeof(DTCCorporateActionInstructionType1Code),typeof(DTCCorporateActionInstructionType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCCorporateActionInstructionTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum DTCCorporateActionInstructionTypeCode
 public static class DTCCorporateActionInstructionTypeCodeMetadataExtensions
 {
     private static readonly DTCCorporateActionInstructionTypeCodeDropdownSource _dropdownSource = new DTCCorporateActionInstructionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

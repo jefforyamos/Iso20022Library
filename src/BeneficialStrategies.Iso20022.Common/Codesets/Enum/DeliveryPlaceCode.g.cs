@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_azANldp-Ed-ak6NoX_4Aeg_-684562382")]
 [Description(@"Specifies the place of delivery.")]
 [Derivations(typeof(DeliveryPlace1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeliveryPlaceCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum DeliveryPlaceCode
 public static class DeliveryPlaceCodeMetadataExtensions
 {
     private static readonly DeliveryPlaceCodeDropdownSource _dropdownSource = new DeliveryPlaceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

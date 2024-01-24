@@ -21,21 +21,21 @@ public enum AmountUnit1Code
 {
     /// <summary>
     /// The amount is expressed in a monetary value in a currency.
-    /// Encoded/decoded by serializers as "Monetary".
+    /// Encoded/decoded by serializers as "MONE".
     /// </summary>
     [EnumMember(Value = "MONE")]
     [IsoId("_lOTp0dtlEeipuvJHTHIw9A")]
     [Description(@"The amount is expressed in a monetary value in a currency.")]
-    Monetary,
+    Monetary = AmountUnitCode.Monetary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The amount is expressed in point.
-    /// Encoded/decoded by serializers as "Point".
+    /// Encoded/decoded by serializers as "POIN".
     /// </summary>
     [EnumMember(Value = "POIN")]
     [IsoId("_lSlF0dtlEeipuvJHTHIw9A")]
     [Description(@"The amount is expressed in point.")]
-    Point,
+    Point = AmountUnitCode.Point, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AmountUnit1Code
 public static class AmountUnit1CodeMetadataExtensions
 {
     private static readonly AmountUnit1CodeDropdownSource _dropdownSource = new AmountUnit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

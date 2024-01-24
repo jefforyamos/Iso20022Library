@@ -21,39 +21,39 @@ public enum TMSContactLevel2Code
 {
     /// <summary>
     /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
-    /// Encoded/decoded by serializers as "AsSoonAsPossible".
+    /// Encoded/decoded by serializers as "ASAP".
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_fZ92gYqKEeSRT5rEzcAHEw")]
     [Description(@"Terminal management system has to be contacted as soon as possible (for example after reconciliation).")]
-    AsSoonAsPossible,
+    AsSoonAsPossible = TMSContactLevelCode.AsSoonAsPossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal management system has to be contacted before the next transaction.
-    /// Encoded/decoded by serializers as "Critical".
+    /// Encoded/decoded by serializers as "CRIT".
     /// </summary>
     [EnumMember(Value = "CRIT")]
     [IsoId("_feJL4YqKEeSRT5rEzcAHEw")]
     [Description(@"Terminal management system has to be contacted before the next transaction.")]
-    Critical,
+    Critical = TMSContactLevelCode.Critical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal management system has to be contacted at the date and time provided.
-    /// Encoded/decoded by serializers as "DateTime".
+    /// Encoded/decoded by serializers as "DTIM".
     /// </summary>
     [EnumMember(Value = "DTIM")]
     [IsoId("_fidrMYqKEeSRT5rEzcAHEw")]
     [Description(@"Terminal management system has to be contacted at the date and time provided.")]
-    DateTime,
+    DateTime = TMSContactLevelCode.DateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// After the end of the customer session.
-    /// Encoded/decoded by serializers as "EndCustomerSession".
+    /// Encoded/decoded by serializers as "ENCS".
     /// </summary>
     [EnumMember(Value = "ENCS")]
     [IsoId("_fn1TYYqKEeSRT5rEzcAHEw")]
     [Description(@"After the end of the customer session.")]
-    EndCustomerSession,
+    EndCustomerSession = TMSContactLevelCode.EndCustomerSession, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TMSContactLevel2Code
 public static class TMSContactLevel2CodeMetadataExtensions
 {
     private static readonly TMSContactLevel2CodeDropdownSource _dropdownSource = new TMSContactLevel2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

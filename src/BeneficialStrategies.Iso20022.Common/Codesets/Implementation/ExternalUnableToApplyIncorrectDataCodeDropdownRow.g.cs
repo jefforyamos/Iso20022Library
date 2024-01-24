@@ -11,7 +11,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.
 /// External code sets can be downloaded from www.iso20022.org.
-/// 
 /// Provides values to be used in dropdown select lists and validation logic as instanced by <seealso cref="ExternalUnableToApplyIncorrectDataCodeDropdownSource"/>.
 /// Implements <seealso cref="IExternalUnableToApplyIncorrectDataCodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
@@ -21,7 +20,6 @@ public partial class ExternalUnableToApplyIncorrectDataCodeDropdownRow : EnumMet
     /// <summary>
     /// Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.
     /// External code sets can be downloaded from www.iso20022.org.
-    /// 
     /// Constructs row state using the specified enum value and reflected values.
     /// </summary>
     /// <param name="value">Enum value for this row.</param>

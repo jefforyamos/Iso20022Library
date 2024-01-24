@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YytJwtp-Ed-ak6NoX_4Aeg_850953552")]
 [Description(@"Specifies the type of price and information about the price.")]
-[Derivations(typeof(TypeOfPrice6Code),typeof(TypeOfPrice8Code),typeof(TypeOfPrice9Code),typeof(TypeOfPrice2Code),typeof(TypeOfPrice12Code),typeof(TypeOfPrice14Code),typeof(TypeOfPrice11Code),typeof(TypeOfPrice5Code),typeof(TypeOfPrice16Code),typeof(TypeOfPrice1Code),typeof(TypeOfPrice3Code),typeof(TypeOfPrice7Code),typeof(TypeOfPrice10Code),typeof(TypeOfPrice30Code),typeof(TypeOfPrice13Code),typeof(TypeOfPrice15Code),typeof(TypeOfPrice17Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TypeOfPrice6Code),typeof(TypeOfPrice11Code),typeof(TypeOfPrice10Code),typeof(TypeOfPrice17Code),typeof(TypeOfPrice7Code),typeof(TypeOfPrice13Code),typeof(TypeOfPrice8Code),typeof(TypeOfPrice5Code),typeof(TypeOfPrice2Code),typeof(TypeOfPrice30Code),typeof(TypeOfPrice12Code),typeof(TypeOfPrice1Code),typeof(TypeOfPrice14Code),typeof(TypeOfPrice16Code),typeof(TypeOfPrice15Code),typeof(TypeOfPrice3Code),typeof(TypeOfPrice9Code))]
 public enum TypeOfPriceCode
 {
     /// <summary>
@@ -479,7 +478,7 @@ public enum TypeOfPriceCode
 public static class TypeOfPriceCodeMetadataExtensions
 {
     private static readonly TypeOfPriceCodeDropdownSource _dropdownSource = new TypeOfPriceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

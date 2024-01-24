@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_afCIuNp-Ed-ak6NoX_4Aeg_336256712")]
 [Description(@"Specifies the market and statistic conditions upon which a liquidity indicator has been computed.")]
 [Derivations(typeof(LiquidityIndicatorType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LiquidityIndicatorTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum LiquidityIndicatorTypeCode
 public static class LiquidityIndicatorTypeCodeMetadataExtensions
 {
     private static readonly LiquidityIndicatorTypeCodeDropdownSource _dropdownSource = new LiquidityIndicatorTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

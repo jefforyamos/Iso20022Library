@@ -21,21 +21,21 @@ public enum DTCProtectInstructionStatus3Code
 {
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PendingApproval".
+    /// Encoded/decoded by serializers as "PENA".
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_DAg5Me2MEeiWtrflKsFqHg")]
     [Description(@"Instruction pending release or delete from approval function.")]
-    PendingApproval,
+    PendingApproval = DTCInstructionStatusCode.PendingApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_DAg5M-2MEeiWtrflKsFqHg")]
     [Description(@"Client instruction withdrawn for events with withdrawal privilege.")]
-    Withdrawn,
+    Withdrawn = DTCInstructionStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCProtectInstructionStatus3Code
 public static class DTCProtectInstructionStatus3CodeMetadataExtensions
 {
     private static readonly DTCProtectInstructionStatus3CodeDropdownSource _dropdownSource = new DTCProtectInstructionStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

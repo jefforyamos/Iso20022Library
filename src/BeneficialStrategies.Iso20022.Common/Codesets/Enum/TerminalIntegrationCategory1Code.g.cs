@@ -21,30 +21,30 @@ public enum TerminalIntegrationCategory1Code
 {
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "MultiplePOITerminal".
+    /// Encoded/decoded by serializers as "MPOI".
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_hundoWXPEem9Y55YJ70L8g")]
     [Description(@"Multiple terminals linked to a unique sale terminal.")]
-    MultiplePOITerminal,
+    MultiplePOITerminal = TerminalIntegrationCategoryCode.MultiplePOITerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
-    /// Encoded/decoded by serializers as "MultipleSaleTerminal".
+    /// Encoded/decoded by serializers as "MSLE".
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_jFUx4WXPEem9Y55YJ70L8g")]
     [Description(@"Terminal serving multiple sale terminals.")]
-    MultipleSaleTerminal,
+    MultipleSaleTerminal = TerminalIntegrationCategoryCode.MultipleSaleTerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "SingleSaleTerminal".
+    /// Encoded/decoded by serializers as "SSLE".
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_jfLcUWXPEem9Y55YJ70L8g")]
     [Description(@"Terminal linked to a unique sale terminal.")]
-    SingleSaleTerminal,
+    SingleSaleTerminal = TerminalIntegrationCategoryCode.SingleSaleTerminal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TerminalIntegrationCategory1Code
 public static class TerminalIntegrationCategory1CodeMetadataExtensions
 {
     private static readonly TerminalIntegrationCategory1CodeDropdownSource _dropdownSource = new TerminalIntegrationCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum ReportItemStatus1Code
 {
     /// <summary>
     /// Entry has been accepted by the receiver of the report.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPD".
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_VMcTwUi5EeSlHoYg_EudVQ")]
     [Description(@"Entry has been accepted by the receiver of the report.")]
-    Accepted,
+    Accepted = ReportItemStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entry has been rejected by the receiver of the report.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_VbdnMUi5EeSlHoYg_EudVQ")]
     [Description(@"Entry has been rejected by the receiver of the report.")]
-    Rejected,
+    Rejected = ReportItemStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReportItemStatus1Code
 public static class ReportItemStatus1CodeMetadataExtensions
 {
     private static readonly ReportItemStatus1CodeDropdownSource _dropdownSource = new ReportItemStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

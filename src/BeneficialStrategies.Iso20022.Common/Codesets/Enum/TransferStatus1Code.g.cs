@@ -21,66 +21,66 @@ public enum TransferStatus1Code
 {
     /// <summary>
     /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_Ve9hFdp-Ed-ak6NoX_4Aeg_670907080")]
     [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = TransferStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_Ve9hFtp-Ed-ak6NoX_4Aeg_966433169")]
     [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = TransferStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MACH".
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_Ve9hF9p-Ed-ak6NoX_4Aeg_1070790523")]
     [Description(@"Transfer or settlement instruction is matched.")]
-    Matched,
+    Matched = TransferStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is fully executed and the confirmation is sent.
-    /// Encoded/decoded by serializers as "AlreadyExecuted".
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_Ve9hGNp-Ed-ak6NoX_4Aeg_1114195595")]
     [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
-    AlreadyExecuted,
+    AlreadyExecuted = TransferStatusCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer cancellation instruction or settlement cancellation instruction is pending.
-    /// Encoded/decoded by serializers as "CancellationPending".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_VfGrANp-Ed-ak6NoX_4Aeg_1812559642")]
     [Description(@"Transfer cancellation instruction or settlement cancellation instruction is pending.")]
-    CancellationPending,
+    CancellationPending = TransferStatusCode.CancellationPending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.
-    /// Encoded/decoded by serializers as "Reversed".
+    /// Encoded/decoded by serializers as "RVSD".
     /// </summary>
     [EnumMember(Value = "RVSD")]
     [IsoId("_VfGrAdp-Ed-ak6NoX_4Aeg_-1711269451")]
     [Description(@"Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.")]
-    Reversed,
+    Reversed = TransferStatusCode.Reversed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_VfGrAtp-Ed-ak6NoX_4Aeg_287637623")]
     [Description(@"Transfer or settlement instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = TransferStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TransferStatus1Code
 public static class TransferStatus1CodeMetadataExtensions
 {
     private static readonly TransferStatus1CodeDropdownSource _dropdownSource = new TransferStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

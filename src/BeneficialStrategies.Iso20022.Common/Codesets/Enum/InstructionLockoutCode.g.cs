@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oFf1TL3EeKU9IrkkToqcw_-1695680614")]
 [Description(@"Specifies status of the instruction lock (for elections).")]
 [Derivations(typeof(InstructionLockout1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstructionLockoutCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InstructionLockoutCode
 public static class InstructionLockoutCodeMetadataExtensions
 {
     private static readonly InstructionLockoutCodeDropdownSource _dropdownSource = new InstructionLockoutCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

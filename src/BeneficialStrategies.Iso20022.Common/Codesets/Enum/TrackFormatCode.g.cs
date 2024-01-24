@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Ug3jsNkWEeiojJsa6FYyew")]
 [Description(@"Card and check track format.")]
 [Derivations(typeof(TrackFormat1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackFormatCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum TrackFormatCode
 public static class TrackFormatCodeMetadataExtensions
 {
     private static readonly TrackFormatCodeDropdownSource _dropdownSource = new TrackFormatCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

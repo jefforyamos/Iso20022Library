@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZTCPpdp-Ed-ak6NoX_4Aeg_613407085")]
 [Description(@"Specifies the nature of the report, ie, standard or proprietary.")]
 [Derivations(typeof(ReportIndicator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReportIndicatorCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ReportIndicatorCode
 public static class ReportIndicatorCodeMetadataExtensions
 {
     private static readonly ReportIndicatorCodeDropdownSource _dropdownSource = new ReportIndicatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TweHIFDdEeu8Rss-tto59A")]
 [Description(@"Location category code of the place where the merchant actually performed the transaction.")]
 [Derivations(typeof(LocationCategory4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LocationCategoryV2Code
 {
     /// <summary>
@@ -27,7 +26,7 @@ public enum LocationCategoryV2Code
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_h8FRTVDdEeu8Rss-tto59A")]
-    [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane, taxi, etc).")]
+    [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,|taxi, etc).")]
     Aboard,
     
     /// <summary>
@@ -100,7 +99,7 @@ public enum LocationCategoryV2Code
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_h8PCQ1DdEeu8Rss-tto59A")]
-    [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or sport events, home delivery, food truck).")]
+    [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or|sport events, home delivery, food truck).")]
     Nomadic,
     
     /// <summary>
@@ -148,7 +147,7 @@ public enum LocationCategoryV2Code
 public static class LocationCategoryV2CodeMetadataExtensions
 {
     private static readonly LocationCategoryV2CodeDropdownSource _dropdownSource = new LocationCategoryV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

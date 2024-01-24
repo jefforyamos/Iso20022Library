@@ -21,30 +21,30 @@ public enum TerminalManagementAction3Code
 {
     /// <summary>
     /// Request to create or add the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "Create".
+    /// Encoded/decoded by serializers as "CREA".
     /// </summary>
     [EnumMember(Value = "CREA")]
     [IsoId("_r33vIY34EeWRwov1g9WL_A")]
     [Description(@"Request to create or add the element identified inside the message exchange.")]
-    Create,
+    Create = TerminalManagementActionCode.Create, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to delete the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "Delete".
+    /// Encoded/decoded by serializers as "DELT".
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_sBQUoY34EeWRwov1g9WL_A")]
     [Description(@"Request to delete the element identified inside the message exchange.")]
-    Delete,
+    Delete = TerminalManagementActionCode.Delete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to update the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "Update".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_sMIu8Y34EeWRwov1g9WL_A")]
     [Description(@"Request to update the element identified inside the message exchange.")]
-    Update,
+    Update = TerminalManagementActionCode.Update, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TerminalManagementAction3Code
 public static class TerminalManagementAction3CodeMetadataExtensions
 {
     private static readonly TerminalManagementAction3CodeDropdownSource _dropdownSource = new TerminalManagementAction3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

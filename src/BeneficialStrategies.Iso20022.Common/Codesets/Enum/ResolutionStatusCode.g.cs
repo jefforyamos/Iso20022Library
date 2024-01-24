@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZU0_aNp-Ed-ak6NoX_4Aeg_1388201869")]
 [Description(@"Specifies the status of a resolution in a meeting agenda.")]
 [Derivations(typeof(ResolutionStatus1Code),typeof(ResolutionStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResolutionStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ResolutionStatusCode
 public static class ResolutionStatusCodeMetadataExtensions
 {
     private static readonly ResolutionStatusCodeDropdownSource _dropdownSource = new ResolutionStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

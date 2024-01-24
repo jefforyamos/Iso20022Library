@@ -21,30 +21,30 @@ public enum Quantity2Code
 {
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "AllSecurities".
+    /// Encoded/decoded by serializers as "QALL".
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_ZXgf8Np-Ed-ak6NoX_4Aeg_274124253")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    AllSecurities,
+    AllSecurities = QuantityCode.AllSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZXgf8dp-Ed-ak6NoX_4Aeg_391412322")]
     [Description(@"Quantity has not been established.")]
-    Open,
+    Open = QuantityCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UnknownQuantity".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZXgf8tp-Ed-ak6NoX_4Aeg_678624841")]
     [Description(@"Quantity is unknown by the sender or has not been established.")]
-    UnknownQuantity,
+    UnknownQuantity = QuantityCode.UnknownQuantity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Quantity2Code
 public static class Quantity2CodeMetadataExtensions
 {
     private static readonly Quantity2CodeDropdownSource _dropdownSource = new Quantity2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_adi6-Np-Ed-ak6NoX_4Aeg_277587694")]
 [Description(@"Specifies the type of the current year ISA.")]
 [Derivations(typeof(ISAType1Code),typeof(ISAType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ISATypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ISATypeCode
 public static class ISATypeCodeMetadataExtensions
 {
     private static readonly ISATypeCodeDropdownSource _dropdownSource = new ISATypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

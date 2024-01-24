@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YiBCZNp-Ed-ak6NoX_4Aeg_14926888")]
 [Description(@"Specifies the tax role capacity of the instructing party.")]
 [Derivations(typeof(TaxLiability1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxLiabilityCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TaxLiabilityCode
 public static class TaxLiabilityCodeMetadataExtensions
 {
     private static readonly TaxLiabilityCodeDropdownSource _dropdownSource = new TaxLiabilityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

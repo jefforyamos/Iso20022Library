@@ -21,57 +21,57 @@ public enum AssetClassDetailedSubProductType31Code
 {
     /// <summary>
     /// Commodity attribute of type GASPOOL.
-    /// Encoded/decoded by serializers as "GasPool".
+    /// Encoded/decoded by serializers as "GASP".
     /// </summary>
     [EnumMember(Value = "GASP")]
     [IsoId("_sTWoAbv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type GASPOOL.")]
-    GasPool,
+    GasPool = AssetClassDetailedSubProductTypeCode.GasPool, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type liquid natural gas.
-    /// Encoded/decoded by serializers as "LNG".
+    /// Encoded/decoded by serializers as "LNGG".
     /// </summary>
     [EnumMember(Value = "LNGG")]
     [IsoId("_sTWoA7v3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type liquid natural gas.")]
-    LNG,
+    LNG = AssetClassDetailedSubProductTypeCode.LNG, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type NCG (NetConnect Germany).
-    /// Encoded/decoded by serializers as "NCG".
+    /// Encoded/decoded by serializers as "NCGG".
     /// </summary>
     [EnumMember(Value = "NCGG")]
     [IsoId("_sTWoBbv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type NCG (NetConnect Germany).")]
-    NCG,
+    NCG = AssetClassDetailedSubProductTypeCode.NCG, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type TTF (Dutch Title Transfer Facility).
-    /// Encoded/decoded by serializers as "TTF".
+    /// Encoded/decoded by serializers as "TTFG".
     /// </summary>
     [EnumMember(Value = "TTFG")]
     [IsoId("_sTWoB7v3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type TTF (Dutch Title Transfer Facility).")]
-    TTF,
+    TTF = AssetClassDetailedSubProductTypeCode.TTF, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type NBP (National Balancing Point).
-    /// Encoded/decoded by serializers as "NBP".
+    /// Encoded/decoded by serializers as "NBPG".
     /// </summary>
     [EnumMember(Value = "NBPG")]
     [IsoId("_sTWoCbv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type NBP (National Balancing Point).")]
-    NBP,
+    NBP = AssetClassDetailedSubProductTypeCode.NBP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ubxtEbv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AssetClassDetailedSubProductType31Code
 public static class AssetClassDetailedSubProductType31CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType31CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType31CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

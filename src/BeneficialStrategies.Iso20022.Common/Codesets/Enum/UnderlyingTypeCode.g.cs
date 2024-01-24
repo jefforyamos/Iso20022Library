@@ -216,7 +216,7 @@ public enum UnderlyingTypeCode
 public static class UnderlyingTypeCodeMetadataExtensions
 {
     private static readonly UnderlyingTypeCodeDropdownSource _dropdownSource = new UnderlyingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

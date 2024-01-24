@@ -21,66 +21,66 @@ public enum TradingCapacity6Code
 {
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("__zaK9dojEeC60axPepSq7g_946389513")]
     [Description(@"Trading as Agent on behalf of a customer.")]
-    Agent,
+    Agent = TradingCapacityCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting as an agent for both customer and another person.
-    /// Encoded/decoded by serializers as "ActingAgent".
+    /// Encoded/decoded by serializers as "BAGN".
     /// </summary>
     [EnumMember(Value = "BAGN")]
     [IsoId("__zaK9tojEeC60axPepSq7g_-729579691")]
     [Description(@"Party acting as an agent for both customer and another person.")]
-    ActingAgent,
+    ActingAgent = TradingCapacityCode.ActingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Crossing as an agent.
-    /// Encoded/decoded by serializers as "CrossingAgent".
+    /// Encoded/decoded by serializers as "CAGN".
     /// </summary>
     [EnumMember(Value = "CAGN")]
     [IsoId("__zj78NojEeC60axPepSq7g_-1990766827")]
     [Description(@"Crossing as an agent.")]
-    CrossingAgent,
+    CrossingAgent = TradingCapacityCode.CrossingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Crossing as a principal.
-    /// Encoded/decoded by serializers as "CrossingPrincipal".
+    /// Encoded/decoded by serializers as "CPRN".
     /// </summary>
     [EnumMember(Value = "CPRN")]
     [IsoId("__zj78dojEeC60axPepSq7g_1386150177")]
     [Description(@"Crossing as a principal.")]
-    CrossingPrincipal,
+    CrossingPrincipal = TradingCapacityCode.CrossingPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acting as an agent for a party other than a customer.
-    /// Encoded/decoded by serializers as "OtherAgent".
+    /// Encoded/decoded by serializers as "OAGN".
     /// </summary>
     [EnumMember(Value = "OAGN")]
     [IsoId("__zj78tojEeC60axPepSq7g_1420967182")]
     [Description(@"Acting as an agent for a party other than a customer.")]
-    OtherAgent,
+    OtherAgent = TradingCapacityCode.OtherAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acting as an agent for some executions and principal for others in the same transaction.
-    /// Encoded/decoded by serializers as "PrincipalAgent".
+    /// Encoded/decoded by serializers as "PRAG".
     /// </summary>
     [EnumMember(Value = "PRAG")]
     [IsoId("__zj789ojEeC60axPepSq7g_153653596")]
     [Description(@"Acting as an agent for some executions and principal for others in the same transaction.")]
-    PrincipalAgent,
+    PrincipalAgent = TradingCapacityCode.PrincipalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "Principal".
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("__zj79NojEeC60axPepSq7g_-2025583832")]
     [Description(@"Trading as Principal.")]
-    Principal,
+    Principal = TradingCapacityCode.Principal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TradingCapacity6Code
 public static class TradingCapacity6CodeMetadataExtensions
 {
     private static readonly TradingCapacity6CodeDropdownSource _dropdownSource = new TradingCapacity6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

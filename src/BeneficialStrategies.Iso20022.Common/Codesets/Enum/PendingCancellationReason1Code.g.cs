@@ -21,21 +21,21 @@ public enum PendingCancellationReason1Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Z-Gl4tp-Ed-ak6NoX_4Aeg_332106961")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "AwaitingConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_Z-Gl49p-Ed-ak6NoX_4Aeg_332107239")]
     [Description(@"Awaiting confirmation from the counterparty.")]
-    AwaitingConfirmation,
+    AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PendingCancellationReason1Code
 public static class PendingCancellationReason1CodeMetadataExtensions
 {
     private static readonly PendingCancellationReason1CodeDropdownSource _dropdownSource = new PendingCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

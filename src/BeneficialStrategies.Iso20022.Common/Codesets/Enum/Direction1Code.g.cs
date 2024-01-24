@@ -21,21 +21,21 @@ public enum Direction1Code
 {
     /// <summary>
     /// Down.
-    /// Encoded/decoded by serializers as "Down".
+    /// Encoded/decoded by serializers as "DRDW".
     /// </summary>
     [EnumMember(Value = "DRDW")]
     [IsoId("_awK8Atp-Ed-ak6NoX_4Aeg_1520758160")]
     [Description(@"Down.")]
-    Down,
+    Down = DirectionCode.Down, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Up.
-    /// Encoded/decoded by serializers as "Up".
+    /// Encoded/decoded by serializers as "DRUP".
     /// </summary>
     [EnumMember(Value = "DRUP")]
     [IsoId("_awK8A9p-Ed-ak6NoX_4Aeg_1752561964")]
     [Description(@"Up.")]
-    Up,
+    Up = DirectionCode.Up, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Direction1Code
 public static class Direction1CodeMetadataExtensions
 {
     private static readonly Direction1CodeDropdownSource _dropdownSource = new Direction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

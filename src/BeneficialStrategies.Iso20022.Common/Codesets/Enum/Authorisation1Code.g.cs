@@ -21,39 +21,39 @@ public enum Authorisation1Code
 {
     /// <summary>
     /// Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.
-    /// Encoded/decoded by serializers as "PreAuthorisedFile".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_bjbk9dp-Ed-ak6NoX_4Aeg_300324481")]
     [Description(@"Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.")]
-    PreAuthorisedFile,
+    PreAuthorisedFile = AuthorisationCode.PreAuthorisedFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.
-    /// Encoded/decoded by serializers as "FileLevelAuthorisationDetails".
+    /// Encoded/decoded by serializers as "FDET".
     /// </summary>
     [EnumMember(Value = "FDET")]
     [IsoId("_bjbk9tp-Ed-ak6NoX_4Aeg_300324503")]
     [Description(@"Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.")]
-    FileLevelAuthorisationDetails,
+    FileLevelAuthorisationDetails = AuthorisationCode.FileLevelAuthorisationDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.
-    /// Encoded/decoded by serializers as "FileLevelAuthorisationSummary".
+    /// Encoded/decoded by serializers as "FSUM".
     /// </summary>
     [EnumMember(Value = "FSUM")]
     [IsoId("_bjbk99p-Ed-ak6NoX_4Aeg_300324534")]
     [Description(@"Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.")]
-    FileLevelAuthorisationSummary,
+    FileLevelAuthorisationSummary = AuthorisationCode.FileLevelAuthorisationSummary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a file requires all customer transactions to be authorised or approved.
-    /// Encoded/decoded by serializers as "InstructionLevelAuthorisation".
+    /// Encoded/decoded by serializers as "ILEV".
     /// </summary>
     [EnumMember(Value = "ILEV")]
     [IsoId("_bjbk-Np-Ed-ak6NoX_4Aeg_300324565")]
     [Description(@"Indicates that a file requires all customer transactions to be authorised or approved.")]
-    InstructionLevelAuthorisation,
+    InstructionLevelAuthorisation = AuthorisationCode.InstructionLevelAuthorisation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Authorisation1Code
 public static class Authorisation1CodeMetadataExtensions
 {
     private static readonly Authorisation1CodeDropdownSource _dropdownSource = new Authorisation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

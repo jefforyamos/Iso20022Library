@@ -21,165 +21,165 @@ public enum TaxType5Code
 {
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "Provincial".
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_VfQcAdp-Ed-ak6NoX_4Aeg_7390246")]
     [Description(@"Tax is a provincial tax.")]
-    Provincial,
+    Provincial = TaxTypeCode.Provincial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NationalTax".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_VfQcAtp-Ed-ak6NoX_4Aeg_7390271")]
     [Description(@"Tax is a national tax.")]
-    NationalTax,
+    NationalTax = TaxTypeCode.NationalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "StateTax".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_VfQcA9p-Ed-ak6NoX_4Aeg_7390272")]
     [Description(@"Tax is a state tax.")]
-    StateTax,
+    StateTax = TaxTypeCode.StateTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_VfQcBNp-Ed-ak6NoX_4Aeg_7390288")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WithholdingTax,
+    WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
-    /// Encoded/decoded by serializers as "CapitalGainTax".
+    /// Encoded/decoded by serializers as "KAPA".
     /// </summary>
     [EnumMember(Value = "KAPA")]
     [IsoId("_VfQcBdp-Ed-ak6NoX_4Aeg_7390306")]
     [Description(@"Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.")]
-    CapitalGainTax,
+    CapitalGainTax = TaxTypeCode.CapitalGainTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
-    /// Encoded/decoded by serializers as "InterimProfitTax".
+    /// Encoded/decoded by serializers as "INPO".
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_VfQcBtp-Ed-ak6NoX_4Aeg_7390307")]
     [Description(@"Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.")]
-    InterimProfitTax,
+    InterimProfitTax = TaxTypeCode.InterimProfitTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "StampDuty".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_VfQcB9p-Ed-ak6NoX_4Aeg_7390331")]
     [Description(@"Tax is on certain documents and transactions.")]
-    StampDuty,
+    StampDuty = TaxTypeCode.StampDuty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.
-    /// Encoded/decoded by serializers as "WealthTax".
+    /// Encoded/decoded by serializers as "WTAX".
     /// </summary>
     [EnumMember(Value = "WTAX")]
     [IsoId("_VfQcCNp-Ed-ak6NoX_4Aeg_7390348")]
     [Description(@"Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.")]
-    WealthTax,
+    WealthTax = TaxTypeCode.WealthTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.
-    /// Encoded/decoded by serializers as "InheritanceTax".
+    /// Encoded/decoded by serializers as "INHT".
     /// </summary>
     [EnumMember(Value = "INHT")]
     [IsoId("_VfQcCdp-Ed-ak6NoX_4Aeg_7390349")]
     [Description(@"Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.")]
-    InheritanceTax,
+    InheritanceTax = TaxTypeCode.InheritanceTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is levied by legal authorities for solidarity purposes.
-    /// Encoded/decoded by serializers as "SolidaritySurcharge".
+    /// Encoded/decoded by serializers as "SOSU".
     /// </summary>
     [EnumMember(Value = "SOSU")]
     [IsoId("_Vgcu0Np-Ed-ak6NoX_4Aeg_7390366")]
     [Description(@"Tax that is levied by legal authorities for solidarity purposes.")]
-    SolidaritySurcharge,
+    SolidaritySurcharge = TaxTypeCode.SolidaritySurcharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct reduction of an individual's tax liability.
-    /// Encoded/decoded by serializers as "TaxCredit".
+    /// Encoded/decoded by serializers as "CTAX".
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_Vgcu0dp-Ed-ak6NoX_4Aeg_7390383")]
     [Description(@"Direct reduction of an individual's tax liability.")]
-    TaxCredit,
+    TaxCredit = TaxTypeCode.TaxCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.
-    /// Encoded/decoded by serializers as "GiftTax".
+    /// Encoded/decoded by serializers as "GIFT".
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_Vgcu0tp-Ed-ak6NoX_4Aeg_7390618")]
     [Description(@"Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.")]
-    GiftTax,
+    GiftTax = TaxTypeCode.GiftTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "ConsumptionTax".
+    /// Encoded/decoded by serializers as "COAX".
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_Vgcu09p-Ed-ak6NoX_4Aeg_7390643")]
     [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
-    ConsumptionTax,
+    ConsumptionTax = TaxTypeCode.ConsumptionTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTaxRetention".
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_Vgcu1Np-Ed-ak6NoX_4Aeg_7390660")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTaxRetention,
+    EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "Aktiengewinn1".
+    /// Encoded/decoded by serializers as "AKT1".
     /// </summary>
     [EnumMember(Value = "AKT1")]
     [IsoId("_Vgl4wNp-Ed-ak6NoX_4Aeg_7390661")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).")]
-    Aktiengewinn1,
+    Aktiengewinn1 = TaxTypeCode.Aktiengewinn1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "Aktiengewinn2".
+    /// Encoded/decoded by serializers as "AKT2".
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_Vgl4wdp-Ed-ak6NoX_4Aeg_7390678")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
-    Aktiengewinn2,
+    Aktiengewinn2 = TaxTypeCode.Aktiengewinn2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "Zwischengewinn".
+    /// Encoded/decoded by serializers as "ZWIS".
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_Vgl4wtp-Ed-ak6NoX_4Aeg_7390703")]
     [Description(@"Zwischengewinn.")]
-    Zwischengewinn,
+    Zwischengewinn = TaxTypeCode.Zwischengewinn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of tax.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vgl4w9p-Ed-ak6NoX_4Aeg_7390720")]
     [Description(@"Another type of tax.")]
-    Other,
+    Other = TaxTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum TaxType5Code
 public static class TaxType5CodeMetadataExtensions
 {
     private static readonly TaxType5CodeDropdownSource _dropdownSource = new TaxType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

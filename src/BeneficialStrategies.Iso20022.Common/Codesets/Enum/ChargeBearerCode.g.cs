@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a8F4Itp-Ed-ak6NoX_4Aeg_-746027402")]
 [Description(@"Specifies which party(ies) will pay charges due for processing of the payment transaction.")]
 [Derivations(typeof(ChargeBearer1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ChargeBearerCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ChargeBearerCode
 public static class ChargeBearerCodeMetadataExtensions
 {
     private static readonly ChargeBearerCodeDropdownSource _dropdownSource = new ChargeBearerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZRGV99p-Ed-ak6NoX_4Aeg_1129333396")]
 [Description(@"Specifies the SWIFT service level that applies to the payment instruction.")]
 [Derivations(typeof(SWIFTServiceLevel2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SWIFTServiceLevelCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SWIFTServiceLevelCode
 public static class SWIFTServiceLevelCodeMetadataExtensions
 {
     private static readonly SWIFTServiceLevelCodeDropdownSource _dropdownSource = new SWIFTServiceLevelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum AccountManagementStatus1Code
 {
     /// <summary>
     /// The account management instruction has been received and is acknowledged.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_bqbk19p-Ed-ak6NoX_4Aeg_1951278736")]
     [Description(@"The account management instruction has been received and is acknowledged.")]
-    Received,
+    Received = AccountManagementStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The account management instruction has been validated and accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_bqlV0Np-Ed-ak6NoX_4Aeg_1951279701")]
     [Description(@"The account management instruction has been validated and accepted.")]
-    Accepted,
+    Accepted = AccountManagementStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The account management instruction is being processed and the confirmation will follow.
-    /// Encoded/decoded by serializers as "ProcessingOngoing".
+    /// Encoded/decoded by serializers as "EXEC".
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_bqlV0dp-Ed-ak6NoX_4Aeg_1958664380")]
     [Description(@"The account management instruction is being processed and the confirmation will follow.")]
-    ProcessingOngoing,
+    ProcessingOngoing = AccountManagementStatusCode.ProcessingOngoing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The account management instruction has been sent to the next party, for example, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_bqlV0tp-Ed-ak6NoX_4Aeg_1958664440")]
     [Description(@"The account management instruction has been sent to the next party, for example, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = AccountManagementStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AccountManagementStatus1Code
 public static class AccountManagementStatus1CodeMetadataExtensions
 {
     private static readonly AccountManagementStatus1CodeDropdownSource _dropdownSource = new AccountManagementStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

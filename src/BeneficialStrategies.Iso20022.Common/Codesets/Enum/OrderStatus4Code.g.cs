@@ -21,102 +21,102 @@ public enum OrderStatus4Code
 {
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aR65w9p-Ed-ak6NoX_4Aeg_329337861")]
     [Description(@"Order is accepted and is ready for execution (execution is the moment when pricing is applied).")]
-    Accepted,
+    Accepted = OrderStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is already executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "AlreadyExecuted".
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_aR65xNp-Ed-ak6NoX_4Aeg_330260418")]
     [Description(@"Order is already executed and confirmation has been sent.")]
-    AlreadyExecuted,
+    AlreadyExecuted = OrderStatusCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aR65xdp-Ed-ak6NoX_4Aeg_330260898")]
     [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aR65xtp-Ed-ak6NoX_4Aeg_330260941")]
     [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
-    Received,
+    Received = OrderStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is settled. The cash is credited or debited.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_aR65x9p-Ed-ak6NoX_4Aeg_966938848")]
     [Description(@"Order is settled. The cash is credited or debited.")]
-    Settled,
+    Settled = OrderStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CommunicationProblemNextParty".
+    /// Encoded/decoded by serializers as "CPNP".
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aSEqwNp-Ed-ak6NoX_4Aeg_966938883")]
     [Description(@"Communication problems with the next party.")]
-    CommunicationProblemNextParty,
+    CommunicationProblemNextParty = OrderStatusCode.CommunicationProblemNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.
-    /// Encoded/decoded by serializers as "ConfirmationAmendment".
+    /// Encoded/decoded by serializers as "CNFC".
     /// </summary>
     [EnumMember(Value = "CNFC")]
     [IsoId("_aSEqwdp-Ed-ak6NoX_4Aeg_966939233")]
     [Description(@"Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.")]
-    ConfirmationAmendment,
+    ConfirmationAmendment = OrderStatusCode.ConfirmationAmendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been partially filled, and is done for the day, ie, no further executions will take place today.
-    /// Encoded/decoded by serializers as "DoneForDay".
+    /// Encoded/decoded by serializers as "DONE".
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_aSEqwtp-Ed-ak6NoX_4Aeg_-2113826740")]
     [Description(@"Order has been partially filled, and is done for the day, ie, no further executions will take place today.")]
-    DoneForDay,
+    DoneForDay = OrderStatusCode.DoneForDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been partially filled and will not be filled further.
-    /// Encoded/decoded by serializers as "PartiallyDone".
+    /// Encoded/decoded by serializers as "DONF".
     /// </summary>
     [EnumMember(Value = "DONF")]
     [IsoId("_aSEqw9p-Ed-ak6NoX_4Aeg_1047712210")]
     [Description(@"Order has been partially filled and will not be filled further.")]
-    PartiallyDone,
+    PartiallyDone = OrderStatusCode.PartiallyDone, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is open.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPOD".
     /// </summary>
     [EnumMember(Value = "OPOD")]
     [IsoId("_aSEqxNp-Ed-ak6NoX_4Aeg_1085577922")]
     [Description(@"Order is open.")]
-    Open,
+    Open = OrderStatusCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order confirmation received from agent is invalid.
-    /// Encoded/decoded by serializers as "InvalidAgentConfirmation".
+    /// Encoded/decoded by serializers as "IACO".
     /// </summary>
     [EnumMember(Value = "IACO")]
     [IsoId("_aSEqxdp-Ed-ak6NoX_4Aeg_-1148340037")]
     [Description(@"Order confirmation received from agent is invalid.")]
-    InvalidAgentConfirmation,
+    InvalidAgentConfirmation = OrderStatusCode.InvalidAgentConfirmation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum OrderStatus4Code
 public static class OrderStatus4CodeMetadataExtensions
 {
     private static readonly OrderStatus4CodeDropdownSource _dropdownSource = new OrderStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

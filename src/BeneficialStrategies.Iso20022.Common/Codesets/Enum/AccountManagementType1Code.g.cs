@@ -21,21 +21,21 @@ public enum AccountManagementType1Code
 {
     /// <summary>
     /// Refers to an account opening instruction message.
-    /// Encoded/decoded by serializers as "AccountOpening".
+    /// Encoded/decoded by serializers as "ACCO".
     /// </summary>
     [EnumMember(Value = "ACCO")]
     [IsoId("_bqvG0Np-Ed-ak6NoX_4Aeg_1776286854")]
     [Description(@"Refers to an account opening instruction message.")]
-    AccountOpening,
+    AccountOpening = AccountManagementTypeCode.AccountOpening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refers to an account modification instruction message.
-    /// Encoded/decoded by serializers as "AccountModification".
+    /// Encoded/decoded by serializers as "ACCM".
     /// </summary>
     [EnumMember(Value = "ACCM")]
     [IsoId("_bqvG0dp-Ed-ak6NoX_4Aeg_1776286907")]
     [Description(@"Refers to an account modification instruction message.")]
-    AccountModification,
+    AccountModification = AccountManagementTypeCode.AccountModification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountManagementType1Code
 public static class AccountManagementType1CodeMetadataExtensions
 {
     private static readonly AccountManagementType1CodeDropdownSource _dropdownSource = new AccountManagementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

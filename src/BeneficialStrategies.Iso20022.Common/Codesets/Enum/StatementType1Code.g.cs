@@ -21,30 +21,30 @@ public enum StatementType1Code
 {
     /// <summary>
     /// Accounting Statement of Holdings (semt 003).
-    /// Encoded/decoded by serializers as "AccountingHoldings".
+    /// Encoded/decoded by serializers as "ST03".
     /// </summary>
     [EnumMember(Value = "ST03")]
     [IsoId("_ZQM-FNp-Ed-ak6NoX_4Aeg_757727475")]
     [Description(@"Accounting Statement of Holdings (semt 003).")]
-    AccountingHoldings,
+    AccountingHoldings = MessageTypeCode.AccountingHoldings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custody Statement of Holdings (semt 002).
-    /// Encoded/decoded by serializers as "CustodyHoldings".
+    /// Encoded/decoded by serializers as "ST02".
     /// </summary>
     [EnumMember(Value = "ST02")]
     [IsoId("_ZQM-Fdp-Ed-ak6NoX_4Aeg_757727518")]
     [Description(@"Custody Statement of Holdings (semt 002).")]
-    CustodyHoldings,
+    CustodyHoldings = MessageTypeCode.CustodyHoldings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement of Investment Fund Transactions (semt 006).
-    /// Encoded/decoded by serializers as "InvestmentFundTransactions".
+    /// Encoded/decoded by serializers as "ST06".
     /// </summary>
     [EnumMember(Value = "ST06")]
     [IsoId("_ZQM-Ftp-Ed-ak6NoX_4Aeg_757727535")]
     [Description(@"Statement of Investment Fund Transactions (semt 006).")]
-    InvestmentFundTransactions,
+    InvestmentFundTransactions = MessageTypeCode.InvestmentFundTransactions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum StatementType1Code
 public static class StatementType1CodeMetadataExtensions
 {
     private static readonly StatementType1CodeDropdownSource _dropdownSource = new StatementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

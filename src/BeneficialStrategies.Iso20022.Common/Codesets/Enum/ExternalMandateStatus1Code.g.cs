@@ -17,45 +17,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_qC1AgJm_Eeao_Z127E9uYg")]
-[Description(@"Specifies the external mandate status code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external mandate status code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalMandateStatusCode))]
 public enum ExternalMandateStatus1Code
 {
     /// <summary>
     /// The mandate is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_uYrBtfRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is active.")]
-    Active,
+    Active = ExternalMandateStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The mandate is cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_uYrBuPRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is cancelled.")]
-    Cancelled,
+    Cancelled = ExternalMandateStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The mandate has passed the end date.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_uYrBu_RYEeuLhpyIdtJzwg")]
     [Description(@"The mandate has passed the end date.")]
-    Expired,
+    Expired = ExternalMandateStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The mandate is put on hold.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_uY0ysvRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is put on hold.")]
-    Suspended,
+    Suspended = ExternalMandateStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
 
@@ -66,7 +66,7 @@ public enum ExternalMandateStatus1Code
 public static class ExternalMandateStatus1CodeMetadataExtensions
 {
     private static readonly ExternalMandateStatus1CodeDropdownSource _dropdownSource = new ExternalMandateStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aH73WNp-Ed-ak6NoX_4Aeg_616932935")]
 [Description(@"Indicates the method of preallocation.")]
 [Derivations(typeof(PreAllocationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PreAllocationMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PreAllocationMethodCode
 public static class PreAllocationMethodCodeMetadataExtensions
 {
     private static readonly PreAllocationMethodCodeDropdownSource _dropdownSource = new PreAllocationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

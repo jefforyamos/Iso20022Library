@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_rJyl4DKlEeipv8GJ5uBgPw")]
 [Description(@"Describes the payment scenario used for a payment transaction.")]
 [Derivations(typeof(PaymentScenario2Code),typeof(PaymentScenario1Code),typeof(PaymentScenario3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentScenarioCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PaymentScenarioCode
 public static class PaymentScenarioCodeMetadataExtensions
 {
     private static readonly PaymentScenarioCodeDropdownSource _dropdownSource = new PaymentScenarioCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

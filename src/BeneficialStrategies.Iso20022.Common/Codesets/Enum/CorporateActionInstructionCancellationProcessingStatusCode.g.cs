@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bKPo5Np-Ed-ak6NoX_4Aeg_1956200676")]
 [Description(@"Specifies the status of a corporate action instruction cancellation process.")]
 [Derivations(typeof(CorporateActionInstructionCancellationProcessingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionInstructionCancellationProcessingStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CorporateActionInstructionCancellationProcessingStatusCode
 public static class CorporateActionInstructionCancellationProcessingStatusCodeMetadataExtensions
 {
     private static readonly CorporateActionInstructionCancellationProcessingStatusCodeDropdownSource _dropdownSource = new CorporateActionInstructionCancellationProcessingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum DTCCQuantitySought1Code
 {
     /// <summary>
     /// Quantity Sought expressed as quantity.
-    /// Encoded/decoded by serializers as "Quantity".
+    /// Encoded/decoded by serializers as "QTTY".
     /// </summary>
     [EnumMember(Value = "QTTY")]
     [IsoId("_1sjJFDL3EeKU9IrkkToqcw_2031372842")]
     [Description(@"Quantity Sought expressed as quantity.")]
-    Quantity,
+    Quantity = DTCCQuantitySoughtCode.Quantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Check Quantity Sought Comments for quantity sought (irregular expression).
-    /// Encoded/decoded by serializers as "CheckComments".
+    /// Encoded/decoded by serializers as "CHCO".
     /// </summary>
     [EnumMember(Value = "CHCO")]
     [IsoId("_1sjJFTL3EeKU9IrkkToqcw_-1982735493")]
     [Description(@"Check Quantity Sought Comments for quantity sought (irregular expression).")]
-    CheckComments,
+    CheckComments = DTCCQuantitySoughtCode.CheckComments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity sought is expressed as percentage.
-    /// Encoded/decoded by serializers as "Percentage".
+    /// Encoded/decoded by serializers as "PRTG".
     /// </summary>
     [EnumMember(Value = "PRTG")]
     [IsoId("_1sjJFjL3EeKU9IrkkToqcw_-1528648224")]
     [Description(@"Quantity sought is expressed as percentage.")]
-    Percentage,
+    Percentage = DTCCQuantitySoughtCode.Percentage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DTCCQuantitySought1Code
 public static class DTCCQuantitySought1CodeMetadataExtensions
 {
     private static readonly DTCCQuantitySought1CodeDropdownSource _dropdownSource = new DTCCQuantitySought1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

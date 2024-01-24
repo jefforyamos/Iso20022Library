@@ -21,30 +21,30 @@ public enum ProcessedStatus6Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKxI49p-Ed-ak6NoX_4Aeg_-1149003943")]
     [Description(@"The instruction/request has been received.")]
-    Received,
+    Received = CorporateActionProcessedStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting the deactivation date.
-    /// Encoded/decoded by serializers as "WaitingDeactivationDate".
+    /// Encoded/decoded by serializers as "DEAC".
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_aKxI5Np-Ed-ak6NoX_4Aeg_-1149003942")]
     [Description(@"Awaiting the deactivation date.")]
-    WaitingDeactivationDate,
+    WaitingDeactivationDate = CorporateActionProcessedStatusCode.WaitingDeactivationDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aKxI5dp-Ed-ak6NoX_4Aeg_-1149003664")]
     [Description(@"The request has been completed.")]
-    Completed,
+    Completed = CorporateActionProcessedStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProcessedStatus6Code
 public static class ProcessedStatus6CodeMetadataExtensions
 {
     private static readonly ProcessedStatus6CodeDropdownSource _dropdownSource = new ProcessedStatus6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

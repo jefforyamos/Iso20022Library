@@ -21,75 +21,75 @@ public enum OutputFormat4Code
 {
     /// <summary>
     /// File name and location identification for stored messages or data.
-    /// Encoded/decoded by serializers as "FileName".
+    /// Encoded/decoded by serializers as "FLNM".
     /// </summary>
     [EnumMember(Value = "FLNM")]
     [IsoId("_zz2zIX0lEemfrNOe0zHQyg")]
     [Description(@"File name and location identification for stored messages or data.")]
-    FileName,
+    FileName = OutputFormatCode.FileName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MessageReference".
+    /// Encoded/decoded by serializers as "MREF".
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_zz2zI30lEemfrNOe0zHQyg")]
     [Description(@"Predefined configured messages, identified by a reference.")]
-    MessageReference,
+    MessageReference = OutputFormatCode.MessageReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of output of message defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_zz2zJX0lEemfrNOe0zHQyg")]
     [Description(@"Other type of output of message defined at national level.")]
-    OtherNational,
+    OtherNational = OutputFormatCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of output format defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_zz2zJ30lEemfrNOe0zHQyg")]
     [Description(@"Other type of output format defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = OutputFormatCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Short message service
-    /// Encoded/decoded by serializers as "ShortMessageService".
+    /// Encoded/decoded by serializers as "SMSI".
     /// </summary>
     [EnumMember(Value = "SMSI")]
     [IsoId("_zz2zKX0lEemfrNOe0zHQyg")]
     [Description(@"Short message service")]
-    ShortMessageService,
+    ShortMessageService = OutputFormatCode.ShortMessageService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "SimpleText".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_zz2zK30lEemfrNOe0zHQyg")]
     [Description(@"Text without format attributes.")]
-    SimpleText,
+    SimpleText = OutputFormatCode.SimpleText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Uniform Resource Locator (URL) reference for the message.
-    /// Encoded/decoded by serializers as "UniformResourceLocator".
+    /// Encoded/decoded by serializers as "URLI".
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_zz2zLX0lEemfrNOe0zHQyg")]
     [Description(@"Uniform Resource Locator (URL) reference for the message.")]
-    UniformResourceLocator,
+    UniformResourceLocator = OutputFormatCode.UniformResourceLocator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "XHTML".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_zz2zL30lEemfrNOe0zHQyg")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    XHTML,
+    XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum OutputFormat4Code
 public static class OutputFormat4CodeMetadataExtensions
 {
     private static readonly OutputFormat4CodeDropdownSource _dropdownSource = new OutputFormat4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum BusinessArea1Code
 {
     /// <summary>
     /// The payment is initiated by an artificial intelligence based decision.
-    /// Encoded/decoded by serializers as "ArtificialIntelligenceBasedDecision".
+    /// Encoded/decoded by serializers as "AIBD".
     /// </summary>
     [EnumMember(Value = "AIBD")]
     [IsoId("_RZiZIU4OEey_VecAUE-C9Q")]
     [Description(@"The payment is initiated by an artificial intelligence based decision.")]
-    ArtificialIntelligenceBasedDecision,
+    ArtificialIntelligenceBasedDecision = BusinessAreaCode.ArtificialIntelligenceBasedDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.
-    /// Encoded/decoded by serializers as "Openpayment".
+    /// Encoded/decoded by serializers as "OPMT".
     /// </summary>
     [EnumMember(Value = "OPMT")]
     [IsoId("_RgShYU4OEey_VecAUE-C9Q")]
     [Description(@"The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.")]
-    Openpayment,
+    Openpayment = BusinessAreaCode.Openpayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is used to perform a plain payment.
-    /// Encoded/decoded by serializers as "PlainPayment".
+    /// Encoded/decoded by serializers as "PPAY".
     /// </summary>
     [EnumMember(Value = "PPAY")]
     [IsoId("_RrhhAU4OEey_VecAUE-C9Q")]
     [Description(@"The card is used to perform a plain payment.")]
-    PlainPayment,
+    PlainPayment = BusinessAreaCode.PlainPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is used in a Transit business case where the fare amount is known when the transaction is initiated.
-    /// Encoded/decoded by serializers as "TransitKnownFare".
+    /// Encoded/decoded by serializers as "TKNF".
     /// </summary>
     [EnumMember(Value = "TKNF")]
     [IsoId("_RzNdYU4OEey_VecAUE-C9Q")]
     [Description(@"The card is used in a Transit business case where the fare amount is known when the transaction is initiated.")]
-    TransitKnownFare,
+    TransitKnownFare = BusinessAreaCode.TransitKnownFare, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum BusinessArea1Code
 public static class BusinessArea1CodeMetadataExtensions
 {
     private static readonly BusinessArea1CodeDropdownSource _dropdownSource = new BusinessArea1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

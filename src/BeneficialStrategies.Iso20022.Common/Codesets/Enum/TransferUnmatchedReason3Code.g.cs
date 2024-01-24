@@ -21,102 +21,102 @@ public enum TransferUnmatchedReason3Code
 {
     /// <summary>
     /// No potential match has been found.
-    /// Encoded/decoded by serializers as "NoMatch".
+    /// Encoded/decoded by serializers as "CMIS".
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_zc_XAZM5EemKz5EOjv82iQ")]
     [Description(@"No potential match has been found.")]
-    NoMatch,
+    NoMatch = TransferUnmatchedReasonCode.NoMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty has cancelled the transaction/instruction.
-    /// Encoded/decoded by serializers as "CounterpartyCancelled".
+    /// Encoded/decoded by serializers as "CPCA".
     /// </summary>
     [EnumMember(Value = "CPCA")]
     [IsoId("_zzADQZM5EemKz5EOjv82iQ")]
     [Description(@"Counterparty has cancelled the transaction/instruction.")]
-    CounterpartyCancelled,
+    CounterpartyCancelled = TransferUnmatchedReasonCode.CounterpartyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direction of transaction does not match: delivery instead of receipt or vice versa.
-    /// Encoded/decoded by serializers as "TransactionDirection".
+    /// Encoded/decoded by serializers as "DELN".
     /// </summary>
     [EnumMember(Value = "DELN")]
     [IsoId("_0v_3AZM5EemKz5EOjv82iQ")]
     [Description(@"Direction of transaction does not match: delivery instead of receipt or vice versa.")]
-    TransactionDirection,
+    TransactionDirection = TransferUnmatchedReasonCode.TransactionDirection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument identification does not match or a financial instrument attribute differs.
-    /// Encoded/decoded by serializers as "FinancialInstrument".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_3bFkQZM5EemKz5EOjv82iQ")]
     [Description(@"Financial instrument identification does not match or a financial instrument attribute differs.")]
-    FinancialInstrument,
+    FinancialInstrument = TransferUnmatchedReasonCode.FinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "PhysicalSettlement".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_4uZmQZM5EemKz5EOjv82iQ")]
     [Description(@"Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.")]
-    PhysicalSettlement,
+    PhysicalSettlement = TransferUnmatchedReasonCode.PhysicalSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has not been matched: it is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "Duplicate".
+    /// Encoded/decoded by serializers as "PODU".
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_5qgpMZM5EemKz5EOjv82iQ")]
     [Description(@"Instruction has not been matched: it is a possible duplicate instruction.")]
-    Duplicate,
+    Duplicate = TransferUnmatchedReasonCode.Duplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of settlement does not match.
-    /// Encoded/decoded by serializers as "SettlementPlace".
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_7KUPEZM5EemKz5EOjv82iQ")]
     [Description(@"Place of settlement does not match.")]
-    SettlementPlace,
+    SettlementPlace = TransferUnmatchedReasonCode.SettlementPlace, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement date or transfer date does not match.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_8xavwZM5EemKz5EOjv82iQ")]
     [Description(@"Settlement date or transfer date does not match.")]
-    SettlementDate,
+    SettlementDate = TransferUnmatchedReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument quantity does not match.
-    /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_-ZaBQZM5EemKz5EOjv82iQ")]
     [Description(@"Financial instrument quantity does not match.")]
-    FinancialInstrumentQuantity,
+    FinancialInstrumentQuantity = TransferUnmatchedReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivering or receiving custodian does not match.
-    /// Encoded/decoded by serializers as "ReceivingOrDeliveringCustodian".
+    /// Encoded/decoded by serializers as "ICUS".
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_Aa_egZM6EemKz5EOjv82iQ")]
     [Description(@"Delivering or receiving custodian does not match.")]
-    ReceivingOrDeliveringCustodian,
+    ReceivingOrDeliveringCustodian = TransferUnmatchedReasonCode.ReceivingOrDeliveringCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Safekeeping account used as a matching criteria on the market concerned does not match.
-    /// Encoded/decoded by serializers as "SafekeepingAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_BePEMZM6EemKz5EOjv82iQ")]
     [Description(@"Safekeeping account used as a matching criteria on the market concerned does not match.")]
-    SafekeepingAccount,
+    SafekeepingAccount = TransferUnmatchedReasonCode.SafekeepingAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum TransferUnmatchedReason3Code
 public static class TransferUnmatchedReason3CodeMetadataExtensions
 {
     private static readonly TransferUnmatchedReason3CodeDropdownSource _dropdownSource = new TransferUnmatchedReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

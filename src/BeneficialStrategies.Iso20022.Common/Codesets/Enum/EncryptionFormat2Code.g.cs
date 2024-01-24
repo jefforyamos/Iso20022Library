@@ -26,7 +26,7 @@ public enum EncryptionFormat2Code
     [EnumMember(Value = "TR31")]
     [IsoId("_-pI2EdtnEee9e6xduATmQg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-31 standard.")]
-    TR31,
+    TR31 = EncryptionFormatCode.TR31, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
@@ -35,16 +35,16 @@ public enum EncryptionFormat2Code
     [EnumMember(Value = "TR34")]
     [IsoId("_-pI2E9tnEee9e6xduATmQg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-34 standard.")]
-    TR34,
+    TR34 = EncryptionFormatCode.TR34, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Format of a cryptographic key specified by the ISO20038 standard.
-    /// Encoded/decoded by serializers as "ISO20038KeyWrap".
+    /// Encoded/decoded by serializers as "I238".
     /// </summary>
     [EnumMember(Value = "I238")]
     [IsoId("__uLLgdtnEee9e6xduATmQg")]
     [Description(@"Format of a cryptographic key specified by the ISO20038 standard.")]
-    ISO20038KeyWrap,
+    ISO20038KeyWrap = EncryptionFormatCode.ISO20038KeyWrap, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EncryptionFormat2Code
 public static class EncryptionFormat2CodeMetadataExtensions
 {
     private static readonly EncryptionFormat2CodeDropdownSource _dropdownSource = new EncryptionFormat2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

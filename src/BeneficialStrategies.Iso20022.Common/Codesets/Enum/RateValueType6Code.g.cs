@@ -21,21 +21,21 @@ public enum RateValueType6Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZaVxgdp-Ed-ak6NoX_4Aeg_-1378979921")]
     [Description(@"Rate is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZaVxgtp-Ed-ak6NoX_4Aeg_-1378979892")]
     [Description(@"Rate has not been established.")]
-    Open,
+    Open = RateTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RateValueType6Code
 public static class RateValueType6CodeMetadataExtensions
 {
     private static readonly RateValueType6CodeDropdownSource _dropdownSource = new RateValueType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

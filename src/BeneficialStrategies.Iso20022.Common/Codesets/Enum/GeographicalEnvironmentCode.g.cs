@@ -72,7 +72,7 @@ public enum GeographicalEnvironmentCode
 public static class GeographicalEnvironmentCodeMetadataExtensions
 {
     private static readonly GeographicalEnvironmentCodeDropdownSource _dropdownSource = new GeographicalEnvironmentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

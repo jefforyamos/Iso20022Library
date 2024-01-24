@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a0VqU9p-Ed-ak6NoX_4Aeg_453220269")]
 [Description(@"Specifies the cancellation status.")]
-[Derivations(typeof(CancellationStatus1Code),typeof(CancellationStatus2Code),typeof(CancellationStatus3Code),typeof(CancellationStatus4Code),typeof(CancellationStatus5Code),typeof(CancellationStatus6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(CancellationStatus1Code),typeof(CancellationStatus3Code),typeof(CancellationStatus2Code),typeof(CancellationStatus5Code),typeof(CancellationStatus4Code),typeof(CancellationStatus6Code))]
 public enum CancellationStatusCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum CancellationStatusCode
 public static class CancellationStatusCodeMetadataExtensions
 {
     private static readonly CancellationStatusCodeDropdownSource _dropdownSource = new CancellationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

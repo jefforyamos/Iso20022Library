@@ -21,30 +21,30 @@ public enum CashAccountType1Code
 {
     /// <summary>
     /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
-    /// Encoded/decoded by serializers as "Settlement".
+    /// Encoded/decoded by serializers as "SACC".
     /// </summary>
     [EnumMember(Value = "SACC")]
     [IsoId("_a24A8tp-Ed-ak6NoX_4Aeg_2050502103")]
     [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
-    Settlement,
+    Settlement = CashAccountTypeCode.Settlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used to post debits and credits when no specific account has been nominated.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CACC".
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_a24A89p-Ed-ak6NoX_4Aeg_2050502104")]
     [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
-    Current,
+    Current = CashAccountTypeCode.Current, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for savings.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVGS".
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_a24A9Np-Ed-ak6NoX_4Aeg_2050502105")]
     [Description(@"Account used for savings.")]
-    Savings,
+    Savings = CashAccountTypeCode.Savings, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CashAccountType1Code
 public static class CashAccountType1CodeMetadataExtensions
 {
     private static readonly CashAccountType1CodeDropdownSource _dropdownSource = new CashAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum PaymentScenario3Code
 {
     /// <summary>
     /// Indicates cover payment(s).
-    /// Encoded/decoded by serializers as "Cover".
+    /// Encoded/decoded by serializers as "COVE".
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_v4nO4XYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates cover payment(s).")]
-    Cover,
+    Cover = PaymentScenarioCode.Cover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates customer credit transfer(s) without cover.
-    /// Encoded/decoded by serializers as "CustomerCreditTransferWithoutCover".
+    /// Encoded/decoded by serializers as "CCTW".
     /// </summary>
     [EnumMember(Value = "CCTW")]
     [IsoId("_wz-q8XYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) without cover.")]
-    CustomerCreditTransferWithoutCover,
+    CustomerCreditTransferWithoutCover = PaymentScenarioCode.CustomerCreditTransferWithoutCover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates customer credit transfer(s) with cover.
-    /// Encoded/decoded by serializers as "CustomerCreditTransferWithCover".
+    /// Encoded/decoded by serializers as "CCTC".
     /// </summary>
     [EnumMember(Value = "CCTC")]
     [IsoId("_xbZ3UXYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) with cover.")]
-    CustomerCreditTransferWithCover,
+    CustomerCreditTransferWithCover = PaymentScenarioCode.CustomerCreditTransferWithCover, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentScenario3Code
 public static class PaymentScenario3CodeMetadataExtensions
 {
     private static readonly PaymentScenario3CodeDropdownSource _dropdownSource = new PaymentScenario3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

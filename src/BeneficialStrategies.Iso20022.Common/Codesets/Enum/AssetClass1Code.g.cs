@@ -21,30 +21,30 @@ public enum AssetClass1Code
 {
     /// <summary>
     /// Debt instrument issued by a corporation.
-    /// Encoded/decoded by serializers as "CorporateDebt".
+    /// Encoded/decoded by serializers as "CRPB".
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_1rqYQzL3EeKU9IrkkToqcw_-1331446987")]
     [Description(@"Debt instrument issued by a corporation.")]
-    CorporateDebt,
+    CorporateDebt = AssetClassCode.CorporateDebt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity issued by a corporation.
-    /// Encoded/decoded by serializers as "CorporateEquity".
+    /// Encoded/decoded by serializers as "CRPE".
     /// </summary>
     [EnumMember(Value = "CRPE")]
     [IsoId("_1rqYRDL3EeKU9IrkkToqcw_-1445286053")]
     [Description(@"Equity issued by a corporation.")]
-    CorporateEquity,
+    CorporateEquity = AssetClassCode.CorporateEquity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debt instrument issued by municipality.
-    /// Encoded/decoded by serializers as "MunicipalDebt".
+    /// Encoded/decoded by serializers as "MUNB".
     /// </summary>
     [EnumMember(Value = "MUNB")]
     [IsoId("_1rqYRTL3EeKU9IrkkToqcw_-1006329480")]
     [Description(@"Debt instrument issued by municipality.")]
-    MunicipalDebt,
+    MunicipalDebt = AssetClassCode.MunicipalDebt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AssetClass1Code
 public static class AssetClass1CodeMetadataExtensions
 {
     private static readonly AssetClass1CodeDropdownSource _dropdownSource = new AssetClass1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

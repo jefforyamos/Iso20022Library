@@ -81,7 +81,7 @@ public enum NoticePeriodTypeCode
 public static class NoticePeriodTypeCodeMetadataExtensions
 {
     private static readonly NoticePeriodTypeCodeDropdownSource _dropdownSource = new NoticePeriodTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

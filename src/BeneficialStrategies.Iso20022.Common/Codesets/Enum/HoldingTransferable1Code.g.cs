@@ -21,30 +21,30 @@ public enum HoldingTransferable1Code
 {
     /// <summary>
     /// Transfer is allowed.
-    /// Encoded/decoded by serializers as "TransferAllowed".
+    /// Encoded/decoded by serializers as "TRAL".
     /// </summary>
     [EnumMember(Value = "TRAL")]
     [IsoId("_aV8eINp-Ed-ak6NoX_4Aeg_-1077608606")]
     [Description(@"Transfer is allowed.")]
-    TransferAllowed,
+    TransferAllowed = HoldingTransferableCode.TransferAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer is not allowed.
-    /// Encoded/decoded by serializers as "TransferNotAllowed".
+    /// Encoded/decoded by serializers as "TRNA".
     /// </summary>
     [EnumMember(Value = "TRNA")]
     [IsoId("_aV8eIdp-Ed-ak6NoX_4Aeg_-1064678911")]
     [Description(@"Transfer is not allowed.")]
-    TransferNotAllowed,
+    TransferNotAllowed = HoldingTransferableCode.TransferNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the operation is only possible in restricted circumstances.
-    /// Encoded/decoded by serializers as "ReferToFundOrderDesk".
+    /// Encoded/decoded by serializers as "RFOD".
     /// </summary>
     [EnumMember(Value = "RFOD")]
     [IsoId("_aV8eItp-Ed-ak6NoX_4Aeg_-823640508")]
     [Description(@"Indicates that the operation is only possible in restricted circumstances.")]
-    ReferToFundOrderDesk,
+    ReferToFundOrderDesk = HoldingTransferableCode.ReferToFundOrderDesk, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum HoldingTransferable1Code
 public static class HoldingTransferable1CodeMetadataExtensions
 {
     private static readonly HoldingTransferable1CodeDropdownSource _dropdownSource = new HoldingTransferable1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

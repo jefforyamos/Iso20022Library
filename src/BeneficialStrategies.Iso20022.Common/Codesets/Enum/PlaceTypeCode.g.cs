@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aHWBc9p-Ed-ak6NoX_4Aeg_-1656476023")]
 [Description(@"Type of place.")]
 [Derivations(typeof(PlaceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PlaceTypeCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum PlaceTypeCode
 public static class PlaceTypeCodeMetadataExtensions
 {
     private static readonly PlaceTypeCodeDropdownSource _dropdownSource = new PlaceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

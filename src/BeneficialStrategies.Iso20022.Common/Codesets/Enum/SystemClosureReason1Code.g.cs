@@ -21,48 +21,48 @@ public enum SystemClosureReason1Code
 {
     /// <summary>
     /// System is closed due to a bank holiday.
-    /// Encoded/decoded by serializers as "BankingHoliday".
+    /// Encoded/decoded by serializers as "BHOL".
     /// </summary>
     [EnumMember(Value = "BHOL")]
     [IsoId("_ZRQG89p-Ed-ak6NoX_4Aeg_2007403395")]
     [Description(@"System is closed due to a bank holiday.")]
-    BankingHoliday,
+    BankingHoliday = SystemClosureReasonCode.BankingHoliday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is closed for maintenance reasons.
-    /// Encoded/decoded by serializers as "SystemMaintenance".
+    /// Encoded/decoded by serializers as "SMTN".
     /// </summary>
     [EnumMember(Value = "SMTN")]
     [IsoId("_ZRQG9Np-Ed-ak6NoX_4Aeg_2007403396")]
     [Description(@"System is closed for maintenance reasons.")]
-    SystemMaintenance,
+    SystemMaintenance = SystemClosureReasonCode.SystemMaintenance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is not processing any operation.
-    /// Encoded/decoded by serializers as "NoOperation".
+    /// Encoded/decoded by serializers as "NOOP".
     /// </summary>
     [EnumMember(Value = "NOOP")]
     [IsoId("_ZRQG9dp-Ed-ak6NoX_4Aeg_2007403397")]
     [Description(@"System is not processing any operation.")]
-    NoOperation,
+    NoOperation = SystemClosureReasonCode.NoOperation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is not operational during recovery operations.
-    /// Encoded/decoded by serializers as "Recovery".
+    /// Encoded/decoded by serializers as "RCVR".
     /// </summary>
     [EnumMember(Value = "RCVR")]
     [IsoId("_ZRQG9tp-Ed-ak6NoX_4Aeg_2007403398")]
     [Description(@"System is not operational during recovery operations.")]
-    Recovery,
+    Recovery = SystemClosureReasonCode.Recovery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is not operational during allowed downtime windows.
-    /// Encoded/decoded by serializers as "AllowedDowntimeWindow".
+    /// Encoded/decoded by serializers as "ADTW".
     /// </summary>
     [EnumMember(Value = "ADTW")]
     [IsoId("_ZRQG99p-Ed-ak6NoX_4Aeg_2007403406")]
     [Description(@"System is not operational during allowed downtime windows.")]
-    AllowedDowntimeWindow,
+    AllowedDowntimeWindow = SystemClosureReasonCode.AllowedDowntimeWindow, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum SystemClosureReason1Code
 public static class SystemClosureReason1CodeMetadataExtensions
 {
     private static readonly SystemClosureReason1CodeDropdownSource _dropdownSource = new SystemClosureReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

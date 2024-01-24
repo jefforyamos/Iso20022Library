@@ -21,30 +21,30 @@ public enum CommissionType6Code
 {
     /// <summary>
     /// Commission for subscribing to an investment, paid at the time of the subscription.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a_9rhNp-Ed-ak6NoX_4Aeg_2072219495")]
     [Description(@"Commission for subscribing to an investment, paid at the time of the subscription.")]
-    FrontEndLoad,
+    FrontEndLoad = CommissionTypeV2Code.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a_9rhdp-Ed-ak6NoX_4Aeg_2072219512")]
     [Description(@"Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.")]
-    BackEndLoad,
+    BackEndLoad = CommissionTypeV2Code.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of cash due to an intermediary for selling a product, or services, to a third party.
-    /// Encoded/decoded by serializers as "CommissionDePlacement".
+    /// Encoded/decoded by serializers as "CDPL".
     /// </summary>
     [EnumMember(Value = "CDPL")]
     [IsoId("_a_9rhtp-Ed-ak6NoX_4Aeg_22575918")]
     [Description(@"Amount of cash due to an intermediary for selling a product, or services, to a third party.")]
-    CommissionDePlacement,
+    CommissionDePlacement = CommissionTypeV2Code.CommissionDePlacement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CommissionType6Code
 public static class CommissionType6CodeMetadataExtensions
 {
     private static readonly CommissionType6CodeDropdownSource _dropdownSource = new CommissionType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

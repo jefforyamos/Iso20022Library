@@ -54,7 +54,7 @@ public enum EventClassificationCode
 public static class EventClassificationCodeMetadataExtensions
 {
     private static readonly EventClassificationCodeDropdownSource _dropdownSource = new EventClassificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

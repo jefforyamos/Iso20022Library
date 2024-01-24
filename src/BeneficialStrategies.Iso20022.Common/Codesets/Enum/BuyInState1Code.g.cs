@@ -21,30 +21,30 @@ public enum BuyInState1Code
 {
     /// <summary>
     /// Buy-in was partially successful.
-    /// Encoded/decoded by serializers as "PartiallySuccessful".
+    /// Encoded/decoded by serializers as "BSSP".
     /// </summary>
     [EnumMember(Value = "BSSP")]
     [IsoId("_q9Bo8ZwVEeqtp-LOti013g")]
     [Description(@"Buy-in was partially successful.")]
-    PartiallySuccessful,
+    PartiallySuccessful = BuyInStateCode.PartiallySuccessful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buy-in was successful.
-    /// Encoded/decoded by serializers as "Successful".
+    /// Encoded/decoded by serializers as "BSSY".
     /// </summary>
     [EnumMember(Value = "BSSY")]
     [IsoId("_rBfSMZwVEeqtp-LOti013g")]
     [Description(@"Buy-in was successful.")]
-    Successful,
+    Successful = BuyInStateCode.Successful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buy-in was unsuccessful.
-    /// Encoded/decoded by serializers as "Unsuccesssful".
+    /// Encoded/decoded by serializers as "BSSN".
     /// </summary>
     [EnumMember(Value = "BSSN")]
     [IsoId("_rF87cZwVEeqtp-LOti013g")]
     [Description(@"Buy-in was unsuccessful.")]
-    Unsuccesssful,
+    Unsuccesssful = BuyInStateCode.Unsuccesssful, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BuyInState1Code
 public static class BuyInState1CodeMetadataExtensions
 {
     private static readonly BuyInState1CodeDropdownSource _dropdownSource = new BuyInState1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

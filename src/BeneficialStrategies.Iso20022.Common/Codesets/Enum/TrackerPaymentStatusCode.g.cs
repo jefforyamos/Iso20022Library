@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_GV2qUvpPEemXaqBx8S4XSg")]
 [Description(@"Indicates a status of a payment transaction as defined for the tracker.")]
 [Derivations(typeof(TrackerPaymentStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerPaymentStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TrackerPaymentStatusCode
 public static class TrackerPaymentStatusCodeMetadataExtensions
 {
     private static readonly TrackerPaymentStatusCodeDropdownSource _dropdownSource = new TrackerPaymentStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

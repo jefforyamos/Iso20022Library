@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VEH74F1lEeeu75xdwwAXQw")]
 [Description(@"Segment of time of the day")]
 [Derivations(typeof(TimeSegment1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TimeSegmentCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TimeSegmentCode
 public static class TimeSegmentCodeMetadataExtensions
 {
     private static readonly TimeSegmentCodeDropdownSource _dropdownSource = new TimeSegmentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

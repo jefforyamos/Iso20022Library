@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oYawDL3EeKU9IrkkToqcw_1230885883")]
 [Description(@"Specifies whether the offeror for the event is the issuing company or a third party.")]
 [Derivations(typeof(OfferorType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OfferorTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum OfferorTypeCode
 public static class OfferorTypeCodeMetadataExtensions
 {
     private static readonly OfferorTypeCodeDropdownSource _dropdownSource = new OfferorTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

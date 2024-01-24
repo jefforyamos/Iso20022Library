@@ -16,45 +16,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_amolh9p-Ed-ak6NoX_4Aeg_-614400071")]
-[Description(@"Specifies the technical input channel, as published in an external technical input channel code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the technical input channel, as published in an external technical input channel code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalTechnicalInputChannelCode))]
 public enum ExternalTechnicalInputChannel1Code
 {
     /// <summary>
     /// Technical Input Channel is fax or facsimile
-    /// Encoded/decoded by serializers as "Fax".
+    /// Encoded/decoded by serializers as "FAXI".
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_uG8YgvRYEeuLhpyIdtJzwg")]
     [Description(@"Technical Input Channel is fax or facsimile")]
-    Fax,
+    Fax = ExternalTechnicalInputChannelCode.Fax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Technical Input Channel is paper
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_uG8YhfRYEeuLhpyIdtJzwg")]
     [Description(@"Technical Input Channel is paper")]
-    Paper,
+    Paper = ExternalTechnicalInputChannelCode.Paper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Technical Input Channel is tape
-    /// Encoded/decoded by serializers as "Tape".
+    /// Encoded/decoded by serializers as "TAPE".
     /// </summary>
     [EnumMember(Value = "TAPE")]
     [IsoId("_uG8YiPRYEeuLhpyIdtJzwg")]
     [Description(@"Technical Input Channel is tape")]
-    Tape,
+    Tape = ExternalTechnicalInputChannelCode.Tape, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Technical Input Channel is internet
-    /// Encoded/decoded by serializers as "Internet".
+    /// Encoded/decoded by serializers as "WEBI".
     /// </summary>
     [EnumMember(Value = "WEBI")]
     [IsoId("_uG8Yi_RYEeuLhpyIdtJzwg")]
     [Description(@"Technical Input Channel is internet")]
-    Internet,
+    Internet = ExternalTechnicalInputChannelCode.Internet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -65,7 +65,7 @@ public enum ExternalTechnicalInputChannel1Code
 public static class ExternalTechnicalInputChannel1CodeMetadataExtensions
 {
     private static readonly ExternalTechnicalInputChannel1CodeDropdownSource _dropdownSource = new ExternalTechnicalInputChannel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

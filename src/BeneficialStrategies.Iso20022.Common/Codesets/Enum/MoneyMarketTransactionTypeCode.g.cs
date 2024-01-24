@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hxCgQJfrEeSfnc-VXAEapg")]
 [Description(@"Specifies the transaction type used in the money market statistical reporting.")]
 [Derivations(typeof(MoneyMarketTransactionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MoneyMarketTransactionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MoneyMarketTransactionTypeCode
 public static class MoneyMarketTransactionTypeCodeMetadataExtensions
 {
     private static readonly MoneyMarketTransactionTypeCodeDropdownSource _dropdownSource = new MoneyMarketTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

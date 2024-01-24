@@ -21,21 +21,21 @@ public enum Reporting1Code
 {
     /// <summary>
     /// Trade details are to be reported to a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "STEX".
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAoNp-Ed-ak6NoX_4Aeg_-1707100866")]
     [Description(@"Trade details are to be reported to a stock exchange.")]
-    StockExchange,
+    StockExchange = ReportingCode.StockExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade details are to be reported to a regulatory organisation.
-    /// Encoded/decoded by serializers as "RegulatoryOrganisation".
+    /// Encoded/decoded by serializers as "REGU".
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_ZTMAodp-Ed-ak6NoX_4Aeg_-1707100823")]
     [Description(@"Trade details are to be reported to a regulatory organisation.")]
-    RegulatoryOrganisation,
+    RegulatoryOrganisation = ReportingCode.RegulatoryOrganisation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Reporting1Code
 public static class Reporting1CodeMetadataExtensions
 {
     private static readonly Reporting1CodeDropdownSource _dropdownSource = new Reporting1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

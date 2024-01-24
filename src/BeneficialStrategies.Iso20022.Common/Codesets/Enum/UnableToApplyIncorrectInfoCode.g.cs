@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yz5cktp-Ed-ak6NoX_4Aeg_22044540")]
 [Description(@"Used when the unable to apply is due to incorrect information.")]
 [Derivations(typeof(UnableToApplyIncorrectInfo1Code),typeof(UnableToApplyIncorrectInfo2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnableToApplyIncorrectInfoCode
 {
     /// <summary>
@@ -245,7 +244,7 @@ public enum UnableToApplyIncorrectInfoCode
 public static class UnableToApplyIncorrectInfoCodeMetadataExtensions
 {
     private static readonly UnableToApplyIncorrectInfoCodeDropdownSource _dropdownSource = new UnableToApplyIncorrectInfoCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum SettlementStandingInstructionDatabase1Code
 {
     /// <summary>
     /// The settlement standing instruction database to be used is the receiver's internal database.
-    /// Encoded/decoded by serializers as "InternalDatabase".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZMMAx9p-Ed-ak6NoX_4Aeg_-774171757")]
     [Description(@"The settlement standing instruction database to be used is the receiver's internal database.")]
-    InternalDatabase,
+    InternalDatabase = SettlementStandingInstructionDatabaseCode.InternalDatabase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The settlement standing instruction database to be used is the broker's database.
-    /// Encoded/decoded by serializers as "BrokerDatabase".
+    /// Encoded/decoded by serializers as "BRKR".
     /// </summary>
     [EnumMember(Value = "BRKR")]
     [IsoId("_ZMVKsNp-Ed-ak6NoX_4Aeg_-371277985")]
     [Description(@"The settlement standing instruction database to be used is the broker's database.")]
-    BrokerDatabase,
+    BrokerDatabase = SettlementStandingInstructionDatabaseCode.BrokerDatabase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The settlement standing instruction database to be used is the database of the vendor.
-    /// Encoded/decoded by serializers as "VendorDatabase".
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_ZMVKsdp-Ed-ak6NoX_4Aeg_-1645817532")]
     [Description(@"The settlement standing instruction database to be used is the database of the vendor.")]
-    VendorDatabase,
+    VendorDatabase = SettlementStandingInstructionDatabaseCode.VendorDatabase, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SettlementStandingInstructionDatabase1Code
 public static class SettlementStandingInstructionDatabase1CodeMetadataExtensions
 {
     private static readonly SettlementStandingInstructionDatabase1CodeDropdownSource _dropdownSource = new SettlementStandingInstructionDatabase1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

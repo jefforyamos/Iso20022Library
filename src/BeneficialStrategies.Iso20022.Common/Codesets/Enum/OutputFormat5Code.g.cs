@@ -21,57 +21,57 @@ public enum OutputFormat5Code
 {
     /// <summary>
     /// Other type of output of message defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_bKsXwclUEeuJ35KoBRZFOg")]
     [Description(@"Other type of output of message defined at national level.")]
-    OtherNational,
+    OtherNational = OutputFormatCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of output format defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_btaqUclUEeuJ35KoBRZFOg")]
     [Description(@"Other type of output format defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = OutputFormatCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "SimpleText".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_hhloYslUEeuJ35KoBRZFOg")]
     [Description(@"Text without format attributes.")]
-    SimpleText,
+    SimpleText = OutputFormatCode.SimpleText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Uniform Resource Locator (URL) reference for the message.
-    /// Encoded/decoded by serializers as "UniformResourceLocator".
+    /// Encoded/decoded by serializers as "URLI".
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_iCEfQclUEeuJ35KoBRZFOg")]
     [Description(@"Uniform Resource Locator (URL) reference for the message.")]
-    UniformResourceLocator,
+    UniformResourceLocator = OutputFormatCode.UniformResourceLocator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "XHTML".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_qSpOUslUEeuJ35KoBRZFOg")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    XHTML,
+    XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A formatted print line.
-    /// Encoded/decoded by serializers as "PrintLine".
+    /// Encoded/decoded by serializers as "PLIN".
     /// </summary>
     [EnumMember(Value = "PLIN")]
     [IsoId("_rjgZQslUEeuJ35KoBRZFOg")]
     [Description(@"A formatted print line.")]
-    PrintLine,
+    PrintLine = OutputFormatCode.PrintLine, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Java Syntax Object Notation format.
@@ -80,34 +80,34 @@ public enum OutputFormat5Code
     [EnumMember(Value = "JSON")]
     [IsoId("_uDqB0slUEeuJ35KoBRZFOg")]
     [Description(@"Java Syntax Object Notation format.")]
-    JSON,
+    JSON = OutputFormatCode.JSON, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// eXtensible Markup Language format.
-    /// Encoded/decoded by serializers as "XML".
+    /// Encoded/decoded by serializers as "XMLF".
     /// </summary>
     [EnumMember(Value = "XMLF")]
     [IsoId("_ulcgQclUEeuJ35KoBRZFOg")]
     [Description(@"eXtensible Markup Language format.")]
-    XML,
+    XML = OutputFormatCode.XML, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic data interchange for administration, commerce and transport.
-    /// Encoded/decoded by serializers as "EDIFACT".
+    /// Encoded/decoded by serializers as "EDIF".
     /// </summary>
     [EnumMember(Value = "EDIF")]
     [IsoId("_viTKEslUEeuJ35KoBRZFOg")]
     [Description(@"Electronic data interchange for administration, commerce and transport.")]
-    EDIFACT,
+    EDIFACT = OutputFormatCode.EDIFACT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Comma separated value format.
-    /// Encoded/decoded by serializers as "CSV".
+    /// Encoded/decoded by serializers as "CSVF".
     /// </summary>
     [EnumMember(Value = "CSVF")]
     [IsoId("_wd9hEslUEeuJ35KoBRZFOg")]
     [Description(@"Comma separated value format.")]
-    CSV,
+    CSV = OutputFormatCode.CSV, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Joint Photographic Experts Group format.
@@ -116,34 +116,34 @@ public enum OutputFormat5Code
     [EnumMember(Value = "JPEG")]
     [IsoId("_w_v_gMlUEeuJ35KoBRZFOg")]
     [Description(@"Joint Photographic Experts Group format.")]
-    JPEG,
+    JPEG = OutputFormatCode.JPEG, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portable Document Format.
-    /// Encoded/decoded by serializers as "PDF".
+    /// Encoded/decoded by serializers as "PDFF".
     /// </summary>
     [EnumMember(Value = "PDFF")]
     [IsoId("_x23NsslUEeuJ35KoBRZFOg")]
     [Description(@"Portable Document Format.")]
-    PDF,
+    PDF = OutputFormatCode.PDF, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portable Network Graphics format.
-    /// Encoded/decoded by serializers as "PNG".
+    /// Encoded/decoded by serializers as "PNGF".
     /// </summary>
     [EnumMember(Value = "PNGF")]
     [IsoId("_yYLLAclUEeuJ35KoBRZFOg")]
     [Description(@"Portable Network Graphics format.")]
-    PNG,
+    PNG = OutputFormatCode.PNG, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scalable vector graphic format.
-    /// Encoded/decoded by serializers as "SVG".
+    /// Encoded/decoded by serializers as "SVGF".
     /// </summary>
     [EnumMember(Value = "SVGF")]
     [IsoId("_0G8Z8slUEeuJ35KoBRZFOg")]
     [Description(@"Scalable vector graphic format.")]
-    SVG,
+    SVG = OutputFormatCode.SVG, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum OutputFormat5Code
 public static class OutputFormat5CodeMetadataExtensions
 {
     private static readonly OutputFormat5CodeDropdownSource _dropdownSource = new OutputFormat5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

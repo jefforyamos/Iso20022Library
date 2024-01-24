@@ -21,12 +21,12 @@ public enum AssetClassProductType9Code
 {
     /// <summary>
     /// Commodity of type polypropylene.
-    /// Encoded/decoded by serializers as "Polypropylene".
+    /// Encoded/decoded by serializers as "POLY".
     /// </summary>
     [EnumMember(Value = "POLY")]
     [IsoId("_sc03IQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type polypropylene.")]
-    Polypropylene,
+    Polypropylene = AssetClassProductTypeCode.Polypropylene, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType9Code
 public static class AssetClassProductType9CodeMetadataExtensions
 {
     private static readonly AssetClassProductType9CodeDropdownSource _dropdownSource = new AssetClassProductType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

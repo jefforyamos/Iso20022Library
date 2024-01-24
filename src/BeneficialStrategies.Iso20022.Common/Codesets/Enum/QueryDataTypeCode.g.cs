@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cklwEKa-EeSxuMLA5o46jQ")]
 [Description(@"Specifies the inquiry type of the data.")]
 [Derivations(typeof(QueryDataType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QueryDataTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum QueryDataTypeCode
 public static class QueryDataTypeCodeMetadataExtensions
 {
     private static readonly QueryDataTypeCodeDropdownSource _dropdownSource = new QueryDataTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

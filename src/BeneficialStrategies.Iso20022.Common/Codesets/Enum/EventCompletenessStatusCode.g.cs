@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ajDtF9p-Ed-ak6NoX_4Aeg_1258156300")]
 [Description(@"Indicates whether the details provided about an event are complete or incomplete.")]
 [Derivations(typeof(EventCompletenessStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EventCompletenessStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum EventCompletenessStatusCode
 public static class EventCompletenessStatusCodeMetadataExtensions
 {
     private static readonly EventCompletenessStatusCodeDropdownSource _dropdownSource = new EventCompletenessStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

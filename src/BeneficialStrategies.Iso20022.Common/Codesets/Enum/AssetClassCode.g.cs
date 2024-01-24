@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1mSwFTL3EeKU9IrkkToqcw_388312262")]
 [Description(@"Specifies DTC (The Depository Trust Company) defined asset class.")]
 [Derivations(typeof(AssetClass1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AssetClassCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum AssetClassCode
 public static class AssetClassCodeMetadataExtensions
 {
     private static readonly AssetClassCodeDropdownSource _dropdownSource = new AssetClassCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

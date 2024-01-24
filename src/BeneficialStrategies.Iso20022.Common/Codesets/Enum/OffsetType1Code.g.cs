@@ -21,39 +21,39 @@ public enum OffsetType1Code
 {
     /// <summary>
     /// Indicates that range of peg order or discretion offset value is a price.
-    /// Encoded/decoded by serializers as "Price".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_aOo8QNp-Ed-ak6NoX_4Aeg_-1344728954")]
     [Description(@"Indicates that range of peg order or discretion offset value is a price.")]
-    Price,
+    Price = OffsetTypeCode.Price, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The range of peg order or discretion offset value is measured in basis points.
-    /// Encoded/decoded by serializers as "BasisPoint".
+    /// Encoded/decoded by serializers as "BAPO".
     /// </summary>
     [EnumMember(Value = "BAPO")]
     [IsoId("_aOo8Qdp-Ed-ak6NoX_4Aeg_-1344728894")]
     [Description(@"The range of peg order or discretion offset value is measured in basis points.")]
-    BasisPoint,
+    BasisPoint = OffsetTypeCode.BasisPoint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The range of peg order or discretion offset value is a tick.
-    /// Encoded/decoded by serializers as "Tick".
+    /// Encoded/decoded by serializers as "TICK".
     /// </summary>
     [EnumMember(Value = "TICK")]
     [IsoId("_aOo8Qtp-Ed-ak6NoX_4Aeg_-1344728859")]
     [Description(@"The range of peg order or discretion offset value is a tick.")]
-    Tick,
+    Tick = OffsetTypeCode.Tick, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The range of peg order or discretion offset is a price level.
-    /// Encoded/decoded by serializers as "PriceTierLevel".
+    /// Encoded/decoded by serializers as "PTLE".
     /// </summary>
     [EnumMember(Value = "PTLE")]
     [IsoId("_aOo8Q9p-Ed-ak6NoX_4Aeg_-1344728568")]
     [Description(@"The range of peg order or discretion offset is a price level.")]
-    PriceTierLevel,
+    PriceTierLevel = OffsetTypeCode.PriceTierLevel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum OffsetType1Code
 public static class OffsetType1CodeMetadataExtensions
 {
     private static readonly OffsetType1CodeDropdownSource _dropdownSource = new OffsetType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,180 +16,180 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_sVbosE0eEeea0Mdu1TOzDQ")]
-[Description(@"Reason to send the message. ISO 8583:93/2003 bit 25.")]
+[Description(@"Reason to send the message.|ISO 8583:93/2003 bit 25.")]
 [DerivedFrom(typeof(MessageReasonCode))]
 public enum MessageReason2Code
 {
     /// <summary>
     /// Stand-in processing at the acquirer's option.
-    /// Encoded/decoded by serializers as "AcquirerStandin".
+    /// Encoded/decoded by serializers as "ASTD".
     /// </summary>
     [EnumMember(Value = "ASTD")]
     [IsoId("_oH-a0X0lEemfrNOe0zHQyg")]
     [Description(@"Stand-in processing at the acquirer's option.")]
-    AcquirerStandin,
+    AcquirerStandin = MessageReasonCode.AcquirerStandin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction above or under the floor limit.
-    /// Encoded/decoded by serializers as "FloorLimit".
+    /// Encoded/decoded by serializers as "FLRL".
     /// </summary>
     [EnumMember(Value = "FLRL")]
     [IsoId("_oH-a030lEemfrNOe0zHQyg")]
     [Description(@"Transaction above or under the floor limit.")]
-    FloorLimit,
+    FloorLimit = MessageReasonCode.FloorLimit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction performed offline by the card.
-    /// Encoded/decoded by serializers as "CardProcessed".
+    /// Encoded/decoded by serializers as "COFF".
     /// </summary>
     [EnumMember(Value = "COFF")]
     [IsoId("_oH-a1X0lEemfrNOe0zHQyg")]
     [Description(@"Transaction performed offline by the card.")]
-    CardProcessed,
+    CardProcessed = MessageReasonCode.CardProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card acceptor forced to be online.
-    /// Encoded/decoded by serializers as "CardAcceptorSuspicious".
+    /// Encoded/decoded by serializers as "ASPC".
     /// </summary>
     [EnumMember(Value = "ASPC")]
     [IsoId("_oH-a130lEemfrNOe0zHQyg")]
     [Description(@"Card acceptor forced to be online.")]
-    CardAcceptorSuspicious,
+    CardAcceptorSuspicious = MessageReasonCode.CardAcceptorSuspicious, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "CardUnableToProcess".
+    /// Encoded/decoded by serializers as "CUNB".
     /// </summary>
     [EnumMember(Value = "CUNB")]
     [IsoId("_oH-a2X0lEemfrNOe0zHQyg")]
     [Description(@"Card cannot process offline the transaction.")]
-    CardUnableToProcess,
+    CardUnableToProcess = MessageReasonCode.CardUnableToProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Random online decided by the card.
-    /// Encoded/decoded by serializers as "CardRandomSelection".
+    /// Encoded/decoded by serializers as "CRND".
     /// </summary>
     [EnumMember(Value = "CRND")]
     [IsoId("_oH-a230lEemfrNOe0zHQyg")]
     [Description(@"Random online decided by the card.")]
-    CardRandomSelection,
+    CardRandomSelection = MessageReasonCode.CardRandomSelection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Forced online by card acceptor, terminal, card, or the issuer.
-    /// Encoded/decoded by serializers as "OnlineForced".
+    /// Encoded/decoded by serializers as "FORC".
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_oH-a3X0lEemfrNOe0zHQyg")]
     [Description(@"Forced online by card acceptor, terminal, card, or the issuer.")]
-    OnlineForced,
+    OnlineForced = MessageReasonCode.OnlineForced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer signed off.
-    /// Encoded/decoded by serializers as "IssuerSignedOff".
+    /// Encoded/decoded by serializers as "ISGN".
     /// </summary>
     [EnumMember(Value = "ISGN")]
     [IsoId("_oH-a330lEemfrNOe0zHQyg")]
     [Description(@"Issuer signed off.")]
-    IssuerSignedOff,
+    IssuerSignedOff = MessageReasonCode.IssuerSignedOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer timed out on request.
-    /// Encoded/decoded by serializers as "IssuerTimeout".
+    /// Encoded/decoded by serializers as "ITIM".
     /// </summary>
     [EnumMember(Value = "ITIM")]
     [IsoId("_oH-a4X0lEemfrNOe0zHQyg")]
     [Description(@"Issuer timed out on request.")]
-    IssuerTimeout,
+    IssuerTimeout = MessageReasonCode.IssuerTimeout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer unavailable.
-    /// Encoded/decoded by serializers as "IssuerUnavailable".
+    /// Encoded/decoded by serializers as "IUNV".
     /// </summary>
     [EnumMember(Value = "IUNV")]
     [IsoId("_oH-a430lEemfrNOe0zHQyg")]
     [Description(@"Issuer unavailable.")]
-    IssuerUnavailable,
+    IssuerUnavailable = MessageReasonCode.IssuerUnavailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other national type of reason.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_oH-a5X0lEemfrNOe0zHQyg")]
     [Description(@"Other national type of reason.")]
-    OtherNational,
+    OtherNational = MessageReasonCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other private type of reason.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_oH-a530lEemfrNOe0zHQyg")]
     [Description(@"Other private type of reason.")]
-    OtherPrivate,
+    OtherPrivate = MessageReasonCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Random online decided by the terminal.
-    /// Encoded/decoded by serializers as "TerminalRandomSelection".
+    /// Encoded/decoded by serializers as "TRND".
     /// </summary>
     [EnumMember(Value = "TRND")]
     [IsoId("_oH-a6X0lEemfrNOe0zHQyg")]
     [Description(@"Random online decided by the terminal.")]
-    TerminalRandomSelection,
+    TerminalRandomSelection = MessageReasonCode.TerminalRandomSelection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "TerminalUnableToProcess".
+    /// Encoded/decoded by serializers as "TUNB".
     /// </summary>
     [EnumMember(Value = "TUNB")]
     [IsoId("_oH-a630lEemfrNOe0zHQyg")]
     [Description(@"Terminal cannot process offline the transaction.")]
-    TerminalUnableToProcess,
+    TerminalUnableToProcess = MessageReasonCode.TerminalUnableToProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stand-in processing at the receiver's option.
-    /// Encoded/decoded by serializers as "ReceiverStandin".
+    /// Encoded/decoded by serializers as "RSTD".
     /// </summary>
     [EnumMember(Value = "RSTD")]
     [IsoId("_oH-a7X0lEemfrNOe0zHQyg")]
     [Description(@"Stand-in processing at the receiver's option.")]
-    ReceiverStandin,
+    ReceiverStandin = MessageReasonCode.ReceiverStandin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receiver timed out on request.
-    /// Encoded/decoded by serializers as "ReceiverTimeout".
+    /// Encoded/decoded by serializers as "RTIM".
     /// </summary>
     [EnumMember(Value = "RTIM")]
     [IsoId("_oH-a730lEemfrNOe0zHQyg")]
     [Description(@"Receiver timed out on request.")]
-    ReceiverTimeout,
+    ReceiverTimeout = MessageReasonCode.ReceiverTimeout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receiver signed off.
-    /// Encoded/decoded by serializers as "ReceiverSignedOff".
+    /// Encoded/decoded by serializers as "RSGN".
     /// </summary>
     [EnumMember(Value = "RSGN")]
     [IsoId("_oH-a8X0lEemfrNOe0zHQyg")]
     [Description(@"Receiver signed off.")]
-    ReceiverSignedOff,
+    ReceiverSignedOff = MessageReasonCode.ReceiverSignedOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receiver unavailable.
-    /// Encoded/decoded by serializers as "ReceiverUnavailable".
+    /// Encoded/decoded by serializers as "RUNV".
     /// </summary>
     [EnumMember(Value = "RUNV")]
     [IsoId("_oH-a830lEemfrNOe0zHQyg")]
     [Description(@"Receiver unavailable.")]
-    ReceiverUnavailable,
+    ReceiverUnavailable = MessageReasonCode.ReceiverUnavailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction performed offline by the terminal.
-    /// Encoded/decoded by serializers as "TerminalProcessed".
+    /// Encoded/decoded by serializers as "TOFF".
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_oH-a9X0lEemfrNOe0zHQyg")]
     [Description(@"Transaction performed offline by the terminal.")]
-    TerminalProcessed,
+    TerminalProcessed = MessageReasonCode.TerminalProcessed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -200,7 +200,7 @@ public enum MessageReason2Code
 public static class MessageReason2CodeMetadataExtensions
 {
     private static readonly MessageReason2CodeDropdownSource _dropdownSource = new MessageReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum CaseForwardingNotification3Code
 {
     /// <summary>
     /// Case has been forwarded to the next party for further investigation.
-    /// Encoded/decoded by serializers as "FurtherInvestigation".
+    /// Encoded/decoded by serializers as "FTHI".
     /// </summary>
     [EnumMember(Value = "FTHI")]
     [IsoId("_a2bVA9p-Ed-ak6NoX_4Aeg_-1716921080")]
     [Description(@"Case has been forwarded to the next party for further investigation.")]
-    FurtherInvestigation,
+    FurtherInvestigation = CaseForwardingNotificationCode.FurtherInvestigation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case has been forwarded to the next party for cancellation.
-    /// Encoded/decoded by serializers as "RequestToCancel".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_a2bVBNp-Ed-ak6NoX_4Aeg_-1716921060")]
     [Description(@"Case has been forwarded to the next party for cancellation.")]
-    RequestToCancel,
+    RequestToCancel = CaseForwardingNotificationCode.RequestToCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case has been forwarded to the next party for modification.
-    /// Encoded/decoded by serializers as "RequestToModify".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_a2bVBdp-Ed-ak6NoX_4Aeg_-1716921051")]
     [Description(@"Case has been forwarded to the next party for modification.")]
-    RequestToModify,
+    RequestToModify = CaseForwardingNotificationCode.RequestToModify, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case has been forwarded to obtain authorisation to debit.
-    /// Encoded/decoded by serializers as "RequestDebitAuthorisation".
+    /// Encoded/decoded by serializers as "DTAU".
     /// </summary>
     [EnumMember(Value = "DTAU")]
     [IsoId("_a2bVBtp-Ed-ak6NoX_4Aeg_-1716921029")]
     [Description(@"Case has been forwarded to obtain authorisation to debit.")]
-    RequestDebitAuthorisation,
+    RequestDebitAuthorisation = CaseForwardingNotificationCode.RequestDebitAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional information has been forwarded to the creditor.
-    /// Encoded/decoded by serializers as "SentAdditionalInformation".
+    /// Encoded/decoded by serializers as "SAIN".
     /// </summary>
     [EnumMember(Value = "SAIN")]
     [IsoId("_a2bVB9p-Ed-ak6NoX_4Aeg_-1716921020")]
     [Description(@"Additional information has been forwarded to the creditor.")]
-    SentAdditionalInformation,
+    SentAdditionalInformation = CaseForwardingNotificationCode.SentAdditionalInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case is been handled by the assigned party.
-    /// Encoded/decoded by serializers as "MineInvestigationCase".
+    /// Encoded/decoded by serializers as "MINE".
     /// </summary>
     [EnumMember(Value = "MINE")]
     [IsoId("_a2bVCNp-Ed-ak6NoX_4Aeg_-1716921019")]
     [Description(@"Case is been handled by the assigned party.")]
-    MineInvestigationCase,
+    MineInvestigationCase = CaseForwardingNotificationCode.MineInvestigationCase, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum CaseForwardingNotification3Code
 public static class CaseForwardingNotification3CodeMetadataExtensions
 {
     private static readonly CaseForwardingNotification3CodeDropdownSource _dropdownSource = new CaseForwardingNotification3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

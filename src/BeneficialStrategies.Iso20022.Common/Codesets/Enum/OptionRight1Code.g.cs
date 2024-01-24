@@ -21,39 +21,39 @@ public enum OptionRight1Code
 {
     /// <summary>
     /// Exercise option right.
-    /// Encoded/decoded by serializers as "Exercise".
+    /// Encoded/decoded by serializers as "EXER".
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("__vPco9ojEeC60axPepSq7g_-581695193")]
     [Description(@"Exercise option right.")]
-    Exercise,
+    Exercise = OptionRightCode.Exercise, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option right assignment.
-    /// Encoded/decoded by serializers as "Assignment".
+    /// Encoded/decoded by serializers as "ASGN".
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("__vPcpNojEeC60axPepSq7g_-1981917652")]
     [Description(@"Option right assignment.")]
-    Assignment,
+    Assignment = OptionRightCode.Assignment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The option right is renounced.
-    /// Encoded/decoded by serializers as "Renouncement".
+    /// Encoded/decoded by serializers as "RENO".
     /// </summary>
     [EnumMember(Value = "RENO")]
     [IsoId("__vPcpdojEeC60axPepSq7g_-1993016429")]
     [Description(@"The option right is renounced.")]
-    Renouncement,
+    Renouncement = OptionRightCode.Renouncement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option right expires.
-    /// Encoded/decoded by serializers as "Expiration".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("__vYmkNojEeC60axPepSq7g_-525867666")]
     [Description(@"Option right expires.")]
-    Expiration,
+    Expiration = OptionRightCode.Expiration, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum OptionRight1Code
 public static class OptionRight1CodeMetadataExtensions
 {
     private static readonly OptionRight1CodeDropdownSource _dropdownSource = new OptionRight1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

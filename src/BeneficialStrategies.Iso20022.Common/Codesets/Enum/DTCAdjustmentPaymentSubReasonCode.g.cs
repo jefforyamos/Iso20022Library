@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9k5cgGfhEeOB5r-GpjGdRQ")]
 [Description(@"Specifies the subtype of the payment adjustment.")]
 [Derivations(typeof(DTCAdjustmentPaymentSubReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCAdjustmentPaymentSubReasonCode
 {
     /// <summary>
@@ -850,12 +849,11 @@ public enum DTCAdjustmentPaymentSubReasonCode
     
     /// <summary>
     /// DTCC reorganization related adjustment.
-    /// 
     /// Encoded/decoded by serializers as "SJR7".
     /// </summary>
     [EnumMember(Value = "SJR7")]
     [IsoId("_2ypxwGiTEeOdXoiw6mfXMw")]
-    [Description(@"DTCC reorganization related adjustment. ")]
+    [Description(@"DTCC reorganization related adjustment.|")]
     ReorganizationAdjustment,
     
     /// <summary>
@@ -1148,12 +1146,11 @@ public enum DTCAdjustmentPaymentSubReasonCode
     
     /// <summary>
     /// Stock loan related payment or charge.
-    /// 
     /// Encoded/decoded by serializers as "SSLA".
     /// </summary>
     [EnumMember(Value = "SSLA")]
     [IsoId("_GgFLkGiiEeOdXoiw6mfXMw")]
-    [Description(@"Stock loan related payment or charge. ")]
+    [Description(@"Stock loan related payment or charge.|")]
     StockLoanAdjustment,
     
     /// <summary>
@@ -1462,7 +1459,7 @@ public enum DTCAdjustmentPaymentSubReasonCode
 public static class DTCAdjustmentPaymentSubReasonCodeMetadataExtensions
 {
     private static readonly DTCAdjustmentPaymentSubReasonCodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentSubReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

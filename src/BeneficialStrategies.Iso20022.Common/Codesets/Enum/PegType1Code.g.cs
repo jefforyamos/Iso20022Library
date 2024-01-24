@@ -21,66 +21,66 @@ public enum PegType1Code
 {
     /// <summary>
     /// Order pegged against a fixed amount (local best bid or offer, at time of order).
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_Z9p5-Np-Ed-ak6NoX_4Aeg_307440399")]
     [Description(@"Order pegged against a fixed amount (local best bid or offer, at time of order).")]
-    Fixed,
+    Fixed = PegTypeCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the last price.
-    /// Encoded/decoded by serializers as "Last".
+    /// Encoded/decoded by serializers as "LAST".
     /// </summary>
     [EnumMember(Value = "LAST")]
     [IsoId("_Z9p5-dp-Ed-ak6NoX_4Aeg_307440417")]
     [Description(@"Order pegged against the last price.")]
-    Last,
+    Last = PegTypeCode.Last, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "Market".
+    /// Encoded/decoded by serializers as "MARK".
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_Z9zq8Np-Ed-ak6NoX_4Aeg_307440434")]
     [Description(@"Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.")]
-    Market,
+    Market = PegTypeCode.Market, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the mid price, which is the average between the offer and bid prices.
-    /// Encoded/decoded by serializers as "MidPrice".
+    /// Encoded/decoded by serializers as "MIDP".
     /// </summary>
     [EnumMember(Value = "MIDP")]
     [IsoId("_Z9zq8dp-Ed-ak6NoX_4Aeg_307440452")]
     [Description(@"Order pegged against the mid price, which is the average between the offer and bid prices.")]
-    MidPrice,
+    MidPrice = PegTypeCode.MidPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the opening price.
-    /// Encoded/decoded by serializers as "Opening".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Z9zq8tp-Ed-ak6NoX_4Aeg_307440477")]
     [Description(@"Order pegged against the opening price.")]
-    Opening,
+    Opening = PegTypeCode.Opening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "Primary".
+    /// Encoded/decoded by serializers as "PRIM".
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_Z9zq89p-Ed-ak6NoX_4Aeg_307440494")]
     [Description(@"Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.")]
-    Primary,
+    Primary = PegTypeCode.Primary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order pegged against the volume weighted average price for the day.
-    /// Encoded/decoded by serializers as "VolumeWeightAveragePrice".
+    /// Encoded/decoded by serializers as "VWAP".
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_Z9zq9Np-Ed-ak6NoX_4Aeg_307440512")]
     [Description(@"Order pegged against the volume weighted average price for the day.")]
-    VolumeWeightAveragePrice,
+    VolumeWeightAveragePrice = PegTypeCode.VolumeWeightAveragePrice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum PegType1Code
 public static class PegType1CodeMetadataExtensions
 {
     private static readonly PegType1CodeDropdownSource _dropdownSource = new PegType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

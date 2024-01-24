@@ -21,21 +21,21 @@ public enum TradingVenue2Code
 {
     /// <summary>
     /// Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.
-    /// Encoded/decoded by serializers as "ApprovedPublicationArrangement".
+    /// Encoded/decoded by serializers as "APPA".
     /// </summary>
     [EnumMember(Value = "APPA")]
     [IsoId("_dy31QV0iEeWErPfQ7BYx8A")]
     [Description(@"Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.")]
-    ApprovedPublicationArrangement,
+    ApprovedPublicationArrangement = TradingVenueCode.ApprovedPublicationArrangement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.
-    /// Encoded/decoded by serializers as "ConsolidatedTapeProvider".
+    /// Encoded/decoded by serializers as "CTPS".
     /// </summary>
     [EnumMember(Value = "CTPS")]
     [IsoId("_F8rOgb4BEeWvRsMSLyTf-A")]
     [Description(@"Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.")]
-    ConsolidatedTapeProvider,
+    ConsolidatedTapeProvider = TradingVenueCode.ConsolidatedTapeProvider, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradingVenue2Code
 public static class TradingVenue2CodeMetadataExtensions
 {
     private static readonly TradingVenue2CodeDropdownSource _dropdownSource = new TradingVenue2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

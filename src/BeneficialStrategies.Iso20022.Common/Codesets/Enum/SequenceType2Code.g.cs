@@ -21,21 +21,21 @@ public enum SequenceType2Code
 {
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "Recurring".
+    /// Encoded/decoded by serializers as "RCUR".
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgCNp-Ed-ak6NoX_4Aeg_868377522")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
-    Recurring,
+    Recurring = SequenceTypeCode.Recurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OneOff".
+    /// Encoded/decoded by serializers as "OOFF".
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_ZKZRANp-Ed-ak6NoX_4Aeg_868377553")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
-    OneOff,
+    OneOff = SequenceTypeCode.OneOff, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SequenceType2Code
 public static class SequenceType2CodeMetadataExtensions
 {
     private static readonly SequenceType2CodeDropdownSource _dropdownSource = new SequenceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

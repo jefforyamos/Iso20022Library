@@ -63,7 +63,7 @@ public enum CaseStatus1Code
 public static class CaseStatus1CodeMetadataExtensions
 {
     private static readonly CaseStatus1CodeDropdownSource _dropdownSource = new CaseStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

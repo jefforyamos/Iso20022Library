@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_XWoxEI9EEeqMo4JxiuZGSw")]
 [Description(@"Specifies the tenor of the interest rate index.")]
 [Derivations(typeof(InterestRateIndexTenor2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestRateIndexTenorCode_TO_MERGE
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum InterestRateIndexTenorCode_TO_MERGE
 public static class InterestRateIndexTenorCode_TO_MERGEMetadataExtensions
 {
     private static readonly InterestRateIndexTenorCode_TO_MERGEDropdownSource _dropdownSource = new InterestRateIndexTenorCode_TO_MERGEDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum SettledStatusReason2Code
 {
     /// <summary>
     /// Cash is partially settled.
-    /// Encoded/decoded by serializers as "CashPartiallySettled".
+    /// Encoded/decoded by serializers as "CPST".
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_Bf1BsUgXEea9YuSvQGoi-w")]
     [Description(@"Cash is partially settled.")]
-    CashPartiallySettled,
+    CashPartiallySettled = SettledStatusReasonCode.CashPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption has been gated. Multiple redemptions and multiple prices will be required.
-    /// Encoded/decoded by serializers as "GatedMultipleNAV".
+    /// Encoded/decoded by serializers as "GATM".
     /// </summary>
     [EnumMember(Value = "GATM")]
     [IsoId("_BlVMwUgXEea9YuSvQGoi-w")]
     [Description(@"Redemption has been gated. Multiple redemptions and multiple prices will be required.")]
-    GatedMultipleNAV,
+    GatedMultipleNAV = SettledStatusReasonCode.GatedMultipleNAV, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption has been gated, all settlement will be done at the same price.
-    /// Encoded/decoded by serializers as "GatedOneNAV".
+    /// Encoded/decoded by serializers as "GAT1".
     /// </summary>
     [EnumMember(Value = "GAT1")]
     [IsoId("_BrbNsUgXEea9YuSvQGoi-w")]
     [Description(@"Redemption has been gated, all settlement will be done at the same price.")]
-    GatedOneNAV,
+    GatedOneNAV = SettledStatusReasonCode.GatedOneNAV, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Units and cash are both partially settled.
-    /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
+    /// Encoded/decoded by serializers as "UCPS".
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_BwfT4UgXEea9YuSvQGoi-w")]
     [Description(@"Units and cash are both partially settled.")]
-    UnitsCashPartiallySettled,
+    UnitsCashPartiallySettled = SettledStatusReasonCode.UnitsCashPartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Units are partially settled.
-    /// Encoded/decoded by serializers as "UnitsPartiallySettled".
+    /// Encoded/decoded by serializers as "UPST".
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_B11t8UgXEea9YuSvQGoi-w")]
     [Description(@"Units are partially settled.")]
-    UnitsPartiallySettled,
+    UnitsPartiallySettled = SettledStatusReasonCode.UnitsPartiallySettled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum SettledStatusReason2Code
 public static class SettledStatusReason2CodeMetadataExtensions
 {
     private static readonly SettledStatusReason2CodeDropdownSource _dropdownSource = new SettledStatusReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

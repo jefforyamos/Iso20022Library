@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z0uAYNp-Ed-ak6NoX_4Aeg_2143732969")]
 [Description(@"Specifies the transfer method that will be used to transfer the cash.")]
-[Derivations(typeof(PaymentMethod3Code),typeof(PaymentMethod2Code),typeof(PaymentMethod4Code),typeof(PaymentMethod7Code),typeof(PaymentMethod6Code),typeof(PaymentMethod5Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(PaymentMethod6Code),typeof(PaymentMethod7Code),typeof(PaymentMethod2Code),typeof(PaymentMethod4Code),typeof(PaymentMethod5Code),typeof(PaymentMethod3Code))]
 public enum PaymentMethodCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum PaymentMethodCode
 public static class PaymentMethodCodeMetadataExtensions
 {
     private static readonly PaymentMethodCodeDropdownSource _dropdownSource = new PaymentMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

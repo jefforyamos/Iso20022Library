@@ -54,7 +54,7 @@ public enum TargetCompanyAgreementCode
 public static class TargetCompanyAgreementCodeMetadataExtensions
 {
     private static readonly TargetCompanyAgreementCodeDropdownSource _dropdownSource = new TargetCompanyAgreementCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

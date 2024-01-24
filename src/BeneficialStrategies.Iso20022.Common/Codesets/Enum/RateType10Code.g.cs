@@ -21,21 +21,21 @@ public enum RateType10Code
 {
     /// <summary>
     /// Any and all rate is sought.
-    /// Encoded/decoded by serializers as "AnyAndAll".
+    /// Encoded/decoded by serializers as "ANYA".
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_uBZyFQCoEeGt2odvTAOpog")]
     [Description(@"Any and all rate is sought.")]
-    AnyAndAll,
+    AnyAndAll = RateTypeCode.AnyAndAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_wN7UAgCoEeGt2odvTAOpog")]
     [Description(@"Rate is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RateType10Code
 public static class RateType10CodeMetadataExtensions
 {
     private static readonly RateType10CodeDropdownSource _dropdownSource = new RateType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

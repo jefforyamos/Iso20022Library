@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZK_t8Np-Ed-ak6NoX_4Aeg_502482396")]
 [Description(@"Specifies the status of a securities settlement condition modification request.")]
 [Derivations(typeof(SettlementConditionModificationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementConditionModificationStatusStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SettlementConditionModificationStatusStatusCode
 public static class SettlementConditionModificationStatusStatusCodeMetadataExtensions
 {
     private static readonly SettlementConditionModificationStatusStatusCodeDropdownSource _dropdownSource = new SettlementConditionModificationStatusStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

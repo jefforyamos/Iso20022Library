@@ -21,66 +21,66 @@ public enum AssetPriceType1Code
 {
     /// <summary>
     /// Argus / Mc Closkey price.
-    /// Encoded/decoded by serializers as "ArgusMcCloskey".
+    /// Encoded/decoded by serializers as "ARGM".
     /// </summary>
     [EnumMember(Value = "ARGM")]
     [IsoId("_Uio3oRtFEeWhp-Wous5jzA")]
     [Description(@"Argus / Mc Closkey price.")]
-    ArgusMcCloskey,
+    ArgusMcCloskey = AssetPriceTypeCode.ArgusMcCloskey, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Baltic price.
-    /// Encoded/decoded by serializers as "Baltic".
+    /// Encoded/decoded by serializers as "BLTC".
     /// </summary>
     [EnumMember(Value = "BLTC")]
     [IsoId("_UnPq0RtFEeWhp-Wous5jzA")]
     [Description(@"Baltic price.")]
-    Baltic,
+    Baltic = AssetPriceTypeCode.Baltic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange price.
-    /// Encoded/decoded by serializers as "Exchange".
+    /// Encoded/decoded by serializers as "EXOF".
     /// </summary>
     [EnumMember(Value = "EXOF")]
     [IsoId("_UsAPARtFEeWhp-Wous5jzA")]
     [Description(@"Exchange price.")]
-    Exchange,
+    Exchange = AssetPriceTypeCode.Exchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global coal price.
-    /// Encoded/decoded by serializers as "GlobalCoal".
+    /// Encoded/decoded by serializers as "GBCL".
     /// </summary>
     [EnumMember(Value = "GBCL")]
     [IsoId("_UwnpQRtFEeWhp-Wous5jzA")]
     [Description(@"Global coal price.")]
-    GlobalCoal,
+    GlobalCoal = AssetPriceTypeCode.GlobalCoal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// IHS Mc Closkey price.
-    /// Encoded/decoded by serializers as "IHSMcCloskey".
+    /// Encoded/decoded by serializers as "IHSM".
     /// </summary>
     [EnumMember(Value = "IHSM")]
     [IsoId("_U1YNcRtFEeWhp-Wous5jzA")]
     [Description(@"IHS Mc Closkey price.")]
-    IHSMcCloskey,
+    IHSMcCloskey = AssetPriceTypeCode.IHSMcCloskey, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other price.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_U9tqERtFEeWhp-Wous5jzA")]
     [Description(@"Other price.")]
-    Other,
+    Other = AssetPriceTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Platts price.
-    /// Encoded/decoded by serializers as "Platts".
+    /// Encoded/decoded by serializers as "PLAT".
     /// </summary>
     [EnumMember(Value = "PLAT")]
     [IsoId("_VFS4wRtFEeWhp-Wous5jzA")]
     [Description(@"Platts price.")]
-    Platts,
+    Platts = AssetPriceTypeCode.Platts, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum AssetPriceType1Code
 public static class AssetPriceType1CodeMetadataExtensions
 {
     private static readonly AssetPriceType1CodeDropdownSource _dropdownSource = new AssetPriceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

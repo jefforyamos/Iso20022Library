@@ -21,21 +21,21 @@ public enum Insurance1Code
 {
     /// <summary>
     /// Life insurance.
-    /// Encoded/decoded by serializers as "LifeInsurance".
+    /// Encoded/decoded by serializers as "LIFE".
     /// </summary>
     [EnumMember(Value = "LIFE")]
     [IsoId("_OdMHYRQbEeKebsB9eKJSkA")]
     [Description(@"Life insurance.")]
-    LifeInsurance,
+    LifeInsurance = InsuranceCode.LifeInsurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Permanent disability insurance.
-    /// Encoded/decoded by serializers as "PermanentDisabilityInsurance".
+    /// Encoded/decoded by serializers as "PDIS".
     /// </summary>
     [EnumMember(Value = "PDIS")]
     [IsoId("_Ombi8RQbEeKebsB9eKJSkA")]
     [Description(@"Permanent disability insurance.")]
-    PermanentDisabilityInsurance,
+    PermanentDisabilityInsurance = InsuranceCode.PermanentDisabilityInsurance, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Insurance1Code
 public static class Insurance1CodeMetadataExtensions
 {
     private static readonly Insurance1CodeDropdownSource _dropdownSource = new Insurance1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

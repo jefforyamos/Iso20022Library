@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ahHzYdp-Ed-ak6NoX_4Aeg_-1893441845")]
 [Description(@"Specifies the type of election.")]
 [Derivations(typeof(ElectionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ElectionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ElectionTypeCode
 public static class ElectionTypeCodeMetadataExtensions
 {
     private static readonly ElectionTypeCodeDropdownSource _dropdownSource = new ElectionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

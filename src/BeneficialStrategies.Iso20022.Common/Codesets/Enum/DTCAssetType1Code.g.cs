@@ -21,849 +21,849 @@ public enum DTCAssetType1Code
 {
     /// <summary>
     /// Equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "S005".
     /// </summary>
     [EnumMember(Value = "S005")]
     [IsoId("_1wRygzL3EeKU9IrkkToqcw_316841571")]
     [Description(@"Equity.")]
-    Equity,
+    Equity = DTCAssetTypeCode.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Common Stock.
-    /// Encoded/decoded by serializers as "CommonStock".
+    /// Encoded/decoded by serializers as "S010".
     /// </summary>
     [EnumMember(Value = "S010")]
     [IsoId("_1wRyhDL3EeKU9IrkkToqcw_1966610265")]
     [Description(@"Common Stock.")]
-    CommonStock,
+    CommonStock = DTCAssetTypeCode.CommonStock, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Convertible Common Stock.
-    /// Encoded/decoded by serializers as "ConvertibleCommonStock".
+    /// Encoded/decoded by serializers as "S011".
     /// </summary>
     [EnumMember(Value = "S011")]
     [IsoId("_1wRyhTL3EeKU9IrkkToqcw_1852771199")]
     [Description(@"Convertible Common Stock.")]
-    ConvertibleCommonStock,
+    ConvertibleCommonStock = DTCAssetTypeCode.ConvertibleCommonStock, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Common Stock REIT.
-    /// Encoded/decoded by serializers as "CommonStockREIT".
+    /// Encoded/decoded by serializers as "S012".
     /// </summary>
     [EnumMember(Value = "S012")]
     [IsoId("_1wRyhjL3EeKU9IrkkToqcw_122741276")]
     [Description(@"Common Stock REIT.")]
-    CommonStockREIT,
+    CommonStockREIT = DTCAssetTypeCode.CommonStockREIT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preferred Stock.
-    /// Encoded/decoded by serializers as "PreferredStock".
+    /// Encoded/decoded by serializers as "S020".
     /// </summary>
     [EnumMember(Value = "S020")]
     [IsoId("_1wbjgDL3EeKU9IrkkToqcw_8902210")]
     [Description(@"Preferred Stock.")]
-    PreferredStock,
+    PreferredStock = DTCAssetTypeCode.PreferredStock, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preferred Stock REIT.
-    /// Encoded/decoded by serializers as "PreferredStockREIT".
+    /// Encoded/decoded by serializers as "S022".
     /// </summary>
     [EnumMember(Value = "S022")]
     [IsoId("_1wbjgTL3EeKU9IrkkToqcw_576828545")]
     [Description(@"Preferred Stock REIT.")]
-    PreferredStockREIT,
+    PreferredStockREIT = DTCAssetTypeCode.PreferredStockREIT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Convertible Preferred Stock.
-    /// Encoded/decoded by serializers as "ConvertiblePreferredStock".
+    /// Encoded/decoded by serializers as "S023".
     /// </summary>
     [EnumMember(Value = "S023")]
     [IsoId("_1wbjgjL3EeKU9IrkkToqcw_565729768")]
     [Description(@"Convertible Preferred Stock.")]
-    ConvertiblePreferredStock,
+    ConvertiblePreferredStock = DTCAssetTypeCode.ConvertiblePreferredStock, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender Rate Preferred Stock.
-    /// Encoded/decoded by serializers as "TenderRatePreferredStock".
+    /// Encoded/decoded by serializers as "S024".
     /// </summary>
     [EnumMember(Value = "S024")]
     [IsoId("_1wbjgzL3EeKU9IrkkToqcw_-1433128313")]
     [Description(@"Tender Rate Preferred Stock.")]
-    TenderRatePreferredStock,
+    TenderRatePreferredStock = DTCAssetTypeCode.TenderRatePreferredStock, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limited Partnership.
-    /// Encoded/decoded by serializers as "LimitedPartnership".
+    /// Encoded/decoded by serializers as "S030".
     /// </summary>
     [EnumMember(Value = "S030")]
     [IsoId("_1wbjhDL3EeKU9IrkkToqcw_-1546967379")]
     [Description(@"Limited Partnership.")]
-    LimitedPartnership,
+    LimitedPartnership = DTCAssetTypeCode.LimitedPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CMO Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "CMODenominUnitsorUndividedInterest".
+    /// Encoded/decoded by serializers as "S040".
     /// </summary>
     [EnumMember(Value = "S040")]
     [IsoId("_1wbjhTL3EeKU9IrkkToqcw_-1108010806")]
     [Description(@"CMO Denomination in ""Units"" or ""Undivided Interest"".")]
-    CMODenominUnitsorUndividedInterest,
+    CMODenominUnitsorUndividedInterest = DTCAssetTypeCode.CMODenominUnitsorUndividedInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ABS Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "ABSDenominUnitsorUndividedInterest".
+    /// Encoded/decoded by serializers as "S041".
     /// </summary>
     [EnumMember(Value = "S041")]
     [IsoId("_1wbjhjL3EeKU9IrkkToqcw_567055335")]
     [Description(@"ABS Denomination in ""Units"" or ""Undivided Interest"".")]
-    ABSDenominUnitsorUndividedInterest,
+    ABSDenominUnitsorUndividedInterest = DTCAssetTypeCode.ABSDenominUnitsorUndividedInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issue Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "IssueDenominUnitsorUndividedInterest".
+    /// Encoded/decoded by serializers as "S042".
     /// </summary>
     [EnumMember(Value = "S042")]
     [IsoId("_1wktcDL3EeKU9IrkkToqcw_453216269")]
     [Description(@"Issue Denomination in ""Units"" or ""Undivided Interest"".")]
-    IssueDenominUnitsorUndividedInterest,
+    IssueDenominUnitsorUndividedInterest = DTCAssetTypeCode.IssueDenominUnitsorUndividedInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Auction Rate Preferred Stock (ARPS).
-    /// Encoded/decoded by serializers as "AuctionRatePreferredStockARPS".
+    /// Encoded/decoded by serializers as "S102".
     /// </summary>
     [EnumMember(Value = "S102")]
     [IsoId("_1wktcTL3EeKU9IrkkToqcw_-1833958954")]
     [Description(@"Auction Rate Preferred Stock (ARPS).")]
-    AuctionRatePreferredStockARPS,
+    AuctionRatePreferredStockARPS = DTCAssetTypeCode.AuctionRatePreferredStockARPS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// American Depositary Receipt (ADR).
-    /// Encoded/decoded by serializers as "AmericanDepositaryReceiptADR".
+    /// Encoded/decoded by serializers as "S110".
     /// </summary>
     [EnumMember(Value = "S110")]
     [IsoId("_1wktcjL3EeKU9IrkkToqcw_-1947798020")]
     [Description(@"American Depositary Receipt (ADR).")]
-    AmericanDepositaryReceiptADR,
+    AmericanDepositaryReceiptADR = DTCAssetTypeCode.AmericanDepositaryReceiptADR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Depositary Share.
-    /// Encoded/decoded by serializers as "DepositaryShare".
+    /// Encoded/decoded by serializers as "S111".
     /// </summary>
     [EnumMember(Value = "S111")]
     [IsoId("_1wktczL3EeKU9IrkkToqcw_1706258468")]
     [Description(@"Depositary Share.")]
-    DepositaryShare,
+    DepositaryShare = DTCAssetTypeCode.DepositaryShare, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Option Call Right.
-    /// Encoded/decoded by serializers as "MunicipalOptionCallRight".
+    /// Encoded/decoded by serializers as "S112".
     /// </summary>
     [EnumMember(Value = "S112")]
     [IsoId("_1wktdDL3EeKU9IrkkToqcw_1592419402")]
     [Description(@"Municipal Option Call Right.")]
-    MunicipalOptionCallRight,
+    MunicipalOptionCallRight = DTCAssetTypeCode.MunicipalOptionCallRight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange Traded Funds.
-    /// Encoded/decoded by serializers as "ExchangeTradedFunds".
+    /// Encoded/decoded by serializers as "S117".
     /// </summary>
     [EnumMember(Value = "S117")]
     [IsoId("_1wktdTL3EeKU9IrkkToqcw_-1827943675")]
     [Description(@"Exchange Traded Funds.")]
-    ExchangeTradedFunds,
+    ExchangeTradedFunds = DTCAssetTypeCode.ExchangeTradedFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Preferred Stock (in CP-like mode).
-    /// Encoded/decoded by serializers as "MMIPreferredStockinCPlikemode".
+    /// Encoded/decoded by serializers as "S120".
     /// </summary>
     [EnumMember(Value = "S120")]
     [IsoId("_1wktdjL3EeKU9IrkkToqcw_-1941782741")]
     [Description(@"MMI Preferred Stock (in CP-like mode).")]
-    MMIPreferredStockinCPlikemode,
+    MMIPreferredStockinCPlikemode = DTCAssetTypeCode.MMIPreferredStockinCPlikemode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sealed Envelope.
-    /// Encoded/decoded by serializers as "SealedEnvelope".
+    /// Encoded/decoded by serializers as "S125".
     /// </summary>
     [EnumMember(Value = "S125")]
     [IsoId("_1wuecDL3EeKU9IrkkToqcw_-303698390")]
     [Description(@"Sealed Envelope.")]
-    SealedEnvelope,
+    SealedEnvelope = DTCAssetTypeCode.SealedEnvelope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custody User CUSIP.
-    /// Encoded/decoded by serializers as "CustodyUserCUSIP".
+    /// Encoded/decoded by serializers as "S126".
     /// </summary>
     [EnumMember(Value = "S126")]
     [IsoId("_1wuecTL3EeKU9IrkkToqcw_-417537456")]
     [Description(@"Custody User CUSIP.")]
-    CustodyUserCUSIP,
+    CustodyUserCUSIP = DTCAssetTypeCode.CustodyUserCUSIP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Real-Estate Investment Trust (REIT).
-    /// Encoded/decoded by serializers as "RealEstateInvestmentTrustREIT".
+    /// Encoded/decoded by serializers as "S130".
     /// </summary>
     [EnumMember(Value = "S130")]
     [IsoId("_1wuecjL3EeKU9IrkkToqcw_457066763")]
     [Description(@"Real-Estate Investment Trust (REIT).")]
-    RealEstateInvestmentTrustREIT,
+    RealEstateInvestmentTrustREIT = DTCAssetTypeCode.RealEstateInvestmentTrustREIT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Bond.
-    /// Encoded/decoded by serializers as "MunicipalBond".
+    /// Encoded/decoded by serializers as "S310".
     /// </summary>
     [EnumMember(Value = "S310")]
     [IsoId("_1wueczL3EeKU9IrkkToqcw_343227697")]
     [Description(@"Municipal Bond.")]
-    MunicipalBond,
+    MunicipalBond = DTCAssetTypeCode.MunicipalBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Note.
-    /// Encoded/decoded by serializers as "MunicipalNote".
+    /// Encoded/decoded by serializers as "S311".
     /// </summary>
     [EnumMember(Value = "S311")]
     [IsoId("_1wuedDL3EeKU9IrkkToqcw_139290102")]
     [Description(@"Municipal Note.")]
-    MunicipalNote,
+    MunicipalNote = DTCAssetTypeCode.MunicipalNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Auction Rate Note (ARN).
-    /// Encoded/decoded by serializers as "MunicipalAuctionRateNoteARN".
+    /// Encoded/decoded by serializers as "S312".
     /// </summary>
     [EnumMember(Value = "S312")]
     [IsoId("_1wuedTL3EeKU9IrkkToqcw_25451036")]
     [Description(@"Municipal Auction Rate Note (ARN).")]
-    MunicipalAuctionRateNoteARN,
+    MunicipalAuctionRateNoteARN = DTCAssetTypeCode.MunicipalAuctionRateNoteARN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Variable Mode Obligation (VMO).
-    /// Encoded/decoded by serializers as "MunicipalVariableModeObligationVMO".
+    /// Encoded/decoded by serializers as "S313".
     /// </summary>
     [EnumMember(Value = "S313")]
     [IsoId("_1wuedjL3EeKU9IrkkToqcw_1497101058")]
     [Description(@"Municipal Variable Mode Obligation (VMO).")]
-    MunicipalVariableModeObligationVMO,
+    MunicipalVariableModeObligationVMO = DTCAssetTypeCode.MunicipalVariableModeObligationVMO, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Variable Rate Demand Obligation (VRDO).
-    /// Encoded/decoded by serializers as "MunicipalVariableRateDemandObligationVRDO".
+    /// Encoded/decoded by serializers as "S314".
     /// </summary>
     [EnumMember(Value = "S314")]
     [IsoId("_1w4PcDL3EeKU9IrkkToqcw_1383261992")]
     [Description(@"Municipal Variable Rate Demand Obligation (VRDO).")]
-    MunicipalVariableRateDemandObligationVRDO,
+    MunicipalVariableRateDemandObligationVRDO = DTCAssetTypeCode.MunicipalVariableRateDemandObligationVRDO, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Insured Custodial Receipt.
-    /// Encoded/decoded by serializers as "MunicipalInsuredCustodialReceipt".
+    /// Encoded/decoded by serializers as "S315".
     /// </summary>
     [EnumMember(Value = "S315")]
     [IsoId("_1w4PcTL3EeKU9IrkkToqcw_-1917319212")]
     [Description(@"Municipal Insured Custodial Receipt.")]
-    MunicipalInsuredCustodialReceipt,
+    MunicipalInsuredCustodialReceipt = DTCAssetTypeCode.MunicipalInsuredCustodialReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Municipal VRDO/CP.
-    /// Encoded/decoded by serializers as "MMIMunicipalVRDOCP".
+    /// Encoded/decoded by serializers as "S320".
     /// </summary>
     [EnumMember(Value = "S320")]
     [IsoId("_1w4PcjL3EeKU9IrkkToqcw_-2031158278")]
     [Description(@"MMI Municipal VRDO/CP.")]
-    MMIMunicipalVRDOCP,
+    MMIMunicipalVRDOCP = DTCAssetTypeCode.MMIMunicipalVRDOCP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Municipal Commercial Paper.
-    /// Encoded/decoded by serializers as "MMIMunicipalCommercialPaper".
+    /// Encoded/decoded by serializers as "S330".
     /// </summary>
     [EnumMember(Value = "S330")]
     [IsoId("_1w4PczL3EeKU9IrkkToqcw_107319338")]
     [Description(@"MMI Municipal Commercial Paper.")]
-    MMIMunicipalCommercialPaper,
+    MMIMunicipalCommercialPaper = DTCAssetTypeCode.MMIMunicipalCommercialPaper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bearer, Callable Zero Coupon Bond.
-    /// Encoded/decoded by serializers as "BearerCallableZeroCouponBond".
+    /// Encoded/decoded by serializers as "S340".
     /// </summary>
     [EnumMember(Value = "S340")]
     [IsoId("_1w4PdDL3EeKU9IrkkToqcw_-6519728")]
     [Description(@"Bearer, Callable Zero Coupon Bond.")]
-    BearerCallableZeroCouponBond,
+    BearerCallableZeroCouponBond = DTCAssetTypeCode.BearerCallableZeroCouponBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GNMA REMIC securities.
-    /// Encoded/decoded by serializers as "GNMAREMICSecurities".
+    /// Encoded/decoded by serializers as "S450".
     /// </summary>
     [EnumMember(Value = "S450")]
     [IsoId("_1w4PdTL3EeKU9IrkkToqcw_432436845")]
     [Description(@"GNMA REMIC securities.")]
-    GNMAREMICSecurities,
+    GNMAREMICSecurities = DTCAssetTypeCode.GNMAREMICSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GNMA Pass-through securities.
-    /// Encoded/decoded by serializers as "GNMAPassThroughSecurities".
+    /// Encoded/decoded by serializers as "S451".
     /// </summary>
     [EnumMember(Value = "S451")]
     [IsoId("_1w4PdjL3EeKU9IrkkToqcw_-942488167")]
     [Description(@"GNMA Pass-through securities.")]
-    GNMAPassThroughSecurities,
+    GNMAPassThroughSecurities = DTCAssetTypeCode.GNMAPassThroughSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GNMA Serial note securities.
-    /// Encoded/decoded by serializers as "GNMASerialNoteSecurities".
+    /// Encoded/decoded by serializers as "S452".
     /// </summary>
     [EnumMember(Value = "S452")]
     [IsoId("_1xBZYDL3EeKU9IrkkToqcw_-1056327233")]
     [Description(@"GNMA Serial note securities.")]
-    GNMASerialNoteSecurities,
+    GNMASerialNoteSecurities = DTCAssetTypeCode.GNMASerialNoteSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Bond (CB) or Global Corp Bond (GCB).
-    /// Encoded/decoded by serializers as "CorporateBondCBorGlobalCorpBondGCB".
+    /// Encoded/decoded by serializers as "S500".
     /// </summary>
     [EnumMember(Value = "S500")]
     [IsoId("_1xBZYTL3EeKU9IrkkToqcw_-1577520013")]
     [Description(@"Corporate Bond (CB) or Global Corp Bond (GCB).")]
-    CorporateBondCBorGlobalCorpBondGCB,
+    CorporateBondCBorGlobalCorpBondGCB = DTCAssetTypeCode.CorporateBondCBorGlobalCorpBondGCB, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Bankers' Acceptance Note (BA).
-    /// Encoded/decoded by serializers as "MMIBankersAcceptanceNoteBA".
+    /// Encoded/decoded by serializers as "S502".
     /// </summary>
     [EnumMember(Value = "S502")]
     [IsoId("_1xBZYjL3EeKU9IrkkToqcw_-1691359079")]
     [Description(@"MMI Bankers' Acceptance Note (BA).")]
-    MMIBankersAcceptanceNoteBA,
+    MMIBankersAcceptanceNoteBA = DTCAssetTypeCode.MMIBankersAcceptanceNoteBA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Institutional Certificates of Deposit.
-    /// Encoded/decoded by serializers as "MMIInstitutionalCertificatesofDeposit".
+    /// Encoded/decoded by serializers as "S504".
     /// </summary>
     [EnumMember(Value = "S504")]
     [IsoId("_1xBZYzL3EeKU9IrkkToqcw_-499499675")]
     [Description(@"MMI Institutional Certificates of Deposit.")]
-    MMIInstitutionalCertificatesofDeposit,
+    MMIInstitutionalCertificatesofDeposit = DTCAssetTypeCode.MMIInstitutionalCertificatesofDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificated Money Market Instrument.
-    /// Encoded/decoded by serializers as "CertificatedMoneyMarketInstrument".
+    /// Encoded/decoded by serializers as "S505".
     /// </summary>
     [EnumMember(Value = "S505")]
     [IsoId("_1xBZZDL3EeKU9IrkkToqcw_-613338741")]
     [Description(@"Certificated Money Market Instrument.")]
-    CertificatedMoneyMarketInstrument,
+    CertificatedMoneyMarketInstrument = DTCAssetTypeCode.CertificatedMoneyMarketInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificated Money Market - Periodic Payer.
-    /// Encoded/decoded by serializers as "CertificatedMoneyMarketPeriodicPayer".
+    /// Encoded/decoded by serializers as "S506".
     /// </summary>
     [EnumMember(Value = "S506")]
     [IsoId("_1xBZZTL3EeKU9IrkkToqcw_551633397")]
     [Description(@"Certificated Money Market - Periodic Payer.")]
-    CertificatedMoneyMarketPeriodicPayer,
+    CertificatedMoneyMarketPeriodicPayer = DTCAssetTypeCode.CertificatedMoneyMarketPeriodicPayer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificates of Deposit.
-    /// Encoded/decoded by serializers as "CertificatesOfDeposit".
+    /// Encoded/decoded by serializers as "S507".
     /// </summary>
     [EnumMember(Value = "S507")]
     [IsoId("_1xBZZjL3EeKU9IrkkToqcw_437794331")]
     [Description(@"Certificates of Deposit.")]
-    CertificatesOfDeposit,
+    CertificatesOfDeposit = DTCAssetTypeCode.CertificatesOfDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CPI Interest at Maturity (IAM) Commercial Paper.
-    /// Encoded/decoded by serializers as "CPIInterestAtMaturityIAMCommercialPaper".
+    /// Encoded/decoded by serializers as "S510".
     /// </summary>
     [EnumMember(Value = "S510")]
     [IsoId("_1xBZZzL3EeKU9IrkkToqcw_-1292235592")]
     [Description(@"CPI Interest at Maturity (IAM) Commercial Paper.")]
-    CPIInterestAtMaturityIAMCommercialPaper,
+    CPIInterestAtMaturityIAMCommercialPaper = DTCAssetTypeCode.CPIInterestAtMaturityIAMCommercialPaper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Periodic Payment Commercial Paper.
-    /// Encoded/decoded by serializers as "PeriodicPaymentCommercialPaper".
+    /// Encoded/decoded by serializers as "S511".
     /// </summary>
     [EnumMember(Value = "S511")]
     [IsoId("_1xLKYDL3EeKU9IrkkToqcw_-1406074658")]
     [Description(@"Periodic Payment Commercial Paper.")]
-    PeriodicPaymentCommercialPaper,
+    PeriodicPaymentCommercialPaper = DTCAssetTypeCode.PeriodicPaymentCommercialPaper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CPI Discount Commercial Paper (CP).
-    /// Encoded/decoded by serializers as "CPIDiscountCommercialPaperCP".
+    /// Encoded/decoded by serializers as "S520".
     /// </summary>
     [EnumMember(Value = "S520")]
     [IsoId("_1xLKYTL3EeKU9IrkkToqcw_-531470439")]
     [Description(@"CPI Discount Commercial Paper (CP).")]
-    CPIDiscountCommercialPaperCP,
+    CPIDiscountCommercialPaperCP = DTCAssetTypeCode.CPIDiscountCommercialPaperCP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Corporate Commercial Paper.
-    /// Encoded/decoded by serializers as "MMICorporateCommercialPaper".
+    /// Encoded/decoded by serializers as "S525".
     /// </summary>
     [EnumMember(Value = "S525")]
     [IsoId("_1xLKYjL3EeKU9IrkkToqcw_-645309505")]
     [Description(@"MMI Corporate Commercial Paper.")]
-    MMICorporateCommercialPaper,
+    MMICorporateCommercialPaper = DTCAssetTypeCode.MMICorporateCommercialPaper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Corporate VRDO/CP.
-    /// Encoded/decoded by serializers as "MMICorporateVRDOCP".
+    /// Encoded/decoded by serializers as "S526".
     /// </summary>
     [EnumMember(Value = "S526")]
     [IsoId("_1xLKYzL3EeKU9IrkkToqcw_838219722")]
     [Description(@"MMI Corporate VRDO/CP.")]
-    MMICorporateVRDOCP,
+    MMICorporateVRDOCP = DTCAssetTypeCode.MMICorporateVRDOCP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MTN Medium Term Note.
-    /// Encoded/decoded by serializers as "MTNMediumTermNote".
+    /// Encoded/decoded by serializers as "S530".
     /// </summary>
     [EnumMember(Value = "S530")]
     [IsoId("_1xLKZDL3EeKU9IrkkToqcw_724380656")]
     [Description(@"MTN Medium Term Note.")]
-    MTNMediumTermNote,
+    MTNMediumTermNote = DTCAssetTypeCode.MTNMediumTermNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Deposit Note.
-    /// Encoded/decoded by serializers as "MMIDepositNote".
+    /// Encoded/decoded by serializers as "S531".
     /// </summary>
     [EnumMember(Value = "S531")]
     [IsoId("_1xLKZTL3EeKU9IrkkToqcw_-853960475")]
     [Description(@"MMI Deposit Note.")]
-    MMIDepositNote,
+    MMIDepositNote = DTCAssetTypeCode.MMIDepositNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Medium-Term Bank Note.
-    /// Encoded/decoded by serializers as "MMIMediumTermBankNote".
+    /// Encoded/decoded by serializers as "S532".
     /// </summary>
     [EnumMember(Value = "S532")]
     [IsoId("_1xLKZjL3EeKU9IrkkToqcw_-967799541")]
     [Description(@"MMI Medium-Term Bank Note.")]
-    MMIMediumTermBankNote,
+    MMIMediumTermBankNote = DTCAssetTypeCode.MMIMediumTermBankNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Medium Term Note.
-    /// Encoded/decoded by serializers as "MMIMediumTermNote".
+    /// Encoded/decoded by serializers as "S533".
     /// </summary>
     [EnumMember(Value = "S533")]
     [IsoId("_1xUUUDL3EeKU9IrkkToqcw_-528842968")]
     [Description(@"MMI Medium Term Note.")]
-    MMIMediumTermNote,
+    MMIMediumTermNote = DTCAssetTypeCode.MMIMediumTermNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateralized Mortgage Obligation or Global CMO.
-    /// Encoded/decoded by serializers as "CollateralizedMtgeObligationorGlobalCMO".
+    /// Encoded/decoded by serializers as "S540".
     /// </summary>
     [EnumMember(Value = "S540")]
     [IsoId("_1xUUUTL3EeKU9IrkkToqcw_-642682034")]
     [Description(@"Collateralized Mortgage Obligation or Global CMO.")]
-    CollateralizedMtgeObligationorGlobalCMO,
+    CollateralizedMtgeObligationorGlobalCMO = DTCAssetTypeCode.CollateralizedMtgeObligationorGlobalCMO, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Asset-Backed security (ABS) or global ABS (GABS).
-    /// Encoded/decoded by serializers as "AssetBackedSecurityABSorGlobalABSGABS".
+    /// Encoded/decoded by serializers as "S541".
     /// </summary>
     [EnumMember(Value = "S541")]
     [IsoId("_1xUUUjL3EeKU9IrkkToqcw_-410971983")]
     [Description(@"Asset-Backed security (ABS) or global ABS (GABS).")]
-    AssetBackedSecurityABSorGlobalABSGABS,
+    AssetBackedSecurityABSorGlobalABSGABS = DTCAssetTypeCode.AssetBackedSecurityABSorGlobalABSGABS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-CMO/ABS Amortizing Issue.
-    /// Encoded/decoded by serializers as "NonCMOABSAmortizingIssue".
+    /// Encoded/decoded by serializers as "S542".
     /// </summary>
     [EnumMember(Value = "S542")]
     [IsoId("_1xUUUzL3EeKU9IrkkToqcw_-524811049")]
     [Description(@"Non-CMO/ABS Amortizing Issue.")]
-    NonCMOABSAmortizingIssue,
+    NonCMOABSAmortizingIssue = DTCAssetTypeCode.NonCMOABSAmortizingIssue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Short-Term Bank Note.
-    /// Encoded/decoded by serializers as "MMIShortTermBankNote".
+    /// Encoded/decoded by serializers as "S550".
     /// </summary>
     [EnumMember(Value = "S550")]
     [IsoId("_1xUUVDL3EeKU9IrkkToqcw_511191327")]
     [Description(@"MMI Short-Term Bank Note.")]
-    MMIShortTermBankNote,
+    MMIShortTermBankNote = DTCAssetTypeCode.MMIShortTermBankNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Z CPN Denomination in Initial Principal Amt.
-    /// Encoded/decoded by serializers as "ZCPNDenominInitialPrincipalAmt".
+    /// Encoded/decoded by serializers as "S551".
     /// </summary>
     [EnumMember(Value = "S551")]
     [IsoId("_1xUUVTL3EeKU9IrkkToqcw_397352261")]
     [Description(@"Z CPN Denomination in Initial Principal Amt.")]
-    ZCPNDenominInitialPrincipalAmt,
+    ZCPNDenominInitialPrincipalAmt = DTCAssetTypeCode.ZCPNDenominInitialPrincipalAmt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MMI Discount Note.
-    /// Encoded/decoded by serializers as "MMIDiscountNote".
+    /// Encoded/decoded by serializers as "S560".
     /// </summary>
     [EnumMember(Value = "S560")]
     [IsoId("_1xUUVjL3EeKU9IrkkToqcw_-1203707900")]
     [Description(@"MMI Discount Note.")]
-    MMIDiscountNote,
+    MMIDiscountNote = DTCAssetTypeCode.MMIDiscountNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Auction Rate Note.
-    /// Encoded/decoded by serializers as "CorporateAuctionRateNote".
+    /// Encoded/decoded by serializers as "S571".
     /// </summary>
     [EnumMember(Value = "S571")]
     [IsoId("_1xeFUDL3EeKU9IrkkToqcw_210528722")]
     [Description(@"Corporate Auction Rate Note.")]
-    CorporateAuctionRateNote,
+    CorporateAuctionRateNote = DTCAssetTypeCode.CorporateAuctionRateNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Convertible Corporate Debt.
-    /// Encoded/decoded by serializers as "ConvertibleCorporateDebt".
+    /// Encoded/decoded by serializers as "S572".
     /// </summary>
     [EnumMember(Value = "S572")]
     [IsoId("_1xeFUTL3EeKU9IrkkToqcw_96689656")]
     [Description(@"Convertible Corporate Debt.")]
-    ConvertibleCorporateDebt,
+    ConvertibleCorporateDebt = DTCAssetTypeCode.ConvertibleCorporateDebt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Variable Mode Obligation (CVMO).
-    /// Encoded/decoded by serializers as "CorporateVariableModeObligationCVMO".
+    /// Encoded/decoded by serializers as "S573".
     /// </summary>
     [EnumMember(Value = "S573")]
     [IsoId("_1xeFUjL3EeKU9IrkkToqcw_199429945")]
     [Description(@"Corporate Variable Mode Obligation (CVMO).")]
-    CorporateVariableModeObligationCVMO,
+    CorporateVariableModeObligationCVMO = DTCAssetTypeCode.CorporateVariableModeObligationCVMO, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Short-Term Note.
-    /// Encoded/decoded by serializers as "CorporateShortTermNote".
+    /// Encoded/decoded by serializers as "S574".
     /// </summary>
     [EnumMember(Value = "S574")]
     [IsoId("_1xeFUzL3EeKU9IrkkToqcw_85590879")]
     [Description(@"Corporate Short-Term Note.")]
-    CorporateShortTermNote,
+    CorporateShortTermNote = DTCAssetTypeCode.CorporateShortTermNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Debenture.
-    /// Encoded/decoded by serializers as "CorporateDebenture".
+    /// Encoded/decoded by serializers as "S575".
     /// </summary>
     [EnumMember(Value = "S575")]
     [IsoId("_1xeFVDL3EeKU9IrkkToqcw_-1799428136")]
     [Description(@"Corporate Debenture.")]
-    CorporateDebenture,
+    CorporateDebenture = DTCAssetTypeCode.CorporateDebenture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate VRDO / Municipal VRDO (MMD).
-    /// Encoded/decoded by serializers as "CorporateVRDOMunicipalVRDOMMD".
+    /// Encoded/decoded by serializers as "S576".
     /// </summary>
     [EnumMember(Value = "S576")]
     [IsoId("_1xeFVTL3EeKU9IrkkToqcw_-1913267202")]
     [Description(@"Corporate VRDO / Municipal VRDO (MMD).")]
-    CorporateVRDOMunicipalVRDOMMD,
+    CorporateVRDOMunicipalVRDOMMD = DTCAssetTypeCode.CorporateVRDOMunicipalVRDOMMD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Insured Custodial Receipt.
-    /// Encoded/decoded by serializers as "CorporateInsuredCustodialReceipt".
+    /// Encoded/decoded by serializers as "S577".
     /// </summary>
     [EnumMember(Value = "S577")]
     [IsoId("_1xeFVjL3EeKU9IrkkToqcw_-1810526913")]
     [Description(@"Corporate Insured Custodial Receipt.")]
-    CorporateInsuredCustodialReceipt,
+    CorporateInsuredCustodialReceipt = DTCAssetTypeCode.CorporateInsuredCustodialReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender Rate Note.
-    /// Encoded/decoded by serializers as "TenderRateNote".
+    /// Encoded/decoded by serializers as "S578".
     /// </summary>
     [EnumMember(Value = "S578")]
     [IsoId("_1xeFVzL3EeKU9IrkkToqcw_-1924365979")]
     [Description(@"Tender Rate Note.")]
-    TenderRateNote,
+    TenderRateNote = DTCAssetTypeCode.TenderRateNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Zero Coupon Bond.
-    /// Encoded/decoded by serializers as "ZeroCouponBond".
+    /// Encoded/decoded by serializers as "S579".
     /// </summary>
     [EnumMember(Value = "S579")]
     [IsoId("_1xn2UDL3EeKU9IrkkToqcw_-452715957")]
     [Description(@"Zero Coupon Bond.")]
-    ZeroCouponBond,
+    ZeroCouponBond = DTCAssetTypeCode.ZeroCouponBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government security.
-    /// Encoded/decoded by serializers as "GovernmentSecurity".
+    /// Encoded/decoded by serializers as "S601".
     /// </summary>
     [EnumMember(Value = "S601")]
     [IsoId("_1xn2UTL3EeKU9IrkkToqcw_-566555023")]
     [Description(@"Government security.")]
-    GovernmentSecurity,
+    GovernmentSecurity = DTCAssetTypeCode.GovernmentSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government Trust Certificate.
-    /// Encoded/decoded by serializers as "GovernmentTrustCertificate".
+    /// Encoded/decoded by serializers as "S602".
     /// </summary>
     [EnumMember(Value = "S602")]
     [IsoId("_1xn2UjL3EeKU9IrkkToqcw_1691704466")]
     [Description(@"Government Trust Certificate.")]
-    GovernmentTrustCertificate,
+    GovernmentTrustCertificate = DTCAssetTypeCode.GovernmentTrustCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Junk and Treasury Growth Receipt (JGR).
-    /// Encoded/decoded by serializers as "JunkAndTreasuryGrowthReceiptJGR".
+    /// Encoded/decoded by serializers as "S603".
     /// </summary>
     [EnumMember(Value = "S603")]
     [IsoId("_1xn2UzL3EeKU9IrkkToqcw_1577865400")]
     [Description(@"Junk and Treasury Growth Receipt (JGR).")]
-    JunkAndTreasuryGrowthReceiptJGR,
+    JunkAndTreasuryGrowthReceiptJGR = DTCAssetTypeCode.JunkAndTreasuryGrowthReceiptJGR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// U.S. Treasury security.
-    /// Encoded/decoded by serializers as "USTreasurySecurity".
+    /// Encoded/decoded by serializers as "S610".
     /// </summary>
     [EnumMember(Value = "S610")]
     [IsoId("_1xn2VDL3EeKU9IrkkToqcw_-1842497677")]
     [Description(@"U.S. Treasury security.")]
-    USTreasurySecurity,
+    USTreasurySecurity = DTCAssetTypeCode.USTreasurySecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// US Treasury Bill.
-    /// Encoded/decoded by serializers as "USTreasuryBill".
+    /// Encoded/decoded by serializers as "S611".
     /// </summary>
     [EnumMember(Value = "S611")]
     [IsoId("_1xn2VTL3EeKU9IrkkToqcw_-1956336743")]
     [Description(@"US Treasury Bill.")]
-    USTreasuryBill,
+    USTreasuryBill = DTCAssetTypeCode.USTreasuryBill, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// US Treasury Note.
-    /// Encoded/decoded by serializers as "USTreasuryNote".
+    /// Encoded/decoded by serializers as "S612".
     /// </summary>
     [EnumMember(Value = "S612")]
     [IsoId("_1xn2VjL3EeKU9IrkkToqcw_-1388410408")]
     [Description(@"US Treasury Note.")]
-    USTreasuryNote,
+    USTreasuryNote = DTCAssetTypeCode.USTreasuryNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// US Treasury Bond.
-    /// Encoded/decoded by serializers as "USTreasuryBond".
+    /// Encoded/decoded by serializers as "S613".
     /// </summary>
     [EnumMember(Value = "S613")]
     [IsoId("_1xxAQDL3EeKU9IrkkToqcw_-1502249474")]
     [Description(@"US Treasury Bond.")]
-    USTreasuryBond,
+    USTreasuryBond = DTCAssetTypeCode.USTreasuryBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// U.S. government agency security.
-    /// Encoded/decoded by serializers as "USGovernmentAgencySecurity".
+    /// Encoded/decoded by serializers as "S620".
     /// </summary>
     [EnumMember(Value = "S620")]
     [IsoId("_1xxAQTL3EeKU9IrkkToqcw_442512761")]
     [Description(@"U.S. government agency security.")]
-    USGovernmentAgencySecurity,
+    USGovernmentAgencySecurity = DTCAssetTypeCode.USGovernmentAgencySecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government Nat'l Mortgage Association (GNMA).
-    /// Encoded/decoded by serializers as "GovernmentNatlMortgageAssociationGNMA".
+    /// Encoded/decoded by serializers as "S650".
     /// </summary>
     [EnumMember(Value = "S650")]
     [IsoId("_1xxAQjL3EeKU9IrkkToqcw_328673695")]
     [Description(@"Government Nat'l Mortgage Association (GNMA).")]
-    GovernmentNatlMortgageAssociationGNMA,
+    GovernmentNatlMortgageAssociationGNMA = DTCAssetTypeCode.GovernmentNatlMortgageAssociationGNMA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// REMIC (Real Estate Mortgage Investment Conduit).
-    /// Encoded/decoded by serializers as "REMICRealEstateMtgeInvestmentConduit".
+    /// Encoded/decoded by serializers as "S651".
     /// </summary>
     [EnumMember(Value = "S651")]
     [IsoId("_1xxAQzL3EeKU9IrkkToqcw_767630268")]
     [Description(@"REMIC (Real Estate Mortgage Investment Conduit).")]
-    REMICRealEstateMtgeInvestmentConduit,
+    REMICRealEstateMtgeInvestmentConduit = DTCAssetTypeCode.REMICRealEstateMtgeInvestmentConduit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GNMA Serial Note.
-    /// Encoded/decoded by serializers as "GNMASerialNote".
+    /// Encoded/decoded by serializers as "S652".
     /// </summary>
     [EnumMember(Value = "S652")]
     [IsoId("_1xxARDL3EeKU9IrkkToqcw_885501253")]
     [Description(@"GNMA Serial Note.")]
-    GNMASerialNote,
+    GNMASerialNote = DTCAssetTypeCode.GNMASerialNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Package.
-    /// Encoded/decoded by serializers as "Package".
+    /// Encoded/decoded by serializers as "S700".
     /// </summary>
     [EnumMember(Value = "S700")]
     [IsoId("_1xxARTL3EeKU9IrkkToqcw_771662187")]
     [Description(@"Package.")]
-    Package,
+    Package = DTCAssetTypeCode.Package, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate Debt Derivative.
-    /// Encoded/decoded by serializers as "CorporateDebtDerivative".
+    /// Encoded/decoded by serializers as "S704".
     /// </summary>
     [EnumMember(Value = "S704")]
     [IsoId("_1xxARjL3EeKU9IrkkToqcw_-1398183618")]
     [Description(@"Corporate Debt Derivative.")]
-    CorporateDebtDerivative,
+    CorporateDebtDerivative = DTCAssetTypeCode.CorporateDebtDerivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity Derivative.
-    /// Encoded/decoded by serializers as "EquityDerivative".
+    /// Encoded/decoded by serializers as "S705".
     /// </summary>
     [EnumMember(Value = "S705")]
     [IsoId("_1x6xQDL3EeKU9IrkkToqcw_-1512022684")]
     [Description(@"Equity Derivative.")]
-    EquityDerivative,
+    EquityDerivative = DTCAssetTypeCode.EquityDerivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Derivative.
-    /// Encoded/decoded by serializers as "MunicipalDerivative".
+    /// Encoded/decoded by serializers as "S706".
     /// </summary>
     [EnumMember(Value = "S706")]
     [IsoId("_1x6xQTL3EeKU9IrkkToqcw_1052914689")]
     [Description(@"Municipal Derivative.")]
-    MunicipalDerivative,
+    MunicipalDerivative = DTCAssetTypeCode.MunicipalDerivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal Amortized Issue.
-    /// Encoded/decoded by serializers as "MunicipalAmortizedIssue".
+    /// Encoded/decoded by serializers as "S708".
     /// </summary>
     [EnumMember(Value = "S708")]
     [IsoId("_1x6xQjL3EeKU9IrkkToqcw_939075623")]
     [Description(@"Municipal Amortized Issue.")]
-    MunicipalAmortizedIssue,
+    MunicipalAmortizedIssue = DTCAssetTypeCode.MunicipalAmortizedIssue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option Derivative.
-    /// Encoded/decoded by serializers as "OptionDerivative".
+    /// Encoded/decoded by serializers as "S710".
     /// </summary>
     [EnumMember(Value = "S710")]
     [IsoId("_1x6xQzL3EeKU9IrkkToqcw_-1253098998")]
     [Description(@"Option Derivative.")]
-    OptionDerivative,
+    OptionDerivative = DTCAssetTypeCode.OptionDerivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warrant.
-    /// Encoded/decoded by serializers as "Warrant".
+    /// Encoded/decoded by serializers as "S720".
     /// </summary>
     [EnumMember(Value = "S720")]
     [IsoId("_1x6xRDL3EeKU9IrkkToqcw_-1366938064")]
     [Description(@"Warrant.")]
-    Warrant,
+    Warrant = DTCAssetTypeCode.Warrant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Right.
-    /// Encoded/decoded by serializers as "Right".
+    /// Encoded/decoded by serializers as "S730".
     /// </summary>
     [EnumMember(Value = "S730")]
     [IsoId("_1x6xRTL3EeKU9IrkkToqcw_-1264197775")]
     [Description(@"Right.")]
-    Right,
+    Right = DTCAssetTypeCode.Right, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mutual Fund.
-    /// Encoded/decoded by serializers as "MutualFund".
+    /// Encoded/decoded by serializers as "S760".
     /// </summary>
     [EnumMember(Value = "S760")]
     [IsoId("_1x6xRjL3EeKU9IrkkToqcw_-1378036841")]
     [Description(@"Mutual Fund.")]
-    MutualFund,
+    MutualFund = DTCAssetTypeCode.MutualFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Closed End Fund.
-    /// Encoded/decoded by serializers as "ClosedEndFund".
+    /// Encoded/decoded by serializers as "S761".
     /// </summary>
     [EnumMember(Value = "S761")]
     [IsoId("_1yEiQDL3EeKU9IrkkToqcw_1031911440")]
     [Description(@"Closed End Fund.")]
-    ClosedEndFund,
+    ClosedEndFund = DTCAssetTypeCode.ClosedEndFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// (IMMI) Institutional MMI Mutual Fund Shares.
-    /// Encoded/decoded by serializers as "IMMIInstitutionalMMIMutualFundShares".
+    /// Encoded/decoded by serializers as "S762".
     /// </summary>
     [EnumMember(Value = "S762")]
     [IsoId("_1yEiQTL3EeKU9IrkkToqcw_918072374")]
     [Description(@"(IMMI) Institutional MMI Mutual Fund Shares.")]
-    IMMIInstitutionalMMIMutualFundShares,
+    IMMIInstitutionalMMIMutualFundShares = DTCAssetTypeCode.IMMIInstitutionalMMIMutualFundShares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity Unit.
-    /// Encoded/decoded by serializers as "EquityUnit".
+    /// Encoded/decoded by serializers as "S780".
     /// </summary>
     [EnumMember(Value = "S780")]
     [IsoId("_1yEiQjL3EeKU9IrkkToqcw_1792676593")]
     [Description(@"Equity Unit.")]
-    EquityUnit,
+    EquityUnit = DTCAssetTypeCode.EquityUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debt Unit.
-    /// Encoded/decoded by serializers as "DebtUnit".
+    /// Encoded/decoded by serializers as "S781".
     /// </summary>
     [EnumMember(Value = "S781")]
     [IsoId("_1yEiQzL3EeKU9IrkkToqcw_1678837527")]
     [Description(@"Debt Unit.")]
-    DebtUnit,
+    DebtUnit = DTCAssetTypeCode.DebtUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit Investment Trust (UIT) - Nuveen Only.
-    /// Encoded/decoded by serializers as "UnitInvestmentTrustUITNuveenOnly".
+    /// Encoded/decoded by serializers as "S790".
     /// </summary>
     [EnumMember(Value = "S790")]
     [IsoId("_1yEiRDL3EeKU9IrkkToqcw_1781577816")]
     [Description(@"Unit Investment Trust (UIT) - Nuveen Only.")]
-    UnitInvestmentTrustUITNuveenOnly,
+    UnitInvestmentTrustUITNuveenOnly = DTCAssetTypeCode.UnitInvestmentTrustUITNuveenOnly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global Unit Trust.
-    /// Encoded/decoded by serializers as "GlobalUnitTrust".
+    /// Encoded/decoded by serializers as "S791".
     /// </summary>
     [EnumMember(Value = "S791")]
     [IsoId("_1yEiRTL3EeKU9IrkkToqcw_1667738750")]
     [Description(@"Global Unit Trust.")]
-    GlobalUnitTrust,
+    GlobalUnitTrust = DTCAssetTypeCode.GlobalUnitTrust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit Investment Trust (UIT).
-    /// Encoded/decoded by serializers as "UnitInvestmentTrustUIT".
+    /// Encoded/decoded by serializers as "S795".
     /// </summary>
     [EnumMember(Value = "S795")]
     [IsoId("_1yEiRjL3EeKU9IrkkToqcw_-1462256408")]
     [Description(@"Unit Investment Trust (UIT).")]
-    UnitInvestmentTrustUIT,
+    UnitInvestmentTrustUIT = DTCAssetTypeCode.UnitInvestmentTrustUIT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity, subject to 144a, designated investors.
-    /// Encoded/decoded by serializers as "Equity144aDesignatedInvestors".
+    /// Encoded/decoded by serializers as "S121".
     /// </summary>
     [EnumMember(Value = "S121")]
     [IsoId("_1yNsMDL3EeKU9IrkkToqcw_-1596830659")]
     [Description(@"Equity, subject to 144a, designated investors.")]
-    Equity144aDesignatedInvestors,
+    Equity144aDesignatedInvestors = DTCAssetTypeCode.Equity144aDesignatedInvestors, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Municipal debt, classified as other, subject to tax exempt.
-    /// Encoded/decoded by serializers as "MunicipalOtherTaxExempt".
+    /// Encoded/decoded by serializers as "S346".
     /// </summary>
     [EnumMember(Value = "S346")]
     [IsoId("_1yNsMTL3EeKU9IrkkToqcw_1180535255")]
     [Description(@"Municipal debt, classified as other, subject to tax exempt.")]
-    MunicipalOtherTaxExempt,
+    MunicipalOtherTaxExempt = DTCAssetTypeCode.MunicipalOtherTaxExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate debt, classified as other, subject to tax exempt.
-    /// Encoded/decoded by serializers as "CorporateOtherTaxExempt".
+    /// Encoded/decoded by serializers as "S546".
     /// </summary>
     [EnumMember(Value = "S546")]
     [IsoId("_1yNsMjL3EeKU9IrkkToqcw_-262195925")]
     [Description(@"Corporate debt, classified as other, subject to tax exempt.")]
-    CorporateOtherTaxExempt,
+    CorporateOtherTaxExempt = DTCAssetTypeCode.CorporateOtherTaxExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate debt, subject to 144a, designated investors.
-    /// Encoded/decoded by serializers as "Corporate144aDesignatedInvestors".
+    /// Encoded/decoded by serializers as "S545".
     /// </summary>
     [EnumMember(Value = "S545")]
     [IsoId("_1yNsMzL3EeKU9IrkkToqcw_-8734487")]
     [Description(@"Corporate debt, subject to 144a, designated investors.")]
-    Corporate144aDesignatedInvestors,
+    Corporate144aDesignatedInvestors = DTCAssetTypeCode.Corporate144aDesignatedInvestors, // same ordinal as derivation source for type conversions
     
 }
 
@@ -874,7 +874,7 @@ public enum DTCAssetType1Code
 public static class DTCAssetType1CodeMetadataExtensions
 {
     private static readonly DTCAssetType1CodeDropdownSource _dropdownSource = new DTCAssetType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

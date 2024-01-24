@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Rmmu4AKDEeS2H9l84F_isg")]
 [Description(@"Identifies the status of the confirmation.")]
 [Derivations(typeof(TradeConfirmationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeConfirmationStatusCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum TradeConfirmationStatusCode
 public static class TradeConfirmationStatusCodeMetadataExtensions
 {
     private static readonly TradeConfirmationStatusCodeDropdownSource _dropdownSource = new TradeConfirmationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

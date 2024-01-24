@@ -21,39 +21,39 @@ public enum DeemedRateType1Code
 {
     /// <summary>
     /// Deemed rate of dividend proceeds attributed to the security holder.
-    /// Encoded/decoded by serializers as "DeemedDividendProceeds".
+    /// Encoded/decoded by serializers as "DEDI".
     /// </summary>
     [EnumMember(Value = "DEDI")]
     [IsoId("_qLgTQZSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of dividend proceeds attributed to the security holder.")]
-    DeemedDividendProceeds,
+    DeemedDividendProceeds = DeemedRateTypeCode.DeemedDividendProceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deemed rate of fund proceeds attributed to the security holder.
-    /// Encoded/decoded by serializers as "DeemedFundProceeds".
+    /// Encoded/decoded by serializers as "DEFP".
     /// </summary>
     [EnumMember(Value = "DEFP")]
     [IsoId("_qaYcwZSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of fund proceeds attributed to the security holder.")]
-    DeemedFundProceeds,
+    DeemedFundProceeds = DeemedRateTypeCode.DeemedFundProceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deemed rate of interest proceeds attributed to the security holder.
-    /// Encoded/decoded by serializers as "DeemedInterestProceeds".
+    /// Encoded/decoded by serializers as "DEIT".
     /// </summary>
     [EnumMember(Value = "DEIT")]
     [IsoId("_qfvd4ZSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of interest proceeds attributed to the security holder.")]
-    DeemedInterestProceeds,
+    DeemedInterestProceeds = DeemedRateTypeCode.DeemedInterestProceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deemed rate of royalties proceeds attributed to the security holder.
-    /// Encoded/decoded by serializers as "DeemedRoyaltiesProceeds".
+    /// Encoded/decoded by serializers as "DERY".
     /// </summary>
     [EnumMember(Value = "DERY")]
     [IsoId("_qm4AoZSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of royalties proceeds attributed to the security holder.")]
-    DeemedRoyaltiesProceeds,
+    DeemedRoyaltiesProceeds = DeemedRateTypeCode.DeemedRoyaltiesProceeds, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DeemedRateType1Code
 public static class DeemedRateType1CodeMetadataExtensions
 {
     private static readonly DeemedRateType1CodeDropdownSource _dropdownSource = new DeemedRateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

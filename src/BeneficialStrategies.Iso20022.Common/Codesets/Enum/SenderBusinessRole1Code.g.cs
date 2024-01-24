@@ -21,21 +21,21 @@ public enum SenderBusinessRole1Code
 {
     /// <summary>
     /// Sender is the owner of the safekeeping account. The sender is disclosing the breakdown of the underlying owners of sender’s holdings with the receiver.
-    /// Encoded/decoded by serializers as "AccountOwner".
+    /// Encoded/decoded by serializers as "AOWN".
     /// </summary>
     [EnumMember(Value = "AOWN")]
     [IsoId("_sECakVV0Eea1MPROA61PoQ")]
     [Description(@"Sender is the owner of the safekeeping account. The sender is disclosing the breakdown of the underlying owners of sender’s holdings with the receiver.")]
-    AccountOwner,
+    AccountOwner = SenderBusinessRoleCode.AccountOwner, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sender is the account servicer of an account owned by the receiver.
-    /// Encoded/decoded by serializers as "AccountServicer".
+    /// Encoded/decoded by serializers as "ASER".
     /// </summary>
     [EnumMember(Value = "ASER")]
     [IsoId("_sNkKAVV0Eea1MPROA61PoQ")]
     [Description(@"Sender is the account servicer of an account owned by the receiver.")]
-    AccountServicer,
+    AccountServicer = SenderBusinessRoleCode.AccountServicer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SenderBusinessRole1Code
 public static class SenderBusinessRole1CodeMetadataExtensions
 {
     private static readonly SenderBusinessRole1CodeDropdownSource _dropdownSource = new SenderBusinessRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

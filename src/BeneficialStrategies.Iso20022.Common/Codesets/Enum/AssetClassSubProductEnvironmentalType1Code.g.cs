@@ -21,30 +21,30 @@ public enum AssetClassSubProductEnvironmentalType1Code
 {
     /// <summary>
     /// Commodity of type emission.
-    /// Encoded/decoded by serializers as "Emission".
+    /// Encoded/decoded by serializers as "EMIS".
     /// </summary>
     [EnumMember(Value = "EMIS")]
     [IsoId("_mjMYsc5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type emission.")]
-    Emission,
+    Emission = AssetClassSubProductTypeCode.Emission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type weather.
-    /// Encoded/decoded by serializers as "Weather".
+    /// Encoded/decoded by serializers as "WTHR".
     /// </summary>
     [EnumMember(Value = "WTHR")]
     [IsoId("_mzjv8c5GEeSc85GUbgBycw")]
     [Description(@"Commodity of type weather.")]
-    Weather,
+    Weather = AssetClassSubProductTypeCode.Weather, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jVjxIUDbEeWOL-OsSq2h6w")]
     [Description(@"Commodity of other type.")]
-    Other,
+    Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AssetClassSubProductEnvironmentalType1Code
 public static class AssetClassSubProductEnvironmentalType1CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductEnvironmentalType1CodeDropdownSource _dropdownSource = new AssetClassSubProductEnvironmentalType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

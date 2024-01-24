@@ -21,39 +21,39 @@ public enum PriceValueType4Code
 {
     /// <summary>
     /// Price has not been established.
-    /// Encoded/decoded by serializers as "OpenDated".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aJbFGdp-Ed-ak6NoX_4Aeg_-1213536998")]
     [Description(@"Price has not been established.")]
-    OpenDated,
+    OpenDated = PriceValueTypeCode.OpenDated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price to be specified by account owner.
-    /// Encoded/decoded by serializers as "ToBeSpecified".
+    /// Encoded/decoded by serializers as "TBSP".
     /// </summary>
     [EnumMember(Value = "TBSP")]
     [IsoId("_aJk2ENp-Ed-ak6NoX_4Aeg_-1196914941")]
     [Description(@"Price to be specified by account owner.")]
-    ToBeSpecified,
+    ToBeSpecified = PriceValueTypeCode.ToBeSpecified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "Unspecified".
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_aJk2Edp-Ed-ak6NoX_4Aeg_-942945763")]
     [Description(@"Price is not required to be specified by account owner.")]
-    Unspecified,
+    Unspecified = PriceValueTypeCode.Unspecified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aJk2Etp-Ed-ak6NoX_4Aeg_-927245276")]
     [Description(@"Price is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = PriceValueTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PriceValueType4Code
 public static class PriceValueType4CodeMetadataExtensions
 {
     private static readonly PriceValueType4CodeDropdownSource _dropdownSource = new PriceValueType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum NovationStatus1Code
 {
     /// <summary>
     /// Transaction is not a novation.
-    /// Encoded/decoded by serializers as "NoNovation".
+    /// Encoded/decoded by serializers as "NONO".
     /// </summary>
     [EnumMember(Value = "NONO")]
     [IsoId("_k6HCUcETEea7jLfvGi1PDw")]
     [Description(@"Transaction is not a novation.")]
-    NoNovation,
+    NoNovation = NovationStatusCode.NoNovation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a novation.
-    /// Encoded/decoded by serializers as "Novation".
+    /// Encoded/decoded by serializers as "NOVA".
     /// </summary>
     [EnumMember(Value = "NOVA")]
     [IsoId("_lA8qIcETEea7jLfvGi1PDw")]
     [Description(@"Transaction is a novation.")]
-    Novation,
+    Novation = NovationStatusCode.Novation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NovationStatus1Code
 public static class NovationStatus1CodeMetadataExtensions
 {
     private static readonly NovationStatus1CodeDropdownSource _dropdownSource = new NovationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

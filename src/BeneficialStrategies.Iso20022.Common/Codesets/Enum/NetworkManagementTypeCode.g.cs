@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_pkktIFWOEeeiG_nL4vgKnQ")]
-[Description(@"Type of network management service ISO 8583 bit 24.")]
+[Description(@"Type of network management service|ISO 8583 bit 24.")]
 [Derivations(typeof(NetworkManagementType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NetworkManagementTypeCode
 {
     /// <summary>
@@ -86,12 +85,11 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// System condition/target system unavailable
-    /// 
     /// Encoded/decoded by serializers as "TSUN".
     /// </summary>
     [EnumMember(Value = "TSUN")]
     [IsoId("_jZ4pkMWSEeiCfKAZkk6ZAQ")]
-    [Description(@"System condition/target system unavailable ")]
+    [Description(@"System condition/target system unavailable|")]
     TargetSystemUnavailable,
     
     /// <summary>
@@ -157,7 +155,7 @@ public enum NetworkManagementTypeCode
 public static class NetworkManagementTypeCodeMetadataExtensions
 {
     private static readonly NetworkManagementTypeCodeDropdownSource _dropdownSource = new NetworkManagementTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

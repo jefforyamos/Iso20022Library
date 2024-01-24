@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__0Jx0dojEeC60axPepSq7g_-2133812073")]
 [Description(@"Specifies the reason why the instruction has an allegement status.")]
 [Derivations(typeof(AllegementReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AllegementReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum AllegementReasonCode
 public static class AllegementReasonCodeMetadataExtensions
 {
     private static readonly AllegementReasonCodeDropdownSource _dropdownSource = new AllegementReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

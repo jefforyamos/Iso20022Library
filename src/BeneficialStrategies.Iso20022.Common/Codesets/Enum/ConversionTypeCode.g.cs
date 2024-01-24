@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bCWRINp-Ed-ak6NoX_4Aeg_1752905694")]
 [Description(@"Specifies the type of conversion.")]
 [Derivations(typeof(ConversionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ConversionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ConversionTypeCode
 public static class ConversionTypeCodeMetadataExtensions
 {
     private static readonly ConversionTypeCodeDropdownSource _dropdownSource = new ConversionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

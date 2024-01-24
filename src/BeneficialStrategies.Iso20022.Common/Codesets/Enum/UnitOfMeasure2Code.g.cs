@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y2SCNtp-Ed-ak6NoX_4Aeg_-339035809")]
 [Description(@"Identifies the unit of measure by means of a code. The code is taken from UN/ECE Recommendation 20.")]
 [Derivations(typeof(UnitOfMeasure4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnitOfMeasure2Code
 {
     /// <summary>
@@ -121,7 +120,7 @@ public enum UnitOfMeasure2Code
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "_1A".
+    /// Encoded/decoded by serializers as "1A".
     /// </summary>
     [EnumMember(Value = "1A")]
     [IsoId("_Y2bMKdp-Ed-ak6NoX_4Aeg_-473215286")]
@@ -434,7 +433,7 @@ public enum UnitOfMeasure2Code
 public static class UnitOfMeasure2CodeMetadataExtensions
 {
     private static readonly UnitOfMeasure2CodeDropdownSource _dropdownSource = new UnitOfMeasure2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

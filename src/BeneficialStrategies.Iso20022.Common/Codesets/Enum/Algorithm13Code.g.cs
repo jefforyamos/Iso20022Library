@@ -21,30 +21,30 @@ public enum Algorithm13Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES128CBC".
+    /// Encoded/decoded by serializers as "EA2C".
     /// </summary>
     [EnumMember(Value = "EA2C")]
     [IsoId("_lu-EkWi7EeS87LmvcA55sg")]
     [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    AES128CBC,
+    AES128CBC = AlgorithmCode.AES128CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "DES112CBC".
+    /// Encoded/decoded by serializers as "E3DC".
     /// </summary>
     [EnumMember(Value = "E3DC")]
     [IsoId("_lu-Ek2i7EeS87LmvcA55sg")]
     [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
-    DES112CBC,
+    DES112CBC = AlgorithmCode.DES112CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DUKPT2009".
+    /// Encoded/decoded by serializers as "DKP9".
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_lu-ElWi7EeS87LmvcA55sg")]
     [Description(@"DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.")]
-    DUKPT2009,
+    DUKPT2009 = AlgorithmCode.DUKPT2009, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).
@@ -53,34 +53,34 @@ public enum Algorithm13Code
     [EnumMember(Value = "UKPT")]
     [IsoId("_lu-El2i7EeS87LmvcA55sg")]
     [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).")]
-    UKPT,
+    UKPT = AlgorithmCode.UKPT, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "UKPTwithAES128".
+    /// Encoded/decoded by serializers as "UKA1".
     /// </summary>
     [EnumMember(Value = "UKA1")]
     [IsoId("_lu-EmWi7EeS87LmvcA55sg")]
     [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    UKPTwithAES128,
+    UKPTwithAES128 = AlgorithmCode.UKPTwithAES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES192CBC".
+    /// Encoded/decoded by serializers as "EA9C".
     /// </summary>
     [EnumMember(Value = "EA9C")]
     [IsoId("_TZJuYWi8EeS87LmvcA55sg")]
     [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
-    AES192CBC,
+    AES192CBC = AlgorithmCode.AES192CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES256CBC".
+    /// Encoded/decoded by serializers as "EA5C".
     /// </summary>
     [EnumMember(Value = "EA5C")]
     [IsoId("_TfXrIWi8EeS87LmvcA55sg")]
     [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
-    AES256CBC,
+    AES256CBC = AlgorithmCode.AES256CBC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum Algorithm13Code
 public static class Algorithm13CodeMetadataExtensions
 {
     private static readonly Algorithm13CodeDropdownSource _dropdownSource = new Algorithm13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

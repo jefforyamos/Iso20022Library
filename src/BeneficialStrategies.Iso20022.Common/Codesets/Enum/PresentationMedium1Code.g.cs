@@ -21,30 +21,30 @@ public enum PresentationMedium1Code
 {
     /// <summary>
     /// Presentation is made on paper and/or electronically.
-    /// Encoded/decoded by serializers as "PaperElectronic".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_nvSZZnyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made on paper and/or electronically.")]
-    PaperElectronic,
+    PaperElectronic = PresentationMediumCode.PaperElectronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Presentation is made electronically.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_n3yOFnyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made electronically.")]
-    Electronic,
+    Electronic = PresentationMediumCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Presentation is made on paper.
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_n_Yq5nyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made on paper.")]
-    Paper,
+    Paper = PresentationMediumCode.Paper, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PresentationMedium1Code
 public static class PresentationMedium1CodeMetadataExtensions
 {
     private static readonly PresentationMedium1CodeDropdownSource _dropdownSource = new PresentationMedium1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

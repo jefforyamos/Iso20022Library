@@ -21,48 +21,48 @@ public enum CaseAssignmentRejection1Code
 {
     /// <summary>
     /// Underlying instruction can not be found.
-    /// Encoded/decoded by serializers as "UnderlyingPaymentNotFound".
+    /// Encoded/decoded by serializers as "NFND".
     /// </summary>
     [EnumMember(Value = "NFND")]
     [IsoId("_Vm2419p-Ed-ak6NoX_4Aeg_-407386472")]
     [Description(@"Underlying instruction can not be found.")]
-    UnderlyingPaymentNotFound,
+    UnderlyingPaymentNotFound = CaseAssignmentRejectionCode.UnderlyingPaymentNotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
-    /// Encoded/decoded by serializers as "NotAuthorisedToInvestigate".
+    /// Encoded/decoded by serializers as "NAUT".
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_VnACwNp-Ed-ak6NoX_4Aeg_-48136805")]
     [Description(@"Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).")]
-    NotAuthorisedToInvestigate,
+    NotAuthorisedToInvestigate = CaseAssignmentRejectionCode.NotAuthorisedToInvestigate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Case has never been assigned before.
-    /// Encoded/decoded by serializers as "UnknownCase".
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_VnACwdp-Ed-ak6NoX_4Aeg_-1993051148")]
     [Description(@"Case has never been assigned before.")]
-    UnknownCase,
+    UnknownCase = CaseAssignmentRejectionCode.UnknownCase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the payment instruction has been rejected.
-    /// Encoded/decoded by serializers as "PaymentRejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_VnACwtp-Ed-ak6NoX_4Aeg_-1951794735")]
     [Description(@"Used when the payment instruction has been rejected.")]
-    PaymentRejected,
+    PaymentRejected = CaseAssignmentRejectionCode.PaymentRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when the payment instruction has been cancelled.
-    /// Encoded/decoded by serializers as "PaymentCancelled".
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_VnACw9p-Ed-ak6NoX_4Aeg_-1881606195")]
     [Description(@"Used when the payment instruction has been cancelled.")]
-    PaymentCancelled,
+    PaymentCancelled = CaseAssignmentRejectionCode.PaymentCancelled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CaseAssignmentRejection1Code
 public static class CaseAssignmentRejection1CodeMetadataExtensions
 {
     private static readonly CaseAssignmentRejection1CodeDropdownSource _dropdownSource = new CaseAssignmentRejection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

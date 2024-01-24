@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ah3aSNp-Ed-ak6NoX_4Aeg_2042159796")]
 [Description(@"Error codes generated when the response to a query exceeds the maximum size or the data is not available.")]
 [Derivations(typeof(ErrorHandling1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ErrorHandlingCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ErrorHandlingCode
 public static class ErrorHandlingCodeMetadataExtensions
 {
     private static readonly ErrorHandlingCodeDropdownSource _dropdownSource = new ErrorHandlingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,120 +21,120 @@ public enum OrganisationLegalStatus1Code
 {
     /// <summary>
     /// Charitable incorporated organisation (CIO)
-    /// Encoded/decoded by serializers as "CharitableIncorporatedOrganisation".
+    /// Encoded/decoded by serializers as "CIOC".
     /// </summary>
     [EnumMember(Value = "CIOC")]
     [IsoId("_TbNnwX6rEeePx-IqKegQ8Q")]
     [Description(@"Charitable incorporated organisation (CIO)")]
-    CharitableIncorporatedOrganisation,
+    CharitableIncorporatedOrganisation = OrganisationLegalStatusCode.CharitableIncorporatedOrganisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charity
-    /// Encoded/decoded by serializers as "Charity".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_Ti8ncX6rEeePx-IqKegQ8Q")]
     [Description(@"Charity")]
-    Charity,
+    Charity = OrganisationLegalStatusCode.Charity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Community Interest Company (CIC)
-    /// Encoded/decoded by serializers as "CommunityInterestCompany".
+    /// Encoded/decoded by serializers as "CICC".
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_To5ecX6rEeePx-IqKegQ8Q")]
     [Description(@"Community Interest Company (CIC)")]
-    CommunityInterestCompany,
+    CommunityInterestCompany = OrganisationLegalStatusCode.CommunityInterestCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General partnership
-    /// Encoded/decoded by serializers as "GeneralPartnership".
+    /// Encoded/decoded by serializers as "GENP".
     /// </summary>
     [EnumMember(Value = "GENP")]
     [IsoId("_T0zMcX6rEeePx-IqKegQ8Q")]
     [Description(@"General partnership")]
-    GeneralPartnership,
+    GeneralPartnership = OrganisationLegalStatusCode.GeneralPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For example a co-operative, which does include Ltd. or charity.
-    /// Encoded/decoded by serializers as "IndustrialAndProvidentSociety".
+    /// Encoded/decoded by serializers as "IAPS".
     /// </summary>
     [EnumMember(Value = "IAPS")]
     [IsoId("_T7fqUX6rEeePx-IqKegQ8Q")]
     [Description(@"For example a co-operative, which does include Ltd. or charity.")]
-    IndustrialAndProvidentSociety,
+    IndustrialAndProvidentSociety = OrganisationLegalStatusCode.IndustrialAndProvidentSociety, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limited liability partnership (LLP)
-    /// Encoded/decoded by serializers as "LimitedLiabilityPartnership".
+    /// Encoded/decoded by serializers as "LLPP".
     /// </summary>
     [EnumMember(Value = "LLPP")]
     [IsoId("_UDE5AX6rEeePx-IqKegQ8Q")]
     [Description(@"Limited liability partnership (LLP)")]
-    LimitedLiabilityPartnership,
+    LimitedLiabilityPartnership = OrganisationLegalStatusCode.LimitedLiabilityPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private company limited by guarantee (Ltd.)
-    /// Encoded/decoded by serializers as "PrivateCompanyLimitedByGuarantee".
+    /// Encoded/decoded by serializers as "PCLG".
     /// </summary>
     [EnumMember(Value = "PCLG")]
     [IsoId("_UI4mEX6rEeePx-IqKegQ8Q")]
     [Description(@"Private company limited by guarantee (Ltd.)")]
-    PrivateCompanyLimitedByGuarantee,
+    PrivateCompanyLimitedByGuarantee = OrganisationLegalStatusCode.PrivateCompanyLimitedByGuarantee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limited partnership (LP)
-    /// Encoded/decoded by serializers as "LimitedPartnership".
+    /// Encoded/decoded by serializers as "LIMP".
     /// </summary>
     [EnumMember(Value = "LIMP")]
     [IsoId("_UUCtMX6rEeePx-IqKegQ8Q")]
     [Description(@"Limited partnership (LP)")]
-    LimitedPartnership,
+    LimitedPartnership = OrganisationLegalStatusCode.LimitedPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private company limited by shares (Ltd.)
-    /// Encoded/decoded by serializers as "PrivateCompanyLimitedByShares".
+    /// Encoded/decoded by serializers as "PCLS".
     /// </summary>
     [EnumMember(Value = "PCLS")]
     [IsoId("_UkQTcX6rEeePx-IqKegQ8Q")]
     [Description(@"Private company limited by shares (Ltd.)")]
-    PrivateCompanyLimitedByShares,
+    PrivateCompanyLimitedByShares = OrganisationLegalStatusCode.PrivateCompanyLimitedByShares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Public limited company (Plc.)
-    /// Encoded/decoded by serializers as "PublicLimitedCompany".
+    /// Encoded/decoded by serializers as "PCLC".
     /// </summary>
     [EnumMember(Value = "PCLC")]
     [IsoId("_UqW7cX6rEeePx-IqKegQ8Q")]
     [Description(@"Public limited company (Plc.)")]
-    PublicLimitedCompany,
+    PublicLimitedCompany = OrganisationLegalStatusCode.PublicLimitedCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sole proprietorship/Sole trader
-    /// Encoded/decoded by serializers as "SoleProprietorship".
+    /// Encoded/decoded by serializers as "SOLE".
     /// </summary>
     [EnumMember(Value = "SOLE")]
     [IsoId("_UxWUQX6rEeePx-IqKegQ8Q")]
     [Description(@"Sole proprietorship/Sole trader")]
-    SoleProprietorship,
+    SoleProprietorship = OrganisationLegalStatusCode.SoleProprietorship, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unlimited company
-    /// Encoded/decoded by serializers as "UnlimitedCompany".
+    /// Encoded/decoded by serializers as "UNLC".
     /// </summary>
     [EnumMember(Value = "UNLC")]
     [IsoId("_U3JaQX6rEeePx-IqKegQ8Q")]
     [Description(@"Unlimited company")]
-    UnlimitedCompany,
+    UnlimitedCompany = OrganisationLegalStatusCode.UnlimitedCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unlimited trust
-    /// Encoded/decoded by serializers as "UnlimitedTrust".
+    /// Encoded/decoded by serializers as "UNLT".
     /// </summary>
     [EnumMember(Value = "UNLT")]
     [IsoId("_U89HUX6rEeePx-IqKegQ8Q")]
     [Description(@"Unlimited trust")]
-    UnlimitedTrust,
+    UnlimitedTrust = OrganisationLegalStatusCode.UnlimitedTrust, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum OrganisationLegalStatus1Code
 public static class OrganisationLegalStatus1CodeMetadataExtensions
 {
     private static readonly OrganisationLegalStatus1CodeDropdownSource _dropdownSource = new OrganisationLegalStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

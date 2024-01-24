@@ -21,30 +21,30 @@ public enum PersonIdentificationType7Code
 {
     /// <summary>
     /// Temporary tax processing number (used in the domestic adoption of a child).
-    /// Encoded/decoded by serializers as "AdoptionTaxpayerIdentificationNumber".
+    /// Encoded/decoded by serializers as "ATIN".
     /// </summary>
     [EnumMember(Value = "ATIN")]
     [IsoId("_CZgLUU4REeiQHa-q1Uephw")]
     [Description(@"Temporary tax processing number (used in the domestic adoption of a child).")]
-    AdoptionTaxpayerIdentificationNumber,
+    AdoptionTaxpayerIdentificationNumber = PersonIdentificationTypeCode.AdoptionTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Generic tax identification number.
-    /// Encoded/decoded by serializers as "GenericTaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "GTIN".
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_C_cJ8U4REeiQHa-q1Uephw")]
     [Description(@"Generic tax identification number.")]
-    GenericTaxIdentificationNumber,
+    GenericTaxIdentificationNumber = PersonIdentificationTypeCode.GenericTaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax processing number.
-    /// Encoded/decoded by serializers as "IndividualTaxpayerIdentificationNumber".
+    /// Encoded/decoded by serializers as "ITIN".
     /// </summary>
     [EnumMember(Value = "ITIN")]
     [IsoId("_D1vf0U4REeiQHa-q1Uephw")]
     [Description(@"Tax processing number.")]
-    IndividualTaxpayerIdentificationNumber,
+    IndividualTaxpayerIdentificationNumber = PersonIdentificationTypeCode.IndividualTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PersonIdentificationType7Code
 public static class PersonIdentificationType7CodeMetadataExtensions
 {
     private static readonly PersonIdentificationType7CodeDropdownSource _dropdownSource = new PersonIdentificationType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,84 +21,84 @@ public enum RetailerService2Code
 {
     /// <summary>
     /// The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).
-    /// Encoded/decoded by serializers as "FinancialPaymentRequest".
+    /// Encoded/decoded by serializers as "FSPQ".
     /// </summary>
     [EnumMember(Value = "FSPQ")]
     [IsoId("_O3O2IduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).")]
-    FinancialPaymentRequest,
+    FinancialPaymentRequest = RetailerServiceCode.FinancialPaymentRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.
-    /// Encoded/decoded by serializers as "FinancialReversalRequest".
+    /// Encoded/decoded by serializers as "FSRQ".
     /// </summary>
     [EnumMember(Value = "FSRQ")]
     [IsoId("_PqSqwduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.")]
-    FinancialReversalRequest,
+    FinancialReversalRequest = RetailerServiceCode.FinancialReversalRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to perform balance inquiry on the main account.
-    /// Encoded/decoded by serializers as "FinancialBalanceInquiryRequest".
+    /// Encoded/decoded by serializers as "FSIQ".
     /// </summary>
     [EnumMember(Value = "FSIQ")]
     [IsoId("_RAOi8duREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to perform balance inquiry on the main account.")]
-    FinancialBalanceInquiryRequest,
+    FinancialBalanceInquiryRequest = RetailerServiceCode.FinancialBalanceInquiryRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).
-    /// Encoded/decoded by serializers as "FinancialBatchRequest".
+    /// Encoded/decoded by serializers as "FSBQ".
     /// </summary>
     [EnumMember(Value = "FSBQ")]
     [IsoId("_R-MnEduREeiB5uLfkg9ZJA")]
     [Description(@"The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).")]
-    FinancialBatchRequest,
+    FinancialBatchRequest = RetailerServiceCode.FinancialBatchRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System a loyalty service like loading or redeem.
-    /// Encoded/decoded by serializers as "FinancialLoyaltyRequest".
+    /// Encoded/decoded by serializers as "FSLQ".
     /// </summary>
     [EnumMember(Value = "FSLQ")]
     [IsoId("_TB44sduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System a loyalty service like loading or redeem.")]
-    FinancialLoyaltyRequest,
+    FinancialLoyaltyRequest = RetailerServiceCode.FinancialLoyaltyRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).
-    /// Encoded/decoded by serializers as "FinancialStoredValueRequest".
+    /// Encoded/decoded by serializers as "FSVQ".
     /// </summary>
     [EnumMember(Value = "FSVQ")]
     [IsoId("_TuL-AduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).")]
-    FinancialStoredValueRequest,
+    FinancialStoredValueRequest = RetailerServiceCode.FinancialStoredValueRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to enable a service on its side.
-    /// Encoded/decoded by serializers as "FinancialEnableServiceRequest".
+    /// Encoded/decoded by serializers as "FSEQ".
     /// </summary>
     [EnumMember(Value = "FSEQ")]
     [IsoId("_UMlKMduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to enable a service on its side.")]
-    FinancialEnableServiceRequest,
+    FinancialEnableServiceRequest = RetailerServiceCode.FinancialEnableServiceRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to handle a card data acquisition on the card reader.
-    /// Encoded/decoded by serializers as "FinancialCardAcquisitionRequest".
+    /// Encoded/decoded by serializers as "FSAQ".
     /// </summary>
     [EnumMember(Value = "FSAQ")]
     [IsoId("_UsbH4duREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System requests to the POI System to handle a card data acquisition on the card reader.")]
-    FinancialCardAcquisitionRequest,
+    FinancialCardAcquisitionRequest = RetailerServiceCode.FinancialCardAcquisitionRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System request to the POI System different kinds of transaction reconciliation. 
-    /// Encoded/decoded by serializers as "FinancialReconciliationRequest".
+    /// Encoded/decoded by serializers as "FSCQ".
     /// </summary>
     [EnumMember(Value = "FSCQ")]
     [IsoId("_Va1tEduREeiB5uLfkg9ZJA")]
     [Description(@"The Sale System request to the POI System different kinds of transaction reconciliation. ")]
-    FinancialReconciliationRequest,
+    FinancialReconciliationRequest = RetailerServiceCode.FinancialReconciliationRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum RetailerService2Code
 public static class RetailerService2CodeMetadataExtensions
 {
     private static readonly RetailerService2CodeDropdownSource _dropdownSource = new RetailerService2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

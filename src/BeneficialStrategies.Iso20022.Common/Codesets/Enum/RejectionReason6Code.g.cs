@@ -21,192 +21,192 @@ public enum RejectionReason6Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZlhGxtp-Ed-ak6NoX_4Aeg_-394875620")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A second option is mandatory.
-    /// Encoded/decoded by serializers as "MissingOption".
+    /// Encoded/decoded by serializers as "SECO".
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_ZlhGx9p-Ed-ak6NoX_4Aeg_-394875589")]
     [Description(@"A second option is mandatory.")]
-    MissingOption,
+    MissingOption = RejectionReasonCode.MissingOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party is not defined as an agent.
-    /// Encoded/decoded by serializers as "NotDefinedAgent".
+    /// Encoded/decoded by serializers as "AGID".
     /// </summary>
     [EnumMember(Value = "AGID")]
     [IsoId("_ZlhGyNp-Ed-ak6NoX_4Aeg_-394875558")]
     [Description(@"Party is not defined as an agent.")]
-    NotDefinedAgent,
+    NotDefinedAgent = RejectionReasonCode.NotDefinedAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Period Ending Date or Code is missing.
-    /// Encoded/decoded by serializers as "MissingPeriodEndDate".
+    /// Encoded/decoded by serializers as "ENDP".
     /// </summary>
     [EnumMember(Value = "ENDP")]
     [IsoId("_ZlqQsNp-Ed-ak6NoX_4Aeg_-394875557")]
     [Description(@"Period Ending Date or Code is missing.")]
-    MissingPeriodEndDate,
+    MissingPeriodEndDate = RejectionReasonCode.MissingPeriodEndDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Period Starting Date or Code is missing.
-    /// Encoded/decoded by serializers as "MissingPeriodStartDate".
+    /// Encoded/decoded by serializers as "STAR".
     /// </summary>
     [EnumMember(Value = "STAR")]
     [IsoId("_ZlqQsdp-Ed-ak6NoX_4Aeg_-394875527")]
     [Description(@"Period Starting Date or Code is missing.")]
-    MissingPeriodStartDate,
+    MissingPeriodStartDate = RejectionReasonCode.MissingPeriodStartDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resulting amount must be filled in as Exchange rate is present.
-    /// Encoded/decoded by serializers as "MissingResultingAmount".
+    /// Encoded/decoded by serializers as "RESU".
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_ZlqQstp-Ed-ak6NoX_4Aeg_-394875497")]
     [Description(@"Resulting amount must be filled in as Exchange rate is present.")]
-    MissingResultingAmount,
+    MissingResultingAmount = RejectionReasonCode.MissingResultingAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security type does not match with the type of corporate action.
-    /// Encoded/decoded by serializers as "WrongSecurityType".
+    /// Encoded/decoded by serializers as "SECT".
     /// </summary>
     [EnumMember(Value = "SECT")]
     [IsoId("_ZlqQs9p-Ed-ak6NoX_4Aeg_-394875466")]
     [Description(@"Security type does not match with the type of corporate action.")]
-    WrongSecurityType,
+    WrongSecurityType = RejectionReasonCode.WrongSecurityType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The disperse security is not eligible in the I(CSD) Service Provider Owner.
-    /// Encoded/decoded by serializers as "NotEligibleDisperseSecurity".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_ZlqQtNp-Ed-ak6NoX_4Aeg_-394875435")]
     [Description(@"The disperse security is not eligible in the I(CSD) Service Provider Owner.")]
-    NotEligibleDisperseSecurity,
+    NotEligibleDisperseSecurity = RejectionReasonCode.NotEligibleDisperseSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The security is not eligible.
-    /// Encoded/decoded by serializers as "NonEligibleSecurity".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ZlqQtdp-Ed-ak6NoX_4Aeg_-394875404")]
     [Description(@"The security is not eligible.")]
-    NonEligibleSecurity,
+    NonEligibleSecurity = RejectionReasonCode.NonEligibleSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There cannot be a resulting amount without an exchange rate.
-    /// Encoded/decoded by serializers as "MissingExchangeRate".
+    /// Encoded/decoded by serializers as "XRAT".
     /// </summary>
     [EnumMember(Value = "XRAT")]
     [IsoId("_ZlqQttp-Ed-ak6NoX_4Aeg_-394875157")]
     [Description(@"There cannot be a resulting amount without an exchange rate.")]
-    MissingExchangeRate,
+    MissingExchangeRate = RejectionReasonCode.MissingExchangeRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value date is before payment date.
-    /// Encoded/decoded by serializers as "ValueDateBeforePaymentDate".
+    /// Encoded/decoded by serializers as "VALU".
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_ZlqQt9p-Ed-ak6NoX_4Aeg_-394875126")]
     [Description(@"Value date is before payment date.")]
-    ValueDateBeforePaymentDate,
+    ValueDateBeforePaymentDate = RejectionReasonCode.ValueDateBeforePaymentDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accrued interest is not applicable for this type of security.
-    /// Encoded/decoded by serializers as "UnexpectedAccruedInterest".
+    /// Encoded/decoded by serializers as "ACRU".
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("_ZlqQuNp-Ed-ak6NoX_4Aeg_-394875064")]
     [Description(@"Accrued interest is not applicable for this type of security.")]
-    UnexpectedAccruedInterest,
+    UnexpectedAccruedInterest = RejectionReasonCode.UnexpectedAccruedInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent has no access to the service.
-    /// Encoded/decoded by serializers as "NoAccessToService".
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_ZlqQudp-Ed-ak6NoX_4Aeg_-393955062")]
     [Description(@"Agent has no access to the service.")]
-    NoAccessToService,
+    NoAccessToService = RejectionReasonCode.NoAccessToService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification Indicator is not filled in.
-    /// Encoded/decoded by serializers as "MissingCertification".
+    /// Encoded/decoded by serializers as "MCER".
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_Zl0BsNp-Ed-ak6NoX_4Aeg_-393955031")]
     [Description(@"Certification Indicator is not filled in.")]
-    MissingCertification,
+    MissingCertification = RejectionReasonCode.MissingCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date is not a business day for the security market.
-    /// Encoded/decoded by serializers as "NotBusinessDay".
+    /// Encoded/decoded by serializers as "BDAY".
     /// </summary>
     [EnumMember(Value = "BDAY")]
     [IsoId("_Zl0Bsdp-Ed-ak6NoX_4Aeg_-393955000")]
     [Description(@"Date is not a business day for the security market.")]
-    NotBusinessDay,
+    NotBusinessDay = RejectionReasonCode.NotBusinessDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Effective date is after the payment date.
-    /// Encoded/decoded by serializers as "EffectiveDayAfterPaymentDate".
+    /// Encoded/decoded by serializers as "PDAY".
     /// </summary>
     [EnumMember(Value = "PDAY")]
     [IsoId("_Zl0Bstp-Ed-ak6NoX_4Aeg_-393954908")]
     [Description(@"Effective date is after the payment date.")]
-    EffectiveDayAfterPaymentDate,
+    EffectiveDayAfterPaymentDate = RejectionReasonCode.EffectiveDayAfterPaymentDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gross amount is less than net amount.
-    /// Encoded/decoded by serializers as "GrossAmountLessThanNetAmount".
+    /// Encoded/decoded by serializers as "GAMN".
     /// </summary>
     [EnumMember(Value = "GAMN")]
     [IsoId("_Zl0Bs9p-Ed-ak6NoX_4Aeg_-393954877")]
     [Description(@"Gross amount is less than net amount.")]
-    GrossAmountLessThanNetAmount,
+    GrossAmountLessThanNetAmount = RejectionReasonCode.GrossAmountLessThanNetAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One option must be marked as the default.
-    /// Encoded/decoded by serializers as "MissingDefaultOption".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_Zl0BtNp-Ed-ak6NoX_4Aeg_-393954816")]
     [Description(@"One option must be marked as the default.")]
-    MissingDefaultOption,
+    MissingDefaultOption = RejectionReasonCode.MissingDefaultOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party is not active.
-    /// Encoded/decoded by serializers as "NonActiveParty".
+    /// Encoded/decoded by serializers as "NPAT".
     /// </summary>
     [EnumMember(Value = "NPAT")]
     [IsoId("_Zl0Btdp-Ed-ak6NoX_4Aeg_-393954785")]
     [Description(@"Party is not active.")]
-    NonActiveParty,
+    NonActiveParty = RejectionReasonCode.NonActiveParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Period Ending date is before Period Starting date.
-    /// Encoded/decoded by serializers as "PeriodEndDateBeforeStartDate".
+    /// Encoded/decoded by serializers as "PERI".
     /// </summary>
     [EnumMember(Value = "PERI")]
     [IsoId("_Zl0Bttp-Ed-ak6NoX_4Aeg_-393954507")]
     [Description(@"Period Ending date is before Period Starting date.")]
-    PeriodEndDateBeforeStartDate,
+    PeriodEndDateBeforeStartDate = RejectionReasonCode.PeriodEndDateBeforeStartDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Record date is after payment date.
-    /// Encoded/decoded by serializers as "RecordDateAfterPaymentDate".
+    /// Encoded/decoded by serializers as "RDTE".
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_Zl0Bt9p-Ed-ak6NoX_4Aeg_-393954476")]
     [Description(@"Record date is after payment date.")]
-    RecordDateAfterPaymentDate,
+    RecordDateAfterPaymentDate = RejectionReasonCode.RecordDateAfterPaymentDate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -217,7 +217,7 @@ public enum RejectionReason6Code
 public static class RejectionReason6CodeMetadataExtensions
 {
     private static readonly RejectionReason6CodeDropdownSource _dropdownSource = new RejectionReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum ValidationRuleReceived1Code
 {
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_Eth3kR-1EeuxStysDTgLiw")]
     [Description(@"Received.")]
-    Received,
+    Received = ValidationRuleCode.Received, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRuleReceived1Code
 public static class ValidationRuleReceived1CodeMetadataExtensions
 {
     private static readonly ValidationRuleReceived1CodeDropdownSource _dropdownSource = new ValidationRuleReceived1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

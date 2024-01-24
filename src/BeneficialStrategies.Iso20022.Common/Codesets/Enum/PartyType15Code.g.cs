@@ -21,30 +21,30 @@ public enum PartyType15Code
 {
     /// <summary>
     /// Configuration to apply to a subset of the whole POI system.
-    /// Encoded/decoded by serializers as "POIGroup".
+    /// Encoded/decoded by serializers as "PGRP".
     /// </summary>
     [EnumMember(Value = "PGRP")]
     [IsoId("_jtF7gY33EeWRwov1g9WL_A")]
     [Description(@"Configuration to apply to a subset of the whole POI system.")]
-    POIGroup,
+    POIGroup = PartyTypeCode.POIGroup, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration to apply to the whole POI system.
-    /// Encoded/decoded by serializers as "POISystem".
+    /// Encoded/decoded by serializers as "PSYS".
     /// </summary>
     [EnumMember(Value = "PSYS")]
     [IsoId("_j2B1EY33EeWRwov1g9WL_A")]
     [Description(@"Configuration to apply to the whole POI system.")]
-    POISystem,
+    POISystem = PartyTypeCode.POISystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration to apply to a single POI terminal.
-    /// Encoded/decoded by serializers as "SinglePOI".
+    /// Encoded/decoded by serializers as "PSNG".
     /// </summary>
     [EnumMember(Value = "PSNG")]
     [IsoId("_kCQTMY33EeWRwov1g9WL_A")]
     [Description(@"Configuration to apply to a single POI terminal.")]
-    SinglePOI,
+    SinglePOI = PartyTypeCode.SinglePOI, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PartyType15Code
 public static class PartyType15CodeMetadataExtensions
 {
     private static readonly PartyType15CodeDropdownSource _dropdownSource = new PartyType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

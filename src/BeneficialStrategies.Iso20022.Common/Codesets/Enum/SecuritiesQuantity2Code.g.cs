@@ -26,7 +26,7 @@ public enum SecuritiesQuantity2Code
     [EnumMember(Value = "UKWN")]
     [IsoId("_bLRaljFxEeGKkIZzgd38VA")]
     [Description(@"Maximum / Minimum number is unknown or not decided.")]
-    Unknown,
+    Unknown = SecuritiesQuantityTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SecuritiesQuantity2Code
 public static class SecuritiesQuantity2CodeMetadataExtensions
 {
     private static readonly SecuritiesQuantity2CodeDropdownSource _dropdownSource = new SecuritiesQuantity2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

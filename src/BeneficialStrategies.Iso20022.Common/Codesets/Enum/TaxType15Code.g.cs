@@ -21,84 +21,84 @@ public enum TaxType15Code
 {
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "Provincial".
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_TRd1mgEcEeCQm6a_G2yO_w_462818394")]
     [Description(@"Tax is a provincial tax.")]
-    Provincial,
+    Provincial = TaxTypeCode.Provincial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NationalTax".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_TRd1mwEcEeCQm6a_G2yO_w_2115445902")]
     [Description(@"Tax is a national tax.")]
-    NationalTax,
+    NationalTax = TaxTypeCode.NationalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "StateTax".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_TRd1nAEcEeCQm6a_G2yO_w_1823488164")]
     [Description(@"Tax is a state tax.")]
-    StateTax,
+    StateTax = TaxTypeCode.StateTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_TRd1nQEcEeCQm6a_G2yO_w_2001606836")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WithholdingTax,
+    WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "StampDuty".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_TRnmkAEcEeCQm6a_G2yO_w_-534253959")]
     [Description(@"Tax is on certain documents and transactions.")]
-    StampDuty,
+    StampDuty = TaxTypeCode.StampDuty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "ConsumptionTax".
+    /// Encoded/decoded by serializers as "COAX".
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_TRnmkQEcEeCQm6a_G2yO_w_1118373549")]
     [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
-    ConsumptionTax,
+    ConsumptionTax = TaxTypeCode.ConsumptionTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is a value added tax.
-    /// Encoded/decoded by serializers as "ValueAddedTax".
+    /// Encoded/decoded by serializers as "VATA".
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_TRnmkgEcEeCQm6a_G2yO_w_826415811")]
     [Description(@"Tax is a value added tax.")]
-    ValueAddedTax,
+    ValueAddedTax = TaxTypeCode.ValueAddedTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is customs and excise.
-    /// Encoded/decoded by serializers as "CustomsTax".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_TRnmkwEcEeCQm6a_G2yO_w_1004534483")]
     [Description(@"Tax is customs and excise.")]
-    CustomsTax,
+    CustomsTax = TaxTypeCode.CustomsTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax for which a zero rate applies.
-    /// Encoded/decoded by serializers as "ValueAddedTaxOfZeroRate".
+    /// Encoded/decoded by serializers as "VATB".
     /// </summary>
     [EnumMember(Value = "VATB")]
     [IsoId("_TRnmlAEcEeCQm6a_G2yO_w_-31457795")]
     [Description(@"Tax for which a zero rate applies.")]
-    ValueAddedTaxOfZeroRate,
+    ValueAddedTaxOfZeroRate = TaxTypeCode.ValueAddedTaxOfZeroRate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TaxType15Code
 public static class TaxType15CodeMetadataExtensions
 {
     private static readonly TaxType15CodeDropdownSource _dropdownSource = new TaxType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

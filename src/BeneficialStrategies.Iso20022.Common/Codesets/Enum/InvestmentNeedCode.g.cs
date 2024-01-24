@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_S9gOMDcdEeidBoT_PugKiA")]
 [Description(@"Specifies an investment need.")]
 [Derivations(typeof(InvestmentNeed1Code),typeof(InvestmentNeed2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestmentNeedCode
 {
     /// <summary>
@@ -58,12 +57,11 @@ public enum InvestmentNeedCode
     
     /// <summary>
     /// Investment need is for environmental social corporate governance.
-    /// 
     /// Encoded/decoded by serializers as "ESGO".
     /// </summary>
     [EnumMember(Value = "ESGO")]
     [IsoId("_xXxYQDcdEeidBoT_PugKiA")]
-    [Description(@"Investment need is for environmental social corporate governance. ")]
+    [Description(@"Investment need is for environmental social corporate governance.|")]
     EnvironmentalSocialCorporateGovernance,
     
     /// <summary>
@@ -93,7 +91,7 @@ public enum InvestmentNeedCode
 public static class InvestmentNeedCodeMetadataExtensions
 {
     private static readonly InvestmentNeedCodeDropdownSource _dropdownSource = new InvestmentNeedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

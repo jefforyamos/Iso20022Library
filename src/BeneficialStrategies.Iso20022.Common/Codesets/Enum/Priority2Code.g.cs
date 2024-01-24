@@ -21,21 +21,21 @@ public enum Priority2Code
 {
     /// <summary>
     /// Priority level is high.
-    /// Encoded/decoded by serializers as "High".
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_aKLTBdp-Ed-ak6NoX_4Aeg_-216681953")]
     [Description(@"Priority level is high.")]
-    High,
+    High = PriorityCode.High, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is normal.
-    /// Encoded/decoded by serializers as "Normal".
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_aKLTBtp-Ed-ak6NoX_4Aeg_-190820973")]
     [Description(@"Priority level is normal.")]
-    Normal,
+    Normal = PriorityCode.Normal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Priority2Code
 public static class Priority2CodeMetadataExtensions
 {
     private static readonly Priority2CodeDropdownSource _dropdownSource = new Priority2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

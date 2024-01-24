@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_38ZrgOkCEemeDPHh-U9b6w")]
 [Description(@"Sub type of goods and services purchased.")]
 [Derivations(typeof(GoodsAndServicesSubType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GoodsAndServicesSubTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum GoodsAndServicesSubTypeCode
 public static class GoodsAndServicesSubTypeCodeMetadataExtensions
 {
     private static readonly GoodsAndServicesSubTypeCodeDropdownSource _dropdownSource = new GoodsAndServicesSubTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

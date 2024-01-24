@@ -21,39 +21,39 @@ public enum PresentationMedium2Code
 {
     /// <summary>
     /// Biometric medium.
-    /// Encoded/decoded by serializers as "Biometric".
+    /// Encoded/decoded by serializers as "BIOM".
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_NnVqMX0kEemfrNOe0zHQyg")]
     [Description(@"Biometric medium.")]
-    Biometric,
+    Biometric = PresentationMediumCode.Biometric, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Presentation is made electronically.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_NnVqM30kEemfrNOe0zHQyg")]
     [Description(@"Presentation is made electronically.")]
-    Electronic,
+    Electronic = PresentationMediumCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Presentation is made on paper.
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_NnVqNX0kEemfrNOe0zHQyg")]
     [Description(@"Presentation is made on paper.")]
-    Paper,
+    Paper = PresentationMediumCode.Paper, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Presentation is made on paper and/or electronically.
-    /// Encoded/decoded by serializers as "PaperElectronic".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_NnVqN30kEemfrNOe0zHQyg")]
     [Description(@"Presentation is made on paper and/or electronically.")]
-    PaperElectronic,
+    PaperElectronic = PresentationMediumCode.PaperElectronic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PresentationMedium2Code
 public static class PresentationMedium2CodeMetadataExtensions
 {
     private static readonly PresentationMedium2CodeDropdownSource _dropdownSource = new PresentationMedium2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

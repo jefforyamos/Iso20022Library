@@ -21,39 +21,39 @@ public enum IntraPositionTransactionProcessingStatus1Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_aa3aY9p-Ed-ak6NoX_4Aeg_-836405991")]
     [Description(@"Instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = InstructionProcessingStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "AcknowledgedAccepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aa3aZNp-Ed-ak6NoX_4Aeg_-836405652")]
     [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
-    AcknowledgedAccepted,
+    AcknowledgedAccepted = InstructionProcessingStatusCode.AcknowledgedAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_aa3aZdp-Ed-ak6NoX_4Aeg_-836405651")]
     [Description(@"Instruction has been rejected for further processing.")]
-    Rejected,
+    Rejected = InstructionProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "InRepair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_aa3aZtp-Ed-ak6NoX_4Aeg_-836405621")]
     [Description(@"Instruction is accepted but in repair.")]
-    InRepair,
+    InRepair = InstructionProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum IntraPositionTransactionProcessingStatus1Code
 public static class IntraPositionTransactionProcessingStatus1CodeMetadataExtensions
 {
     private static readonly IntraPositionTransactionProcessingStatus1CodeDropdownSource _dropdownSource = new IntraPositionTransactionProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

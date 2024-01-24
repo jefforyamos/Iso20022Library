@@ -21,30 +21,30 @@ public enum BaselineStatus2Code
 {
     /// <summary>
     /// State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_bckvBtp-Ed-ak6NoX_4Aeg_-492223407")]
     [Description(@"State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.")]
-    Complete,
+    Complete = BaselineStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final state of a baseline, in which only reporting is allowed.
-    /// Encoded/decoded by serializers as "Closed".
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_bcugANp-Ed-ak6NoX_4Aeg_-492223372")]
     [Description(@"Final state of a baseline, in which only reporting is allowed.")]
-    Closed,
+    Closed = BaselineStatusCode.Closed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_bcugAdp-Ed-ak6NoX_4Aeg_-1284169111")]
     [Description(@"State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.")]
-    Active,
+    Active = BaselineStatusCode.Active, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BaselineStatus2Code
 public static class BaselineStatus2CodeMetadataExtensions
 {
     private static readonly BaselineStatus2CodeDropdownSource _dropdownSource = new BaselineStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

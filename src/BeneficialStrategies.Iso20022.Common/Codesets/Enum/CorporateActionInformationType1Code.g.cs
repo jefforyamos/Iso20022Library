@@ -21,12 +21,12 @@ public enum CorporateActionInformationType1Code
 {
     /// <summary>
     /// Information is about an informal call when an issuer, trustee, agent wishes to talk to note holders to discuss a certain issue or potential change to the notes; nothing said being binding.
-    /// Encoded/decoded by serializers as "ConferenceCall".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_qcrNQSXcEeOFIcNWlDEvdQ")]
     [Description(@"Information is about an informal call when an issuer, trustee, agent wishes to talk to note holders to discuss a certain issue or potential change to the notes; nothing said being binding.")]
-    ConferenceCall,
+    ConferenceCall = CorporateActionInformationTypeCode.ConferenceCall, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum CorporateActionInformationType1Code
 public static class CorporateActionInformationType1CodeMetadataExtensions
 {
     private static readonly CorporateActionInformationType1CodeDropdownSource _dropdownSource = new CorporateActionInformationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

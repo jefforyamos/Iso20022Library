@@ -21,48 +21,48 @@ public enum ContentType2Code
 {
     /// <summary>
     /// Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).
-    /// Encoded/decoded by serializers as "PlainData".
+    /// Encoded/decoded by serializers as "DATA".
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_gd_z0WizEeS87LmvcA55sg")]
     [Description(@"Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).")]
-    PlainData,
+    PlainData = ContentTypeCode.PlainData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Digital signature - (ASN.1 Object Identifier: id-signedData).
-    /// Encoded/decoded by serializers as "SignedData".
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_gd_z02izEeS87LmvcA55sg")]
     [Description(@"Digital signature - (ASN.1 Object Identifier: id-signedData).")]
-    SignedData,
+    SignedData = ContentTypeCode.SignedData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
-    /// Encoded/decoded by serializers as "EnvelopedData".
+    /// Encoded/decoded by serializers as "EVLP".
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_gd_z1WizEeS87LmvcA55sg")]
     [Description(@"Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).")]
-    EnvelopedData,
+    EnvelopedData = ContentTypeCode.EnvelopedData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message digest - (ASN.1 Object Identifier: id-digestedData).
-    /// Encoded/decoded by serializers as "DigestedData".
+    /// Encoded/decoded by serializers as "DGST".
     /// </summary>
     [EnumMember(Value = "DGST")]
     [IsoId("_gd_z12izEeS87LmvcA55sg")]
     [Description(@"Message digest - (ASN.1 Object Identifier: id-digestedData).")]
-    DigestedData,
+    DigestedData = ContentTypeCode.DigestedData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).
-    /// Encoded/decoded by serializers as "AuthenticatedData".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_gd_z22izEeS87LmvcA55sg")]
     [Description(@"MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).")]
-    AuthenticatedData,
+    AuthenticatedData = ContentTypeCode.AuthenticatedData, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ContentType2Code
 public static class ContentType2CodeMetadataExtensions
 {
     private static readonly ContentType2CodeDropdownSource _dropdownSource = new ContentType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

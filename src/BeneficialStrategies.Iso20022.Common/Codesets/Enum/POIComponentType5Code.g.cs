@@ -21,174 +21,174 @@ public enum POIComponentType5Code
 {
     /// <summary>
     /// Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.
-    /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
+    /// Encoded/decoded by serializers as "AQPP".
     /// </summary>
     [EnumMember(Value = "AQPP")]
     [IsoId("_E8pGcdqiEeearpaEPXv9UA")]
     [Description(@"Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.")]
-    AcquirerProtocolParameters,
+    AcquirerProtocolParameters = POIComponentTypeCode.AcquirerProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Parameters of a payment application running on the point of interaction.
-    /// Encoded/decoded by serializers as "ApplicationParameters".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_E8pGc9qiEeearpaEPXv9UA")]
     [Description(@"Parameters of a payment application running on the point of interaction.")]
-    ApplicationParameters,
+    ApplicationParameters = POIComponentTypeCode.ApplicationParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
-    /// Encoded/decoded by serializers as "TerminalParameters".
+    /// Encoded/decoded by serializers as "TLPR".
     /// </summary>
     [EnumMember(Value = "TLPR")]
     [IsoId("_E8pGddqiEeearpaEPXv9UA")]
     [Description(@"Manufacturer configuration parameters of the point of interaction.")]
-    TerminalParameters,
+    TerminalParameters = POIComponentTypeCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security parameters of the point of interaction.
-    /// Encoded/decoded by serializers as "SecurityParameters".
+    /// Encoded/decoded by serializers as "SCPR".
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_E8pGd9qiEeearpaEPXv9UA")]
     [Description(@"Security parameters of the point of interaction.")]
-    SecurityParameters,
+    SecurityParameters = POIComponentTypeCode.SecurityParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment server of a point of interaction system.
-    /// Encoded/decoded by serializers as "Server".
+    /// Encoded/decoded by serializers as "SERV".
     /// </summary>
     [EnumMember(Value = "SERV")]
     [IsoId("_E8pGedqiEeearpaEPXv9UA")]
     [Description(@"Payment server of a point of interaction system.")]
-    Server,
+    Server = POIComponentTypeCode.Server, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment terminal point of interaction.
-    /// Encoded/decoded by serializers as "Terminal".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_E8pGe9qiEeearpaEPXv9UA")]
     [Description(@"Payment terminal point of interaction.")]
-    Terminal,
+    Terminal = POIComponentTypeCode.Terminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device sub-component of a component of the point of interaction.
-    /// Encoded/decoded by serializers as "Device".
+    /// Encoded/decoded by serializers as "DVCE".
     /// </summary>
     [EnumMember(Value = "DVCE")]
     [IsoId("_E8pGfdqiEeearpaEPXv9UA")]
     [Description(@"Device sub-component of a component of the point of interaction.")]
-    Device,
+    Device = POIComponentTypeCode.Device, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security module.
-    /// Encoded/decoded by serializers as "SecureModule".
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_E8pGf9qiEeearpaEPXv9UA")]
     [Description(@"Security module.")]
-    SecureModule,
+    SecureModule = POIComponentTypeCode.SecureModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application software.
-    /// Encoded/decoded by serializers as "PaymentApplication".
+    /// Encoded/decoded by serializers as "APLI".
     /// </summary>
     [EnumMember(Value = "APLI")]
     [IsoId("_E8pGgdqiEeearpaEPXv9UA")]
     [Description(@"Payment application software.")]
-    PaymentApplication,
+    PaymentApplication = POIComponentTypeCode.PaymentApplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVKernel".
+    /// Encoded/decoded by serializers as "EMVK".
     /// </summary>
     [EnumMember(Value = "EMVK")]
     [IsoId("_E8pGg9qiEeearpaEPXv9UA")]
     [Description(@"EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
-    EMVKernel,
+    EMVKernel = POIComponentTypeCode.EMVKernel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVLevel1".
+    /// Encoded/decoded by serializers as "EMVO".
     /// </summary>
     [EnumMember(Value = "EMVO")]
     [IsoId("_E8pGhdqiEeearpaEPXv9UA")]
     [Description(@"EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
-    EMVLevel1,
+    EMVLevel1 = POIComponentTypeCode.EMVLevel1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software module of the point of interaction.
-    /// Encoded/decoded by serializers as "Middleware".
+    /// Encoded/decoded by serializers as "MDWR".
     /// </summary>
     [EnumMember(Value = "MDWR")]
     [IsoId("_E8pGh9qiEeearpaEPXv9UA")]
     [Description(@"Software module of the point of interaction.")]
-    Middleware,
+    Middleware = POIComponentTypeCode.Middleware, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Driver module of the point of interaction.
-    /// Encoded/decoded by serializers as "Driver".
+    /// Encoded/decoded by serializers as "DRVR".
     /// </summary>
     [EnumMember(Value = "DRVR")]
     [IsoId("_E8pGidqiEeearpaEPXv9UA")]
     [Description(@"Driver module of the point of interaction.")]
-    Driver,
+    Driver = POIComponentTypeCode.Driver, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software that manages hardware to provide common services to the applications.
-    /// Encoded/decoded by serializers as "OperatingSystem".
+    /// Encoded/decoded by serializers as "OPST".
     /// </summary>
     [EnumMember(Value = "OPST")]
     [IsoId("_E8pGi9qiEeearpaEPXv9UA")]
     [Description(@"Software that manages hardware to provide common services to the applications.")]
-    OperatingSystem,
+    OperatingSystem = POIComponentTypeCode.OperatingSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MerchantParameters".
+    /// Encoded/decoded by serializers as "MRPR".
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_E8pGjdqiEeearpaEPXv9UA")]
     [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
-    MerchantParameters,
+    MerchantParameters = POIComponentTypeCode.MerchantParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CertificateParameters".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_E8pGj9qiEeearpaEPXv9UA")]
     [Description(@"Certificate provided by a terminal manager.")]
-    CertificateParameters,
+    CertificateParameters = POIComponentTypeCode.CertificateParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSProtocolParameters".
+    /// Encoded/decoded by serializers as "TMSP".
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_E8pGkdqiEeearpaEPXv9UA")]
     [Description(@"Configuration parameters for the TMS protocol.")]
-    TMSProtocolParameters,
+    TMSProtocolParameters = POIComponentTypeCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component of the Sale system.
-    /// Encoded/decoded by serializers as "SaleComponent".
+    /// Encoded/decoded by serializers as "SACP".
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_GEI6AdqiEeearpaEPXv9UA")]
     [Description(@"Component of the Sale system.")]
-    SaleComponent,
+    SaleComponent = POIComponentTypeCode.SaleComponent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Parameters related to the Sale to POI protocol.
-    /// Encoded/decoded by serializers as "SaleToPOIProtocolParameters".
+    /// Encoded/decoded by serializers as "SAPR".
     /// </summary>
     [EnumMember(Value = "SAPR")]
     [IsoId("_GOH8cdqiEeearpaEPXv9UA")]
     [Description(@"Parameters related to the Sale to POI protocol.")]
-    SaleToPOIProtocolParameters,
+    SaleToPOIProtocolParameters = POIComponentTypeCode.SaleToPOIProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum POIComponentType5Code
 public static class POIComponentType5CodeMetadataExtensions
 {
     private static readonly POIComponentType5CodeDropdownSource _dropdownSource = new POIComponentType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

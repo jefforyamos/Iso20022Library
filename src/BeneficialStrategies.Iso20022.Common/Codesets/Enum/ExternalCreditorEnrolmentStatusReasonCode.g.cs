@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_tareMeazEeqynejxNiO9NQ")]
-[Description(@"Specifies the creditor enrolment status reason code, as published in an external creditor enrolment status reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the creditor enrolment status reason code, as published in an external creditor enrolment status reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalCreditorEnrolmentStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalCreditorEnrolmentStatusReasonCode
 {
     /// <summary>
@@ -93,7 +92,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
 public static class ExternalCreditorEnrolmentStatusReasonCodeMetadataExtensions
 {
     private static readonly ExternalCreditorEnrolmentStatusReasonCodeDropdownSource _dropdownSource = new ExternalCreditorEnrolmentStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

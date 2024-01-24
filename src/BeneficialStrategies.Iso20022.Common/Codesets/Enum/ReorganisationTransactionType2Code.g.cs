@@ -21,12 +21,12 @@ public enum ReorganisationTransactionType2Code
 {
     /// <summary>
     /// Reorganisation is a cover protect directly to agent transaction type.
-    /// Encoded/decoded by serializers as "CoverProtectDirectlyToAgentHeaderTransaction".
+    /// Encoded/decoded by serializers as "COVA".
     /// </summary>
     [EnumMember(Value = "COVA")]
     [IsoId("_uO0ssecZEei5aPS232E3Mw")]
     [Description(@"Reorganisation is a cover protect directly to agent transaction type.")]
-    CoverProtectDirectlyToAgentHeaderTransaction,
+    CoverProtectDirectlyToAgentHeaderTransaction = ReorganisationTransactionTypeCode.CoverProtectDirectlyToAgentHeaderTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ReorganisationTransactionType2Code
 public static class ReorganisationTransactionType2CodeMetadataExtensions
 {
     private static readonly ReorganisationTransactionType2CodeDropdownSource _dropdownSource = new ReorganisationTransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -11,42 +11,41 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the instruction for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_cCdYNCAZEeuxStysDTgLiw")]
-[Description(@"Specifies the instruction for the cross-element validation rules.  Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
+[Description(@"Specifies the instruction for the cross-element validation rules.||Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
 public enum ValidationRuleInstruction1Code
 {
     /// <summary>
     /// Hold cash for creditor.
-    /// Encoded/decoded by serializers as "HoldCashForCreditor".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_sgJgYSAeEeuSiN6KdHu9iw")]
     [Description(@"Hold cash for creditor.")]
-    HoldCashForCreditor,
+    HoldCashForCreditor = ValidationRuleCode.HoldCashForCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Phone beneficiary.
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_sgJgYyAeEeuSiN6KdHu9iw")]
     [Description(@"Phone beneficiary.")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = ValidationRuleCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Telecom beneficiary.
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_sgJgZSAeEeuSiN6KdHu9iw")]
     [Description(@"Telecom beneficiary.")]
-    Telecom,
+    Telecom = ValidationRuleCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
 
@@ -57,7 +56,7 @@ public enum ValidationRuleInstruction1Code
 public static class ValidationRuleInstruction1CodeMetadataExtensions
 {
     private static readonly ValidationRuleInstruction1CodeDropdownSource _dropdownSource = new ValidationRuleInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

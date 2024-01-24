@@ -21,57 +21,57 @@ public enum OptionFeatures6Code
 {
     /// <summary>
     /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
-    /// Encoded/decoded by serializers as "Conditional".
+    /// Encoded/decoded by serializers as "COND".
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_wLywYWOQEeW4z96Yfj3Wng")]
     [Description(@"Feature whereby the holder can elect to place a condition on the acceptance of the option.")]
-    Conditional,
+    Conditional = OptionFeaturesCode.Conditional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
-    /// Encoded/decoded by serializers as "MaximumCash".
+    /// Encoded/decoded by serializers as "MAXC".
     /// </summary>
     [EnumMember(Value = "MAXC")]
     [IsoId("_wLywY2OQEeW4z96Yfj3Wng")]
     [Description(@"Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.")]
-    MaximumCash,
+    MaximumCash = OptionFeaturesCode.MaximumCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
-    /// Encoded/decoded by serializers as "MaximumSecurities".
+    /// Encoded/decoded by serializers as "MAXS".
     /// </summary>
     [EnumMember(Value = "MAXS")]
     [IsoId("_wLywZWOQEeW4z96Yfj3Wng")]
     [Description(@"Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.")]
-    MaximumSecurities,
+    MaximumSecurities = OptionFeaturesCode.MaximumSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OddLotPreference".
+    /// Encoded/decoded by serializers as "OPLF".
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_wLywZ2OQEeW4z96Yfj3Wng")]
     [Description(@"Tender or exchange with the odd lot preference.")]
-    OddLotPreference,
+    OddLotPreference = OptionFeaturesCode.OddLotPreference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
-    /// Encoded/decoded by serializers as "Proration".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_wLywaWOQEeW4z96Yfj3Wng")]
     [Description(@"Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.")]
-    Proration,
+    Proration = OptionFeaturesCode.Proration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reduced withholding tax rate applies to the option.
-    /// Encoded/decoded by serializers as "ReducedWithholdingTax".
+    /// Encoded/decoded by serializers as "VVPR".
     /// </summary>
     [EnumMember(Value = "VVPR")]
     [IsoId("_wLywb2OQEeW4z96Yfj3Wng")]
     [Description(@"Reduced withholding tax rate applies to the option.")]
-    ReducedWithholdingTax,
+    ReducedWithholdingTax = OptionFeaturesCode.ReducedWithholdingTax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum OptionFeatures6Code
 public static class OptionFeatures6CodeMetadataExtensions
 {
     private static readonly OptionFeatures6CodeDropdownSource _dropdownSource = new OptionFeatures6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

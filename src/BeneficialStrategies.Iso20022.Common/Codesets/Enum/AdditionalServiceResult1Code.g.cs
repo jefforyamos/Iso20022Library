@@ -21,48 +21,48 @@ public enum AdditionalServiceResult1Code
 {
     /// <summary>
     /// The service was not performed.
-    /// Encoded/decoded by serializers as "NotPerformed".
+    /// Encoded/decoded by serializers as "NOPF".
     /// </summary>
     [EnumMember(Value = "NOPF")]
     [IsoId("_Xz7kMZ1KEeublrfU-wN95w")]
     [Description(@"The service was not performed.")]
-    NotPerformed,
+    NotPerformed = AdditionalServiceResultCode.NotPerformed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The service is not supported and could not be performed.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "NOSP".
     /// </summary>
     [EnumMember(Value = "NOSP")]
     [IsoId("_YQaE0Z1KEeublrfU-wN95w")]
     [Description(@"The service is not supported and could not be performed.")]
-    NotSupported,
+    NotSupported = AdditionalServiceResultCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other nationally defined code.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_YREzMZ1KEeublrfU-wN95w")]
     [Description(@"Other nationally defined code.")]
-    OtherNational,
+    OtherNational = AdditionalServiceResultCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other privately defined code.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_YRwIoZ1KEeublrfU-wN95w")]
     [Description(@"Other privately defined code.")]
-    OtherPrivate,
+    OtherPrivate = AdditionalServiceResultCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The service was performed.
-    /// Encoded/decoded by serializers as "Performed".
+    /// Encoded/decoded by serializers as "PERF".
     /// </summary>
     [EnumMember(Value = "PERF")]
     [IsoId("_YX6bAZ1KEeublrfU-wN95w")]
     [Description(@"The service was performed.")]
-    Performed,
+    Performed = AdditionalServiceResultCode.Performed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AdditionalServiceResult1Code
 public static class AdditionalServiceResult1CodeMetadataExtensions
 {
     private static readonly AdditionalServiceResult1CodeDropdownSource _dropdownSource = new AdditionalServiceResult1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

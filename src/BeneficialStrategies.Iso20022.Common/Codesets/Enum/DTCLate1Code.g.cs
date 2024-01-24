@@ -21,21 +21,21 @@ public enum DTCLate1Code
 {
     /// <summary>
     /// Informs both internal and external users that the announcement was added after the position capture date.
-    /// Encoded/decoded by serializers as "LateAnnouncement".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_1rD7UTL3EeKU9IrkkToqcw_-1281494311")]
     [Description(@"Informs both internal and external users that the announcement was added after the position capture date.")]
-    LateAnnouncement,
+    LateAnnouncement = DTCLateCode.LateAnnouncement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Informs both internal and external users that the announcement is late, however, it has not gone through the position capture stage.
-    /// Encoded/decoded by serializers as "LateAnnouncementPending".
+    /// Encoded/decoded by serializers as "LAAS".
     /// </summary>
     [EnumMember(Value = "LAAS")]
     [IsoId("_1rD7UjL3EeKU9IrkkToqcw_-1916526157")]
     [Description(@"Informs both internal and external users that the announcement is late, however, it has not gone through the position capture stage.")]
-    LateAnnouncementPending,
+    LateAnnouncementPending = DTCLateCode.LateAnnouncementPending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCLate1Code
 public static class DTCLate1CodeMetadataExtensions
 {
     private static readonly DTCLate1CodeDropdownSource _dropdownSource = new DTCLate1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

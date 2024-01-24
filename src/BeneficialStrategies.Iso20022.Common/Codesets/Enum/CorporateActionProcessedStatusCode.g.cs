@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bR2Fs9p-Ed-ak6NoX_4Aeg_-1178553458")]
 [Description(@"Specifies the processing status of a corporate action transaction.")]
-[Derivations(typeof(ProcessedStatus2Code),typeof(ProcessedStatus1Code),typeof(ProcessedStatus3Code),typeof(ProcessedStatus5Code),typeof(ProcessedStatus4Code),typeof(ProcessedStatus6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(ProcessedStatus4Code),typeof(ProcessedStatus5Code),typeof(ProcessedStatus3Code),typeof(ProcessedStatus2Code),typeof(ProcessedStatus6Code),typeof(ProcessedStatus1Code))]
 public enum CorporateActionProcessedStatusCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum CorporateActionProcessedStatusCode
 public static class CorporateActionProcessedStatusCodeMetadataExtensions
 {
     private static readonly CorporateActionProcessedStatusCodeDropdownSource _dropdownSource = new CorporateActionProcessedStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

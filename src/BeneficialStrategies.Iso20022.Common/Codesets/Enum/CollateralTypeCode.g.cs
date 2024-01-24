@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a_0hldp-Ed-ak6NoX_4Aeg_591395154")]
 [Description(@"Specifies the type of collateral.")]
-[Derivations(typeof(CollateralType3Code),typeof(CollateralType1Code),typeof(CollateralType2Code),typeof(CollateralType6Code),typeof(CollateralType8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(CollateralType3Code),typeof(CollateralType6Code),typeof(CollateralType8Code),typeof(CollateralType1Code),typeof(CollateralType2Code))]
 public enum CollateralTypeCode
 {
     /// <summary>
@@ -364,12 +363,11 @@ public enum CollateralTypeCode
     
     /// <summary>
     /// Total externally managed collateral apart from credit claims.
-    /// 
     /// Encoded/decoded by serializers as "CEMC".
     /// </summary>
     [EnumMember(Value = "CEMC")]
     [IsoId("_D2hDsALwEeutW5-TpeYJhA")]
-    [Description(@"Total externally managed collateral apart from credit claims. ")]
+    [Description(@"Total externally managed collateral apart from credit claims.|")]
     TotalExternallyManagedCollateralApartFromCreditClaims,
     
     /// <summary>
@@ -383,13 +381,11 @@ public enum CollateralTypeCode
     
     /// <summary>
     /// Total collateral operations.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "CTCO".
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_9gYyoALwEeutW5-TpeYJhA")]
-    [Description(@"Total collateral operations.  ")]
+    [Description(@"Total collateral operations.||")]
     TotalCollateralOperations,
     
     /// <summary>
@@ -410,7 +406,7 @@ public enum CollateralTypeCode
 public static class CollateralTypeCodeMetadataExtensions
 {
     private static readonly CollateralTypeCodeDropdownSource _dropdownSource = new CollateralTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

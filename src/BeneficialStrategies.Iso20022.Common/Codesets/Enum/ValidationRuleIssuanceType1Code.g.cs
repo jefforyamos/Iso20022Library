@@ -11,42 +11,41 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the instruction for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_rW7kBCBqEeugLNJneiyzbA")]
-[Description(@"Specifies the instruction for the cross-element validation rules.  Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
+[Description(@"Specifies the instruction for the cross-element validation rules.||Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
 public enum ValidationRuleIssuanceType1Code
 {
     /// <summary>
     /// Undertaking issued direct.
-    /// Encoded/decoded by serializers as "UndertakingIssuedDirect".
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_ykFHMSBqEeugLNJneiyzbA")]
     [Description(@"Undertaking issued direct.")]
-    UndertakingIssuedDirect,
+    UndertakingIssuedDirect = ValidationRuleCode.UndertakingIssuedDirect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking issued via confirming party.
-    /// Encoded/decoded by serializers as "UndertakingIssuedViaConfirmingParty".
+    /// Encoded/decoded by serializers as "ISCO".
     /// </summary>
     [EnumMember(Value = "ISCO")]
     [IsoId("_yxUR8SBqEeugLNJneiyzbA")]
     [Description(@"Undertaking issued via confirming party.")]
-    UndertakingIssuedViaConfirmingParty,
+    UndertakingIssuedViaConfirmingParty = ValidationRuleCode.UndertakingIssuedViaConfirmingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking issued via advising party.
-    /// Encoded/decoded by serializers as "UndertakingViaAdvisingParty".
+    /// Encoded/decoded by serializers as "ISAD".
     /// </summary>
     [EnumMember(Value = "ISAD")]
     [IsoId("_y3r_sSBqEeugLNJneiyzbA")]
     [Description(@"Undertaking issued via advising party.")]
-    UndertakingViaAdvisingParty,
+    UndertakingViaAdvisingParty = ValidationRuleCode.UndertakingViaAdvisingParty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -57,7 +56,7 @@ public enum ValidationRuleIssuanceType1Code
 public static class ValidationRuleIssuanceType1CodeMetadataExtensions
 {
     private static readonly ValidationRuleIssuanceType1CodeDropdownSource _dropdownSource = new ValidationRuleIssuanceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

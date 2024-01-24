@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Dog4YCChEeWJd9HF2tO7BA")]
 [Description(@"Specifies the civil status of a person.")]
 [Derivations(typeof(CivilStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CivilStatusCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum CivilStatusCode
 public static class CivilStatusCodeMetadataExtensions
 {
     private static readonly CivilStatusCodeDropdownSource _dropdownSource = new CivilStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

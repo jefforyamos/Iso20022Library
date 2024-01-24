@@ -21,21 +21,21 @@ public enum ConsolidationType1Code
 {
     /// <summary>
     /// Consolidation is general.
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GENL".
     /// </summary>
     [EnumMember(Value = "GENL")]
     [IsoId("_5ZjW8SDVEeWCLu74WLgP4w")]
     [Description(@"Consolidation is general.")]
-    General,
+    General = ConsolidationTypeCode.General, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Consolidation is at the level of the participant.
-    /// Encoded/decoded by serializers as "Participation".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_5i6uUSDVEeWCLu74WLgP4w")]
     [Description(@"Consolidation is at the level of the participant.")]
-    Participation,
+    Participation = ConsolidationTypeCode.Participation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ConsolidationType1Code
 public static class ConsolidationType1CodeMetadataExtensions
 {
     private static readonly ConsolidationType1CodeDropdownSource _dropdownSource = new ConsolidationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

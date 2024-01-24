@@ -21,48 +21,48 @@ public enum ATMServiceType1Code
 {
     /// <summary>
     /// Amount and notes values are chosen by the customer.
-    /// Encoded/decoded by serializers as "ChosenWithdrawal".
+    /// Encoded/decoded by serializers as "CHSN".
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_1VkYUYogEeSirOZJBRz_nA")]
     [Description(@"Amount and notes values are chosen by the customer.")]
-    ChosenWithdrawal,
+    ChosenWithdrawal = ATMServiceTypeCode.ChosenWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
-    /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
+    /// Encoded/decoded by serializers as "PATH".
     /// </summary>
     [EnumMember(Value = "PATH")]
     [IsoId("_1aqTsYogEeSirOZJBRz_nA")]
     [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
-    PreAuthorisedWithdrawal,
+    PreAuthorisedWithdrawal = ATMServiceTypeCode.PreAuthorisedWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount and notes Values are pre-defined by the customer profile.
-    /// Encoded/decoded by serializers as "ProfileWithdrawal".
+    /// Encoded/decoded by serializers as "PRFL".
     /// </summary>
     [EnumMember(Value = "PRFL")]
     [IsoId("_1gFmQYogEeSirOZJBRz_nA")]
     [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
-    ProfileWithdrawal,
+    ProfileWithdrawal = ATMServiceTypeCode.ProfileWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard withdrawal of items.
-    /// Encoded/decoded by serializers as "StandardWithdrawal".
+    /// Encoded/decoded by serializers as "STDR".
     /// </summary>
     [EnumMember(Value = "STDR")]
     [IsoId("_1mPRkYogEeSirOZJBRz_nA")]
     [Description(@"Standard withdrawal of items.")]
-    StandardWithdrawal,
+    StandardWithdrawal = ATMServiceTypeCode.StandardWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal authorised by a supervisor.
-    /// Encoded/decoded by serializers as "SupervisedWithdrawal".
+    /// Encoded/decoded by serializers as "SPRV".
     /// </summary>
     [EnumMember(Value = "SPRV")]
     [IsoId("_1rPtYYogEeSirOZJBRz_nA")]
     [Description(@"Withdrawal authorised by a supervisor.")]
-    SupervisedWithdrawal,
+    SupervisedWithdrawal = ATMServiceTypeCode.SupervisedWithdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ATMServiceType1Code
 public static class ATMServiceType1CodeMetadataExtensions
 {
     private static readonly ATMServiceType1CodeDropdownSource _dropdownSource = new ATMServiceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

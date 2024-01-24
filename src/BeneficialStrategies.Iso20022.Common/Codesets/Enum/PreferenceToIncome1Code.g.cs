@@ -21,21 +21,21 @@ public enum PreferenceToIncome1Code
 {
     /// <summary>
     /// Indicates an ordinary/common preference to income.
-    /// Encoded/decoded by serializers as "Ordinary".
+    /// Encoded/decoded by serializers as "ORDN".
     /// </summary>
     [EnumMember(Value = "ORDN")]
     [IsoId("_aIFoVtp-Ed-ak6NoX_4Aeg_-943073945")]
     [Description(@"Indicates an ordinary/common preference to income.")]
-    Ordinary,
+    Ordinary = PreferenceToIncomeCode.Ordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a preferred claim upon income and assets.
-    /// Encoded/decoded by serializers as "Preferred".
+    /// Encoded/decoded by serializers as "PFRD".
     /// </summary>
     [EnumMember(Value = "PFRD")]
     [IsoId("_aIFoV9p-Ed-ak6NoX_4Aeg_-943073928")]
     [Description(@"Indicates a preferred claim upon income and assets.")]
-    Preferred,
+    Preferred = PreferenceToIncomeCode.Preferred, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PreferenceToIncome1Code
 public static class PreferenceToIncome1CodeMetadataExtensions
 {
     private static readonly PreferenceToIncome1CodeDropdownSource _dropdownSource = new PreferenceToIncome1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

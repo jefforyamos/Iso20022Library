@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aRVD59p-Ed-ak6NoX_4Aeg_-319440710")]
 [Description(@"Specifies how the order is placed, eg by quantity of units or by amount of money.")]
 [Derivations(typeof(OrderQuantityType3Code),typeof(OrderQuantityType1Code),typeof(OrderQuantityType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderQuantityTypeCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum OrderQuantityTypeCode
 public static class OrderQuantityTypeCodeMetadataExtensions
 {
     private static readonly OrderQuantityTypeCodeDropdownSource _dropdownSource = new OrderQuantityTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum ProcessedStatus1Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKeN8dp-Ed-ak6NoX_4Aeg_-236563833")]
     [Description(@"The instruction/request has been received.")]
-    Received,
+    Received = CorporateActionProcessedStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The advice has been sent to the market.
-    /// Encoded/decoded by serializers as "SentToMarket".
+    /// Encoded/decoded by serializers as "SENT".
     /// </summary>
     [EnumMember(Value = "SENT")]
     [IsoId("_aKeN8tp-Ed-ak6NoX_4Aeg_-236563832")]
     [Description(@"The advice has been sent to the market.")]
-    SentToMarket,
+    SentToMarket = CorporateActionProcessedStatusCode.SentToMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The announcement has been accepted but another source has provided different information.
-    /// Encoded/decoded by serializers as "AcceptedWithWarning".
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_aKeN89p-Ed-ak6NoX_4Aeg_-236563803")]
     [Description(@"The announcement has been accepted but another source has provided different information.")]
-    AcceptedWithWarning,
+    AcceptedWithWarning = CorporateActionProcessedStatusCode.AcceptedWithWarning, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The request is accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aKeN9Np-Ed-ak6NoX_4Aeg_-236563802")]
     [Description(@"The request is accepted.")]
-    Accepted,
+    Accepted = CorporateActionProcessedStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProcessedStatus1Code
 public static class ProcessedStatus1CodeMetadataExtensions
 {
     private static readonly ProcessedStatus1CodeDropdownSource _dropdownSource = new ProcessedStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

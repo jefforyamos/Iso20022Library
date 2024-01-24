@@ -21,129 +21,129 @@ public enum OnLineReason2Code
 {
     /// <summary>
     /// Transaction random selection to go online.
-    /// Encoded/decoded by serializers as "RandomSelection".
+    /// Encoded/decoded by serializers as "RNDM".
     /// </summary>
     [EnumMember(Value = "RNDM")]
     [IsoId("_3vH7UU4LEey_VecAUE-C9Q")]
     [Description(@"Transaction random selection to go online.")]
-    RandomSelection,
+    RandomSelection = OnLineReasonCode.RandomSelection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application in the Integrated Circuit Card forces to go on-line.
-    /// Encoded/decoded by serializers as "ICCForced".
+    /// Encoded/decoded by serializers as "ICCF".
     /// </summary>
     [EnumMember(Value = "ICCF")]
     [IsoId("_3vH7U04LEey_VecAUE-C9Q")]
     [Description(@"Payment application in the Integrated Circuit Card forces to go on-line.")]
-    ICCForced,
+    ICCForced = OnLineReasonCode.ICCForced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On line forced by card acceptor.
-    /// Encoded/decoded by serializers as "MerchantForced".
+    /// Encoded/decoded by serializers as "MERF".
     /// </summary>
     [EnumMember(Value = "MERF")]
     [IsoId("_3vH7VU4LEey_VecAUE-C9Q")]
     [Description(@"On line forced by card acceptor.")]
-    MerchantForced,
+    MerchantForced = OnLineReasonCode.MerchantForced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal random selection to go online.
-    /// Encoded/decoded by serializers as "TerminalForced".
+    /// Encoded/decoded by serializers as "TRMF".
     /// </summary>
     [EnumMember(Value = "TRMF")]
     [IsoId("_3vH7V04LEey_VecAUE-C9Q")]
     [Description(@"Terminal random selection to go online.")]
-    TerminalForced,
+    TerminalForced = OnLineReasonCode.TerminalForced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On line forced by card issuer.
-    /// Encoded/decoded by serializers as "IssuerForced".
+    /// Encoded/decoded by serializers as "ISSF".
     /// </summary>
     [EnumMember(Value = "ISSF")]
     [IsoId("_3vH7WU4LEey_VecAUE-C9Q")]
     [Description(@"On line forced by card issuer.")]
-    IssuerForced,
+    IssuerForced = OnLineReasonCode.IssuerForced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Over floor limit.
-    /// Encoded/decoded by serializers as "FloorLimit".
+    /// Encoded/decoded by serializers as "FRLT".
     /// </summary>
     [EnumMember(Value = "FRLT")]
     [IsoId("_3vH7W04LEey_VecAUE-C9Q")]
     [Description(@"Over floor limit.")]
-    FloorLimit,
+    FloorLimit = OnLineReasonCode.FloorLimit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card appears on terminal exception file.
-    /// Encoded/decoded by serializers as "ExceptionFile".
+    /// Encoded/decoded by serializers as "EXFL".
     /// </summary>
     [EnumMember(Value = "EXFL")]
     [IsoId("_3vH7XU4LEey_VecAUE-C9Q")]
     [Description(@"Card appears on terminal exception file.")]
-    ExceptionFile,
+    ExceptionFile = OnLineReasonCode.ExceptionFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total amount of purchases per cardholder and per application above floor limit.
-    /// Encoded/decoded by serializers as "TotalAmount".
+    /// Encoded/decoded by serializers as "TAMT".
     /// </summary>
     [EnumMember(Value = "TAMT")]
     [IsoId("_3vH7X04LEey_VecAUE-C9Q")]
     [Description(@"Total amount of purchases per cardholder and per application above floor limit.")]
-    TotalAmount,
+    TotalAmount = OnLineReasonCode.TotalAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank Identification Number under control.
-    /// Encoded/decoded by serializers as "ControlledBIN".
+    /// Encoded/decoded by serializers as "CBIN".
     /// </summary>
     [EnumMember(Value = "CBIN")]
     [IsoId("_3vH7YU4LEey_VecAUE-C9Q")]
     [Description(@"Bank Identification Number under control.")]
-    ControlledBIN,
+    ControlledBIN = OnLineReasonCode.ControlledBIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown Bank Identification Number.
-    /// Encoded/decoded by serializers as "UnknownBIN".
+    /// Encoded/decoded by serializers as "UBIN".
     /// </summary>
     [EnumMember(Value = "UBIN")]
     [IsoId("_3vH7Y04LEey_VecAUE-C9Q")]
     [Description(@"Unknown Bank Identification Number.")]
-    UnknownBIN,
+    UnknownBIN = OnLineReasonCode.UnknownBIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Primary account number (card number) under control.
-    /// Encoded/decoded by serializers as "ControlledPAN".
+    /// Encoded/decoded by serializers as "CPAN".
     /// </summary>
     [EnumMember(Value = "CPAN")]
     [IsoId("_3vH7ZU4LEey_VecAUE-C9Q")]
     [Description(@"Primary account number (card number) under control.")]
-    ControlledPAN,
+    ControlledPAN = OnLineReasonCode.ControlledPAN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Flow control.
-    /// Encoded/decoded by serializers as "FlowControl".
+    /// Encoded/decoded by serializers as "FLOW".
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_3vH7Z04LEey_VecAUE-C9Q")]
     [Description(@"Flow control.")]
-    FlowControl,
+    FlowControl = OnLineReasonCode.FlowControl, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown currency code or foreign currency.
-    /// Encoded/decoded by serializers as "UnavailableCurrency".
+    /// Encoded/decoded by serializers as "CRCY".
     /// </summary>
     [EnumMember(Value = "CRCY")]
     [IsoId("_3vH7aU4LEey_VecAUE-C9Q")]
     [Description(@"Unknown currency code or foreign currency.")]
-    UnavailableCurrency,
+    UnavailableCurrency = OnLineReasonCode.UnavailableCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request Cardholder Authentication througth PIN insertion
-    /// Encoded/decoded by serializers as "IssuerForcedPINRequest".
+    /// Encoded/decoded by serializers as "IFPR".
     /// </summary>
     [EnumMember(Value = "IFPR")]
     [IsoId("_9wKQsE4LEey_VecAUE-C9Q")]
     [Description(@"Request Cardholder Authentication througth PIN insertion")]
-    IssuerForcedPINRequest,
+    IssuerForcedPINRequest = OnLineReasonCode.IssuerForcedPINRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum OnLineReason2Code
 public static class OnLineReason2CodeMetadataExtensions
 {
     private static readonly OnLineReason2CodeDropdownSource _dropdownSource = new OnLineReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

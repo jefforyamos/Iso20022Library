@@ -21,39 +21,39 @@ public enum PowerOfAttorneyLegalisation1Code
 {
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a notary.
-    /// Encoded/decoded by serializers as "Notary".
+    /// Encoded/decoded by serializers as "NOTA".
     /// </summary>
     [EnumMember(Value = "NOTA")]
     [IsoId("_aHo8ZNp-Ed-ak6NoX_4Aeg_-267216404")]
     [Description(@"Indicates that the power of attorney must be legalised by a notary.")]
-    Notary,
+    Notary = PowerOfAttorneyLegalisationCode.Notary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a local authority.
-    /// Encoded/decoded by serializers as "LocalAuthority".
+    /// Encoded/decoded by serializers as "LOCA".
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aHo8Zdp-Ed-ak6NoX_4Aeg_-254286026")]
     [Description(@"Indicates that the power of attorney must be legalised by a local authority.")]
-    LocalAuthority,
+    LocalAuthority = PowerOfAttorneyLegalisationCode.LocalAuthority, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a legal officer.
-    /// Encoded/decoded by serializers as "Apostilled".
+    /// Encoded/decoded by serializers as "APOS".
     /// </summary>
     [EnumMember(Value = "APOS")]
     [IsoId("_aHo8Ztp-Ed-ak6NoX_4Aeg_-239508247")]
     [Description(@"Indicates that the power of attorney must be legalised by a legal officer.")]
-    Apostilled,
+    Apostilled = PowerOfAttorneyLegalisationCode.Apostilled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a consular officer.
-    /// Encoded/decoded by serializers as "Consularized".
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_aHytYNp-Ed-ak6NoX_4Aeg_-224734417")]
     [Description(@"Indicates that the power of attorney must be legalised by a consular officer.")]
-    Consularized,
+    Consularized = PowerOfAttorneyLegalisationCode.Consularized, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PowerOfAttorneyLegalisation1Code
 public static class PowerOfAttorneyLegalisation1CodeMetadataExtensions
 {
     private static readonly PowerOfAttorneyLegalisation1CodeDropdownSource _dropdownSource = new PowerOfAttorneyLegalisation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

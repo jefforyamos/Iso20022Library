@@ -21,12 +21,12 @@ public enum AssetClassSubProductType27Code
 {
     /// <summary>
     /// Commodity of type light ends.
-    /// Encoded/decoded by serializers as "LightEnds".
+    /// Encoded/decoded by serializers as "LGHT".
     /// </summary>
     [EnumMember(Value = "LGHT")]
     [IsoId("_oxn4d1rKEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type light ends.")]
-    LightEnds,
+    LightEnds = AssetClassSubProductTypeCode.LightEnds, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType27Code
 public static class AssetClassSubProductType27CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType27CodeDropdownSource _dropdownSource = new AssetClassSubProductType27CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

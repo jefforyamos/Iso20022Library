@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_D8aD4QjSEeS5F6qHcKOrew")]
 [Description(@"Specifies the Foreign Account Tax Compliance Act (FATCA) status.")]
 [Derivations(typeof(FATCAStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FATCAStatusCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum FATCAStatusCode
 public static class FATCAStatusCodeMetadataExtensions
 {
     private static readonly FATCAStatusCodeDropdownSource _dropdownSource = new FATCAStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

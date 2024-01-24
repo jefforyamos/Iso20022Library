@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yim4RNp-Ed-ak6NoX_4Aeg_463735994")]
 [Description(@"Specifies the period related to the tax payment.")]
 [Derivations(typeof(TaxRecordPeriod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxRecordPeriodCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum TaxRecordPeriodCode
 public static class TaxRecordPeriodCodeMetadataExtensions
 {
     private static readonly TaxRecordPeriodCodeDropdownSource _dropdownSource = new TaxRecordPeriodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

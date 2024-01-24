@@ -21,21 +21,21 @@ public enum PresentmentType1Code
 {
     /// <summary>
     /// Full information of the presented e-invoice should be presented to the debtor.
-    /// Encoded/decoded by serializers as "Full".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_rJ0lgUWeEempSe_3C1a9EQ")]
     [Description(@"Full information of the presented e-invoice should be presented to the debtor.")]
-    Full,
+    Full = PresentmentTypeCode.Full, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Only information necessary to initiate the payment should be presented to the debtor.
-    /// Encoded/decoded by serializers as "RequiredPaymentData".
+    /// Encoded/decoded by serializers as "PAYD".
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_rPjaEUWeEempSe_3C1a9EQ")]
     [Description(@"Only information necessary to initiate the payment should be presented to the debtor.")]
-    RequiredPaymentData,
+    RequiredPaymentData = PresentmentTypeCode.RequiredPaymentData, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PresentmentType1Code
 public static class PresentmentType1CodeMetadataExtensions
 {
     private static readonly PresentmentType1CodeDropdownSource _dropdownSource = new PresentmentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

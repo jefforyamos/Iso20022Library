@@ -21,30 +21,30 @@ public enum TransferType3Code
 {
     /// <summary>
     /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_y8BcMcVaEei2doMlOscgeg")]
     [Description(@"Transfer the security as an asset in specie, that is, 'in its actual form'.")]
-    InSpecie,
+    InSpecie = TransferTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_zB1JQcVaEei2doMlOscgeg")]
     [Description(@"Transfer as cash.")]
-    Cash,
+    Cash = TransferTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ISIN is converted to another ISIN and then transferred.
-    /// Encoded/decoded by serializers as "Conversion".
+    /// Encoded/decoded by serializers as "CONV".
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_zHfFUcVaEei2doMlOscgeg")]
     [Description(@"ISIN is converted to another ISIN and then transferred.")]
-    Conversion,
+    Conversion = TransferTypeCode.Conversion, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransferType3Code
 public static class TransferType3CodeMetadataExtensions
 {
     private static readonly TransferType3CodeDropdownSource _dropdownSource = new TransferType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

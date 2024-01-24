@@ -21,30 +21,30 @@ public enum SystemStatus3Code
 {
     /// <summary>
     /// System is functioning normally, that is, operational.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_wPvh8YpbEeiaB-4Hjqs8aw")]
     [Description(@"System is functioning normally, that is, operational.")]
-    Active,
+    Active = SystemStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is closed (eg. normal closure of an RTGS).
-    /// Encoded/decoded by serializers as "Closed".
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_wYa80YpbEeiaB-4Hjqs8aw")]
     [Description(@"System is closed (eg. normal closure of an RTGS).")]
-    Closed,
+    Closed = SystemStatusCode.Closed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is starting a new maintenance period.
-    /// Encoded/decoded by serializers as "ReserveMaintenancePeriodStart".
+    /// Encoded/decoded by serializers as "RMPS".
     /// </summary>
     [EnumMember(Value = "RMPS")]
     [IsoId("_YxOXIYpdEeiaB-4Hjqs8aw")]
     [Description(@"System is starting a new maintenance period.")]
-    ReserveMaintenancePeriodStart,
+    ReserveMaintenancePeriodStart = SystemStatusCode.ReserveMaintenancePeriodStart, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SystemStatus3Code
 public static class SystemStatus3CodeMetadataExtensions
 {
     private static readonly SystemStatus3CodeDropdownSource _dropdownSource = new SystemStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

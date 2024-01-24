@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bAtSYdp-Ed-ak6NoX_4Aeg_-468324815")]
 [Description(@"Communication method used for the transmission of documents.")]
 [Derivations(typeof(CommunicationMethod1Code),typeof(CommunicationMethod2Code),typeof(CommunicationMethod3Code),typeof(CommunicationMethod4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CommunicationMethodCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum CommunicationMethodCode
 public static class CommunicationMethodCodeMetadataExtensions
 {
     private static readonly CommunicationMethodCodeDropdownSource _dropdownSource = new CommunicationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

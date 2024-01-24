@@ -21,300 +21,300 @@ public enum NRATax2Code
 {
     /// <summary>
     /// Tax category for domestic source income dividends.
-    /// Encoded/decoded by serializers as "DomesticIncomeDividend".
+    /// Encoded/decoded by serializers as "T011".
     /// </summary>
     [EnumMember(Value = "T011")]
     [IsoId("_DwDwn6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for domestic source income dividends.")]
-    DomesticIncomeDividend,
+    DomesticIncomeDividend = NRATaxCode.DomesticIncomeDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for foreign source income dividends.
-    /// Encoded/decoded by serializers as "ForeignIncomeDividends".
+    /// Encoded/decoded by serializers as "T012".
     /// </summary>
     [EnumMember(Value = "T012")]
     [IsoId("_DwDwpabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for foreign source income dividends.")]
-    ForeignIncomeDividends,
+    ForeignIncomeDividends = NRATaxCode.ForeignIncomeDividends, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for non taxable domestic dividends.
-    /// Encoded/decoded by serializers as "DividendsDomesticNonTaxable".
+    /// Encoded/decoded by serializers as "T013".
     /// </summary>
     [EnumMember(Value = "T013")]
     [IsoId("_DwDwkabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for non taxable domestic dividends.")]
-    DividendsDomesticNonTaxable,
+    DividendsDomesticNonTaxable = NRATaxCode.DividendsDomesticNonTaxable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for fully exempt dividends on municipal type mutual funds.
-    /// Encoded/decoded by serializers as "DividendsFullyExempt".
+    /// Encoded/decoded by serializers as "T014".
     /// </summary>
     [EnumMember(Value = "T014")]
     [IsoId("_DwDwsqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for fully exempt dividends on municipal type mutual funds.")]
-    DividendsFullyExempt,
+    DividendsFullyExempt = NRATaxCode.DividendsFullyExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for federal taxable state exempt dividends.
-    /// Encoded/decoded by serializers as "DividendsFederalTaxableStateExempt".
+    /// Encoded/decoded by serializers as "T015".
     /// </summary>
     [EnumMember(Value = "T015")]
     [IsoId("_DwDwvabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for federal taxable state exempt dividends.")]
-    DividendsFederalTaxableStateExempt,
+    DividendsFederalTaxableStateExempt = NRATaxCode.DividendsFederalTaxableStateExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for Return Of Capital proceeds.
-    /// Encoded/decoded by serializers as "ReturnOfCapital".
+    /// Encoded/decoded by serializers as "T019".
     /// </summary>
     [EnumMember(Value = "T019")]
     [IsoId("_DwDwu6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for Return Of Capital proceeds.")]
-    ReturnOfCapital,
+    ReturnOfCapital = NRATaxCode.ReturnOfCapital, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for Long Term Capital Gains proceeds.
-    /// Encoded/decoded by serializers as "LongTermCapitalGains".
+    /// Encoded/decoded by serializers as "T021".
     /// </summary>
     [EnumMember(Value = "T021")]
     [IsoId("_DwDwvKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for Long Term Capital Gains proceeds.")]
-    LongTermCapitalGains,
+    LongTermCapitalGains = NRATaxCode.LongTermCapitalGains, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for Short Term Capital Gains proceeds.
-    /// Encoded/decoded by serializers as "ShortTermCapitalGains".
+    /// Encoded/decoded by serializers as "T022".
     /// </summary>
     [EnumMember(Value = "T022")]
     [IsoId("_DwDwsabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for Short Term Capital Gains proceeds.")]
-    ShortTermCapitalGains,
+    ShortTermCapitalGains = NRATaxCode.ShortTermCapitalGains, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for FIRPTA eligible (REITS).
-    /// Encoded/decoded by serializers as "FIRPTAEligible".
+    /// Encoded/decoded by serializers as "T023".
     /// </summary>
     [EnumMember(Value = "T023")]
     [IsoId("_DwDwr6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for FIRPTA eligible (REITS).")]
-    FIRPTAEligible,
+    FIRPTAEligible = NRATaxCode.FIRPTAEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for REIT (Capital Gain Distributions).
-    /// Encoded/decoded by serializers as "REITCapitalGainDistributions".
+    /// Encoded/decoded by serializers as "T025".
     /// </summary>
     [EnumMember(Value = "T025")]
     [IsoId("_DwDwk6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for REIT (Capital Gain Distributions).")]
-    REITCapitalGainDistributions,
+    REITCapitalGainDistributions = NRATaxCode.REITCapitalGainDistributions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for limited publicly traded partnership.
-    /// Encoded/decoded by serializers as "LimitedPubliclyTradedPartnership".
+    /// Encoded/decoded by serializers as "T026".
     /// </summary>
     [EnumMember(Value = "T026")]
     [IsoId("_DwDwkKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for limited publicly traded partnership.")]
-    LimitedPubliclyTradedPartnership,
+    LimitedPubliclyTradedPartnership = NRATaxCode.LimitedPubliclyTradedPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for substitute dividend payments.
-    /// Encoded/decoded by serializers as "SubstituteDividendPayment".
+    /// Encoded/decoded by serializers as "T027".
     /// </summary>
     [EnumMember(Value = "T027")]
     [IsoId("_DwDwt6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for substitute dividend payments.")]
-    SubstituteDividendPayment,
+    SubstituteDividendPayment = NRATaxCode.SubstituteDividendPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for short term capital gain distributions.
-    /// Encoded/decoded by serializers as "CapitalGainDistributionShortTermRICs".
+    /// Encoded/decoded by serializers as "T029".
     /// </summary>
     [EnumMember(Value = "T029")]
     [IsoId("_DwDwlqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for short term capital gain distributions.")]
-    CapitalGainDistributionShortTermRICs,
+    CapitalGainDistributionShortTermRICs = NRATaxCode.CapitalGainDistributionShortTermRICs, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for dividend or capital gains distribution due to a corporate action.
-    /// Encoded/decoded by serializers as "CorporateActionDividendCapitalGains".
+    /// Encoded/decoded by serializers as "T302".
     /// </summary>
     [EnumMember(Value = "T302")]
     [IsoId("_DwDwnKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for dividend or capital gains distribution due to a corporate action.")]
-    CorporateActionDividendCapitalGains,
+    CorporateActionDividendCapitalGains = NRATaxCode.CorporateActionDividendCapitalGains, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for U.S. source ordinary interest proceeds.
-    /// Encoded/decoded by serializers as "USSourceOrdinaryInterest".
+    /// Encoded/decoded by serializers as "T041".
     /// </summary>
     [EnumMember(Value = "T041")]
     [IsoId("_DwDwuKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for U.S. source ordinary interest proceeds.")]
-    USSourceOrdinaryInterest,
+    USSourceOrdinaryInterest = NRATaxCode.USSourceOrdinaryInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for foreign bond interest proceeds.
-    /// Encoded/decoded by serializers as "ForeignBondInterest".
+    /// Encoded/decoded by serializers as "T042".
     /// </summary>
     [EnumMember(Value = "T042")]
     [IsoId("_DwDwrKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for foreign bond interest proceeds.")]
-    ForeignBondInterest,
+    ForeignBondInterest = NRATaxCode.ForeignBondInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for all state and territorial municipal interest proceeds.
-    /// Encoded/decoded by serializers as "AllStateAndTerritorialMunicipalInterest".
+    /// Encoded/decoded by serializers as "T043".
     /// </summary>
     [EnumMember(Value = "T043")]
     [IsoId("_DwDwmKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for all state and territorial municipal interest proceeds.")]
-    AllStateAndTerritorialMunicipalInterest,
+    AllStateAndTerritorialMunicipalInterest = NRATaxCode.AllStateAndTerritorialMunicipalInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for all municipal bonds that are subject to federal tax proceeds.
-    /// Encoded/decoded by serializers as "AllMunicipalBondsSubjectToFederalTax".
+    /// Encoded/decoded by serializers as "T044".
     /// </summary>
     [EnumMember(Value = "T044")]
     [IsoId("_DwDwrqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for all municipal bonds that are subject to federal tax proceeds.")]
-    AllMunicipalBondsSubjectToFederalTax,
+    AllMunicipalBondsSubjectToFederalTax = NRATaxCode.AllMunicipalBondsSubjectToFederalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for U.S. government interest on contracts Notes & mortgages proceeds.
-    /// Encoded/decoded by serializers as "USGovernmentInterestOnContractsNotesAndMortgages".
+    /// Encoded/decoded by serializers as "T045".
     /// </summary>
     [EnumMember(Value = "T045")]
     [IsoId("_DwDwqabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for U.S. government interest on contracts Notes & mortgages proceeds.")]
-    USGovernmentInterestOnContractsNotesAndMortgages,
+    USGovernmentInterestOnContractsNotesAndMortgages = NRATaxCode.USGovernmentInterestOnContractsNotesAndMortgages, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for U.S. government interest on GNMA 1 & 2 proceeds.
-    /// Encoded/decoded by serializers as "USGovernmentInterestOnGNMA1And2".
+    /// Encoded/decoded by serializers as "T046".
     /// </summary>
     [EnumMember(Value = "T046")]
     [IsoId("_DwDwq6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for U.S. government interest on GNMA 1 & 2 proceeds.")]
-    USGovernmentInterestOnGNMA1And2,
+    USGovernmentInterestOnGNMA1And2 = NRATaxCode.USGovernmentInterestOnGNMA1And2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for interest on collateralized mortgage obligations proceeds.
-    /// Encoded/decoded by serializers as "InterestOnCollatralizedMortgageObligations".
+    /// Encoded/decoded by serializers as "T047".
     /// </summary>
     [EnumMember(Value = "T047")]
     [IsoId("_DwDwmqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for interest on collateralized mortgage obligations proceeds.")]
-    InterestOnCollatralizedMortgageObligations,
+    InterestOnCollatralizedMortgageObligations = NRATaxCode.InterestOnCollatralizedMortgageObligations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for interests on certificates of deposits proceeds.
-    /// Encoded/decoded by serializers as "InterestOnCertificatesOfDeposit".
+    /// Encoded/decoded by serializers as "T048".
     /// </summary>
     [EnumMember(Value = "T048")]
     [IsoId("_DwDwuabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for interests on certificates of deposits proceeds.")]
-    InterestOnCertificatesOfDeposit,
+    InterestOnCertificatesOfDeposit = NRATaxCode.InterestOnCertificatesOfDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for U.S. government interest proceeds.
-    /// Encoded/decoded by serializers as "USGovernmentInterest".
+    /// Encoded/decoded by serializers as "T049".
     /// </summary>
     [EnumMember(Value = "T049")]
     [IsoId("_DwDwuqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for U.S. government interest proceeds.")]
-    USGovernmentInterest,
+    USGovernmentInterest = NRATaxCode.USGovernmentInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax Category for US government interest on Notes and Bills.
-    /// Encoded/decoded by serializers as "USGovernmentInterestOnNotesAndBills".
+    /// Encoded/decoded by serializers as "T050".
     /// </summary>
     [EnumMember(Value = "T050")]
     [IsoId("_DwDwtqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax Category for US government interest on Notes and Bills.")]
-    USGovernmentInterestOnNotesAndBills,
+    USGovernmentInterestOnNotesAndBills = NRATaxCode.USGovernmentInterestOnNotesAndBills, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for principal pay downs proceeds.
-    /// Encoded/decoded by serializers as "PrincipalPaydowns".
+    /// Encoded/decoded by serializers as "T051".
     /// </summary>
     [EnumMember(Value = "T051")]
     [IsoId("_DwDwnabHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for principal pay downs proceeds.")]
-    PrincipalPaydowns,
+    PrincipalPaydowns = NRATaxCode.PrincipalPaydowns, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for interest substitute payment.
-    /// Encoded/decoded by serializers as "InterestSubstitutePayment".
+    /// Encoded/decoded by serializers as "T054".
     /// </summary>
     [EnumMember(Value = "T054")]
     [IsoId("_DwDwpqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for interest substitute payment.")]
-    InterestSubstitutePayment,
+    InterestSubstitutePayment = NRATaxCode.InterestSubstitutePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for royalty payments proceeds.
-    /// Encoded/decoded by serializers as "RoyaltyPayments".
+    /// Encoded/decoded by serializers as "T073".
     /// </summary>
     [EnumMember(Value = "T073")]
     [IsoId("_DwDws6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for royalty payments proceeds.")]
-    RoyaltyPayments,
+    RoyaltyPayments = NRATaxCode.RoyaltyPayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for other taxable income proceeds.
-    /// Encoded/decoded by serializers as "OtherTaxableIncome".
+    /// Encoded/decoded by serializers as "T074".
     /// </summary>
     [EnumMember(Value = "T074")]
     [IsoId("_DwDwoqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for other taxable income proceeds.")]
-    OtherTaxableIncome,
+    OtherTaxableIncome = NRATaxCode.OtherTaxableIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for other non-taxable income proceeds.
-    /// Encoded/decoded by serializers as "OtherNonTaxableIncome".
+    /// Encoded/decoded by serializers as "T075".
     /// </summary>
     [EnumMember(Value = "T075")]
     [IsoId("_DwDwsKbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for other non-taxable income proceeds.")]
-    OtherNonTaxableIncome,
+    OtherNonTaxableIncome = NRATaxCode.OtherNonTaxableIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for miscellaneous payments proceeds.
-    /// Encoded/decoded by serializers as "MiscellaneousPayments".
+    /// Encoded/decoded by serializers as "T076".
     /// </summary>
     [EnumMember(Value = "T076")]
     [IsoId("_DwDwkqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for miscellaneous payments proceeds.")]
-    MiscellaneousPayments,
+    MiscellaneousPayments = NRATaxCode.MiscellaneousPayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for stock split proceeds.
-    /// Encoded/decoded by serializers as "StockSplit".
+    /// Encoded/decoded by serializers as "T077".
     /// </summary>
     [EnumMember(Value = "T077")]
     [IsoId("_DwDwm6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for stock split proceeds.")]
-    StockSplit,
+    StockSplit = NRATaxCode.StockSplit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for stock dividend proceeds.
-    /// Encoded/decoded by serializers as "StockDividend".
+    /// Encoded/decoded by serializers as "T078".
     /// </summary>
     [EnumMember(Value = "T078")]
     [IsoId("_DwDwqqbHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for stock dividend proceeds.")]
-    StockDividend,
+    StockDividend = NRATaxCode.StockDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax category for spin off proceeds.
-    /// Encoded/decoded by serializers as "SpinOff".
+    /// Encoded/decoded by serializers as "T080".
     /// </summary>
     [EnumMember(Value = "T080")]
     [IsoId("_DwDwl6bHEeSDHtMWsSZVOg")]
     [Description(@"Tax category for spin off proceeds.")]
-    SpinOff,
+    SpinOff = NRATaxCode.SpinOff, // same ordinal as derivation source for type conversions
     
 }
 
@@ -325,7 +325,7 @@ public enum NRATax2Code
 public static class NRATax2CodeMetadataExtensions
 {
     private static readonly NRATax2CodeDropdownSource _dropdownSource = new NRATax2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

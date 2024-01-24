@@ -21,21 +21,21 @@ public enum TaxIdentificationNumberType1Code
 {
     /// <summary>
     /// Global intermediary tax identification number.
-    /// Encoded/decoded by serializers as "GlobalIntermediaryIdentificationNumber".
+    /// Encoded/decoded by serializers as "GIIN".
     /// </summary>
     [EnumMember(Value = "GIIN")]
     [IsoId("_i_F3EQhJEeSUPbC7DbLJpQ")]
     [Description(@"Global intermediary tax identification number.")]
-    GlobalIntermediaryIdentificationNumber,
+    GlobalIntermediaryIdentificationNumber = TaxIdentificationNumberTypeCode.GlobalIntermediaryIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax identification number.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "GTIN".
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_jIUEgQhJEeSUPbC7DbLJpQ")]
     [Description(@"Tax identification number.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = TaxIdentificationNumberTypeCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TaxIdentificationNumberType1Code
 public static class TaxIdentificationNumberType1CodeMetadataExtensions
 {
     private static readonly TaxIdentificationNumberType1CodeDropdownSource _dropdownSource = new TaxIdentificationNumberType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

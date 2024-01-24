@@ -21,39 +21,39 @@ public enum SignatureOriginType1Code
 {
     /// <summary>
     /// Signature is provided for the value validation of the file.
-    /// Encoded/decoded by serializers as "Value".
+    /// Encoded/decoded by serializers as "VLUE".
     /// </summary>
     [EnumMember(Value = "VLUE")]
     [IsoId("_q_EtIcnIEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the value validation of the file.")]
-    Value,
+    Value = SignatureOriginTypeCode.Value, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Signature is provided for the technical validation of the file.
-    /// Encoded/decoded by serializers as "Technical".
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_rD_CUcnIEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the technical validation of the file.")]
-    Technical,
+    Technical = SignatureOriginTypeCode.Technical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Signature is provided for the contract validation of the file.
-    /// Encoded/decoded by serializers as "Contract".
+    /// Encoded/decoded by serializers as "CTRC".
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_rI5XgcnIEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the contract validation of the file.")]
-    Contract,
+    Contract = SignatureOriginTypeCode.Contract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Signature is provided for the bank validation of the file.
-    /// Encoded/decoded by serializers as "Bank".
+    /// Encoded/decoded by serializers as "BANK".
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_rNgKscnIEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the bank validation of the file.")]
-    Bank,
+    Bank = SignatureOriginTypeCode.Bank, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SignatureOriginType1Code
 public static class SignatureOriginType1CodeMetadataExtensions
 {
     private static readonly SignatureOriginType1CodeDropdownSource _dropdownSource = new SignatureOriginType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

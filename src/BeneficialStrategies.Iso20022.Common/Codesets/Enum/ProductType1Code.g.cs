@@ -21,102 +21,102 @@ public enum ProductType1Code
 {
     /// <summary>
     /// Identifies categories of instruments issued by federal agencies.
-    /// Encoded/decoded by serializers as "Agency".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_ZWKcItp-Ed-ak6NoX_4Aeg_-1124617360")]
     [Description(@"Identifies categories of instruments issued by federal agencies.")]
-    Agency,
+    Agency = ProductTypeCode.Agency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_ZWKcI9p-Ed-ak6NoX_4Aeg_-1124617335")]
     [Description(@"Identifies categories of instruments that are commodities.")]
-    Commodity,
+    Commodity = ProductTypeCode.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments issued by corporates.
-    /// Encoded/decoded by serializers as "Corporate".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_ZWKcJNp-Ed-ak6NoX_4Aeg_-1124617334")]
     [Description(@"Identifies categories of instruments issued by corporates.")]
-    Corporate,
+    Corporate = ProductTypeCode.Corporate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "Currency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_ZWKcJdp-Ed-ak6NoX_4Aeg_-1124617318")]
     [Description(@"Identifies categories of currency instruments.")]
-    Currency,
+    Currency = ProductTypeCode.Currency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_ZWKcJtp-Ed-ak6NoX_4Aeg_-1124617317")]
     [Description(@"Identifies the nature or type of an equity.")]
-    Equity,
+    Equity = ProductTypeCode.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of obligations issued by a government.
-    /// Encoded/decoded by serializers as "Government".
+    /// Encoded/decoded by serializers as "GOVE".
     /// </summary>
     [EnumMember(Value = "GOVE")]
     [IsoId("_ZWKcJ9p-Ed-ak6NoX_4Aeg_-1124617300")]
     [Description(@"Identifies categories of obligations issued by a government.")]
-    Government,
+    Government = ProductTypeCode.Government, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of loans.
-    /// Encoded/decoded by serializers as "Loan".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_ZWKcKNp-Ed-ak6NoX_4Aeg_-1124617282")]
     [Description(@"Identifies categories of loans.")]
-    Loan,
+    Loan = ProductTypeCode.Loan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of short-term debt securities maturing in less than one year.
-    /// Encoded/decoded by serializers as "MoneyMarket".
+    /// Encoded/decoded by serializers as "MOMA".
     /// </summary>
     [EnumMember(Value = "MOMA")]
     [IsoId("_ZWKcKdp-Ed-ak6NoX_4Aeg_-1124617265")]
     [Description(@"Identifies categories of short-term debt securities maturing in less than one year.")]
-    MoneyMarket,
+    MoneyMarket = ProductTypeCode.MoneyMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of mortgage securities.
-    /// Encoded/decoded by serializers as "Mortgage".
+    /// Encoded/decoded by serializers as "MORT".
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_ZWUNINp-Ed-ak6NoX_4Aeg_-1124617264")]
     [Description(@"Identifies categories of mortgage securities.")]
-    Mortgage,
+    Mortgage = ProductTypeCode.Mortgage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of securities issued by states and local governments.
-    /// Encoded/decoded by serializers as "Municipal".
+    /// Encoded/decoded by serializers as "MUNI".
     /// </summary>
     [EnumMember(Value = "MUNI")]
     [IsoId("_ZWUNIdp-Ed-ak6NoX_4Aeg_-1124617240")]
     [Description(@"Identifies categories of securities issued by states and local governments.")]
-    Municipal,
+    Municipal = ProductTypeCode.Municipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of financing instruments.
-    /// Encoded/decoded by serializers as "Financing".
+    /// Encoded/decoded by serializers as "FINA".
     /// </summary>
     [EnumMember(Value = "FINA")]
     [IsoId("_ZWUNItp-Ed-ak6NoX_4Aeg_-1124617223")]
     [Description(@"Identifies categories of financing instruments.")]
-    Financing,
+    Financing = ProductTypeCode.Financing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum ProductType1Code
 public static class ProductType1CodeMetadataExtensions
 {
     private static readonly ProductType1CodeDropdownSource _dropdownSource = new ProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

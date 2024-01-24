@@ -21,12 +21,12 @@ public enum DTCCPayoutType4Code
 {
     /// <summary>
     /// Payout consisting of securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_xKOmgaFcEeSK_vfd3NHBGg")]
     [Description(@"Payout consisting of securities.")]
-    Securities,
+    Securities = DTCCPayoutTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DTCCPayoutType4Code
 public static class DTCCPayoutType4CodeMetadataExtensions
 {
     private static readonly DTCCPayoutType4CodeDropdownSource _dropdownSource = new DTCCPayoutType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

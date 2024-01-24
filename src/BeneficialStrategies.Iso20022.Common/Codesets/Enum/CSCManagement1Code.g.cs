@@ -21,39 +21,39 @@ public enum CSCManagement1Code
 {
     /// <summary>
     /// Card security code present.
-    /// Encoded/decoded by serializers as "CSCPresent".
+    /// Encoded/decoded by serializers as "PRST".
     /// </summary>
     [EnumMember(Value = "PRST")]
     [IsoId("_TS9qYgEcEeCQm6a_G2yO_w_-1905065506")]
     [Description(@"Card security code present.")]
-    CSCPresent,
+    CSCPresent = CSCManagementCode.CSCPresent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card security code by-passed or not provided by the merchant.
-    /// Encoded/decoded by serializers as "CSCByPass".
+    /// Encoded/decoded by serializers as "BYPS".
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_TS9qYwEcEeCQm6a_G2yO_w_-1032051106")]
     [Description(@"Card security code by-passed or not provided by the merchant.")]
-    CSCByPass,
+    CSCByPass = CSCManagementCode.CSCByPass, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card security code unreadable.
-    /// Encoded/decoded by serializers as "CSCUnread".
+    /// Encoded/decoded by serializers as "UNRD".
     /// </summary>
     [EnumMember(Value = "UNRD")]
     [IsoId("_TS9qZAEcEeCQm6a_G2yO_w_905174067")]
     [Description(@"Card security code unreadable.")]
-    CSCUnread,
+    CSCUnread = CSCManagementCode.CSCUnread, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No card security code imprint.
-    /// Encoded/decoded by serializers as "NoCSC".
+    /// Encoded/decoded by serializers as "NCSC".
     /// </summary>
     [EnumMember(Value = "NCSC")]
     [IsoId("_TS9qZQEcEeCQm6a_G2yO_w_1419047201")]
     [Description(@"No card security code imprint.")]
-    NoCSC,
+    NoCSC = CSCManagementCode.NoCSC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CSCManagement1Code
 public static class CSCManagement1CodeMetadataExtensions
 {
     private static readonly CSCManagement1CodeDropdownSource _dropdownSource = new CSCManagement1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VpFtddp-Ed-ak6NoX_4Aeg_-315431614")]
 [Description(@"Identifies the possible rejection reasons.")]
 [Derivations(typeof(MeetingInstructionRejection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MeetingInstructionRejectionCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum MeetingInstructionRejectionCode
 public static class MeetingInstructionRejectionCodeMetadataExtensions
 {
     private static readonly MeetingInstructionRejectionCodeDropdownSource _dropdownSource = new MeetingInstructionRejectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

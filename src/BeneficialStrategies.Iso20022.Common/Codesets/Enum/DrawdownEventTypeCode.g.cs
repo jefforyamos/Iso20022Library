@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_QXH9UFNiEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of drawdown event.")]
 [Derivations(typeof(DrawdownEventType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DrawdownEventTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DrawdownEventTypeCode
 public static class DrawdownEventTypeCodeMetadataExtensions
 {
     private static readonly DrawdownEventTypeCodeDropdownSource _dropdownSource = new DrawdownEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

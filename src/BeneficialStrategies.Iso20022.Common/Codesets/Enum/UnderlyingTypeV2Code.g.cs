@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_01GtYOJOEeWKDJcMqE1cSA")]
 [Description(@"Specifies the underlying financial instrument.")]
 [Derivations(typeof(UnderlyingEquityType3Code),typeof(UnderlyingEquityType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnderlyingTypeV2Code
 {
     /// <summary>
@@ -227,7 +226,7 @@ public enum UnderlyingTypeV2Code
 public static class UnderlyingTypeV2CodeMetadataExtensions
 {
     private static readonly UnderlyingTypeV2CodeDropdownSource _dropdownSource = new UnderlyingTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

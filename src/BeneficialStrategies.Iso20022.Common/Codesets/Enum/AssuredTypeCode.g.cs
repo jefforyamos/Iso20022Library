@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bjRz9Np-Ed-ak6NoX_4Aeg_1647471497")]
 [Description(@"Specifies which type of party should be the assured on the insurance certificate.")]
 [Derivations(typeof(AssuredType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AssuredTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AssuredTypeCode
 public static class AssuredTypeCodeMetadataExtensions
 {
     private static readonly AssuredTypeCodeDropdownSource _dropdownSource = new AssuredTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

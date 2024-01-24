@@ -21,39 +21,39 @@ public enum Endpoint1Code
 {
     /// <summary>
     /// Destination	
-    /// Encoded/decoded by serializers as "Destination".
+    /// Encoded/decoded by serializers as "DEST".
     /// </summary>
     [EnumMember(Value = "DEST")]
     [IsoId("_lMjYAYNoEeuHqfO1LgkE9Q")]
     [Description(@"Destination	")]
-    Destination,
+    Destination = EndpointCode.Destination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Origination
-    /// Encoded/decoded by serializers as "Origination".
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_lVDzwYNoEeuHqfO1LgkE9Q")]
     [Description(@"Origination")]
-    Origination,
+    Origination = EndpointCode.Origination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type specified at a private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_m5vSkYNoEeuHqfO1LgkE9Q")]
     [Description(@"Type specified at a private level.")]
-    OtherPrivate,
+    OtherPrivate = EndpointCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type specified at the national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_nJ4nYoNoEeuHqfO1LgkE9Q")]
     [Description(@"Type specified at the national level.")]
-    OtherNational,
+    OtherNational = EndpointCode.OtherNational, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Endpoint1Code
 public static class Endpoint1CodeMetadataExtensions
 {
     private static readonly Endpoint1CodeDropdownSource _dropdownSource = new Endpoint1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

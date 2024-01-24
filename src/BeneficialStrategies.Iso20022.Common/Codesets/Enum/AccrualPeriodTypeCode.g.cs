@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1zs59jL3EeKU9IrkkToqcw_1280025433")]
 [Description(@"Specifies the type of the first accrual period for debt instruments compared to the normal accrual period of the security.")]
 [Derivations(typeof(AccrualPeriodType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccrualPeriodTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum AccrualPeriodTypeCode
 public static class AccrualPeriodTypeCodeMetadataExtensions
 {
     private static readonly AccrualPeriodTypeCodeDropdownSource _dropdownSource = new AccrualPeriodTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

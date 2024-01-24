@@ -21,30 +21,30 @@ public enum MeetingCancellationReason1Code
 {
     /// <summary>
     /// Cancellation due to insufficient participation to the vote.
-    /// Encoded/decoded by serializers as "Quorum".
+    /// Encoded/decoded by serializers as "QORM".
     /// </summary>
     [EnumMember(Value = "QORM")]
     [IsoId("_Vp_FUNp-Ed-ak6NoX_4Aeg_-1410451064")]
     [Description(@"Cancellation due to insufficient participation to the vote.")]
-    Quorum,
+    Quorum = MeetingCancellationReasonCode.Quorum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation due to a processing error.
-    /// Encoded/decoded by serializers as "Processing".
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_Vp_FUdp-Ed-ak6NoX_4Aeg_-1398443912")]
     [Description(@"Cancellation due to a processing error.")]
-    Processing,
+    Processing = MeetingCancellationReasonCode.Processing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation due to another reason.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vp_FUtp-Ed-ak6NoX_4Aeg_-1315309873")]
     [Description(@"Cancellation due to another reason.")]
-    Other,
+    Other = MeetingCancellationReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum MeetingCancellationReason1Code
 public static class MeetingCancellationReason1CodeMetadataExtensions
 {
     private static readonly MeetingCancellationReason1CodeDropdownSource _dropdownSource = new MeetingCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum IdentificationType1Code
 {
     /// <summary>
     /// Specified source is bank.
-    /// Encoded/decoded by serializers as "BankSortCode".
+    /// Encoded/decoded by serializers as "BASC".
     /// </summary>
     [EnumMember(Value = "BASC")]
     [IsoId("_NBIjoYA6EeSUJZYcWGKkkw")]
     [Description(@"Specified source is bank.")]
-    BankSortCode,
+    BankSortCode = IdentificationTypeCode.BankSortCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// BIC code defines as a standard format of business identifier code. It is a unique identification code for both financial and non-financial institutions.
-    /// Encoded/decoded by serializers as "BIC".
+    /// Encoded/decoded by serializers as "BICO".
     /// </summary>
     [EnumMember(Value = "BICO")]
     [IsoId("_NGDf4YA6EeSUJZYcWGKkkw")]
     [Description(@"BIC code defines as a standard format of business identifier code. It is a unique identification code for both financial and non-financial institutions.")]
-    BIC,
+    BIC = IdentificationTypeCode.BIC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CFETS is an abbreviation of China Foreign Exchange Trade System, which is a sub-institution of the PBC. Its main functions include: providing systems for FX trading, RMB lending, bond trading and exchange rate and interest rate derivatives trading; organizing FX trading, RMB lending, bond trading, and exchange rate and interest rate derivatives trading; providing clearing, information, risk management, and surveillance services on interbank markets; and engaging in other businesses authorized by the PBC.
-    /// Encoded/decoded by serializers as "CFETS".
+    /// Encoded/decoded by serializers as "CFET".
     /// </summary>
     [EnumMember(Value = "CFET")]
     [IsoId("_NLYEwYA6EeSUJZYcWGKkkw")]
     [Description(@"CFETS is an abbreviation of China Foreign Exchange Trade System, which is a sub-institution of the PBC. Its main functions include: providing systems for FX trading, RMB lending, bond trading and exchange rate and interest rate derivatives trading; organizing FX trading, RMB lending, bond trading, and exchange rate and interest rate derivatives trading; providing clearing, information, risk management, and surveillance services on interbank markets; and engaging in other businesses authorized by the PBC.")]
-    CFETS,
+    CFETS = IdentificationTypeCode.CFETS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum IdentificationType1Code
 public static class IdentificationType1CodeMetadataExtensions
 {
     private static readonly IdentificationType1CodeDropdownSource _dropdownSource = new IdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

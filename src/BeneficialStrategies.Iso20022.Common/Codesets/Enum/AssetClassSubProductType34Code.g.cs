@@ -21,12 +21,12 @@ public enum AssetClassSubProductType34Code
 {
     /// <summary>
     /// Commodity of type manufacturing.
-    /// Encoded/decoded by serializers as "Manufacturing".
+    /// Encoded/decoded by serializers as "MFTG".
     /// </summary>
     [EnumMember(Value = "MFTG")]
     [IsoId("_z68wwVrfEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type manufacturing.")]
-    Manufacturing,
+    Manufacturing = AssetClassSubProductTypeCode.Manufacturing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType34Code
 public static class AssetClassSubProductType34CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType34CodeDropdownSource _dropdownSource = new AssetClassSubProductType34CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

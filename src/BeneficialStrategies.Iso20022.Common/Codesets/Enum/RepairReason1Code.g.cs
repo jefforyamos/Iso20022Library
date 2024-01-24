@@ -21,327 +21,327 @@ public enum RepairReason1Code
 {
     /// <summary>
     /// Unrecognised or invalid processing batch, that is, daytime/realtime while only possible to settle in overnight batch.
-    /// Encoded/decoded by serializers as "ProcessingBatch".
+    /// Encoded/decoded by serializers as "BATC".
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_Zsq3ptp-Ed-ak6NoX_4Aeg_-1096933854")]
     [Description(@"Unrecognised or invalid processing batch, that is, daytime/realtime while only possible to settle in overnight batch.")]
-    ProcessingBatch,
+    ProcessingBatch = RepairReasonCode.ProcessingBatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid transaction call delay.
-    /// Encoded/decoded by serializers as "TransactionCallDelay".
+    /// Encoded/decoded by serializers as "CADE".
     /// </summary>
     [EnumMember(Value = "CADE")]
     [IsoId("_Zsq3p9p-Ed-ak6NoX_4Aeg_-1096933824")]
     [Description(@"Unrecognised or invalid transaction call delay.")]
-    TransactionCallDelay,
+    TransactionCallDelay = RepairReasonCode.TransactionCallDelay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CorporateAction".
+    /// Encoded/decoded by serializers as "CAEV".
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_Zsq3qNp-Ed-ak6NoX_4Aeg_-1096933823")]
     [Description(@"Corporate action pending on the financial instrument instructed.")]
-    CorporateAction,
+    CorporateAction = RepairReasonCode.CorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CashAccount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Zs0BkNp-Ed-ak6NoX_4Aeg_-1096933793")]
     [Description(@"Unrecognised or invalid cash account.")]
-    CashAccount,
+    CashAccount = RepairReasonCode.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Impossible standing arrangements override instruction for the cash settlement system.
-    /// Encoded/decoded by serializers as "ImpossibleCashSettlementSystem".
+    /// Encoded/decoded by serializers as "CASY".
     /// </summary>
     [EnumMember(Value = "CASY")]
     [IsoId("_Zs0Bkdp-Ed-ak6NoX_4Aeg_-1096933792")]
     [Description(@"Impossible standing arrangements override instruction for the cash settlement system.")]
-    ImpossibleCashSettlementSystem,
+    ImpossibleCashSettlementSystem = RepairReasonCode.ImpossibleCashSettlementSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Zs0Bktp-Ed-ak6NoX_4Aeg_-1096933791")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    SettlementDate,
+    SettlementDate = RepairReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid deal price.
-    /// Encoded/decoded by serializers as "DealPrice".
+    /// Encoded/decoded by serializers as "DDEA".
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_Zs0Bk9p-Ed-ak6NoX_4Aeg_-1096933763")]
     [Description(@"Unrecognised or invalid deal price.")]
-    DealPrice,
+    DealPrice = RepairReasonCode.DealPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid place of settlement.
-    /// Encoded/decoded by serializers as "PlaceOfSettlement".
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_Zs0BlNp-Ed-ak6NoX_4Aeg_-1096933762")]
     [Description(@"Unrecognised or invalid place of settlement.")]
-    PlaceOfSettlement,
+    PlaceOfSettlement = RepairReasonCode.PlaceOfSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
-    /// Encoded/decoded by serializers as "SettlementAmount".
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_Zs0Bldp-Ed-ak6NoX_4Aeg_-1096933732")]
     [Description(@"Unrecognised or invalid settlement amount.")]
-    SettlementAmount,
+    SettlementAmount = RepairReasonCode.SettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement quantity.
-    /// Encoded/decoded by serializers as "Quantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Zs0Bltp-Ed-ak6NoX_4Aeg_-1096933702")]
     [Description(@"Unrecognised or invalid settlement quantity.")]
-    Quantity,
+    Quantity = RepairReasonCode.Quantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "Security".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Zs0Bl9p-Ed-ak6NoX_4Aeg_-1096933701")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    Security,
+    Security = RepairReasonCode.Security, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid trade date.
-    /// Encoded/decoded by serializers as "TradeDate".
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_Zs0BmNp-Ed-ak6NoX_4Aeg_-1096933671")]
     [Description(@"Unrecognised or invalid trade date.")]
-    TradeDate,
+    TradeDate = RepairReasonCode.TradeDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid forfeit amount.
-    /// Encoded/decoded by serializers as "ForfeitAmount".
+    /// Encoded/decoded by serializers as "FORF".
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_Zs0Bmdp-Ed-ak6NoX_4Aeg_-1096933670")]
     [Description(@"Unrecognised or invalid forfeit amount.")]
-    ForfeitAmount,
+    ForfeitAmount = RepairReasonCode.ForfeitAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering agent.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "ICAG".
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_Zs0Bmtp-Ed-ak6NoX_4Aeg_-1096933423")]
     [Description(@"Unrecognised or invalid receiving or delivering agent.")]
-    Agent,
+    Agent = RepairReasonCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering custodian.
-    /// Encoded/decoded by serializers as "ReceivingOrDeliveringCustodian".
+    /// Encoded/decoded by serializers as "ICUS".
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_Zs9ykNp-Ed-ak6NoX_4Aeg_-1096933422")]
     [Description(@"Unrecognised or invalid receiving or delivering custodian.")]
-    ReceivingOrDeliveringCustodian,
+    ReceivingOrDeliveringCustodian = RepairReasonCode.ReceivingOrDeliveringCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid buyer or seller.
-    /// Encoded/decoded by serializers as "BuyerorSeller".
+    /// Encoded/decoded by serializers as "IEXE".
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_Zs9ykdp-Ed-ak6NoX_4Aeg_-1096933393")]
     [Description(@"Unrecognised or invalid buyer or seller.")]
-    BuyerorSeller,
+    BuyerorSeller = RepairReasonCode.BuyerorSeller, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "CommonReference".
+    /// Encoded/decoded by serializers as "IIND".
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_Zs9yktp-Ed-ak6NoX_4Aeg_-1096933362")]
     [Description(@"Unrecognised, invalid or missing common reference.")]
-    CommonReference,
+    CommonReference = RepairReasonCode.CommonReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid letter of guarantee indicator instructed.
-    /// Encoded/decoded by serializers as "LetterOfGuaranteeIndicator".
+    /// Encoded/decoded by serializers as "LEOG".
     /// </summary>
     [EnumMember(Value = "LEOG")]
     [IsoId("_Zs9yk9p-Ed-ak6NoX_4Aeg_-1096933331")]
     [Description(@"Unrecognised or invalid letter of guarantee indicator instructed.")]
-    LetterOfGuaranteeIndicator,
+    LetterOfGuaranteeIndicator = RepairReasonCode.LetterOfGuaranteeIndicator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MinimumSettlementQuantity".
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_Zs9ylNp-Ed-ak6NoX_4Aeg_-1096933330")]
     [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
-    MinimumSettlementQuantity,
+    MinimumSettlementQuantity = RepairReasonCode.MinimumSettlementQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MultipleSettlementQuantity".
+    /// Encoded/decoded by serializers as "MUNO".
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_Zs9yldp-Ed-ak6NoX_4Aeg_-1096933301")]
     [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
-    MultipleSettlementQuantity,
+    MultipleSettlementQuantity = RepairReasonCode.MultipleSettlementQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "SettlementAmountCurrency".
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_Zs9yltp-Ed-ak6NoX_4Aeg_-1096933300")]
     [Description(@"Unrecognised or invalid settlement amount currency.")]
-    SettlementAmountCurrency,
+    SettlementAmountCurrency = RepairReasonCode.SettlementAmountCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical settlement is impossible for the instructed financial instrument.
-    /// Encoded/decoded by serializers as "PhysicalSettlementImpossible".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Zs9yl9p-Ed-ak6NoX_4Aeg_-1096933270")]
     [Description(@"Physical settlement is impossible for the instructed financial instrument.")]
-    PhysicalSettlementImpossible,
+    PhysicalSettlementImpossible = RepairReasonCode.PhysicalSettlementImpossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid place of trade.
-    /// Encoded/decoded by serializers as "PlaceOfTrade".
+    /// Encoded/decoded by serializers as "PLCE".
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_Zs9ymNp-Ed-ak6NoX_4Aeg_-1096933269")]
     [Description(@"Unrecognised or invalid place of trade.")]
-    PlaceOfTrade,
+    PlaceOfTrade = RepairReasonCode.PlaceOfTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "Reference".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_Zs9ymdp-Ed-ak6NoX_4Aeg_-1096932992")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    Reference,
+    Reference = RepairReasonCode.Reference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid termination transaction amount.
-    /// Encoded/decoded by serializers as "TerminationTransactionAmount".
+    /// Encoded/decoded by serializers as "REPA".
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_ZtHjkNp-Ed-ak6NoX_4Aeg_-1096932991")]
     [Description(@"Unrecognised or invalid termination transaction amount.")]
-    TerminationTransactionAmount,
+    TerminationTransactionAmount = RepairReasonCode.TerminationTransactionAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate.
-    /// Encoded/decoded by serializers as "RepurchaseRate".
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_ZtHjkdp-Ed-ak6NoX_4Aeg_-1096932990")]
     [Description(@"Unrecognised or invalid repurchase rate.")]
-    RepurchaseRate,
+    RepurchaseRate = RepairReasonCode.RepurchaseRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid premium amount.
-    /// Encoded/decoded by serializers as "PremiumAmount".
+    /// Encoded/decoded by serializers as "REPP".
     /// </summary>
     [EnumMember(Value = "REPP")]
     [IsoId("_ZtHjktp-Ed-ak6NoX_4Aeg_-1096932961")]
     [Description(@"Unrecognised or invalid premium amount.")]
-    PremiumAmount,
+    PremiumAmount = RepairReasonCode.PremiumAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate type.
-    /// Encoded/decoded by serializers as "RepurchaseRateType".
+    /// Encoded/decoded by serializers as "RERT".
     /// </summary>
     [EnumMember(Value = "RERT")]
     [IsoId("_ZtHjk9p-Ed-ak6NoX_4Aeg_-1096932930")]
     [Description(@"Unrecognised or invalid repurchase rate type.")]
-    RepurchaseRateType,
+    RepurchaseRateType = RepairReasonCode.RepurchaseRateType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid spread rate.
-    /// Encoded/decoded by serializers as "SpreadRate".
+    /// Encoded/decoded by serializers as "RSPR".
     /// </summary>
     [EnumMember(Value = "RSPR")]
     [IsoId("_ZtHjlNp-Ed-ak6NoX_4Aeg_-1096932929")]
     [Description(@"Unrecognised or invalid spread rate.")]
-    SpreadRate,
+    SpreadRate = RepairReasonCode.SpreadRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Impossible to use the RTGS system instructed (NRTG or YRTG).
-    /// Encoded/decoded by serializers as "ImpossibleToUseTheRTGSSystemInstructed".
+    /// Encoded/decoded by serializers as "RTGS".
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_ZtHjldp-Ed-ak6NoX_4Aeg_-1096932928")]
     [Description(@"Impossible to use the RTGS system instructed (NRTG or YRTG).")]
-    ImpossibleToUseTheRTGSSystemInstructed,
+    ImpossibleToUseTheRTGSSystemInstructed = RepairReasonCode.ImpossibleToUseTheRTGSSystemInstructed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SafekeepingAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZtHjltp-Ed-ak6NoX_4Aeg_-1096932900")]
     [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
-    SafekeepingAccount,
+    SafekeepingAccount = RepairReasonCode.SafekeepingAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement transaction type.
-    /// Encoded/decoded by serializers as "SettlementTransaction".
+    /// Encoded/decoded by serializers as "SETR".
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_ZtHjl9p-Ed-ak6NoX_4Aeg_-1096932869")]
     [Description(@"Unrecognised or invalid settlement transaction type.")]
-    SettlementTransaction,
+    SettlementTransaction = RepairReasonCode.SettlementTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement system/method instructed.
-    /// Encoded/decoded by serializers as "SettlementSystemMethod".
+    /// Encoded/decoded by serializers as "SETS".
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_ZtHjmNp-Ed-ak6NoX_4Aeg_-1096932868")]
     [Description(@"Unrecognised or invalid settlement system/method instructed.")]
-    SettlementSystemMethod,
+    SettlementSystemMethod = RepairReasonCode.SettlementSystemMethod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid closing date/time.
-    /// Encoded/decoded by serializers as "ClosingDateTime".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_ZtHjmdp-Ed-ak6NoX_4Aeg_-1096932838")]
     [Description(@"Unrecognised or invalid closing date/time.")]
-    ClosingDateTime,
+    ClosingDateTime = RepairReasonCode.ClosingDateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid tax status of the securities instructed.
-    /// Encoded/decoded by serializers as "TaxStatus".
+    /// Encoded/decoded by serializers as "TXST".
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_ZtHjmtp-Ed-ak6NoX_4Aeg_-1096932808")]
     [Description(@"Unrecognised or invalid tax status of the securities instructed.")]
-    TaxStatus,
+    TaxStatus = RepairReasonCode.TaxStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid variable rate support (repurchase agreement).
-    /// Encoded/decoded by serializers as "VariableRateSupport".
+    /// Encoded/decoded by serializers as "VASU".
     /// </summary>
     [EnumMember(Value = "VASU")]
     [IsoId("_ZtQtgNp-Ed-ak6NoX_4Aeg_-1096932807")]
     [Description(@"Unrecognised or invalid variable rate support (repurchase agreement).")]
-    VariableRateSupport,
+    VariableRateSupport = RepairReasonCode.VariableRateSupport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -352,7 +352,7 @@ public enum RepairReason1Code
 public static class RepairReason1CodeMetadataExtensions
 {
     private static readonly RepairReason1CodeDropdownSource _dropdownSource = new RepairReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum ProcessingPosition5Code
 {
     /// <summary>
     /// Specifies that the transactions/instructions are linked for information purposes only.
-    /// Encoded/decoded by serializers as "Information".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_-jjQIWaxEeWZev0W8F756g")]
     [Description(@"Specifies that the transactions/instructions are linked for information purposes only.")]
-    Information,
+    Information = ProcessingPositionCode.Information, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ProcessingPosition5Code
 public static class ProcessingPosition5CodeMetadataExtensions
 {
     private static readonly ProcessingPosition5CodeDropdownSource _dropdownSource = new ProcessingPosition5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

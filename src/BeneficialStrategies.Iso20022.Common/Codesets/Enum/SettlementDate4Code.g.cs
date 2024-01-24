@@ -21,12 +21,12 @@ public enum SettlementDate4Code
 {
     /// <summary>
     /// Settlement is to be done when the security is issued.
-    /// Encoded/decoded by serializers as "WhenIssued".
+    /// Encoded/decoded by serializers as "WISS".
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("_ZLby1tp-Ed-ak6NoX_4Aeg_1853523100")]
     [Description(@"Settlement is to be done when the security is issued.")]
-    WhenIssued,
+    WhenIssued = SettlementDateCode.WhenIssued, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SettlementDate4Code
 public static class SettlementDate4CodeMetadataExtensions
 {
     private static readonly SettlementDate4CodeDropdownSource _dropdownSource = new SettlementDate4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

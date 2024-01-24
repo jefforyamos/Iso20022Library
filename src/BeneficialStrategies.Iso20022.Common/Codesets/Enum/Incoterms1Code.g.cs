@@ -21,120 +21,120 @@ public enum Incoterms1Code
 {
     /// <summary>
     /// Ex Works (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "ExWorks".
+    /// Encoded/decoded by serializers as "EXW".
     /// </summary>
     [EnumMember(Value = "EXW")]
     [IsoId("_aWGPJdp-Ed-ak6NoX_4Aeg_-435821229")]
     [Description(@"Ex Works (any mode of transport, including multimodal).")]
-    ExWorks,
+    ExWorks = IncotermsCode.ExWorks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free Carrier (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "FreeCarrier".
+    /// Encoded/decoded by serializers as "FCA".
     /// </summary>
     [EnumMember(Value = "FCA")]
     [IsoId("_aWGPJtp-Ed-ak6NoX_4Aeg_-435821204")]
     [Description(@"Free Carrier (any mode of transport, including multimodal).")]
-    FreeCarrier,
+    FreeCarrier = IncotermsCode.FreeCarrier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free Alongside Ship (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "FreeAlongsideShip".
+    /// Encoded/decoded by serializers as "FAS".
     /// </summary>
     [EnumMember(Value = "FAS")]
     [IsoId("_aWGPJ9p-Ed-ak6NoX_4Aeg_-435821203")]
     [Description(@"Free Alongside Ship (sea and inland waterway transport).")]
-    FreeAlongsideShip,
+    FreeAlongsideShip = IncotermsCode.FreeAlongsideShip, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Free On Board (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "FreeOnBoard".
+    /// Encoded/decoded by serializers as "FOB".
     /// </summary>
     [EnumMember(Value = "FOB")]
     [IsoId("_aWGPKNp-Ed-ak6NoX_4Aeg_-435820952")]
     [Description(@"Free On Board (sea and inland waterway transport).")]
-    FreeOnBoard,
+    FreeOnBoard = IncotermsCode.FreeOnBoard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cost and Freight (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "CostAndFreight".
+    /// Encoded/decoded by serializers as "CFR".
     /// </summary>
     [EnumMember(Value = "CFR")]
     [IsoId("_aWPZENp-Ed-ak6NoX_4Aeg_-435820935")]
     [Description(@"Cost and Freight (sea and inland waterway transport).")]
-    CostAndFreight,
+    CostAndFreight = IncotermsCode.CostAndFreight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cost, Insurance and Freight (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "CostInsuranceAndFreight".
+    /// Encoded/decoded by serializers as "CIF".
     /// </summary>
     [EnumMember(Value = "CIF")]
     [IsoId("_aWPZEdp-Ed-ak6NoX_4Aeg_-435820926")]
     [Description(@"Cost, Insurance and Freight (sea and inland waterway transport).")]
-    CostInsuranceAndFreight,
+    CostInsuranceAndFreight = IncotermsCode.CostInsuranceAndFreight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Carriage Paid To (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "CarriagePaid".
+    /// Encoded/decoded by serializers as "CPT".
     /// </summary>
     [EnumMember(Value = "CPT")]
     [IsoId("_aWPZEtp-Ed-ak6NoX_4Aeg_-435820892")]
     [Description(@"Carriage Paid To (any mode of transport, including multimodal).")]
-    CarriagePaid,
+    CarriagePaid = IncotermsCode.CarriagePaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Carriage and Insurance Paid to (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "CarriageAndInsurancePaid".
+    /// Encoded/decoded by serializers as "CIP".
     /// </summary>
     [EnumMember(Value = "CIP")]
     [IsoId("_aWPZE9p-Ed-ak6NoX_4Aeg_-435820875")]
     [Description(@"Carriage and Insurance Paid to (any mode of transport, including multimodal).")]
-    CarriageAndInsurancePaid,
+    CarriageAndInsurancePaid = IncotermsCode.CarriageAndInsurancePaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered At Frontier (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DeliveredAtFrontier".
+    /// Encoded/decoded by serializers as "DAF".
     /// </summary>
     [EnumMember(Value = "DAF")]
     [IsoId("_aWPZFNp-Ed-ak6NoX_4Aeg_-435820832")]
     [Description(@"Delivered At Frontier (any mode of transport, including multimodal).")]
-    DeliveredAtFrontier,
+    DeliveredAtFrontier = IncotermsCode.DeliveredAtFrontier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered Ex Ship (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "DeliveredExShip".
+    /// Encoded/decoded by serializers as "DES".
     /// </summary>
     [EnumMember(Value = "DES")]
     [IsoId("_aWPZFdp-Ed-ak6NoX_4Aeg_-435820831")]
     [Description(@"Delivered Ex Ship (sea and inland waterway transport).")]
-    DeliveredExShip,
+    DeliveredExShip = IncotermsCode.DeliveredExShip, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered Ex Quay (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "DeliveredExQuay".
+    /// Encoded/decoded by serializers as "DEQ".
     /// </summary>
     [EnumMember(Value = "DEQ")]
     [IsoId("_aWPZFtp-Ed-ak6NoX_4Aeg_-434900826")]
     [Description(@"Delivered Ex Quay (sea and inland waterway transport).")]
-    DeliveredExQuay,
+    DeliveredExQuay = IncotermsCode.DeliveredExQuay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered Duty Unpaid (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DeliveredDutyUnpaid".
+    /// Encoded/decoded by serializers as "DDU".
     /// </summary>
     [EnumMember(Value = "DDU")]
     [IsoId("_aWPZF9p-Ed-ak6NoX_4Aeg_-434900825")]
     [Description(@"Delivered Duty Unpaid (any mode of transport, including multimodal).")]
-    DeliveredDutyUnpaid,
+    DeliveredDutyUnpaid = IncotermsCode.DeliveredDutyUnpaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivered Duty Paid (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DeliveredDutyPaid".
+    /// Encoded/decoded by serializers as "DDP".
     /// </summary>
     [EnumMember(Value = "DDP")]
     [IsoId("_aWPZGNp-Ed-ak6NoX_4Aeg_-434900808")]
     [Description(@"Delivered Duty Paid (any mode of transport, including multimodal).")]
-    DeliveredDutyPaid,
+    DeliveredDutyPaid = IncotermsCode.DeliveredDutyPaid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum Incoterms1Code
 public static class Incoterms1CodeMetadataExtensions
 {
     private static readonly Incoterms1CodeDropdownSource _dropdownSource = new Incoterms1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

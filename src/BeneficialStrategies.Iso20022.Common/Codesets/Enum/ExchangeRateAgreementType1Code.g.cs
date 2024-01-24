@@ -21,48 +21,48 @@ public enum ExchangeRateAgreementType1Code
 {
     /// <summary>
     /// Forward contract exchange rate type.
-    /// Encoded/decoded by serializers as "ForwardContract".
+    /// Encoded/decoded by serializers as "FWCT".
     /// </summary>
     [EnumMember(Value = "FWCT")]
     [IsoId("_Dq8h8YZ7EeuSbct6WWD-Ng")]
     [Description(@"Forward contract exchange rate type.")]
-    ForwardContract,
+    ForwardContract = ExchangeRateAgreementTypeCode.ForwardContract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Normal exchange rate agreement type.
-    /// Encoded/decoded by serializers as "Normal".
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_EVLKsYZ7EeuSbct6WWD-Ng")]
     [Description(@"Normal exchange rate agreement type.")]
-    Normal,
+    Normal = ExchangeRateAgreementTypeCode.Normal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other exchange rate agreement type defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_EdpKMYZ7EeuSbct6WWD-Ng")]
     [Description(@"Other exchange rate agreement type defined at national level.")]
-    OtherNational,
+    OtherNational = ExchangeRateAgreementTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other exchange rate agreement type that is privately defined.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_FBk9sYZ7EeuSbct6WWD-Ng")]
     [Description(@"Other exchange rate agreement type that is privately defined.")]
-    OtherPrivate,
+    OtherPrivate = ExchangeRateAgreementTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Spot agreement exchange rate type.
-    /// Encoded/decoded by serializers as "Spot".
+    /// Encoded/decoded by serializers as "SPOT".
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_FClDQYZ7EeuSbct6WWD-Ng")]
     [Description(@"Spot agreement exchange rate type.")]
-    Spot,
+    Spot = ExchangeRateAgreementTypeCode.Spot, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ExchangeRateAgreementType1Code
 public static class ExchangeRateAgreementType1CodeMetadataExtensions
 {
     private static readonly ExchangeRateAgreementType1CodeDropdownSource _dropdownSource = new ExchangeRateAgreementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

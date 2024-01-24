@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a_X1oNp-Ed-ak6NoX_4Aeg_-75802580")]
 [Description(@"Specifies the clearing channel for the routing of the transaction, as part of the payment type identification.")]
 [Derivations(typeof(ClearingChannel2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingChannelCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ClearingChannelCode
 public static class ClearingChannelCodeMetadataExtensions
 {
     private static readonly ClearingChannelCodeDropdownSource _dropdownSource = new ClearingChannelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

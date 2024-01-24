@@ -153,7 +153,7 @@ public enum UnableToApplyMissingInfo1Code
 public static class UnableToApplyMissingInfo1CodeMetadataExtensions
 {
     private static readonly UnableToApplyMissingInfo1CodeDropdownSource _dropdownSource = new UnableToApplyMissingInfo1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

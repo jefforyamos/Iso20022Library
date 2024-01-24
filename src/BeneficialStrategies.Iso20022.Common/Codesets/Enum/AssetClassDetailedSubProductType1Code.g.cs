@@ -21,57 +21,57 @@ public enum AssetClassDetailedSubProductType1Code
 {
     /// <summary>
     /// Commodity attribute of type feed wheat.
-    /// Encoded/decoded by serializers as "FeedWheat".
+    /// Encoded/decoded by serializers as "FWHT".
     /// </summary>
     [EnumMember(Value = "FWHT")]
     [IsoId("_96wFSSY7EeWAO6hFQSFUmw")]
     [Description(@"Commodity attribute of type feed wheat.")]
-    FeedWheat,
+    FeedWheat = AssetClassDetailedSubProductTypeCode.FeedWheat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type soybeans.
-    /// Encoded/decoded by serializers as "Soybeans".
+    /// Encoded/decoded by serializers as "SOYB".
     /// </summary>
     [EnumMember(Value = "SOYB")]
     [IsoId("_96wFSiY7EeWAO6hFQSFUmw")]
     [Description(@"Commodity attribute of type soybeans.")]
-    Soybeans,
+    Soybeans = AssetClassDetailedSubProductTypeCode.Soybeans, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type rapeseed.
-    /// Encoded/decoded by serializers as "Rapeseed".
+    /// Encoded/decoded by serializers as "RPSD".
     /// </summary>
     [EnumMember(Value = "RPSD")]
     [IsoId("_96wFRyY7EeWAO6hFQSFUmw")]
     [Description(@"Commodity attribute of type rapeseed.")]
-    Rapeseed,
+    Rapeseed = AssetClassDetailedSubProductTypeCode.Rapeseed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_96wFSyY7EeWAO6hFQSFUmw")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type maize.
-    /// Encoded/decoded by serializers as "Maize".
+    /// Encoded/decoded by serializers as "CORN".
     /// </summary>
     [EnumMember(Value = "CORN")]
     [IsoId("_96wFSCY7EeWAO6hFQSFUmw")]
     [Description(@"Commodity attribute of type maize.")]
-    Maize,
+    Maize = AssetClassDetailedSubProductTypeCode.Maize, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type rice.
-    /// Encoded/decoded by serializers as "Rice".
+    /// Encoded/decoded by serializers as "RICE".
     /// </summary>
     [EnumMember(Value = "RICE")]
     [IsoId("_C5a1AfwfEeW4Wthd0Ze_kA")]
     [Description(@"Commodity attribute of type rice.")]
-    Rice,
+    Rice = AssetClassDetailedSubProductTypeCode.Rice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AssetClassDetailedSubProductType1Code
 public static class AssetClassDetailedSubProductType1CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType1CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

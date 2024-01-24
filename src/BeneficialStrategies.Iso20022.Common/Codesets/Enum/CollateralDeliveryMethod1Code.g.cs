@@ -21,30 +21,30 @@ public enum CollateralDeliveryMethod1Code
 {
     /// <summary>
     /// Securities interest collateral arrangement.
-    /// Encoded/decoded by serializers as "SecuritiesInterestCollateralArrangement".
+    /// Encoded/decoded by serializers as "SICA".
     /// </summary>
     [EnumMember(Value = "SICA")]
     [IsoId("_lJtHMSDmEeahCJeThTBhHA")]
     [Description(@"Securities interest collateral arrangement.")]
-    SecuritiesInterestCollateralArrangement,
+    SecuritiesInterestCollateralArrangement = CollateralDeliveryMethodCode.SecuritiesInterestCollateralArrangement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities interest with the right of use.
-    /// Encoded/decoded by serializers as "SecuritiesInterestWithUseRight".
+    /// Encoded/decoded by serializers as "SIUR".
     /// </summary>
     [EnumMember(Value = "SIUR")]
     [IsoId("_lS7UoSDmEeahCJeThTBhHA")]
     [Description(@"Securities interest with the right of use.")]
-    SecuritiesInterestWithUseRight,
+    SecuritiesInterestWithUseRight = CollateralDeliveryMethodCode.SecuritiesInterestWithUseRight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title transfer collateral arrangement.
-    /// Encoded/decoded by serializers as "TitleTransferCollateralArrangement".
+    /// Encoded/decoded by serializers as "TTCA".
     /// </summary>
     [EnumMember(Value = "TTCA")]
     [IsoId("_laNoYSDmEeahCJeThTBhHA")]
     [Description(@"Title transfer collateral arrangement.")]
-    TitleTransferCollateralArrangement,
+    TitleTransferCollateralArrangement = CollateralDeliveryMethodCode.TitleTransferCollateralArrangement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CollateralDeliveryMethod1Code
 public static class CollateralDeliveryMethod1CodeMetadataExtensions
 {
     private static readonly CollateralDeliveryMethod1CodeDropdownSource _dropdownSource = new CollateralDeliveryMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

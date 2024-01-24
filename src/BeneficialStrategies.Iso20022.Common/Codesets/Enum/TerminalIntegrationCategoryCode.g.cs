@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_qt8lnWXOEem9Y55YJ70L8g")]
 [Description(@"Terminal category code of the place where the merchant actually performed the transaction.")]
 [Derivations(typeof(TerminalIntegrationCategory1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminalIntegrationCategoryCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TerminalIntegrationCategoryCode
 public static class TerminalIntegrationCategoryCodeMetadataExtensions
 {
     private static readonly TerminalIntegrationCategoryCodeDropdownSource _dropdownSource = new TerminalIntegrationCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

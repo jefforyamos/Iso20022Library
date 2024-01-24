@@ -21,12 +21,12 @@ public enum AwaitingCancellationReason1Code
 {
     /// <summary>
     /// Cancellation has not been received yet.
-    /// Encoded/decoded by serializers as "AwaitingCancellation".
+    /// Encoded/decoded by serializers as "WCAN".
     /// </summary>
     [EnumMember(Value = "WCAN")]
     [IsoId("__0Ti0tojEeC60axPepSq7g_323091822")]
     [Description(@"Cancellation has not been received yet.")]
-    AwaitingCancellation,
+    AwaitingCancellation = AwaitingCancellationReasonCode.AwaitingCancellation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AwaitingCancellationReason1Code
 public static class AwaitingCancellationReason1CodeMetadataExtensions
 {
     private static readonly AwaitingCancellationReason1CodeDropdownSource _dropdownSource = new AwaitingCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZLby19p-Ed-ak6NoX_4Aeg_336259131")]
 [Description(@"Specifies the date of settlement, in coded form.")]
-[Derivations(typeof(SettlementDate1Code),typeof(SettlementDate4Code),typeof(SettlementDate5Code),typeof(SettlementDate2Code),typeof(SettlementDate3Code),typeof(SettlementDate6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(SettlementDate3Code),typeof(SettlementDate5Code),typeof(SettlementDate2Code),typeof(SettlementDate6Code),typeof(SettlementDate1Code),typeof(SettlementDate4Code))]
 public enum SettlementDateCode
 {
     /// <summary>
@@ -236,7 +235,7 @@ public enum SettlementDateCode
 public static class SettlementDateCodeMetadataExtensions
 {
     private static readonly SettlementDateCodeDropdownSource _dropdownSource = new SettlementDateCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

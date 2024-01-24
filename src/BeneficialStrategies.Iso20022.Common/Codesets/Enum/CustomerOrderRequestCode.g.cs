@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ETkWwN6JEeiwsev40qZGEQ")]
 [Description(@"Type of customer orders that must be sent in response message.")]
 [Derivations(typeof(CustomerOrderRequest1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustomerOrderRequestCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CustomerOrderRequestCode
 public static class CustomerOrderRequestCodeMetadataExtensions
 {
     private static readonly CustomerOrderRequestCodeDropdownSource _dropdownSource = new CustomerOrderRequestCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

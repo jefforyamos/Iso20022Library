@@ -21,57 +21,57 @@ public enum SettlementDate6Code
 {
     /// <summary>
     /// Settlement takes place on the trade date plus five business days.
-    /// Encoded/decoded by serializers as "TPlusFive".
+    /// Encoded/decoded by serializers as "TFIV".
     /// </summary>
     [EnumMember(Value = "TFIV")]
     [IsoId("_aDXucbbwEeaqL_M7XFD7PQ")]
     [Description(@"Settlement takes place on the trade date plus five business days.")]
-    TPlusFive,
+    TPlusFive = SettlementDateCode.TPlusFive, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement takes place on the trade date plus four business days.
-    /// Encoded/decoded by serializers as "TPlusFour".
+    /// Encoded/decoded by serializers as "TFOR".
     /// </summary>
     [EnumMember(Value = "TFOR")]
     [IsoId("_aLtLEbbwEeaqL_M7XFD7PQ")]
     [Description(@"Settlement takes place on the trade date plus four business days.")]
-    TPlusFour,
+    TPlusFour = SettlementDateCode.TPlusFour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement takes place on the trade date plus one business day.
-    /// Encoded/decoded by serializers as "TPlusOne".
+    /// Encoded/decoded by serializers as "TONE".
     /// </summary>
     [EnumMember(Value = "TONE")]
     [IsoId("_aU7YgbbwEeaqL_M7XFD7PQ")]
     [Description(@"Settlement takes place on the trade date plus one business day.")]
-    TPlusOne,
+    TPlusOne = SettlementDateCode.TPlusOne, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement takes place on the trade date plus three business days.
-    /// Encoded/decoded by serializers as "TPlusThree".
+    /// Encoded/decoded by serializers as "TTRE".
     /// </summary>
     [EnumMember(Value = "TTRE")]
     [IsoId("_ahIBcbbwEeaqL_M7XFD7PQ")]
     [Description(@"Settlement takes place on the trade date plus three business days.")]
-    TPlusThree,
+    TPlusThree = SettlementDateCode.TPlusThree, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement takes place on the trade date plus two business days.
-    /// Encoded/decoded by serializers as "TPlusTwo".
+    /// Encoded/decoded by serializers as "TTWO".
     /// </summary>
     [EnumMember(Value = "TTWO")]
     [IsoId("_apKjIbbwEeaqL_M7XFD7PQ")]
     [Description(@"Settlement takes place on the trade date plus two business days.")]
-    TPlusTwo,
+    TPlusTwo = SettlementDateCode.TPlusTwo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event occurs on the same day or at time T.
-    /// Encoded/decoded by serializers as "SameDay".
+    /// Encoded/decoded by serializers as "SAMD".
     /// </summary>
     [EnumMember(Value = "SAMD")]
     [IsoId("_nfpGUbbwEeaqL_M7XFD7PQ")]
     [Description(@"Event occurs on the same day or at time T.")]
-    SameDay,
+    SameDay = SettlementDateCode.SameDay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum SettlementDate6Code
 public static class SettlementDate6CodeMetadataExtensions
 {
     private static readonly SettlementDate6CodeDropdownSource _dropdownSource = new SettlementDate6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

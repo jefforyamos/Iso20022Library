@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TUvzEAEcEeCQm6a_G2yO_w_-212887785")]
 [Description(@"Location category code of the place where the merchant actually performed the transaction.")]
 [Derivations(typeof(LocationCategory1Code),typeof(LocationCategory2Code),typeof(LocationCategory3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LocationCategoryCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum LocationCategoryCode
 public static class LocationCategoryCodeMetadataExtensions
 {
     private static readonly LocationCategoryCodeDropdownSource _dropdownSource = new LocationCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

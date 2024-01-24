@@ -21,93 +21,93 @@ public enum BeneficiaryCertificationType4Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "AccreditedInvestor".
+    /// Encoded/decoded by serializers as "ACCI".
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_GBnAVQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
-    AccreditedInvestor,
+    AccreditedInvestor = BeneficiaryCertificationTypeCode.AccreditedInvestor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify his domicile.
-    /// Encoded/decoded by serializers as "DomicileCountry".
+    /// Encoded/decoded by serializers as "DOMI".
     /// </summary>
     [EnumMember(Value = "DOMI")]
     [IsoId("_GBnAWQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to certify his domicile.")]
-    DomicileCountry,
+    DomicileCountry = BeneficiaryCertificationTypeCode.DomicileCountry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
-    /// Encoded/decoded by serializers as "NonDomicileCountry".
+    /// Encoded/decoded by serializers as "NDOM".
     /// </summary>
     [EnumMember(Value = "NDOM")]
     [IsoId("_GBnAXQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.")]
-    NonDomicileCountry,
+    NonDomicileCountry = BeneficiaryCertificationTypeCode.NonDomicileCountry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.
-    /// Encoded/decoded by serializers as "FullBeneficialOwnerBreakdown".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_GBnAYQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.")]
-    FullBeneficialOwnerBreakdown,
+    FullBeneficialOwnerBreakdown = BeneficiaryCertificationTypeCode.FullBeneficialOwnerBreakdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NonCompany".
+    /// Encoded/decoded by serializers as "NCOM".
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_GBnAZQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
-    NonCompany,
+    NonCompany = BeneficiaryCertificationTypeCode.NonCompany, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBCertification".
+    /// Encoded/decoded by serializers as "QIBB".
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_GBnAaQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-    QIBCertification,
+    QIBCertification = BeneficiaryCertificationTypeCode.QIBCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.
-    /// Encoded/decoded by serializers as "TaxRateBreakdown".
+    /// Encoded/decoded by serializers as "TRBD".
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_GBnAbQE5EeG7DvnR_BzVoA")]
     [Description(@"The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.")]
-    TaxRateBreakdown,
+    TaxRateBreakdown = BeneficiaryCertificationTypeCode.TaxRateBreakdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates if the Beneficial Owner is responsible to fill in the paperwork.
-    /// Encoded/decoded by serializers as "BeneficialOwnerPaperwork".
+    /// Encoded/decoded by serializers as "PAPW".
     /// </summary>
     [EnumMember(Value = "PAPW")]
     [IsoId("_GBnAcQE5EeG7DvnR_BzVoA")]
     [Description(@"Indicates if the Beneficial Owner is responsible to fill in the paperwork.")]
-    BeneficialOwnerPaperwork,
+    BeneficialOwnerPaperwork = BeneficiaryCertificationTypeCode.BeneficialOwnerPaperwork, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The (I)CSD has to provide its participants' details for disclosure purpose to the issuer/issuer’s agent.
-    /// Encoded/decoded by serializers as "ICSDParticipantBreakdown".
+    /// Encoded/decoded by serializers as "PABD".
     /// </summary>
     [EnumMember(Value = "PABD")]
     [IsoId("_GBnAdQE5EeG7DvnR_BzVoA")]
     [Description(@"The (I)CSD has to provide its participants' details for disclosure purpose to the issuer/issuer’s agent.")]
-    ICSDParticipantBreakdown,
+    ICSDParticipantBreakdown = BeneficiaryCertificationTypeCode.ICSDParticipantBreakdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the rounding rule in the Fraction Disposition component at the option level can be offered at the beneficial owner level.
-    /// Encoded/decoded by serializers as "FractionBreakdown".
+    /// Encoded/decoded by serializers as "FRAC".
     /// </summary>
     [EnumMember(Value = "FRAC")]
     [IsoId("_Hb6bJgE5EeG7DvnR_BzVoA")]
     [Description(@"Indicates that the rounding rule in the Fraction Disposition component at the option level can be offered at the beneficial owner level.")]
-    FractionBreakdown,
+    FractionBreakdown = BeneficiaryCertificationTypeCode.FractionBreakdown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum BeneficiaryCertificationType4Code
 public static class BeneficiaryCertificationType4CodeMetadataExtensions
 {
     private static readonly BeneficiaryCertificationType4CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

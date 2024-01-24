@@ -21,30 +21,30 @@ public enum ATMServiceType9Code
 {
     /// <summary>
     /// Funds transfer between accounts belonging to the customer in the same bank.
-    /// Encoded/decoded by serializers as "CustomerTransfer".
+    /// Encoded/decoded by serializers as "TRFC".
     /// </summary>
     [EnumMember(Value = "TRFC")]
     [IsoId("_GTc9Aa4tEeWLdt0vLARX2Q")]
     [Description(@"Funds transfer between accounts belonging to the customer in the same bank.")]
-    CustomerTransfer,
+    CustomerTransfer = ATMServiceTypeCode.CustomerTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funds transfer to another customer.
-    /// Encoded/decoded by serializers as "InterCustomerTransfer".
+    /// Encoded/decoded by serializers as "TRFI".
     /// </summary>
     [EnumMember(Value = "TRFI")]
     [IsoId("_GkSOUa4tEeWLdt0vLARX2Q")]
     [Description(@"Funds transfer to another customer.")]
-    InterCustomerTransfer,
+    InterCustomerTransfer = ATMServiceTypeCode.InterCustomerTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funds transfer to pay a third party.
-    /// Encoded/decoded by serializers as "Payment".
+    /// Encoded/decoded by serializers as "TRFP".
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_PF0xka4tEeWLdt0vLARX2Q")]
     [Description(@"Funds transfer to pay a third party.")]
-    Payment,
+    Payment = ATMServiceTypeCode.Payment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMServiceType9Code
 public static class ATMServiceType9CodeMetadataExtensions
 {
     private static readonly ATMServiceType9CodeDropdownSource _dropdownSource = new ATMServiceType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum IntermediateSecurityDistributionType2Code
 {
     /// <summary>
     /// Distribution of reverser rights.
-    /// Encoded/decoded by serializers as "ReverseRights".
+    /// Encoded/decoded by serializers as "BIDS".
     /// </summary>
     [EnumMember(Value = "BIDS")]
     [IsoId("_aaQ9ctp-Ed-ak6NoX_4Aeg_-1090801611")]
     [Description(@"Distribution of reverser rights.")]
-    ReverseRights,
+    ReverseRights = IntermediateSecurityDistributionTypeCode.ReverseRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of bonus rights.
-    /// Encoded/decoded by serializers as "BonusRights".
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_aaQ9c9p-Ed-ak6NoX_4Aeg_-1090801593")]
     [Description(@"Distribution of bonus rights.")]
-    BonusRights,
+    BonusRights = IntermediateSecurityDistributionTypeCode.BonusRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of dividend reinvestment securities.
-    /// Encoded/decoded by serializers as "DividendReinvestment".
+    /// Encoded/decoded by serializers as "DRIP".
     /// </summary>
     [EnumMember(Value = "DRIP")]
     [IsoId("_aaQ9dNp-Ed-ak6NoX_4Aeg_-1090801568")]
     [Description(@"Distribution of dividend reinvestment securities.")]
-    DividendReinvestment,
+    DividendReinvestment = IntermediateSecurityDistributionTypeCode.DividendReinvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of dividend option.
-    /// Encoded/decoded by serializers as "DividendOption".
+    /// Encoded/decoded by serializers as "DVOP".
     /// </summary>
     [EnumMember(Value = "DVOP")]
     [IsoId("_aaQ9ddp-Ed-ak6NoX_4Aeg_-1090801551")]
     [Description(@"Distribution of dividend option.")]
-    DividendOption,
+    DividendOption = IntermediateSecurityDistributionTypeCode.DividendOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of subscription rights.
-    /// Encoded/decoded by serializers as "SubscriptionRights".
+    /// Encoded/decoded by serializers as "EXRI".
     /// </summary>
     [EnumMember(Value = "EXRI")]
     [IsoId("_aaQ9dtp-Ed-ak6NoX_4Aeg_-1090801291")]
     [Description(@"Distribution of subscription rights.")]
-    SubscriptionRights,
+    SubscriptionRights = IntermediateSecurityDistributionTypeCode.SubscriptionRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of open offer rights.
-    /// Encoded/decoded by serializers as "OpenOfferRights".
+    /// Encoded/decoded by serializers as "PRIO".
     /// </summary>
     [EnumMember(Value = "PRIO")]
     [IsoId("_aaQ9d9p-Ed-ak6NoX_4Aeg_-1090801274")]
     [Description(@"Distribution of open offer rights.")]
-    OpenOfferRights,
+    OpenOfferRights = IntermediateSecurityDistributionTypeCode.OpenOfferRights, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum IntermediateSecurityDistributionType2Code
 public static class IntermediateSecurityDistributionType2CodeMetadataExtensions
 {
     private static readonly IntermediateSecurityDistributionType2CodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

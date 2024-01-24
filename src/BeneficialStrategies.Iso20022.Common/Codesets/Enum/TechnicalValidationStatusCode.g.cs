@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yll61Np-Ed-ak6NoX_4Aeg_771598790")]
 [Description(@"Specifies the result of the technical validation carried out by the receiver (forwarding or first agent).")]
 [Derivations(typeof(TechnicalValidationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TechnicalValidationStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TechnicalValidationStatusCode
 public static class TechnicalValidationStatusCodeMetadataExtensions
 {
     private static readonly TechnicalValidationStatusCodeDropdownSource _dropdownSource = new TechnicalValidationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

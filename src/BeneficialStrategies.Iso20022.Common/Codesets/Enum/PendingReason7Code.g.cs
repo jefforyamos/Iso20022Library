@@ -21,39 +21,39 @@ public enum PendingReason7Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_aDBiKNp-Ed-ak6NoX_4Aeg_-976763242")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "AwaitingConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_aDKsENp-Ed-ak6NoX_4Aeg_675864266")]
     [Description(@"Awaiting confirmation from the counterparty.")]
-    AwaitingConfirmation,
+    AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aDKsEdp-Ed-ak6NoX_4Aeg_383906528")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "QuantityDisagreement".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_aDKsEtp-Ed-ak6NoX_4Aeg_-382017129")]
     [Description(@"Quantity of financial instruments does not match.")]
-    QuantityDisagreement,
+    QuantityDisagreement = PendingFailingReasonCode.QuantityDisagreement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PendingReason7Code
 public static class PendingReason7CodeMetadataExtensions
 {
     private static readonly PendingReason7CodeDropdownSource _dropdownSource = new PendingReason7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aqgY5Np-Ed-ak6NoX_4Aeg_1593858714")]
 [Description(@"Specifies the coded reason for the financing status.")]
 [Derivations(typeof(FinancingStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancingStatusReasonCode
 {
     /// <summary>
@@ -173,7 +172,7 @@ public enum FinancingStatusReasonCode
 public static class FinancingStatusReasonCodeMetadataExtensions
 {
     private static readonly FinancingStatusReasonCodeDropdownSource _dropdownSource = new FinancingStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

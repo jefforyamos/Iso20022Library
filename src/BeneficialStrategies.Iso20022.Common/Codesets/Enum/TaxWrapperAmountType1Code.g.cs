@@ -21,21 +21,21 @@ public enum TaxWrapperAmountType1Code
 {
     /// <summary>
     /// Type of amount is a bonus, for example, a government bonus.
-    /// Encoded/decoded by serializers as "Bonus".
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_Dpx-MV25EeiFXdiLi_Nf4A")]
     [Description(@"Type of amount is a bonus, for example, a government bonus.")]
-    Bonus,
+    Bonus = TaxWrapperAmountTypeCode.Bonus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_DwLhIV25EeiFXdiLi_Nf4A")]
     [Description(@"Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.")]
-    Withdrawal,
+    Withdrawal = TaxWrapperAmountTypeCode.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TaxWrapperAmountType1Code
 public static class TaxWrapperAmountType1CodeMetadataExtensions
 {
     private static readonly TaxWrapperAmountType1CodeDropdownSource _dropdownSource = new TaxWrapperAmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

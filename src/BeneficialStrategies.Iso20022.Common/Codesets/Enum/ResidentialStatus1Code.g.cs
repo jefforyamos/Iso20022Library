@@ -21,30 +21,30 @@ public enum ResidentialStatus1Code
 {
     /// <summary>
     /// Resident.
-    /// Encoded/decoded by serializers as "Resident".
+    /// Encoded/decoded by serializers as "RESI".
     /// </summary>
     [EnumMember(Value = "RESI")]
     [IsoId("_ZUrOZ9p-Ed-ak6NoX_4Aeg_-1024642437")]
     [Description(@"Resident.")]
-    Resident,
+    Resident = ResidentialStatusCode.Resident, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Permanent resident.
-    /// Encoded/decoded by serializers as "PermanentResident".
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_ZUrOaNp-Ed-ak6NoX_4Aeg_-1024642164")]
     [Description(@"Permanent resident.")]
-    PermanentResident,
+    PermanentResident = ResidentialStatusCode.PermanentResident, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-resident.
-    /// Encoded/decoded by serializers as "NonResident".
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_ZU0_YNp-Ed-ak6NoX_4Aeg_-1024642147")]
     [Description(@"Non-resident.")]
-    NonResident,
+    NonResident = ResidentialStatusCode.NonResident, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ResidentialStatus1Code
 public static class ResidentialStatus1CodeMetadataExtensions
 {
     private static readonly ResidentialStatus1CodeDropdownSource _dropdownSource = new ResidentialStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

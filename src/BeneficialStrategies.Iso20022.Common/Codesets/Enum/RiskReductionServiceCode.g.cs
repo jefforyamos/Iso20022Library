@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_LecYgCi6EeuKKc2MztSwPw")]
 [Description(@"RiskReductionServiceCode definition here")]
 [Derivations(typeof(RiskReductionService1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RiskReductionServiceCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum RiskReductionServiceCode
 public static class RiskReductionServiceCodeMetadataExtensions
 {
     private static readonly RiskReductionServiceCodeDropdownSource _dropdownSource = new RiskReductionServiceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

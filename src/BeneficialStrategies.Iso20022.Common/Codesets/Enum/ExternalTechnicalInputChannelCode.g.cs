@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_d3jk8Lf9Eee9KIDjEHK7ZQ")]
-[Description(@"Specifies the technical input channel, as published in an external technical input channel code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the technical input channel, as published in an external technical input channel code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalTechnicalInputChannel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalTechnicalInputChannelCode
 {
     /// <summary>
@@ -66,7 +65,7 @@ public enum ExternalTechnicalInputChannelCode
 public static class ExternalTechnicalInputChannelCodeMetadataExtensions
 {
     private static readonly ExternalTechnicalInputChannelCodeDropdownSource _dropdownSource = new ExternalTechnicalInputChannelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

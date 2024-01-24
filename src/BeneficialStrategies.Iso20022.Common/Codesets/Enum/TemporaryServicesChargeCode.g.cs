@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OwYzt_ffEei89sMSHxl1ew")]
 [Description(@"Charge types for temporary services")]
 [Derivations(typeof(TemporaryServicesCharge1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TemporaryServicesChargeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum TemporaryServicesChargeCode
 public static class TemporaryServicesChargeCodeMetadataExtensions
 {
     private static readonly TemporaryServicesChargeCodeDropdownSource _dropdownSource = new TemporaryServicesChargeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VgL1MNuTEeiB5uLfkg9ZJA")]
 [Description(@"Action to realise on a transaction.")]
 [Derivations(typeof(TransactionAction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransactionActionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TransactionActionCode
 public static class TransactionActionCodeMetadataExtensions
 {
     private static readonly TransactionActionCodeDropdownSource _dropdownSource = new TransactionActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1orVsTL3EeKU9IrkkToqcw_-1263884737")]
 [Description(@"Specifies payment type.")]
 [Derivations(typeof(InterimFinalPayment1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterimFinalPaymentCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InterimFinalPaymentCode
 public static class InterimFinalPaymentCodeMetadataExtensions
 {
     private static readonly InterimFinalPaymentCodeDropdownSource _dropdownSource = new InterimFinalPaymentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

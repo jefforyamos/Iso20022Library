@@ -21,21 +21,21 @@ public enum TransactionEnvironment2Code
 {
     /// <summary>
     /// Private environment.
-    /// Encoded/decoded by serializers as "Private".
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_d7rAgXsIEeSR68OJvMfxJQ")]
     [Description(@"Private environment.")]
-    Private,
+    Private = TransactionEnvironmentCode.Private, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Public environment.
-    /// Encoded/decoded by serializers as "Public".
+    /// Encoded/decoded by serializers as "PUBL".
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_eDeRoXsIEeSR68OJvMfxJQ")]
     [Description(@"Public environment.")]
-    Public,
+    Public = TransactionEnvironmentCode.Public, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransactionEnvironment2Code
 public static class TransactionEnvironment2CodeMetadataExtensions
 {
     private static readonly TransactionEnvironment2CodeDropdownSource _dropdownSource = new TransactionEnvironment2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

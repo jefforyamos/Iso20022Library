@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Z_vkptp-Ed-ak6NoX_4Aeg_689720580")]
 [Description(@"Specifies the reason the transaction/instruction is pending failing settlement, and the settlement at the instruction settlement date is no longer possible.")]
 [Derivations(typeof(PendingFailingSettlement1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PendingFailingSettlementCode
 {
     /// <summary>
@@ -434,7 +433,7 @@ public enum PendingFailingSettlementCode
 public static class PendingFailingSettlementCodeMetadataExtensions
 {
     private static readonly PendingFailingSettlementCodeDropdownSource _dropdownSource = new PendingFailingSettlementCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

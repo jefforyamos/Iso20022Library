@@ -21,21 +21,21 @@ public enum TaxLiability1Code
 {
     /// <summary>
     /// Settlement party is acting as a principal for tax liability.
-    /// Encoded/decoded by serializers as "TaxPrincipal".
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_YiBCYtp-Ed-ak6NoX_4Aeg_-1137204905")]
     [Description(@"Settlement party is acting as a principal for tax liability.")]
-    TaxPrincipal,
+    TaxPrincipal = TaxLiabilityCode.TaxPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement party is acting as an agent for tax liability.
-    /// Encoded/decoded by serializers as "TaxAgent".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YiBCY9p-Ed-ak6NoX_4Aeg_1016400725")]
     [Description(@"Settlement party is acting as an agent for tax liability.")]
-    TaxAgent,
+    TaxAgent = TaxLiabilityCode.TaxAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TaxLiability1Code
 public static class TaxLiability1CodeMetadataExtensions
 {
     private static readonly TaxLiability1CodeDropdownSource _dropdownSource = new TaxLiability1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassSubProductType30Code
 {
     /// <summary>
     /// Commodity of type weather.
-    /// Encoded/decoded by serializers as "Weather".
+    /// Encoded/decoded by serializers as "WTHR".
     /// </summary>
     [EnumMember(Value = "WTHR")]
     [IsoId("_f4vr41rNEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type weather.")]
-    Weather,
+    Weather = AssetClassSubProductTypeCode.Weather, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType30Code
 public static class AssetClassSubProductType30CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType30CodeDropdownSource _dropdownSource = new AssetClassSubProductType30CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

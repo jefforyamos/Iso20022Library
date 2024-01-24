@@ -11,14 +11,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017).
-/// 
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_F-c7MALdEeutW5-TpeYJhA")]
-[Description(@"Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017). ")]
+[Description(@"Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017).|")]
 [Derivations(typeof(ReturnExcessCash1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReturnExcessCashCode
 {
     /// <summary>
@@ -57,7 +55,7 @@ public enum ReturnExcessCashCode
 public static class ReturnExcessCashCodeMetadataExtensions
 {
     private static readonly ReturnExcessCashCodeDropdownSource _dropdownSource = new ReturnExcessCashCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

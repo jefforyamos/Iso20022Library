@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_CjsMwIqgEeS4a4abTJTSSw")]
 [Description(@"Type of items the cash-in cassette.")]
 [Derivations(typeof(ATMNoteType1Code),typeof(ATMNoteType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMNoteTypeCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum ATMNoteTypeCode
 public static class ATMNoteTypeCodeMetadataExtensions
 {
     private static readonly ATMNoteTypeCodeDropdownSource _dropdownSource = new ATMNoteTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

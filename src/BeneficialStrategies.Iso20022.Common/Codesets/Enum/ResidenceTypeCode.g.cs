@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-WZTUGjMEeiRg5NzP0jkQg")]
 [Description(@"Specifies the type of residence where the party has its permanent home or principal establishment.")]
 [Derivations(typeof(ResidenceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResidenceTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ResidenceTypeCode
 public static class ResidenceTypeCodeMetadataExtensions
 {
     private static readonly ResidenceTypeCodeDropdownSource _dropdownSource = new ResidenceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

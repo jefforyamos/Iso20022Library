@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bj4Q59p-Ed-ak6NoX_4Aeg_686608073")]
 [Description(@"Indicates whether an automatic routing system is involved.")]
 [Derivations(typeof(AutoRouting1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AutoRoutingCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AutoRoutingCode
 public static class AutoRoutingCodeMetadataExtensions
 {
     private static readonly AutoRoutingCodeDropdownSource _dropdownSource = new AutoRoutingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

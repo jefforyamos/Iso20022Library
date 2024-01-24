@@ -21,21 +21,21 @@ public enum InvestigatedParties1Code
 {
     /// <summary>
     /// Investigated parties are all parties playig a role matching the search criteria.
-    /// Encoded/decoded by serializers as "AllParties".
+    /// Encoded/decoded by serializers as "ALLP".
     /// </summary>
     [EnumMember(Value = "ALLP")]
     [IsoId("_XhTElmKEEeG1ab6Vf7EgPA")]
     [Description(@"Investigated parties are all parties playig a role matching the search criteria.")]
-    AllParties,
+    AllParties = InvestigatedPartiesCode.AllParties, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investigated party is the owner.
-    /// Encoded/decoded by serializers as "Owner".
+    /// Encoded/decoded by serializers as "OWNE".
     /// </summary>
     [EnumMember(Value = "OWNE")]
     [IsoId("_XmNZxmKEEeG1ab6Vf7EgPA")]
     [Description(@"Investigated party is the owner.")]
-    Owner,
+    Owner = InvestigatedPartiesCode.Owner, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InvestigatedParties1Code
 public static class InvestigatedParties1CodeMetadataExtensions
 {
     private static readonly InvestigatedParties1CodeDropdownSource _dropdownSource = new InvestigatedParties1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

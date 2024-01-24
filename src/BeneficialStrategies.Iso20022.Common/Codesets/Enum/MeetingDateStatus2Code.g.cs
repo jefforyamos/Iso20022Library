@@ -21,21 +21,21 @@ public enum MeetingDateStatus2Code
 {
     /// <summary>
     /// Meeting date is confirmed.
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CNFR".
     /// </summary>
     [EnumMember(Value = "CNFR")]
     [IsoId("_M6Qg8a4oEemG7MmivSuE5g")]
     [Description(@"Meeting date is confirmed.")]
-    Confirmed,
+    Confirmed = MeetingDateStatusCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting date is tentative.
-    /// Encoded/decoded by serializers as "Tentative".
+    /// Encoded/decoded by serializers as "TNTA".
     /// </summary>
     [EnumMember(Value = "TNTA")]
     [IsoId("_NIP5oq4oEemG7MmivSuE5g")]
     [Description(@"Meeting date is tentative.")]
-    Tentative,
+    Tentative = MeetingDateStatusCode.Tentative, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MeetingDateStatus2Code
 public static class MeetingDateStatus2CodeMetadataExtensions
 {
     private static readonly MeetingDateStatus2CodeDropdownSource _dropdownSource = new MeetingDateStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

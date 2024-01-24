@@ -21,147 +21,147 @@ public enum RetailerResultDetail1Code
 {
     /// <summary>
     /// The Initiator of the request has sent an Abort message request, which was accepted and processed.
-    /// Encoded/decoded by serializers as "Aborted".
+    /// Encoded/decoded by serializers as "ABRT".
     /// </summary>
     [EnumMember(Value = "ABRT")]
     [IsoId("_NGX1EdxYEeioifFt1dhnJA")]
     [Description(@"The Initiator of the request has sent an Abort message request, which was accepted and processed.")]
-    Aborted,
+    Aborted = RetailerResultDetailCode.Aborted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The system is busy, try later.
-    /// Encoded/decoded by serializers as "Busy".
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_NJ8GcdxYEeioifFt1dhnJA")]
     [Description(@"The system is busy, try later.")]
-    Busy,
+    Busy = RetailerResultDetailCode.Busy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The user has aborted the transaction on the PED keyboard, for instance during PIN entering.
-    /// Encoded/decoded by serializers as "Cancel".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_NXLRMdxYEeioifFt1dhnJA")]
     [Description(@"The user has aborted the transaction on the PED keyboard, for instance during PIN entering.")]
-    Cancel,
+    Cancel = RetailerResultDetailCode.Cancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device out of order.
-    /// Encoded/decoded by serializers as "DeviceOut".
+    /// Encoded/decoded by serializers as "DEVO".
     /// </summary>
     [EnumMember(Value = "DEVO")]
     [IsoId("_Na3eYdxYEeioifFt1dhnJA")]
     [Description(@"Device out of order.")]
-    DeviceOut,
+    DeviceOut = RetailerResultDetailCode.DeviceOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The user has entered the PIN on the PED keyboard and the verification fails.
-    /// Encoded/decoded by serializers as "WrongPIN".
+    /// Encoded/decoded by serializers as "WPIN".
     /// </summary>
     [EnumMember(Value = "WPIN")]
     [IsoId("_N8gy4dxYEeioifFt1dhnJA")]
     [Description(@"The user has entered the PIN on the PED keyboard and the verification fails.")]
-    WrongPIN,
+    WrongPIN = RetailerResultDetailCode.WrongPIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with "Refusal").
-    /// Encoded/decoded by serializers as "UnreachableHost".
+    /// Encoded/decoded by serializers as "NHOS".
     /// </summary>
     [EnumMember(Value = "NHOS")]
     [IsoId("_N_z-gdxYEeioifFt1dhnJA")]
     [Description(@"Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with ""Refusal"").")]
-    UnreachableHost,
+    UnreachableHost = RetailerResultDetailCode.UnreachableHost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The service is not available (not implemented, not configured, protocol version too old...).
-    /// Encoded/decoded by serializers as "UnavailableService".
+    /// Encoded/decoded by serializers as "UNVS".
     /// </summary>
     [EnumMember(Value = "UNVS")]
     [IsoId("_ODXo0dxYEeioifFt1dhnJA")]
     [Description(@"The service is not available (not implemented, not configured, protocol version too old...).")]
-    UnavailableService,
+    UnavailableService = RetailerResultDetailCode.UnavailableService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The hardware is not available (absent, not configured...).
-    /// Encoded/decoded by serializers as "UnavailableDevice".
+    /// Encoded/decoded by serializers as "UNVD".
     /// </summary>
     [EnumMember(Value = "UNVD")]
     [IsoId("_OHxnsdxYEeioifFt1dhnJA")]
     [Description(@"The hardware is not available (absent, not configured...).")]
-    UnavailableDevice,
+    UnavailableDevice = RetailerResultDetailCode.UnavailableDevice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transaction is refused by the host or by the local rules associated to the card or the POI.
-    /// Encoded/decoded by serializers as "Refusal".
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_OMVXkdxYEeioifFt1dhnJA")]
     [Description(@"The transaction is refused by the host or by the local rules associated to the card or the POI.")]
-    Refusal,
+    Refusal = RetailerResultDetailCode.Refusal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Some sale items are not payable by the card proposed by the Customer.
-    /// Encoded/decoded by serializers as "PaymentRestriction".
+    /// Encoded/decoded by serializers as "PAYR".
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_OTlPEdxYEeioifFt1dhnJA")]
     [Description(@"Some sale items are not payable by the card proposed by the Customer.")]
-    PaymentRestriction,
+    PaymentRestriction = RetailerResultDetailCode.PaymentRestriction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transaction is not found (e.g. for a reversal or a repeat).
-    /// Encoded/decoded by serializers as "NotFound".
+    /// Encoded/decoded by serializers as "TNFD".
     /// </summary>
     [EnumMember(Value = "TNFD")]
     [IsoId("_OXthIdxYEeioifFt1dhnJA")]
     [Description(@"The transaction is not found (e.g. for a reversal or a repeat).")]
-    NotFound,
+    NotFound = RetailerResultDetailCode.NotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.
-    /// Encoded/decoded by serializers as "NotAllowed".
+    /// Encoded/decoded by serializers as "NALW".
     /// </summary>
     [EnumMember(Value = "NALW")]
     [IsoId("_OcJ8QdxYEeioifFt1dhnJA")]
     [Description(@"A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.")]
-    NotAllowed,
+    NotAllowed = RetailerResultDetailCode.NotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not logged in.
-    /// Encoded/decoded by serializers as "LoggedOut".
+    /// Encoded/decoded by serializers as "LOUT".
     /// </summary>
     [EnumMember(Value = "LOUT")]
     [IsoId("_OgC9wdxYEeioifFt1dhnJA")]
     [Description(@"Not logged in.")]
-    LoggedOut,
+    LoggedOut = RetailerResultDetailCode.LoggedOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.
-    /// Encoded/decoded by serializers as "InvalidCard".
+    /// Encoded/decoded by serializers as "IVCA".
     /// </summary>
     [EnumMember(Value = "IVCA")]
     [IsoId("_OkTLodxYEeioifFt1dhnJA")]
     [Description(@"The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.")]
-    InvalidCard,
+    InvalidCard = RetailerResultDetailCode.InvalidCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.
-    /// Encoded/decoded by serializers as "InsertedCard".
+    /// Encoded/decoded by serializers as "ICAR".
     /// </summary>
     [EnumMember(Value = "ICAR")]
     [IsoId("_OoZBcdxYEeioifFt1dhnJA")]
     [Description(@"If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.")]
-    InsertedCard,
+    InsertedCard = RetailerResultDetailCode.InsertedCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transaction is still in progress and then the command cannot be processed.
-    /// Encoded/decoded by serializers as "InProgress".
+    /// Encoded/decoded by serializers as "WIPG".
     /// </summary>
     [EnumMember(Value = "WIPG")]
     [IsoId("_OtBp0dxYEeioifFt1dhnJA")]
     [Description(@"The transaction is still in progress and then the command cannot be processed.")]
-    InProgress,
+    InProgress = RetailerResultDetailCode.InProgress, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum RetailerResultDetail1Code
 public static class RetailerResultDetail1CodeMetadataExtensions
 {
     private static readonly RetailerResultDetail1CodeDropdownSource _dropdownSource = new RetailerResultDetail1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

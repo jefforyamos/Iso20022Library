@@ -21,122 +21,122 @@ public enum TradeTransactionCondition2Code
 {
     /// <summary>
     /// Indicates whether the trade is executed with a special cum coupon.
-    /// Encoded/decoded by serializers as "SpecialCumCoupon".
+    /// Encoded/decoded by serializers as "SPCC".
     /// </summary>
     [EnumMember(Value = "SPCC")]
     [IsoId("_YoHqZtp-Ed-ak6NoX_4Aeg_287848345")]
     [Description(@"Indicates whether the trade is executed with a special cum coupon.")]
-    SpecialCumCoupon,
+    SpecialCumCoupon = TradeTransactionConditionCode.SpecialCumCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special ex coupon.
-    /// Encoded/decoded by serializers as "SpecialExCoupon".
+    /// Encoded/decoded by serializers as "SECN".
     /// </summary>
     [EnumMember(Value = "SECN")]
     [IsoId("_YoHqZ9p-Ed-ak6NoX_4Aeg_287848353")]
     [Description(@"Indicates whether the trade is executed with a special ex coupon.")]
-    SpecialExCoupon,
+    SpecialExCoupon = TradeTransactionConditionCode.SpecialExCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special ex bonus.
-    /// Encoded/decoded by serializers as "SpecialExBonus".
+    /// Encoded/decoded by serializers as "SEBN".
     /// </summary>
     [EnumMember(Value = "SEBN")]
     [IsoId("_YoHqaNp-Ed-ak6NoX_4Aeg_287848370")]
     [Description(@"Indicates whether the trade is executed special ex bonus.")]
-    SpecialExBonus,
+    SpecialExBonus = TradeTransactionConditionCode.SpecialExBonus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special cum bonus.
-    /// Encoded/decoded by serializers as "SpecialCumBonus".
+    /// Encoded/decoded by serializers as "SCBN".
     /// </summary>
     [EnumMember(Value = "SCBN")]
     [IsoId("_YoHqadp-Ed-ak6NoX_4Aeg_287848371")]
     [Description(@"Indicates whether the trade is executed special cum bonus.")]
-    SpecialCumBonus,
+    SpecialCumBonus = TradeTransactionConditionCode.SpecialCumBonus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special cum rights.
-    /// Encoded/decoded by serializers as "SpecialCumRights".
+    /// Encoded/decoded by serializers as "SCRT".
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_YoRbYNp-Ed-ak6NoX_4Aeg_287848387")]
     [Description(@"Indicates whether the trade is executed special cum rights.")]
-    SpecialCumRights,
+    SpecialCumRights = TradeTransactionConditionCode.SpecialCumRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special ex rights.
-    /// Encoded/decoded by serializers as "SpecialExRights".
+    /// Encoded/decoded by serializers as "SERT".
     /// </summary>
     [EnumMember(Value = "SERT")]
     [IsoId("_YoRbYdp-Ed-ak6NoX_4Aeg_287848388")]
     [Description(@"Indicates whether the trade is executed special ex rights.")]
-    SpecialExRights,
+    SpecialExRights = TradeTransactionConditionCode.SpecialExRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special cum capital repayments.
-    /// Encoded/decoded by serializers as "SpecialCumCapitalRepayments".
+    /// Encoded/decoded by serializers as "SCCR".
     /// </summary>
     [EnumMember(Value = "SCCR")]
     [IsoId("_YoRbYtp-Ed-ak6NoX_4Aeg_287848405")]
     [Description(@"Indicates whether the trade is executed special cum capital repayments.")]
-    SpecialCumCapitalRepayments,
+    SpecialCumCapitalRepayments = TradeTransactionConditionCode.SpecialCumCapitalRepayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed special ex capital repayments.
-    /// Encoded/decoded by serializers as "SpecialExCapitalRepayments".
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_YoRbY9p-Ed-ak6NoX_4Aeg_287848406")]
     [Description(@"Indicates whether the trade is executed special ex capital repayments.")]
-    SpecialExCapitalRepayments,
+    SpecialExCapitalRepayments = TradeTransactionConditionCode.SpecialExCapitalRepayments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a cash settlement.
-    /// Encoded/decoded by serializers as "CashSettlement".
+    /// Encoded/decoded by serializers as "CAST".
     /// </summary>
     [EnumMember(Value = "CAST")]
     [IsoId("_YoRbZNp-Ed-ak6NoX_4Aeg_287848430")]
     [Description(@"Indicates whether the trade is executed with a cash settlement.")]
-    CashSettlement,
+    CashSettlement = TradeTransactionConditionCode.CashSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special price.
-    /// Encoded/decoded by serializers as "SpecialPrice".
+    /// Encoded/decoded by serializers as "SPPR".
     /// </summary>
     [EnumMember(Value = "SPPR")]
     [IsoId("_YoRbZdp-Ed-ak6NoX_4Aeg_287848431")]
     [Description(@"Indicates whether the trade is executed with a special price.")]
-    SpecialPrice,
+    SpecialPrice = TradeTransactionConditionCode.SpecialPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special cum 
     /// dividend, that is, buying after the ex date and getting the dividend.
-    /// Encoded/decoded by serializers as "SpecialCumDividend".
+    /// Encoded/decoded by serializers as "SPCU".
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_YoRbZtp-Ed-ak6NoX_4Aeg_287848447")]
-    [Description(@"Indicates whether the trade is executed with a special cum  dividend, that is, buying after the ex date and getting the dividend.")]
-    SpecialCumDividend,
+    [Description(@"Indicates whether the trade is executed with a special cum |dividend, that is, buying after the ex date and getting the dividend.")]
+    SpecialCumDividend = TradeTransactionConditionCode.SpecialCumDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the trade is executed with a special ex 
     /// dividend, that is, selling before the ex date without the coupon.
-    /// Encoded/decoded by serializers as "SpecialExDividend".
+    /// Encoded/decoded by serializers as "SPEX".
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_YoRbZ9p-Ed-ak6NoX_4Aeg_287848465")]
-    [Description(@"Indicates whether the trade is executed with a special ex  dividend, that is, selling before the ex date without the coupon.")]
-    SpecialExDividend,
+    [Description(@"Indicates whether the trade is executed with a special ex |dividend, that is, selling before the ex date without the coupon.")]
+    SpecialExDividend = TradeTransactionConditionCode.SpecialExDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
-    /// Encoded/decoded by serializers as "GuaranteedDelivery".
+    /// Encoded/decoded by serializers as "GTDL".
     /// </summary>
     [EnumMember(Value = "GTDL")]
     [IsoId("_YoRbaNp-Ed-ak6NoX_4Aeg_334023861")]
     [Description(@"Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.")]
-    GuaranteedDelivery,
+    GuaranteedDelivery = TradeTransactionConditionCode.GuaranteedDelivery, // same ordinal as derivation source for type conversions
     
 }
 
@@ -147,7 +147,7 @@ public enum TradeTransactionCondition2Code
 public static class TradeTransactionCondition2CodeMetadataExtensions
 {
     private static readonly TradeTransactionCondition2CodeDropdownSource _dropdownSource = new TradeTransactionCondition2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum POICommunicationType2Code
 {
     /// <summary>
     /// Communication with a host using Bluetooth.
-    /// Encoded/decoded by serializers as "Bluetooth".
+    /// Encoded/decoded by serializers as "BLTH".
     /// </summary>
     [EnumMember(Value = "BLTH")]
     [IsoId("_2Ix04bCYEeapjPTKZHuM2w")]
     [Description(@"Communication with a host using Bluetooth.")]
-    Bluetooth,
+    Bluetooth = POICommunicationTypeCode.Bluetooth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ethernet port to communicate.
-    /// Encoded/decoded by serializers as "Ethernet".
+    /// Encoded/decoded by serializers as "ETHR".
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_2Ix047CYEeapjPTKZHuM2w")]
     [Description(@"Ethernet port to communicate.")]
-    Ethernet,
+    Ethernet = POICommunicationTypeCode.Ethernet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using GPRS.
@@ -44,16 +44,16 @@ public enum POICommunicationType2Code
     [EnumMember(Value = "GPRS")]
     [IsoId("_2Ix05bCYEeapjPTKZHuM2w")]
     [Description(@"Communication with a host using GPRS.")]
-    GPRS,
+    GPRS = POICommunicationTypeCode.GPRS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using GSM.
-    /// Encoded/decoded by serializers as "GSM".
+    /// Encoded/decoded by serializers as "GSMF".
     /// </summary>
     [EnumMember(Value = "GSMF")]
     [IsoId("_2Ix057CYEeapjPTKZHuM2w")]
     [Description(@"Communication with a host using GSM.")]
-    GSM,
+    GSM = POICommunicationTypeCode.GSM, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using Public Switching Telephone Network.
@@ -62,79 +62,79 @@ public enum POICommunicationType2Code
     [EnumMember(Value = "PSTN")]
     [IsoId("_2Ix06bCYEeapjPTKZHuM2w")]
     [Description(@"Communication with a host using Public Switching Telephone Network.")]
-    PSTN,
+    PSTN = POICommunicationTypeCode.PSTN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Serial port to communicate.
-    /// Encoded/decoded by serializers as "RS232".
+    /// Encoded/decoded by serializers as "RS23".
     /// </summary>
     [EnumMember(Value = "RS23")]
     [IsoId("_2Ix067CYEeapjPTKZHuM2w")]
     [Description(@"Serial port to communicate.")]
-    RS232,
+    RS232 = POICommunicationTypeCode.RS232, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a USB stick or any USB device.
-    /// Encoded/decoded by serializers as "USBDevice".
+    /// Encoded/decoded by serializers as "USBD".
     /// </summary>
     [EnumMember(Value = "USBD")]
     [IsoId("_2Ix07bCYEeapjPTKZHuM2w")]
     [Description(@"Communication with a USB stick or any USB device.")]
-    USBDevice,
+    USBDevice = POICommunicationTypeCode.USBDevice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host from an USB port.
-    /// Encoded/decoded by serializers as "USBHost".
+    /// Encoded/decoded by serializers as "USBH".
     /// </summary>
     [EnumMember(Value = "USBH")]
     [IsoId("_2Ix077CYEeapjPTKZHuM2w")]
     [Description(@"Communication with a host from an USB port.")]
-    USBHost,
+    USBHost = POICommunicationTypeCode.USBHost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wifi communication with another component.
-    /// Encoded/decoded by serializers as "Wifi".
+    /// Encoded/decoded by serializers as "WIFI".
     /// </summary>
     [EnumMember(Value = "WIFI")]
     [IsoId("_2Ix08bCYEeapjPTKZHuM2w")]
     [Description(@"Wifi communication with another component.")]
-    Wifi,
+    Wifi = POICommunicationTypeCode.Wifi, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).
-    /// Encoded/decoded by serializers as "WirelessTechnology2G".
+    /// Encoded/decoded by serializers as "WT2G".
     /// </summary>
     [EnumMember(Value = "WT2G")]
     [IsoId("_5Q9GwbCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).")]
-    WirelessTechnology2G,
+    WirelessTechnology2G = POICommunicationTypeCode.WirelessTechnology2G, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 3G technology.
-    /// Encoded/decoded by serializers as "WirelessTechnology3G".
+    /// Encoded/decoded by serializers as "WT3G".
     /// </summary>
     [EnumMember(Value = "WT3G")]
     [IsoId("_5V6fQbCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 3G technology.")]
-    WirelessTechnology3G,
+    WirelessTechnology3G = POICommunicationTypeCode.WirelessTechnology3G, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 4G technology.
-    /// Encoded/decoded by serializers as "WirelessTechnology4G".
+    /// Encoded/decoded by serializers as "WT4G".
     /// </summary>
     [EnumMember(Value = "WT4G")]
     [IsoId("_5a33wbCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 4G technology.")]
-    WirelessTechnology4G,
+    WirelessTechnology4G = POICommunicationTypeCode.WirelessTechnology4G, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 5G technology.
-    /// Encoded/decoded by serializers as "WirelessTechnology5G".
+    /// Encoded/decoded by serializers as "WT5G".
     /// </summary>
     [EnumMember(Value = "WT5G")]
     [IsoId("_5gTxYbCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 5G technology.")]
-    WirelessTechnology5G,
+    WirelessTechnology5G = POICommunicationTypeCode.WirelessTechnology5G, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum POICommunicationType2Code
 public static class POICommunicationType2CodeMetadataExtensions
 {
     private static readonly POICommunicationType2CodeDropdownSource _dropdownSource = new POICommunicationType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

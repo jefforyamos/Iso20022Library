@@ -21,21 +21,21 @@ public enum FormOfSecurity1Code
 {
     /// <summary>
     /// The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.
-    /// Encoded/decoded by serializers as "Bearer".
+    /// Encoded/decoded by serializers as "BEAR".
     /// </summary>
     [EnumMember(Value = "BEAR")]
     [IsoId("_1Gk9wN1OEeGAp99n2TKigg_1287612204")]
     [Description(@"The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.")]
-    Bearer,
+    Bearer = FormOfSecurityCode.Bearer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Shareholder name of the financial instrument appears in the corporation/funds books.
-    /// Encoded/decoded by serializers as "Registered".
+    /// Encoded/decoded by serializers as "REGD".
     /// </summary>
     [EnumMember(Value = "REGD")]
     [IsoId("_3TsVkN1OEeGAp99n2TKigg_1858924413")]
     [Description(@"Shareholder name of the financial instrument appears in the corporation/funds books.")]
-    Registered,
+    Registered = FormOfSecurityCode.Registered, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FormOfSecurity1Code
 public static class FormOfSecurity1CodeMetadataExtensions
 {
     private static readonly FormOfSecurity1CodeDropdownSource _dropdownSource = new FormOfSecurity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

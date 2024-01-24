@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MOeFW7iEeKo25nLKvGr8w_769706628")]
-[Description(@"Specifies the external model form identification code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external model form identification code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalModelFormIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalModelFormIdentificationCode
 {
     /// <summary>
@@ -120,7 +119,7 @@ public enum ExternalModelFormIdentificationCode
 public static class ExternalModelFormIdentificationCodeMetadataExtensions
 {
     private static readonly ExternalModelFormIdentificationCodeDropdownSource _dropdownSource = new ExternalModelFormIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

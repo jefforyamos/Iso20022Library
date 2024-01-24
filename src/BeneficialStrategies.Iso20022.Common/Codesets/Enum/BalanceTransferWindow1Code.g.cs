@@ -21,21 +21,21 @@ public enum BalanceTransferWindow1Code
 {
     /// <summary>
     /// Indicates in business hours processing.
-    /// Encoded/decoded by serializers as "InHours".
+    /// Encoded/decoded by serializers as "DAYH".
     /// </summary>
     [EnumMember(Value = "DAYH")]
     [IsoId("_MQ4kgX6qEeePx-IqKegQ8Q")]
     [Description(@"Indicates in business hours processing.")]
-    InHours,
+    InHours = BalanceTransferWindowCode.InHours, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates out of business hours processing.
-    /// Encoded/decoded by serializers as "OutOfHours".
+    /// Encoded/decoded by serializers as "EARL".
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_MYPwwX6qEeePx-IqKegQ8Q")]
     [Description(@"Indicates out of business hours processing.")]
-    OutOfHours,
+    OutOfHours = BalanceTransferWindowCode.OutOfHours, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BalanceTransferWindow1Code
 public static class BalanceTransferWindow1CodeMetadataExtensions
 {
     private static readonly BalanceTransferWindow1CodeDropdownSource _dropdownSource = new BalanceTransferWindow1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

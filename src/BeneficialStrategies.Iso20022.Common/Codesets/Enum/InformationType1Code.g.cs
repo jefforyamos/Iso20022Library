@@ -21,21 +21,21 @@ public enum InformationType1Code
 {
     /// <summary>
     /// Instructions used to ease automatic request processing.
-    /// Encoded/decoded by serializers as "ProcessingInstructions".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_aWsFANp-Ed-ak6NoX_4Aeg_1720047685")]
     [Description(@"Instructions used to ease automatic request processing.")]
-    ProcessingInstructions,
+    ProcessingInstructions = InformationTypeCode.ProcessingInstructions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructions used to ease automatic request relay.
-    /// Encoded/decoded by serializers as "RelayInstructions".
+    /// Encoded/decoded by serializers as "RELY".
     /// </summary>
     [EnumMember(Value = "RELY")]
     [IsoId("_aWsFAdp-Ed-ak6NoX_4Aeg_1720047911")]
     [Description(@"Instructions used to ease automatic request relay.")]
-    RelayInstructions,
+    RelayInstructions = InformationTypeCode.RelayInstructions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InformationType1Code
 public static class InformationType1CodeMetadataExtensions
 {
     private static readonly InformationType1CodeDropdownSource _dropdownSource = new InformationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

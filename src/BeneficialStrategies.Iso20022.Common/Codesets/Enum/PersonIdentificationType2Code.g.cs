@@ -21,84 +21,84 @@ public enum PersonIdentificationType2Code
 {
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_aGmal9p-Ed-ak6NoX_4Aeg_864875963")]
     [Description(@"Number assigned by a passport authority to a passport.")]
-    PassportNumber,
+    PassportNumber = PersonIdentificationTypeCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account issued by the Central Provident Fund Board (Singapore).
-    /// Encoded/decoded by serializers as "CPFAccountNumber".
+    /// Encoded/decoded by serializers as "CPFA".
     /// </summary>
     [EnumMember(Value = "CPFA")]
     [IsoId("_aGmamNp-Ed-ak6NoX_4Aeg_864876360")]
     [Description(@"Account issued by the Central Provident Fund Board (Singapore).")]
-    CPFAccountNumber,
+    CPFAccountNumber = PersonIdentificationTypeCode.CPFAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplementary retirement scheme account number.
-    /// Encoded/decoded by serializers as "SRSAccountNumber".
+    /// Encoded/decoded by serializers as "SRSA".
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_aGvkgNp-Ed-ak6NoX_4Aeg_864876377")]
     [Description(@"Supplementary retirement scheme account number.")]
-    SRSAccountNumber,
+    SRSAccountNumber = PersonIdentificationTypeCode.SRSAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NationalRegistrationIdentificationNumber".
+    /// Encoded/decoded by serializers as "NRIN".
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_aGvkgdp-Ed-ak6NoX_4Aeg_864876395")]
     [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
-    NationalRegistrationIdentificationNumber,
+    NationalRegistrationIdentificationNumber = PersonIdentificationTypeCode.NationalRegistrationIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DriversLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aGvkgtp-Ed-ak6NoX_4Aeg_864876430")]
     [Description(@"Number assigned by a license authority to a driver's license.")]
-    DriversLicenseNumber,
+    DriversLicenseNumber = PersonIdentificationTypeCode.DriversLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SocialSecurityNumber".
+    /// Encoded/decoded by serializers as "SOCS".
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_aGvkg9p-Ed-ak6NoX_4Aeg_864876455")]
     [Description(@"Number assigned by a social security agency.")]
-    SocialSecurityNumber,
+    SocialSecurityNumber = PersonIdentificationTypeCode.SocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "AREG".
     /// </summary>
     [EnumMember(Value = "AREG")]
     [IsoId("_aGvkhNp-Ed-ak6NoX_4Aeg_864876472")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = PersonIdentificationTypeCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IdentityCardNumber".
+    /// Encoded/decoded by serializers as "IDCD".
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_aGvkhdp-Ed-ak6NoX_4Aeg_864876738")]
     [Description(@"Number assigned by a national authority to an identity card.")]
-    IdentityCardNumber,
+    IdentityCardNumber = PersonIdentificationTypeCode.IdentityCardNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
+    /// Encoded/decoded by serializers as "EMID".
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aGvkhtp-Ed-ak6NoX_4Aeg_864876763")]
     [Description(@"Number assigned to an employer by a registration authority.")]
-    EmployerIdentificationNumber,
+    EmployerIdentificationNumber = PersonIdentificationTypeCode.EmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum PersonIdentificationType2Code
 public static class PersonIdentificationType2CodeMetadataExtensions
 {
     private static readonly PersonIdentificationType2CodeDropdownSource _dropdownSource = new PersonIdentificationType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,66 +21,66 @@ public enum CorporateActionEventStage2Code
 {
     /// <summary>
     /// Open for acceptance until the next specified deadline in the announcement (if any).
-    /// Encoded/decoded by serializers as "ActionPeriod".
+    /// Encoded/decoded by serializers as "PWAL".
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_bD1e49p-Ed-ak6NoX_4Aeg_1234993231")]
     [Description(@"Open for acceptance until the next specified deadline in the announcement (if any).")]
-    ActionPeriod,
+    ActionPeriod = CorporateActionEventStageCode.ActionPeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Subject to approval at the relevant meeting, eg, dividend.
-    /// Encoded/decoded by serializers as "SubjectToApproval".
+    /// Encoded/decoded by serializers as "SUAP".
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_bD1e5Np-Ed-ak6NoX_4Aeg_1234993256")]
     [Description(@"Subject to approval at the relevant meeting, eg, dividend.")]
-    SubjectToApproval,
+    SubjectToApproval = CorporateActionEventStageCode.SubjectToApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Approved at the relevant meeting, eg, dividend.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPD".
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_bD1e5dp-Ed-ak6NoX_4Aeg_1234993257")]
     [Description(@"Approved at the relevant meeting, eg, dividend.")]
-    Approved,
+    Approved = CorporateActionEventStageCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
-    /// Encoded/decoded by serializers as "UnconditionalAsToAcceptance".
+    /// Encoded/decoded by serializers as "UNAC".
     /// </summary>
     [EnumMember(Value = "UNAC")]
     [IsoId("_bD1e5tp-Ed-ak6NoX_4Aeg_1234993273")]
     [Description(@"The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.")]
-    UnconditionalAsToAcceptance,
+    UnconditionalAsToAcceptance = CorporateActionEventStageCode.UnconditionalAsToAcceptance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
-    /// Encoded/decoded by serializers as "WhollyUnconditional".
+    /// Encoded/decoded by serializers as "WHOU".
     /// </summary>
     [EnumMember(Value = "WHOU")]
     [IsoId("_bD1e59p-Ed-ak6NoX_4Aeg_1234993291")]
     [Description(@"Wholly unconditional; all conditions specified in the offer document have been satisfied.")]
-    WhollyUnconditional,
+    WhollyUnconditional = CorporateActionEventStageCode.WhollyUnconditional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The offer is closed for acceptance.
-    /// Encoded/decoded by serializers as "Deactivated".
+    /// Encoded/decoded by serializers as "CLDE".
     /// </summary>
     [EnumMember(Value = "CLDE")]
     [IsoId("_bD1e6Np-Ed-ak6NoX_4Aeg_1234993308")]
     [Description(@"The offer is closed for acceptance.")]
-    Deactivated,
+    Deactivated = CorporateActionEventStageCode.Deactivated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The event/offer conditions have not been met and the event/offer is terminated or lapsed.
-    /// Encoded/decoded by serializers as "Lapsed".
+    /// Encoded/decoded by serializers as "LAPS".
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_bD1e6dp-Ed-ak6NoX_4Aeg_1234993326")]
     [Description(@"The event/offer conditions have not been met and the event/offer is terminated or lapsed.")]
-    Lapsed,
+    Lapsed = CorporateActionEventStageCode.Lapsed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CorporateActionEventStage2Code
 public static class CorporateActionEventStage2CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStage2CodeDropdownSource _dropdownSource = new CorporateActionEventStage2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

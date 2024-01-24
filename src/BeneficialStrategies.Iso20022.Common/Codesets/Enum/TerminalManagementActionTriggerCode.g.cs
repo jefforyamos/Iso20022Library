@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KUYDkn1DEeCF8NjrBemJWQ_-837773377")]
 [Description(@"Event to start a terminal management action by the point of interaction (POI).")]
 [Derivations(typeof(TerminalManagementActionTrigger1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementActionTriggerCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TerminalManagementActionTriggerCode
 public static class TerminalManagementActionTriggerCodeMetadataExtensions
 {
     private static readonly TerminalManagementActionTriggerCodeDropdownSource _dropdownSource = new TerminalManagementActionTriggerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

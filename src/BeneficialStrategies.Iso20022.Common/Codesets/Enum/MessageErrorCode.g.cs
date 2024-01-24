@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_iwO2kPGuEeiGNursv3uE_g")]
 [Description(@"Code list containing a code that identifies the error condition.")]
 [Derivations(typeof(MessageError1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MessageErrorCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum MessageErrorCode
 public static class MessageErrorCodeMetadataExtensions
 {
     private static readonly MessageErrorCodeDropdownSource _dropdownSource = new MessageErrorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

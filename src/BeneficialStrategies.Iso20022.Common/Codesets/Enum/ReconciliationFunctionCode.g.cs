@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gpSC0_GHEeiGNursv3uE_g")]
 [Description(@"Indicates wheneter the message is a request for totals or to convey totals. ")]
 [Derivations(typeof(ReconciliationFunction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationFunctionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReconciliationFunctionCode
 public static class ReconciliationFunctionCodeMetadataExtensions
 {
     private static readonly ReconciliationFunctionCodeDropdownSource _dropdownSource = new ReconciliationFunctionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

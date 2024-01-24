@@ -21,57 +21,57 @@ public enum ProtectionMethod1Code
 {
     /// <summary>
     /// Other code assigned by national organisation.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_UuoZgZyBEeuo7tDc4CDHXg")]
     [Description(@"Other code assigned by national organisation.")]
-    OtherNational,
+    OtherNational = ProtectionMethodCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other privately assigned code.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_U3W3sZyBEeuo7tDc4CDHXg")]
     [Description(@"Other privately assigned code.")]
-    OtherPrivate,
+    OtherPrivate = ProtectionMethodCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure element method.
-    /// Encoded/decoded by serializers as "SecureElement".
+    /// Encoded/decoded by serializers as "SELM".
     /// </summary>
     [EnumMember(Value = "SELM")]
     [IsoId("_VdBJgZyBEeuo7tDc4CDHXg")]
     [Description(@"Secure element method.")]
-    SecureElement,
+    SecureElement = ProtectionMethodCode.SecureElement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure enclave method.
-    /// Encoded/decoded by serializers as "SecureEnclave".
+    /// Encoded/decoded by serializers as "SNCL".
     /// </summary>
     [EnumMember(Value = "SNCL")]
     [IsoId("_VdwJUZyBEeuo7tDc4CDHXg")]
     [Description(@"Secure enclave method.")]
-    SecureEnclave,
+    SecureEnclave = ProtectionMethodCode.SecureEnclave, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software protection method.
-    /// Encoded/decoded by serializers as "Software".
+    /// Encoded/decoded by serializers as "SOFT".
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_VegXQZyBEeuo7tDc4CDHXg")]
     [Description(@"Software protection method.")]
-    Software,
+    Software = ProtectionMethodCode.Software, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trusted execution environment method.
-    /// Encoded/decoded by serializers as "TrustedExectutionEnvironment".
+    /// Encoded/decoded by serializers as "TEEN".
     /// </summary>
     [EnumMember(Value = "TEEN")]
     [IsoId("_VfMTwZyBEeuo7tDc4CDHXg")]
     [Description(@"Trusted execution environment method.")]
-    TrustedExectutionEnvironment,
+    TrustedExectutionEnvironment = ProtectionMethodCode.TrustedExectutionEnvironment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ProtectionMethod1Code
 public static class ProtectionMethod1CodeMetadataExtensions
 {
     private static readonly ProtectionMethod1CodeDropdownSource _dropdownSource = new ProtectionMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

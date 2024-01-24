@@ -21,21 +21,21 @@ public enum MessageRejectedReason2Code
 {
     /// <summary>
     /// Sending party is not allowed to send this request.
-    /// Encoded/decoded by serializers as "NotAllowedRequest".
+    /// Encoded/decoded by serializers as "NALO".
     /// </summary>
     [EnumMember(Value = "NALO")]
     [IsoId("_QFfXQUpJEe2Kv_AXFg3f7A")]
     [Description(@"Sending party is not allowed to send this request.")]
-    NotAllowedRequest,
+    NotAllowedRequest = RejectedStatusReasonV2Code.NotAllowedRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request contains an invalid or unrecognised business reference.
-    /// Encoded/decoded by serializers as "InvalidOrUnrecognisedReference".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_Tb6ggUpJEe2Kv_AXFg3f7A")]
     [Description(@"Request contains an invalid or unrecognised business reference.")]
-    InvalidOrUnrecognisedReference,
+    InvalidOrUnrecognisedReference = RejectedStatusReasonV2Code.InvalidOrUnrecognisedReference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MessageRejectedReason2Code
 public static class MessageRejectedReason2CodeMetadataExtensions
 {
     private static readonly MessageRejectedReason2CodeDropdownSource _dropdownSource = new MessageRejectedReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

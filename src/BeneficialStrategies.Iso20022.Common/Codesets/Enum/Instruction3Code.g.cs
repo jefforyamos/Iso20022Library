@@ -21,39 +21,39 @@ public enum Instruction3Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque.
-    /// Encoded/decoded by serializers as "PayCreditorByCheque".
+    /// Encoded/decoded by serializers as "CHQB".
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_aW12Btp-Ed-ak6NoX_4Aeg_156152754")]
     [Description(@"(Ultimate) creditor must be paid by cheque.")]
-    PayCreditorByCheque,
+    PayCreditorByCheque = InstructionCode.PayCreditorByCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HoldCashForCreditor".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_aW12B9p-Ed-ak6NoX_4Aeg_157072838")]
     [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.")]
-    HoldCashForCreditor,
+    HoldCashForCreditor = InstructionCode.HoldCashForCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_aW-_8Np-Ed-ak6NoX_4Aeg_157072976")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = InstructionCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_aW-_8dp-Ed-ak6NoX_4Aeg_157073330")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
-    Telecom,
+    Telecom = InstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Instruction3Code
 public static class Instruction3CodeMetadataExtensions
 {
     private static readonly Instruction3CodeDropdownSource _dropdownSource = new Instruction3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

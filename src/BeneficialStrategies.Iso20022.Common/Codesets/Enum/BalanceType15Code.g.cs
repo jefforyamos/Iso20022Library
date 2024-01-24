@@ -21,93 +21,93 @@ public enum BalanceType15Code
 {
     /// <summary>
     /// Amount put on hold.
-    /// Encoded/decoded by serializers as "AmountOnHold".
+    /// Encoded/decoded by serializers as "AMOH".
     /// </summary>
     [EnumMember(Value = "AMOH")]
     [IsoId("_r_HcwcSqEeuBjv5G5kw00g")]
     [Description(@"Amount put on hold.")]
-    AmountOnHold,
+    AmountOnHold = BalanceTypeCode.AmountOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money owed
-    /// Encoded/decoded by serializers as "AmountOwing".
+    /// Encoded/decoded by serializers as "AMTO".
     /// </summary>
     [EnumMember(Value = "AMTO")]
     [IsoId("_r_Hcw8SqEeuBjv5G5kw00g")]
     [Description(@"Amount of money owed")]
-    AmountOwing,
+    AmountOwing = BalanceTypeCode.AmountOwing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money due.
-    /// Encoded/decoded by serializers as "AmountDue".
+    /// Encoded/decoded by serializers as "AMTD".
     /// </summary>
     [EnumMember(Value = "AMTD")]
     [IsoId("_r_HcxcSqEeuBjv5G5kw00g")]
     [Description(@"Amount of money due.")]
-    AmountDue,
+    AmountDue = BalanceTypeCode.AmountDue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit line available.
-    /// Encoded/decoded by serializers as "CreditLine".
+    /// Encoded/decoded by serializers as "CRDL".
     /// </summary>
     [EnumMember(Value = "CRDL")]
     [IsoId("_r_Hcx8SqEeuBjv5G5kw00g")]
     [Description(@"Credit line available.")]
-    CreditLine,
+    CreditLine = BalanceTypeCode.CreditLine, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of balance defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_r_HcycSqEeuBjv5G5kw00g")]
     [Description(@"Other type of balance defined at national level")]
-    OtherNational,
+    OtherNational = BalanceTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of balance defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_r_ID0cSqEeuBjv5G5kw00g")]
     [Description(@"Other type of balance defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = BalanceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "Available".
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_r_ID08SqEeuBjv5G5kw00g")]
     [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
-    Available,
+    Available = BalanceTypeCode.Available, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cleared items balance. 
-    /// Encoded/decoded by serializers as "ClearedItem".
+    /// Encoded/decoded by serializers as "CLRI".
     /// </summary>
     [EnumMember(Value = "CLRI")]
     [IsoId("_r_ID1cSqEeuBjv5G5kw00g")]
     [Description(@"Cleared items balance. ")]
-    ClearedItem,
+    ClearedItem = BalanceTypeCode.ClearedItem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions).
-    /// Encoded/decoded by serializers as "Ledger".
+    /// Encoded/decoded by serializers as "LDGR".
     /// </summary>
     [EnumMember(Value = "LDGR")]
     [IsoId("_r_ID18SqEeuBjv5G5kw00g")]
     [Description(@"Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions).")]
-    Ledger,
+    Ledger = BalanceTypeCode.Ledger, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value expressed in points.
-    /// Encoded/decoded by serializers as "Points".
+    /// Encoded/decoded by serializers as "PNTS".
     /// </summary>
     [EnumMember(Value = "PNTS")]
     [IsoId("_y5o-4cSqEeuBjv5G5kw00g")]
     [Description(@"Value expressed in points.")]
-    Points,
+    Points = BalanceTypeCode.Points, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum BalanceType15Code
 public static class BalanceType15CodeMetadataExtensions
 {
     private static readonly BalanceType15CodeDropdownSource _dropdownSource = new BalanceType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

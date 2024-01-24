@@ -21,21 +21,21 @@ public enum DepositaryReceiptProcessingStatus1Code
 {
     /// <summary>
     /// No record of the transaction for which a status is requested.
-    /// Encoded/decoded by serializers as "NoRecordFound".
+    /// Encoded/decoded by serializers as "NORE".
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_av4BFdp-Ed-ak6NoX_4Aeg_-1629994249")]
     [Description(@"No record of the transaction for which a status is requested.")]
-    NoRecordFound,
+    NoRecordFound = DepositaryReceiptProcessingStatusCode.NoRecordFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Depositary receipt is pending completion.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_av4BFtp-Ed-ak6NoX_4Aeg_-1629994248")]
     [Description(@"Depositary receipt is pending completion.")]
-    Pending,
+    Pending = DepositaryReceiptProcessingStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DepositaryReceiptProcessingStatus1Code
 public static class DepositaryReceiptProcessingStatus1CodeMetadataExtensions
 {
     private static readonly DepositaryReceiptProcessingStatus1CodeDropdownSource _dropdownSource = new DepositaryReceiptProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

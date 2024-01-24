@@ -21,30 +21,30 @@ public enum TaxationBasis3Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "Flat".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_Vg5awtp-Ed-ak6NoX_4Aeg_1288355632")]
     [Description(@"Charge/tax basis is a lump sum.")]
-    Flat,
+    Flat = TaxationBasisCode.Flat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PerUnit".
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_Vg5aw9p-Ed-ak6NoX_4Aeg_1297589258")]
     [Description(@"Charges/tax basis is per unit of financial instrument.")]
-    PerUnit,
+    PerUnit = TaxationBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of taxation basis.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vg5axNp-Ed-ak6NoX_4Aeg_1301284529")]
     [Description(@"Another type of taxation basis.")]
-    Other,
+    Other = TaxationBasisCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TaxationBasis3Code
 public static class TaxationBasis3CodeMetadataExtensions
 {
     private static readonly TaxationBasis3CodeDropdownSource _dropdownSource = new TaxationBasis3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

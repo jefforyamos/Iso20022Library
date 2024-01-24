@@ -21,39 +21,39 @@ public enum PensionTransferScope1Code
 {
     /// <summary>
     /// Transfer is for the crystallised portion.
-    /// Encoded/decoded by serializers as "CrystallisedPart".
+    /// Encoded/decoded by serializers as "CRYS".
     /// </summary>
     [EnumMember(Value = "CRYS")]
     [IsoId("_6W9-oU4YEeiQHa-q1Uephw")]
     [Description(@"Transfer is for the crystallised portion.")]
-    CrystallisedPart,
+    CrystallisedPart = PensionTransferScopeCode.CrystallisedPart, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer is for a specific drawdown tranche.
-    /// Encoded/decoded by serializers as "DrawdownTranche".
+    /// Encoded/decoded by serializers as "SDDT".
     /// </summary>
     [EnumMember(Value = "SDDT")]
     [IsoId("_6b_okU4YEeiQHa-q1Uephw")]
     [Description(@"Transfer is for a specific drawdown tranche.")]
-    DrawdownTranche,
+    DrawdownTranche = PensionTransferScopeCode.DrawdownTranche, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer is for the full pension.
-    /// Encoded/decoded by serializers as "FullPension".
+    /// Encoded/decoded by serializers as "FULP".
     /// </summary>
     [EnumMember(Value = "FULP")]
     [IsoId("_6hnvcU4YEeiQHa-q1Uephw")]
     [Description(@"Transfer is for the full pension.")]
-    FullPension,
+    FullPension = PensionTransferScopeCode.FullPension, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer is for the uncrystallised portion.
-    /// Encoded/decoded by serializers as "UncrystallisedPart".
+    /// Encoded/decoded by serializers as "UCRY".
     /// </summary>
     [EnumMember(Value = "UCRY")]
     [IsoId("_6lp64U4YEeiQHa-q1Uephw")]
     [Description(@"Transfer is for the uncrystallised portion.")]
-    UncrystallisedPart,
+    UncrystallisedPart = PensionTransferScopeCode.UncrystallisedPart, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PensionTransferScope1Code
 public static class PensionTransferScope1CodeMetadataExtensions
 {
     private static readonly PensionTransferScope1CodeDropdownSource _dropdownSource = new PensionTransferScope1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

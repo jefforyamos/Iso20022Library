@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZOa1Ytp-Ed-ak6NoX_4Aeg_1310457218")]
 [Description(@"Specifies when the option contract settles.")]
 [Derivations(typeof(SettleStyle1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettleStyleCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SettleStyleCode
 public static class SettleStyleCodeMetadataExtensions
 {
     private static readonly SettleStyleCodeDropdownSource _dropdownSource = new SettleStyleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MYPEW7iEeKo25nLKvGr8w_931495915")]
-[Description(@"Specifies the external narrative type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external narrative type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalNarrativeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalNarrativeTypeCode
 {
     /// <summary>
@@ -93,7 +92,7 @@ public enum ExternalNarrativeTypeCode
 public static class ExternalNarrativeTypeCodeMetadataExtensions
 {
     private static readonly ExternalNarrativeTypeCodeDropdownSource _dropdownSource = new ExternalNarrativeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

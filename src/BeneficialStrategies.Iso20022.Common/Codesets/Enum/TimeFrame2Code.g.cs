@@ -21,48 +21,48 @@ public enum TimeFrame2Code
 {
     /// <summary>
     /// Hold to maturity.
-    /// Encoded/decoded by serializers as "Hold".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_ft5hQcztEeq1WLK5fVzKiQ")]
     [Description(@"Hold to maturity.")]
-    Hold,
+    Hold = TimeFrameCode.Hold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greater than five years.
-    /// Encoded/decoded by serializers as "LongTerm".
+    /// Encoded/decoded by serializers as "LONG".
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_f1VmAcztEeq1WLK5fVzKiQ")]
     [Description(@"Greater than five years.")]
-    LongTerm,
+    LongTerm = TimeFrameCode.LongTerm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greater than or equal to three years.
-    /// Encoded/decoded by serializers as "MediumTerm".
+    /// Encoded/decoded by serializers as "MEDM".
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_f9OWscztEeq1WLK5fVzKiQ")]
     [Description(@"Greater than or equal to three years.")]
-    MediumTerm,
+    MediumTerm = TimeFrameCode.MediumTerm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greater than or equal to one year.
-    /// Encoded/decoded by serializers as "ShortTerm".
+    /// Encoded/decoded by serializers as "SHOR".
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_gHCaAcztEeq1WLK5fVzKiQ")]
     [Description(@"Greater than or equal to one year.")]
-    ShortTerm,
+    ShortTerm = TimeFrameCode.ShortTerm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Less than one year.
-    /// Encoded/decoded by serializers as "VeryShortTerm".
+    /// Encoded/decoded by serializers as "VSHT".
     /// </summary>
     [EnumMember(Value = "VSHT")]
     [IsoId("_gM_4EcztEeq1WLK5fVzKiQ")]
     [Description(@"Less than one year.")]
-    VeryShortTerm,
+    VeryShortTerm = TimeFrameCode.VeryShortTerm, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TimeFrame2Code
 public static class TimeFrame2CodeMetadataExtensions
 {
     private static readonly TimeFrame2CodeDropdownSource _dropdownSource = new TimeFrame2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

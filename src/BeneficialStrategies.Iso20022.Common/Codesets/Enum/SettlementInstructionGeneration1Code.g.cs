@@ -21,21 +21,21 @@ public enum SettlementInstructionGeneration1Code
 {
     /// <summary>
     /// Specifies if the ETC service provider is to generate a settlement instruction.
-    /// Encoded/decoded by serializers as "InstructionGenerationByETCProvider".
+    /// Encoded/decoded by serializers as "GENS".
     /// </summary>
     [EnumMember(Value = "GENS")]
     [IsoId("__wk5ZtojEeC60axPepSq7g_899535056")]
     [Description(@"Specifies if the ETC service provider is to generate a settlement instruction.")]
-    InstructionGenerationByETCProvider,
+    InstructionGenerationByETCProvider = SettlementInstructionGenerationCode.InstructionGenerationByETCProvider, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies if the ETC service provider is not to generate a settlement instruction where a previous agreement to do so exists.
-    /// Encoded/decoded by serializers as "NotInstructionGenerationByETCProvider".
+    /// Encoded/decoded by serializers as "NOGE".
     /// </summary>
     [EnumMember(Value = "NOGE")]
     [IsoId("__wuqYNojEeC60axPepSq7g_710317607")]
     [Description(@"Specifies if the ETC service provider is not to generate a settlement instruction where a previous agreement to do so exists.")]
-    NotInstructionGenerationByETCProvider,
+    NotInstructionGenerationByETCProvider = SettlementInstructionGenerationCode.NotInstructionGenerationByETCProvider, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SettlementInstructionGeneration1Code
 public static class SettlementInstructionGeneration1CodeMetadataExtensions
 {
     private static readonly SettlementInstructionGeneration1CodeDropdownSource _dropdownSource = new SettlementInstructionGeneration1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum ProxyNotAllowed1Code
 {
     /// <summary>
     /// Proxy not allowed.
-    /// Encoded/decoded by serializers as "NotAllowed".
+    /// Encoded/decoded by serializers as "NPRO".
     /// </summary>
     [EnumMember(Value = "NPRO")]
     [IsoId("_jssAccjCEem7mOT-LZ2mYQ")]
     [Description(@"Proxy not allowed.")]
-    NotAllowed,
+    NotAllowed = ProxyNotAllowedCode.NotAllowed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ProxyNotAllowed1Code
 public static class ProxyNotAllowed1CodeMetadataExtensions
 {
     private static readonly ProxyNotAllowed1CodeDropdownSource _dropdownSource = new ProxyNotAllowed1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

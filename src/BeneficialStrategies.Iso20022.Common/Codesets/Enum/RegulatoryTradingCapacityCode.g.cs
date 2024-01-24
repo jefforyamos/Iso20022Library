@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_CeQmoO8bEeSLA89yUYsVSw")]
 [Description(@"Specifies the regulatory trading capacity.")]
 [Derivations(typeof(RegulatoryTradingCapacity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RegulatoryTradingCapacityCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum RegulatoryTradingCapacityCode
 public static class RegulatoryTradingCapacityCodeMetadataExtensions
 {
     private static readonly RegulatoryTradingCapacityCodeDropdownSource _dropdownSource = new RegulatoryTradingCapacityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

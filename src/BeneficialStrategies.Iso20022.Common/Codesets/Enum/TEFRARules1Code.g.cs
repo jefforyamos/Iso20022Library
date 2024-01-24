@@ -21,21 +21,21 @@ public enum TEFRARules1Code
 {
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule C.
-    /// Encoded/decoded by serializers as "C".
+    /// Encoded/decoded by serializers as "RULC".
     /// </summary>
     [EnumMember(Value = "RULC")]
     [IsoId("_Yg95hNp-Ed-ak6NoX_4Aeg_-1859434425")]
     [Description(@"Indicates that the security is issued under the TEFRA rule C.")]
-    C,
+    C = TEFRARulesCode.C, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule D.
-    /// Encoded/decoded by serializers as "D".
+    /// Encoded/decoded by serializers as "RULD".
     /// </summary>
     [EnumMember(Value = "RULD")]
     [IsoId("_Yg95hdp-Ed-ak6NoX_4Aeg_1396824143")]
     [Description(@"Indicates that the security is issued under the TEFRA rule D.")]
-    D,
+    D = TEFRARulesCode.D, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TEFRARules1Code
 public static class TEFRARules1CodeMetadataExtensions
 {
     private static readonly TEFRARules1CodeDropdownSource _dropdownSource = new TEFRARules1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum GoodsAndServicesSubType1Code
 {
     /// <summary>
     /// Sub type applied is cryptocurrency.
-    /// Encoded/decoded by serializers as "CryptoCurrency".
+    /// Encoded/decoded by serializers as "CRCU".
     /// </summary>
     [EnumMember(Value = "CRCU")]
     [IsoId("_lrDJIOkEEemeDPHh-U9b6w")]
     [Description(@"Sub type applied is cryptocurrency.")]
-    CryptoCurrency,
+    CryptoCurrency = GoodsAndServicesSubTypeCode.CryptoCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub type applied is foreign exchange.
-    /// Encoded/decoded by serializers as "ForeignExchange".
+    /// Encoded/decoded by serializers as "FORX".
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_lz3G4ukEEemeDPHh-U9b6w")]
     [Description(@"Sub type applied is foreign exchange.")]
-    ForeignExchange,
+    ForeignExchange = GoodsAndServicesSubTypeCode.ForeignExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other sub type of goods and service at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_l-pakukEEemeDPHh-U9b6w")]
     [Description(@"Other sub type of goods and service at national level.")]
-    OtherNational,
+    OtherNational = GoodsAndServicesSubTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other sub type of goods and service at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_mGXzMukEEemeDPHh-U9b6w")]
     [Description(@"Other sub type of goods and service at private level.")]
-    OtherPrivate,
+    OtherPrivate = GoodsAndServicesSubTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub type applied is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECS".
     /// </summary>
     [EnumMember(Value = "SECS")]
     [IsoId("_mOIoEukEEemeDPHh-U9b6w")]
     [Description(@"Sub type applied is securities.")]
-    Securities,
+    Securities = GoodsAndServicesSubTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum GoodsAndServicesSubType1Code
 public static class GoodsAndServicesSubType1CodeMetadataExtensions
 {
     private static readonly GoodsAndServicesSubType1CodeDropdownSource _dropdownSource = new GoodsAndServicesSubType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum PendingReason6Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_aDBiIdp-Ed-ak6NoX_4Aeg_-2000254642")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "AwaitingConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_aDBiItp-Ed-ak6NoX_4Aeg_-347627134")]
     [Description(@"Awaiting confirmation from the counterparty.")]
-    AwaitingConfirmation,
+    AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aDBiI9p-Ed-ak6NoX_4Aeg_1188062474")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "ConditionalRegistrar".
+    /// Encoded/decoded by serializers as "CDRG".
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_aDBiJNp-Ed-ak6NoX_4Aeg_-251565728")]
     [Description(@"Execution is conditional to the execution of a process at the registrar.")]
-    ConditionalRegistrar,
+    ConditionalRegistrar = PendingFailingReasonCode.ConditionalRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "ConditionalCurrency".
+    /// Encoded/decoded by serializers as "CDCY".
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_aDBiJdp-Ed-ak6NoX_4Aeg_-543523466")]
     [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
-    ConditionalCurrency,
+    ConditionalCurrency = PendingFailingReasonCode.ConditionalCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "ConditionalRealignement".
+    /// Encoded/decoded by serializers as "CDRE".
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_aDBiJtp-Ed-ak6NoX_4Aeg_-365404794")]
     [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
-    ConditionalRealignement,
+    ConditionalRealignement = PendingFailingReasonCode.ConditionalRealignement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum PendingReason6Code
 public static class PendingReason6CodeMetadataExtensions
 {
     private static readonly PendingReason6CodeDropdownSource _dropdownSource = new PendingReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

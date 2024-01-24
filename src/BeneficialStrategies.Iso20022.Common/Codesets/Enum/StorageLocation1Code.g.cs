@@ -21,66 +21,66 @@ public enum StorageLocation1Code
 {
     /// <summary>
     /// Storage is in wallet managed by card acceptor.
-    /// Encoded/decoded by serializers as "CardAcceptorWallet".
+    /// Encoded/decoded by serializers as "CAWL".
     /// </summary>
     [EnumMember(Value = "CAWL")]
     [IsoId("_d9jSEZx_EeuwYeL1lHu9zw")]
     [Description(@"Storage is in wallet managed by card acceptor.")]
-    CardAcceptorWallet,
+    CardAcceptorWallet = StorageLocationCode.CardAcceptorWallet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stored in device.
-    /// Encoded/decoded by serializers as "Device".
+    /// Encoded/decoded by serializers as "DVCE".
     /// </summary>
     [EnumMember(Value = "DVCE")]
     [IsoId("_eGbhQZx_EeuwYeL1lHu9zw")]
     [Description(@"Stored in device.")]
-    Device,
+    Device = StorageLocationCode.Device, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Storage is in wallet managed by Issuer.
-    /// Encoded/decoded by serializers as "IssuerWallet".
+    /// Encoded/decoded by serializers as "ISWL".
     /// </summary>
     [EnumMember(Value = "ISWL")]
     [IsoId("_euCT0Zx_EeuwYeL1lHu9zw")]
     [Description(@"Storage is in wallet managed by Issuer.")]
-    IssuerWallet,
+    IssuerWallet = StorageLocationCode.IssuerWallet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Storage is on file.
-    /// Encoded/decoded by serializers as "OnFile".
+    /// Encoded/decoded by serializers as "ONFL".
     /// </summary>
     [EnumMember(Value = "ONFL")]
     [IsoId("_eu5PcZx_EeuwYeL1lHu9zw")]
     [Description(@"Storage is on file.")]
-    OnFile,
+    OnFile = StorageLocationCode.OnFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code defined by national standards organisation.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_e5A0wZx_EeuwYeL1lHu9zw")]
     [Description(@"Code defined by national standards organisation.")]
-    OtherNational,
+    OtherNational = StorageLocationCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code defined by private agreement.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_fhei8Zx_EeuwYeL1lHu9zw")]
     [Description(@"Code defined by private agreement.")]
-    OtherPrivate,
+    OtherPrivate = StorageLocationCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Storage location is in wallet managed by a third party.
-    /// Encoded/decoded by serializers as "ThirdPartyWallet".
+    /// Encoded/decoded by serializers as "TPWL".
     /// </summary>
     [EnumMember(Value = "TPWL")]
     [IsoId("_fiTpYZx_EeuwYeL1lHu9zw")]
     [Description(@"Storage location is in wallet managed by a third party.")]
-    ThirdPartyWallet,
+    ThirdPartyWallet = StorageLocationCode.ThirdPartyWallet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum StorageLocation1Code
 public static class StorageLocation1CodeMetadataExtensions
 {
     private static readonly StorageLocation1CodeDropdownSource _dropdownSource = new StorageLocation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

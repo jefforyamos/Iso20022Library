@@ -21,48 +21,48 @@ public enum ATMNoteType1Code
 {
     /// <summary>
     /// All fit bank note types.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLT".
     /// </summary>
     [EnumMember(Value = "ALLT")]
     [IsoId("_V2iWcYqgEeS4a4abTJTSSw")]
     [Description(@"All fit bank note types.")]
-    All,
+    All = ATMNoteTypeCode.All, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Detected counterfeit notes.
-    /// Encoded/decoded by serializers as "Counterfeit".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_V7mcoYqgEeS4a4abTJTSSw")]
     [Description(@"Detected counterfeit notes.")]
-    Counterfeit,
+    Counterfeit = ATMNoteTypeCode.Counterfeit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All types of fit bank notes specified in an individual list.
-    /// Encoded/decoded by serializers as "Individual".
+    /// Encoded/decoded by serializers as "IDVD".
     /// </summary>
     [EnumMember(Value = "IDVD")]
     [IsoId("_WAqi0YqgEeS4a4abTJTSSw")]
     [Description(@"All types of fit bank notes specified in an individual list.")]
-    Individual,
+    Individual = ATMNoteTypeCode.Individual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspected counterfeit notes.
-    /// Encoded/decoded by serializers as "SuspectedCounterfeit".
+    /// Encoded/decoded by serializers as "SCNT".
     /// </summary>
     [EnumMember(Value = "SCNT")]
     [IsoId("_WHEs0YqgEeS4a4abTJTSSw")]
     [Description(@"Suspected counterfeit notes.")]
-    SuspectedCounterfeit,
+    SuspectedCounterfeit = ATMNoteTypeCode.SuspectedCounterfeit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unfit bank notes (unacceptable quality).
-    /// Encoded/decoded by serializers as "Unfit".
+    /// Encoded/decoded by serializers as "UNFT".
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_WNL74YqgEeS4a4abTJTSSw")]
     [Description(@"Unfit bank notes (unacceptable quality).")]
-    Unfit,
+    Unfit = ATMNoteTypeCode.Unfit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ATMNoteType1Code
 public static class ATMNoteType1CodeMetadataExtensions
 {
     private static readonly ATMNoteType1CodeDropdownSource _dropdownSource = new ATMNoteType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

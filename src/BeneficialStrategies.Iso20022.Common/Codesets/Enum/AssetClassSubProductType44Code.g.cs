@@ -21,12 +21,12 @@ public enum AssetClassSubProductType44Code
 {
     /// <summary>
     /// Commodity of type urea and ammonium nitrite.
-    /// Encoded/decoded by serializers as "UreaAndAmmoniumNitrite".
+    /// Encoded/decoded by serializers as "UAAN".
     /// </summary>
     [EnumMember(Value = "UAAN")]
     [IsoId("_voxdC1r3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type urea and ammonium nitrite.")]
-    UreaAndAmmoniumNitrite,
+    UreaAndAmmoniumNitrite = AssetClassSubProductTypeCode.UreaAndAmmoniumNitrite, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType44Code
 public static class AssetClassSubProductType44CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType44CodeDropdownSource _dropdownSource = new AssetClassSubProductType44CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

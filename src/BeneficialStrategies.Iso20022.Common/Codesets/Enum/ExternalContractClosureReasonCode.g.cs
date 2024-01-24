@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_tDpx4JGAEeeBGrZP1w0opg")]
-[Description(@"Specifies a contract closure reason code, as published in the external ISO 20022 external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies a contract closure reason code, as published in the external ISO 20022 external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalContractClosureReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalContractClosureReasonCode
 {
     /// <summary>
@@ -111,7 +110,7 @@ public enum ExternalContractClosureReasonCode
 public static class ExternalContractClosureReasonCodeMetadataExtensions
 {
     private static readonly ExternalContractClosureReasonCodeDropdownSource _dropdownSource = new ExternalContractClosureReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

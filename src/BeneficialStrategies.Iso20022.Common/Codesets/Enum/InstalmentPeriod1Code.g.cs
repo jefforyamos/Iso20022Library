@@ -21,21 +21,21 @@ public enum InstalmentPeriod1Code
 {
     /// <summary>
     /// Monthly instalment period.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_wMPdwTEqEemzCpWiCwK4aQ")]
     [Description(@"Monthly instalment period.")]
-    Monthly,
+    Monthly = InstalmentPeriodCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Annual instalment period.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "ANNU".
     /// </summary>
     [EnumMember(Value = "ANNU")]
     [IsoId("_wgNioTEqEemzCpWiCwK4aQ")]
     [Description(@"Annual instalment period.")]
-    Annual,
+    Annual = InstalmentPeriodCode.Annual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InstalmentPeriod1Code
 public static class InstalmentPeriod1CodeMetadataExtensions
 {
     private static readonly InstalmentPeriod1CodeDropdownSource _dropdownSource = new InstalmentPeriod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

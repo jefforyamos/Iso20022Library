@@ -21,102 +21,102 @@ public enum VoteInstruction5Code
 {
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "Abstain".
+    /// Encoded/decoded by serializers as "ABST".
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_aWN4Ia4aEemG7MmivSuE5g")]
     [Description(@"Active vote expressed as abstain (no opinion).")]
-    Abstain,
+    Abstain = VoteInstructionV2Code.Abstain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "Against".
+    /// Encoded/decoded by serializers as "CAGS".
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_ahq6Mq4aEemG7MmivSuE5g")]
     [Description(@"Vote against a meeting resolution.")]
-    Against,
+    Against = VoteInstructionV2Code.Against, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights holder gives authority to the chairman to vote on his behalf.
-    /// Encoded/decoded by serializers as "Chairman".
+    /// Encoded/decoded by serializers as "CHRM".
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_bHm40q4aEemG7MmivSuE5g")]
     [Description(@"Rights holder gives authority to the chairman to vote on his behalf.")]
-    Chairman,
+    Chairman = VoteInstructionV2Code.Chairman, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "For".
+    /// Encoded/decoded by serializers as "CFOR".
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_b0PVUq4aEemG7MmivSuE5g")]
     [Description(@"Vote in favour of a meeting resolution.")]
-    For,
+    For = VoteInstructionV2Code.For, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Do not vote.
-    /// Encoded/decoded by serializers as "NoAction".
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_cTe2Eq4aEemG7MmivSuE5g")]
     [Description(@"Do not vote.")]
-    NoAction,
+    NoAction = VoteInstructionV2Code.NoAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "Withhold".
+    /// Encoded/decoded by serializers as "WTHH".
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_dLkUoq4aEemG7MmivSuE5g")]
     [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
-    Withhold,
+    Withhold = VoteInstructionV2Code.Withhold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote in favour for one year for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "OneYear".
+    /// Encoded/decoded by serializers as "ONEY".
     /// </summary>
     [EnumMember(Value = "ONEY")]
     [IsoId("_d198gq4aEemG7MmivSuE5g")]
     [Description(@"Vote in favour for one year for ""say on pay"" type of resolution.")]
-    OneYear,
+    OneYear = VoteInstructionV2Code.OneYear, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote in favour for three years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "ThreeYears".
+    /// Encoded/decoded by serializers as "THRY".
     /// </summary>
     [EnumMember(Value = "THRY")]
     [IsoId("_eAYcwq4aEemG7MmivSuE5g")]
     [Description(@"Vote in favour for three years for ""say on pay"" type of resolution.")]
-    ThreeYears,
+    ThreeYears = VoteInstructionV2Code.ThreeYears, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote in favour for two years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "TwoYears".
+    /// Encoded/decoded by serializers as "TWOY".
     /// </summary>
     [EnumMember(Value = "TWOY")]
     [IsoId("_eE2GAa4aEemG7MmivSuE5g")]
     [Description(@"Vote in favour for two years for ""say on pay"" type of resolution.")]
-    TwoYears,
+    TwoYears = VoteInstructionV2Code.TwoYears, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote is cast as empty but the vote is counted.
-    /// Encoded/decoded by serializers as "Blank".
+    /// Encoded/decoded by serializers as "BLNK".
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_fApm8q4aEemG7MmivSuE5g")]
     [Description(@"Vote is cast as empty but the vote is counted.")]
-    Blank,
+    Blank = VoteInstructionV2Code.Blank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No recommendation provided for the vote instruction type.
-    /// Encoded/decoded by serializers as "NoRecommendation".
+    /// Encoded/decoded by serializers as "NREC".
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_5gPEIa4aEemG7MmivSuE5g")]
     [Description(@"No recommendation provided for the vote instruction type.")]
-    NoRecommendation,
+    NoRecommendation = VoteInstructionV2Code.NoRecommendation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum VoteInstruction5Code
 public static class VoteInstruction5CodeMetadataExtensions
 {
     private static readonly VoteInstruction5CodeDropdownSource _dropdownSource = new VoteInstruction5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

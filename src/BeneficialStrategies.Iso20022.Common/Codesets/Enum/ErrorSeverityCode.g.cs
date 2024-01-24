@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Hz75QQ3EEeWH49U6bkyMaA")]
 [Description(@"Indicates the severity of the related error code.")]
 [Derivations(typeof(ErrorSeverity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ErrorSeverityCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ErrorSeverityCode
 public static class ErrorSeverityCodeMetadataExtensions
 {
     private static readonly ErrorSeverityCodeDropdownSource _dropdownSource = new ErrorSeverityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

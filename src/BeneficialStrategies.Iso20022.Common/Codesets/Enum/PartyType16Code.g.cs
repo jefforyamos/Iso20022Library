@@ -21,75 +21,75 @@ public enum PartyType16Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_FuP8Qa1_EeWMg5rOByfExw")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_FuP8Q61_EeWMg5rOByfExw")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DelegateIssuer".
+    /// Encoded/decoded by serializers as "DLIS".
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_FuP8Ra1_EeWMg5rOByfExw")]
     [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
-    DelegateIssuer,
+    DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "ITAG".
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_FuP8R61_EeWMg5rOByfExw")]
     [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OriginatingTerminal".
+    /// Encoded/decoded by serializers as "OTRM".
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_FuP8Sa1_EeWMg5rOByfExw")]
     [Description(@"Application on the terminal which has initiated the transaction.")]
-    OriginatingTerminal,
+    OriginatingTerminal = PartyTypeCode.OriginatingTerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The bank of the source account.
-    /// Encoded/decoded by serializers as "AccountFromBank".
+    /// Encoded/decoded by serializers as "BKAF".
     /// </summary>
     [EnumMember(Value = "BKAF")]
     [IsoId("_KDSC0a1_EeWMg5rOByfExw")]
     [Description(@"The bank of the source account.")]
-    AccountFromBank,
+    AccountFromBank = PartyTypeCode.AccountFromBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The bank of the destination account.
-    /// Encoded/decoded by serializers as "AccountToBank".
+    /// Encoded/decoded by serializers as "BKAT".
     /// </summary>
     [EnumMember(Value = "BKAT")]
     [IsoId("_KK4foa1_EeWMg5rOByfExw")]
     [Description(@"The bank of the destination account.")]
-    AccountToBank,
+    AccountToBank = PartyTypeCode.AccountToBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMManager".
+    /// Encoded/decoded by serializers as "ATMG".
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_KcUN4a1_EeWMg5rOByfExw")]
     [Description(@"Entity managing the ATM.")]
-    ATMManager,
+    ATMManager = PartyTypeCode.ATMManager, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum PartyType16Code
 public static class PartyType16CodeMetadataExtensions
 {
     private static readonly PartyType16CodeDropdownSource _dropdownSource = new PartyType16CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

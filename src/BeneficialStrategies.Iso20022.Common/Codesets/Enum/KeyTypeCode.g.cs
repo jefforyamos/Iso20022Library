@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_uPcTB_8bEeic54G0fOJNMg")]
 [Description(@"Contains the list of key types that may be exchanged")]
 [Derivations(typeof(KeyType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum KeyTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum KeyTypeCode
 public static class KeyTypeCodeMetadataExtensions
 {
     private static readonly KeyTypeCodeDropdownSource _dropdownSource = new KeyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

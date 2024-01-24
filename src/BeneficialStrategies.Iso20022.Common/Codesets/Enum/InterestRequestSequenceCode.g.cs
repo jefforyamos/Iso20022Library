@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YbT9cdp-Ed-ak6NoX_4Aeg_133291981")]
 [Description(@"Indicates whether the interest request is new or updated.")]
 [Derivations(typeof(InterestRequestSequence1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestRequestSequenceCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InterestRequestSequenceCode
 public static class InterestRequestSequenceCodeMetadataExtensions
 {
     private static readonly InterestRequestSequenceCodeDropdownSource _dropdownSource = new InterestRequestSequenceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

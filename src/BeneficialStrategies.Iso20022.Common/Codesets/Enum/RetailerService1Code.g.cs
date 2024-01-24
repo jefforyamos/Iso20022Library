@@ -21,489 +21,489 @@ public enum RetailerService1Code
 {
     /// <summary>
     /// A service to send commands to a card.
-    /// Encoded/decoded by serializers as "DeviceSendApplicationProtocolDataUnitCardReaderRequest".
+    /// Encoded/decoded by serializers as "DCAQ".
     /// </summary>
     [EnumMember(Value = "DCAQ")]
     [IsoId("_rENZUdt9EeiXqq0XHEoNUA")]
     [Description(@"A service to send commands to a card.")]
-    DeviceSendApplicationProtocolDataUnitCardReaderRequest,
+    DeviceSendApplicationProtocolDataUnitCardReaderRequest = RetailerServiceCode.DeviceSendApplicationProtocolDataUnitCardReaderRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An administrative request, to select and start customised administrative services provided by the POI, using a "menu" for an interactive or software interface, initiated by the Sale system.
-    /// Encoded/decoded by serializers as "AdministrativeAdminRequest".
+    /// Encoded/decoded by serializers as "ADAQ".
     /// </summary>
     [EnumMember(Value = "ADAQ")]
     [IsoId("_rWqbQdt9EeiXqq0XHEoNUA")]
     [Description(@"An administrative request, to select and start customised administrative services provided by the POI, using a ""menu"" for an interactive or software interface, initiated by the Sale system.")]
-    AdministrativeAdminRequest,
+    AdministrativeAdminRequest = RetailerServiceCode.AdministrativeAdminRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to an administrative request.
-    /// Encoded/decoded by serializers as "AdministrativeAdminResponse".
+    /// Encoded/decoded by serializers as "ADAP".
     /// </summary>
     [EnumMember(Value = "ADAP")]
     [IsoId("_rat00dt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to an administrative request.")]
-    AdministrativeAdminResponse,
+    AdministrativeAdminResponse = RetailerServiceCode.AdministrativeAdminResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a totals figures request.
-    /// Encoded/decoded by serializers as "AdministrativeReportGetTotalsResponse".
+    /// Encoded/decoded by serializers as "RPAP".
     /// </summary>
     [EnumMember(Value = "RPAP")]
     [IsoId("_rfJB0dt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a totals figures request.")]
-    AdministrativeReportGetTotalsResponse,
+    AdministrativeReportGetTotalsResponse = RetailerServiceCode.AdministrativeReportGetTotalsResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System a report on the totals figures of the POI system.
-    /// Encoded/decoded by serializers as "AdministrativeReportGetTotalsRequest".
+    /// Encoded/decoded by serializers as "RPAQ".
     /// </summary>
     [EnumMember(Value = "RPAQ")]
     [IsoId("_rkO9Mdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a report on the totals figures of the POI system.")]
-    AdministrativeReportGetTotalsRequest,
+    AdministrativeReportGetTotalsRequest = RetailerServiceCode.AdministrativeReportGetTotalsRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System a report on a list of transactions.
-    /// Encoded/decoded by serializers as "AdministrativeReportTransactionRequest".
+    /// Encoded/decoded by serializers as "RPTQ".
     /// </summary>
     [EnumMember(Value = "RPTQ")]
     [IsoId("_rpvIQdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a report on a list of transactions.")]
-    AdministrativeReportTransactionRequest,
+    AdministrativeReportTransactionRequest = RetailerServiceCode.AdministrativeReportTransactionRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a transaction report request.
-    /// Encoded/decoded by serializers as "AdministrativeReportTransactionResponse".
+    /// Encoded/decoded by serializers as "RPTP".
     /// </summary>
     [EnumMember(Value = "RPTP")]
     [IsoId("_rurSodt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a transaction report request.")]
-    AdministrativeReportTransactionResponse,
+    AdministrativeReportTransactionResponse = RetailerServiceCode.AdministrativeReportTransactionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests a session diagnosis to the POI System.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementDiagnosisRequest".
+    /// Encoded/decoded by serializers as "SMDQ".
     /// </summary>
     [EnumMember(Value = "SMDQ")]
     [IsoId("_rzHGsdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a session diagnosis to the POI System.")]
-    AdministrativeSessionManagementDiagnosisRequest,
+    AdministrativeSessionManagementDiagnosisRequest = RetailerServiceCode.AdministrativeSessionManagementDiagnosisRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a diagnosis request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementDiagnosisResponse".
+    /// Encoded/decoded by serializers as "SMDP".
     /// </summary>
     [EnumMember(Value = "SMDP")]
     [IsoId("_r3ScEdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a diagnosis request.")]
-    AdministrativeSessionManagementDiagnosisResponse,
+    AdministrativeSessionManagementDiagnosisResponse = RetailerServiceCode.AdministrativeSessionManagementDiagnosisResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests a login to the POI System.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLoginRequest".
+    /// Encoded/decoded by serializers as "SMIQ".
     /// </summary>
     [EnumMember(Value = "SMIQ")]
     [IsoId("_r7j4Edt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a login to the POI System.")]
-    AdministrativeSessionManagementLoginRequest,
+    AdministrativeSessionManagementLoginRequest = RetailerServiceCode.AdministrativeSessionManagementLoginRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a login request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLoginResponse".
+    /// Encoded/decoded by serializers as "SMIP".
     /// </summary>
     [EnumMember(Value = "SMIP")]
     [IsoId("_sAHn8dt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a login request.")]
-    AdministrativeSessionManagementLoginResponse,
+    AdministrativeSessionManagementLoginResponse = RetailerServiceCode.AdministrativeSessionManagementLoginResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests a logout to the POI System.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLogoutRequest".
+    /// Encoded/decoded by serializers as "SMOQ".
     /// </summary>
     [EnumMember(Value = "SMOQ")]
     [IsoId("_sEkqIdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a logout to the POI System.")]
-    AdministrativeSessionManagementLogoutRequest,
+    AdministrativeSessionManagementLogoutRequest = RetailerServiceCode.AdministrativeSessionManagementLogoutRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a logout request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLogoutResponse".
+    /// Encoded/decoded by serializers as "SMOP".
     /// </summary>
     [EnumMember(Value = "SMOP")]
     [IsoId("_sIm1kdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a logout request.")]
-    AdministrativeSessionManagementLogoutResponse,
+    AdministrativeSessionManagementLogoutResponse = RetailerServiceCode.AdministrativeSessionManagementLogoutResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One System requests the other to display a message for cashier or customer.
-    /// Encoded/decoded by serializers as "DeviceDisplayRequest".
+    /// Encoded/decoded by serializers as "DDYQ".
     /// </summary>
     [EnumMember(Value = "DDYQ")]
     [IsoId("_sM1OQdt9EeiXqq0XHEoNUA")]
     [Description(@"One System requests the other to display a message for cashier or customer.")]
-    DeviceDisplayRequest,
+    DeviceDisplayRequest = RetailerServiceCode.DeviceDisplayRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other system for a display request.
-    /// Encoded/decoded by serializers as "DeviceDisplayResponse".
+    /// Encoded/decoded by serializers as "DDYP".
     /// </summary>
     [EnumMember(Value = "DDYP")]
     [IsoId("_sR3fQdt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other system for a display request.")]
-    DeviceDisplayResponse,
+    DeviceDisplayResponse = RetailerServiceCode.DeviceDisplayResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service to send parameters to use when card reader initializes a new communication with the card.
-    /// Encoded/decoded by serializers as "DeviceInitialisationCardReaderRequest".
+    /// Encoded/decoded by serializers as "DCIQ".
     /// </summary>
     [EnumMember(Value = "DCIQ")]
     [IsoId("_sV5qsdt9EeiXqq0XHEoNUA")]
     [Description(@"Service to send parameters to use when card reader initializes a new communication with the card.")]
-    DeviceInitialisationCardReaderRequest,
+    DeviceInitialisationCardReaderRequest = RetailerServiceCode.DeviceInitialisationCardReaderRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader initialisation.
-    /// Encoded/decoded by serializers as "DeviceInitialisationCardReaderResponse".
+    /// Encoded/decoded by serializers as "DCIP".
     /// </summary>
     [EnumMember(Value = "DCIP")]
     [IsoId("_sadakdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader initialisation.")]
-    DeviceInitialisationCardReaderResponse,
+    DeviceInitialisationCardReaderResponse = RetailerServiceCode.DeviceInitialisationCardReaderResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system sends a notification to the POI System to update a input request.
-    /// Encoded/decoded by serializers as "DeviceInputNotification".
+    /// Encoded/decoded by serializers as "DINO".
     /// </summary>
     [EnumMember(Value = "DINO")]
     [IsoId("_se1kQdt9EeiXqq0XHEoNUA")]
     [Description(@"One system sends a notification to the POI System to update a input request.")]
-    DeviceInputNotification,
+    DeviceInputNotification = RetailerServiceCode.DeviceInputNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system requests to the other System to get data input. 
-    /// Encoded/decoded by serializers as "DeviceInputRequest".
+    /// Encoded/decoded by serializers as "DINQ".
     /// </summary>
     [EnumMember(Value = "DINQ")]
     [IsoId("_sjmIcdt9EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the other System to get data input. ")]
-    DeviceInputRequest,
+    DeviceInputRequest = RetailerServiceCode.DeviceInputRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a input request.
-    /// Encoded/decoded by serializers as "DeviceInputResponse".
+    /// Encoded/decoded by serializers as "DINP".
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_snlQkdt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a input request.")]
-    DeviceInputResponse,
+    DeviceInputResponse = RetailerServiceCode.DeviceInputResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system requests to the Other System to play a sound.
-    /// Encoded/decoded by serializers as "DevicePlaySoundRequest".
+    /// Encoded/decoded by serializers as "DSOQ".
     /// </summary>
     [EnumMember(Value = "DSOQ")]
     [IsoId("_sr2Fgdt9EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the Other System to play a sound.")]
-    DevicePlaySoundRequest,
+    DevicePlaySoundRequest = RetailerServiceCode.DevicePlaySoundRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a play sound request.
-    /// Encoded/decoded by serializers as "DevicePlaySoundResponse".
+    /// Encoded/decoded by serializers as "DSOP".
     /// </summary>
     [EnumMember(Value = "DSOP")]
     [IsoId("_sv2bwdt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a play sound request.")]
-    DevicePlaySoundResponse,
+    DevicePlaySoundResponse = RetailerServiceCode.DevicePlaySoundResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale system requests to the POI System to power off the card reader.
-    /// Encoded/decoded by serializers as "DevicePowerOffCardReaderRequest".
+    /// Encoded/decoded by serializers as "DCPQ".
     /// </summary>
     [EnumMember(Value = "DCPQ")]
     [IsoId("_s4nWMdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale system requests to the POI System to power off the card reader.")]
-    DevicePowerOffCardReaderRequest,
+    DevicePowerOffCardReaderRequest = RetailerServiceCode.DevicePowerOffCardReaderRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader power off.
-    /// Encoded/decoded by serializers as "DevicePowerOffCardRequestResponse".
+    /// Encoded/decoded by serializers as "DCPP".
     /// </summary>
     [EnumMember(Value = "DCPP")]
     [IsoId("_s86nYdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader power off.")]
-    DevicePowerOffCardRequestResponse,
+    DevicePowerOffCardRequestResponse = RetailerServiceCode.DevicePowerOffCardRequestResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system requests to the other System to print data.
-    /// Encoded/decoded by serializers as "DevicePrintRequest".
+    /// Encoded/decoded by serializers as "DPRQ".
     /// </summary>
     [EnumMember(Value = "DPRQ")]
     [IsoId("_tA_PEdt9EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the other System to print data.")]
-    DevicePrintRequest,
+    DevicePrintRequest = RetailerServiceCode.DevicePrintRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for a print request.
-    /// Encoded/decoded by serializers as "DevicePrintResponse".
+    /// Encoded/decoded by serializers as "DPRP".
     /// </summary>
     [EnumMember(Value = "DPRP")]
     [IsoId("_tF5kQdt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a print request.")]
-    DevicePrintResponse,
+    DevicePrintResponse = RetailerServiceCode.DevicePrintResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system requests to the Other System to securely get data input (e.g. for PIN).
-    /// Encoded/decoded by serializers as "DeviceSecureInputRequest".
+    /// Encoded/decoded by serializers as "DSIQ".
     /// </summary>
     [EnumMember(Value = "DSIQ")]
     [IsoId("_tQaLIdt9EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the Other System to securely get data input (e.g. for PIN).")]
-    DeviceSecureInputRequest,
+    DeviceSecureInputRequest = RetailerServiceCode.DeviceSecureInputRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One system responds to the other System for secure data input.
-    /// Encoded/decoded by serializers as "DeviceSecureInputResponse".
+    /// Encoded/decoded by serializers as "DSIP".
     /// </summary>
     [EnumMember(Value = "DSIP")]
     [IsoId("_tUgoAdt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for secure data input.")]
-    DeviceSecureInputResponse,
+    DeviceSecureInputResponse = RetailerServiceCode.DeviceSecureInputResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.
-    /// Encoded/decoded by serializers as "DeviceSendApplicationProtocolDataUnitCardReaderResponse".
+    /// Encoded/decoded by serializers as "DCAP".
     /// </summary>
     [EnumMember(Value = "DCAP")]
     [IsoId("_txNLEdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.")]
-    DeviceSendApplicationProtocolDataUnitCardReaderResponse,
+    DeviceSendApplicationProtocolDataUnitCardReaderResponse = RetailerServiceCode.DeviceSendApplicationProtocolDataUnitCardReaderResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale system requests to the POI System to transmit a message (for instance to a mobile server).
-    /// Encoded/decoded by serializers as "DeviceTransmissionMessageRequest".
+    /// Encoded/decoded by serializers as "DCOQ".
     /// </summary>
     [EnumMember(Value = "DCOQ")]
     [IsoId("_t1WrQdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale system requests to the POI System to transmit a message (for instance to a mobile server).")]
-    DeviceTransmissionMessageRequest,
+    DeviceTransmissionMessageRequest = RetailerServiceCode.DeviceTransmissionMessageRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI system responds to the Sale System after a message transmission.
-    /// Encoded/decoded by serializers as "DeviceTransmissionMessageResponse".
+    /// Encoded/decoded by serializers as "DCOP".
     /// </summary>
     [EnumMember(Value = "DCOP")]
     [IsoId("_t5fkYdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System after a message transmission.")]
-    DeviceTransmissionMessageResponse,
+    DeviceTransmissionMessageResponse = RetailerServiceCode.DeviceTransmissionMessageResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to perform balance inquiry on the main account.
-    /// Encoded/decoded by serializers as "FinancialBalanceInquiryRequest".
+    /// Encoded/decoded by serializers as "FSIQ".
     /// </summary>
     [EnumMember(Value = "FSIQ")]
     [IsoId("_t9fTkdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform balance inquiry on the main account.")]
-    FinancialBalanceInquiryRequest,
+    FinancialBalanceInquiryRequest = RetailerServiceCode.FinancialBalanceInquiryRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a Balance Inquiry request.
-    /// Encoded/decoded by serializers as "FinancialBalanceInquiryResponse".
+    /// Encoded/decoded by serializers as "FSIP".
     /// </summary>
     [EnumMember(Value = "FSIP")]
     [IsoId("_uCehQdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a Balance Inquiry request.")]
-    FinancialBalanceInquiryResponse,
+    FinancialBalanceInquiryResponse = RetailerServiceCode.FinancialBalanceInquiryResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).
-    /// Encoded/decoded by serializers as "FinancialBatchRequest".
+    /// Encoded/decoded by serializers as "FSBQ".
     /// </summary>
     [EnumMember(Value = "FSBQ")]
     [IsoId("_uHPFcdt9EeiXqq0XHEoNUA")]
     [Description(@"The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).")]
-    FinancialBatchRequest,
+    FinancialBatchRequest = RetailerServiceCode.FinancialBatchRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a batch processing request.
-    /// Encoded/decoded by serializers as "FinancialBatchResponse".
+    /// Encoded/decoded by serializers as "FSBP".
     /// </summary>
     [EnumMember(Value = "FSBP")]
     [IsoId("_uTA3odt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a batch processing request.")]
-    FinancialBatchResponse,
+    FinancialBatchResponse = RetailerServiceCode.FinancialBatchResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to handle a card data acquisition on the card reader.
-    /// Encoded/decoded by serializers as "FinancialCardAcquisitionRequest".
+    /// Encoded/decoded by serializers as "FSAQ".
     /// </summary>
     [EnumMember(Value = "FSAQ")]
     [IsoId("_uZhIQdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to handle a card data acquisition on the card reader.")]
-    FinancialCardAcquisitionRequest,
+    FinancialCardAcquisitionRequest = RetailerServiceCode.FinancialCardAcquisitionRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a card data acquisition request.
-    /// Encoded/decoded by serializers as "FinancialCardAcquisitionResponse".
+    /// Encoded/decoded by serializers as "FSAP".
     /// </summary>
     [EnumMember(Value = "FSAP")]
     [IsoId("_ukr2cdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a card data acquisition request.")]
-    FinancialCardAcquisitionResponse,
+    FinancialCardAcquisitionResponse = RetailerServiceCode.FinancialCardAcquisitionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to enable a service on its side.
-    /// Encoded/decoded by serializers as "FinancialEnableServiceRequest".
+    /// Encoded/decoded by serializers as "FSEQ".
     /// </summary>
     [EnumMember(Value = "FSEQ")]
     [IsoId("_urGAcdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to enable a service on its side.")]
-    FinancialEnableServiceRequest,
+    FinancialEnableServiceRequest = RetailerServiceCode.FinancialEnableServiceRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response after enabling or not some service.
-    /// Encoded/decoded by serializers as "FinancialEnableServiceResponse".
+    /// Encoded/decoded by serializers as "FSEP".
     /// </summary>
     [EnumMember(Value = "FSEP")]
     [IsoId("_uwXiAdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response after enabling or not some service.")]
-    FinancialEnableServiceResponse,
+    FinancialEnableServiceResponse = RetailerServiceCode.FinancialEnableServiceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System a loyalty service like loading or redeem.
-    /// Encoded/decoded by serializers as "FinancialLoyaltyRequest".
+    /// Encoded/decoded by serializers as "FSLQ".
     /// </summary>
     [EnumMember(Value = "FSLQ")]
     [IsoId("_u0nv4dt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a loyalty service like loading or redeem.")]
-    FinancialLoyaltyRequest,
+    FinancialLoyaltyRequest = RetailerServiceCode.FinancialLoyaltyRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a loyalty processing request.
-    /// Encoded/decoded by serializers as "FinancialLoyaltyResponse".
+    /// Encoded/decoded by serializers as "FSLP".
     /// </summary>
     [EnumMember(Value = "FSLP")]
     [IsoId("_u5qA4dt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a loyalty processing request.")]
-    FinancialLoyaltyResponse,
+    FinancialLoyaltyResponse = RetailerServiceCode.FinancialLoyaltyResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).
-    /// Encoded/decoded by serializers as "FinancialPaymentRequest".
+    /// Encoded/decoded by serializers as "FSPQ".
     /// </summary>
     [EnumMember(Value = "FSPQ")]
     [IsoId("_u-Nwwdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).")]
-    FinancialPaymentRequest,
+    FinancialPaymentRequest = RetailerServiceCode.FinancialPaymentRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).
-    /// Encoded/decoded by serializers as "FinancialPaymentResponse".
+    /// Encoded/decoded by serializers as "FSPP".
     /// </summary>
     [EnumMember(Value = "FSPP")]
     [IsoId("_vCOuEdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).")]
-    FinancialPaymentResponse,
+    FinancialPaymentResponse = RetailerServiceCode.FinancialPaymentResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System request to the POI System different kinds of transaction reconciliation. 
-    /// Encoded/decoded by serializers as "FinancialReconciliationRequest".
+    /// Encoded/decoded by serializers as "FSCQ".
     /// </summary>
     [EnumMember(Value = "FSCQ")]
     [IsoId("_vGdGwdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System request to the POI System different kinds of transaction reconciliation. ")]
-    FinancialReconciliationRequest,
+    FinancialReconciliationRequest = RetailerServiceCode.FinancialReconciliationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a reconciliation request.
-    /// Encoded/decoded by serializers as "FinancialReconciliationResponse".
+    /// Encoded/decoded by serializers as "FSCP".
     /// </summary>
     [EnumMember(Value = "FSCP")]
     [IsoId("_vKddAdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a reconciliation request.")]
-    FinancialReconciliationResponse,
+    FinancialReconciliationResponse = RetailerServiceCode.FinancialReconciliationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.
-    /// Encoded/decoded by serializers as "FinancialReversalRequest".
+    /// Encoded/decoded by serializers as "FSRQ".
     /// </summary>
     [EnumMember(Value = "FSRQ")]
     [IsoId("_vOyjYdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.")]
-    FinancialReversalRequest,
+    FinancialReversalRequest = RetailerServiceCode.FinancialReversalRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a reversal request.
-    /// Encoded/decoded by serializers as "FinancialReversalResponse".
+    /// Encoded/decoded by serializers as "FSRP".
     /// </summary>
     [EnumMember(Value = "FSRP")]
     [IsoId("_vlMRMdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a reversal request.")]
-    FinancialReversalResponse,
+    FinancialReversalResponse = RetailerServiceCode.FinancialReversalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).
-    /// Encoded/decoded by serializers as "FinancialStoredValueRequest".
+    /// Encoded/decoded by serializers as "FSVQ".
     /// </summary>
     [EnumMember(Value = "FSVQ")]
     [IsoId("_vpap4dt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).")]
-    FinancialStoredValueRequest,
+    FinancialStoredValueRequest = RetailerServiceCode.FinancialStoredValueRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System sends a response to a stored value card or account request.
-    /// Encoded/decoded by serializers as "FinancialStoredValueResponse".
+    /// Encoded/decoded by serializers as "FSVP".
     /// </summary>
     [EnumMember(Value = "FSVP")]
     [IsoId("_vt6IUdt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a stored value card or account request.")]
-    FinancialStoredValueResponse,
+    FinancialStoredValueResponse = RetailerServiceCode.FinancialStoredValueResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Abort a former request or message by the sale system.
-    /// Encoded/decoded by serializers as "SystemAbort".
+    /// Encoded/decoded by serializers as "SSAB".
     /// </summary>
     [EnumMember(Value = "SSAB")]
     [IsoId("_vyRq8dt9EeiXqq0XHEoNUA")]
     [Description(@"Abort a former request or message by the sale system.")]
-    SystemAbort,
+    SystemAbort = RetailerServiceCode.SystemAbort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send an Event notification to the other party.
-    /// Encoded/decoded by serializers as "SystemEventNotification".
+    /// Encoded/decoded by serializers as "SSEN".
     /// </summary>
     [EnumMember(Value = "SSEN")]
     [IsoId("_v2gDodt9EeiXqq0XHEoNUA")]
     [Description(@"Send an Event notification to the other party.")]
-    SystemEventNotification,
+    SystemEventNotification = RetailerServiceCode.SystemEventNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send a rejection for a previous message.
-    /// Encoded/decoded by serializers as "SystemMessageRejection".
+    /// Encoded/decoded by serializers as "SSRR".
     /// </summary>
     [EnumMember(Value = "SSRR")]
     [IsoId("_v65bcdt9EeiXqq0XHEoNUA")]
     [Description(@"Send a rejection for a previous message.")]
-    SystemMessageRejection,
+    SystemMessageRejection = RetailerServiceCode.SystemMessageRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sale System requests to the POI System the status of a previous transaction.
-    /// Encoded/decoded by serializers as "SystemMessageStatusRequest".
+    /// Encoded/decoded by serializers as "SSSQ".
     /// </summary>
     [EnumMember(Value = "SSSQ")]
     [IsoId("_v_N6wdt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System the status of a previous transaction.")]
-    SystemMessageStatusRequest,
+    SystemMessageStatusRequest = RetailerServiceCode.SystemMessageStatusRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a message status request.
-    /// Encoded/decoded by serializers as "SystemMessageStatusResponse".
+    /// Encoded/decoded by serializers as "SSSP".
     /// </summary>
     [EnumMember(Value = "SSSP")]
     [IsoId("_wD0G4dt9EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a message status request.")]
-    SystemMessageStatusResponse,
+    SystemMessageStatusResponse = RetailerServiceCode.SystemMessageStatusResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -514,7 +514,7 @@ public enum RetailerService1Code
 public static class RetailerService1CodeMetadataExtensions
 {
     private static readonly RetailerService1CodeDropdownSource _dropdownSource = new RetailerService1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

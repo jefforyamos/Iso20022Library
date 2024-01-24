@@ -10,7 +10,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Indicates if the collateral reported is applied or in excess.
-/// 
 /// Provides values to be used in dropdown select lists and validation logic as instanced by <seealso cref="CollateralAppliedExcessCodeDropdownSource"/>.
 /// Implements <seealso cref="ICollateralAppliedExcessCodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
@@ -19,7 +18,6 @@ public partial class CollateralAppliedExcessCodeDropdownRow : EnumMetadataItem<C
 {
     /// <summary>
     /// Indicates if the collateral reported is applied or in excess.
-    /// 
     /// Constructs row state using the specified enum value and reflected values.
     /// </summary>
     /// <param name="value">Enum value for this row.</param>

@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TUmCFQEcEeCQm6a_G2yO_w_-1240682578")]
 [Description(@"List of incidents happening during the transaction.")]
-[Derivations(typeof(FailureReason1Code),typeof(FailureReason2Code),typeof(FailureReason3Code),typeof(FailureReason4Code),typeof(FailureReason6Code),typeof(FailureReason5Code),typeof(FailureReason8Code),typeof(FailureReason7Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(FailureReason6Code),typeof(FailureReason8Code),typeof(FailureReason1Code),typeof(FailureReason7Code),typeof(FailureReason3Code),typeof(FailureReason2Code),typeof(FailureReason5Code),typeof(FailureReason4Code))]
 public enum FailureReasonCode
 {
     /// <summary>
@@ -272,7 +271,7 @@ public enum FailureReasonCode
 public static class FailureReasonCodeMetadataExtensions
 {
     private static readonly FailureReasonCodeDropdownSource _dropdownSource = new FailureReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

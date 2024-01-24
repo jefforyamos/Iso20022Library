@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aWGPIdp-Ed-ak6NoX_4Aeg_-1985616336")]
 [Description(@"Specifies the options for distribution of dividend income.")]
 [Derivations(typeof(IncomePreference1Code),typeof(IncomePreference2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum IncomePreferenceCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum IncomePreferenceCode
 public static class IncomePreferenceCodeMetadataExtensions
 {
     private static readonly IncomePreferenceCodeDropdownSource _dropdownSource = new IncomePreferenceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

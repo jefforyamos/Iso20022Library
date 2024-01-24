@@ -21,21 +21,21 @@ public enum OtherAsset1Code
 {
     /// <summary>
     /// Property that is not real estate. Also known as 'movable chattels'.
-    /// Encoded/decoded by serializers as "MovableProperty".
+    /// Encoded/decoded by serializers as "MOVE".
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_rkYRAUyMEeiepssxrmRw1A")]
     [Description(@"Property that is not real estate. Also known as 'movable chattels'.")]
-    MovableProperty,
+    MovableProperty = OtherAssetCode.MovableProperty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Property that is real estate.
-    /// Encoded/decoded by serializers as "Property".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_rqe5AUyMEeiepssxrmRw1A")]
     [Description(@"Property that is real estate.")]
-    Property,
+    Property = OtherAssetCode.Property, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OtherAsset1Code
 public static class OtherAsset1CodeMetadataExtensions
 {
     private static readonly OtherAsset1CodeDropdownSource _dropdownSource = new OtherAsset1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

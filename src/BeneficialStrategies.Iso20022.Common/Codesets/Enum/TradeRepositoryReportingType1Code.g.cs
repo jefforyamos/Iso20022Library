@@ -21,21 +21,21 @@ public enum TradeRepositoryReportingType1Code
 {
     /// <summary>
     /// Only one counterparty to the transaction has reported to the same trade repository.
-    /// Encoded/decoded by serializers as "SingleSided".
+    /// Encoded/decoded by serializers as "SWOS".
     /// </summary>
     [EnumMember(Value = "SWOS")]
     [IsoId("_LbInAdKvEeiQpdi3IGzUkA")]
     [Description(@"Only one counterparty to the transaction has reported to the same trade repository.")]
-    SingleSided,
+    SingleSided = TradeRepositoryReportingTypeCode.SingleSided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     ///  Both counterparties to the transaction have reported to the same trade repository.
-    /// Encoded/decoded by serializers as "DualSided".
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_LmKyUdKvEeiQpdi3IGzUkA")]
     [Description(@" Both counterparties to the transaction have reported to the same trade repository.")]
-    DualSided,
+    DualSided = TradeRepositoryReportingTypeCode.DualSided, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradeRepositoryReportingType1Code
 public static class TradeRepositoryReportingType1CodeMetadataExtensions
 {
     private static readonly TradeRepositoryReportingType1CodeDropdownSource _dropdownSource = new TradeRepositoryReportingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum TransactionIndividualStatus4Code
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_d-6wcaEXEeaGKbT2u7DmyA")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    Rejected,
+    Rejected = PaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_vZ7SgaZsEeatnf2letP_og")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = PaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
-    /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACSC".
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_ufz3wKcpEeaDVIZNl20DWg")]
     [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
-    AcceptedSettlementCompleted,
+    AcceptedSettlementCompleted = PaymentStatusCode.AcceptedSettlementCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement on the creditor's account has been completed. 
-    /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_XidJkYErEei51tn2YGQhvg")]
     [Description(@"Settlement on the creditor's account has been completed. ")]
-    AcceptedCreditSettlementCompleted,
+    AcceptedCreditSettlementCompleted = PaymentStatusCode.AcceptedCreditSettlementCompleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TransactionIndividualStatus4Code
 public static class TransactionIndividualStatus4CodeMetadataExtensions
 {
     private static readonly TransactionIndividualStatus4CodeDropdownSource _dropdownSource = new TransactionIndividualStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

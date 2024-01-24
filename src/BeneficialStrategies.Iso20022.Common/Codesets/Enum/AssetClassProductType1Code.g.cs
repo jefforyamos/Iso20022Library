@@ -21,12 +21,12 @@ public enum AssetClassProductType1Code
 {
     /// <summary>
     /// Commodity of type agricultural.
-    /// Encoded/decoded by serializers as "Agricultural".
+    /// Encoded/decoded by serializers as "AGRI".
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_eBGNYQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type agricultural.")]
-    Agricultural,
+    Agricultural = AssetClassProductTypeCode.Agricultural, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType1Code
 public static class AssetClassProductType1CodeMetadataExtensions
 {
     private static readonly AssetClassProductType1CodeDropdownSource _dropdownSource = new AssetClassProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

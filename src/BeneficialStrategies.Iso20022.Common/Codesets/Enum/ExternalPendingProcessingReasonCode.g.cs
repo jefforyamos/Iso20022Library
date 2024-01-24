@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_u_gjQVj1EeOnqqBHs8Gasw")]
-[Description(@"Specifies the reason for pending status. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for pending status.|The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPendingProcessingReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPendingProcessingReasonCode
 {
     /// <summary>
@@ -120,7 +119,7 @@ public enum ExternalPendingProcessingReasonCode
 public static class ExternalPendingProcessingReasonCodeMetadataExtensions
 {
     private static readonly ExternalPendingProcessingReasonCodeDropdownSource _dropdownSource = new ExternalPendingProcessingReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

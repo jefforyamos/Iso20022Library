@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YwduFtp-Ed-ak6NoX_4Aeg_337179698")]
 [Description(@"Contains the type of price to which the discretion offset is related to.")]
 [Derivations(typeof(TypeOfDiscretionPrice1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TypeOfDiscretionPriceCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum TypeOfDiscretionPriceCode
 public static class TypeOfDiscretionPriceCodeMetadataExtensions
 {
     private static readonly TypeOfDiscretionPriceCodeDropdownSource _dropdownSource = new TypeOfDiscretionPriceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

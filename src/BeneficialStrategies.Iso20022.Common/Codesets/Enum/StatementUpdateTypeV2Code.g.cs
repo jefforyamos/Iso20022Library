@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZQWvFNp-Ed-ak6NoX_4Aeg_-843565019")]
 [Description(@"Specifies the nature of a statement update, eg, it is a complete statement.")]
 [Derivations(typeof(StatementUpdateType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatementUpdateTypeV2Code
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StatementUpdateTypeV2Code
 public static class StatementUpdateTypeV2CodeMetadataExtensions
 {
     private static readonly StatementUpdateTypeV2CodeDropdownSource _dropdownSource = new StatementUpdateTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

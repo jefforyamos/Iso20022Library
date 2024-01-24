@@ -21,12 +21,12 @@ public enum ReferToFundOrderDesk1Code
 {
     /// <summary>
     /// Indicates that the operation is only possible in restricted circumstances.
-    /// Encoded/decoded by serializers as "ReferToFundOrderDesk".
+    /// Encoded/decoded by serializers as "RFOD".
     /// </summary>
     [EnumMember(Value = "RFOD")]
     [IsoId("_ZayddNp-Ed-ak6NoX_4Aeg_-805146800")]
     [Description(@"Indicates that the operation is only possible in restricted circumstances.")]
-    ReferToFundOrderDesk,
+    ReferToFundOrderDesk = HoldingTransferableCode.ReferToFundOrderDesk, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ReferToFundOrderDesk1Code
 public static class ReferToFundOrderDesk1CodeMetadataExtensions
 {
     private static readonly ReferToFundOrderDesk1CodeDropdownSource _dropdownSource = new ReferToFundOrderDesk1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

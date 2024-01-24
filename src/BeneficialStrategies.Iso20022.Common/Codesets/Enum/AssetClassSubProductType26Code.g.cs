@@ -21,12 +21,12 @@ public enum AssetClassSubProductType26Code
 {
     /// <summary>
     /// Commodity of type inter energy.
-    /// Encoded/decoded by serializers as "InterEnergy".
+    /// Encoded/decoded by serializers as "INRG".
     /// </summary>
     [EnumMember(Value = "INRG")]
     [IsoId("_kgdlQ1rKEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type inter energy.")]
-    InterEnergy,
+    InterEnergy = AssetClassSubProductTypeCode.InterEnergy, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType26Code
 public static class AssetClassSubProductType26CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType26CodeDropdownSource _dropdownSource = new AssetClassSubProductType26CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

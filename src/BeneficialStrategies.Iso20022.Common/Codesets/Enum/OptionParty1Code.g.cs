@@ -21,21 +21,21 @@ public enum OptionParty1Code
 {
     /// <summary>
     /// Seller in a trade.
-    /// Encoded/decoded by serializers as "Seller".
+    /// Encoded/decoded by serializers as "SLLR".
     /// </summary>
     [EnumMember(Value = "SLLR")]
     [IsoId("_aP_AE9p-Ed-ak6NoX_4Aeg_-1870012986")]
     [Description(@"Seller in a trade.")]
-    Seller,
+    Seller = OptionPartyCode.Seller, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buyer in a trade.
-    /// Encoded/decoded by serializers as "Buyer".
+    /// Encoded/decoded by serializers as "BYER".
     /// </summary>
     [EnumMember(Value = "BYER")]
     [IsoId("_aP_AFNp-Ed-ak6NoX_4Aeg_-1870012969")]
     [Description(@"Buyer in a trade.")]
-    Buyer,
+    Buyer = OptionPartyCode.Buyer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OptionParty1Code
 public static class OptionParty1CodeMetadataExtensions
 {
     private static readonly OptionParty1CodeDropdownSource _dropdownSource = new OptionParty1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

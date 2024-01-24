@@ -21,129 +21,129 @@ public enum CardPaymentServiceType9Code
 {
     /// <summary>
     /// Aggregation of low payments.
-    /// Encoded/decoded by serializers as "Aggregation".
+    /// Encoded/decoded by serializers as "AGGR".
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_5aRDYY0XEeWRYffwL7E13A")]
     [Description(@"Aggregation of low payments.")]
-    Aggregation,
+    Aggregation = CardPaymentServiceTypeCode.Aggregation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion (DCC).
-    /// Encoded/decoded by serializers as "DCC".
+    /// Encoded/decoded by serializers as "DCCV".
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_5aRDY40XEeWRYffwL7E13A")]
     [Description(@"Dynamic currency conversion (DCC).")]
-    DCC,
+    DCC = CardPaymentServiceTypeCode.DCC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment with gratuity.
-    /// Encoded/decoded by serializers as "Gratuity".
+    /// Encoded/decoded by serializers as "GRTT".
     /// </summary>
     [EnumMember(Value = "GRTT")]
     [IsoId("_5aa0YY0XEeWRYffwL7E13A")]
     [Description(@"Card payment with gratuity.")]
-    Gratuity,
+    Gratuity = CardPaymentServiceTypeCode.Gratuity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Loyalty services.
-    /// Encoded/decoded by serializers as "Loyalty".
+    /// Encoded/decoded by serializers as "LOYT".
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_5aa0Y40XEeWRYffwL7E13A")]
     [Description(@"Loyalty services.")]
-    Loyalty,
+    Loyalty = CardPaymentServiceTypeCode.Loyalty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No show after reservation.
-    /// Encoded/decoded by serializers as "NoShow".
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_5aa0ZY0XEeWRYffwL7E13A")]
     [Description(@"No show after reservation.")]
-    NoShow,
+    NoShow = CardPaymentServiceTypeCode.NoShow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Purchase and corporate data.
-    /// Encoded/decoded by serializers as "PurchaseCorporate".
+    /// Encoded/decoded by serializers as "PUCO".
     /// </summary>
     [EnumMember(Value = "PUCO")]
     [IsoId("_5aa0Z40XEeWRYffwL7E13A")]
     [Description(@"Purchase and corporate data.")]
-    PurchaseCorporate,
+    PurchaseCorporate = CardPaymentServiceTypeCode.PurchaseCorporate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RecurringPayment".
+    /// Encoded/decoded by serializers as "RECP".
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_5aa0aY0XEeWRYffwL7E13A")]
     [Description(@"Recurring payment.")]
-    RecurringPayment,
+    RecurringPayment = CardPaymentServiceTypeCode.RecurringPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Solicited available funds.
-    /// Encoded/decoded by serializers as "SolicitedAvailableFunds".
+    /// Encoded/decoded by serializers as "SOAF".
     /// </summary>
     [EnumMember(Value = "SOAF")]
     [IsoId("_5aa0a40XEeWRYffwL7E13A")]
     [Description(@"Solicited available funds.")]
-    SolicitedAvailableFunds,
+    SolicitedAvailableFunds = CardPaymentServiceTypeCode.SolicitedAvailableFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VoiceAuthorisation".
+    /// Encoded/decoded by serializers as "VCAU".
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_5aa0bY0XEeWRYffwL7E13A")]
     [Description(@"Voice authorisation.")]
-    VoiceAuthorisation,
+    VoiceAuthorisation = CardPaymentServiceTypeCode.VoiceAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instalment payment transaction performed by the card issuer.
-    /// Encoded/decoded by serializers as "IssuerInstalment".
+    /// Encoded/decoded by serializers as "INSI".
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_5aa0b40XEeWRYffwL7E13A")]
     [Description(@"Instalment payment transaction performed by the card issuer.")]
-    IssuerInstalment,
+    IssuerInstalment = CardPaymentServiceTypeCode.IssuerInstalment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instalment payment transaction performed by the acceptor or the acquirer.
-    /// Encoded/decoded by serializers as "AcceptorInstalment".
+    /// Encoded/decoded by serializers as "INSA".
     /// </summary>
     [EnumMember(Value = "INSA")]
     [IsoId("_5aa0cY0XEeWRYffwL7E13A")]
     [Description(@"Instalment payment transaction performed by the acceptor or the acquirer.")]
-    AcceptorInstalment,
+    AcceptorInstalment = CardPaymentServiceTypeCode.AcceptorInstalment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CashBack".
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_5aa0c40XEeWRYffwL7E13A")]
     [Description(@"Card payment with cash-back.")]
-    CashBack,
+    CashBack = CardPaymentServiceTypeCode.CashBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instant transaction.
-    /// Encoded/decoded by serializers as "Instant".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_-c520Y0XEeWRYffwL7E13A")]
     [Description(@"Instant transaction.")]
-    Instant,
+    Instant = CardPaymentServiceTypeCode.Instant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment of goods or services which are not refundable, for instance low cost airline tickets.
-    /// Encoded/decoded by serializers as "NonRefundable".
+    /// Encoded/decoded by serializers as "NRFD".
     /// </summary>
     [EnumMember(Value = "NRFD")]
     [IsoId("_-rXJk40XEeWRYffwL7E13A")]
     [Description(@"Payment of goods or services which are not refundable, for instance low cost airline tickets.")]
-    NonRefundable,
+    NonRefundable = CardPaymentServiceTypeCode.NonRefundable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum CardPaymentServiceType9Code
 public static class CardPaymentServiceType9CodeMetadataExtensions
 {
     private static readonly CardPaymentServiceType9CodeDropdownSource _dropdownSource = new CardPaymentServiceType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

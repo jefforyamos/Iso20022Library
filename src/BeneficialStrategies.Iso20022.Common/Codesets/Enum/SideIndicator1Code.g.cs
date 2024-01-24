@@ -21,21 +21,21 @@ public enum SideIndicator1Code
 {
     /// <summary>
     /// Clearing broker identification is for the Central Counterparty (CCP) leg.
-    /// Encoded/decoded by serializers as "CCPLeg".
+    /// Encoded/decoded by serializers as "CCPL".
     /// </summary>
     [EnumMember(Value = "CCPL")]
     [IsoId("__vvtsS5UEeKwTrPDLMbLxA")]
     [Description(@"Clearing broker identification is for the Central Counterparty (CCP) leg.")]
-    CCPLeg,
+    CCPLeg = SideIndicatorCode.CCPLeg, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing broker identification is for the client leg.
-    /// Encoded/decoded by serializers as "ClientLeg".
+    /// Encoded/decoded by serializers as "CLNT".
     /// </summary>
     [EnumMember(Value = "CLNT")]
     [IsoId("__z2xoS5UEeKwTrPDLMbLxA")]
     [Description(@"Clearing broker identification is for the client leg.")]
-    ClientLeg,
+    ClientLeg = SideIndicatorCode.ClientLeg, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SideIndicator1Code
 public static class SideIndicator1CodeMetadataExtensions
 {
     private static readonly SideIndicator1CodeDropdownSource _dropdownSource = new SideIndicator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

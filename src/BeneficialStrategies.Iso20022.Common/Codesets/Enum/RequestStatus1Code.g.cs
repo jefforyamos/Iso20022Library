@@ -21,30 +21,30 @@ public enum RequestStatus1Code
 {
     /// <summary>
     /// Single Invoice/Instalment financing request has been financed.
-    /// Encoded/decoded by serializers as "Financed".
+    /// Encoded/decoded by serializers as "FNCD".
     /// </summary>
     [EnumMember(Value = "FNCD")]
     [IsoId("_ZUFYgNp-Ed-ak6NoX_4Aeg_783372870")]
     [Description(@"Single Invoice/Instalment financing request has been financed.")]
-    Financed,
+    Financed = RequestStatusCode.Financed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Single Invoice/Instalment financing request is in a pending status and more checks are ongoing.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ZUFYgdp-Ed-ak6NoX_4Aeg_783372871")]
     [Description(@"Single Invoice/Instalment financing request is in a pending status and more checks are ongoing.")]
-    Pending,
+    Pending = RequestStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Single Invoice/Instalment financing request has not been financed.
-    /// Encoded/decoded by serializers as "NotFinanced".
+    /// Encoded/decoded by serializers as "NTFD".
     /// </summary>
     [EnumMember(Value = "NTFD")]
     [IsoId("_ZUFYgtp-Ed-ak6NoX_4Aeg_783372900")]
     [Description(@"Single Invoice/Instalment financing request has not been financed.")]
-    NotFinanced,
+    NotFinanced = RequestStatusCode.NotFinanced, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RequestStatus1Code
 public static class RequestStatus1CodeMetadataExtensions
 {
     private static readonly RequestStatus1CodeDropdownSource _dropdownSource = new RequestStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

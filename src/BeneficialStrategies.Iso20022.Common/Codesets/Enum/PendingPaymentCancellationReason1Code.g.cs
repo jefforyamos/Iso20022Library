@@ -21,31 +21,30 @@ public enum PendingPaymentCancellationReason1Code
 {
     /// <summary>
     /// Cancellation indemnity is required. 
-    /// 
-    /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_DXz7wR0_EeiYoZGjIMHr2A")]
-    [Description(@"Cancellation indemnity is required.  ")]
-    CancellationIndemnityRequired,
+    [Description(@"Cancellation indemnity is required. |")]
+    CancellationIndemnityRequired = PendingPaymentCancellationReasonCode.CancellationIndemnityRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cancellation has been forwarded to the next agent in the payment chain.
-    /// Encoded/decoded by serializers as "PassedToNextAgent".
+    /// Encoded/decoded by serializers as "PTNA".
     /// </summary>
     [EnumMember(Value = "PTNA")]
     [IsoId("_Dfnz8h0_EeiYoZGjIMHr2A")]
     [Description(@"The cancellation has been forwarded to the next agent in the payment chain.")]
-    PassedToNextAgent,
+    PassedToNextAgent = PendingPaymentCancellationReasonCode.PassedToNextAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creditor authorisation is required to return the payment.
-    /// Encoded/decoded by serializers as "RequestedDebitAuthority".
+    /// Encoded/decoded by serializers as "RQDA".
     /// </summary>
     [EnumMember(Value = "RQDA")]
     [IsoId("_Dmi7Uh0_EeiYoZGjIMHr2A")]
     [Description(@"Creditor authorisation is required to return the payment.")]
-    RequestedDebitAuthority,
+    RequestedDebitAuthority = PendingPaymentCancellationReasonCode.RequestedDebitAuthority, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +55,7 @@ public enum PendingPaymentCancellationReason1Code
 public static class PendingPaymentCancellationReason1CodeMetadataExtensions
 {
     private static readonly PendingPaymentCancellationReason1CodeDropdownSource _dropdownSource = new PendingPaymentCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

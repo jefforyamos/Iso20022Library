@@ -21,12 +21,12 @@ public enum AssetClassProductType8Code
 {
     /// <summary>
     /// Commodity of type paper.
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_qdn_gQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type paper.")]
-    Paper,
+    Paper = AssetClassProductTypeCode.Paper, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType8Code
 public static class AssetClassProductType8CodeMetadataExtensions
 {
     private static readonly AssetClassProductType8CodeDropdownSource _dropdownSource = new AssetClassProductType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

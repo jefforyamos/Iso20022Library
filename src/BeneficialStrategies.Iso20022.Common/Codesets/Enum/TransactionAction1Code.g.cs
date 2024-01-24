@@ -21,21 +21,21 @@ public enum TransactionAction1Code
 {
     /// <summary>
     /// Start a transaction by a swipe ahead mechanism, with the services which are enabled.
-    /// Encoded/decoded by serializers as "StartTransaction".
+    /// Encoded/decoded by serializers as "STAR".
     /// </summary>
     [EnumMember(Value = "STAR")]
     [IsoId("__DTjAduTEeiB5uLfkg9ZJA")]
     [Description(@"Start a transaction by a swipe ahead mechanism, with the services which are enabled.")]
-    StartTransaction,
+    StartTransaction = TransactionActionCode.StartTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Keep quite after a swipe ahead mechanism.
-    /// Encoded/decoded by serializers as "Stop".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_L9kT0ezIEeiojesOXOKoug")]
     [Description(@"Keep quite after a swipe ahead mechanism.")]
-    Stop,
+    Stop = TransactionActionCode.Stop, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransactionAction1Code
 public static class TransactionAction1CodeMetadataExtensions
 {
     private static readonly TransactionAction1CodeDropdownSource _dropdownSource = new TransactionAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

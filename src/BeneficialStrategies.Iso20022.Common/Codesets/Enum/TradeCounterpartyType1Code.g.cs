@@ -21,75 +21,75 @@ public enum TradeCounterpartyType1Code
 {
     /// <summary>
     /// Specifies that party to the transaction is a Beneficiary.
-    /// Encoded/decoded by serializers as "Beneficiary".
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_bZx8MCR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Beneficiary.")]
-    Beneficiary,
+    Beneficiary = TradeCounterpartyTypeCode.Beneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is a Broker.
-    /// Encoded/decoded by serializers as "Broker".
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_bdHkESR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Broker.")]
-    Broker,
+    Broker = TradeCounterpartyTypeCode.Broker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is a Clearing Member.
-    /// Encoded/decoded by serializers as "ClearingMember".
+    /// Encoded/decoded by serializers as "CLEM".
     /// </summary>
     [EnumMember(Value = "CLEM")]
     [IsoId("_bhJIcSR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Clearing Member.")]
-    ClearingMember,
+    ClearingMember = TradeCounterpartyTypeCode.ClearingMember, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is an Executing Agent.
-    /// Encoded/decoded by serializers as "ExecutingAgent".
+    /// Encoded/decoded by serializers as "EXEA".
     /// </summary>
     [EnumMember(Value = "EXEA")]
     [IsoId("_bkTxMSR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is an Executing Agent.")]
-    ExecutingAgent,
+    ExecutingAgent = TradeCounterpartyTypeCode.ExecutingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is an Other Counterparty.
-    /// Encoded/decoded by serializers as "OtherCounterparty".
+    /// Encoded/decoded by serializers as "OTHC".
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_bngPISR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is an Other Counterparty.")]
-    OtherCounterparty,
+    OtherCounterparty = TradeCounterpartyTypeCode.OtherCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is a Reporting Counterparty.
-    /// Encoded/decoded by serializers as "ReportingCounterparty".
+    /// Encoded/decoded by serializers as "REPC".
     /// </summary>
     [EnumMember(Value = "REPC")]
     [IsoId("_bqNk4SR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Reporting Counterparty.")]
-    ReportingCounterparty,
+    ReportingCounterparty = TradeCounterpartyTypeCode.ReportingCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is a Submitting Agent.
-    /// Encoded/decoded by serializers as "SubmittingAgent".
+    /// Encoded/decoded by serializers as "SBMA".
     /// </summary>
     [EnumMember(Value = "SBMA")]
     [IsoId("_btzrcSR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Submitting Agent.")]
-    SubmittingAgent,
+    SubmittingAgent = TradeCounterpartyTypeCode.SubmittingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that party to the transaction is an Entity Responsible For Report.
-    /// Encoded/decoded by serializers as "EntityResponsibleForReport".
+    /// Encoded/decoded by serializers as "ERFR".
     /// </summary>
     [EnumMember(Value = "ERFR")]
     [IsoId("_5Qm-kCxqEe2xAdY9t5fB3g")]
     [Description(@"Specifies that party to the transaction is an Entity Responsible For Report.")]
-    EntityResponsibleForReport,
+    EntityResponsibleForReport = TradeCounterpartyTypeCode.EntityResponsibleForReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TradeCounterpartyType1Code
 public static class TradeCounterpartyType1CodeMetadataExtensions
 {
     private static readonly TradeCounterpartyType1CodeDropdownSource _dropdownSource = new TradeCounterpartyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

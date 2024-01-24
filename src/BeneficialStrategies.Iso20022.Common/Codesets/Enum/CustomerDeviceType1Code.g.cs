@@ -21,66 +21,66 @@ public enum CustomerDeviceType1Code
 {
     /// <summary>
     /// Mobile phone
-    /// Encoded/decoded by serializers as "Mobile".
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_LGwDQUetEee9r7QjOdsbFw")]
     [Description(@"Mobile phone")]
-    Mobile,
+    Mobile = CustomerDeviceTypeCode.Mobile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other device defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_LfTtMketEee9r7QjOdsbFw")]
     [Description(@"Other device defined at national level")]
-    OtherNational,
+    OtherNational = CustomerDeviceTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other device defined in a private way.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_LtiWcketEee9r7QjOdsbFw")]
     [Description(@"Other device defined in a private way.")]
-    OtherPrivate,
+    OtherPrivate = CustomerDeviceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Personal computer
-    /// Encoded/decoded by serializers as "PersonalComputer".
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_L6nwMketEee9r7QjOdsbFw")]
     [Description(@"Personal computer")]
-    PersonalComputer,
+    PersonalComputer = CustomerDeviceTypeCode.PersonalComputer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tablet
-    /// Encoded/decoded by serializers as "Tablet".
+    /// Encoded/decoded by serializers as "TBLT".
     /// </summary>
     [EnumMember(Value = "TBLT")]
     [IsoId("_MSSpUketEee9r7QjOdsbFw")]
     [Description(@"Tablet")]
-    Tablet,
+    Tablet = CustomerDeviceTypeCode.Tablet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-secure card reader attached to the customer device.
-    /// Encoded/decoded by serializers as "NonSecureCardReader".
+    /// Encoded/decoded by serializers as "NSCR".
     /// </summary>
     [EnumMember(Value = "NSCR")]
     [IsoId("_MieKIS7TEemIy6A-26wnAg")]
     [Description(@"Non-secure card reader attached to the customer device.")]
-    NonSecureCardReader,
+    NonSecureCardReader = CustomerDeviceTypeCode.NonSecureCardReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure card reader attached to the customer device
-    /// Encoded/decoded by serializers as "SecureCardReader".
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_Mw-gMS7TEemIy6A-26wnAg")]
     [Description(@"Secure card reader attached to the customer device")]
-    SecureCardReader,
+    SecureCardReader = CustomerDeviceTypeCode.SecureCardReader, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CustomerDeviceType1Code
 public static class CustomerDeviceType1CodeMetadataExtensions
 {
     private static readonly CustomerDeviceType1CodeDropdownSource _dropdownSource = new CustomerDeviceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,327 +21,327 @@ public enum RejectedStatusReason10Code
 {
     /// <summary>
     /// Instruction was received after the Receiver's deadline.
-    /// Encoded/decoded by serializers as "AfterDeadline".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZdBSFdp-Ed-ak6NoX_4Aeg_-275597383")]
     [Description(@"Instruction was received after the Receiver's deadline.")]
-    AfterDeadline,
+    AfterDeadline = RejectedStatusReasonCode.AfterDeadline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account is blocked due to a transfer out of investment funds.
-    /// Encoded/decoded by serializers as "AccountBlockedForTransfer".
+    /// Encoded/decoded by serializers as "BLTR".
     /// </summary>
     [EnumMember(Value = "BLTR")]
     [IsoId("_ZdBSFtp-Ed-ak6NoX_4Aeg_-275598546")]
     [Description(@"Investment account is blocked due to a transfer out of investment funds.")]
-    AccountBlockedForTransfer,
+    AccountBlockedForTransfer = RejectedStatusReasonCode.AccountBlockedForTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CutOffTime".
+    /// Encoded/decoded by serializers as "CUTO".
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_ZdBSF9p-Ed-ak6NoX_4Aeg_-275597461")]
     [Description(@"Instruction has been received after the cut-off time.")]
-    CutOffTime,
+    CutOffTime = RejectedStatusReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash settlement date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_ZdBSGNp-Ed-ak6NoX_4Aeg_-275597306")]
     [Description(@"Cash settlement date is not recognised or is invalid.")]
-    SettlementDate,
+    SettlementDate = RejectedStatusReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
-    /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_ZdBSGdp-Ed-ak6NoX_4Aeg_-275598528")]
     [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
-    AccountBlockedMissingDocuments,
+    AccountBlockedMissingDocuments = RejectedStatusReasonCode.AccountBlockedMissingDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ZdLDENp-Ed-ak6NoX_4Aeg_-275597046")]
     [Description(@"Financial instrument quantity is invalid.")]
-    FinancialInstrumentQuantity,
+    FinancialInstrumentQuantity = RejectedStatusReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_ZdLDEdp-Ed-ak6NoX_4Aeg_-276518578")]
     [Description(@"Identification of the security is not recognised or is invalid.")]
-    FinancialInstrumentIdentification,
+    FinancialInstrumentIdentification = RejectedStatusReasonCode.FinancialInstrumentIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "TradeDate".
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_ZdLDEtp-Ed-ak6NoX_4Aeg_-275597011")]
     [Description(@"Unrecognised or invalid trade date or requested trade date or future trade date.")]
-    TradeDate,
+    TradeDate = RejectedStatusReasonCode.TradeDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
+    /// Encoded/decoded by serializers as "IDNA".
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_ZdLDE9p-Ed-ak6NoX_4Aeg_-275598408")]
     [Description(@"Identification of the security and the security name are not the same.")]
-    FinancialInstrumentIdentificationAndName,
+    FinancialInstrumentIdentificationAndName = RejectedStatusReasonCode.FinancialInstrumentIdentificationAndName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid subscriber or redeemer.
-    /// Encoded/decoded by serializers as "SubscriberOrRedeemer".
+    /// Encoded/decoded by serializers as "IEXE".
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_ZdLDFNp-Ed-ak6NoX_4Aeg_-275596934")]
     [Description(@"Unrecognised or invalid subscriber or redeemer.")]
-    SubscriberOrRedeemer,
+    SubscriberOrRedeemer = RejectedStatusReasonCode.SubscriberOrRedeemer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Intermediary is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "Intermediary".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZdLDFdp-Ed-ak6NoX_4Aeg_-276519526")]
     [Description(@"Intermediary is not recognised or is invalid.")]
-    Intermediary,
+    Intermediary = RejectedStatusReasonCode.Intermediary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order type is invalid.
-    /// Encoded/decoded by serializers as "InvalidOrderType".
+    /// Encoded/decoded by serializers as "IOTP".
     /// </summary>
     [EnumMember(Value = "IOTP")]
     [IsoId("_ZdLDFtp-Ed-ak6NoX_4Aeg_-275597538")]
     [Description(@"Order type is invalid.")]
-    InvalidOrderType,
+    InvalidOrderType = RejectedStatusReasonCode.InvalidOrderType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructing party is not allowed to instruct for this investment account.
-    /// Encoded/decoded by serializers as "InstructingPartyNotAllowedForAccount".
+    /// Encoded/decoded by serializers as "IPAC".
     /// </summary>
     [EnumMember(Value = "IPAC")]
     [IsoId("_ZdLDF9p-Ed-ak6NoX_4Aeg_-275597573")]
     [Description(@"Instructing party is not allowed to instruct for this investment account.")]
-    InstructingPartyNotAllowedForAccount,
+    InstructingPartyNotAllowedForAccount = RejectedStatusReasonCode.InstructingPartyNotAllowedForAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "TooLate".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_ZdLDGNp-Ed-ak6NoX_4Aeg_-275597418")]
     [Description(@"Instruction was received after market deadline.")]
-    TooLate,
+    TooLate = RejectedStatusReasonCode.TooLate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is not enough cash in the account to process the instruction.
-    /// Encoded/decoded by serializers as "NotEnoughCash".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_ZdLDGdp-Ed-ak6NoX_4Aeg_-275598451")]
     [Description(@"There is not enough cash in the account to process the instruction.")]
-    NotEnoughCash,
+    NotEnoughCash = RejectedStatusReasonCode.NotEnoughCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
-    /// Encoded/decoded by serializers as "NoCancellationMatch".
+    /// Encoded/decoded by serializers as "NRGM".
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_ZdUNANp-Ed-ak6NoX_4Aeg_-275596418")]
     [Description(@"The cancellation request has been rejected since more than one instruction match to the cancellation criteria.")]
-    NoCancellationMatch,
+    NoCancellationMatch = RejectedStatusReasonCode.NoCancellationMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NotCompliantWithSLA".
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZdUNAdp-Ed-ak6NoX_4Aeg_-275597503")]
     [Description(@"Instruction is not compliant with the service level agreement.")]
-    NotCompliantWithSLA,
+    NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order reference is a duplicate of a previously received order.
-    /// Encoded/decoded by serializers as "DuplicateOrderReference".
+    /// Encoded/decoded by serializers as "ORRF".
     /// </summary>
     [EnumMember(Value = "ORRF")]
     [IsoId("_ZdUNAtp-Ed-ak6NoX_4Aeg_-275597864")]
     [Description(@"Order reference is a duplicate of a previously received order.")]
-    DuplicateOrderReference,
+    DuplicateOrderReference = RejectedStatusReasonCode.DuplicateOrderReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "InvestmentAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZdUNA9p-Ed-ak6NoX_4Aeg_-276519466")]
     [Description(@"Investment account identification is not recognised or is invalid.")]
-    InvestmentAccount,
+    InvestmentAccount = RejectedStatusReasonCode.InvestmentAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There are not enough securities in the account to process the instruction.
-    /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZdUNBNp-Ed-ak6NoX_4Aeg_-275598433")]
     [Description(@"There are not enough securities in the account to process the instruction.")]
-    NotEnoughFinancialInstrument,
+    NotEnoughFinancialInstrument = RejectedStatusReasonCode.NotEnoughFinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of units or amount of money in the order is too high for a subscription.
-    /// Encoded/decoded by serializers as "TooHighUnitsOrAmountToSubscribe".
+    /// Encoded/decoded by serializers as "SHIG".
     /// </summary>
     [EnumMember(Value = "SHIG")]
     [IsoId("_ZdUNBdp-Ed-ak6NoX_4Aeg_-275598001")]
     [Description(@"Quantity of units or amount of money in the order is too high for a subscription.")]
-    TooHighUnitsOrAmountToSubscribe,
+    TooHighUnitsOrAmountToSubscribe = RejectedStatusReasonCode.TooHighUnitsOrAmountToSubscribe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of units or amount of money in the order is too low for a subscription.
-    /// Encoded/decoded by serializers as "TooLowUnitsOrAmountToSubscribe".
+    /// Encoded/decoded by serializers as "SLOW".
     /// </summary>
     [EnumMember(Value = "SLOW")]
     [IsoId("_ZdUNBtp-Ed-ak6NoX_4Aeg_-275597959")]
     [Description(@"Quantity of units or amount of money in the order is too low for a subscription.")]
-    TooLowUnitsOrAmountToSubscribe,
+    TooLowUnitsOrAmountToSubscribe = RejectedStatusReasonCode.TooLowUnitsOrAmountToSubscribe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deal currency is not supported.
-    /// Encoded/decoded by serializers as "UnacceptedDealCurrency".
+    /// Encoded/decoded by serializers as "UDCY".
     /// </summary>
     [EnumMember(Value = "UDCY")]
     [IsoId("_ZdUNB9p-Ed-ak6NoX_4Aeg_-275598331")]
     [Description(@"Deal currency is not supported.")]
-    UnacceptedDealCurrency,
+    UnacceptedDealCurrency = RejectedStatusReasonCode.UnacceptedDealCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Linked reference is not known.
-    /// Encoded/decoded by serializers as "UnknownLinkagesReference".
+    /// Encoded/decoded by serializers as "ULNK".
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_ZdUNCNp-Ed-ak6NoX_4Aeg_686179464")]
     [Description(@"Linked reference is not known.")]
-    UnknownLinkagesReference,
+    UnknownLinkagesReference = RejectedStatusReasonCode.UnknownLinkagesReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement currency requested is not supported.
-    /// Encoded/decoded by serializers as "UnacceptedRequestedSettlementCurrency".
+    /// Encoded/decoded by serializers as "URSC".
     /// </summary>
     [EnumMember(Value = "URSC")]
     [IsoId("_ZdUNCdp-Ed-ak6NoX_4Aeg_-275598019")]
     [Description(@"Settlement currency requested is not supported.")]
-    UnacceptedRequestedSettlementCurrency,
+    UnacceptedRequestedSettlementCurrency = RejectedStatusReasonCode.UnacceptedRequestedSettlementCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid ordered amount.
-    /// Encoded/decoded by serializers as "InvalidOrderedAmount".
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_Zdd-ANp-Ed-ak6NoX_4Aeg_1927127679")]
     [Description(@"Unrecognised or invalid ordered amount.")]
-    InvalidOrderedAmount,
+    InvalidOrderedAmount = RejectedStatusReasonCode.InvalidOrderedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of subscription is below the minimum initial investment amount.
-    /// Encoded/decoded by serializers as "BelowMinimumInitialInvestmentAmount".
+    /// Encoded/decoded by serializers as "BMIN".
     /// </summary>
     [EnumMember(Value = "BMIN")]
     [IsoId("_Zdd-Adp-Ed-ak6NoX_4Aeg_1927127756")]
     [Description(@"Amount of subscription is below the minimum initial investment amount.")]
-    BelowMinimumInitialInvestmentAmount,
+    BelowMinimumInitialInvestmentAmount = RejectedStatusReasonCode.BelowMinimumInitialInvestmentAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of subscription is below the minimum top-up investment.
-    /// Encoded/decoded by serializers as "BelowMinimumTopUpAmount".
+    /// Encoded/decoded by serializers as "BMTO".
     /// </summary>
     [EnumMember(Value = "BMTO")]
     [IsoId("_Zdd-Atp-Ed-ak6NoX_4Aeg_1927127851")]
     [Description(@"Amount of subscription is below the minimum top-up investment.")]
-    BelowMinimumTopUpAmount,
+    BelowMinimumTopUpAmount = RejectedStatusReasonCode.BelowMinimumTopUpAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient capacity.
-    /// Encoded/decoded by serializers as "InsufficientCapacity".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_Zdd-A9p-Ed-ak6NoX_4Aeg_1927128177")]
     [Description(@"Insufficient capacity.")]
-    InsufficientCapacity,
+    InsufficientCapacity = RejectedStatusReasonCode.InsufficientCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Percentage holding breach, for example, PPM rules; taxation rules (ERISA).
-    /// Encoded/decoded by serializers as "PercentageHoldingBreach".
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_Zdd-BNp-Ed-ak6NoX_4Aeg_1927128273")]
     [Description(@"Percentage holding breach, for example, PPM rules; taxation rules (ERISA).")]
-    PercentageHoldingBreach,
+    PercentageHoldingBreach = RejectedStatusReasonCode.PercentageHoldingBreach, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount is below the minimum redemption amount.
-    /// Encoded/decoded by serializers as "BelowMinimumRedemptionAmount".
+    /// Encoded/decoded by serializers as "BMRA".
     /// </summary>
     [EnumMember(Value = "BMRA")]
     [IsoId("_Zdd-Bdp-Ed-ak6NoX_4Aeg_1927128375")]
     [Description(@"Amount is below the minimum redemption amount.")]
-    BelowMinimumRedemptionAmount,
+    BelowMinimumRedemptionAmount = RejectedStatusReasonCode.BelowMinimumRedemptionAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holding will be below the minimum retained value.
-    /// Encoded/decoded by serializers as "BelowMinimumRetainedAmount".
+    /// Encoded/decoded by serializers as "BMRV".
     /// </summary>
     [EnumMember(Value = "BMRV")]
     [IsoId("_Zdd-Btp-Ed-ak6NoX_4Aeg_1927128410")]
     [Description(@"Holding will be below the minimum retained value.")]
-    BelowMinimumRetainedAmount,
+    BelowMinimumRetainedAmount = RejectedStatusReasonCode.BelowMinimumRetainedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lock-up period is in place.
-    /// Encoded/decoded by serializers as "LockUp".
+    /// Encoded/decoded by serializers as "LOCK".
     /// </summary>
     [EnumMember(Value = "LOCK")]
     [IsoId("_Zdd-B9p-Ed-ak6NoX_4Aeg_1927128670")]
     [Description(@"Lock-up period is in place.")]
-    LockUp,
+    LockUp = RejectedStatusReasonCode.LockUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Assets are illiquid.
-    /// Encoded/decoded by serializers as "AssetsIlliquid".
+    /// Encoded/decoded by serializers as "ILLI".
     /// </summary>
     [EnumMember(Value = "ILLI")]
     [IsoId("_Zdd-CNp-Ed-ak6NoX_4Aeg_1927128687")]
     [Description(@"Assets are illiquid.")]
-    AssetsIlliquid,
+    AssetsIlliquid = RejectedStatusReasonCode.AssetsIlliquid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data in the order or transfer instruction is invalid.
-    /// Encoded/decoded by serializers as "DataInvalid".
+    /// Encoded/decoded by serializers as "DINV".
     /// </summary>
     [EnumMember(Value = "DINV")]
     [IsoId("_Zdd-Cdp-Ed-ak6NoX_4Aeg_1927128730")]
     [Description(@"Data in the order or transfer instruction is invalid.")]
-    DataInvalid,
+    DataInvalid = RejectedStatusReasonCode.DataInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund is closed and will not take in any more investments.
-    /// Encoded/decoded by serializers as "FundClosed".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_ZdnvANp-Ed-ak6NoX_4Aeg_1927128765")]
     [Description(@"Fund is closed and will not take in any more investments.")]
-    FundClosed,
+    FundClosed = RejectedStatusReasonCode.FundClosed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -352,7 +352,7 @@ public enum RejectedStatusReason10Code
 public static class RejectedStatusReason10CodeMetadataExtensions
 {
     private static readonly RejectedStatusReason10CodeDropdownSource _dropdownSource = new RejectedStatusReason10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

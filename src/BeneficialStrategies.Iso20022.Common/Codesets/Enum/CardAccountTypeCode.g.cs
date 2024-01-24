@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TV8F7AEcEeCQm6a_G2yO_w_398677392")]
 [Description(@"Type of cardholder account used for the transaction.")]
 [Derivations(typeof(CardAccountType1Code),typeof(CardAccountType2Code),typeof(CardAccountType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CardAccountTypeCode
 {
     /// <summary>
@@ -281,7 +280,7 @@ public enum CardAccountTypeCode
 public static class CardAccountTypeCodeMetadataExtensions
 {
     private static readonly CardAccountTypeCodeDropdownSource _dropdownSource = new CardAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

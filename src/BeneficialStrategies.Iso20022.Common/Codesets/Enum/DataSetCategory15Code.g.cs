@@ -21,147 +21,147 @@ public enum DataSetCategory15Code
 {
     /// <summary>
     /// Configuration parameters of the payment acquirer protocol.
-    /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
+    /// Encoded/decoded by serializers as "ACQP".
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_2IRu0Q0aEeqUVL7sB4m7NA")]
     [Description(@"Configuration parameters of the payment acquirer protocol.")]
-    AcquirerProtocolParameters,
+    AcquirerProtocolParameters = DataSetCategoryCode.AcquirerProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "ApplicationParameters".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_2IRu0w0aEeqUVL7sB4m7NA")]
     [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
-    ApplicationParameters,
+    ApplicationParameters = DataSetCategoryCode.ApplicationParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creation of a subset of the configuration parameters of an application.
-    /// Encoded/decoded by serializers as "ApplicationParametersSubsetCreation".
+    /// Encoded/decoded by serializers as "APSB".
     /// </summary>
     [EnumMember(Value = "APSB")]
     [IsoId("_2IRu1Q0aEeqUVL7sB4m7NA")]
     [Description(@"Creation of a subset of the configuration parameters of an application.")]
-    ApplicationParametersSubsetCreation,
+    ApplicationParametersSubsetCreation = DataSetCategoryCode.ApplicationParametersSubsetCreation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Download of cryptographic keys with the related information.
-    /// Encoded/decoded by serializers as "KeyDownload".
+    /// Encoded/decoded by serializers as "KDWL".
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_2IRu1w0aEeqUVL7sB4m7NA")]
     [Description(@"Download of cryptographic keys with the related information.")]
-    KeyDownload,
+    KeyDownload = DataSetCategoryCode.KeyDownload, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Activate, deactivate or revoke loaded cryptographic keys.
-    /// Encoded/decoded by serializers as "KeyManagement".
+    /// Encoded/decoded by serializers as "KMGT".
     /// </summary>
     [EnumMember(Value = "KMGT")]
     [IsoId("_2IRu2Q0aEeqUVL7sB4m7NA")]
     [Description(@"Activate, deactivate or revoke loaded cryptographic keys.")]
-    KeyManagement,
+    KeyManagement = DataSetCategoryCode.KeyManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reporting on activity, status and error of a point of interaction.
-    /// Encoded/decoded by serializers as "Reporting".
+    /// Encoded/decoded by serializers as "RPRT".
     /// </summary>
     [EnumMember(Value = "RPRT")]
     [IsoId("_2IRu2w0aEeqUVL7sB4m7NA")]
     [Description(@"Reporting on activity, status and error of a point of interaction.")]
-    Reporting,
+    Reporting = DataSetCategoryCode.Reporting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SoftwareModule".
+    /// Encoded/decoded by serializers as "SWPK".
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_2IRu3Q0aEeqUVL7sB4m7NA")]
     [Description(@"Software module.")]
-    SoftwareModule,
+    SoftwareModule = DataSetCategoryCode.SoftwareModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSProtocolParameters".
+    /// Encoded/decoded by serializers as "TMSP".
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_2IRu3w0aEeqUVL7sB4m7NA")]
     [Description(@"Configuration parameters for the TMS protocol.")]
-    TMSProtocolParameters,
+    TMSProtocolParameters = DataSetCategoryCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MerchantParameters".
+    /// Encoded/decoded by serializers as "MRPR".
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_2IRu4Q0aEeqUVL7sB4m7NA")]
     [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
-    MerchantParameters,
+    MerchantParameters = DataSetCategoryCode.MerchantParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TerminalParameters".
+    /// Encoded/decoded by serializers as "TRPR".
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_2IRu4w0aEeqUVL7sB4m7NA")]
     [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
-    TerminalParameters,
+    TerminalParameters = DataSetCategoryCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CertificateParameters".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_2IRu5Q0aEeqUVL7sB4m7NA")]
     [Description(@"Certificate provided by a terminal manager.")]
-    CertificateParameters,
+    CertificateParameters = DataSetCategoryCode.CertificateParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component of the Sale system.
-    /// Encoded/decoded by serializers as "SaleComponent".
+    /// Encoded/decoded by serializers as "SACP".
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_2IRu5w0aEeqUVL7sB4m7NA")]
     [Description(@"Component of the Sale system.")]
-    SaleComponent,
+    SaleComponent = DataSetCategoryCode.SaleComponent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Parameters related to the Sale to POI protocol.
-    /// Encoded/decoded by serializers as "SaleToPOIProtocolParameters".
+    /// Encoded/decoded by serializers as "SAPR".
     /// </summary>
     [EnumMember(Value = "SAPR")]
     [IsoId("_2IRu6Q0aEeqUVL7sB4m7NA")]
     [Description(@"Parameters related to the Sale to POI protocol.")]
-    SaleToPOIProtocolParameters,
+    SaleToPOIProtocolParameters = DataSetCategoryCode.SaleToPOIProtocolParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any repository used for recording log traces.
-    /// Encoded/decoded by serializers as "LogFile".
+    /// Encoded/decoded by serializers as "LOGF".
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_721NEQ0aEeqUVL7sB4m7NA")]
     [Description(@"Any repository used for recording log traces.")]
-    LogFile,
+    LogFile = DataSetCategoryCode.LogFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report file generated by the POI.
-    /// Encoded/decoded by serializers as "ReportFile".
+    /// Encoded/decoded by serializers as "RPFL".
     /// </summary>
     [EnumMember(Value = "RPFL")]
     [IsoId("_BTZjcQ0bEeqUVL7sB4m7NA")]
     [Description(@"Report file generated by the POI.")]
-    ReportFile,
+    ReportFile = DataSetCategoryCode.ReportFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration file relevant for the POI.
-    /// Encoded/decoded by serializers as "ConfigurationFile".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_B-5-kQ0bEeqUVL7sB4m7NA")]
     [Description(@"Configuration file relevant for the POI.")]
-    ConfigurationFile,
+    ConfigurationFile = DataSetCategoryCode.ConfigurationFile, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum DataSetCategory15Code
 public static class DataSetCategory15CodeMetadataExtensions
 {
     private static readonly DataSetCategory15CodeDropdownSource _dropdownSource = new DataSetCategory15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

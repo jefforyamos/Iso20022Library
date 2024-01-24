@@ -21,84 +21,84 @@ public enum SecuritiesBalanceType7Code
 {
     /// <summary>
     /// Balance of securities that are eligible for use for collateral purposes.
-    /// Encoded/decoded by serializers as "EligibleForCollateralPurposes".
+    /// Encoded/decoded by serializers as "COLA".
     /// </summary>
     [EnumMember(Value = "COLA")]
     [IsoId("_ZCpqQdp-Ed-ak6NoX_4Aeg_1990825070")]
     [Description(@"Balance of securities that are eligible for use for collateral purposes.")]
-    EligibleForCollateralPurposes,
+    EligibleForCollateralPurposes = SecuritiesBalanceTypeV2Code.EligibleForCollateralPurposes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Unclassified".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZCpqQtp-Ed-ak6NoX_4Aeg_1990825425")]
     [Description(@"Other. See Narrative.")]
-    Unclassified,
+    Unclassified = SecuritiesBalanceTypeV2Code.Unclassified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax-exempt financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "TaxExempt".
+    /// Encoded/decoded by serializers as "CLEN".
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_ZCpqQ9p-Ed-ak6NoX_4Aeg_1990825442")]
     [Description(@"Tax-exempt financial instruments are to be settled.")]
-    TaxExempt,
+    TaxExempt = SecuritiesBalanceTypeV2Code.TaxExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Taxable financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "NonTaxExempt".
+    /// Encoded/decoded by serializers as "DIRT".
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_ZCpqRNp-Ed-ak6NoX_4Aeg_1990825476")]
     [Description(@"Taxable financial instruments are to be settled.")]
-    NonTaxExempt,
+    NonTaxExempt = SecuritiesBalanceTypeV2Code.NonTaxExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).
-    /// Encoded/decoded by serializers as "Registered".
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_ZCpqRdp-Ed-ak6NoX_4Aeg_1990825477")]
     [Description(@"Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).")]
-    Registered,
+    Registered = SecuritiesBalanceTypeV2Code.Registered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
-    /// Encoded/decoded by serializers as "StreetPosition".
+    /// Encoded/decoded by serializers as "SPOS".
     /// </summary>
     [EnumMember(Value = "SPOS")]
     [IsoId("_ZCpqRtp-Ed-ak6NoX_4Aeg_1990825494")]
     [Description(@"Balance of financial instruments that remain registered in the name of the prior beneficial owner.")]
-    StreetPosition,
+    StreetPosition = SecuritiesBalanceTypeV2Code.StreetPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that could not be registered due to foreign ownership limitation.
-    /// Encoded/decoded by serializers as "Unregistered".
+    /// Encoded/decoded by serializers as "UNRG".
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_ZCpqR9p-Ed-ak6NoX_4Aeg_1990825495")]
     [Description(@"Balance of securities that could not be registered due to foreign ownership limitation.")]
-    Unregistered,
+    Unregistered = SecuritiesBalanceTypeV2Code.Unregistered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.
-    /// Encoded/decoded by serializers as "Issued".
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_ZCpqSNp-Ed-ak6NoX_4Aeg_-740716487")]
     [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.")]
-    Issued,
+    Issued = SecuritiesBalanceTypeV2Code.Issued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.
-    /// Encoded/decoded by serializers as "QuasiIssued".
+    /// Encoded/decoded by serializers as "QUAS".
     /// </summary>
     [EnumMember(Value = "QUAS")]
     [IsoId("_ZCpqSdp-Ed-ak6NoX_4Aeg_-740716214")]
     [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.")]
-    QuasiIssued,
+    QuasiIssued = SecuritiesBalanceTypeV2Code.QuasiIssued, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum SecuritiesBalanceType7Code
 public static class SecuritiesBalanceType7CodeMetadataExtensions
 {
     private static readonly SecuritiesBalanceType7CodeDropdownSource _dropdownSource = new SecuritiesBalanceType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

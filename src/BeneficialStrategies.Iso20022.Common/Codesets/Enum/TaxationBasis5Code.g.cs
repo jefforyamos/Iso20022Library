@@ -21,48 +21,48 @@ public enum TaxationBasis5Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "Flat".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_u1XA4TkTEeahTcrfPSjpxA")]
     [Description(@"Charge/tax basis is a lump sum.")]
-    Flat,
+    Flat = TaxationBasisCode.Flat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/Commission/tax basis is based on the gross amount.
-    /// Encoded/decoded by serializers as "GrossAmount".
+    /// Encoded/decoded by serializers as "GRAM".
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_u7wj0TkTEeahTcrfPSjpxA")]
     [Description(@"Charge/Commission/tax basis is based on the gross amount.")]
-    GrossAmount,
+    GrossAmount = TaxationBasisCode.GrossAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/commission/tax basis is based on the net amount.
-    /// Encoded/decoded by serializers as "NetAmount".
+    /// Encoded/decoded by serializers as "NEAM".
     /// </summary>
     [EnumMember(Value = "NEAM")]
     [IsoId("_vBjp0TkTEeahTcrfPSjpxA")]
     [Description(@"Charge/commission/tax basis is based on the net amount.")]
-    NetAmount,
+    NetAmount = TaxationBasisCode.NetAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/tax basis is the price.
-    /// Encoded/decoded by serializers as "NetAssetValuePrice".
+    /// Encoded/decoded by serializers as "NAVP".
     /// </summary>
     [EnumMember(Value = "NAVP")]
     [IsoId("_vNAr4TkTEeahTcrfPSjpxA")]
     [Description(@"Charge/tax basis is the price.")]
-    NetAssetValuePrice,
+    NetAssetValuePrice = TaxationBasisCode.NetAssetValuePrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PerUnit".
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_vbAEkTkTEeahTcrfPSjpxA")]
     [Description(@"Charges/tax basis is per unit of financial instrument.")]
-    PerUnit,
+    PerUnit = TaxationBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TaxationBasis5Code
 public static class TaxationBasis5CodeMetadataExtensions
 {
     private static readonly TaxationBasis5CodeDropdownSource _dropdownSource = new TaxationBasis5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

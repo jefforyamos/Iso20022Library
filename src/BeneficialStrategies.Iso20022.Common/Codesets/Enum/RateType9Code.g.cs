@@ -21,12 +21,12 @@ public enum RateType9Code
 {
     /// <summary>
     /// Any and all rate is sought.
-    /// Encoded/decoded by serializers as "AnyAndAll".
+    /// Encoded/decoded by serializers as "ANYA".
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_ZZvUlNp-Ed-ak6NoX_4Aeg_-1126354403")]
     [Description(@"Any and all rate is sought.")]
-    AnyAndAll,
+    AnyAndAll = RateTypeCode.AnyAndAll, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum RateType9Code
 public static class RateType9CodeMetadataExtensions
 {
     private static readonly RateType9CodeDropdownSource _dropdownSource = new RateType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

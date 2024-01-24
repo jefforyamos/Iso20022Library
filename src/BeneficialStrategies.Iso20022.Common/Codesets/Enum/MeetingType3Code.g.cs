@@ -21,48 +21,48 @@ public enum MeetingType3Code
 {
     /// <summary>
     /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "Extraordinary".
+    /// Encoded/decoded by serializers as "XMET".
     /// </summary>
     [EnumMember(Value = "XMET")]
     [IsoId("_62UMQVuKEeSmO6RkXg92Lg")]
     [Description(@"Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.")]
-    Extraordinary,
+    Extraordinary = MeetingTypeCode.Extraordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes annual and ordinary meeting. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example approval of dividends, directors, etc. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GMET".
     /// </summary>
     [EnumMember(Value = "GMET")]
     [IsoId("_7KtH4VuKEeSmO6RkXg92Lg")]
     [Description(@"Includes annual and ordinary meeting. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example approval of dividends, directors, etc. These meetings are always issuer initiated.")]
-    General,
+    General = MeetingTypeCode.General, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies a meeting which contains both ordinary and extraordinary resolutions.
-    /// Encoded/decoded by serializers as "Mixed".
+    /// Encoded/decoded by serializers as "MIXD".
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_7hUREVuKEeSmO6RkXg92Lg")]
     [Description(@"Specifies a meeting which contains both ordinary and extraordinary resolutions.")]
-    Mixed,
+    Mixed = MeetingTypeCode.Mixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
-    /// Encoded/decoded by serializers as "Special".
+    /// Encoded/decoded by serializers as "SPCL".
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_78P5kVuKEeSmO6RkXg92Lg")]
     [Description(@"Meeting that takes place as needed that is neither ordinary nor extraordinary.")]
-    Special,
+    Special = MeetingTypeCode.Special, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical meeting of bond holders.
-    /// Encoded/decoded by serializers as "BondHolderMeeting".
+    /// Encoded/decoded by serializers as "BMET".
     /// </summary>
     [EnumMember(Value = "BMET")]
     [IsoId("_LLzM8VuLEeSmO6RkXg92Lg")]
     [Description(@"Physical meeting of bond holders.")]
-    BondHolderMeeting,
+    BondHolderMeeting = MeetingTypeCode.BondHolderMeeting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum MeetingType3Code
 public static class MeetingType3CodeMetadataExtensions
 {
     private static readonly MeetingType3CodeDropdownSource _dropdownSource = new MeetingType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

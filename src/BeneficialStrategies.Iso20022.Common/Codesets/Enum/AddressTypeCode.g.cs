@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bm2sZ9p-Ed-ak6NoX_4Aeg_-1036380604")]
 [Description(@"Specifies the type of address.")]
 [Derivations(typeof(AddressType2Code),typeof(AddressType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AddressTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum AddressTypeCode
 public static class AddressTypeCodeMetadataExtensions
 {
     private static readonly AddressTypeCodeDropdownSource _dropdownSource = new AddressTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

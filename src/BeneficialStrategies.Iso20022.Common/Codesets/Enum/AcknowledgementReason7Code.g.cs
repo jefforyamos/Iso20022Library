@@ -21,21 +21,21 @@ public enum AcknowledgementReason7Code
 {
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_D0GuMSqAEeO3oOoGGWHH4A")]
     [Description(@"Instruction was not straight through processing and had to be processed manually.")]
-    NotStraightThroughProcessing,
+    NotStraightThroughProcessing = AcknowledgementReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_D7GHASqAEeO3oOoGGWHH4A")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AcknowledgementReason7Code
 public static class AcknowledgementReason7CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason7CodeDropdownSource _dropdownSource = new AcknowledgementReason7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

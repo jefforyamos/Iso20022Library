@@ -21,21 +21,21 @@ public enum TaxationBasis2Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "Flat".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_ZScZxdp-Ed-ak6NoX_4Aeg_986778433")]
     [Description(@"Charge/tax basis is a lump sum.")]
-    Flat,
+    Flat = TaxationBasisCode.Flat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PerUnit".
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_ZScZxtp-Ed-ak6NoX_4Aeg_986778434")]
     [Description(@"Charges/tax basis is per unit of financial instrument.")]
-    PerUnit,
+    PerUnit = TaxationBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TaxationBasis2Code
 public static class TaxationBasis2CodeMetadataExtensions
 {
     private static readonly TaxationBasis2CodeDropdownSource _dropdownSource = new TaxationBasis2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

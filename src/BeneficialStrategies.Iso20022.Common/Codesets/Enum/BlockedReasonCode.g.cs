@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_iybhYxHaEeKVqeHljBM1MQ")]
 [Description(@"Specifies the reason an account is blocked.")]
 [Derivations(typeof(BlockedReason1Code),typeof(BlockedReason2Code),typeof(DisabledReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BlockedReasonCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum BlockedReasonCode
 public static class BlockedReasonCodeMetadataExtensions
 {
     private static readonly BlockedReasonCodeDropdownSource _dropdownSource = new BlockedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

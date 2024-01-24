@@ -21,30 +21,30 @@ public enum FinancialInstrumentRemoval1Code
 {
     /// <summary>
     /// Removal period for the financial instrument from the collateral pool must be extended.
-    /// Encoded/decoded by serializers as "Extension".
+    /// Encoded/decoded by serializers as "EXTN".
     /// </summary>
     [EnumMember(Value = "EXTN")]
     [IsoId("_YxHEgfkNEeicy5Zn42b9bg")]
     [Description(@"Removal period for the financial instrument from the collateral pool must be extended.")]
-    Extension,
+    Extension = FinancialInstrumentRemovalCode.Extension, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument must be removed from the collateral pool.
-    /// Encoded/decoded by serializers as "Removal".
+    /// Encoded/decoded by serializers as "REMO".
     /// </summary>
     [EnumMember(Value = "REMO")]
     [IsoId("_ZAgycvkNEeicy5Zn42b9bg")]
     [Description(@"Financial instrument must be removed from the collateral pool.")]
-    Removal,
+    Removal = FinancialInstrumentRemovalCode.Removal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument removal is termintated.
-    /// Encoded/decoded by serializers as "Termination".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_ZGSDQfkNEeicy5Zn42b9bg")]
     [Description(@"Financial instrument removal is termintated.")]
-    Termination,
+    Termination = FinancialInstrumentRemovalCode.Termination, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FinancialInstrumentRemoval1Code
 public static class FinancialInstrumentRemoval1CodeMetadataExtensions
 {
     private static readonly FinancialInstrumentRemoval1CodeDropdownSource _dropdownSource = new FinancialInstrumentRemoval1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,327 +21,327 @@ public enum UnmatchedReason5Code
 {
     /// <summary>
     /// A matching instruction from your counterparty could not be found.
-    /// Encoded/decoded by serializers as "NoMatch".
+    /// Encoded/decoded by serializers as "CMIS".
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_5WUv1f4fEeCH9dkaY_DhYw")]
     [Description(@"A matching instruction from your counterparty could not be found.")]
-    NoMatch,
+    NoMatch = UnmatchedReasonCode.NoMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement date/time does not match.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_5WUv2f4fEeCH9dkaY_DhYw")]
     [Description(@"Settlement date/time does not match.")]
-    SettlementDate,
+    SettlementDate = UnmatchedReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.
-    /// Encoded/decoded by serializers as "TransactionDirection".
+    /// Encoded/decoded by serializers as "DELN".
     /// </summary>
     [EnumMember(Value = "DELN")]
     [IsoId("_5WUv3f4fEeCH9dkaY_DhYw")]
     [Description(@"Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.")]
-    TransactionDirection,
+    TransactionDirection = UnmatchedReasonCode.TransactionDirection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Depository does not match.
-    /// Encoded/decoded by serializers as "ReceivingDeliveringDepository".
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_5WUv4f4fEeCH9dkaY_DhYw")]
     [Description(@"Depository does not match.")]
-    ReceivingDeliveringDepository,
+    ReceivingDeliveringDepository = UnmatchedReasonCode.ReceivingDeliveringDepository, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement amount does not match.
-    /// Encoded/decoded by serializers as "SettlementAmount".
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_5WUv5f4fEeCH9dkaY_DhYw")]
     [Description(@"Settlement amount does not match.")]
-    SettlementAmount,
+    SettlementAmount = UnmatchedReasonCode.SettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deal price does not match.
-    /// Encoded/decoded by serializers as "DealPrice".
+    /// Encoded/decoded by serializers as "DDEA".
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_5WUv6f4fEeCH9dkaY_DhYw")]
     [Description(@"Deal price does not match.")]
-    DealPrice,
+    DealPrice = UnmatchedReasonCode.DealPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_5WUv7f4fEeCH9dkaY_DhYw")]
     [Description(@"Quantity of financial instruments does not match.")]
-    FinancialInstrumentQuantity,
+    FinancialInstrumentQuantity = UnmatchedReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_5WUv8f4fEeCH9dkaY_DhYw")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = UnmatchedReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transaction type does not match (relates to the settlement transaction type codes available for field: 22F:: SETR.).
-    /// Encoded/decoded by serializers as "SettlementTransaction".
+    /// Encoded/decoded by serializers as "SETR".
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_5WUv9f4fEeCH9dkaY_DhYw")]
     [Description(@"Settlement transaction type does not match (relates to the settlement transaction type codes available for field: 22F:: SETR.).")]
-    SettlementTransaction,
+    SettlementTransaction = UnmatchedReasonCode.SettlementTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement system/method does not match (for example, instruction is to settle using settlement system/method A. Counterparty expects settlement to occur using settlement system/method B).
-    /// Encoded/decoded by serializers as "SettlementSystemMethod".
+    /// Encoded/decoded by serializers as "SETS".
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_5WUv-f4fEeCH9dkaY_DhYw")]
     [Description(@"Settlement system/method does not match (for example, instruction is to settle using settlement system/method A. Counterparty expects settlement to occur using settlement system/method B).")]
-    SettlementSystemMethod,
+    SettlementSystemMethod = UnmatchedReasonCode.SettlementSystemMethod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.
-    /// Encoded/decoded by serializers as "FinancialInstrument".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_5WUv_f4fEeCH9dkaY_DhYw")]
     [Description(@"Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.")]
-    FinancialInstrument,
+    FinancialInstrument = UnmatchedReasonCode.FinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty has been contacted or contacted us, and does not recognise the transaction.
-    /// Encoded/decoded by serializers as "NotRecognised".
+    /// Encoded/decoded by serializers as "DTRA".
     /// </summary>
     [EnumMember(Value = "DTRA")]
     [IsoId("_5WUwAf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty has been contacted or contacted us, and does not recognise the transaction.")]
-    NotRecognised,
+    NotRecognised = UnmatchedReasonCode.NotRecognised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty's instruction was too late for matching.
-    /// Encoded/decoded by serializers as "CounterpartyTooLateForMatching".
+    /// Encoded/decoded by serializers as "CLAT".
     /// </summary>
     [EnumMember(Value = "CLAT")]
     [IsoId("_5WUwBf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty's instruction was too late for matching.")]
-    CounterpartyTooLateForMatching,
+    CounterpartyTooLateForMatching = UnmatchedReasonCode.CounterpartyTooLateForMatching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty's instruction is physical settlement, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "PhysicalSettlement".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_5WUwCf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty's instruction is physical settlement, your instruction is not, or vice versa.")]
-    PhysicalSettlement,
+    PhysicalSettlement = UnmatchedReasonCode.PhysicalSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Common reference does not match.
-    /// Encoded/decoded by serializers as "CommonReference".
+    /// Encoded/decoded by serializers as "IIND".
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_5WUwDf4fEeCH9dkaY_DhYw")]
     [Description(@"Common reference does not match.")]
-    CommonReference,
+    CommonReference = UnmatchedReasonCode.CommonReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment type does not match: your instruction is free of payment, your counterparty's instruction is against payment or vice versa.
-    /// Encoded/decoded by serializers as "PaymentCode".
+    /// Encoded/decoded by serializers as "FRAP".
     /// </summary>
     [EnumMember(Value = "FRAP")]
     [IsoId("_5WUwEf4fEeCH9dkaY_DhYw")]
     [Description(@"Payment type does not match: your instruction is free of payment, your counterparty's instruction is against payment or vice versa.")]
-    PaymentCode,
+    PaymentCode = UnmatchedReasonCode.PaymentCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of trade does not match.
-    /// Encoded/decoded by serializers as "PlaceOfTrade".
+    /// Encoded/decoded by serializers as "PLCE".
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_5WUwFf4fEeCH9dkaY_DhYw")]
     [Description(@"Place of trade does not match.")]
-    PlaceOfTrade,
+    PlaceOfTrade = UnmatchedReasonCode.PlaceOfTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has not been matched. It is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "PossibleDuplicate".
+    /// Encoded/decoded by serializers as "PODU".
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_5WUwGf4fEeCH9dkaY_DhYw")]
     [Description(@"Instruction has not been matched. It is a possible duplicate instruction.")]
-    PossibleDuplicate,
+    PossibleDuplicate = UnmatchedReasonCode.PossibleDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Registration details linked to the transaction are incorrect.
-    /// Encoded/decoded by serializers as "RegistrationDetails".
+    /// Encoded/decoded by serializers as "REGD".
     /// </summary>
     [EnumMember(Value = "REGD")]
     [IsoId("_5WUwHf4fEeCH9dkaY_DhYw")]
     [Description(@"Registration details linked to the transaction are incorrect.")]
-    RegistrationDetails,
+    RegistrationDetails = UnmatchedReasonCode.RegistrationDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty is for Real Time Gross Settlement (RTGS) system, you are for non-RTGS or vice versa.
-    /// Encoded/decoded by serializers as "RTGSSystem".
+    /// Encoded/decoded by serializers as "RTGS".
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_5WUwIf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty is for Real Time Gross Settlement (RTGS) system, you are for non-RTGS or vice versa.")]
-    RTGSSystem,
+    RTGSSystem = UnmatchedReasonCode.RTGSSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant of delivering or receiving depository does not match.
-    /// Encoded/decoded by serializers as "ReceivingDeliveringParty1".
+    /// Encoded/decoded by serializers as "ICAG".
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_5WUwJf4fEeCH9dkaY_DhYw")]
     [Description(@"Participant of delivering or receiving depository does not match.")]
-    ReceivingDeliveringParty1,
+    ReceivingDeliveringParty1 = UnmatchedReasonCode.ReceivingDeliveringParty1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty cancelled their instruction.
-    /// Encoded/decoded by serializers as "CounterpartyCancelled".
+    /// Encoded/decoded by serializers as "CPCA".
     /// </summary>
     [EnumMember(Value = "CPCA")]
     [IsoId("_5WUwKf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty cancelled their instruction.")]
-    CounterpartyCancelled,
+    CounterpartyCancelled = UnmatchedReasonCode.CounterpartyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Client of delivering or receiving party 2 does not match.
-    /// Encoded/decoded by serializers as "ReceivingDeliveringParty3".
+    /// Encoded/decoded by serializers as "IEXE".
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_5WUwLf4fEeCH9dkaY_DhYw")]
     [Description(@"Client of delivering or receiving party 2 does not match.")]
-    ReceivingDeliveringParty3,
+    ReceivingDeliveringParty3 = UnmatchedReasonCode.ReceivingDeliveringParty3, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement amount currency does not match.
-    /// Encoded/decoded by serializers as "CurrencySettlementAmount".
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_5WUwMf4fEeCH9dkaY_DhYw")]
     [Description(@"Settlement amount currency does not match.")]
-    CurrencySettlementAmount,
+    CurrencySettlementAmount = UnmatchedReasonCode.CurrencySettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty is for settlement through letter of guarantee, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "LetterOfGuarantee".
+    /// Encoded/decoded by serializers as "LEOG".
     /// </summary>
     [EnumMember(Value = "LEOG")]
     [IsoId("_5WUwNf4fEeCH9dkaY_DhYw")]
     [Description(@"Counterparty is for settlement through letter of guarantee, your instruction is not, or vice versa.")]
-    LetterOfGuarantee,
+    LetterOfGuarantee = UnmatchedReasonCode.LetterOfGuarantee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Matching process has not yet started.
-    /// Encoded/decoded by serializers as "NoMatchingStarted".
+    /// Encoded/decoded by serializers as "NMAS".
     /// </summary>
     [EnumMember(Value = "NMAS")]
     [IsoId("_5WUwOf4fEeCH9dkaY_DhYw")]
     [Description(@"Matching process has not yet started.")]
-    NoMatchingStarted,
+    NoMatchingStarted = UnmatchedReasonCode.NoMatchingStarted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller's account, direct client's account at the receiving/delivering agent, or receiving/delivering agent's account at the CSD.
-    /// Encoded/decoded by serializers as "SafekeepingAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_5WUwPf4fEeCH9dkaY_DhYw")]
     [Description(@"Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller's account, direct client's account at the receiving/delivering agent, or receiving/delivering agent's account at the CSD.")]
-    SafekeepingAccount,
+    SafekeepingAccount = UnmatchedReasonCode.SafekeepingAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade date does not match.
-    /// Encoded/decoded by serializers as "TradeDate".
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_5WUwQf4fEeCH9dkaY_DhYw")]
     [Description(@"Trade date does not match.")]
-    TradeDate,
+    TradeDate = UnmatchedReasonCode.TradeDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your instruction was too late for matching.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_5WUwRf4fEeCH9dkaY_DhYw")]
     [Description(@"Your instruction was too late for matching.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = UnmatchedReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Disagreement on the tax status of the financial instruments to be settled.
-    /// Encoded/decoded by serializers as "TaxStatus".
+    /// Encoded/decoded by serializers as "TXST".
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_5WUwSf4fEeCH9dkaY_DhYw")]
     [Description(@"Disagreement on the tax status of the financial instruments to be settled.")]
-    TaxStatus,
+    TaxStatus = UnmatchedReasonCode.TaxStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Client of delivering or receiving party 1 does not match.
-    /// Encoded/decoded by serializers as "ReceivingDeliveringParty2".
+    /// Encoded/decoded by serializers as "ICUS".
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_5WUwTf4fEeCH9dkaY_DhYw")]
     [Description(@"Client of delivering or receiving party 1 does not match.")]
-    ReceivingDeliveringParty2,
+    ReceivingDeliveringParty2 = UnmatchedReasonCode.ReceivingDeliveringParty2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Proprietary unmatched reason code described in a narrative field.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_5WUwUf4fEeCH9dkaY_DhYw")]
     [Description(@"Proprietary unmatched reason code described in a narrative field.")]
-    Other,
+    Other = UnmatchedReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Missing market execution details.
-    /// Encoded/decoded by serializers as "MissingMarketSide".
+    /// Encoded/decoded by serializers as "MIME".
     /// </summary>
     [EnumMember(Value = "MIME")]
     [IsoId("_5WUwVf4fEeCH9dkaY_DhYw")]
     [Description(@"Missing market execution details.")]
-    MissingMarketSide,
+    MissingMarketSide = UnmatchedReasonCode.MissingMarketSide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Market side trade is unmatched.
-    /// Encoded/decoded by serializers as "UnmatchedMarketSide".
+    /// Encoded/decoded by serializers as "UNBR".
     /// </summary>
     [EnumMember(Value = "UNBR")]
     [IsoId("_5WUwWf4fEeCH9dkaY_DhYw")]
     [Description(@"Market side trade is unmatched.")]
-    UnmatchedMarketSide,
+    UnmatchedMarketSide = UnmatchedReasonCode.UnmatchedMarketSide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of safekeeping information does not allow matching to take place.
-    /// Encoded/decoded by serializers as "PlaceOfSafekeeping".
+    /// Encoded/decoded by serializers as "INPS".
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_5WUwXf4fEeCH9dkaY_DhYw")]
     [Description(@"Place of safekeeping information does not allow matching to take place.")]
-    PlaceOfSafekeeping,
+    PlaceOfSafekeeping = UnmatchedReasonCode.PlaceOfSafekeeping, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accrued interest amount does not match.
-    /// Encoded/decoded by serializers as "AccruedInterestAmount1".
+    /// Encoded/decoded by serializers as "ACRU".
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("_NrSlUv8GEeCfYPzkgpDStA")]
     [Description(@"Accrued interest amount does not match.")]
-    AccruedInterestAmount1,
+    AccruedInterestAmount1 = UnmatchedReasonCode.AccruedInterestAmount1, // same ordinal as derivation source for type conversions
     
 }
 
@@ -352,7 +352,7 @@ public enum UnmatchedReason5Code
 public static class UnmatchedReason5CodeMetadataExtensions
 {
     private static readonly UnmatchedReason5CodeDropdownSource _dropdownSource = new UnmatchedReason5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum SequenceType1Code
 {
     /// <summary>
     /// First collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "First".
+    /// Encoded/decoded by serializers as "FRST".
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_ZKPgA9p-Ed-ak6NoX_4Aeg_650235429")]
     [Description(@"First collection of a series of direct debit instructions.")]
-    First,
+    First = SequenceTypeCode.First, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "Recurring".
+    /// Encoded/decoded by serializers as "RCUR".
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgBNp-Ed-ak6NoX_4Aeg_650235490")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
-    Recurring,
+    Recurring = SequenceTypeCode.Recurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FNAL".
     /// </summary>
     [EnumMember(Value = "FNAL")]
     [IsoId("_ZKPgBdp-Ed-ak6NoX_4Aeg_650235532")]
     [Description(@"Final collection of a series of direct debit instructions.")]
-    Final,
+    Final = SequenceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OneOff".
+    /// Encoded/decoded by serializers as "OOFF".
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_ZKPgBtp-Ed-ak6NoX_4Aeg_650235798")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
-    OneOff,
+    OneOff = SequenceTypeCode.OneOff, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SequenceType1Code
 public static class SequenceType1CodeMetadataExtensions
 {
     private static readonly SequenceType1CodeDropdownSource _dropdownSource = new SequenceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

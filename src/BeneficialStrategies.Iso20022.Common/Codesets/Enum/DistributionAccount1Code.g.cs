@@ -21,21 +21,21 @@ public enum DistributionAccount1Code
 {
     /// <summary>
     /// General free account. DTC (The Depository Trust Company) allows immediate use of securities.
-    /// Encoded/decoded by serializers as "GeneralFree".
+    /// Encoded/decoded by serializers as "GENF".
     /// </summary>
     [EnumMember(Value = "GENF")]
     [IsoId("_1tcg8jL3EeKU9IrkkToqcw_1027673005")]
     [Description(@"General free account. DTC (The Depository Trust Company) allows immediate use of securities.")]
-    GeneralFree,
+    GeneralFree = DistributionAccountCode.GeneralFree, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// RRG account. Sub account. DTC (The Depository Trust Company) does not allow immediate use of securities.
-    /// Encoded/decoded by serializers as "RRGAccount".
+    /// Encoded/decoded by serializers as "RRGA".
     /// </summary>
     [EnumMember(Value = "RRGA")]
     [IsoId("_1tcg8zL3EeKU9IrkkToqcw_1352790512")]
     [Description(@"RRG account. Sub account. DTC (The Depository Trust Company) does not allow immediate use of securities.")]
-    RRGAccount,
+    RRGAccount = DistributionAccountCode.RRGAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DistributionAccount1Code
 public static class DistributionAccount1CodeMetadataExtensions
 {
     private static readonly DistributionAccount1CodeDropdownSource _dropdownSource = new DistributionAccount1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum GeneralInvestmentAccountType1Code
 {
     /// <summary>
     /// General shares or equity savings account.
-    /// Encoded/decoded by serializers as "ShareSavingsAccount".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_dqv2cV2dEeiFXdiLi_Nf4A")]
     [Description(@"General shares or equity savings account.")]
-    ShareSavingsAccount,
+    ShareSavingsAccount = GeneralInvestmentAccountTypeCode.ShareSavingsAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum GeneralInvestmentAccountType1Code
 public static class GeneralInvestmentAccountType1CodeMetadataExtensions
 {
     private static readonly GeneralInvestmentAccountType1CodeDropdownSource _dropdownSource = new GeneralInvestmentAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

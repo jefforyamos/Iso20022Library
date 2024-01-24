@@ -21,30 +21,30 @@ public enum OversubscriptionType1Code
 {
     /// <summary>
     /// Unlimited oversubscription.
-    /// Encoded/decoded by serializers as "Unlimited".
+    /// Encoded/decoded by serializers as "UNLD".
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_1rW2QjL3EeKU9IrkkToqcw_490787890")]
     [Description(@"Unlimited oversubscription.")]
-    Unlimited,
+    Unlimited = OversubscriptionTypeCode.Unlimited, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The subscription is limited by quantity or percentage.
-    /// Encoded/decoded by serializers as "LimitedByQuantityOrPercentage".
+    /// Encoded/decoded by serializers as "LTDB".
     /// </summary>
     [EnumMember(Value = "LTDB")]
     [IsoId("_1rW2QzL3EeKU9IrkkToqcw_-1016864815")]
     [Description(@"The subscription is limited by quantity or percentage.")]
-    LimitedByQuantityOrPercentage,
+    LimitedByQuantityOrPercentage = OversubscriptionTypeCode.LimitedByQuantityOrPercentage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No oversubscription is allowed.
-    /// Encoded/decoded by serializers as "NoOversubscription".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_1rW2RDL3EeKU9IrkkToqcw_-1130703881")]
     [Description(@"No oversubscription is allowed.")]
-    NoOversubscription,
+    NoOversubscription = OversubscriptionTypeCode.NoOversubscription, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OversubscriptionType1Code
 public static class OversubscriptionType1CodeMetadataExtensions
 {
     private static readonly OversubscriptionType1CodeDropdownSource _dropdownSource = new OversubscriptionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

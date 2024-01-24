@@ -21,57 +21,57 @@ public enum InterestType3Code
 {
     /// <summary>
     /// Indicates that the type of interest is a zero coupon.
-    /// Encoded/decoded by serializers as "ZeroCoupon".
+    /// Encoded/decoded by serializers as "ZCPN".
     /// </summary>
     [EnumMember(Value = "ZCPN")]
     [IsoId("_ha_UvGliEeGaMcKyqKNRfQ_2005580526")]
     [Description(@"Indicates that the type of interest is a zero coupon.")]
-    ZeroCoupon,
+    ZeroCoupon = InterestTypeCode.ZeroCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the type of interest is fixed.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_ha_UvWliEeGaMcKyqKNRfQ_-583192410")]
     [Description(@"Indicates that the type of interest is fixed.")]
-    Fixed,
+    Fixed = InterestTypeCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the type of interest is a floating rate note.
-    /// Encoded/decoded by serializers as "FloatingRateNote".
+    /// Encoded/decoded by serializers as "FLRN".
     /// </summary>
     [EnumMember(Value = "FLRN")]
     [IsoId("_ha_UvmliEeGaMcKyqKNRfQ_-1218224256")]
     [Description(@"Indicates that the type of interest is a floating rate note.")]
-    FloatingRateNote,
+    FloatingRateNote = InterestTypeCode.FloatingRateNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the type of interest is a dual basis.
-    /// Encoded/decoded by serializers as "DualBasis".
+    /// Encoded/decoded by serializers as "DUAL".
     /// </summary>
     [EnumMember(Value = "DUAL")]
     [IsoId("_ha_Uv2liEeGaMcKyqKNRfQ_1701818028")]
     [Description(@"Indicates that the type of interest is a dual basis.")]
-    DualBasis,
+    DualBasis = InterestTypeCode.DualBasis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the type of interest is index.
-    /// Encoded/decoded by serializers as "Index".
+    /// Encoded/decoded by serializers as "INDE".
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_ha_UwGliEeGaMcKyqKNRfQ_1306353277")]
     [Description(@"Indicates that the type of interest is index.")]
-    Index,
+    Index = InterestTypeCode.Index, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the type of interest is discounted.
-    /// Encoded/decoded by serializers as "Discounted".
+    /// Encoded/decoded by serializers as "DSCO".
     /// </summary>
     [EnumMember(Value = "DSCO")]
     [IsoId("_ha_UwWliEeGaMcKyqKNRfQ_-1863117043")]
     [Description(@"Indicates that the type of interest is discounted.")]
-    Discounted,
+    Discounted = InterestTypeCode.Discounted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum InterestType3Code
 public static class InterestType3CodeMetadataExtensions
 {
     private static readonly InterestType3CodeDropdownSource _dropdownSource = new InterestType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

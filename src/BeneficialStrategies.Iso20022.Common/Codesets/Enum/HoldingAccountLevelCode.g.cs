@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_SvcYkU1pEeSvz4A_x0ui8g")]
 [Description(@"Specifies the level of the safekeeping holding account.")]
 [Derivations(typeof(HoldingAccountLevel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum HoldingAccountLevelCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum HoldingAccountLevelCode
 public static class HoldingAccountLevelCodeMetadataExtensions
 {
     private static readonly HoldingAccountLevelCodeDropdownSource _dropdownSource = new HoldingAccountLevelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

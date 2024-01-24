@@ -21,30 +21,30 @@ public enum ExchangeRateType1Code
 {
     /// <summary>
     /// Exchange rate applied is the spot rate.
-    /// Encoded/decoded by serializers as "Spot".
+    /// Encoded/decoded by serializers as "SPOT".
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_ak11wNp-Ed-ak6NoX_4Aeg_-75535808")]
     [Description(@"Exchange rate applied is the spot rate.")]
-    Spot,
+    Spot = ExchangeRateTypeCode.Spot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange rate applied is the market rate at the time of the sale.
-    /// Encoded/decoded by serializers as "Sale".
+    /// Encoded/decoded by serializers as "SALE".
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_ak11wdp-Ed-ak6NoX_4Aeg_-75535501")]
     [Description(@"Exchange rate applied is the market rate at the time of the sale.")]
-    Sale,
+    Sale = ExchangeRateTypeCode.Sale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange rate applied is the rate agreed between the parties.
-    /// Encoded/decoded by serializers as "Agreed".
+    /// Encoded/decoded by serializers as "AGRD".
     /// </summary>
     [EnumMember(Value = "AGRD")]
     [IsoId("_ak11wtp-Ed-ak6NoX_4Aeg_-75535484")]
     [Description(@"Exchange rate applied is the rate agreed between the parties.")]
-    Agreed,
+    Agreed = ExchangeRateTypeCode.Agreed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ExchangeRateType1Code
 public static class ExchangeRateType1CodeMetadataExtensions
 {
     private static readonly ExchangeRateType1CodeDropdownSource _dropdownSource = new ExchangeRateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZS5FuNp-Ed-ak6NoX_4Aeg_-1154442973")]
 [Description(@"Specifies additional information about the status of the repurchase agreement call processed instruction.")]
 [Derivations(typeof(RepoCallRequestStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RepoCallRequestStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RepoCallRequestStatusCode
 public static class RepoCallRequestStatusCodeMetadataExtensions
 {
     private static readonly RepoCallRequestStatusCodeDropdownSource _dropdownSource = new RepoCallRequestStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

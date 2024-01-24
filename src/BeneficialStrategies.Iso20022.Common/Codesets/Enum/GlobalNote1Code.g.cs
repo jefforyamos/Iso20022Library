@@ -21,21 +21,21 @@ public enum GlobalNote1Code
 {
     /// <summary>
     /// Form of global certificate which refers to the books and records of the ICSDs to determine the Issue Outstanding Amount (IOA).
-    /// Encoded/decoded by serializers as "NewGlobalNote".
+    /// Encoded/decoded by serializers as "NGNO".
     /// </summary>
     [EnumMember(Value = "NGNO")]
     [IsoId("_hbcApGliEeGaMcKyqKNRfQ_526655547")]
     [Description(@"Form of global certificate which refers to the books and records of the ICSDs to determine the Issue Outstanding Amount (IOA).")]
-    NewGlobalNote,
+    NewGlobalNote = GlobalNoteCode.NewGlobalNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the Issue Outstanding Amount (IOA).
-    /// Encoded/decoded by serializers as "ClassicalGlobalNote".
+    /// Encoded/decoded by serializers as "CGNO".
     /// </summary>
     [EnumMember(Value = "CGNO")]
     [IsoId("_hbcApWliEeGaMcKyqKNRfQ_-108376299")]
     [Description(@"Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the Issue Outstanding Amount (IOA).")]
-    ClassicalGlobalNote,
+    ClassicalGlobalNote = GlobalNoteCode.ClassicalGlobalNote, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum GlobalNote1Code
 public static class GlobalNote1CodeMetadataExtensions
 {
     private static readonly GlobalNote1CodeDropdownSource _dropdownSource = new GlobalNote1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

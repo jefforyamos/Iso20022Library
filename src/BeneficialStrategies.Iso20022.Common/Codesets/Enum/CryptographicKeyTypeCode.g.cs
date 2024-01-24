@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KU0viX1DEeCF8NjrBemJWQ_1699573944")]
 [Description(@"Type of algorithm used by the cryptographic key.")]
 [Derivations(typeof(CryptographicKeyType1Code),typeof(CryptographicKeyType2Code),typeof(CryptographicKeyType3Code),typeof(CryptographicKeyType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CryptographicKeyTypeCode
 {
     /// <summary>
@@ -198,7 +197,7 @@ public enum CryptographicKeyTypeCode
     /// </summary>
     [EnumMember(Value = "UKA8")]
     [IsoId("_5CcS4FWaEeeiG_nL4vgKnQ")]
-    [Description(@"UKPT (Unique Key Per Transaction). Encryption key using AES (Advanced Encryption Standard) with a 128 bits length key.  FIPS 197 - 6 November 2001).")]
+    [Description(@"UKPT (Unique Key Per Transaction). Encryption key using AES (Advanced Encryption Standard) with a 128 bits length key. |FIPS 197 - 6 November 2001).")]
     UKPTAES128,
     
     /// <summary>
@@ -208,7 +207,7 @@ public enum CryptographicKeyTypeCode
     /// </summary>
     [EnumMember(Value = "UKA6")]
     [IsoId("_ZVWZkFWbEeeiG_nL4vgKnQ")]
-    [Description(@"UKPT (Unique Key Per Transaction). Encryption key using AES (Advanced Encryption Standard) with a  256 bits length key.  FIPS 197 - 6 November 2001).")]
+    [Description(@"UKPT (Unique Key Per Transaction). Encryption key using AES (Advanced Encryption Standard) with a  256 bits length key. |FIPS 197 - 6 November 2001).")]
     UKPTAES256,
     
     /// <summary>
@@ -229,7 +228,7 @@ public enum CryptographicKeyTypeCode
 public static class CryptographicKeyTypeCodeMetadataExtensions
 {
     private static readonly CryptographicKeyTypeCodeDropdownSource _dropdownSource = new CryptographicKeyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

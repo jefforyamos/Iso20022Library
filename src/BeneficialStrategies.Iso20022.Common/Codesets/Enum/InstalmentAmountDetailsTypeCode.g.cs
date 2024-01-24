@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_J00oB9uYEei2qvU6FBLZYA")]
 [Description(@"Contains the details of the grace period applicable to the instalment")]
 [Derivations(typeof(InstalmentAmountDetailsType1Code),typeof(InstalmentAmountDetailsType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstalmentAmountDetailsTypeCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum InstalmentAmountDetailsTypeCode
 public static class InstalmentAmountDetailsTypeCodeMetadataExtensions
 {
     private static readonly InstalmentAmountDetailsTypeCodeDropdownSource _dropdownSource = new InstalmentAmountDetailsTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

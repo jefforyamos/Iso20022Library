@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OzTbUS84EeKNZpaVtgp8Wg")]
 [Description(@"Specifies the conditions that apply to the offer.")]
 [Derivations(typeof(OfferType2Code),typeof(OfferType3Code),typeof(OfferType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OfferTypeV2Code
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum OfferTypeV2Code
 public static class OfferTypeV2CodeMetadataExtensions
 {
     private static readonly OfferTypeV2CodeDropdownSource _dropdownSource = new OfferTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

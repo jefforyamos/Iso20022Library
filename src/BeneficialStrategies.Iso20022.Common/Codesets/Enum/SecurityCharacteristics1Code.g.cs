@@ -21,165 +21,165 @@ public enum SecurityCharacteristics1Code
 {
     /// <summary>
     /// Encryption initiated by the cardholder to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "CardholderEndToEndEncryption".
+    /// Encoded/decoded by serializers as "CETE".
     /// </summary>
     [EnumMember(Value = "CETE")]
     [IsoId("_EhiGsUq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the cardholder to secure end-to-end communication channel.")]
-    CardholderEndToEndEncryption,
+    CardholderEndToEndEncryption = SecurityCharacteristicsCode.CardholderEndToEndEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption initiated by the cardholder to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "CardholderPointToPointEncryption".
+    /// Encoded/decoded by serializers as "CPTE".
     /// </summary>
     [EnumMember(Value = "CPTE")]
     [IsoId("_Eu2J8kq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the cardholder to secure point-to-point communication channel.")]
-    CardholderPointToPointEncryption,
+    CardholderPointToPointEncryption = SecurityCharacteristicsCode.CardholderPointToPointEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption used to secure the communication channel.
-    /// Encoded/decoded by serializers as "ChannelEncryption".
+    /// Encoded/decoded by serializers as "CENC".
     /// </summary>
     [EnumMember(Value = "CENC")]
     [IsoId("_E91oMkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption used to secure the communication channel.")]
-    ChannelEncryption,
+    ChannelEncryption = SecurityCharacteristicsCode.ChannelEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Usage of MAC to secure a communication channel
-    /// Encoded/decoded by serializers as "ChannelMAC".
+    /// Encoded/decoded by serializers as "CMAC".
     /// </summary>
     [EnumMember(Value = "CMAC")]
     [IsoId("_FI3Mckq2Eeenp6hmNprBHg")]
     [Description(@"Usage of MAC to secure a communication channel")]
-    ChannelMAC,
+    ChannelMAC = SecurityCharacteristicsCode.ChannelMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption used from one end to the other end of the communication channel.
-    /// Encoded/decoded by serializers as "EndToEndEncryption".
+    /// Encoded/decoded by serializers as "ETEE".
     /// </summary>
     [EnumMember(Value = "ETEE")]
     [IsoId("_FUIBQkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption used from one end to the other end of the communication channel.")]
-    EndToEndEncryption,
+    EndToEndEncryption = SecurityCharacteristicsCode.EndToEndEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption initiated by the merchant to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "MerchantEndToEndEncryption".
+    /// Encoded/decoded by serializers as "METE".
     /// </summary>
     [EnumMember(Value = "METE")]
     [IsoId("_Feuuwkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the merchant to secure end-to-end communication channel.")]
-    MerchantEndToEndEncryption,
+    MerchantEndToEndEncryption = SecurityCharacteristicsCode.MerchantEndToEndEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption initiated by the merchant to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "MerchantPointToPointEncryption".
+    /// Encoded/decoded by serializers as "MPTE".
     /// </summary>
     [EnumMember(Value = "MPTE")]
     [IsoId("_Frszwkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the merchant to secure point-to-point communication channel.")]
-    MerchantPointToPointEncryption,
+    MerchantPointToPointEncryption = SecurityCharacteristicsCode.MerchantPointToPointEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Open network
-    /// Encoded/decoded by serializers as "OpenNetwork".
+    /// Encoded/decoded by serializers as "OPNN".
     /// </summary>
     [EnumMember(Value = "OPNN")]
     [IsoId("_F8xVokq2Eeenp6hmNprBHg")]
     [Description(@"Open network")]
-    OpenNetwork,
+    OpenNetwork = SecurityCharacteristicsCode.OpenNetwork, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MAC used in a pass-through communication mode
-    /// Encoded/decoded by serializers as "PassthroughMAC".
+    /// Encoded/decoded by serializers as "PMAC".
     /// </summary>
     [EnumMember(Value = "PMAC")]
     [IsoId("_GLu-skq2Eeenp6hmNprBHg")]
     [Description(@"MAC used in a pass-through communication mode")]
-    PassthroughMAC,
+    PassthroughMAC = SecurityCharacteristicsCode.PassthroughMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption using PKI to secure the communication channel.
-    /// Encoded/decoded by serializers as "PKIEncryption".
+    /// Encoded/decoded by serializers as "PKIE".
     /// </summary>
     [EnumMember(Value = "PKIE")]
     [IsoId("_GX_5Ekq2Eeenp6hmNprBHg")]
     [Description(@"Encryption using PKI to secure the communication channel.")]
-    PKIEncryption,
+    PKIEncryption = SecurityCharacteristicsCode.PKIEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption using a private algorithm to secure a communication channel.
-    /// Encoded/decoded by serializers as "PrivateAlgorithmEncryption".
+    /// Encoded/decoded by serializers as "PRAE".
     /// </summary>
     [EnumMember(Value = "PRAE")]
     [IsoId("_GpQBIkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption using a private algorithm to secure a communication channel.")]
-    PrivateAlgorithmEncryption,
+    PrivateAlgorithmEncryption = SecurityCharacteristicsCode.PrivateAlgorithmEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private algorithm used for MAC.
-    /// Encoded/decoded by serializers as "PrivateAlgorithmMAC".
+    /// Encoded/decoded by serializers as "PRAM".
     /// </summary>
     [EnumMember(Value = "PRAM")]
     [IsoId("_G4pvEkq2Eeenp6hmNprBHg")]
     [Description(@"Private algorithm used for MAC.")]
-    PrivateAlgorithmMAC,
+    PrivateAlgorithmMAC = SecurityCharacteristicsCode.PrivateAlgorithmMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private network.
-    /// Encoded/decoded by serializers as "PrivateNetwork".
+    /// Encoded/decoded by serializers as "PRVN".
     /// </summary>
     [EnumMember(Value = "PRVN")]
     [IsoId("_HDma0kq2Eeenp6hmNprBHg")]
     [Description(@"Private network.")]
-    PrivateNetwork,
+    PrivateNetwork = SecurityCharacteristicsCode.PrivateNetwork, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard algorithm used for MAC
-    /// Encoded/decoded by serializers as "StandardAlgorithmMAC".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_HPjMIkq2Eeenp6hmNprBHg")]
     [Description(@"Standard algorithm used for MAC")]
-    StandardAlgorithmMAC,
+    StandardAlgorithmMAC = SecurityCharacteristicsCode.StandardAlgorithmMAC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "AcquirerPointToPointEncryption".
+    /// Encoded/decoded by serializers as "APTE".
     /// </summary>
     [EnumMember(Value = "APTE")]
     [IsoId("_IRZqskq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the acquirer to secure point-to-point communication channel.")]
-    AcquirerPointToPointEncryption,
+    AcquirerPointToPointEncryption = SecurityCharacteristicsCode.AcquirerPointToPointEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "AcquirerEndToEndEncryption".
+    /// Encoded/decoded by serializers as "AETE".
     /// </summary>
     [EnumMember(Value = "AETE")]
     [IsoId("_Iepcgkq2Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the acquirer to secure end-to-end communication channel.")]
-    AcquirerEndToEndEncryption,
+    AcquirerEndToEndEncryption = SecurityCharacteristicsCode.AcquirerEndToEndEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other security characteristics defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_MIUowQwgEeiHgJ0O2VQ-kg")]
     [Description(@"Other security characteristics defined at national level")]
-    OtherNational,
+    OtherNational = SecurityCharacteristicsCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other security characteristics defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_MV-qQQwgEeiHgJ0O2VQ-kg")]
     [Description(@"Other security characteristics defined at private level")]
-    OtherPrivate,
+    OtherPrivate = SecurityCharacteristicsCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum SecurityCharacteristics1Code
 public static class SecurityCharacteristics1CodeMetadataExtensions
 {
     private static readonly SecurityCharacteristics1CodeDropdownSource _dropdownSource = new SecurityCharacteristics1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

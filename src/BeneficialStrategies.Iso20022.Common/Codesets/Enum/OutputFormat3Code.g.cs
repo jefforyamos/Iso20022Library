@@ -21,57 +21,57 @@ public enum OutputFormat3Code
 {
     /// <summary>
     /// Barcode to output in several possible format.
-    /// Encoded/decoded by serializers as "Barcode".
+    /// Encoded/decoded by serializers as "BARC".
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_A6E6kduYEeiB5uLfkg9ZJA")]
     [Description(@"Barcode to output in several possible format.")]
-    Barcode,
+    Barcode = OutputFormatCode.Barcode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A text to display as a menu before requesting an input.
-    /// Encoded/decoded by serializers as "MenuEntry".
+    /// Encoded/decoded by serializers as "MENT".
     /// </summary>
     [EnumMember(Value = "MENT")]
     [IsoId("_A-QP8duYEeiB5uLfkg9ZJA")]
     [Description(@"A text to display as a menu before requesting an input.")]
-    MenuEntry,
+    MenuEntry = OutputFormatCode.MenuEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MessageReference".
+    /// Encoded/decoded by serializers as "MREF".
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_BFHF4duYEeiB5uLfkg9ZJA")]
     [Description(@"Predefined configured messages, identified by a reference.")]
-    MessageReference,
+    MessageReference = OutputFormatCode.MessageReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Screen to display identified by a reference.
-    /// Encoded/decoded by serializers as "ScreenReference".
+    /// Encoded/decoded by serializers as "SREF".
     /// </summary>
     [EnumMember(Value = "SREF")]
     [IsoId("_CYgAYduYEeiB5uLfkg9ZJA")]
     [Description(@"Screen to display identified by a reference.")]
-    ScreenReference,
+    ScreenReference = OutputFormatCode.ScreenReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "SimpleText".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_CfgAQduYEeiB5uLfkg9ZJA")]
     [Description(@"Text without format attributes.")]
-    SimpleText,
+    SimpleText = OutputFormatCode.SimpleText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "XHTML".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_CmojAduYEeiB5uLfkg9ZJA")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    XHTML,
+    XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum OutputFormat3Code
 public static class OutputFormat3CodeMetadataExtensions
 {
     private static readonly OutputFormat3CodeDropdownSource _dropdownSource = new OutputFormat3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

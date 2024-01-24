@@ -21,111 +21,111 @@ public enum ActionType6Code
 {
     /// <summary>
     /// Ask the cardholder to accept the currency conversion.
-    /// Encoded/decoded by serializers as "AcceptCurrencyConversion".
+    /// Encoded/decoded by serializers as "DCCQ".
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_2zwkQYqGEeSRT5rEzcAHEw")]
     [Description(@"Ask the cardholder to accept the currency conversion.")]
-    AcceptCurrencyConversion,
+    AcceptCurrencyConversion = ActionTypeCode.AcceptCurrencyConversion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees must be accepted.
-    /// Encoded/decoded by serializers as "AcceptFees".
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_2_O0cYqGEeSRT5rEzcAHEw")]
     [Description(@"Fees must be accepted.")]
-    AcceptFees,
+    AcceptFees = ActionTypeCode.AcceptFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MinimumAmount must be accepted.
-    /// Encoded/decoded by serializers as "AcceptHigherAmount".
+    /// Encoded/decoded by serializers as "HAMT".
     /// </summary>
     [EnumMember(Value = "HAMT")]
     [IsoId("_3FfNcYqGEeSRT5rEzcAHEw")]
     [Description(@"MinimumAmount must be accepted.")]
-    AcceptHigherAmount,
+    AcceptHigherAmount = ActionTypeCode.AcceptHigherAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MaximumAuthorisedAmount must be accepted.
-    /// Encoded/decoded by serializers as "AcceptLowerAmount".
+    /// Encoded/decoded by serializers as "LAMT".
     /// </summary>
     [EnumMember(Value = "LAMT")]
     [IsoId("_3KjToYqGEeSRT5rEzcAHEw")]
     [Description(@"MaximumAuthorisedAmount must be accepted.")]
-    AcceptLowerAmount,
+    AcceptLowerAmount = ActionTypeCode.AcceptLowerAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "Busy".
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_3-SdsYqGEeSRT5rEzcAHEw")]
     [Description(@"Server busy, try later.")]
-    Busy,
+    Busy = ActionTypeCode.Busy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CaptureCard".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_4DgU4YqGEeSRT5rEzcAHEw")]
     [Description(@"Capture the card.")]
-    CaptureCard,
+    CaptureCard = ActionTypeCode.CaptureCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DisplayMessage".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_4REPwYqGEeSRT5rEzcAHEw")]
     [Description(@"Message to display, print or log.")]
-    DisplayMessage,
+    DisplayMessage = ActionTypeCode.DisplayMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribute a coupon from the cassette of coupon.
-    /// Encoded/decoded by serializers as "DistributeCoupon".
+    /// Encoded/decoded by serializers as "CPNS".
     /// </summary>
     [EnumMember(Value = "CPNS")]
     [IsoId("_4eLesYqGEeSRT5rEzcAHEw")]
     [Description(@"Distribute a coupon from the cassette of coupon.")]
-    DistributeCoupon,
+    DistributeCoupon = ActionTypeCode.DistributeCoupon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to be performed by the ATM.
-    /// Encoded/decoded by serializers as "PerformRequest".
+    /// Encoded/decoded by serializers as "RQST".
     /// </summary>
     [EnumMember(Value = "RQST")]
     [IsoId("_5TFGYYqGEeSRT5rEzcAHEw")]
     [Description(@"Request to be performed by the ATM.")]
-    PerformRequest,
+    PerformRequest = ActionTypeCode.PerformRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINLastTry".
+    /// Encoded/decoded by serializers as "PINL".
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_5ZWGcYqGEeSRT5rEzcAHEw")]
     [Description(@"Last PIN (Personal Identification Number) try.")]
-    PINLastTry,
+    PINLastTry = ActionTypeCode.PINLastTry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINRetry".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_5gyyQYqGEeSRT5rEzcAHEw")]
     [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
-    PINRetry,
+    PINRetry = ActionTypeCode.PINRetry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track provided in the response must be updated on the card.
-    /// Encoded/decoded by serializers as "UpdateTrack".
+    /// Encoded/decoded by serializers as "TRCK".
     /// </summary>
     [EnumMember(Value = "TRCK")]
     [IsoId("_TUF-8YqMEeSRT5rEzcAHEw")]
     [Description(@"Track provided in the response must be updated on the card.")]
-    UpdateTrack,
+    UpdateTrack = ActionTypeCode.UpdateTrack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum ActionType6Code
 public static class ActionType6CodeMetadataExtensions
 {
     private static readonly ActionType6CodeDropdownSource _dropdownSource = new ActionType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassSubProductType41Code
 {
     /// <summary>
     /// Commodity of type potash.
-    /// Encoded/decoded by serializers as "Potash".
+    /// Encoded/decoded by serializers as "PTSH".
     /// </summary>
     [EnumMember(Value = "PTSH")]
     [IsoId("_bWeohVr3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type potash.")]
-    Potash,
+    Potash = AssetClassSubProductTypeCode.Potash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType41Code
 public static class AssetClassSubProductType41CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType41CodeDropdownSource _dropdownSource = new AssetClassSubProductType41CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bESK1dp-Ed-ak6NoX_4Aeg_-625919884")]
 [Description(@"Specifies the status of the CA event or option.")]
 [Derivations(typeof(CorporateActionEventStatus2Code),typeof(CorporateActionEventStatus1Code),typeof(CorporateActionEventStatus3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionEventStatusCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CorporateActionEventStatusCode
 public static class CorporateActionEventStatusCodeMetadataExtensions
 {
     private static readonly CorporateActionEventStatusCodeDropdownSource _dropdownSource = new CorporateActionEventStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

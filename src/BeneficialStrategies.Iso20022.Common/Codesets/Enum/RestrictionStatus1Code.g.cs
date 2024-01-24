@@ -21,21 +21,21 @@ public enum RestrictionStatus1Code
 {
     /// <summary>
     /// Status of the restriction is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_yA_goSFnEeW9XJWqfgXIIA")]
     [Description(@"Status of the restriction is active.")]
-    Active,
+    Active = RestrictionStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the restriction is inactive.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_yH-5cSFnEeW9XJWqfgXIIA")]
     [Description(@"Status of the restriction is inactive.")]
-    Inactive,
+    Inactive = RestrictionStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RestrictionStatus1Code
 public static class RestrictionStatus1CodeMetadataExtensions
 {
     private static readonly RestrictionStatus1CodeDropdownSource _dropdownSource = new RestrictionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

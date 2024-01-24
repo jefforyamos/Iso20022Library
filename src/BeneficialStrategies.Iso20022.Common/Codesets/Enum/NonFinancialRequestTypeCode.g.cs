@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_HCEBsC_qEeugIJ3Gvoevmg")]
 [Description(@"Type of non financial request that could be processed between an Acceptor and an Intermediary Agent or an Acquirer.")]
 [Derivations(typeof(NonFinancialRequestType1Code),typeof(NonFinancialRequestType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonFinancialRequestTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum NonFinancialRequestTypeCode
 public static class NonFinancialRequestTypeCodeMetadataExtensions
 {
     private static readonly NonFinancialRequestTypeCodeDropdownSource _dropdownSource = new NonFinancialRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

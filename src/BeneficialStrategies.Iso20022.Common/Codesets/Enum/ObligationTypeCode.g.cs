@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YZ95pNp-Ed-ak6NoX_4Aeg_878628292")]
 [Description(@"Specifies the type of the obligation.")]
 [Derivations(typeof(ObligationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ObligationTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ObligationTypeCode
 public static class ObligationTypeCodeMetadataExtensions
 {
     private static readonly ObligationTypeCodeDropdownSource _dropdownSource = new ObligationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

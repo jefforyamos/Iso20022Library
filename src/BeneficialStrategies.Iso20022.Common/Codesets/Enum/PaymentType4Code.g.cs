@@ -21,30 +21,30 @@ public enum PaymentType4Code
 {
     /// <summary>
     /// Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.
-    /// Encoded/decoded by serializers as "Upfront".
+    /// Encoded/decoded by serializers as "UFRO".
     /// </summary>
     [EnumMember(Value = "UFRO")]
     [IsoId("_99VlIekAEemV35DUs8L82Q")]
     [Description(@"Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.")]
-    Upfront,
+    Upfront = PaymentTypeCode.Upfront, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).
-    /// Encoded/decoded by serializers as "UnWind".
+    /// Encoded/decoded by serializers as "UWIN".
     /// </summary>
     [EnumMember(Value = "UWIN")]
     [IsoId("_-BgTcekAEemV35DUs8L82Q")]
     [Description(@"Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).")]
-    UnWind,
+    UnWind = PaymentTypeCode.UnWind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an exchange of notional values for cross-currency swaps.
-    /// Encoded/decoded by serializers as "PrincipalExchange".
+    /// Encoded/decoded by serializers as "PEXH".
     /// </summary>
     [EnumMember(Value = "PEXH")]
     [IsoId("__VvigekAEemV35DUs8L82Q")]
     [Description(@"Transaction is an exchange of notional values for cross-currency swaps.")]
-    PrincipalExchange,
+    PrincipalExchange = PaymentTypeCode.PrincipalExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentType4Code
 public static class PaymentType4CodeMetadataExtensions
 {
     private static readonly PaymentType4CodeDropdownSource _dropdownSource = new PaymentType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

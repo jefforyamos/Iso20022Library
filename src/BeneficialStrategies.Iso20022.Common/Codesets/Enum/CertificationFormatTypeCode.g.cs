@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a78HI9p-Ed-ak6NoX_4Aeg_-1769527950")]
 [Description(@"Specifies the certification format required, that is, physical or electronic format.")]
 [Derivations(typeof(CertificationFormatType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CertificationFormatTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CertificationFormatTypeCode
 public static class CertificationFormatTypeCodeMetadataExtensions
 {
     private static readonly CertificationFormatTypeCodeDropdownSource _dropdownSource = new CertificationFormatTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

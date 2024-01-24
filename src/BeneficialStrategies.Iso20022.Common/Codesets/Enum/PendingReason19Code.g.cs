@@ -21,57 +21,57 @@ public enum PendingReason19Code
 {
     /// <summary>
     /// Financial instruments have not been delivered by the issuer.
-    /// Encoded/decoded by serializers as "NotDelivered".
+    /// Encoded/decoded by serializers as "NSEC".
     /// </summary>
     [EnumMember(Value = "NSEC")]
     [IsoId("_j41ie-aEEemtTOaHuc_63w")]
     [Description(@"Financial instruments have not been delivered by the issuer.")]
-    NotDelivered,
+    NotDelivered = PendingFailingReasonCode.NotDelivered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment has not been made by issuer.
-    /// Encoded/decoded by serializers as "NoPayment".
+    /// Encoded/decoded by serializers as "NPAY".
     /// </summary>
     [EnumMember(Value = "NPAY")]
     [IsoId("_j41ieeaEEemtTOaHuc_63w")]
     [Description(@"Payment has not been made by issuer.")]
-    NoPayment,
+    NoPayment = PendingFailingReasonCode.NoPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_j41id-aEEemtTOaHuc_63w")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax reclaim has been sent to the tax authorities.
-    /// Encoded/decoded by serializers as "SentToTaxAuthorities".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_j41ieOaEEemtTOaHuc_63w")]
     [Description(@"Tax reclaim has been sent to the tax authorities.")]
-    SentToTaxAuthorities,
+    SentToTaxAuthorities = PendingFailingReasonCode.SentToTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
-    /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
+    /// Encoded/decoded by serializers as "VLDA".
     /// </summary>
     [EnumMember(Value = "VLDA")]
     [IsoId("_j41ieuaEEemtTOaHuc_63w")]
     [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
-    ValidForTaxAuthorities,
+    ValidForTaxAuthorities = PendingFailingReasonCode.ValidForTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MissingCertification".
+    /// Encoded/decoded by serializers as "MCER".
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_pqsMUeaEEemtTOaHuc_63w")]
     [Description(@"Awaiting receipt of adequate certification.")]
-    MissingCertification,
+    MissingCertification = PendingFailingReasonCode.MissingCertification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum PendingReason19Code
 public static class PendingReason19CodeMetadataExtensions
 {
     private static readonly PendingReason19CodeDropdownSource _dropdownSource = new PendingReason19CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -22,40 +22,40 @@ public enum LocationCategory4Code
     /// <summary>
     /// Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,
     /// taxi, etc).
-    /// Encoded/decoded by serializers as "Aboard".
+    /// Encoded/decoded by serializers as "ABRD".
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_nvDDhFDfEeu8Rss-tto59A")]
-    [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane, taxi, etc).")]
-    Aboard,
+    [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,|taxi, etc).")]
+    Aboard = LocationCategoryV2Code.Aboard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Nomadic is used when the merchant is traveling to different locations (e.g fair or
     /// sport events, home delivery, food truck).
-    /// Encoded/decoded by serializers as "Nomadic".
+    /// Encoded/decoded by serializers as "NMDC".
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_nvMNcFDfEeu8Rss-tto59A")]
-    [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or sport events, home delivery, food truck).")]
-    Nomadic,
+    [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or|sport events, home delivery, food truck).")]
+    Nomadic = LocationCategoryV2Code.Nomadic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed location, for example in a shop.
-    /// Encoded/decoded by serializers as "PhysicalShop".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_nvMNcVDfEeu8Rss-tto59A")]
     [Description(@"Fixed location, for example in a shop.")]
-    PhysicalShop,
+    PhysicalShop = LocationCategoryV2Code.PhysicalShop, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Virtual Shop is used for any ecommerce solution.
-    /// Encoded/decoded by serializers as "VirtualShop".
+    /// Encoded/decoded by serializers as "VIRT".
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_nvMNclDfEeu8Rss-tto59A")]
     [Description(@"Virtual Shop is used for any ecommerce solution.")]
-    VirtualShop,
+    VirtualShop = LocationCategoryV2Code.VirtualShop, // same ordinal as derivation source for type conversions
     
 }
 
@@ -66,7 +66,7 @@ public enum LocationCategory4Code
 public static class LocationCategory4CodeMetadataExtensions
 {
     private static readonly LocationCategory4CodeDropdownSource _dropdownSource = new LocationCategory4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

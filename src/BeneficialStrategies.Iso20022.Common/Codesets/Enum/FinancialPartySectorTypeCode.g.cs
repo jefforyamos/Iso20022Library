@@ -17,37 +17,33 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_G3EfsBQXEeWSI-Fz8Zwg6g")]
 [Description(@"Specifies the taxinomy type of a financial party.")]
 [Derivations(typeof(FinancialPartySectorType1Code),typeof(FinancialPartySectorType2Code),typeof(FinancialPartySectorType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialPartySectorTypeCode
 {
     /// <summary>
     /// Assurance undertaking.
-    /// 
     /// Encoded/decoded by serializers as "ASSU".
     /// </summary>
     [EnumMember(Value = "ASSU")]
     [IsoId("_QvpuYBQXEeWSI-Fz8Zwg6g")]
-    [Description(@"Assurance undertaking. ")]
+    [Description(@"Assurance undertaking.|")]
     AssuranceUndertaking,
     
     /// <summary>
     /// Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account.
-    /// 
     /// Encoded/decoded by serializers as "CDTI".
     /// </summary>
     [EnumMember(Value = "CDTI")]
     [IsoId("_SQvGoBQXEeWSI-Fz8Zwg6g")]
-    [Description(@"Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account. ")]
+    [Description(@"Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account.|")]
     CreditInstitution,
     
     /// <summary>
     /// Investment firm.
-    /// 
     /// Encoded/decoded by serializers as "INVF".
     /// </summary>
     [EnumMember(Value = "INVF")]
     [IsoId("_TimXIBQXEeWSI-Fz8Zwg6g")]
-    [Description(@"Investment firm. ")]
+    [Description(@"Investment firm.|")]
     InvestmentFirm,
     
     /// <summary>
@@ -131,7 +127,7 @@ public enum FinancialPartySectorTypeCode
 public static class FinancialPartySectorTypeCodeMetadataExtensions
 {
     private static readonly FinancialPartySectorTypeCodeDropdownSource _dropdownSource = new FinancialPartySectorTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

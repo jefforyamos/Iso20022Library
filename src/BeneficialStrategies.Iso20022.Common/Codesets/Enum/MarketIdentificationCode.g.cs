@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_lKcvgMObEeWiEtRBUJSIaA")]
 [Description(@"Specifies the type of market identification code which is being defined.")]
 [Derivations(typeof(MarketIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MarketIdentificationCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MarketIdentificationCode
 public static class MarketIdentificationCodeMetadataExtensions
 {
     private static readonly MarketIdentificationCodeDropdownSource _dropdownSource = new MarketIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

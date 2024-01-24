@@ -21,12 +21,12 @@ public enum ChargeType4Code
 {
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TransferFee".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_VeXEJ9p-Ed-ak6NoX_4Aeg_313498035")]
     [Description(@"In investment funds, a fee charged for the transfer of ownership of an investment fund.")]
-    TransferFee,
+    TransferFee = ChargeTypeCode.TransferFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ChargeType4Code
 public static class ChargeType4CodeMetadataExtensions
 {
     private static readonly ChargeType4CodeDropdownSource _dropdownSource = new ChargeType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

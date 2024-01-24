@@ -21,93 +21,93 @@ public enum PartyType33Code
 {
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OriginatingPOI".
+    /// Encoded/decoded by serializers as "OPOI".
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_pTLpsQ0wEeqUVL7sB4m7NA")]
     [Description(@"Point Of Interaction initiating the card payment transaction.")]
-    OriginatingPOI,
+    OriginatingPOI = PartyTypeCode.OriginatingPOI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_pTLpsw0wEeqUVL7sB4m7NA")]
     [Description(@"Merchant providing goods and service in the card payment transaction.")]
-    Merchant,
+    Merchant = PartyTypeCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_pTLptQ0wEeqUVL7sB4m7NA")]
     [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
-    Acceptor,
+    Acceptor = PartyTypeCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "ITAG".
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_pTLptw0wEeqUVL7sB4m7NA")]
     [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_pTLpuQ0wEeqUVL7sB4m7NA")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_pTLpuw0wEeqUVL7sB4m7NA")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DelegateIssuer".
+    /// Encoded/decoded by serializers as "DLIS".
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_pTLpvQ0wEeqUVL7sB4m7NA")]
     [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
-    DelegateIssuer,
+    DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MasterTerminalManager".
+    /// Encoded/decoded by serializers as "MTMG".
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_nABSQQ1GEeqjM-rxn3HuXQ")]
     [Description(@"Responsible for the maintenance of a card payment acceptance terminal.")]
-    MasterTerminalManager,
+    MasterTerminalManager = PartyTypeCode.MasterTerminalManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax authority.
-    /// Encoded/decoded by serializers as "TaxAuthority".
+    /// Encoded/decoded by serializers as "TAXH".
     /// </summary>
     [EnumMember(Value = "TAXH")]
     [IsoId("_pRciUQ1GEeqjM-rxn3HuXQ")]
     [Description(@"Tax authority.")]
-    TaxAuthority,
+    TaxAuthority = PartyTypeCode.TaxAuthority, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TerminalManager".
+    /// Encoded/decoded by serializers as "TMGT".
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_p-q0sA1GEeqjM-rxn3HuXQ")]
     [Description(@"Responsible for one or several maintenance functions of a card payment acceptance terminal.")]
-    TerminalManager,
+    TerminalManager = PartyTypeCode.TerminalManager, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum PartyType33Code
 public static class PartyType33CodeMetadataExtensions
 {
     private static readonly PartyType33CodeDropdownSource _dropdownSource = new PartyType33CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

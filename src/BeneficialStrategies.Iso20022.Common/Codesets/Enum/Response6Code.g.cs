@@ -21,75 +21,75 @@ public enum Response6Code
 {
     /// <summary>
     /// Advice message could not be processed.
-    /// Encoded/decoded by serializers as "NotProcessed".
+    /// Encoded/decoded by serializers as "UNPR".
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_Q-D1YlAzEeedyPuM0kK2EQ")]
     [Description(@"Advice message could not be processed.")]
-    NotProcessed,
+    NotProcessed = ResponseCode.NotProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing of the service has been partially performed.
-    /// Encoded/decoded by serializers as "PartiallyProcessed".
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_SUWS4lAzEeedyPuM0kK2EQ")]
     [Description(@"Processing of the service has been partially performed.")]
-    PartiallyProcessed,
+    PartiallyProcessed = ResponseCode.PartiallyProcessed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice message is processed.
-    /// Encoded/decoded by serializers as "Processed".
+    /// Encoded/decoded by serializers as "PRCS".
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_SoIxklAzEeedyPuM0kK2EQ")]
     [Description(@"Advice message is processed.")]
-    Processed,
+    Processed = ResponseCode.Processed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service was rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_S7UzUlAzEeedyPuM0kK2EQ")]
     [Description(@"Service was rejected.")]
-    Rejected,
+    Rejected = ResponseCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_lroQoVAzEeedyPuM0kK2EQ")]
     [Description(@"Other type of processing result defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = ResponseCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_l31golAzEeedyPuM0kK2EQ")]
     [Description(@"Other type of processing result defined at national level.")]
-    OtherNational,
+    OtherNational = ResponseCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TechnicalError".
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_PewkAaY6Eeiva6IOmhpVHw")]
     [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
-    TechnicalError,
+    TechnicalError = ResponseCode.TechnicalError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UnderReview".
+    /// Encoded/decoded by serializers as "UNRV".
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_hEBh8WqEEemXfKijhrqa-Q")]
     [Description(@"Service is under review.")]
-    UnderReview,
+    UnderReview = ResponseCode.UnderReview, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum Response6Code
 public static class Response6CodeMetadataExtensions
 {
     private static readonly Response6CodeDropdownSource _dropdownSource = new Response6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

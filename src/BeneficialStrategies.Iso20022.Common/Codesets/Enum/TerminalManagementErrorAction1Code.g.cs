@@ -21,21 +21,21 @@ public enum TerminalManagementErrorAction1Code
 {
     /// <summary>
     /// Ignore the error.
-    /// Encoded/decoded by serializers as "IgnoreError".
+    /// Encoded/decoded by serializers as "IGNR".
     /// </summary>
     [EnumMember(Value = "IGNR")]
     [IsoId("_KUh0l31DEeCF8NjrBemJWQ_-1839509664")]
     [Description(@"Ignore the error.")]
-    IgnoreError,
+    IgnoreError = TerminalManagementErrorActionCode.IgnoreError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send a status report immediately.
-    /// Encoded/decoded by serializers as "SendStatusReport".
+    /// Encoded/decoded by serializers as "SDSR".
     /// </summary>
     [EnumMember(Value = "SDSR")]
     [IsoId("_KUh0mH1DEeCF8NjrBemJWQ_-1174724220")]
     [Description(@"Send a status report immediately.")]
-    SendStatusReport,
+    SendStatusReport = TerminalManagementErrorActionCode.SendStatusReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TerminalManagementErrorAction1Code
 public static class TerminalManagementErrorAction1CodeMetadataExtensions
 {
     private static readonly TerminalManagementErrorAction1CodeDropdownSource _dropdownSource = new TerminalManagementErrorAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum OrderDriverCode
 {
     /// <summary>
     /// Order is buy driven.
-    /// Encoded/decoded by serializers as "Buy".
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_aRBh4tp-Ed-ak6NoX_4Aeg_1502724820")]
     [Description(@"Order is buy driven.")]
-    Buy,
+    Buy = SideCode.Buy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_aRBh49p-Ed-ak6NoX_4Aeg_1502725190")]
     [Description(@"Order is sell driven.")]
-    Sell,
+    Sell = SideCode.Sell, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OrderDriverCode
 public static class OrderDriverCodeMetadataExtensions
 {
     private static readonly OrderDriverCodeDropdownSource _dropdownSource = new OrderDriverCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

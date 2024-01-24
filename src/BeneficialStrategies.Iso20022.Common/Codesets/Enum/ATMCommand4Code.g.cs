@@ -21,66 +21,66 @@ public enum ATMCommand4Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "ABAL".
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_pnbUIa2BEeWMg5rOByfExw")]
     [Description(@"Provide the ATM counters, resetting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = ATMCommandCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the ATM required by the ATM manager.
-    /// Encoded/decoded by serializers as "ATMStatusUpdate".
+    /// Encoded/decoded by serializers as "ASTS".
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_pnbUI62BEeWMg5rOByfExw")]
     [Description(@"Status of the ATM required by the ATM manager.")]
-    ATMStatusUpdate,
+    ATMStatusUpdate = ATMCommandCode.ATMStatusUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the ATM configuration parameters.
-    /// Encoded/decoded by serializers as "ConfigurationUpdate".
+    /// Encoded/decoded by serializers as "CFGT".
     /// </summary>
     [EnumMember(Value = "CFGT")]
     [IsoId("_pnbUJa2BEeWMg5rOByfExw")]
     [Description(@"Update the ATM configuration parameters.")]
-    ConfigurationUpdate,
+    ConfigurationUpdate = ATMCommandCode.ConfigurationUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "CCNT".
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_pnbUJ62BEeWMg5rOByfExw")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = ATMCommandCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Perform a disconnection followed by a reconnection.
-    /// Encoded/decoded by serializers as "Disconnect".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_pnbUKa2BEeWMg5rOByfExw")]
     [Description(@"Perform a disconnection followed by a reconnection.")]
-    Disconnect,
+    Disconnect = ATMCommandCode.Disconnect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send a specific message to initiate a process.
-    /// Encoded/decoded by serializers as "SendMessage".
+    /// Encoded/decoded by serializers as "SNDM".
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_pnbUK62BEeWMg5rOByfExw")]
     [Description(@"Send a specific message to initiate a process.")]
-    SendMessage,
+    SendMessage = ATMCommandCode.SendMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "CountersReport".
+    /// Encoded/decoded by serializers as "RPTC".
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_rZ0e0a2BEeWMg5rOByfExw")]
     [Description(@"Provide the value of the ATM counters, no reinitialisation of the counters.")]
-    CountersReport,
+    CountersReport = ATMCommandCode.CountersReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum ATMCommand4Code
 public static class ATMCommand4CodeMetadataExtensions
 {
     private static readonly ATMCommand4CodeDropdownSource _dropdownSource = new ATMCommand4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

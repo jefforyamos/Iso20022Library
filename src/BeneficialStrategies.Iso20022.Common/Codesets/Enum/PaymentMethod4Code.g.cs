@@ -21,39 +21,39 @@ public enum PaymentMethod4Code
 {
     /// <summary>
     /// Written order to a bank to pay a certain amount of money from one person to another person.
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHK".
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_Z0kPYtp-Ed-ak6NoX_4Aeg_-2121115778")]
     [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
-    Cheque,
+    Cheque = PaymentMethodCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "CreditTransfer".
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_Z0kPY9p-Ed-ak6NoX_4Aeg_-2121115388")]
     [Description(@"Transfer of an amount of money in the books of the account servicer.")]
-    CreditTransfer,
+    CreditTransfer = PaymentMethodCode.CreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
-    /// Encoded/decoded by serializers as "DirectDebit".
+    /// Encoded/decoded by serializers as "DD".
     /// </summary>
     [EnumMember(Value = "DD")]
     [IsoId("_Z0kPZNp-Ed-ak6NoX_4Aeg_-2121115346")]
     [Description(@"Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.")]
-    DirectDebit,
+    DirectDebit = PaymentMethodCode.DirectDebit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
-    /// Encoded/decoded by serializers as "TransferAdvice".
+    /// Encoded/decoded by serializers as "TRA".
     /// </summary>
     [EnumMember(Value = "TRA")]
     [IsoId("_Z0kPZdp-Ed-ak6NoX_4Aeg_-2121115311")]
     [Description(@"Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.")]
-    TransferAdvice,
+    TransferAdvice = PaymentMethodCode.TransferAdvice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PaymentMethod4Code
 public static class PaymentMethod4CodeMetadataExtensions
 {
     private static readonly PaymentMethod4CodeDropdownSource _dropdownSource = new PaymentMethod4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

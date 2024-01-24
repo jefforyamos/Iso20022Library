@@ -21,21 +21,21 @@ public enum TargetMarket3Code
 {
     /// <summary>
     /// Yes, is applicable.
-    /// Encoded/decoded by serializers as "InScope".
+    /// Encoded/decoded by serializers as "YSCO".
     /// </summary>
     [EnumMember(Value = "YSCO")]
     [IsoId("_W8tJobVNEeqkjqDuFVh1-A")]
     [Description(@"Yes, is applicable.")]
-    InScope,
+    InScope = TargetMarketCode.InScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No, is not applicable.
-    /// Encoded/decoded by serializers as "NotInScope".
+    /// Encoded/decoded by serializers as "NSCO".
     /// </summary>
     [EnumMember(Value = "NSCO")]
     [IsoId("_XqxwkbVNEeqkjqDuFVh1-A")]
     [Description(@"No, is not applicable.")]
-    NotInScope,
+    NotInScope = TargetMarketCode.NotInScope, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TargetMarket3Code
 public static class TargetMarket3CodeMetadataExtensions
 {
     private static readonly TargetMarket3CodeDropdownSource _dropdownSource = new TargetMarket3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

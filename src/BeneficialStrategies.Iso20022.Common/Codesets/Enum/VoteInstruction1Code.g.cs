@@ -21,48 +21,48 @@ public enum VoteInstruction1Code
 {
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "For".
+    /// Encoded/decoded by serializers as "CFOR".
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_Y8_HJdp-Ed-ak6NoX_4Aeg_959674352")]
     [Description(@"Vote in favour of a meeting resolution.")]
-    For,
+    For = VoteInstructionCode.For, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "Against".
+    /// Encoded/decoded by serializers as "CAGS".
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_Y8_HJtp-Ed-ak6NoX_4Aeg_959674370")]
     [Description(@"Vote against a meeting resolution.")]
-    Against,
+    Against = VoteInstructionCode.Against, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "Abstain".
+    /// Encoded/decoded by serializers as "ABST".
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_Y9IRENp-Ed-ak6NoX_4Aeg_959674395")]
     [Description(@"Active vote expressed as abstain (no opinion).")]
-    Abstain,
+    Abstain = VoteInstructionCode.Abstain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "Withhold".
+    /// Encoded/decoded by serializers as "WTHH".
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_Y9IREdp-Ed-ak6NoX_4Aeg_959674412")]
     [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
-    Withhold,
+    Withhold = VoteInstructionCode.Withhold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a recommendation to take no action.
-    /// Encoded/decoded by serializers as "NoAction".
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_Y9IREtp-Ed-ak6NoX_4Aeg_1574523341")]
     [Description(@"Indicates a recommendation to take no action.")]
-    NoAction,
+    NoAction = VoteInstructionCode.NoAction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum VoteInstruction1Code
 public static class VoteInstruction1CodeMetadataExtensions
 {
     private static readonly VoteInstruction1CodeDropdownSource _dropdownSource = new VoteInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

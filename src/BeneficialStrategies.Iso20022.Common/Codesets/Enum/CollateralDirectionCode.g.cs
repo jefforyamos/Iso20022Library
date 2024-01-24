@@ -17,17 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_4om60AMxEeutW5-TpeYJhA")]
 [Description(@"Direction of the collateral being reported.")]
 [Derivations(typeof(CollateralDirection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralDirectionCode
 {
     /// <summary>
     /// Collateral is due to party A.
-    /// 
     /// Encoded/decoded by serializers as "CDPA".
     /// </summary>
     [EnumMember(Value = "CDPA")]
     [IsoId("_9_rGIAMxEeutW5-TpeYJhA")]
-    [Description(@"Collateral is due to party A. ")]
+    [Description(@"Collateral is due to party A.|")]
     CollateralDueToPartyA,
     
     /// <summary>
@@ -48,7 +46,7 @@ public enum CollateralDirectionCode
 public static class CollateralDirectionCodeMetadataExtensions
 {
     private static readonly CollateralDirectionCodeDropdownSource _dropdownSource = new CollateralDirectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

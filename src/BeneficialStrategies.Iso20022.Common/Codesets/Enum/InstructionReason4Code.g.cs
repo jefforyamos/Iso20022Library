@@ -21,1245 +21,1245 @@ public enum InstructionReason4Code
 {
     /// <summary>
     /// Acknowledgement must be agreed.
-    /// Encoded/decoded by serializers as "AcknowledgementNotAgreed".
+    /// Encoded/decoded by serializers as "ACKA".
     /// </summary>
     [EnumMember(Value = "ACKA")]
     [IsoId("_lyk1YTDvEey2N-DB7H7A5A")]
     [Description(@"Acknowledgement must be agreed.")]
-    AcknowledgementNotAgreed,
+    AcknowledgementNotAgreed = InstructionRejectionReasonV2Code.AcknowledgementNotAgreed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgment indicator is missing.
-    /// Encoded/decoded by serializers as "AcknowledgmentIndicatorMissing".
+    /// Encoded/decoded by serializers as "ACKS".
     /// </summary>
     [EnumMember(Value = "ACKS")]
     [IsoId("_lyk1YzDvEey2N-DB7H7A5A")]
     [Description(@"Acknowledgment indicator is missing.")]
-    AcknowledgmentIndicatorMissing,
+    AcknowledgmentIndicatorMissing = InstructionRejectionReasonV2Code.AcknowledgmentIndicatorMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjudication of incompetency acknowledgement indicator is invalid.
-    /// Encoded/decoded by serializers as "AdjudicationOfIncompetencyAcknowledgementIndicatorInvalid".
+    /// Encoded/decoded by serializers as "ADIN".
     /// </summary>
     [EnumMember(Value = "ADIN")]
     [IsoId("_lyk1ZTDvEey2N-DB7H7A5A")]
     [Description(@"Adjudication of incompetency acknowledgement indicator is invalid.")]
-    AdjudicationOfIncompetencyAcknowledgementIndicatorInvalid,
+    AdjudicationOfIncompetencyAcknowledgementIndicatorInvalid = InstructionRejectionReasonV2Code.AdjudicationOfIncompetencyAcknowledgementIndicatorInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjudication of incompetency acknowledgement indicator is missing.
-    /// Encoded/decoded by serializers as "AdjudicationOfIncompetencyAcknowledgmentIndicatorMissing".
+    /// Encoded/decoded by serializers as "ADIM".
     /// </summary>
     [EnumMember(Value = "ADIM")]
     [IsoId("_lyk1ZzDvEey2N-DB7H7A5A")]
     [Description(@"Adjudication of incompetency acknowledgement indicator is missing.")]
-    AdjudicationOfIncompetencyAcknowledgmentIndicatorMissing,
+    AdjudicationOfIncompetencyAcknowledgmentIndicatorMissing = InstructionRejectionReasonV2Code.AdjudicationOfIncompetencyAcknowledgmentIndicatorMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficial owner death date is missing.
-    /// Encoded/decoded by serializers as "BeneficialOwnerDeathDateMissing".
+    /// Encoded/decoded by serializers as "BODD".
     /// </summary>
     [EnumMember(Value = "BODD")]
     [IsoId("_lyk1aTDvEey2N-DB7H7A5A")]
     [Description(@"Beneficial owner death date is missing.")]
-    BeneficialOwnerDeathDateMissing,
+    BeneficialOwnerDeathDateMissing = InstructionRejectionReasonV2Code.BeneficialOwnerDeathDateMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficial owner name is missing.
-    /// Encoded/decoded by serializers as "BeneficialOwnerNameMissing".
+    /// Encoded/decoded by serializers as "BONM".
     /// </summary>
     [EnumMember(Value = "BONM")]
     [IsoId("_lyk1azDvEey2N-DB7H7A5A")]
     [Description(@"Beneficial owner name is missing.")]
-    BeneficialOwnerNameMissing,
+    BeneficialOwnerNameMissing = InstructionRejectionReasonV2Code.BeneficialOwnerNameMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bid price is missing or invalid.
-    /// Encoded/decoded by serializers as "BidPriceMissingOrInvalid".
+    /// Encoded/decoded by serializers as "BIDI".
     /// </summary>
     [EnumMember(Value = "BIDI")]
     [IsoId("_lyk1bTDvEey2N-DB7H7A5A")]
     [Description(@"Bid price is missing or invalid.")]
-    BidPriceMissingOrInvalid,
+    BidPriceMissingOrInvalid = InstructionRejectionReasonV2Code.BidPriceMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bid price cannot be greater than 9999.99999.
-    /// Encoded/decoded by serializers as "BidPriceOverflow".
+    /// Encoded/decoded by serializers as "BIDG".
     /// </summary>
     [EnumMember(Value = "BIDG")]
     [IsoId("_lyk1bzDvEey2N-DB7H7A5A")]
     [Description(@"Bid price cannot be greater than 9999.99999.")]
-    BidPriceOverflow,
+    BidPriceOverflow = InstructionRejectionReasonV2Code.BidPriceOverflow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bid price exceeds maximum bid price allowed for the offer.
-    /// Encoded/decoded by serializers as "BidPriceOverMaximumAllowed".
+    /// Encoded/decoded by serializers as "BIDE".
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_lyk1cTDvEey2N-DB7H7A5A")]
     [Description(@"Bid price exceeds maximum bid price allowed for the offer.")]
-    BidPriceOverMaximumAllowed,
+    BidPriceOverMaximumAllowed = InstructionRejectionReasonV2Code.BidPriceOverMaximumAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bid price is less than the minimum bid price allowed for the offer.
-    /// Encoded/decoded by serializers as "BidPriceUnderMinimumAllowed".
+    /// Encoded/decoded by serializers as "BIDM".
     /// </summary>
     [EnumMember(Value = "BIDM")]
     [IsoId("_lyk1czDvEey2N-DB7H7A5A")]
     [Description(@"Bid price is less than the minimum bid price allowed for the offer.")]
-    BidPriceUnderMinimumAllowed,
+    BidPriceUnderMinimumAllowed = InstructionRejectionReasonV2Code.BidPriceUnderMinimumAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Zeroes are required for bid price.
-    /// Encoded/decoded by serializers as "BidPriceZeroesRequired".
+    /// Encoded/decoded by serializers as "BID0".
     /// </summary>
     [EnumMember(Value = "BID0")]
     [IsoId("_lyk1dTDvEey2N-DB7H7A5A")]
     [Description(@"Zeroes are required for bid price.")]
-    BidPriceZeroesRequired,
+    BidPriceZeroesRequired = InstructionRejectionReasonV2Code.BidPriceZeroesRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bond check on master table is not available.
-    /// Encoded/decoded by serializers as "BondCheckOnMasterTableNotAvailable".
+    /// Encoded/decoded by serializers as "BNDU".
     /// </summary>
     [EnumMember(Value = "BNDU")]
     [IsoId("_lyk1dzDvEey2N-DB7H7A5A")]
     [Description(@"Bond check on master table is not available.")]
-    BondCheckOnMasterTableNotAvailable,
+    BondCheckOnMasterTableNotAvailable = InstructionRejectionReasonV2Code.BondCheckOnMasterTableNotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number is missing.
-    /// Encoded/decoded by serializers as "CertificateNameMissing".
+    /// Encoded/decoded by serializers as "CENM".
     /// </summary>
     [EnumMember(Value = "CENM")]
     [IsoId("_lyk1eTDvEey2N-DB7H7A5A")]
     [Description(@"Certificate number is missing.")]
-    CertificateNameMissing,
+    CertificateNameMissing = InstructionRejectionReasonV2Code.CertificateNameMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate sequence number is invalid.
-    /// Encoded/decoded by serializers as "CertificateSequenceNumberInvalid".
+    /// Encoded/decoded by serializers as "CERS".
     /// </summary>
     [EnumMember(Value = "CERS")]
     [IsoId("_lyk1ezDvEey2N-DB7H7A5A")]
     [Description(@"Certificate sequence number is invalid.")]
-    CertificateSequenceNumberInvalid,
+    CertificateSequenceNumberInvalid = InstructionRejectionReasonV2Code.CertificateSequenceNumberInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 1 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition1InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN1N".
     /// </summary>
     [EnumMember(Value = "CN1N")]
     [IsoId("_lyk1fTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 1 indicator is invalid. It must be No.")]
-    Condition1InvalidMustBeNo,
+    Condition1InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition1InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 1 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition1InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN1Y".
     /// </summary>
     [EnumMember(Value = "CN1Y")]
     [IsoId("_lyk1fzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 1 indicator is invalid. It must be Yes.")]
-    Condition1InvalidMustBeYes,
+    Condition1InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition1InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 1 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition1Required".
+    /// Encoded/decoded by serializers as "CN1R".
     /// </summary>
     [EnumMember(Value = "CN1R")]
     [IsoId("_lyk1gTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 1 indicator is must be present.")]
-    Condition1Required,
+    Condition1Required = InstructionRejectionReasonV2Code.Condition1Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 2 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition2InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN2N".
     /// </summary>
     [EnumMember(Value = "CN2N")]
     [IsoId("_lyk1gzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 2 indicator is invalid. It must be No.")]
-    Condition2InvalidMustBeNo,
+    Condition2InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition2InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 2 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition2InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN2Y".
     /// </summary>
     [EnumMember(Value = "CN2Y")]
     [IsoId("_lyk1hTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 2 indicator is invalid. It must be Yes.")]
-    Condition2InvalidMustBeYes,
+    Condition2InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition2InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 2 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition2Required".
+    /// Encoded/decoded by serializers as "CN2R".
     /// </summary>
     [EnumMember(Value = "CN2R")]
     [IsoId("_lyk1hzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 2 indicator is must be present.")]
-    Condition2Required,
+    Condition2Required = InstructionRejectionReasonV2Code.Condition2Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 3 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition3InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN3N".
     /// </summary>
     [EnumMember(Value = "CN3N")]
     [IsoId("_lyk1iTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 3 indicator is invalid. It must be No.")]
-    Condition3InvalidMustBeNo,
+    Condition3InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition3InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 3 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition3InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN3Y".
     /// </summary>
     [EnumMember(Value = "CN3Y")]
     [IsoId("_lyk1izDvEey2N-DB7H7A5A")]
     [Description(@"Condition 3 indicator is invalid. It must be Yes.")]
-    Condition3InvalidMustBeYes,
+    Condition3InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition3InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 3 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition3Required".
+    /// Encoded/decoded by serializers as "CN3R".
     /// </summary>
     [EnumMember(Value = "CN3R")]
     [IsoId("_lyk1jTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 3 indicator is must be present.")]
-    Condition3Required,
+    Condition3Required = InstructionRejectionReasonV2Code.Condition3Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 4 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition4InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN4N".
     /// </summary>
     [EnumMember(Value = "CN4N")]
     [IsoId("_lyk1jzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 4 indicator is invalid. It must be No.")]
-    Condition4InvalidMustBeNo,
+    Condition4InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition4InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 4 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition4InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN4Y".
     /// </summary>
     [EnumMember(Value = "CN4Y")]
     [IsoId("_lyk1kTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 4 indicator is invalid. It must be Yes.")]
-    Condition4InvalidMustBeYes,
+    Condition4InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition4InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 4 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition4Required".
+    /// Encoded/decoded by serializers as "CN4R".
     /// </summary>
     [EnumMember(Value = "CN4R")]
     [IsoId("_lyk1kzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 4 indicator is must be present.")]
-    Condition4Required,
+    Condition4Required = InstructionRejectionReasonV2Code.Condition4Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Comment area is invalid.
-    /// Encoded/decoded by serializers as "CommentAreaInvalid".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_lyk1lTDvEey2N-DB7H7A5A")]
     [Description(@"Comment area is invalid.")]
-    CommentAreaInvalid,
+    CommentAreaInvalid = InstructionRejectionReasonV2Code.CommentAreaInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number is invalid.
-    /// Encoded/decoded by serializers as "CertificateNumberInvalid".
+    /// Encoded/decoded by serializers as "CERN".
     /// </summary>
     [EnumMember(Value = "CERN")]
     [IsoId("_lyk1lzDvEey2N-DB7H7A5A")]
     [Description(@"Certificate number is invalid.")]
-    CertificateNumberInvalid,
+    CertificateNumberInvalid = InstructionRejectionReasonV2Code.CertificateNumberInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 5 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition5InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN5N".
     /// </summary>
     [EnumMember(Value = "CN5N")]
     [IsoId("_lyk1mTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 5 indicator is invalid. It must be No.")]
-    Condition5InvalidMustBeNo,
+    Condition5InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition5InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 5 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition5InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN5Y".
     /// </summary>
     [EnumMember(Value = "CN5Y")]
     [IsoId("_lyk1mzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 5 indicator is invalid. It must be Yes.")]
-    Condition5InvalidMustBeYes,
+    Condition5InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition5InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 5 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition5Required".
+    /// Encoded/decoded by serializers as "CN5R".
     /// </summary>
     [EnumMember(Value = "CN5R")]
     [IsoId("_lyk1nTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 5 indicator is must be present.")]
-    Condition5Required,
+    Condition5Required = InstructionRejectionReasonV2Code.Condition5Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 6 indicator is invalid. It must be No.
-    /// Encoded/decoded by serializers as "Condition6InvalidMustBeNo".
+    /// Encoded/decoded by serializers as "CN6N".
     /// </summary>
     [EnumMember(Value = "CN6N")]
     [IsoId("_lyk1nzDvEey2N-DB7H7A5A")]
     [Description(@"Condition 6 indicator is invalid. It must be No.")]
-    Condition6InvalidMustBeNo,
+    Condition6InvalidMustBeNo = InstructionRejectionReasonV2Code.Condition6InvalidMustBeNo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 6 indicator is invalid. It must be Yes.
-    /// Encoded/decoded by serializers as "Condition6InvalidMustBeYes".
+    /// Encoded/decoded by serializers as "CN6Y".
     /// </summary>
     [EnumMember(Value = "CN6Y")]
     [IsoId("_lyk1oTDvEey2N-DB7H7A5A")]
     [Description(@"Condition 6 indicator is invalid. It must be Yes.")]
-    Condition6InvalidMustBeYes,
+    Condition6InvalidMustBeYes = InstructionRejectionReasonV2Code.Condition6InvalidMustBeYes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Condition 6 indicator is must be present.
-    /// Encoded/decoded by serializers as "Condition6Required".
+    /// Encoded/decoded by serializers as "CN6R".
     /// </summary>
     [EnumMember(Value = "CN6R")]
     [IsoId("_lyk1ozDvEey2N-DB7H7A5A")]
     [Description(@"Condition 6 indicator is must be present.")]
-    Condition6Required,
+    Condition6Required = InstructionRejectionReasonV2Code.Condition6Required, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conditional quantity cannot be zero.
-    /// Encoded/decoded by serializers as "ConditionalQuantityCannotBeZero".
+    /// Encoded/decoded by serializers as "COQX".
     /// </summary>
     [EnumMember(Value = "COQX")]
     [IsoId("_lyk1pTDvEey2N-DB7H7A5A")]
     [Description(@"Conditional quantity cannot be zero.")]
-    ConditionalQuantityCannotBeZero,
+    ConditionalQuantityCannotBeZero = InstructionRejectionReasonV2Code.ConditionalQuantityCannotBeZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conditional quantity does not equal the transaction quantity whilst this offer accepts only the full conditional quantity.
-    /// Encoded/decoded by serializers as "ConditionalQuantityDoesNotEqualTransactionQuantity".
+    /// Encoded/decoded by serializers as "COTQ".
     /// </summary>
     [EnumMember(Value = "COTQ")]
     [IsoId("_lyk1pzDvEey2N-DB7H7A5A")]
     [Description(@"Conditional quantity does not equal the transaction quantity whilst this offer accepts only the full conditional quantity.")]
-    ConditionalQuantityDoesNotEqualTransactionQuantity,
+    ConditionalQuantityDoesNotEqualTransactionQuantity = InstructionRejectionReasonV2Code.ConditionalQuantityDoesNotEqualTransactionQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conditional quantity exceeds the transaction quantity.
-    /// Encoded/decoded by serializers as "ConditionalQuantityExceedsTransactionQuantity".
+    /// Encoded/decoded by serializers as "COQE".
     /// </summary>
     [EnumMember(Value = "COQE")]
     [IsoId("_lyk1qTDvEey2N-DB7H7A5A")]
     [Description(@"Conditional quantity exceeds the transaction quantity.")]
-    ConditionalQuantityExceedsTransactionQuantity,
+    ConditionalQuantityExceedsTransactionQuantity = InstructionRejectionReasonV2Code.ConditionalQuantityExceedsTransactionQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conditional quantity is missing or invalid.
-    /// Encoded/decoded by serializers as "ConditionalQuantityMissingOrInvalid".
+    /// Encoded/decoded by serializers as "COQI".
     /// </summary>
     [EnumMember(Value = "COQI")]
     [IsoId("_lyk1qzDvEey2N-DB7H7A5A")]
     [Description(@"Conditional quantity is missing or invalid.")]
-    ConditionalQuantityMissingOrInvalid,
+    ConditionalQuantityMissingOrInvalid = InstructionRejectionReasonV2Code.ConditionalQuantityMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conditional quantity zeroes are required.
-    /// Encoded/decoded by serializers as "ConditionalQuantityZeroesRequired".
+    /// Encoded/decoded by serializers as "COQ0".
     /// </summary>
     [EnumMember(Value = "COQ0")]
     [IsoId("_lyk1rTDvEey2N-DB7H7A5A")]
     [Description(@"Conditional quantity zeroes are required.")]
-    ConditionalQuantityZeroesRequired,
+    ConditionalQuantityZeroesRequired = InstructionRejectionReasonV2Code.ConditionalQuantityZeroesRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact name is missing.
-    /// Encoded/decoded by serializers as "ContactNameMissing".
+    /// Encoded/decoded by serializers as "CNAM".
     /// </summary>
     [EnumMember(Value = "CNAM")]
     [IsoId("_lyk1rzDvEey2N-DB7H7A5A")]
     [Description(@"Contact name is missing.")]
-    ContactNameMissing,
+    ContactNameMissing = InstructionRejectionReasonV2Code.ContactNameMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact name is not used with this event.
-    /// Encoded/decoded by serializers as "ContactNameNotUsedWithEvent".
+    /// Encoded/decoded by serializers as "CNAX".
     /// </summary>
     [EnumMember(Value = "CNAX")]
     [IsoId("_lyk1sTDvEey2N-DB7H7A5A")]
     [Description(@"Contact name is not used with this event.")]
-    ContactNameNotUsedWithEvent,
+    ContactNameNotUsedWithEvent = InstructionRejectionReasonV2Code.ContactNameNotUsedWithEvent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact phone number is missing.
-    /// Encoded/decoded by serializers as "ContactPhoneNumberMissing".
+    /// Encoded/decoded by serializers as "CNPM".
     /// </summary>
     [EnumMember(Value = "CNPM")]
     [IsoId("_lyk1szDvEey2N-DB7H7A5A")]
     [Description(@"Contact phone number is missing.")]
-    ContactPhoneNumberMissing,
+    ContactPhoneNumberMissing = InstructionRejectionReasonV2Code.ContactPhoneNumberMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contact phone number is not used with this event.
-    /// Encoded/decoded by serializers as "ContactPhoneNumberNotUsedWithEvent".
+    /// Encoded/decoded by serializers as "CNPX".
     /// </summary>
     [EnumMember(Value = "CNPX")]
     [IsoId("_lyk1tTDvEey2N-DB7H7A5A")]
     [Description(@"Contact phone number is not used with this event.")]
-    ContactPhoneNumberNotUsedWithEvent,
+    ContactPhoneNumberNotUsedWithEvent = InstructionRejectionReasonV2Code.ContactPhoneNumberNotUsedWithEvent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is summary difference between core oversubscription quantity and extension transaction details.
-    /// Encoded/decoded by serializers as "CoreInstructionOversubscriptionQuantityAndExtensionTransactionDetailsDifference".
+    /// Encoded/decoded by serializers as "SUMO".
     /// </summary>
     [EnumMember(Value = "SUMO")]
     [IsoId("_lyk1tzDvEey2N-DB7H7A5A")]
     [Description(@"There is summary difference between core oversubscription quantity and extension transaction details.")]
-    CoreInstructionOversubscriptionQuantityAndExtensionTransactionDetailsDifference,
+    CoreInstructionOversubscriptionQuantityAndExtensionTransactionDetailsDifference = InstructionRejectionReasonV2Code.CoreInstructionOversubscriptionQuantityAndExtensionTransactionDetailsDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is a summary difference between the core instruction quantity and the extension transaction details.
-    /// Encoded/decoded by serializers as "CoreInstructionQuantityAndExtensionTransactionDetailsDifference".
+    /// Encoded/decoded by serializers as "SUME".
     /// </summary>
     [EnumMember(Value = "SUME")]
     [IsoId("_lyk1uTDvEey2N-DB7H7A5A")]
     [Description(@"There is a summary difference between the core instruction quantity and the extension transaction details.")]
-    CoreInstructionQuantityAndExtensionTransactionDetailsDifference,
+    CoreInstructionQuantityAndExtensionTransactionDetailsDifference = InstructionRejectionReasonV2Code.CoreInstructionQuantityAndExtensionTransactionDetailsDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action event identification is invalid.
-    /// Encoded/decoded by serializers as "CorporateActionEventInvalid".
+    /// Encoded/decoded by serializers as "CAID".
     /// </summary>
     [EnumMember(Value = "CAID")]
     [IsoId("_lyk1uzDvEey2N-DB7H7A5A")]
     [Description(@"Corporate action event identification is invalid.")]
-    CorporateActionEventInvalid,
+    CorporateActionEventInvalid = InstructionRejectionReasonV2Code.CorporateActionEventInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cover quantity is greater than the remaining protect quantity.
-    /// Encoded/decoded by serializers as "CoverQuantityGreaterThanProtectQuantity".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_lyk1vTDvEey2N-DB7H7A5A")]
     [Description(@"Cover quantity is greater than the remaining protect quantity.")]
-    CoverQuantityGreaterThanProtectQuantity,
+    CoverQuantityGreaterThanProtectQuantity = InstructionRejectionReasonV2Code.CoverQuantityGreaterThanProtectQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Current date is greater than the protect submission end date.
-    /// Encoded/decoded by serializers as "CurrentDatePassedProtectSubmissionEndDate".
+    /// Encoded/decoded by serializers as "PROE".
     /// </summary>
     [EnumMember(Value = "PROE")]
     [IsoId("_lyk1vzDvEey2N-DB7H7A5A")]
     [Description(@"Current date is greater than the protect submission end date.")]
-    CurrentDatePassedProtectSubmissionEndDate,
+    CurrentDatePassedProtectSubmissionEndDate = InstructionRejectionReasonV2Code.CurrentDatePassedProtectSubmissionEndDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Current date is less than the protect submission start date.
-    /// Encoded/decoded by serializers as "CurrentDatePrecedesProtectSubmissionStartDate".
+    /// Encoded/decoded by serializers as "PROS".
     /// </summary>
     [EnumMember(Value = "PROS")]
     [IsoId("_lyk1wTDvEey2N-DB7H7A5A")]
     [Description(@"Current date is less than the protect submission start date.")]
-    CurrentDatePrecedesProtectSubmissionStartDate,
+    CurrentDatePrecedesProtectSubmissionStartDate = InstructionRejectionReasonV2Code.CurrentDatePrecedesProtectSubmissionStartDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CUSIP is depository deliver chilled.
-    /// Encoded/decoded by serializers as "CUSIPDepositoryDeliverChilled".
+    /// Encoded/decoded by serializers as "CHIL".
     /// </summary>
     [EnumMember(Value = "CHIL")]
     [IsoId("_lyk1wzDvEey2N-DB7H7A5A")]
     [Description(@"CUSIP is depository deliver chilled.")]
-    CUSIPDepositoryDeliverChilled,
+    CUSIPDepositoryDeliverChilled = InstructionRejectionReasonV2Code.CUSIPDepositoryDeliverChilled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Target CUSIP or contra CUSIP identification is missing or invalid.
-    /// Encoded/decoded by serializers as "CUSIPMissingOrInvalid".
+    /// Encoded/decoded by serializers as "CUSI".
     /// </summary>
     [EnumMember(Value = "CUSI")]
     [IsoId("_lyk1xTDvEey2N-DB7H7A5A")]
     [Description(@"Target CUSIP or contra CUSIP identification is missing or invalid.")]
-    CUSIPMissingOrInvalid,
+    CUSIPMissingOrInvalid = InstructionRejectionReasonV2Code.CUSIPMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Target CUSIP or contra CUSIP identification is not DTC eligible.
-    /// Encoded/decoded by serializers as "CUSIPNotDTCEligible".
+    /// Encoded/decoded by serializers as "CUSD".
     /// </summary>
     [EnumMember(Value = "CUSD")]
     [IsoId("_lyk1xzDvEey2N-DB7H7A5A")]
     [Description(@"Target CUSIP or contra CUSIP identification is not DTC eligible.")]
-    CUSIPNotDTCEligible,
+    CUSIPNotDTCEligible = InstructionRejectionReasonV2Code.CUSIPNotDTCEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer oversubscription quantities do not add up to total oversubscription quantity.
-    /// Encoded/decoded by serializers as "CustomerAndTotalOversubscriptionQuantitiesMismatch".
+    /// Encoded/decoded by serializers as "OVCU".
     /// </summary>
     [EnumMember(Value = "OVCU")]
     [IsoId("_lyk1yTDvEey2N-DB7H7A5A")]
     [Description(@"Customer oversubscription quantities do not add up to total oversubscription quantity.")]
-    CustomerAndTotalOversubscriptionQuantitiesMismatch,
+    CustomerAndTotalOversubscriptionQuantitiesMismatch = InstructionRejectionReasonV2Code.CustomerAndTotalOversubscriptionQuantitiesMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer identification is missing or invalid.
-    /// Encoded/decoded by serializers as "CustomerIdentificationMissingOrInvalid".
+    /// Encoded/decoded by serializers as "CUID".
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_lyk1yzDvEey2N-DB7H7A5A")]
     [Description(@"Customer identification is missing or invalid.")]
-    CustomerIdentificationMissingOrInvalid,
+    CustomerIdentificationMissingOrInvalid = InstructionRejectionReasonV2Code.CustomerIdentificationMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer quantities do not add up to total rights quantities.
-    /// Encoded/decoded by serializers as "CustomerQuantitiesAndTotalRightsQuantitiesMismatch".
+    /// Encoded/decoded by serializers as "CQRQ".
     /// </summary>
     [EnumMember(Value = "CQRQ")]
     [IsoId("_lyk1zTDvEey2N-DB7H7A5A")]
     [Description(@"Customer quantities do not add up to total rights quantities.")]
-    CustomerQuantitiesAndTotalRightsQuantitiesMismatch,
+    CustomerQuantitiesAndTotalRightsQuantitiesMismatch = InstructionRejectionReasonV2Code.CustomerQuantitiesAndTotalRightsQuantitiesMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer reference identification must be populated for each sequence.
-    /// Encoded/decoded by serializers as "CustomerReferenceIdentificationMissingInSequence".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_lyk1zzDvEey2N-DB7H7A5A")]
     [Description(@"Customer reference identification must be populated for each sequence.")]
-    CustomerReferenceIdentificationMissingInSequence,
+    CustomerReferenceIdentificationMissingInSequence = InstructionRejectionReasonV2Code.CustomerReferenceIdentificationMissingInSequence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer sequence number must be all zero.
-    /// Encoded/decoded by serializers as "CustomerSequenceNumberAllZero".
+    /// Encoded/decoded by serializers as "SEQ0".
     /// </summary>
     [EnumMember(Value = "SEQ0")]
     [IsoId("_lyk10TDvEey2N-DB7H7A5A")]
     [Description(@"Customer sequence number must be all zero.")]
-    CustomerSequenceNumberAllZero,
+    CustomerSequenceNumberAllZero = InstructionRejectionReasonV2Code.CustomerSequenceNumberAllZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer sequence number is invalid or out of sequence.
-    /// Encoded/decoded by serializers as "CustomerSequenceNumberInvalid".
+    /// Encoded/decoded by serializers as "CSEQ".
     /// </summary>
     [EnumMember(Value = "CSEQ")]
     [IsoId("_lyk10zDvEey2N-DB7H7A5A")]
     [Description(@"Customer sequence number is invalid or out of sequence.")]
-    CustomerSequenceNumberInvalid,
+    CustomerSequenceNumberInvalid = InstructionRejectionReasonV2Code.CustomerSequenceNumberInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cut-off time check has failed.
-    /// Encoded/decoded by serializers as "CutoffTimeCheckFailed".
+    /// Encoded/decoded by serializers as "CUTC".
     /// </summary>
     [EnumMember(Value = "CUTC")]
     [IsoId("_lyk11TDvEey2N-DB7H7A5A")]
     [Description(@"Cut-off time check has failed.")]
-    CutoffTimeCheckFailed,
+    CutoffTimeCheckFailed = InstructionRejectionReasonV2Code.CutoffTimeCheckFailed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cut-off time has passed.
-    /// Encoded/decoded by serializers as "CutoffTimePassed".
+    /// Encoded/decoded by serializers as "CUTT".
     /// </summary>
     [EnumMember(Value = "CUTT")]
     [IsoId("_lyk11zDvEey2N-DB7H7A5A")]
     [Description(@"Cut-off time has passed.")]
-    CutoffTimePassed,
+    CutoffTimePassed = InstructionRejectionReasonV2Code.CutoffTimePassed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Death certificate details are missing.
-    /// Encoded/decoded by serializers as "DeathCertificateMissing".
+    /// Encoded/decoded by serializers as "BODC".
     /// </summary>
     [EnumMember(Value = "BODC")]
     [IsoId("_lyk12TDvEey2N-DB7H7A5A")]
     [Description(@"Death certificate details are missing.")]
-    DeathCertificateMissing,
+    DeathCertificateMissing = InstructionRejectionReasonV2Code.DeathCertificateMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction sequence number is duplicated.
-    /// Encoded/decoded by serializers as "DuplicateTransactionSequenceNumber".
+    /// Encoded/decoded by serializers as "SEQD".
     /// </summary>
     [EnumMember(Value = "SEQD")]
     [IsoId("_lyk12zDvEey2N-DB7H7A5A")]
     [Description(@"Transaction sequence number is duplicated.")]
-    DuplicateTransactionSequenceNumber,
+    DuplicateTransactionSequenceNumber = InstructionRejectionReasonV2Code.DuplicateTransactionSequenceNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entry date is invalid.
-    /// Encoded/decoded by serializers as "EntryDateInvalid".
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_lyk13TDvEey2N-DB7H7A5A")]
     [Description(@"Entry date is invalid.")]
-    EntryDateInvalid,
+    EntryDateInvalid = InstructionRejectionReasonV2Code.EntryDateInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entry date must be less than or equal to current date.
-    /// Encoded/decoded by serializers as "EntryDatePassed".
+    /// Encoded/decoded by serializers as "ENTL".
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_lyk13zDvEey2N-DB7H7A5A")]
     [Description(@"Entry date must be less than or equal to current date.")]
-    EntryDatePassed,
+    EntryDatePassed = InstructionRejectionReasonV2Code.EntryDatePassed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Function is not available at this time. Please check expiration start and end times for the event.
-    /// Encoded/decoded by serializers as "FunctionNotAvailable".
+    /// Encoded/decoded by serializers as "FUNU".
     /// </summary>
     [EnumMember(Value = "FUNU")]
     [IsoId("_lyk14TDvEey2N-DB7H7A5A")]
     [Description(@"Function is not available at this time. Please check expiration start and end times for the event.")]
-    FunctionNotAvailable,
+    FunctionNotAvailable = InstructionRejectionReasonV2Code.FunctionNotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Function is quiesced (not available).
-    /// Encoded/decoded by serializers as "FunctionQuiesced".
+    /// Encoded/decoded by serializers as "QUIE".
     /// </summary>
     [EnumMember(Value = "QUIE")]
     [IsoId("_lyk14zDvEey2N-DB7H7A5A")]
     [Description(@"Function is quiesced (not available).")]
-    FunctionQuiesced,
+    FunctionQuiesced = InstructionRejectionReasonV2Code.FunctionQuiesced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction deletion acknowledgement indicator is invalid.
-    /// Encoded/decoded by serializers as "InstructionDeletionAcknowledgementIndicatorInvalid".
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_lyk15TDvEey2N-DB7H7A5A")]
     [Description(@"Instruction deletion acknowledgement indicator is invalid.")]
-    InstructionDeletionAcknowledgementIndicatorInvalid,
+    InstructionDeletionAcknowledgementIndicatorInvalid = InstructionRejectionReasonV2Code.InstructionDeletionAcknowledgementIndicatorInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction deletion acknowledgement indicator is missing.
-    /// Encoded/decoded by serializers as "InstructionDeletionAcknowledgementIndicatorMissing".
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_lyk15zDvEey2N-DB7H7A5A")]
     [Description(@"Instruction deletion acknowledgement indicator is missing.")]
-    InstructionDeletionAcknowledgementIndicatorMissing,
+    InstructionDeletionAcknowledgementIndicatorMissing = InstructionRejectionReasonV2Code.InstructionDeletionAcknowledgementIndicatorMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant has an insufficient position.
-    /// Encoded/decoded by serializers as "InsufficientPosition".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_lyk16TDvEey2N-DB7H7A5A")]
     [Description(@"Participant has an insufficient position.")]
-    InsufficientPosition,
+    InsufficientPosition = InstructionRejectionReasonV2Code.InsufficientPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuing jurisdiction is missing.
-    /// Encoded/decoded by serializers as "IssuingJurisdictionMissing".
+    /// Encoded/decoded by serializers as "BOIJ".
     /// </summary>
     [EnumMember(Value = "BOIJ")]
     [IsoId("_lyk16zDvEey2N-DB7H7A5A")]
     [Description(@"Issuing jurisdiction is missing.")]
-    IssuingJurisdictionMissing,
+    IssuingJurisdictionMissing = InstructionRejectionReasonV2Code.IssuingJurisdictionMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key data (VOI transaction) cannot be found.
-    /// Encoded/decoded by serializers as "KeyDataNotFound".
+    /// Encoded/decoded by serializers as "KEYV".
     /// </summary>
     [EnumMember(Value = "KEYV")]
     [IsoId("_lyk17TDvEey2N-DB7H7A5A")]
     [Description(@"Key data (VOI transaction) cannot be found.")]
-    KeyDataNotFound,
+    KeyDataNotFound = InstructionRejectionReasonV2Code.KeyDataNotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key information is missing (tenders data).
-    /// Encoded/decoded by serializers as "KeyInformationMissing".
+    /// Encoded/decoded by serializers as "KEYM".
     /// </summary>
     [EnumMember(Value = "KEYM")]
     [IsoId("_lyk17zDvEey2N-DB7H7A5A")]
     [Description(@"Key information is missing (tenders data).")]
-    KeyInformationMissing,
+    KeyInformationMissing = InstructionRejectionReasonV2Code.KeyInformationMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal documentation thirty months retention acknowledgement indicator is invalid.
-    /// Encoded/decoded by serializers as "LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorInvalid".
+    /// Encoded/decoded by serializers as "LEGI".
     /// </summary>
     [EnumMember(Value = "LEGI")]
     [IsoId("_lyk18TDvEey2N-DB7H7A5A")]
     [Description(@"Legal documentation thirty months retention acknowledgement indicator is invalid.")]
-    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorInvalid,
+    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorInvalid = InstructionRejectionReasonV2Code.LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal documentation thirty months retention acknowledgement indicator is missing.
-    /// Encoded/decoded by serializers as "LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorMissing".
+    /// Encoded/decoded by serializers as "LEGM".
     /// </summary>
     [EnumMember(Value = "LEGM")]
     [IsoId("_lyk18zDvEey2N-DB7H7A5A")]
     [Description(@"Legal documentation thirty months retention acknowledgement indicator is missing.")]
-    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorMissing,
+    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorMissing = InstructionRejectionReasonV2Code.LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Master tables are not available.
-    /// Encoded/decoded by serializers as "MasterTablesNotAvailable".
+    /// Encoded/decoded by serializers as "MSTB".
     /// </summary>
     [EnumMember(Value = "MSTB")]
     [IsoId("_lyk19TDvEey2N-DB7H7A5A")]
     [Description(@"Master tables are not available.")]
-    MasterTablesNotAvailable,
+    MasterTablesNotAvailable = InstructionRejectionReasonV2Code.MasterTablesNotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There is no withdrawal privilege on this offer.
-    /// Encoded/decoded by serializers as "NoWithdrawalPrivilege".
+    /// Encoded/decoded by serializers as "NWIT".
     /// </summary>
     [EnumMember(Value = "NWIT")]
     [IsoId("_lyk19zDvEey2N-DB7H7A5A")]
     [Description(@"There is no withdrawal privilege on this offer.")]
-    NoWithdrawalPrivilege,
+    NoWithdrawalPrivilege = InstructionRejectionReasonV2Code.NoWithdrawalPrivilege, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Odd lot indicator is missing or invalid.
-    /// Encoded/decoded by serializers as "OddLotIndicatorMissingOrInvalid".
+    /// Encoded/decoded by serializers as "ODLI".
     /// </summary>
     [EnumMember(Value = "ODLI")]
     [IsoId("_lyk1-TDvEey2N-DB7H7A5A")]
     [Description(@"Odd lot indicator is missing or invalid.")]
-    OddLotIndicatorMissingOrInvalid,
+    OddLotIndicatorMissingOrInvalid = InstructionRejectionReasonV2Code.OddLotIndicatorMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cannot submit odd lot indicator 'Yes' for the offer.
-    /// Encoded/decoded by serializers as "OddLotIndicatorYesInvalid".
+    /// Encoded/decoded by serializers as "ODLY".
     /// </summary>
     [EnumMember(Value = "ODLY")]
     [IsoId("_lyk1-zDvEey2N-DB7H7A5A")]
     [Description(@"Cannot submit odd lot indicator 'Yes' for the offer.")]
-    OddLotIndicatorYesInvalid,
+    OddLotIndicatorYesInvalid = InstructionRejectionReasonV2Code.OddLotIndicatorYesInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer is already on historical data base.
-    /// Encoded/decoded by serializers as "OfferInDatabase".
+    /// Encoded/decoded by serializers as "HIST".
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_lyk1_TDvEey2N-DB7H7A5A")]
     [Description(@"Offer is already on historical data base.")]
-    OfferInDatabase,
+    OfferInDatabase = InstructionRejectionReasonV2Code.OfferInDatabase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer is not eligible for the PUTS function.
-    /// Encoded/decoded by serializers as "OfferNotEligibleForPuts".
+    /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_lyk1_zDvEey2N-DB7H7A5A")]
     [Description(@"Offer is not eligible for the PUTS function.")]
-    OfferNotEligibleForPuts,
+    OfferNotEligibleForPuts = InstructionRejectionReasonV2Code.OfferNotEligibleForPuts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer is not ATOP eligible.
-    /// Encoded/decoded by serializers as "OfferNotATOPEligible".
+    /// Encoded/decoded by serializers as "ATOP".
     /// </summary>
     [EnumMember(Value = "ATOP")]
     [IsoId("_lyk2ATDvEey2N-DB7H7A5A")]
     [Description(@"Offer is not ATOP eligible.")]
-    OfferNotATOPEligible,
+    OfferNotATOPEligible = InstructionRejectionReasonV2Code.OfferNotATOPEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer has fractional underlying quantity, adjust quantity.
-    /// Encoded/decoded by serializers as "FractionalUnderlyingQuantity".
+    /// Encoded/decoded by serializers as "FRAQ".
     /// </summary>
     [EnumMember(Value = "FRAQ")]
     [IsoId("_lyk2AzDvEey2N-DB7H7A5A")]
     [Description(@"Customer has fractional underlying quantity, adjust quantity.")]
-    FractionalUnderlyingQuantity,
+    FractionalUnderlyingQuantity = InstructionRejectionReasonV2Code.FractionalUnderlyingQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Oversubscription is not allowed.
-    /// Encoded/decoded by serializers as "OversubscriptionNotAllowed".
+    /// Encoded/decoded by serializers as "OVRX".
     /// </summary>
     [EnumMember(Value = "OVRX")]
     [IsoId("_lyk2BTDvEey2N-DB7H7A5A")]
     [Description(@"Oversubscription is not allowed.")]
-    OversubscriptionNotAllowed,
+    OversubscriptionNotAllowed = InstructionRejectionReasonV2Code.OversubscriptionNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Oversubscription quantity is greater than percentage of underlying shares.
-    /// Encoded/decoded by serializers as "OversubscriptionQuantityExceeded".
+    /// Encoded/decoded by serializers as "OVRG".
     /// </summary>
     [EnumMember(Value = "OVRG")]
     [IsoId("_lyk2BzDvEey2N-DB7H7A5A")]
     [Description(@"Oversubscription quantity is greater than percentage of underlying shares.")]
-    OversubscriptionQuantityExceeded,
+    OversubscriptionQuantityExceeded = InstructionRejectionReasonV2Code.OversubscriptionQuantityExceeded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Oversubscription quantity is invalid.
-    /// Encoded/decoded by serializers as "OversubscriptionQuantityInvalid".
+    /// Encoded/decoded by serializers as "OVRI".
     /// </summary>
     [EnumMember(Value = "OVRI")]
     [IsoId("_lyk2CTDvEey2N-DB7H7A5A")]
     [Description(@"Oversubscription quantity is invalid.")]
-    OversubscriptionQuantityInvalid,
+    OversubscriptionQuantityInvalid = InstructionRejectionReasonV2Code.OversubscriptionQuantityInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Oversubscription quantity not used with this transaction type.
-    /// Encoded/decoded by serializers as "OversubscriptionQuantityNotUsed".
+    /// Encoded/decoded by serializers as "OVTT".
     /// </summary>
     [EnumMember(Value = "OVTT")]
     [IsoId("_lyk2CzDvEey2N-DB7H7A5A")]
     [Description(@"Oversubscription quantity not used with this transaction type.")]
-    OversubscriptionQuantityNotUsed,
+    OversubscriptionQuantityNotUsed = InstructionRejectionReasonV2Code.OversubscriptionQuantityNotUsed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant is DO chilled.
-    /// Encoded/decoded by serializers as "ParticipantDOChilled".
+    /// Encoded/decoded by serializers as "PACH".
     /// </summary>
     [EnumMember(Value = "PACH")]
     [IsoId("_lyk2DTDvEey2N-DB7H7A5A")]
     [Description(@"Participant is DO chilled.")]
-    ParticipantDOChilled,
+    ParticipantDOChilled = InstructionRejectionReasonV2Code.ParticipantDOChilled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant eligibility check on master table is not available.
-    /// Encoded/decoded by serializers as "ParticipantEligibilityCheckNotAvailable".
+    /// Encoded/decoded by serializers as "PAEC".
     /// </summary>
     [EnumMember(Value = "PAEC")]
     [IsoId("_lyk2DzDvEey2N-DB7H7A5A")]
     [Description(@"Participant eligibility check on master table is not available.")]
-    ParticipantEligibilityCheckNotAvailable,
+    ParticipantEligibilityCheckNotAvailable = InstructionRejectionReasonV2Code.ParticipantEligibilityCheckNotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant is globally locked.
-    /// Encoded/decoded by serializers as "ParticipantLocked".
+    /// Encoded/decoded by serializers as "PARL".
     /// </summary>
     [EnumMember(Value = "PARL")]
     [IsoId("_lyk2ETDvEey2N-DB7H7A5A")]
     [Description(@"Participant is globally locked.")]
-    ParticipantLocked,
+    ParticipantLocked = InstructionRejectionReasonV2Code.ParticipantLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant does not match the participant on protect identification.
-    /// Encoded/decoded by serializers as "ParticipantNoMatchOnProtectIdentification".
+    /// Encoded/decoded by serializers as "PAPI".
     /// </summary>
     [EnumMember(Value = "PAPI")]
     [IsoId("_lyk2EzDvEey2N-DB7H7A5A")]
     [Description(@"Participant does not match the participant on protect identification.")]
-    ParticipantNoMatchOnProtectIdentification,
+    ParticipantNoMatchOnProtectIdentification = InstructionRejectionReasonV2Code.ParticipantNoMatchOnProtectIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant is not DTC eligible.
-    /// Encoded/decoded by serializers as "ParticipantNotEligible".
+    /// Encoded/decoded by serializers as "PARX".
     /// </summary>
     [EnumMember(Value = "PARX")]
     [IsoId("_lyk2FTDvEey2N-DB7H7A5A")]
     [Description(@"Participant is not DTC eligible.")]
-    ParticipantNotEligible,
+    ParticipantNotEligible = InstructionRejectionReasonV2Code.ParticipantNotEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant number is invalid.
-    /// Encoded/decoded by serializers as "ParticipantNumberInvalid".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_lyk2FzDvEey2N-DB7H7A5A")]
     [Description(@"Participant number is invalid.")]
-    ParticipantNumberInvalid,
+    ParticipantNumberInvalid = InstructionRejectionReasonV2Code.ParticipantNumberInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Potential loss acknowledgement indicator is invalid.
-    /// Encoded/decoded by serializers as "PotentialLossAcknowledgementIndicatorInvalid".
+    /// Encoded/decoded by serializers as "POLI".
     /// </summary>
     [EnumMember(Value = "POLI")]
     [IsoId("_lyk2GTDvEey2N-DB7H7A5A")]
     [Description(@"Potential loss acknowledgement indicator is invalid.")]
-    PotentialLossAcknowledgementIndicatorInvalid,
+    PotentialLossAcknowledgementIndicatorInvalid = InstructionRejectionReasonV2Code.PotentialLossAcknowledgementIndicatorInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Potential loss acknowledgement indicator is missing.
-    /// Encoded/decoded by serializers as "PotentialLossAcknowledgementIndicatorMissing".
+    /// Encoded/decoded by serializers as "POLM".
     /// </summary>
     [EnumMember(Value = "POLM")]
     [IsoId("_lyk2GzDvEey2N-DB7H7A5A")]
     [Description(@"Potential loss acknowledgement indicator is missing.")]
-    PotentialLossAcknowledgementIndicatorMissing,
+    PotentialLossAcknowledgementIndicatorMissing = InstructionRejectionReasonV2Code.PotentialLossAcknowledgementIndicatorMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect date invalid or missing.
-    /// Encoded/decoded by serializers as "ProtectDateInvalidOrMissing".
+    /// Encoded/decoded by serializers as "PROI".
     /// </summary>
     [EnumMember(Value = "PROI")]
     [IsoId("_lyk2HTDvEey2N-DB7H7A5A")]
     [Description(@"Protect date invalid or missing.")]
-    ProtectDateInvalidOrMissing,
+    ProtectDateInvalidOrMissing = InstructionRejectionReasonV2Code.ProtectDateInvalidOrMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect date must be less than or equal to current date.
-    /// Encoded/decoded by serializers as "ProtectDatePassed".
+    /// Encoded/decoded by serializers as "PROL".
     /// </summary>
     [EnumMember(Value = "PROL")]
     [IsoId("_lyk2HzDvEey2N-DB7H7A5A")]
     [Description(@"Protect date must be less than or equal to current date.")]
-    ProtectDatePassed,
+    ProtectDatePassed = InstructionRejectionReasonV2Code.ProtectDatePassed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect date on file must be zero.
-    /// Encoded/decoded by serializers as "ProtectDateZero".
+    /// Encoded/decoded by serializers as "PRO0".
     /// </summary>
     [EnumMember(Value = "PRO0")]
     [IsoId("_lyk2ITDvEey2N-DB7H7A5A")]
     [Description(@"Protect date on file must be zero.")]
-    ProtectDateZero,
+    ProtectDateZero = InstructionRejectionReasonV2Code.ProtectDateZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect identification is missing or invalid.
-    /// Encoded/decoded by serializers as "ProtectIdentificationMissingOrInvalid".
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_lyk2IzDvEey2N-DB7H7A5A")]
     [Description(@"Protect identification is missing or invalid.")]
-    ProtectIdentificationMissingOrInvalid,
+    ProtectIdentificationMissingOrInvalid = InstructionRejectionReasonV2Code.ProtectIdentificationMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protect identification is not used with this event.
-    /// Encoded/decoded by serializers as "ProtectIdentificationNotUsed".
+    /// Encoded/decoded by serializers as "PROX".
     /// </summary>
     [EnumMember(Value = "PROX")]
     [IsoId("_lyk2JTDvEey2N-DB7H7A5A")]
     [Description(@"Protect identification is not used with this event.")]
-    ProtectIdentificationNotUsed,
+    ProtectIdentificationNotUsed = InstructionRejectionReasonV2Code.ProtectIdentificationNotUsed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provided by protect, enter 0 for transaction quantity.
-    /// Encoded/decoded by serializers as "ProvidedByProtect".
+    /// Encoded/decoded by serializers as "TRQP".
     /// </summary>
     [EnumMember(Value = "TRQP")]
     [IsoId("_lyk2JzDvEey2N-DB7H7A5A")]
     [Description(@"Provided by protect, enter 0 for transaction quantity.")]
-    ProvidedByProtect,
+    ProvidedByProtect = InstructionRejectionReasonV2Code.ProvidedByProtect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Record type is invalid.
-    /// Encoded/decoded by serializers as "RecordTypeInvalid".
+    /// Encoded/decoded by serializers as "RECI".
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_lyk2KTDvEey2N-DB7H7A5A")]
     [Description(@"Record type is invalid.")]
-    RecordTypeInvalid,
+    RecordTypeInvalid = InstructionRejectionReasonV2Code.RecordTypeInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights CUSIP has insufficient position.
-    /// Encoded/decoded by serializers as "RightsCUSIPInsufficientPosition".
+    /// Encoded/decoded by serializers as "RILA".
     /// </summary>
     [EnumMember(Value = "RILA")]
     [IsoId("_lyk2KzDvEey2N-DB7H7A5A")]
     [Description(@"Rights CUSIP has insufficient position.")]
-    RightsCUSIPInsufficientPosition,
+    RightsCUSIPInsufficientPosition = InstructionRejectionReasonV2Code.RightsCUSIPInsufficientPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not a good return code from rights position check.
-    /// Encoded/decoded by serializers as "RightsPositionCheckInvalid".
+    /// Encoded/decoded by serializers as "RPCI".
     /// </summary>
     [EnumMember(Value = "RPCI")]
     [IsoId("_lyk2LTDvEey2N-DB7H7A5A")]
     [Description(@"Not a good return code from rights position check.")]
-    RightsPositionCheckInvalid,
+    RightsPositionCheckInvalid = InstructionRejectionReasonV2Code.RightsPositionCheckInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights quantity for this subscription must be divisible by rights.
-    /// Encoded/decoded by serializers as "RightsQuantityDivisibleByRights".
+    /// Encoded/decoded by serializers as "RQDV".
     /// </summary>
     [EnumMember(Value = "RQDV")]
     [IsoId("_lyk2LzDvEey2N-DB7H7A5A")]
     [Description(@"Rights quantity for this subscription must be divisible by rights.")]
-    RightsQuantityDivisibleByRights,
+    RightsQuantityDivisibleByRights = InstructionRejectionReasonV2Code.RightsQuantityDivisibleByRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights quantity is invalid.
-    /// Encoded/decoded by serializers as "RightsQuantityInvalid".
+    /// Encoded/decoded by serializers as "RQIN".
     /// </summary>
     [EnumMember(Value = "RQIN")]
     [IsoId("_lyk2MTDvEey2N-DB7H7A5A")]
     [Description(@"Rights quantity is invalid.")]
-    RightsQuantityInvalid,
+    RightsQuantityInvalid = InstructionRejectionReasonV2Code.RightsQuantityInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights ratio not found on data base.
-    /// Encoded/decoded by serializers as "RightsRatioNotFound".
+    /// Encoded/decoded by serializers as "RTIO".
     /// </summary>
     [EnumMember(Value = "RTIO")]
     [IsoId("_lyk2MzDvEey2N-DB7H7A5A")]
     [Description(@"Rights ratio not found on data base.")]
-    RightsRatioNotFound,
+    RightsRatioNotFound = InstructionRejectionReasonV2Code.RightsRatioNotFound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Current date has passed cover protect submission end date.
-    /// Encoded/decoded by serializers as "PassedProtectSubmissionEndDate".
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_lyk2NTDvEey2N-DB7H7A5A")]
     [Description(@"Current date has passed cover protect submission end date.")]
-    PassedProtectSubmissionEndDate,
+    PassedProtectSubmissionEndDate = InstructionRejectionReasonV2Code.PassedProtectSubmissionEndDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// RTS processing is in progress. Submit later.
-    /// Encoded/decoded by serializers as "RTSProcessingInProgress".
+    /// Encoded/decoded by serializers as "RTSP".
     /// </summary>
     [EnumMember(Value = "RTSP")]
     [IsoId("_lyk2NzDvEey2N-DB7H7A5A")]
     [Description(@"RTS processing is in progress. Submit later.")]
-    RTSProcessingInProgress,
+    RTSProcessingInProgress = InstructionRejectionReasonV2Code.RTSProcessingInProgress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer sequence number must be between 1 and 1 or for PUTS between 9999901 and 9999912.
-    /// Encoded/decoded by serializers as "SequenceNumberInvalidBounds".
+    /// Encoded/decoded by serializers as "SEQP".
     /// </summary>
     [EnumMember(Value = "SEQP")]
     [IsoId("_lyk2OTDvEey2N-DB7H7A5A")]
     [Description(@"Customer sequence number must be between 1 and 1 or for PUTS between 9999901 and 9999912.")]
-    SequenceNumberInvalidBounds,
+    SequenceNumberInvalidBounds = InstructionRejectionReasonV2Code.SequenceNumberInvalidBounds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sequence number is missing.
-    /// Encoded/decoded by serializers as "SequenceNumberMissing".
+    /// Encoded/decoded by serializers as "SEQM".
     /// </summary>
     [EnumMember(Value = "SEQM")]
     [IsoId("_lyk2OzDvEey2N-DB7H7A5A")]
     [Description(@"Sequence number is missing.")]
-    SequenceNumberMissing,
+    SequenceNumberMissing = InstructionRejectionReasonV2Code.SequenceNumberMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sequence number is out of sequence.
-    /// Encoded/decoded by serializers as "SequenceNumberOutOfSync".
+    /// Encoded/decoded by serializers as "SEQO".
     /// </summary>
     [EnumMember(Value = "SEQO")]
     [IsoId("_lyk2PTDvEey2N-DB7H7A5A")]
     [Description(@"Sequence number is out of sequence.")]
-    SequenceNumberOutOfSync,
+    SequenceNumberOutOfSync = InstructionRejectionReasonV2Code.SequenceNumberOutOfSync, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Comments are required for solicitation fee.
-    /// Encoded/decoded by serializers as "SolicitationFeeCommentsRequired".
+    /// Encoded/decoded by serializers as "SOCR".
     /// </summary>
     [EnumMember(Value = "SOCR")]
     [IsoId("_lyk2PzDvEey2N-DB7H7A5A")]
     [Description(@"Comments are required for solicitation fee.")]
-    SolicitationFeeCommentsRequired,
+    SolicitationFeeCommentsRequired = InstructionRejectionReasonV2Code.SolicitationFeeCommentsRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Solicitation fee indicator is not used with this event.
-    /// Encoded/decoded by serializers as "SolicitationFeeIndicatorNotUsed".
+    /// Encoded/decoded by serializers as "SOLX".
     /// </summary>
     [EnumMember(Value = "SOLX")]
     [IsoId("_lyk2QTDvEey2N-DB7H7A5A")]
     [Description(@"Solicitation fee indicator is not used with this event.")]
-    SolicitationFeeIndicatorNotUsed,
+    SolicitationFeeIndicatorNotUsed = InstructionRejectionReasonV2Code.SolicitationFeeIndicatorNotUsed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Solicitation fee indicator is required.
-    /// Encoded/decoded by serializers as "SolicitationFeeIndicatorRequired".
+    /// Encoded/decoded by serializers as "SOLI".
     /// </summary>
     [EnumMember(Value = "SOLI")]
     [IsoId("_lyk2QzDvEey2N-DB7H7A5A")]
     [Description(@"Solicitation fee indicator is required.")]
-    SolicitationFeeIndicatorRequired,
+    SolicitationFeeIndicatorRequired = InstructionRejectionReasonV2Code.SolicitationFeeIndicatorRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Submission date is not yet reached.
-    /// Encoded/decoded by serializers as "SubmissionDateNotReached".
+    /// Encoded/decoded by serializers as "SUBE".
     /// </summary>
     [EnumMember(Value = "SUBE")]
     [IsoId("_lyk2RTDvEey2N-DB7H7A5A")]
     [Description(@"Submission date is not yet reached.")]
-    SubmissionDateNotReached,
+    SubmissionDateNotReached = InstructionRejectionReasonV2Code.SubmissionDateNotReached, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date of submission has passed.
-    /// Encoded/decoded by serializers as "SubmissionDatePassed".
+    /// Encoded/decoded by serializers as "SUBL".
     /// </summary>
     [EnumMember(Value = "SUBL")]
     [IsoId("_lyk2RzDvEey2N-DB7H7A5A")]
     [Description(@"Date of submission has passed.")]
-    SubmissionDatePassed,
+    SubmissionDatePassed = InstructionRejectionReasonV2Code.SubmissionDatePassed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction identification is invalid.
-    /// Encoded/decoded by serializers as "TransactionIdentificationInvalid".
+    /// Encoded/decoded by serializers as "TRNI".
     /// </summary>
     [EnumMember(Value = "TRNI")]
     [IsoId("_lyk2STDvEey2N-DB7H7A5A")]
     [Description(@"Transaction identification is invalid.")]
-    TransactionIdentificationInvalid,
+    TransactionIdentificationInvalid = InstructionRejectionReasonV2Code.TransactionIdentificationInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction quantity cannot be zero.
-    /// Encoded/decoded by serializers as "TransactionQuantityCannotBeZero".
+    /// Encoded/decoded by serializers as "TRQ0".
     /// </summary>
     [EnumMember(Value = "TRQ0")]
     [IsoId("_lyk2SzDvEey2N-DB7H7A5A")]
     [Description(@"Transaction quantity cannot be zero.")]
-    TransactionQuantityCannotBeZero,
+    TransactionQuantityCannotBeZero = InstructionRejectionReasonV2Code.TransactionQuantityCannotBeZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction quantity is missing or invalid.
-    /// Encoded/decoded by serializers as "TransactionQuantityMissingOrInvalid".
+    /// Encoded/decoded by serializers as "TRQI".
     /// </summary>
     [EnumMember(Value = "TRQI")]
     [IsoId("_lyk2TTDvEey2N-DB7H7A5A")]
     [Description(@"Transaction quantity is missing or invalid.")]
-    TransactionQuantityMissingOrInvalid,
+    TransactionQuantityMissingOrInvalid = InstructionRejectionReasonV2Code.TransactionQuantityMissingOrInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction sequence is invalid. Used only for rights exercise events.
-    /// Encoded/decoded by serializers as "TransactionSequenceInvalid".
+    /// Encoded/decoded by serializers as "TRNS".
     /// </summary>
     [EnumMember(Value = "TRNS")]
     [IsoId("_lyk2TzDvEey2N-DB7H7A5A")]
     [Description(@"Transaction sequence is invalid. Used only for rights exercise events.")]
-    TransactionSequenceInvalid,
+    TransactionSequenceInvalid = InstructionRejectionReasonV2Code.TransactionSequenceInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction type and event are incompatible.
-    /// Encoded/decoded by serializers as "TransactionTypeAndEventIncompatible".
+    /// Encoded/decoded by serializers as "TNFN".
     /// </summary>
     [EnumMember(Value = "TNFN")]
     [IsoId("_lyk2UTDvEey2N-DB7H7A5A")]
     [Description(@"Transaction type and event are incompatible.")]
-    TransactionTypeAndEventIncompatible,
+    TransactionTypeAndEventIncompatible = InstructionRejectionReasonV2Code.TransactionTypeAndEventIncompatible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction type is missing.
-    /// Encoded/decoded by serializers as "TransactionTypeMissing".
+    /// Encoded/decoded by serializers as "TRNM".
     /// </summary>
     [EnumMember(Value = "TRNM")]
     [IsoId("_lyk2UzDvEey2N-DB7H7A5A")]
     [Description(@"Transaction type is missing.")]
-    TransactionTypeMissing,
+    TransactionTypeMissing = InstructionRejectionReasonV2Code.TransactionTypeMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying security CUSIP is invalid.
-    /// Encoded/decoded by serializers as "UnderlyingSecurityCUSIPInvalid".
+    /// Encoded/decoded by serializers as "CUSP".
     /// </summary>
     [EnumMember(Value = "CUSP")]
     [IsoId("_lyk2VTDvEey2N-DB7H7A5A")]
     [Description(@"Underlying security CUSIP is invalid.")]
-    UnderlyingSecurityCUSIPInvalid,
+    UnderlyingSecurityCUSIPInvalid = InstructionRejectionReasonV2Code.UnderlyingSecurityCUSIPInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying security CUSIP does not match the original.
-    /// Encoded/decoded by serializers as "UnderlyingSecurityCUSIPMismatch".
+    /// Encoded/decoded by serializers as "CUSU".
     /// </summary>
     [EnumMember(Value = "CUSU")]
     [IsoId("_lyk2VzDvEey2N-DB7H7A5A")]
     [Description(@"Underlying security CUSIP does not match the original.")]
-    UnderlyingSecurityCUSIPMismatch,
+    UnderlyingSecurityCUSIPMismatch = InstructionRejectionReasonV2Code.UnderlyingSecurityCUSIPMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying share quantity is invalid.
-    /// Encoded/decoded by serializers as "UnderlyingShareQuantityInvalid".
+    /// Encoded/decoded by serializers as "SHQI".
     /// </summary>
     [EnumMember(Value = "SHQI")]
     [IsoId("_lyk2WTDvEey2N-DB7H7A5A")]
     [Description(@"Underlying share quantity is invalid.")]
-    UnderlyingShareQuantityInvalid,
+    UnderlyingShareQuantityInvalid = InstructionRejectionReasonV2Code.UnderlyingShareQuantityInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Warrant subscription charge amount is not balancing.
-    /// Encoded/decoded by serializers as "WarrantSubscriptionChargeAmountInvalid".
+    /// Encoded/decoded by serializers as "WARC".
     /// </summary>
     [EnumMember(Value = "WARC")]
     [IsoId("_lyk2WzDvEey2N-DB7H7A5A")]
     [Description(@"Warrant subscription charge amount is not balancing.")]
-    WarrantSubscriptionChargeAmountInvalid,
+    WarrantSubscriptionChargeAmountInvalid = InstructionRejectionReasonV2Code.WarrantSubscriptionChargeAmountInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal quantity is greater than VOI/protect quantity.
-    /// Encoded/decoded by serializers as "WithdrawalQuantityGreaterThanProtectQuantity".
+    /// Encoded/decoded by serializers as "WITG".
     /// </summary>
     [EnumMember(Value = "WITG")]
     [IsoId("_lyk2XTDvEey2N-DB7H7A5A")]
     [Description(@"Withdrawal quantity is greater than VOI/protect quantity.")]
-    WithdrawalQuantityGreaterThanProtectQuantity,
+    WithdrawalQuantityGreaterThanProtectQuantity = InstructionRejectionReasonV2Code.WithdrawalQuantityGreaterThanProtectQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal transaction quantity cannot be zero.
-    /// Encoded/decoded by serializers as "WithdrawalTransactionQuantityCannotBeZero".
+    /// Encoded/decoded by serializers as "WIT0".
     /// </summary>
     [EnumMember(Value = "WIT0")]
     [IsoId("_lyk2XzDvEey2N-DB7H7A5A")]
     [Description(@"Withdrawal transaction quantity cannot be zero.")]
-    WithdrawalTransactionQuantityCannotBeZero,
+    WithdrawalTransactionQuantityCannotBeZero = InstructionRejectionReasonV2Code.WithdrawalTransactionQuantityCannotBeZero, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal transaction type is invalid.
-    /// Encoded/decoded by serializers as "WithdrawalTransactionTypeInvalid".
+    /// Encoded/decoded by serializers as "WITI".
     /// </summary>
     [EnumMember(Value = "WITI")]
     [IsoId("_lyk2YTDvEey2N-DB7H7A5A")]
     [Description(@"Withdrawal transaction type is invalid.")]
-    WithdrawalTransactionTypeInvalid,
+    WithdrawalTransactionTypeInvalid = InstructionRejectionReasonV2Code.WithdrawalTransactionTypeInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error in withdraw occurred.
-    /// Encoded/decoded by serializers as "WithdrawError".
+    /// Encoded/decoded by serializers as "WITE".
     /// </summary>
     [EnumMember(Value = "WITE")]
     [IsoId("_lyk2YzDvEey2N-DB7H7A5A")]
     [Description(@"Error in withdraw occurred.")]
-    WithdrawError,
+    WithdrawError = InstructionRejectionReasonV2Code.WithdrawError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejection reason is unknown.
-    /// Encoded/decoded by serializers as "UnknownErrorCondition".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_lyk2ZTDvEey2N-DB7H7A5A")]
     [Description(@"Rejection reason is unknown.")]
-    UnknownErrorCondition,
+    UnknownErrorCondition = InstructionRejectionReasonV2Code.UnknownErrorCondition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Underlying share quantity does not match original share quantity.
-    /// Encoded/decoded by serializers as "UnderlyingShareQuantityMismatch".
+    /// Encoded/decoded by serializers as "SHQO".
     /// </summary>
     [EnumMember(Value = "SHQO")]
     [IsoId("_lyk2ZzDvEey2N-DB7H7A5A")]
     [Description(@"Underlying share quantity does not match original share quantity.")]
-    UnderlyingShareQuantityMismatch,
+    UnderlyingShareQuantityMismatch = InstructionRejectionReasonV2Code.UnderlyingShareQuantityMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal quantity exceeds the remaining quantity.
-    /// Encoded/decoded by serializers as "WithdrawalQuantityExceedsRemainingQuantity".
+    /// Encoded/decoded by serializers as "WITQ".
     /// </summary>
     [EnumMember(Value = "WITQ")]
     [IsoId("_lyk2aTDvEey2N-DB7H7A5A")]
     [Description(@"Withdrawal quantity exceeds the remaining quantity.")]
-    WithdrawalQuantityExceedsRemainingQuantity,
+    WithdrawalQuantityExceedsRemainingQuantity = InstructionRejectionReasonV2Code.WithdrawalQuantityExceedsRemainingQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction type or withdrawal transaction type is invalid.
-    /// Encoded/decoded by serializers as "TransactionTypeInvalid".
+    /// Encoded/decoded by serializers as "TRTI".
     /// </summary>
     [EnumMember(Value = "TRTI")]
     [IsoId("_lyk2azDvEey2N-DB7H7A5A")]
     [Description(@"Transaction type or withdrawal transaction type is invalid.")]
-    TransactionTypeInvalid,
+    TransactionTypeInvalid = InstructionRejectionReasonV2Code.TransactionTypeInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction quantity is less than the transaction minimum.
-    /// Encoded/decoded by serializers as "TransactionQuantityLessThanTransactionMinimum".
+    /// Encoded/decoded by serializers as "TRQM".
     /// </summary>
     [EnumMember(Value = "TRQM")]
     [IsoId("_lyk2bTDvEey2N-DB7H7A5A")]
     [Description(@"Transaction quantity is less than the transaction minimum.")]
-    TransactionQuantityLessThanTransactionMinimum,
+    TransactionQuantityLessThanTransactionMinimum = InstructionRejectionReasonV2Code.TransactionQuantityLessThanTransactionMinimum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Corporate action event type provided is not valid.
-    /// Encoded/decoded by serializers as "CorporateActionEventTypeInvalid".
+    /// Encoded/decoded by serializers as "EVNT".
     /// </summary>
     [EnumMember(Value = "EVNT")]
     [IsoId("_lyk2bzDvEey2N-DB7H7A5A")]
     [Description(@"Corporate action event type provided is not valid.")]
-    CorporateActionEventTypeInvalid,
+    CorporateActionEventTypeInvalid = InstructionRejectionReasonV2Code.CorporateActionEventTypeInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructions are not released.
-    /// Encoded/decoded by serializers as "InstructionsNotReleased".
+    /// Encoded/decoded by serializers as "RTOP".
     /// </summary>
     [EnumMember(Value = "RTOP")]
     [IsoId("_o4nZQTDvEey2N-DB7H7A5A")]
     [Description(@"Instructions are not released.")]
-    InstructionsNotReleased,
+    InstructionsNotReleased = InstructionRejectionReasonV2Code.InstructionsNotReleased, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Is not approved by the subscription agent.
-    /// Encoded/decoded by serializers as "NotApprovedBySubscriptionAgent".
+    /// Encoded/decoded by serializers as "ASOP".
     /// </summary>
     [EnumMember(Value = "ASOP")]
     [IsoId("__Woe4TyqEeymFudlWrxhpw")]
     [Description(@"Is not approved by the subscription agent.")]
-    NotApprovedBySubscriptionAgent,
+    NotApprovedBySubscriptionAgent = InstructionRejectionReasonV2Code.NotApprovedBySubscriptionAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -1270,7 +1270,7 @@ public enum InstructionReason4Code
 public static class InstructionReason4CodeMetadataExtensions
 {
     private static readonly InstructionReason4CodeDropdownSource _dropdownSource = new InstructionReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

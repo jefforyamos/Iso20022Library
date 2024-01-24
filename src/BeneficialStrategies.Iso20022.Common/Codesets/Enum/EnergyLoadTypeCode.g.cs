@@ -17,17 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_uODncBVnEeWXLoZC9OIRgg")]
 [Description(@"Specifies the energy delivery profile.")]
 [Derivations(typeof(EnergyLoadType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EnergyLoadTypeCode
 {
     /// <summary>
     /// Off-Peak.
-    /// 
     /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_0JbZsBVnEeWXLoZC9OIRgg")]
-    [Description(@"Off-Peak. ")]
+    [Description(@"Off-Peak.|")]
     Off_Peak,
     
     /// <summary>
@@ -93,7 +91,7 @@ public enum EnergyLoadTypeCode
 public static class EnergyLoadTypeCodeMetadataExtensions
 {
     private static readonly EnergyLoadTypeCodeDropdownSource _dropdownSource = new EnergyLoadTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

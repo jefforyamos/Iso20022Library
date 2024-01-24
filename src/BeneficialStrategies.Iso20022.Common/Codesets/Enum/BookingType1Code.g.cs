@@ -21,30 +21,30 @@ public enum BookingType1Code
 {
     /// <summary>
     /// Booking type is regular.
-    /// Encoded/decoded by serializers as "Regular".
+    /// Encoded/decoded by serializers as "REGU".
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_bU1IRtp-Ed-ak6NoX_4Aeg_-626502093")]
     [Description(@"Booking type is regular.")]
-    Regular,
+    Regular = BookingTypeCode.Regular, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is to be booked out as a CFD.
-    /// Encoded/decoded by serializers as "ContractForDifference".
+    /// Encoded/decoded by serializers as "CFOD".
     /// </summary>
     [EnumMember(Value = "CFOD")]
     [IsoId("_bU-SMNp-Ed-ak6NoX_4Aeg_-626502041")]
     [Description(@"Order is to be booked out as a CFD.")]
-    ContractForDifference,
+    ContractForDifference = BookingTypeCode.ContractForDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is to be booked out as an OTC derivative (for example, Swap).
-    /// Encoded/decoded by serializers as "TotalReturnSwap".
+    /// Encoded/decoded by serializers as "TRSW".
     /// </summary>
     [EnumMember(Value = "TRSW")]
     [IsoId("_bU-SMdp-Ed-ak6NoX_4Aeg_-626501775")]
     [Description(@"Order is to be booked out as an OTC derivative (for example, Swap).")]
-    TotalReturnSwap,
+    TotalReturnSwap = BookingTypeCode.TotalReturnSwap, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BookingType1Code
 public static class BookingType1CodeMetadataExtensions
 {
     private static readonly BookingType1CodeDropdownSource _dropdownSource = new BookingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

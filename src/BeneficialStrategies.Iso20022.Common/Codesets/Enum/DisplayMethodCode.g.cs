@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_awUtAtp-Ed-ak6NoX_4Aeg_711015828")]
 [Description(@"Instructions for the use of display quantity.")]
 [Derivations(typeof(DisplayMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DisplayMethodCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DisplayMethodCode
 public static class DisplayMethodCodeMetadataExtensions
 {
     private static readonly DisplayMethodCodeDropdownSource _dropdownSource = new DisplayMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum ATMServiceType5Code
 {
     /// <summary>
     /// Modification of the card PIN value.
-    /// Encoded/decoded by serializers as "PINChange".
+    /// Encoded/decoded by serializers as "PINC".
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_djyvg4rAEeSgLpgNvMAP2g")]
     [Description(@"Modification of the card PIN value.")]
-    PINChange,
+    PINChange = ATMServiceTypeCode.PINChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resetting of a PIN.
-    /// Encoded/decoded by serializers as "PINRecovery".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_djyvhYrAEeSgLpgNvMAP2g")]
     [Description(@"Resetting of a PIN.")]
-    PINRecovery,
+    PINRecovery = ATMServiceTypeCode.PINRecovery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unblock the PIN.
-    /// Encoded/decoded by serializers as "PINUnblock".
+    /// Encoded/decoded by serializers as "PINU".
     /// </summary>
     [EnumMember(Value = "PINU")]
     [IsoId("_djyvh4rAEeSgLpgNvMAP2g")]
     [Description(@"Unblock the PIN.")]
-    PINUnblock,
+    PINUnblock = ATMServiceTypeCode.PINUnblock, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMServiceType5Code
 public static class ATMServiceType5CodeMetadataExtensions
 {
     private static readonly ATMServiceType5CodeDropdownSource _dropdownSource = new ATMServiceType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

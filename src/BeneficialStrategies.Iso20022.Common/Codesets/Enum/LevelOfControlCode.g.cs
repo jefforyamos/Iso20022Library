@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y7LFQCDDEeWPMvNwVtiMsA")]
 [Description(@"Specifies the level of control.")]
 [Derivations(typeof(LevelOfControl1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LevelOfControlCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum LevelOfControlCode
 public static class LevelOfControlCodeMetadataExtensions
 {
     private static readonly LevelOfControlCodeDropdownSource _dropdownSource = new LevelOfControlCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

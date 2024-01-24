@@ -21,21 +21,21 @@ public enum NewSecuritiesIssuanceType4Code
 {
     /// <summary>
     /// New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "RefundedSecurityIndicator".
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_OQnkUaFREeSK_vfd3NHBGg")]
     [Description(@"New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.")]
-    RefundedSecurityIndicator,
+    RefundedSecurityIndicator = NewSecuritiesIssuanceTypeCode.RefundedSecurityIndicator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "NonRefundedSecurityIndicator".
+    /// Encoded/decoded by serializers as "NREF".
     /// </summary>
     [EnumMember(Value = "NREF")]
     [IsoId("_OgPUs6FREeSK_vfd3NHBGg")]
     [Description(@"New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
-    NonRefundedSecurityIndicator,
+    NonRefundedSecurityIndicator = NewSecuritiesIssuanceTypeCode.NonRefundedSecurityIndicator, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NewSecuritiesIssuanceType4Code
 public static class NewSecuritiesIssuanceType4CodeMetadataExtensions
 {
     private static readonly NewSecuritiesIssuanceType4CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

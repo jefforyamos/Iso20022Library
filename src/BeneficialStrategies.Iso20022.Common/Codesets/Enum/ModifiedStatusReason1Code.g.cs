@@ -21,21 +21,21 @@ public enum ModifiedStatusReason1Code
 {
     /// <summary>
     /// Modification of a transaction by the account owner.
-    /// Encoded/decoded by serializers as "ModifiedByYourself".
+    /// Encoded/decoded by serializers as "MDBY".
     /// </summary>
     [EnumMember(Value = "MDBY")]
     [IsoId("_0mgfgwlIEeGATtfOBToyew_1659777313")]
     [Description(@"Modification of a transaction by the account owner.")]
-    ModifiedByYourself,
+    ModifiedByYourself = ModifiedStatusReasonCode.ModifiedByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0mgfhAlIEeGATtfOBToyew_-1957918323")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = ModifiedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ModifiedStatusReason1Code
 public static class ModifiedStatusReason1CodeMetadataExtensions
 {
     private static readonly ModifiedStatusReason1CodeDropdownSource _dropdownSource = new ModifiedStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

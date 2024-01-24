@@ -21,30 +21,30 @@ public enum AMFDoctrine1Code
 {
     /// <summary>
     /// Approach based on a significantly engaging methodology.
-    /// Encoded/decoded by serializers as "SignificantlyEngagingMethodology".
+    /// Encoded/decoded by serializers as "AMF1".
     /// </summary>
     [EnumMember(Value = "AMF1")]
     [IsoId("_SYhvQdA-EeuSBa1PsnseFg")]
     [Description(@"Approach based on a significantly engaging methodology.")]
-    SignificantlyEngagingMethodology,
+    SignificantlyEngagingMethodology = AMFDoctrineCode.SignificantlyEngagingMethodology, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Approach not meeting central communication standards or based on limited communication standards.
-    /// Encoded/decoded by serializers as "NotMeetingCentralCommunicationStandards".
+    /// Encoded/decoded by serializers as "AMF3".
     /// </summary>
     [EnumMember(Value = "AMF3")]
     [IsoId("_Se75QdA-EeuSBa1PsnseFg")]
     [Description(@"Approach not meeting central communication standards or based on limited communication standards.")]
-    NotMeetingCentralCommunicationStandards,
+    NotMeetingCentralCommunicationStandards = AMFDoctrineCode.NotMeetingCentralCommunicationStandards, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Approach based on a non-significantly engaging methodology.
-    /// Encoded/decoded by serializers as "NonSignificantlyEngagingMethodology".
+    /// Encoded/decoded by serializers as "AMF2".
     /// </summary>
     [EnumMember(Value = "AMF2")]
     [IsoId("_SlWDQdA-EeuSBa1PsnseFg")]
     [Description(@"Approach based on a non-significantly engaging methodology.")]
-    NonSignificantlyEngagingMethodology,
+    NonSignificantlyEngagingMethodology = AMFDoctrineCode.NonSignificantlyEngagingMethodology, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AMFDoctrine1Code
 public static class AMFDoctrine1CodeMetadataExtensions
 {
     private static readonly AMFDoctrine1CodeDropdownSource _dropdownSource = new AMFDoctrine1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

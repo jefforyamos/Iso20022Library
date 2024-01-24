@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vmscgDUGEe2tRf29bleifQ")]
 [Description(@"Specifies the sub-status of a resolution.  ")]
 [Derivations(typeof(ResolutionSubStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResolutionSubStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ResolutionSubStatusCode
 public static class ResolutionSubStatusCodeMetadataExtensions
 {
     private static readonly ResolutionSubStatusCodeDropdownSource _dropdownSource = new ResolutionSubStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

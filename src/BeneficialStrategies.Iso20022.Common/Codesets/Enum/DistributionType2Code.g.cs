@@ -21,30 +21,30 @@ public enum DistributionType2Code
 {
     /// <summary>
     /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
-    /// Encoded/decoded by serializers as "RollingBasis".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_hyWl1wCpEeGbSb1IG15gpQ")]
     [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
-    RollingBasis,
+    RollingBasis = DistributionTypeCode.RollingBasis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interim payment.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_iKy7BgCpEeGbSb1IG15gpQ")]
     [Description(@"Interim payment.")]
-    Interim,
+    Interim = DistributionTypeCode.Interim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final payment.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_iN7HhgCpEeGbSb1IG15gpQ")]
     [Description(@"Final payment.")]
-    Final,
+    Final = DistributionTypeCode.Final, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DistributionType2Code
 public static class DistributionType2CodeMetadataExtensions
 {
     private static readonly DistributionType2CodeDropdownSource _dropdownSource = new DistributionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

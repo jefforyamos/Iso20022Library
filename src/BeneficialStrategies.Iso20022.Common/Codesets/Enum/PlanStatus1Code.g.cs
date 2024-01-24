@@ -21,30 +21,30 @@ public enum PlanStatus1Code
 {
     /// <summary>
     /// Plan is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_RvyIoQjcEeS5F6qHcKOrew")]
     [Description(@"Plan is active.")]
-    Active,
+    Active = PlanStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Plan is closed.
-    /// Encoded/decoded by serializers as "Closed".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_R4tbIQjcEeS5F6qHcKOrew")]
     [Description(@"Plan is closed.")]
-    Closed,
+    Closed = PlanStatusCode.Closed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Plan is suspended.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_SBC3wQjcEeS5F6qHcKOrew")]
     [Description(@"Plan is suspended.")]
-    Suspended,
+    Suspended = PlanStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PlanStatus1Code
 public static class PlanStatus1CodeMetadataExtensions
 {
     private static readonly PlanStatus1CodeDropdownSource _dropdownSource = new PlanStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

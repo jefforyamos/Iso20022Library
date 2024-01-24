@@ -21,21 +21,21 @@ public enum InvestigationExecutionConfirmation4Code
 {
     /// <summary>
     /// Used when a requested cancellation has been partially executed.
-    /// Encoded/decoded by serializers as "PartiallyExecutedCancellationRequest".
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_abdQQNp-Ed-ak6NoX_4Aeg_-698006802")]
     [Description(@"Used when a requested cancellation has been partially executed.")]
-    PartiallyExecutedCancellationRequest,
+    PartiallyExecutedCancellationRequest = InvestigationExecutionConfirmationCode.PartiallyExecutedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used when a requested cancellation has been rejected.
-    /// Encoded/decoded by serializers as "RejectedCancellationRequest".
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_abdQQdp-Ed-ak6NoX_4Aeg_-698006801")]
     [Description(@"Used when a requested cancellation has been rejected.")]
-    RejectedCancellationRequest,
+    RejectedCancellationRequest = InvestigationExecutionConfirmationCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InvestigationExecutionConfirmation4Code
 public static class InvestigationExecutionConfirmation4CodeMetadataExtensions
 {
     private static readonly InvestigationExecutionConfirmation4CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

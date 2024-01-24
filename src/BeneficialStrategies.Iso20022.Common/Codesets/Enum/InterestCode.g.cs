@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aZ-ChNp-Ed-ak6NoX_4Aeg_-657407757")]
 [Description(@"Indicates which type of interest is applied to a balance left on an account.")]
 [Derivations(typeof(InterestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InterestCode
 public static class InterestCodeMetadataExtensions
 {
     private static readonly InterestCodeDropdownSource _dropdownSource = new InterestCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

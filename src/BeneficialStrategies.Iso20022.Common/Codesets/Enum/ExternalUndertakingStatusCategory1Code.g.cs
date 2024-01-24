@@ -16,90 +16,90 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MrKBG7iEeKo25nLKvGr8w_-479292299")]
-[Description(@"Specifies the external status stage code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external status stage code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUndertakingStatusCategoryCode))]
 public enum ExternalUndertakingStatusCategory1Code
 {
     /// <summary>
     /// Status is related to an undertaking amendment.
-    /// Encoded/decoded by serializers as "Amendment".
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_uRhQ2_RYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking amendment.")]
-    Amendment,
+    Amendment = ExternalUndertakingStatusCategoryCode.Amendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to a counter-undertaking amount.
-    /// Encoded/decoded by serializers as "CounterUndertakingAmountStatus".
+    /// Encoded/decoded by serializers as "AMTC".
     /// </summary>
     [EnumMember(Value = "AMTC")]
     [IsoId("_uRrB0vRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to a counter-undertaking amount.")]
-    CounterUndertakingAmountStatus,
+    CounterUndertakingAmountStatus = ExternalUndertakingStatusCategoryCode.CounterUndertakingAmountStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking amount.
-    /// Encoded/decoded by serializers as "UndertakingAmountStatus".
+    /// Encoded/decoded by serializers as "AMTU".
     /// </summary>
     [EnumMember(Value = "AMTU")]
     [IsoId("_uRrB1fRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking amount.")]
-    UndertakingAmountStatus,
+    UndertakingAmountStatus = ExternalUndertakingStatusCategoryCode.UndertakingAmountStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking application.
-    /// Encoded/decoded by serializers as "Application".
+    /// Encoded/decoded by serializers as "APPL".
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_uRrB2PRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking application.")]
-    Application,
+    Application = ExternalUndertakingStatusCategoryCode.Application, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking amendment requested by the beneficiary.
-    /// Encoded/decoded by serializers as "BeneficiaryAmendment".
+    /// Encoded/decoded by serializers as "BAMD".
     /// </summary>
     [EnumMember(Value = "BAMD")]
     [IsoId("_uRrB2_RYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking amendment requested by the beneficiary.")]
-    BeneficiaryAmendment,
+    BeneficiaryAmendment = ExternalUndertakingStatusCategoryCode.BeneficiaryAmendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking confirmation.
-    /// Encoded/decoded by serializers as "Confirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uRrB3vRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking confirmation.")]
-    Confirmation,
+    Confirmation = ExternalUndertakingStatusCategoryCode.Confirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking demand.
-    /// Encoded/decoded by serializers as "Demand".
+    /// Encoded/decoded by serializers as "DEMD".
     /// </summary>
     [EnumMember(Value = "DEMD")]
     [IsoId("_uR0LwvRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking demand.")]
-    Demand,
+    Demand = ExternalUndertakingStatusCategoryCode.Demand, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking non-extension request.
-    /// Encoded/decoded by serializers as "NonExtension".
+    /// Encoded/decoded by serializers as "NEXT".
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_uR0LxfRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking non-extension request.")]
-    NonExtension,
+    NonExtension = ExternalUndertakingStatusCategoryCode.NonExtension, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status is related to an undertaking termination.
-    /// Encoded/decoded by serializers as "Termination".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_uR0LyPRYEeuLhpyIdtJzwg")]
     [Description(@"Status is related to an undertaking termination.")]
-    Termination,
+    Termination = ExternalUndertakingStatusCategoryCode.Termination, // same ordinal as derivation source for type conversions
     
 }
 
@@ -110,7 +110,7 @@ public enum ExternalUndertakingStatusCategory1Code
 public static class ExternalUndertakingStatusCategory1CodeMetadataExtensions
 {
     private static readonly ExternalUndertakingStatusCategory1CodeDropdownSource _dropdownSource = new ExternalUndertakingStatusCategory1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

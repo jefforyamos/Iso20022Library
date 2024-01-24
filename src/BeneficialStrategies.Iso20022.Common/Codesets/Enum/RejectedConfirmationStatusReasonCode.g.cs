@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZcH6ONp-Ed-ak6NoX_4Aeg_2113248200")]
 [Description(@"Specifies the reason for a confirmation rejected status.")]
 [Derivations(typeof(RejectedConfirmationStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RejectedConfirmationStatusReasonCode
 {
     /// <summary>
@@ -533,7 +532,7 @@ public enum RejectedConfirmationStatusReasonCode
 public static class RejectedConfirmationStatusReasonCodeMetadataExtensions
 {
     private static readonly RejectedConfirmationStatusReasonCodeDropdownSource _dropdownSource = new RejectedConfirmationStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_v7BzIHycEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the party to receive the presentation.")]
 [Derivations(typeof(PresentationParty1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PresentationPartyCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PresentationPartyCode
 public static class PresentationPartyCodeMetadataExtensions
 {
     private static readonly PresentationPartyCodeDropdownSource _dropdownSource = new PresentationPartyCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

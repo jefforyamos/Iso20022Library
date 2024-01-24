@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Za7nYNp-Ed-ak6NoX_4Aeg_-1515530100")]
 [Description(@"Defines when to refresh.")]
 [Derivations(typeof(RefreshTime1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RefreshTimeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RefreshTimeCode
 public static class RefreshTimeCodeMetadataExtensions
 {
     private static readonly RefreshTimeCodeDropdownSource _dropdownSource = new RefreshTimeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

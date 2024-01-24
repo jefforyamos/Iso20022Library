@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_KTAyqtA4EeeCAfThR1cp_Q")]
-[Description(@"Specifies further instructions for the agent concerning the processing of an instruction. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies further instructions for the agent concerning the processing of an instruction.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalAgentInstruction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalAgentInstructionCode
 {
     /// <summary>
@@ -120,7 +119,7 @@ public enum ExternalAgentInstructionCode
 public static class ExternalAgentInstructionCodeMetadataExtensions
 {
     private static readonly ExternalAgentInstructionCodeDropdownSource _dropdownSource = new ExternalAgentInstructionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

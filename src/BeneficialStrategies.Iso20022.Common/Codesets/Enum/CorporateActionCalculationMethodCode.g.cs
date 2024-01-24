@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bCgCJ9p-Ed-ak6NoX_4Aeg_734426913")]
 [Description(@"Specifies the calculation method.")]
 [Derivations(typeof(CorporateActionCalculationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionCalculationMethodCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CorporateActionCalculationMethodCode
 public static class CorporateActionCalculationMethodCodeMetadataExtensions
 {
     private static readonly CorporateActionCalculationMethodCodeDropdownSource _dropdownSource = new CorporateActionCalculationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

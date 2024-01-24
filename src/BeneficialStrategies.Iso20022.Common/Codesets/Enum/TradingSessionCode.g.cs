@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YrGs9Np-Ed-ak6NoX_4Aeg_-1913582483")]
 [Description(@"Indicates the factors that are/were applied in the event of pre-allocation.")]
 [Derivations(typeof(TradingSession1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingSessionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TradingSessionCode
 public static class TradingSessionCodeMetadataExtensions
 {
     private static readonly TradingSessionCodeDropdownSource _dropdownSource = new TradingSessionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

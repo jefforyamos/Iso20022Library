@@ -21,48 +21,48 @@ public enum ConditionallyAcceptedStatusReason2Code
 {
     /// <summary>
     /// Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.
-    /// Encoded/decoded by serializers as "AwaitingDocuments".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_bA3DYtp-Ed-ak6NoX_4Aeg_-883291302")]
     [Description(@"Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.")]
-    AwaitingDocuments,
+    AwaitingDocuments = ConditionallyAcceptedStatusReasonCode.AwaitingDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending until there are enough funds in the account to complete the redemption.
-    /// Encoded/decoded by serializers as "AwaitingRedemptionMoney".
+    /// Encoded/decoded by serializers as "AWRM".
     /// </summary>
     [EnumMember(Value = "AWRM")]
     [IsoId("_bA3DY9p-Ed-ak6NoX_4Aeg_-1558528706")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending until there are enough funds in the account to complete the redemption.")]
-    AwaitingRedemptionMoney,
+    AwaitingRedemptionMoney = ConditionallyAcceptedStatusReasonCode.AwaitingRedemptionMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.
-    /// Encoded/decoded by serializers as "AwaitingSubscriptionMoney".
+    /// Encoded/decoded by serializers as "AWSM".
     /// </summary>
     [EnumMember(Value = "AWSM")]
     [IsoId("_bA3DZNp-Ed-ak6NoX_4Aeg_-1558528628")]
     [Description(@"Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.")]
-    AwaitingSubscriptionMoney,
+    AwaitingSubscriptionMoney = ConditionallyAcceptedStatusReasonCode.AwaitingSubscriptionMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing pending the result of the investigation for possible duplicates.
-    /// Encoded/decoded by serializers as "PossibleDuplicate".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bA3DZdp-Ed-ak6NoX_4Aeg_-1290549980")]
     [Description(@"Order is accepted for further processing pending the result of the investigation for possible duplicates.")]
-    PossibleDuplicate,
+    PossibleDuplicate = ConditionallyAcceptedStatusReasonCode.PossibleDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is accepted for further processing pending the extension of the trading limit.
-    /// Encoded/decoded by serializers as "TradingLimitExceeded".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_bA3DZtp-Ed-ak6NoX_4Aeg_-1227752075")]
     [Description(@"Order is accepted for further processing pending the extension of the trading limit.")]
-    TradingLimitExceeded,
+    TradingLimitExceeded = ConditionallyAcceptedStatusReasonCode.TradingLimitExceeded, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ConditionallyAcceptedStatusReason2Code
 public static class ConditionallyAcceptedStatusReason2CodeMetadataExtensions
 {
     private static readonly ConditionallyAcceptedStatusReason2CodeDropdownSource _dropdownSource = new ConditionallyAcceptedStatusReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

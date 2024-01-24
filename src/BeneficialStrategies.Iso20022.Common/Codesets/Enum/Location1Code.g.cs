@@ -21,21 +21,21 @@ public enum Location1Code
 {
     /// <summary>
     /// At another institution
-    /// Encoded/decoded by serializers as "AtAnotherInstitution".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_MGitsaHoEeagRbKvRt3LnA")]
     [Description(@"At another institution")]
-    AtAnotherInstitution,
+    AtAnotherInstitution = LocationCode.AtAnotherInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// At my institution.
-    /// Encoded/decoded by serializers as "AtMyInstitution".
+    /// Encoded/decoded by serializers as "MYIN".
     /// </summary>
     [EnumMember(Value = "MYIN")]
     [IsoId("_MbH2kqHoEeagRbKvRt3LnA")]
     [Description(@"At my institution.")]
-    AtMyInstitution,
+    AtMyInstitution = LocationCode.AtMyInstitution, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Location1Code
 public static class Location1CodeMetadataExtensions
 {
     private static readonly Location1CodeDropdownSource _dropdownSource = new Location1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

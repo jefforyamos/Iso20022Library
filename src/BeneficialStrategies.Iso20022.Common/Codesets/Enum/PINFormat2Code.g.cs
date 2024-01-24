@@ -26,7 +26,7 @@ public enum PINFormat2Code
     [EnumMember(Value = "ISO0")]
     [IsoId("_DKxWoQvFEeKzJ69IWwzB9Q")]
     [Description(@"PIN diversified with the card account number, conforming to the standard ISO 9564-2.")]
-    ISO0,
+    ISO0 = PINFormatCode.ISO0, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN completed with random padding characters, conforming to the standard ISO 9564-2.
@@ -35,7 +35,7 @@ public enum PINFormat2Code
     [EnumMember(Value = "ISO1")]
     [IsoId("_DSXMYwvFEeKzJ69IWwzB9Q")]
     [Description(@"PIN completed with random padding characters, conforming to the standard ISO 9564-2.")]
-    ISO1,
+    ISO1 = PINFormatCode.ISO1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN without diversification characters, conforming to the standard ISO 9564-2.
@@ -44,7 +44,7 @@ public enum PINFormat2Code
     [EnumMember(Value = "ISO2")]
     [IsoId("_DX3XcwvFEeKzJ69IWwzB9Q")]
     [Description(@"PIN without diversification characters, conforming to the standard ISO 9564-2.")]
-    ISO2,
+    ISO2 = PINFormatCode.ISO2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.
@@ -53,7 +53,7 @@ public enum PINFormat2Code
     [EnumMember(Value = "ISO3")]
     [IsoId("_DgDDEQvFEeKzJ69IWwzB9Q")]
     [Description(@"PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.")]
-    ISO3,
+    ISO3 = PINFormatCode.ISO3, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN format used with AES encryption, conforming to the new ISO SC2 format.
@@ -62,7 +62,7 @@ public enum PINFormat2Code
     [EnumMember(Value = "ISO4")]
     [IsoId("_DnyCwQvFEeKzJ69IWwzB9Q")]
     [Description(@"PIN format used with AES encryption, conforming to the new ISO SC2 format.")]
-    ISO4,
+    ISO4 = PINFormatCode.ISO4, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PINFormat2Code
 public static class PINFormat2CodeMetadataExtensions
 {
     private static readonly PINFormat2CodeDropdownSource _dropdownSource = new PINFormat2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

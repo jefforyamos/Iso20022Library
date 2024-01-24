@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_fGUkscyqEeiqqJhU2tqK8A")]
 [Description(@"Reconciliation credit or debit indicator")]
 [Derivations(typeof(ReconciliationImpact1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationImpactCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ReconciliationImpactCode
 public static class ReconciliationImpactCodeMetadataExtensions
 {
     private static readonly ReconciliationImpactCodeDropdownSource _dropdownSource = new ReconciliationImpactCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

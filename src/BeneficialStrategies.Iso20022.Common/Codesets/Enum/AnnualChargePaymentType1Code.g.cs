@@ -21,21 +21,21 @@ public enum AnnualChargePaymentType1Code
 {
     /// <summary>
     /// Annual charge is deducted from the fund capital.
-    /// Encoded/decoded by serializers as "Capital".
+    /// Encoded/decoded by serializers as "CAPL".
     /// </summary>
     [EnumMember(Value = "CAPL")]
     [IsoId("_iTTggGAPEeiNMJ262H2pWg")]
     [Description(@"Annual charge is deducted from the fund capital.")]
-    Capital,
+    Capital = AnnualChargePaymentTypeCode.Capital, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Annual charge is deducted from the fund income.
-    /// Encoded/decoded by serializers as "Income".
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_iXy-8WAPEeiNMJ262H2pWg")]
     [Description(@"Annual charge is deducted from the fund income.")]
-    Income,
+    Income = AnnualChargePaymentTypeCode.Income, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AnnualChargePaymentType1Code
 public static class AnnualChargePaymentType1CodeMetadataExtensions
 {
     private static readonly AnnualChargePaymentType1CodeDropdownSource _dropdownSource = new AnnualChargePaymentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

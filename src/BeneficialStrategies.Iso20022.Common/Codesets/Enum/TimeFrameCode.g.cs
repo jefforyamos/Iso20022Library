@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EKEEgDccEeidBoT_PugKiA")]
 [Description(@"Specifies a time frame.")]
 [Derivations(typeof(TimeFrame1Code),typeof(TimeFrame2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TimeFrameCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum TimeFrameCode
 public static class TimeFrameCodeMetadataExtensions
 {
     private static readonly TimeFrameCodeDropdownSource _dropdownSource = new TimeFrameCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

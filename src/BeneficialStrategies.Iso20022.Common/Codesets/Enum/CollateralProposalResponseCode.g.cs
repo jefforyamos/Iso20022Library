@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YbwCVtp-Ed-ak6NoX_4Aeg_493369117")]
 [Description(@"Specifies if the collateral proposal response is an initial or a counter proposal.")]
 [Derivations(typeof(CollateralProposalResponse1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralProposalResponseCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CollateralProposalResponseCode
 public static class CollateralProposalResponseCodeMetadataExtensions
 {
     private static readonly CollateralProposalResponseCodeDropdownSource _dropdownSource = new CollateralProposalResponseCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

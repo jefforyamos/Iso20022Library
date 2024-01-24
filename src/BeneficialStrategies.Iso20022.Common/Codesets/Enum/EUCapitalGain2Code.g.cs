@@ -21,30 +21,30 @@ public enum EUCapitalGain2Code
 {
     /// <summary>
     /// Capital gain is in the scope of the directive.
-    /// Encoded/decoded by serializers as "CapitalGainInScope".
+    /// Encoded/decoded by serializers as "EUSI".
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_aiBLRNp-Ed-ak6NoX_4Aeg_1764162246")]
     [Description(@"Capital gain is in the scope of the directive.")]
-    CapitalGainInScope,
+    CapitalGainInScope = EUCapitalGainCode.CapitalGainInScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capital gain is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "CapitalGainOutScope".
+    /// Encoded/decoded by serializers as "EUSO".
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_aiBLRdp-Ed-ak6NoX_4Aeg_1764162306")]
     [Description(@"Capital gain is out of the scope of the directive.")]
-    CapitalGainOutScope,
+    CapitalGainOutScope = EUCapitalGainCode.CapitalGainOutScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether capital gain is in or out of the scope of the directive.
-    /// Encoded/decoded by serializers as "CapitalGainUnknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aiBLRtp-Ed-ak6NoX_4Aeg_1764162323")]
     [Description(@"Unknown whether capital gain is in or out of the scope of the directive.")]
-    CapitalGainUnknown,
+    CapitalGainUnknown = EUCapitalGainCode.CapitalGainUnknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EUCapitalGain2Code
 public static class EUCapitalGain2CodeMetadataExtensions
 {
     private static readonly EUCapitalGain2CodeDropdownSource _dropdownSource = new EUCapitalGain2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_e41SoDcfEeOA3chqL9a4Rw")]
-[Description(@"Specifies how the SSI update effective date is to be applied. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies how the SSI update effective date is to be applied.|The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalEffectiveDateParameter1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalEffectiveDateParameterCode
 {
     /// <summary>
@@ -48,7 +47,7 @@ public enum ExternalEffectiveDateParameterCode
 public static class ExternalEffectiveDateParameterCodeMetadataExtensions
 {
     private static readonly ExternalEffectiveDateParameterCodeDropdownSource _dropdownSource = new ExternalEffectiveDateParameterCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

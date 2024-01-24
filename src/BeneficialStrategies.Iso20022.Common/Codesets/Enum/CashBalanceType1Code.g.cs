@@ -21,21 +21,21 @@ public enum CashBalanceType1Code
 {
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "Available".
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_a3xY1Np-Ed-ak6NoX_4Aeg_628428337")]
     [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
-    Available,
+    Available = BalanceTypeCode.Available, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the "escrow balance" or "sequestered balance".
-    /// Encoded/decoded by serializers as "Restricted".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_a3xY1dp-Ed-ak6NoX_4Aeg_628428338")]
     [Description(@"Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the ""escrow balance"" or ""sequestered balance"".")]
-    Restricted,
+    Restricted = BalanceTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CashBalanceType1Code
 public static class CashBalanceType1CodeMetadataExtensions
 {
     private static readonly CashBalanceType1CodeDropdownSource _dropdownSource = new CashBalanceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

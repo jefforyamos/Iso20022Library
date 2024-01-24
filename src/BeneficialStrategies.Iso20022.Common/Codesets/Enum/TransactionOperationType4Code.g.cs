@@ -21,30 +21,30 @@ public enum TransactionOperationType4Code
 {
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NewTransaction".
+    /// Encoded/decoded by serializers as "NEWT".
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_kzZz9w1GEeaj35fzaZHUIg")]
     [Description(@"Transaction is a new transaction.")]
-    NewTransaction,
+    NewTransaction = TransactionOperationTypeCode.NewTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amends a previously sent transaction.
-    /// Encoded/decoded by serializers as "Amendment".
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_rVWeAQ1GEeaj35fzaZHUIg")]
     [Description(@"Transaction amends a previously sent transaction.")]
-    Amendment,
+    Amendment = TransactionOperationTypeCode.Amendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction requests the deletion/cancellation of a previously sent transaction.
-    /// Encoded/decoded by serializers as "Cancellation".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_sSjGEQ1GEeaj35fzaZHUIg")]
     [Description(@"Transaction requests the deletion/cancellation of a previously sent transaction.")]
-    Cancellation,
+    Cancellation = TransactionOperationTypeCode.Cancellation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransactionOperationType4Code
 public static class TransactionOperationType4CodeMetadataExtensions
 {
     private static readonly TransactionOperationType4CodeDropdownSource _dropdownSource = new TransactionOperationType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

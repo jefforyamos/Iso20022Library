@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-M07AW7iEeKo25nLKvGr8w_1800475441")]
-[Description(@"Specifies the external submission or presentation channel code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external submission or presentation channel code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalChannel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalChannelCode
 {
     /// <summary>
@@ -147,7 +146,7 @@ public enum ExternalChannelCode
 public static class ExternalChannelCodeMetadataExtensions
 {
     private static readonly ExternalChannelCodeDropdownSource _dropdownSource = new ExternalChannelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

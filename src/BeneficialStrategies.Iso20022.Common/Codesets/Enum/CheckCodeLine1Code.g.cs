@@ -26,7 +26,7 @@ public enum CheckCodeLine1Code
     [EnumMember(Value = "CMC7")]
     [IsoId("_jJnMoa4EEeWL1uap3dNhCQ")]
     [Description(@"Magnetic ink character digitally encoded with 7 sticks.")]
-    CMC7,
+    CMC7 = CheckCodeLineCode.CMC7, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Magnetic ink character recognition., conform to ISO 1004.
@@ -35,7 +35,7 @@ public enum CheckCodeLine1Code
     [EnumMember(Value = "E13B")]
     [IsoId("_jRgkY64EEeWL1uap3dNhCQ")]
     [Description(@"Magnetic ink character recognition., conform to ISO 1004.")]
-    E13B,
+    E13B = CheckCodeLineCode.E13B, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Optical character recognition font A, conform to ANSI X3.17: 1981.
@@ -44,7 +44,7 @@ public enum CheckCodeLine1Code
     [EnumMember(Value = "OCRA")]
     [IsoId("_jTceEa4EEeWL1uap3dNhCQ")]
     [Description(@"Optical character recognition font A, conform to ANSI X3.17: 1981.")]
-    OCRA,
+    OCRA = CheckCodeLineCode.OCRA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Optical character recognition font B, conform to ANSI X3.49: 1975.
@@ -53,16 +53,16 @@ public enum CheckCodeLine1Code
     [EnumMember(Value = "OCRB")]
     [IsoId("_jYqVQa4EEeWL1uap3dNhCQ")]
     [Description(@"Optical character recognition font B, conform to ANSI X3.49: 1975.")]
-    OCRB,
+    OCRB = CheckCodeLineCode.OCRB, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Default optical character recognition used.
-    /// Encoded/decoded by serializers as "OCRDefault".
+    /// Encoded/decoded by serializers as "OCRF".
     /// </summary>
     [EnumMember(Value = "OCRF")]
     [IsoId("_jjGDo64EEeWL1uap3dNhCQ")]
     [Description(@"Default optical character recognition used.")]
-    OCRDefault,
+    OCRDefault = CheckCodeLineCode.OCRDefault, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CheckCodeLine1Code
 public static class CheckCodeLine1CodeMetadataExtensions
 {
     private static readonly CheckCodeLine1CodeDropdownSource _dropdownSource = new CheckCodeLine1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

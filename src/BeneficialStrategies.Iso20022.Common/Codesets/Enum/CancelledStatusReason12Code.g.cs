@@ -21,102 +21,102 @@ public enum CancelledStatusReason12Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CancelledByYourself".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_1MLxpz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction is cancelled by yourself.")]
-    CancelledByYourself,
+    CancelledByYourself = CancelledStatusReasonV2Code.CancelledByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelledBySystem".
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_1MLxqz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction is cancelled by the system.")]
-    CancelledBySystem,
+    CancelledBySystem = CancelledStatusReasonV2Code.CancelledBySystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_1MLxrz9kEeCuVfEpWlZb5g")]
     [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
-    CancelledByAgent,
+    CancelledByAgent = CancelledStatusReasonV2Code.CancelledByAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
-    /// Encoded/decoded by serializers as "EndOfLife".
+    /// Encoded/decoded by serializers as "CXLR".
     /// </summary>
     [EnumMember(Value = "CXLR")]
     [IsoId("_1MLxsz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.")]
-    EndOfLife,
+    EndOfLife = CancelledStatusReasonV2Code.EndOfLife, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original transaction has been cancelled and replaced due to a corporate action.
-    /// Encoded/decoded by serializers as "CancelledDueToTransformation".
+    /// Encoded/decoded by serializers as "CANT".
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_1MLxtz9kEeCuVfEpWlZb5g")]
     [Description(@"Original transaction has been cancelled and replaced due to a corporate action.")]
-    CancelledDueToTransformation,
+    CancelledDueToTransformation = CancelledStatusReasonV2Code.CancelledDueToTransformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original transaction has been cancelled and replaced to allow a partial or split settlement.
-    /// Encoded/decoded by serializers as "CancelledSplitPartialSettlement".
+    /// Encoded/decoded by serializers as "CANZ".
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_1MLxuz9kEeCuVfEpWlZb5g")]
     [Description(@"Original transaction has been cancelled and replaced to allow a partial or split settlement.")]
-    CancelledSplitPartialSettlement,
+    CancelledSplitPartialSettlement = CancelledStatusReasonV2Code.CancelledSplitPartialSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been cancelled due to a corporate action.
-    /// Encoded/decoded by serializers as "CancelledDueToCorporateAction".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_1MLxvz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction has been cancelled due to a corporate action.")]
-    CancelledDueToCorporateAction,
+    CancelledDueToCorporateAction = CancelledStatusReasonV2Code.CancelledDueToCorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
-    /// Encoded/decoded by serializers as "SecuritiesNoLongerEligible".
+    /// Encoded/decoded by serializers as "SCEX".
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_1MLxwz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.")]
-    SecuritiesNoLongerEligible,
+    SecuritiesNoLongerEligible = CancelledStatusReasonV2Code.SecuritiesNoLongerEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_1MLxxz9kEeCuVfEpWlZb5g")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = CancelledStatusReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CancelledByOther".
+    /// Encoded/decoded by serializers as "CANO".
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_1MLxyz9kEeCuVfEpWlZb5g")]
     [Description(@"Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.")]
-    CancelledByOther,
+    CancelledByOther = CancelledStatusReasonV2Code.CancelledByOther, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been cancelled by the issuer/registrar.
-    /// Encoded/decoded by serializers as "CancelledByIssuerRegistrar".
+    /// Encoded/decoded by serializers as "CREG".
     /// </summary>
     [EnumMember(Value = "CREG")]
     [IsoId("_q12LwGtdEeCY4-KZ9JEyUQ_324041150")]
     [Description(@"Transaction has been cancelled by the issuer/registrar.")]
-    CancelledByIssuerRegistrar,
+    CancelledByIssuerRegistrar = CancelledStatusReasonV2Code.CancelledByIssuerRegistrar, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum CancelledStatusReason12Code
 public static class CancelledStatusReason12CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason12CodeDropdownSource _dropdownSource = new CancelledStatusReason12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

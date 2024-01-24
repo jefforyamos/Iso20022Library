@@ -21,30 +21,30 @@ public enum BillingStatementStatus1Code
 {
     /// <summary>
     /// Statement is the original statement.
-    /// Encoded/decoded by serializers as "Original".
+    /// Encoded/decoded by serializers as "ORGN".
     /// </summary>
     [EnumMember(Value = "ORGN")]
     [IsoId("_6VUE05qlEeGSON8vddiWzQ_1712373044")]
     [Description(@"Statement is the original statement.")]
-    Original,
+    Original = BillingStatementStatusCode.Original, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement replaces the original statement.
-    /// Encoded/decoded by serializers as "Replace".
+    /// Encoded/decoded by serializers as "RPLC".
     /// </summary>
     [EnumMember(Value = "RPLC")]
     [IsoId("_6VUE1JqlEeGSON8vddiWzQ_1116652808")]
     [Description(@"Statement replaces the original statement.")]
-    Replace,
+    Replace = BillingStatementStatusCode.Replace, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement is a test statement.
-    /// Encoded/decoded by serializers as "Test".
+    /// Encoded/decoded by serializers as "TEST".
     /// </summary>
     [EnumMember(Value = "TEST")]
     [IsoId("_6VUE1ZqlEeGSON8vddiWzQ_1105554031")]
     [Description(@"Statement is a test statement.")]
-    Test,
+    Test = BillingStatementStatusCode.Test, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BillingStatementStatus1Code
 public static class BillingStatementStatus1CodeMetadataExtensions
 {
     private static readonly BillingStatementStatus1CodeDropdownSource _dropdownSource = new BillingStatementStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

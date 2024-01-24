@@ -21,21 +21,21 @@ public enum LevelOfControl1Code
 {
     /// <summary>
     /// Transactions are permitted on the account.
-    /// Encoded/decoded by serializers as "Transactions".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_mhS8sSDDEeWPMvNwVtiMsA")]
     [Description(@"Transactions are permitted on the account.")]
-    Transactions,
+    Transactions = LevelOfControlCode.Transactions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account may be viewed only.
-    /// Encoded/decoded by serializers as "View".
+    /// Encoded/decoded by serializers as "VIEW".
     /// </summary>
     [EnumMember(Value = "VIEW")]
     [IsoId("_mpeoUSDDEeWPMvNwVtiMsA")]
     [Description(@"Account may be viewed only.")]
-    View,
+    View = LevelOfControlCode.View, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum LevelOfControl1Code
 public static class LevelOfControl1CodeMetadataExtensions
 {
     private static readonly LevelOfControl1CodeDropdownSource _dropdownSource = new LevelOfControl1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

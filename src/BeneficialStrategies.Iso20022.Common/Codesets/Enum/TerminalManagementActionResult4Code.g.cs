@@ -21,183 +21,183 @@ public enum TerminalManagementActionResult4Code
 {
     /// <summary>
     /// Access is denied while performing the action.
-    /// Encoded/decoded by serializers as "AccessDenied".
+    /// Encoded/decoded by serializers as "ACCD".
     /// </summary>
     [EnumMember(Value = "ACCD")]
     [IsoId("_4KCd4dwmEeeKpa-yxjuKzQ")]
     [Description(@"Access is denied while performing the action.")]
-    AccessDenied,
+    AccessDenied = TerminalManagementActionResultCode.AccessDenied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Problem to connect while performing the action.
-    /// Encoded/decoded by serializers as "ConnectionError".
+    /// Encoded/decoded by serializers as "CNTE".
     /// </summary>
     [EnumMember(Value = "CNTE")]
     [IsoId("_4KCd49wmEeeKpa-yxjuKzQ")]
     [Description(@"Problem to connect while performing the action.")]
-    ConnectionError,
+    ConnectionError = TerminalManagementActionResultCode.ConnectionError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong format.
-    /// Encoded/decoded by serializers as "FormatError".
+    /// Encoded/decoded by serializers as "FMTE".
     /// </summary>
     [EnumMember(Value = "FMTE")]
     [IsoId("_4KCd5dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data transferred has a wrong format.")]
-    FormatError,
+    FormatError = TerminalManagementActionResultCode.FormatError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Content of the data is invalid.
-    /// Encoded/decoded by serializers as "InvalidContent".
+    /// Encoded/decoded by serializers as "INVC".
     /// </summary>
     [EnumMember(Value = "INVC")]
     [IsoId("_4KCd59wmEeeKpa-yxjuKzQ")]
     [Description(@"Content of the data is invalid.")]
-    InvalidContent,
+    InvalidContent = TerminalManagementActionResultCode.InvalidContent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong length.
-    /// Encoded/decoded by serializers as "LengthError".
+    /// Encoded/decoded by serializers as "LENE".
     /// </summary>
     [EnumMember(Value = "LENE")]
     [IsoId("_4KCd6dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data transferred has a wrong length.")]
-    LengthError,
+    LengthError = TerminalManagementActionResultCode.LengthError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Memory to store the date exceeded.
-    /// Encoded/decoded by serializers as "MemoryOverflow".
+    /// Encoded/decoded by serializers as "OVER".
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_4KCd69wmEeeKpa-yxjuKzQ")]
     [Description(@"Memory to store the date exceeded.")]
-    MemoryOverflow,
+    MemoryOverflow = TerminalManagementActionResultCode.MemoryOverflow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set to be maintained is missing.
-    /// Encoded/decoded by serializers as "MissingFile".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_4KCd7dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data set to be maintained is missing.")]
-    MissingFile,
+    MissingFile = TerminalManagementActionResultCode.MissingFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action is not supported.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "NSUP".
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_4KCd79wmEeeKpa-yxjuKzQ")]
     [Description(@"Action is not supported.")]
-    NotSupported,
+    NotSupported = TerminalManagementActionResultCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong digital signature.
-    /// Encoded/decoded by serializers as "SignatureError".
+    /// Encoded/decoded by serializers as "SIGE".
     /// </summary>
     [EnumMember(Value = "SIGE")]
     [IsoId("_4KCd8dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data transferred has a wrong digital signature.")]
-    SignatureError,
+    SignatureError = TerminalManagementActionResultCode.SignatureError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action was successfully performed.
-    /// Encoded/decoded by serializers as "Success".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_4KCd89wmEeeKpa-yxjuKzQ")]
     [Description(@"Action was successfully performed.")]
-    Success,
+    Success = TerminalManagementActionResultCode.Success, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong syntax.
-    /// Encoded/decoded by serializers as "SyntaxError".
+    /// Encoded/decoded by serializers as "SYNE".
     /// </summary>
     [EnumMember(Value = "SYNE")]
     [IsoId("_4KCd9dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data transferred has a wrong syntax.")]
-    SyntaxError,
+    SyntaxError = TerminalManagementActionResultCode.SyntaxError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Timeout expired during the data transfer.
-    /// Encoded/decoded by serializers as "Timeout".
+    /// Encoded/decoded by serializers as "TIMO".
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_4KCd99wmEeeKpa-yxjuKzQ")]
     [Description(@"Timeout expired during the data transfer.")]
-    Timeout,
+    Timeout = TerminalManagementActionResultCode.Timeout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set identification invalid.
-    /// Encoded/decoded by serializers as "UnknownData".
+    /// Encoded/decoded by serializers as "UKDT".
     /// </summary>
     [EnumMember(Value = "UKDT")]
     [IsoId("_4KCd-dwmEeeKpa-yxjuKzQ")]
     [Description(@"Data set identification invalid.")]
-    UnknownData,
+    UnknownData = TerminalManagementActionResultCode.UnknownData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cryptographic key reference used for the data signature is not valid.
-    /// Encoded/decoded by serializers as "UnknownKeyReference".
+    /// Encoded/decoded by serializers as "UKRF".
     /// </summary>
     [EnumMember(Value = "UKRF")]
     [IsoId("_4KCd-9wmEeeKpa-yxjuKzQ")]
     [Description(@"Cryptographic key reference used for the data signature is not valid.")]
-    UnknownKeyReference,
+    UnknownKeyReference = TerminalManagementActionResultCode.UnknownKeyReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delegation Proof transmitted by the delegated TMS is not the one expected.
-    /// Encoded/decoded by serializers as "InvalidDelegationProof".
+    /// Encoded/decoded by serializers as "INDP".
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_4KCd_dwmEeeKpa-yxjuKzQ")]
     [Description(@"Delegation Proof transmitted by the delegated TMS is not the one expected.")]
-    InvalidDelegationProof,
+    InvalidDelegationProof = TerminalManagementActionResultCode.InvalidDelegationProof, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One action of the AcceptorManagementPlan refers to an update unauthorized by the delegation.
-    /// Encoded/decoded by serializers as "InvalidDelegationInManagementPlan".
+    /// Encoded/decoded by serializers as "IDMP".
     /// </summary>
     [EnumMember(Value = "IDMP")]
     [IsoId("_4KCd_9wmEeeKpa-yxjuKzQ")]
     [Description(@"One action of the AcceptorManagementPlan refers to an update unauthorized by the delegation.")]
-    InvalidDelegationInManagementPlan,
+    InvalidDelegationInManagementPlan = TerminalManagementActionResultCode.InvalidDelegationInManagementPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The content analysis of the AcceptorConfigurationUpdate reveals unexpected parameters.
-    /// Encoded/decoded by serializers as "DelegationParametersReceivedUnauthorized".
+    /// Encoded/decoded by serializers as "DPRU".
     /// </summary>
     [EnumMember(Value = "DPRU")]
     [IsoId("_4KCeAdwmEeeKpa-yxjuKzQ")]
     [Description(@"The content analysis of the AcceptorConfigurationUpdate reveals unexpected parameters.")]
-    DelegationParametersReceivedUnauthorized,
+    DelegationParametersReceivedUnauthorized = TerminalManagementActionResultCode.DelegationParametersReceivedUnauthorized, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This code value means all TerminalManagementActionResultCode except "Any Error" and "Unlisted Error".
-    /// Encoded/decoded by serializers as "AnyError".
+    /// Encoded/decoded by serializers as "AERR".
     /// </summary>
     [EnumMember(Value = "AERR")]
     [IsoId("_5NYKMdwmEeeKpa-yxjuKzQ")]
     [Description(@"This code value means all TerminalManagementActionResultCode except ""Any Error"" and ""Unlisted Error"".")]
-    AnyError,
+    AnyError = TerminalManagementActionResultCode.AnyError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error in communication once the connection has been established.
-    /// Encoded/decoded by serializers as "CommunicationError".
+    /// Encoded/decoded by serializers as "CMER".
     /// </summary>
     [EnumMember(Value = "CMER")]
     [IsoId("_5TMeUdwmEeeKpa-yxjuKzQ")]
     [Description(@"Error in communication once the connection has been established.")]
-    CommunicationError,
+    CommunicationError = TerminalManagementActionResultCode.CommunicationError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any error that is not defined by a code value inside the TerminalManagementActionResultCode.
-    /// Encoded/decoded by serializers as "UnlistedError".
+    /// Encoded/decoded by serializers as "ULER".
     /// </summary>
     [EnumMember(Value = "ULER")]
     [IsoId("_55C9YdwmEeeKpa-yxjuKzQ")]
     [Description(@"Any error that is not defined by a code value inside the TerminalManagementActionResultCode.")]
-    UnlistedError,
+    UnlistedError = TerminalManagementActionResultCode.UnlistedError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum TerminalManagementActionResult4Code
 public static class TerminalManagementActionResult4CodeMetadataExtensions
 {
     private static readonly TerminalManagementActionResult4CodeDropdownSource _dropdownSource = new TerminalManagementActionResult4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

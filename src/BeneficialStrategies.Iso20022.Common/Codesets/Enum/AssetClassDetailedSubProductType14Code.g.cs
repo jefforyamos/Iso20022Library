@@ -21,12 +21,12 @@ public enum AssetClassDetailedSubProductType14Code
 {
     /// <summary>
     /// Commodity attribute of type dry bulk carrier.
-    /// Encoded/decoded by serializers as "DryBulkCarrier".
+    /// Encoded/decoded by serializers as "DBCR".
     /// </summary>
     [EnumMember(Value = "DBCR")]
     [IsoId("_fntCUFuVEeWyucVx3N7tNg")]
     [Description(@"Commodity attribute of type dry bulk carrier.")]
-    DryBulkCarrier,
+    DryBulkCarrier = AssetClassDetailedSubProductTypeCode.DryBulkCarrier, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassDetailedSubProductType14Code
 public static class AssetClassDetailedSubProductType14CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType14CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

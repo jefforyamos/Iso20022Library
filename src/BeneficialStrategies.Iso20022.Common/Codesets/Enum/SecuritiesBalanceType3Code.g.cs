@@ -21,210 +21,210 @@ public enum SecuritiesBalanceType3Code
 {
     /// <summary>
     /// Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLOK".
     /// </summary>
     [EnumMember(Value = "BLOK")]
     [IsoId("_ZBmhYNp-Ed-ak6NoX_4Aeg_-1743021631")]
     [Description(@"Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.")]
-    Blocked,
+    Blocked = SecuritiesBalanceTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that have been borrowed from another party.
-    /// Encoded/decoded by serializers as "Borrowed".
+    /// Encoded/decoded by serializers as "BORR".
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_ZBmhYdp-Ed-ak6NoX_4Aeg_-1743021601")]
     [Description(@"Balance of securities that have been borrowed from another party.")]
-    Borrowed,
+    Borrowed = SecuritiesBalanceTypeCode.Borrowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
-    /// Encoded/decoded by serializers as "CollateralIn".
+    /// Encoded/decoded by serializers as "COLI".
     /// </summary>
     [EnumMember(Value = "COLI")]
     [IsoId("_ZBmhYtp-Ed-ak6NoX_4Aeg_-1743021600")]
     [Description(@"Balance of securities that belong to a third party and that are held for the purpose of collateralisation.")]
-    CollateralIn,
+    CollateralIn = SecuritiesBalanceTypeCode.CollateralIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
-    /// Encoded/decoded by serializers as "CollateralOut".
+    /// Encoded/decoded by serializers as "COLO".
     /// </summary>
     [EnumMember(Value = "COLO")]
     [IsoId("_ZBmhY9p-Ed-ak6NoX_4Aeg_-1743021570")]
     [Description(@"Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.")]
-    CollateralOut,
+    CollateralOut = SecuritiesBalanceTypeCode.CollateralOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that have been loaned to a third party.
-    /// Encoded/decoded by serializers as "OnLoan".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_ZBmhZNp-Ed-ak6NoX_4Aeg_-1743021569")]
     [Description(@"Balance of securities that have been loaned to a third party.")]
-    OnLoan,
+    OnLoan = SecuritiesBalanceTypeCode.OnLoan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are used as collateral for derivatives.
-    /// Encoded/decoded by serializers as "DerivativesMargin".
+    /// Encoded/decoded by serializers as "MARG".
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_ZBmhZdp-Ed-ak6NoX_4Aeg_-1743021539")]
     [Description(@"Balance of securities that are used as collateral for derivatives.")]
-    DerivativesMargin,
+    DerivativesMargin = SecuritiesBalanceTypeCode.DerivativesMargin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending delivery that have been matched. This is only applicable in a CSD to participant communication.
-    /// Encoded/decoded by serializers as "PendingDeliveryMatchedBalance".
+    /// Encoded/decoded by serializers as "PDMT".
     /// </summary>
     [EnumMember(Value = "PDMT")]
     [IsoId("_ZBmhZtp-Ed-ak6NoX_4Aeg_-1743021509")]
     [Description(@"Balance of securities pending delivery that have been matched. This is only applicable in a CSD to participant communication.")]
-    PendingDeliveryMatchedBalance,
+    PendingDeliveryMatchedBalance = SecuritiesBalanceTypeCode.PendingDeliveryMatchedBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending receipt that have been matched. This is only applicable in a CSD to participant communication.
-    /// Encoded/decoded by serializers as "PendingReceiptMatchedBalance".
+    /// Encoded/decoded by serializers as "PRMT".
     /// </summary>
     [EnumMember(Value = "PRMT")]
     [IsoId("_ZBmhZ9p-Ed-ak6NoX_4Aeg_-1743021478")]
     [Description(@"Balance of securities pending receipt that have been matched. This is only applicable in a CSD to participant communication.")]
-    PendingReceiptMatchedBalance,
+    PendingReceiptMatchedBalance = SecuritiesBalanceTypeCode.PendingReceiptMatchedBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending receipt that are unmatched. This is only applicable in a CSD to participant communication.
-    /// Encoded/decoded by serializers as "PendingReceiptUnmatchedBalance".
+    /// Encoded/decoded by serializers as "PRUM".
     /// </summary>
     [EnumMember(Value = "PRUM")]
     [IsoId("_ZBmhaNp-Ed-ak6NoX_4Aeg_-1743021230")]
     [Description(@"Balance of securities pending receipt that are unmatched. This is only applicable in a CSD to participant communication.")]
-    PendingReceiptUnmatchedBalance,
+    PendingReceiptUnmatchedBalance = SecuritiesBalanceTypeCode.PendingReceiptUnmatchedBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities, before ex-date, that are involved in a corporate action (CA). Securities blocked due to a CA, for example, proxi, in escrow, are to be identified in the BLOK sub-balance.
-    /// Encoded/decoded by serializers as "PendingCorporateAction".
+    /// Encoded/decoded by serializers as "PECA".
     /// </summary>
     [EnumMember(Value = "PECA")]
     [IsoId("_ZBmhadp-Ed-ak6NoX_4Aeg_-1743021200")]
     [Description(@"Balance of securities, before ex-date, that are involved in a corporate action (CA). Securities blocked due to a CA, for example, proxi, in escrow, are to be identified in the BLOK sub-balance.")]
-    PendingCorporateAction,
+    PendingCorporateAction = SecuritiesBalanceTypeCode.PendingCorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are pending delivery.
-    /// Encoded/decoded by serializers as "PendingDelivery".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZBmhatp-Ed-ak6NoX_4Aeg_-1743021199")]
     [Description(@"Balance of securities that are pending delivery.")]
-    PendingDelivery,
+    PendingDelivery = SecuritiesBalanceTypeCode.PendingDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are pending receipt.
-    /// Encoded/decoded by serializers as "PendingReceipt".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_ZBwSYNp-Ed-ak6NoX_4Aeg_-1743021169")]
     [Description(@"Balance of securities that are pending receipt.")]
-    PendingReceipt,
+    PendingReceipt = SecuritiesBalanceTypeCode.PendingReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are pledged, for example, a financial instrument is unavailable because it has been used or given as a guarantee.
-    /// Encoded/decoded by serializers as "Pledged".
+    /// Encoded/decoded by serializers as "PLED".
     /// </summary>
     [EnumMember(Value = "PLED")]
     [IsoId("_ZBwSYdp-Ed-ak6NoX_4Aeg_-1743021139")]
     [Description(@"Balance of securities that are pledged, for example, a financial instrument is unavailable because it has been used or given as a guarantee.")]
-    Pledged,
+    Pledged = SecuritiesBalanceTypeCode.Pledged, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities pending delivery that are unmatched. This is only applicable in a CSD to participant communication.
-    /// Encoded/decoded by serializers as "PendingDeliveryUnmatchedBalance".
+    /// Encoded/decoded by serializers as "PDUM".
     /// </summary>
     [EnumMember(Value = "PDUM")]
     [IsoId("_ZBwSYtp-Ed-ak6NoX_4Aeg_-1743021108")]
     [Description(@"Balance of securities pending delivery that are unmatched. This is only applicable in a CSD to participant communication.")]
-    PendingDeliveryUnmatchedBalance,
+    PendingDeliveryUnmatchedBalance = SecuritiesBalanceTypeCode.PendingDeliveryUnmatchedBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities currently being processed by the institution responsible for registering the new beneficial owner (or nominee) of securities after a transaction has settled.
-    /// Encoded/decoded by serializers as "OutForRegistration".
+    /// Encoded/decoded by serializers as "REGO".
     /// </summary>
     [EnumMember(Value = "REGO")]
     [IsoId("_ZBwSY9p-Ed-ak6NoX_4Aeg_-1743021077")]
     [Description(@"Balance of securities currently being processed by the institution responsible for registering the new beneficial owner (or nominee) of securities after a transaction has settled.")]
-    OutForRegistration,
+    OutForRegistration = SecuritiesBalanceTypeCode.OutForRegistration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that may only be sold under certain conditions or require legal documents.
-    /// Encoded/decoded by serializers as "Restricted".
+    /// Encoded/decoded by serializers as "RSTR".
     /// </summary>
     [EnumMember(Value = "RSTR")]
     [IsoId("_ZBwSZNp-Ed-ak6NoX_4Aeg_-1743020737")]
     [Description(@"Balance of securities that may only be sold under certain conditions or require legal documents.")]
-    Restricted,
+    Restricted = SecuritiesBalanceTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that is unclassified, ie, is not identified with one of the existing sub-balance types.
-    /// Encoded/decoded by serializers as "Unclassified".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZBwSZdp-Ed-ak6NoX_4Aeg_-1743020707")]
     [Description(@"Balance of securities that is unclassified, ie, is not identified with one of the existing sub-balance types.")]
-    Unclassified,
+    Unclassified = SecuritiesBalanceTypeCode.Unclassified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of physical securities that are in transshipment, eg, in the process of being transferred from one depository or agent to another.
-    /// Encoded/decoded by serializers as "InTransshipment".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_ZBwSZtp-Ed-ak6NoX_4Aeg_-1743020676")]
     [Description(@"Balance of physical securities that are in transshipment, eg, in the process of being transferred from one depository or agent to another.")]
-    InTransshipment,
+    InTransshipment = SecuritiesBalanceTypeCode.InTransshipment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance of securities that are drawn for redemption.
-    /// Encoded/decoded by serializers as "Drawn".
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_ZBwSZ9p-Ed-ak6NoX_4Aeg_-1743020646")]
     [Description(@"Balance of securities that are drawn for redemption.")]
-    Drawn,
+    Drawn = SecuritiesBalanceTypeCode.Drawn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.
-    /// Encoded/decoded by serializers as "WaitingDocumentation".
+    /// Encoded/decoded by serializers as "WDOC".
     /// </summary>
     [EnumMember(Value = "WDOC")]
     [IsoId("_ZBwSaNp-Ed-ak6NoX_4Aeg_-1743020615")]
     [Description(@"Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.")]
-    WaitingDocumentation,
+    WaitingDocumentation = SecuritiesBalanceTypeCode.WaitingDocumentation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.
-    /// Encoded/decoded by serializers as "BeingTransferred".
+    /// Encoded/decoded by serializers as "BTRA".
     /// </summary>
     [EnumMember(Value = "BTRA")]
     [IsoId("_ZBwSadp-Ed-ak6NoX_4Aeg_-1743020523")]
     [Description(@"Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.")]
-    BeingTransferred,
+    BeingTransferred = SecuritiesBalanceTypeCode.BeingTransferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order contains a side pocket component.
-    /// Encoded/decoded by serializers as "SidePocketComponent".
+    /// Encoded/decoded by serializers as "SPCM".
     /// </summary>
     [EnumMember(Value = "SPCM")]
     [IsoId("_ZB5cUNp-Ed-ak6NoX_4Aeg_146236032")]
     [Description(@"Investment fund order contains a side pocket component.")]
-    SidePocketComponent,
+    SidePocketComponent = SecuritiesBalanceTypeCode.SidePocketComponent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order execution subject to redemption proceeds.
-    /// Encoded/decoded by serializers as "Holdback".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_ZB5cUdp-Ed-ak6NoX_4Aeg_146236093")]
     [Description(@"Investment fund order execution subject to redemption proceeds.")]
-    Holdback,
+    Holdback = SecuritiesBalanceTypeCode.Holdback, // same ordinal as derivation source for type conversions
     
 }
 
@@ -235,7 +235,7 @@ public enum SecuritiesBalanceType3Code
 public static class SecuritiesBalanceType3CodeMetadataExtensions
 {
     private static readonly SecuritiesBalanceType3CodeDropdownSource _dropdownSource = new SecuritiesBalanceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

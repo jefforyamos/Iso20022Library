@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_3AoIYMV1Eee3gsS0IxDWIA")]
 [Description(@"Code to identify an individual.")]
 [Derivations(typeof(Identification2Code),typeof(Identification3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum IdentificationCode
 {
     /// <summary>
@@ -218,7 +217,7 @@ public enum IdentificationCode
 public static class IdentificationCodeMetadataExtensions
 {
     private static readonly IdentificationCodeDropdownSource _dropdownSource = new IdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

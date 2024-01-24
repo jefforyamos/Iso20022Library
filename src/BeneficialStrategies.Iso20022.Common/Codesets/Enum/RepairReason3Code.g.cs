@@ -21,12 +21,12 @@ public enum RepairReason3Code
 {
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Zt3Kdtp-Ed-ak6NoX_4Aeg_1265326437")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    SettlementDate,
+    SettlementDate = RepairReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum RepairReason3Code
 public static class RepairReason3CodeMetadataExtensions
 {
     private static readonly RepairReason3CodeDropdownSource _dropdownSource = new RepairReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

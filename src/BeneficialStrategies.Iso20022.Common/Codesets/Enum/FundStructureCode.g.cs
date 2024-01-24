@@ -45,7 +45,7 @@ public enum FundStructureCode
 public static class FundStructureCodeMetadataExtensions
 {
     private static readonly FundStructureCodeDropdownSource _dropdownSource = new FundStructureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

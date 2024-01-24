@@ -21,30 +21,30 @@ public enum OptionPayoutType1Code
 {
     /// <summary>
     /// Indicates the type of binaryoption.
-    /// Encoded/decoded by serializers as "Binary".
+    /// Encoded/decoded by serializers as "BINA".
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_ImTYgabFEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of binaryoption.")]
-    Binary,
+    Binary = OptionPayoutTypeCode.Binary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the type of capped option.
-    /// Encoded/decoded by serializers as "Capped".
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_IsFQYabFEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of capped option.")]
-    Capped,
+    Capped = OptionPayoutTypeCode.Capped, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the type of vanilla option.
-    /// Encoded/decoded by serializers as "Vanilla".
+    /// Encoded/decoded by serializers as "VANI".
     /// </summary>
     [EnumMember(Value = "VANI")]
     [IsoId("_IuUsEabFEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of vanilla option.")]
-    Vanilla,
+    Vanilla = OptionPayoutTypeCode.Vanilla, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OptionPayoutType1Code
 public static class OptionPayoutType1CodeMetadataExtensions
 {
     private static readonly OptionPayoutType1CodeDropdownSource _dropdownSource = new OptionPayoutType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

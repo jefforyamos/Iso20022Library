@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_10dH4jL3EeKU9IrkkToqcw_-75321880")]
 [Description(@"Indicates whether the cash debit for the subscription charge is made immediately or accumulated.")]
 [Derivations(typeof(SubscriptionChargeApplicationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SubscriptionChargeApplicationTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SubscriptionChargeApplicationTypeCode
 public static class SubscriptionChargeApplicationTypeCodeMetadataExtensions
 {
     private static readonly SubscriptionChargeApplicationTypeCodeDropdownSource _dropdownSource = new SubscriptionChargeApplicationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

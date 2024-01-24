@@ -21,39 +21,39 @@ public enum CardDataReading4Code
 {
     /// <summary>
     /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVProximityReader".
+    /// Encoded/decoded by serializers as "ECTL".
     /// </summary>
     [EnumMember(Value = "ECTL")]
     [IsoId("_KJE4wYn7EeShMpas3885ww")]
     [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
-    EMVProximityReader,
+    EMVProximityReader = CardDataReadingCode.EMVProximityReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
-    /// Encoded/decoded by serializers as "ICC".
+    /// Encoded/decoded by serializers as "CICC".
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_KP7HoYn7EeShMpas3885ww")]
     [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
-    ICC,
+    ICC = CardDataReadingCode.ICC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MagneticStripe".
+    /// Encoded/decoded by serializers as "MGST".
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_KX-QYYn7EeShMpas3885ww")]
     [Description(@"Magnetic stripe.")]
-    MagneticStripe,
+    MagneticStripe = CardDataReadingCode.MagneticStripe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless proximity reader.
-    /// Encoded/decoded by serializers as "ProximityReader".
+    /// Encoded/decoded by serializers as "CTLS".
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_LaEmkYn7EeShMpas3885ww")]
     [Description(@"Contactless proximity reader.")]
-    ProximityReader,
+    ProximityReader = CardDataReadingCode.ProximityReader, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CardDataReading4Code
 public static class CardDataReading4CodeMetadataExtensions
 {
     private static readonly CardDataReading4CodeDropdownSource _dropdownSource = new CardDataReading4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

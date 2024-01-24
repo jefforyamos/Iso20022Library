@@ -21,30 +21,30 @@ public enum ProductType7Code
 {
     /// <summary>
     /// Asset type is sovereign.
-    /// Encoded/decoded by serializers as "Sovereign".
+    /// Encoded/decoded by serializers as "SVGN".
     /// </summary>
     [EnumMember(Value = "SVGN")]
     [IsoId("_1dWbwTXwEemdWfjs3tykFQ")]
     [Description(@"Asset type is sovereign.")]
-    Sovereign,
+    Sovereign = ProductTypeV2Code.Sovereign, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_25u6MTXwEemdWfjs3tykFQ")]
     [Description(@"Identifies the nature or type of an equity.")]
-    Equity,
+    Equity = ProductTypeV2Code.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_3aUewTXwEemdWfjs3tykFQ")]
     [Description(@"Other asset type.")]
-    Other,
+    Other = ProductTypeV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProductType7Code
 public static class ProductType7CodeMetadataExtensions
 {
     private static readonly ProductType7CodeDropdownSource _dropdownSource = new ProductType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

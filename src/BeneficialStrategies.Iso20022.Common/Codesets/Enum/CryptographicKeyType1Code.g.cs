@@ -21,39 +21,39 @@ public enum CryptographicKeyType1Code
 {
     /// <summary>
     /// Data encryption standard.
-    /// Encoded/decoded by serializers as "DES".
+    /// Encoded/decoded by serializers as "DESC".
     /// </summary>
     [EnumMember(Value = "DESC")]
     [IsoId("_KU0vhX1DEeCF8NjrBemJWQ_2128463419")]
     [Description(@"Data encryption standard.")]
-    DES,
+    DES = CryptographicKeyTypeCode.DES, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advanced encryption standard.
-    /// Encoded/decoded by serializers as "AES".
+    /// Encoded/decoded by serializers as "AESC".
     /// </summary>
     [EnumMember(Value = "AESC")]
     [IsoId("_KU0vhn1DEeCF8NjrBemJWQ_-2088353466")]
     [Description(@"Advanced encryption standard.")]
-    AES,
+    AES = CryptographicKeyTypeCode.AES, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rivest, Shamir and Adleman.
-    /// Encoded/decoded by serializers as "RSA".
+    /// Encoded/decoded by serializers as "RSAC".
     /// </summary>
     [EnumMember(Value = "RSAC")]
     [IsoId("_KU0vh31DEeCF8NjrBemJWQ_-1222392590")]
     [Description(@"Rivest, Shamir and Adleman.")]
-    RSA,
+    RSA = CryptographicKeyTypeCode.RSA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Elliptic-curve cryptography.
-    /// Encoded/decoded by serializers as "ECC".
+    /// Encoded/decoded by serializers as "ECCC".
     /// </summary>
     [EnumMember(Value = "ECCC")]
     [IsoId("_KU0viH1DEeCF8NjrBemJWQ_-505240776")]
     [Description(@"Elliptic-curve cryptography.")]
-    ECC,
+    ECC = CryptographicKeyTypeCode.ECC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CryptographicKeyType1Code
 public static class CryptographicKeyType1CodeMetadataExtensions
 {
     private static readonly CryptographicKeyType1CodeDropdownSource _dropdownSource = new CryptographicKeyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

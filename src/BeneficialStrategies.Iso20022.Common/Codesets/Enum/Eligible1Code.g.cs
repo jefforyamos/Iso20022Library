@@ -21,21 +21,21 @@ public enum Eligible1Code
 {
     /// <summary>
     /// Item is eligible.
-    /// Encoded/decoded by serializers as "Eligible".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_RBY30SC-EeWPMvNwVtiMsA")]
     [Description(@"Item is eligible.")]
-    Eligible,
+    Eligible = EligibleCode.Eligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Item is not eligible.
-    /// Encoded/decoded by serializers as "NotEligible".
+    /// Encoded/decoded by serializers as "NELI".
     /// </summary>
     [EnumMember(Value = "NELI")]
     [IsoId("_RIY3sSC-EeWPMvNwVtiMsA")]
     [Description(@"Item is not eligible.")]
-    NotEligible,
+    NotEligible = EligibleCode.NotEligible, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Eligible1Code
 public static class Eligible1CodeMetadataExtensions
 {
     private static readonly Eligible1CodeDropdownSource _dropdownSource = new Eligible1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

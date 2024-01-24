@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a7MgQNp-Ed-ak6NoX_4Aeg_1461915358")]
 [Description(@"Specifies the state of a payment instruction at a specified time.")]
 [Derivations(typeof(CashPaymentStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashPaymentStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CashPaymentStatusCode
 public static class CashPaymentStatusCodeMetadataExtensions
 {
     private static readonly CashPaymentStatusCodeDropdownSource _dropdownSource = new CashPaymentStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

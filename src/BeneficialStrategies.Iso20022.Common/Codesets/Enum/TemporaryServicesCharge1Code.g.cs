@@ -21,84 +21,84 @@ public enum TemporaryServicesCharge1Code
 {
     /// <summary>
     /// Weekend
-    /// Encoded/decoded by serializers as "Weekend".
+    /// Encoded/decoded by serializers as "WKND".
     /// </summary>
     [EnumMember(Value = "WKND")]
     [IsoId("_8LRpUTEvEemzCpWiCwK4aQ")]
     [Description(@"Weekend")]
-    Weekend,
+    Weekend = TemporaryServicesChargeCode.Weekend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regular
-    /// Encoded/decoded by serializers as "Regular".
+    /// Encoded/decoded by serializers as "REGL".
     /// </summary>
     [EnumMember(Value = "REGL")]
     [IsoId("_8fsaITEvEemzCpWiCwK4aQ")]
     [Description(@"Regular")]
-    Regular,
+    Regular = TemporaryServicesChargeCode.Regular, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Overtime
-    /// Encoded/decoded by serializers as "Overtime".
+    /// Encoded/decoded by serializers as "OVRT".
     /// </summary>
     [EnumMember(Value = "OVRT")]
     [IsoId("_8gvjATEvEemzCpWiCwK4aQ")]
     [Description(@"Overtime")]
-    Overtime,
+    Overtime = TemporaryServicesChargeCode.Overtime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_8oV_0TEvEemzCpWiCwK4aQ")]
     [Description(@"Other Private")]
-    OtherPrivate,
+    OtherPrivate = TemporaryServicesChargeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_83--UTEvEemzCpWiCwK4aQ")]
     [Description(@"Other National")]
-    OtherNational,
+    OtherNational = TemporaryServicesChargeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On call
-    /// Encoded/decoded by serializers as "OnCall".
+    /// Encoded/decoded by serializers as "ONCL".
     /// </summary>
     [EnumMember(Value = "ONCL")]
     [IsoId("_844WMTEvEemzCpWiCwK4aQ")]
     [Description(@"On call")]
-    OnCall,
+    OnCall = TemporaryServicesChargeCode.OnCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Night
-    /// Encoded/decoded by serializers as "Night".
+    /// Encoded/decoded by serializers as "NITE".
     /// </summary>
     [EnumMember(Value = "NITE")]
     [IsoId("_87j2wTEvEemzCpWiCwK4aQ")]
     [Description(@"Night")]
-    Night,
+    Night = TemporaryServicesChargeCode.Night, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holiday
-    /// Encoded/decoded by serializers as "Holiday".
+    /// Encoded/decoded by serializers as "HOLI".
     /// </summary>
     [EnumMember(Value = "HOLI")]
     [IsoId("_9FG0UTEvEemzCpWiCwK4aQ")]
     [Description(@"Holiday")]
-    Holiday,
+    Holiday = TemporaryServicesChargeCode.Holiday, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hazard
-    /// Encoded/decoded by serializers as "Hazard".
+    /// Encoded/decoded by serializers as "HAZD".
     /// </summary>
     [EnumMember(Value = "HAZD")]
     [IsoId("_9Uc34TEvEemzCpWiCwK4aQ")]
     [Description(@"Hazard")]
-    Hazard,
+    Hazard = TemporaryServicesChargeCode.Hazard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TemporaryServicesCharge1Code
 public static class TemporaryServicesCharge1CodeMetadataExtensions
 {
     private static readonly TemporaryServicesCharge1CodeDropdownSource _dropdownSource = new TemporaryServicesCharge1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

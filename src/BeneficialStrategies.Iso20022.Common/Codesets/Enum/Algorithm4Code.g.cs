@@ -21,12 +21,12 @@ public enum Algorithm4Code
 {
     /// <summary>
     /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
-    /// Encoded/decoded by serializers as "SHA256WithRSA".
+    /// Encoded/decoded by serializers as "ERS2".
     /// </summary>
     [EnumMember(Value = "ERS2")]
     [IsoId("_3MPT4QiqEeKn9O5oyej_zw")]
     [Description(@"Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).")]
-    SHA256WithRSA,
+    SHA256WithRSA = AlgorithmCode.SHA256WithRSA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum Algorithm4Code
 public static class Algorithm4CodeMetadataExtensions
 {
     private static readonly Algorithm4CodeDropdownSource _dropdownSource = new Algorithm4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

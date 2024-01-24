@@ -21,66 +21,66 @@ public enum LegalStructureFinancialInstrument1Code
 {
     /// <summary>
     /// Legal structure is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NonUCITS".
+    /// Encoded/decoded by serializers as "NUCI".
     /// </summary>
     [EnumMember(Value = "NUCI")]
     [IsoId("_X3bEITcVEeiIxKQErQxblg")]
     [Description(@"Legal structure is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    NonUCITS,
+    NonUCITS = LegalStructureFinancialInstrumentCode.NonUCITS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a structured fund.
-    /// Encoded/decoded by serializers as "StructuredFund".
+    /// Encoded/decoded by serializers as "SFUN".
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_X74tYTcVEeiIxKQErQxblg")]
     [Description(@"Legal structure is a structured fund.")]
-    StructuredFund,
+    StructuredFund = LegalStructureFinancialInstrumentCode.StructuredFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a structured security.
-    /// Encoded/decoded by serializers as "StructuredSecurity".
+    /// Encoded/decoded by serializers as "SSEC".
     /// </summary>
     [EnumMember(Value = "SSEC")]
     [IsoId("_YANMsTcVEeiIxKQErQxblg")]
     [Description(@"Legal structure is a structured security.")]
-    StructuredSecurity,
+    StructuredSecurity = LegalStructureFinancialInstrumentCode.StructuredSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "UCITS".
+    /// Encoded/decoded by serializers as "UCIT".
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_YE9w4TcVEeiIxKQErQxblg")]
     [Description(@"Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    UCITS,
+    UCITS = LegalStructureFinancialInstrumentCode.UCITS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is an exchange traded commodity.
-    /// Encoded/decoded by serializers as "ExchangeTradedCommodity".
+    /// Encoded/decoded by serializers as "EXTC".
     /// </summary>
     [EnumMember(Value = "EXTC")]
     [IsoId("_atb8EYBgEei8Q7I_11BpAQ")]
     [Description(@"Legal structure is an exchange traded commodity.")]
-    ExchangeTradedCommodity,
+    ExchangeTradedCommodity = LegalStructureFinancialInstrumentCode.ExchangeTradedCommodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.
-    /// Encoded/decoded by serializers as "UCITSMoneyMarketFund".
+    /// Encoded/decoded by serializers as "UCMM".
     /// </summary>
     [EnumMember(Value = "UCMM")]
     [IsoId("_azh9AYBgEei8Q7I_11BpAQ")]
     [Description(@"Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.")]
-    UCITSMoneyMarketFund,
+    UCITSMoneyMarketFund = LegalStructureFinancialInstrumentCode.UCITSMoneyMarketFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NonUCITSMoneyMarketFund".
+    /// Encoded/decoded by serializers as "NUMM".
     /// </summary>
     [EnumMember(Value = "NUMM")]
     [IsoId("_LZpQ4YvwEeicrr-UkGlMQA")]
     [Description(@"Legal structure is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    NonUCITSMoneyMarketFund,
+    NonUCITSMoneyMarketFund = LegalStructureFinancialInstrumentCode.NonUCITSMoneyMarketFund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum LegalStructureFinancialInstrument1Code
 public static class LegalStructureFinancialInstrument1CodeMetadataExtensions
 {
     private static readonly LegalStructureFinancialInstrument1CodeDropdownSource _dropdownSource = new LegalStructureFinancialInstrument1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y-xP0Np-Ed-ak6NoX_4Aeg_-664604106")]
 [Description(@"Specifies the type of place of safekeeping.")]
 [Derivations(typeof(SafekeepingPlace3Code),typeof(SafekeepingPlace1Code),typeof(SafekeepingPlace2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SafekeepingPlaceCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SafekeepingPlaceCode
 public static class SafekeepingPlaceCodeMetadataExtensions
 {
     private static readonly SafekeepingPlaceCodeDropdownSource _dropdownSource = new SafekeepingPlaceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

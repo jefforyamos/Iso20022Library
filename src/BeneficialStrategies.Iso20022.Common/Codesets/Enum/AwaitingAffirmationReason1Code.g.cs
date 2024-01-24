@@ -21,12 +21,12 @@ public enum AwaitingAffirmationReason1Code
 {
     /// <summary>
     /// Affirmation has not been received yet.
-    /// Encoded/decoded by serializers as "AwaitingAffirmation".
+    /// Encoded/decoded by serializers as "WAFF".
     /// </summary>
     [EnumMember(Value = "WAFF")]
     [IsoId("__0Jx1NojEeC60axPepSq7g_684115329")]
     [Description(@"Affirmation has not been received yet.")]
-    AwaitingAffirmation,
+    AwaitingAffirmation = AwaitingAffirmationReasonCode.AwaitingAffirmation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AwaitingAffirmationReason1Code
 public static class AwaitingAffirmationReason1CodeMetadataExtensions
 {
     private static readonly AwaitingAffirmationReason1CodeDropdownSource _dropdownSource = new AwaitingAffirmationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

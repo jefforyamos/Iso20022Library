@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TGmBAcR0EeOg-a7zWL_U0A")]
 [Description(@"Specifies the type of event for an option.")]
 [Derivations(typeof(OptionEventType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OptionEventTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum OptionEventTypeCode
 public static class OptionEventTypeCodeMetadataExtensions
 {
     private static readonly OptionEventTypeCodeDropdownSource _dropdownSource = new OptionEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

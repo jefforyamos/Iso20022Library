@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_RxJesLf7EeeNBs0sDWdcSw")]
 [Description(@"Specifies the document line type as published in an external document type code list.")]
 [Derivations(typeof(ExternalDocumentLineType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalDocumentLineTypeCode
 {
     /// <summary>
@@ -200,7 +199,7 @@ public enum ExternalDocumentLineTypeCode
 public static class ExternalDocumentLineTypeCodeMetadataExtensions
 {
     private static readonly ExternalDocumentLineTypeCodeDropdownSource _dropdownSource = new ExternalDocumentLineTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

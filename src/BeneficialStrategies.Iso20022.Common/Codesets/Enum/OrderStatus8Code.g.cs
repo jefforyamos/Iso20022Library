@@ -21,84 +21,84 @@ public enum OrderStatus8Code
 {
     /// <summary>
     /// Cancelled order with or without executions.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_3C5jcYv6EeSJHZdigg3NTg")]
     [Description(@"Cancelled order with or without executions.")]
-    Cancelled,
+    Cancelled = OrderStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Outstanding order with no executions.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWW".
     /// </summary>
     [EnumMember(Value = "NEWW")]
     [IsoId("_3ZYw0Yv6EeSJHZdigg3NTg")]
     [Description(@"Outstanding order with no executions.")]
-    New,
+    New = OrderStatusCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been replaced.
-    /// Encoded/decoded by serializers as "Replaced".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_4Z7n0Yv6EeSJHZdigg3NTg")]
     [Description(@"Order has been replaced.")]
-    Replaced,
+    Replaced = OrderStatusCode.Replaced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.
-    /// Encoded/decoded by serializers as "Stopped".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_40GbUYv6EeSJHZdigg3NTg")]
     [Description(@"Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.")]
-    Stopped,
+    Stopped = OrderStatusCode.Stopped, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_6C1fUIv6EeSJHZdigg3NTg")]
     [Description(@"Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.")]
-    Rejected,
+    Rejected = OrderStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been cancelled in the broker's system due to time in force instructions.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("__Trt4Yv6EeSJHZdigg3NTg")]
     [Description(@"Order has been cancelled in the broker's system due to time in force instructions.")]
-    Expired,
+    Expired = OrderStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_DrW4wYv7EeSJHZdigg3NTg")]
     [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = OrderStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_YmKewYv7EeSJHZdigg3NTg")]
     [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
-    Received,
+    Received = OrderStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
-    /// Encoded/decoded by serializers as "PendingCancel".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bh_WsYv7EeSJHZdigg3NTg")]
     [Description(@"Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.")]
-    PendingCancel,
+    PendingCancel = OrderStatusCode.PendingCancel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum OrderStatus8Code
 public static class OrderStatus8CodeMetadataExtensions
 {
     private static readonly OrderStatus8CodeDropdownSource _dropdownSource = new OrderStatus8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

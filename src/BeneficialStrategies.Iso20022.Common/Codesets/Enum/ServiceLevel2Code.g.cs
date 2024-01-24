@@ -21,21 +21,21 @@ public enum ServiceLevel2Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_ZKjCAtp-Ed-ak6NoX_4Aeg_757139776")]
     [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
-    SingleEuroPaymentsArea,
+    SingleEuroPaymentsArea = ServiceLevelCode.SingleEuroPaymentsArea, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment must be executed with same day value to the creditor.
-    /// Encoded/decoded by serializers as "SameDayValue".
+    /// Encoded/decoded by serializers as "SDVA".
     /// </summary>
     [EnumMember(Value = "SDVA")]
     [IsoId("_ZKjCA9p-Ed-ak6NoX_4Aeg_757140285")]
     [Description(@"Payment must be executed with same day value to the creditor.")]
-    SameDayValue,
+    SameDayValue = ServiceLevelCode.SameDayValue, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ServiceLevel2Code
 public static class ServiceLevel2CodeMetadataExtensions
 {
     private static readonly ServiceLevel2CodeDropdownSource _dropdownSource = new ServiceLevel2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aV8eI9p-Ed-ak6NoX_4Aeg_1872710990")]
 [Description(@"Indicate whether or not registered investors are able to transfer some or all of their holdings to third parties.")]
 [Derivations(typeof(HoldingTransferable1Code),typeof(ReferToFundOrderDesk1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum HoldingTransferableCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum HoldingTransferableCode
 public static class HoldingTransferableCodeMetadataExtensions
 {
     private static readonly HoldingTransferableCodeDropdownSource _dropdownSource = new HoldingTransferableCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

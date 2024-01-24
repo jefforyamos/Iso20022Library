@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aSXltNp-Ed-ak6NoX_4Aeg_336257668")]
 [Description(@"Specifies the current status of the order.")]
-[Derivations(typeof(OrderStatus3Code),typeof(OrderStatus2Code),typeof(OrderStatus4Code),typeof(OrderStatus5Code),typeof(OrderStatus1Code),typeof(OrderStatus6Code),typeof(OrderStatus7Code),typeof(OrderStatus8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(OrderStatus1Code),typeof(OrderStatus7Code),typeof(OrderStatus4Code),typeof(OrderStatus6Code),typeof(OrderStatus5Code),typeof(OrderStatus8Code),typeof(OrderStatus2Code),typeof(OrderStatus3Code))]
 public enum OrderStatusCode
 {
     /// <summary>
@@ -353,7 +352,7 @@ public enum OrderStatusCode
 public static class OrderStatusCodeMetadataExtensions
 {
     private static readonly OrderStatusCodeDropdownSource _dropdownSource = new OrderStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum ValidationRuleRejected1Code
 {
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_uY6bcR-zEeuxStysDTgLiw")]
     [Description(@"Rejected.")]
-    Rejected,
+    Rejected = ValidationRuleCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRuleRejected1Code
 public static class ValidationRuleRejected1CodeMetadataExtensions
 {
     private static readonly ValidationRuleRejected1CodeDropdownSource _dropdownSource = new ValidationRuleRejected1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

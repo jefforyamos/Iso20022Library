@@ -21,21 +21,21 @@ public enum AmountPriceType3Code
 {
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
-    /// Encoded/decoded by serializers as "ActualAmount".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_i3gHgZbREee8S7xwGG7Veg")]
     [Description(@"Price expressed as a currency and amount per unit or per share.")]
-    ActualAmount,
+    ActualAmount = AmountPriceTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price expressed as an amount of money per lot.
-    /// Encoded/decoded by serializers as "Lot".
+    /// Encoded/decoded by serializers as "PLOT".
     /// </summary>
     [EnumMember(Value = "PLOT")]
     [IsoId("_i9wggZbREee8S7xwGG7Veg")]
     [Description(@"Price expressed as an amount of money per lot.")]
-    Lot,
+    Lot = AmountPriceTypeCode.Lot, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AmountPriceType3Code
 public static class AmountPriceType3CodeMetadataExtensions
 {
     private static readonly AmountPriceType3CodeDropdownSource _dropdownSource = new AmountPriceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

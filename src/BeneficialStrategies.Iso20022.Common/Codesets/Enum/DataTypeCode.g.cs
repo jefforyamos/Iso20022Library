@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9dkccEeAEeSzluxs8tdrVw")]
 [Description(@"Specifies the type of data.")]
 [Derivations(typeof(DataType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DataTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DataTypeCode
 public static class DataTypeCodeMetadataExtensions
 {
     private static readonly DataTypeCodeDropdownSource _dropdownSource = new DataTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

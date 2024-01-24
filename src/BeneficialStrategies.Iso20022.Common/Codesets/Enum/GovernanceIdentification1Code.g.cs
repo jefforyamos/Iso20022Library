@@ -21,39 +21,39 @@ public enum GovernanceIdentification1Code
 {
     /// <summary>
     /// The version of the International Standby Practices (ISP) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "InternationalStandbyPractices".
+    /// Encoded/decoded by serializers as "ISPR".
     /// </summary>
     [EnumMember(Value = "ISPR")]
     [IsoId("_buUCNnycEeGWJuGCfvwOsQ")]
     [Description(@"The version of the International Standby Practices (ISP) that is in effect on the date of issue of the undertaking.")]
-    InternationalStandbyPractices,
+    InternationalStandbyPractices = GovernanceIdentificationCode.InternationalStandbyPractices, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No applicable rule set defined.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_djAS9nycEeGWJuGCfvwOsQ")]
     [Description(@"No applicable rule set defined.")]
-    None,
+    None = GovernanceIdentificationCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The version of the Uniform Customs and Practice for Documentary Credits (UCP) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "UniformCustomsAndPractice".
+    /// Encoded/decoded by serializers as "UCPR".
     /// </summary>
     [EnumMember(Value = "UCPR")]
     [IsoId("_dtcBVnycEeGWJuGCfvwOsQ")]
     [Description(@"The version of the Uniform Customs and Practice for Documentary Credits (UCP) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.")]
-    UniformCustomsAndPractice,
+    UniformCustomsAndPractice = GovernanceIdentificationCode.UniformCustomsAndPractice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The version of the ICC Uniform Rules For Demand Guarantees (URDG) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "UniformRulesForDemandGuarantees".
+    /// Encoded/decoded by serializers as "URDG".
     /// </summary>
     [EnumMember(Value = "URDG")]
     [IsoId("_d1VZFnycEeGWJuGCfvwOsQ")]
     [Description(@"The version of the ICC Uniform Rules For Demand Guarantees (URDG) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.")]
-    UniformRulesForDemandGuarantees,
+    UniformRulesForDemandGuarantees = GovernanceIdentificationCode.UniformRulesForDemandGuarantees, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum GovernanceIdentification1Code
 public static class GovernanceIdentification1CodeMetadataExtensions
 {
     private static readonly GovernanceIdentification1CodeDropdownSource _dropdownSource = new GovernanceIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

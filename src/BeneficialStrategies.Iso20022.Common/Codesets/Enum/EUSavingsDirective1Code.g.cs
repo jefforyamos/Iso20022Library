@@ -21,30 +21,30 @@ public enum EUSavingsDirective1Code
 {
     /// <summary>
     /// Investment Fund is in the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSavingsInScope".
+    /// Encoded/decoded by serializers as "EUSI".
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_aiUGNNp-Ed-ak6NoX_4Aeg_796430025")]
     [Description(@"Investment Fund is in the scope of the directive.")]
-    EUSavingsInScope,
+    EUSavingsInScope = EUSavingsDirectiveCode.EUSavingsInScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment Fund is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSavingsOutScope".
+    /// Encoded/decoded by serializers as "EUSO".
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_aiUGNdp-Ed-ak6NoX_4Aeg_796430056")]
     [Description(@"Investment Fund is out of the scope of the directive.")]
-    EUSavingsOutScope,
+    EUSavingsOutScope = EUSavingsDirectiveCode.EUSavingsOutScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment Fund may vary for inclusion in the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSavingsVariable".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_ai58ENp-Ed-ak6NoX_4Aeg_796430057")]
     [Description(@"Investment Fund may vary for inclusion in the scope of the directive.")]
-    EUSavingsVariable,
+    EUSavingsVariable = EUSavingsDirectiveCode.EUSavingsVariable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EUSavingsDirective1Code
 public static class EUSavingsDirective1CodeMetadataExtensions
 {
     private static readonly EUSavingsDirective1CodeDropdownSource _dropdownSource = new EUSavingsDirective1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

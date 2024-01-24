@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ke5GkLTiEeeQy4o2AayYHg")]
 [Description(@"Specific TR34 status that the ATM could use.")]
 [Derivations(typeof(TR34Status1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TR34StatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TR34StatusCode
 public static class TR34StatusCodeMetadataExtensions
 {
     private static readonly TR34StatusCodeDropdownSource _dropdownSource = new TR34StatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

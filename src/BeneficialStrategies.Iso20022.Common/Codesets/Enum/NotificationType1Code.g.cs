@@ -21,21 +21,21 @@ public enum NotificationType1Code
 {
     /// <summary>
     /// User must withdraw from transaction because of Force Majeure.
-    /// Encoded/decoded by serializers as "MustWithdrawFromTransaction".
+    /// Encoded/decoded by serializers as "MWFT".
     /// </summary>
     [EnumMember(Value = "MWFT")]
     [IsoId("_aODGZ9p-Ed-ak6NoX_4Aeg_959058836")]
     [Description(@"User must withdraw from transaction because of Force Majeure.")]
-    MustWithdrawFromTransaction,
+    MustWithdrawFromTransaction = NotificationTypeCode.MustWithdrawFromTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// User is unable to submit data set(s).
-    /// Encoded/decoded by serializers as "CannotSubmitDataSet".
+    /// Encoded/decoded by serializers as "CSDS".
     /// </summary>
     [EnumMember(Value = "CSDS")]
     [IsoId("_aODGaNp-Ed-ak6NoX_4Aeg_963678886")]
     [Description(@"User is unable to submit data set(s).")]
-    CannotSubmitDataSet,
+    CannotSubmitDataSet = NotificationTypeCode.CannotSubmitDataSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NotificationType1Code
 public static class NotificationType1CodeMetadataExtensions
 {
     private static readonly NotificationType1CodeDropdownSource _dropdownSource = new NotificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

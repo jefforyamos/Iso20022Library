@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KUq-iH1DEeCF8NjrBemJWQ_-1037208756")]
 [Description(@"Type of transactions to include in a batch transfer.")]
 [Derivations(typeof(BatchTransactionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BatchTransactionTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum BatchTransactionTypeCode
 public static class BatchTransactionTypeCodeMetadataExtensions
 {
     private static readonly BatchTransactionTypeCodeDropdownSource _dropdownSource = new BatchTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

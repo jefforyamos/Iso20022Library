@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_mUK7gJ9XEeqxTNfi5y7ywQ")]
 [Description(@"Specifies a basis for ex post calculations.")]
 [Derivations(typeof(ExPostCostCalculationBasis1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExPostCostCalculationBasisCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ExPostCostCalculationBasisCode
 public static class ExPostCostCalculationBasisCodeMetadataExtensions
 {
     private static readonly ExPostCostCalculationBasisCodeDropdownSource _dropdownSource = new ExPostCostCalculationBasisCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

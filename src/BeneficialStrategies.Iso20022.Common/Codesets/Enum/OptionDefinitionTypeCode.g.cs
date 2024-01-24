@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ADxVkLcQEeKuGrOch6U_ZQ_1001230530")]
 [Description(@"Indicates whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).")]
 [Derivations(typeof(OptionType1Code),typeof(OptionTypeCode),typeof(OptionType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OptionDefinitionTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum OptionDefinitionTypeCode
 public static class OptionDefinitionTypeCodeMetadataExtensions
 {
     private static readonly OptionDefinitionTypeCodeDropdownSource _dropdownSource = new OptionDefinitionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

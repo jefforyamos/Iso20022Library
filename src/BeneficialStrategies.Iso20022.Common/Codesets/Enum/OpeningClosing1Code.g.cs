@@ -21,21 +21,21 @@ public enum OpeningClosing1Code
 {
     /// <summary>
     /// Indicates that the trade is to close a position.
-    /// Encoded/decoded by serializers as "ClosePosition".
+    /// Encoded/decoded by serializers as "CLOP".
     /// </summary>
     [EnumMember(Value = "CLOP")]
     [IsoId("_aOytR9p-Ed-ak6NoX_4Aeg_1340458350")]
     [Description(@"Indicates that the trade is to close a position.")]
-    ClosePosition,
+    ClosePosition = OpeningClosingCode.ClosePosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the trade is to open a position.
-    /// Encoded/decoded by serializers as "OpenPosition".
+    /// Encoded/decoded by serializers as "OPEP".
     /// </summary>
     [EnumMember(Value = "OPEP")]
     [IsoId("_aOytSNp-Ed-ak6NoX_4Aeg_1926405376")]
     [Description(@"Indicates that the trade is to open a position.")]
-    OpenPosition,
+    OpenPosition = OpeningClosingCode.OpenPosition, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OpeningClosing1Code
 public static class OpeningClosing1CodeMetadataExtensions
 {
     private static readonly OpeningClosing1CodeDropdownSource _dropdownSource = new OpeningClosing1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

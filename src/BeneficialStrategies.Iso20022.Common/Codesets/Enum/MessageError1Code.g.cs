@@ -21,165 +21,165 @@ public enum MessageError1Code
 {
     /// <summary>
     /// Invalid data element format
-    /// Encoded/decoded by serializers as "InvalidDataElementFormat".
+    /// Encoded/decoded by serializers as "IDEF".
     /// </summary>
     [EnumMember(Value = "IDEF")]
     [IsoId("_wQpcofGwEeiGNursv3uE_g")]
     [Description(@"Invalid data element format")]
-    InvalidDataElementFormat,
+    InvalidDataElementFormat = MessageErrorCode.InvalidDataElementFormat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid data element length
-    /// Encoded/decoded by serializers as "InvalidDataElementLength".
+    /// Encoded/decoded by serializers as "IDEL".
     /// </summary>
     [EnumMember(Value = "IDEL")]
     [IsoId("_wUmIgfGwEeiGNursv3uE_g")]
     [Description(@"Invalid data element length")]
-    InvalidDataElementLength,
+    InvalidDataElementLength = MessageErrorCode.InvalidDataElementLength, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid data element value
-    /// Encoded/decoded by serializers as "InvalidDataElementValue".
+    /// Encoded/decoded by serializers as "IDEV".
     /// </summary>
     [EnumMember(Value = "IDEV")]
     [IsoId("_wYS8wfGwEeiGNursv3uE_g")]
     [Description(@"Invalid data element value")]
-    InvalidDataElementValue,
+    InvalidDataElementValue = MessageErrorCode.InvalidDataElementValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid message
-    /// Encoded/decoded by serializers as "InvalidMessage".
+    /// Encoded/decoded by serializers as "INME".
     /// </summary>
     [EnumMember(Value = "INME")]
     [IsoId("_wdMD0fGwEeiGNursv3uE_g")]
     [Description(@"Invalid message")]
-    InvalidMessage,
+    InvalidMessage = MessageErrorCode.InvalidMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid Message Function
-    /// Encoded/decoded by serializers as "InvalidMessageFunction".
+    /// Encoded/decoded by serializers as "INMF".
     /// </summary>
     [EnumMember(Value = "INMF")]
     [IsoId("_whFFUfGwEeiGNursv3uE_g")]
     [Description(@"Invalid Message Function")]
-    InvalidMessageFunction,
+    InvalidMessageFunction = MessageErrorCode.InvalidMessageFunction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message Parse Error
-    /// Encoded/decoded by serializers as "MessageParseError".
+    /// Encoded/decoded by serializers as "MEPE".
     /// </summary>
     [EnumMember(Value = "MEPE")]
     [IsoId("_wppLcfGwEeiGNursv3uE_g")]
     [Description(@"Message Parse Error")]
-    MessageParseError,
+    MessageParseError = MessageErrorCode.MessageParseError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other reason to reject a message defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_wxHFYfGwEeiGNursv3uE_g")]
     [Description(@"Other reason to reject a message defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = MessageErrorCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protocol Version
-    /// Encoded/decoded by serializers as "ProtocolVersion".
+    /// Encoded/decoded by serializers as "PRVE".
     /// </summary>
     [EnumMember(Value = "PRVE")]
     [IsoId("_w3BgIfGwEeiGNursv3uE_g")]
     [Description(@"Protocol Version")]
-    ProtocolVersion,
+    ProtocolVersion = MessageErrorCode.ProtocolVersion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Required data element missing
-    /// Encoded/decoded by serializers as "RequiredDataElementMissing".
+    /// Encoded/decoded by serializers as "RDEM".
     /// </summary>
     [EnumMember(Value = "RDEM")]
     [IsoId("_xA0VUfGwEeiGNursv3uE_g")]
     [Description(@"Required data element missing")]
-    RequiredDataElementMissing,
+    RequiredDataElementMissing = MessageErrorCode.RequiredDataElementMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security
-    /// Encoded/decoded by serializers as "Security".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_xF7e0fGwEeiGNursv3uE_g")]
     [Description(@"Security")]
-    Security,
+    Security = MessageErrorCode.Security, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error that is not defined in the Message type Error and is not OtherNational or OtherPrivate Error 
-    /// Encoded/decoded by serializers as "Undefined".
+    /// Encoded/decoded by serializers as "UDFD".
     /// </summary>
     [EnumMember(Value = "UDFD")]
     [IsoId("_xLVjQfGwEeiGNursv3uE_g")]
     [Description(@"Error that is not defined in the Message type Error and is not OtherNational or OtherPrivate Error ")]
-    Undefined,
+    Undefined = MessageErrorCode.Undefined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other reason defined at national level to reject a message.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_xSn3AfGwEeiGNursv3uE_g")]
     [Description(@"Other reason defined at national level to reject a message.")]
-    OtherNational,
+    OtherNational = MessageErrorCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Iterative data error
-    /// Encoded/decoded by serializers as "IterativeDataError".
+    /// Encoded/decoded by serializers as "ITDE".
     /// </summary>
     [EnumMember(Value = "ITDE")]
     [IsoId("_xcrx8fGwEeiGNursv3uE_g")]
     [Description(@"Iterative data error")]
-    IterativeDataError,
+    IterativeDataError = MessageErrorCode.IterativeDataError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplicate Message
-    /// Encoded/decoded by serializers as "DuplicateMessage".
+    /// Encoded/decoded by serializers as "DUME".
     /// </summary>
     [EnumMember(Value = "DUME")]
     [IsoId("_yFe3UfGwEeiGNursv3uE_g")]
     [Description(@"Duplicate Message")]
-    DuplicateMessage,
+    DuplicateMessage = MessageErrorCode.DuplicateMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inconsistent data within message
-    /// Encoded/decoded by serializers as "InconsistentDataWithinMessage".
+    /// Encoded/decoded by serializers as "IDWM".
     /// </summary>
     [EnumMember(Value = "IDWM")]
     [IsoId("_yJnwcfGwEeiGNursv3uE_g")]
     [Description(@"Inconsistent data within message")]
-    InconsistentDataWithinMessage,
+    InconsistentDataWithinMessage = MessageErrorCode.InconsistentDataWithinMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inconsistent data with related message
-    /// Encoded/decoded by serializers as "InconsistentDataWithRelatedMessage".
+    /// Encoded/decoded by serializers as "IDRM".
     /// </summary>
     [EnumMember(Value = "IDRM")]
     [IsoId("_yNfj0fGwEeiGNursv3uE_g")]
     [Description(@"Inconsistent data with related message")]
-    InconsistentDataWithRelatedMessage,
+    InconsistentDataWithRelatedMessage = MessageErrorCode.InconsistentDataWithRelatedMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid Batch
-    /// Encoded/decoded by serializers as "InvalidBatch".
+    /// Encoded/decoded by serializers as "IBAT".
     /// </summary>
     [EnumMember(Value = "IBAT")]
     [IsoId("_yRYlUfGwEeiGNursv3uE_g")]
     [Description(@"Invalid Batch")]
-    InvalidBatch,
+    InvalidBatch = MessageErrorCode.InvalidBatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid Collection
-    /// Encoded/decoded by serializers as "InvalidCollection".
+    /// Encoded/decoded by serializers as "ICOL".
     /// </summary>
     [EnumMember(Value = "ICOL")]
     [IsoId("_yWE4EfGwEeiGNursv3uE_g")]
     [Description(@"Invalid Collection")]
-    InvalidCollection,
+    InvalidCollection = MessageErrorCode.InvalidCollection, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum MessageError1Code
 public static class MessageError1CodeMetadataExtensions
 {
     private static readonly MessageError1CodeDropdownSource _dropdownSource = new MessageError1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

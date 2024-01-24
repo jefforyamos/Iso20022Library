@@ -21,21 +21,21 @@ public enum AccountingStatus1Code
 {
     /// <summary>
     /// Account or party is regarded as domestic for reporting purposes.
-    /// Encoded/decoded by serializers as "Domestic".
+    /// Encoded/decoded by serializers as "YDOM".
     /// </summary>
     [EnumMember(Value = "YDOM")]
     [IsoId("_gQQnASDEEeWPMvNwVtiMsA")]
     [Description(@"Account or party is regarded as domestic for reporting purposes.")]
-    Domestic,
+    Domestic = AccountingStatusCode.Domestic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account or party is not regarded as domestic for reporting purposes.
-    /// Encoded/decoded by serializers as "NotDomestic".
+    /// Encoded/decoded by serializers as "NDOM".
     /// </summary>
     [EnumMember(Value = "NDOM")]
     [IsoId("_gahWQSDEEeWPMvNwVtiMsA")]
     [Description(@"Account or party is not regarded as domestic for reporting purposes.")]
-    NotDomestic,
+    NotDomestic = AccountingStatusCode.NotDomestic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AccountingStatus1Code
 public static class AccountingStatus1CodeMetadataExtensions
 {
     private static readonly AccountingStatus1CodeDropdownSource _dropdownSource = new AccountingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

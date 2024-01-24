@@ -21,21 +21,21 @@ public enum ReceiveDelivery1Code
 {
     /// <summary>
     /// Financial instruments will be debited from the safekeeping account.
-    /// Encoded/decoded by serializers as "Delivery".
+    /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_Zafihdp-Ed-ak6NoX_4Aeg_-99264763")]
     [Description(@"Financial instruments will be debited from the safekeeping account.")]
-    Delivery,
+    Delivery = ReceiveDeliveryCode.Delivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments will be credited to the safekeeping account.
-    /// Encoded/decoded by serializers as "Receive".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_Zafihtp-Ed-ak6NoX_4Aeg_-69712465")]
     [Description(@"Financial instruments will be credited to the safekeeping account.")]
-    Receive,
+    Receive = ReceiveDeliveryCode.Receive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReceiveDelivery1Code
 public static class ReceiveDelivery1CodeMetadataExtensions
 {
     private static readonly ReceiveDelivery1CodeDropdownSource _dropdownSource = new ReceiveDelivery1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

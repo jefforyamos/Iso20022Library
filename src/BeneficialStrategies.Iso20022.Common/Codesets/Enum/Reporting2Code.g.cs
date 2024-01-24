@@ -21,30 +21,30 @@ public enum Reporting2Code
 {
     /// <summary>
     /// Trade details are to be reported to a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "STEX".
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAo9p-Ed-ak6NoX_4Aeg_-495638960")]
     [Description(@"Trade details are to be reported to a stock exchange.")]
-    StockExchange,
+    StockExchange = ReportingCode.StockExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade details are to be reported to a regulatory organisation.
-    /// Encoded/decoded by serializers as "RegulatoryOrganisation".
+    /// Encoded/decoded by serializers as "REGU".
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_ZTMApNp-Ed-ak6NoX_4Aeg_-255523631")]
     [Description(@"Trade details are to be reported to a regulatory organisation.")]
-    RegulatoryOrganisation,
+    RegulatoryOrganisation = ReportingCode.RegulatoryOrganisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report is deferred, for example, because the order was executed in partial fills.
-    /// Encoded/decoded by serializers as "DeferredReport".
+    /// Encoded/decoded by serializers as "DEFR".
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_ZTMApdp-Ed-ak6NoX_4Aeg_-210271843")]
     [Description(@"Report is deferred, for example, because the order was executed in partial fills.")]
-    DeferredReport,
+    DeferredReport = ReportingCode.DeferredReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Reporting2Code
 public static class Reporting2CodeMetadataExtensions
 {
     private static readonly Reporting2CodeDropdownSource _dropdownSource = new Reporting2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

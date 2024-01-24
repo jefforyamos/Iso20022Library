@@ -21,138 +21,138 @@ public enum ESGLabelOrStandard1Code
 {
     /// <summary>
     /// Climate Bonds Initiative (CBI) Climate Bonds Standard.
-    /// Encoded/decoded by serializers as "CBIClimateBonds".
+    /// Encoded/decoded by serializers as "E005".
     /// </summary>
     [EnumMember(Value = "E005")]
     [IsoId("_6j68gdA7EeuSBa1PsnseFg")]
     [Description(@"Climate Bonds Initiative (CBI) Climate Bonds Standard.")]
-    CBIClimateBonds,
+    CBIClimateBonds = ESGLabelOrStandardCode.CBIClimateBonds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EU Ecolabel for financial products.
-    /// Encoded/decoded by serializers as "EUEcolabel".
+    /// Encoded/decoded by serializers as "C003".
     /// </summary>
     [EnumMember(Value = "C003")]
     [IsoId("_6o14wdA7EeuSBa1PsnseFg")]
     [Description(@"EU Ecolabel for financial products.")]
-    EUEcolabel,
+    EUEcolabel = ESGLabelOrStandardCode.EUEcolabel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// EU Green Bond Standard.
-    /// Encoded/decoded by serializers as "EUGreenBond".
+    /// Encoded/decoded by serializers as "B002".
     /// </summary>
     [EnumMember(Value = "B002")]
     [IsoId("_6w5BgdA7EeuSBa1PsnseFg")]
     [Description(@"EU Green Bond Standard.")]
-    EUGreenBond,
+    EUGreenBond = ESGLabelOrStandardCode.EUGreenBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Febelfin Towards Sustainability label.
-    /// Encoded/decoded by serializers as "FebelfinTowardsSustainability".
+    /// Encoded/decoded by serializers as "L012".
     /// </summary>
     [EnumMember(Value = "L012")]
     [IsoId("_62_pgdA7EeuSBa1PsnseFg")]
     [Description(@"Febelfin Towards Sustainability label.")]
-    FebelfinTowardsSustainability,
+    FebelfinTowardsSustainability = ESGLabelOrStandardCode.FebelfinTowardsSustainability, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FNG-Siegel.
-    /// Encoded/decoded by serializers as "FNGSiegel".
+    /// Encoded/decoded by serializers as "D004".
     /// </summary>
     [EnumMember(Value = "D004")]
     [IsoId("_6_CyQdA7EeuSBa1PsnseFg")]
     [Description(@"FNG-Siegel.")]
-    FNGSiegel,
+    FNGSiegel = ESGLabelOrStandardCode.FNGSiegel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greenfin label.
-    /// Encoded/decoded by serializers as "GreenfinLabel".
+    /// Encoded/decoded by serializers as "O015".
     /// </summary>
     [EnumMember(Value = "O015")]
     [IsoId("_7KEWgdA7EeuSBa1PsnseFg")]
     [Description(@"Greenfin label.")]
-    GreenfinLabel,
+    GreenfinLabel = ESGLabelOrStandardCode.GreenfinLabel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International Capital Markets Association (ICMA) Green Bond Principles.
-    /// Encoded/decoded by serializers as "ICMAGreenBond".
+    /// Encoded/decoded by serializers as "A001".
     /// </summary>
     [EnumMember(Value = "A001")]
     [IsoId("_7PIcsdA7EeuSBa1PsnseFg")]
     [Description(@"International Capital Markets Association (ICMA) Green Bond Principles.")]
-    ICMAGreenBond,
+    ICMAGreenBond = ESGLabelOrStandardCode.ICMAGreenBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International Capital Markets Association (ICMA) Social Bonds Principles.
-    /// Encoded/decoded by serializers as "ICMASocialBonds".
+    /// Encoded/decoded by serializers as "F006".
     /// </summary>
     [EnumMember(Value = "F006")]
     [IsoId("_7UgE4dA7EeuSBa1PsnseFg")]
     [Description(@"International Capital Markets Association (ICMA) Social Bonds Principles.")]
-    ICMASocialBonds,
+    ICMASocialBonds = ESGLabelOrStandardCode.ICMASocialBonds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Label "Investissement Socialement Responsable" (ISR).
-    /// Encoded/decoded by serializers as "ISR".
+    /// Encoded/decoded by serializers as "K011".
     /// </summary>
     [EnumMember(Value = "K011")]
     [IsoId("_7Z3GAdA7EeuSBa1PsnseFg")]
     [Description(@"Label ""Investissement Socialement Responsable"" (ISR).")]
-    ISR,
+    ISR = ESGLabelOrStandardCode.ISR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kein Verstoss gegen Atomwaffensperrvertrag.
-    /// Encoded/decoded by serializers as "KeinVerstoßGegenAtomwaffensperrvertrag".
+    /// Encoded/decoded by serializers as "J010".
     /// </summary>
     [EnumMember(Value = "J010")]
     [IsoId("_7iW6sdA7EeuSBa1PsnseFg")]
     [Description(@"Kein Verstoss gegen Atomwaffensperrvertrag.")]
-    KeinVerstoßGegenAtomwaffensperrvertrag,
+    KeinVerstoßGegenAtomwaffensperrvertrag = ESGLabelOrStandardCode.KeinVerstoßGegenAtomwaffensperrvertrag, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// LuxFLAG climate finance label.
-    /// Encoded/decoded by serializers as "LuxFLAGClimate".
+    /// Encoded/decoded by serializers as "H008".
     /// </summary>
     [EnumMember(Value = "H008")]
     [IsoId("_7oBd0dA7EeuSBa1PsnseFg")]
     [Description(@"LuxFLAG climate finance label.")]
-    LuxFLAGClimate,
+    LuxFLAGClimate = ESGLabelOrStandardCode.LuxFLAGClimate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// LuxFLAG environment label.
-    /// Encoded/decoded by serializers as "LuxFLAGEnvironment".
+    /// Encoded/decoded by serializers as "I009".
     /// </summary>
     [EnumMember(Value = "I009")]
     [IsoId("_7uR20dA7EeuSBa1PsnseFg")]
     [Description(@"LuxFLAG environment label.")]
-    LuxFLAGEnvironment,
+    LuxFLAGEnvironment = ESGLabelOrStandardCode.LuxFLAGEnvironment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// LuxFLAG ESG label.
-    /// Encoded/decoded by serializers as "LuxFLAGESG".
+    /// Encoded/decoded by serializers as "G007".
     /// </summary>
     [EnumMember(Value = "G007")]
     [IsoId("_70iP0dA7EeuSBa1PsnseFg")]
     [Description(@"LuxFLAG ESG label.")]
-    LuxFLAGESG,
+    LuxFLAGESG = ESGLabelOrStandardCode.LuxFLAGESG, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Nordic Swan Ecolabel.
-    /// Encoded/decoded by serializers as "NordicSwan".
+    /// Encoded/decoded by serializers as "N014".
     /// </summary>
     [EnumMember(Value = "N014")]
     [IsoId("_78vJkdA7EeuSBa1PsnseFg")]
     [Description(@"Nordic Swan Ecolabel.")]
-    NordicSwan,
+    NordicSwan = ESGLabelOrStandardCode.NordicSwan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// UZ49 - das Oesterreichische Umweltzeichen.
-    /// Encoded/decoded by serializers as "UZ49".
+    /// Encoded/decoded by serializers as "M013".
     /// </summary>
     [EnumMember(Value = "M013")]
     [IsoId("_8EohUdA7EeuSBa1PsnseFg")]
     [Description(@"UZ49 - das Oesterreichische Umweltzeichen.")]
-    UZ49,
+    UZ49 = ESGLabelOrStandardCode.UZ49, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum ESGLabelOrStandard1Code
 public static class ESGLabelOrStandard1CodeMetadataExtensions
 {
     private static readonly ESGLabelOrStandard1CodeDropdownSource _dropdownSource = new ESGLabelOrStandard1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_axfhYKDqEequlaOyi6MUhw")]
 [Description(@"Specifies the structure of a financial instrument.")]
 [Derivations(typeof(ProductStructure1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProductStructureCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum ProductStructureCode
 public static class ProductStructureCodeMetadataExtensions
 {
     private static readonly ProductStructureCodeDropdownSource _dropdownSource = new ProductStructureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

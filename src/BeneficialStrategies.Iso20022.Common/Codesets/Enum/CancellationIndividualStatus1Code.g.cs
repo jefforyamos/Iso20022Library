@@ -21,30 +21,30 @@ public enum CancellationIndividualStatus1Code
 {
     /// <summary>
     /// Cancellation request is rejected
-    /// Encoded/decoded by serializers as "RejectedCancellationRequest".
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_bXW319p-Ed-ak6NoX_4Aeg_349830132")]
     [Description(@"Cancellation request is rejected")]
-    RejectedCancellationRequest,
+    RejectedCancellationRequest = PaymentStatusCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation is accepted.
-    /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
+    /// Encoded/decoded by serializers as "ACCR".
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_bXgo0Np-Ed-ak6NoX_4Aeg_349830162")]
     [Description(@"Cancellation is accepted.")]
-    AcceptedCancellationRequest,
+    AcceptedCancellationRequest = PaymentStatusCode.AcceptedCancellationRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request is pending.
-    /// Encoded/decoded by serializers as "PendingCancellationRequest".
+    /// Encoded/decoded by serializers as "PDCR".
     /// </summary>
     [EnumMember(Value = "PDCR")]
     [IsoId("_bXgo0dp-Ed-ak6NoX_4Aeg_349830163")]
     [Description(@"Cancellation request is pending.")]
-    PendingCancellationRequest,
+    PendingCancellationRequest = PaymentStatusCode.PendingCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CancellationIndividualStatus1Code
 public static class CancellationIndividualStatus1CodeMetadataExtensions
 {
     private static readonly CancellationIndividualStatus1CodeDropdownSource _dropdownSource = new CancellationIndividualStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

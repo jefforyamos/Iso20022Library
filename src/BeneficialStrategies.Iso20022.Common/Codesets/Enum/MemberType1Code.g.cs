@@ -21,48 +21,48 @@ public enum MemberType1Code
 {
     /// <summary>
     /// Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.
-    /// Encoded/decoded by serializers as "Direct".
+    /// Encoded/decoded by serializers as "DRCT".
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_aLqgyNp-Ed-ak6NoX_4Aeg_977880716")]
     [Description(@"Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.")]
-    Direct,
+    Direct = MemberTypeCode.Direct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.
-    /// Encoded/decoded by serializers as "Indirect".
+    /// Encoded/decoded by serializers as "IDRT".
     /// </summary>
     [EnumMember(Value = "IDRT")]
     [IsoId("_aLzqsNp-Ed-ak6NoX_4Aeg_977880717")]
     [Description(@"Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.")]
-    Indirect,
+    Indirect = MemberTypeCode.Indirect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member has access to the system from a remote location or through remote technical means.
-    /// Encoded/decoded by serializers as "Remote".
+    /// Encoded/decoded by serializers as "RMTE".
     /// </summary>
     [EnumMember(Value = "RMTE")]
     [IsoId("_aLzqsdp-Ed-ak6NoX_4Aeg_977880718")]
     [Description(@"Member has access to the system from a remote location or through remote technical means.")]
-    Remote,
+    Remote = MemberTypeCode.Remote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "EURO1".
+    /// Encoded/decoded by serializers as "EURO".
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aLzqstp-Ed-ak6NoX_4Aeg_977880719")]
     [Description(@"Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).")]
-    EURO1,
+    EURO1 = MemberTypeCode.EURO1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is entitled to access the Step1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "STEP1".
+    /// Encoded/decoded by serializers as "STEP".
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_aLzqs9p-Ed-ak6NoX_4Aeg_977880720")]
     [Description(@"Member is entitled to access the Step1 system of the Euro Banking Association (EBA).")]
-    STEP1,
+    STEP1 = MemberTypeCode.STEP1, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum MemberType1Code
 public static class MemberType1CodeMetadataExtensions
 {
     private static readonly MemberType1CodeDropdownSource _dropdownSource = new MemberType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

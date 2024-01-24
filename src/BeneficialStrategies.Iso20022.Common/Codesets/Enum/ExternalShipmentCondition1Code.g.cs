@@ -16,36 +16,36 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_H6MiMdNAEeSDLevdaFPXHw")]
-[Description(@"Specifies a shipment conditions code, as published in the external ISO 20022 external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies a shipment conditions code, as published in the external ISO 20022 external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalShipmentConditionCode))]
 public enum ExternalShipmentCondition1Code
 {
     /// <summary>
     /// Goods/service delivered after payment
-    /// Encoded/decoded by serializers as "AdvancePayment".
+    /// Encoded/decoded by serializers as "ADVN".
     /// </summary>
     [EnumMember(Value = "ADVN")]
     [IsoId("_uUDne_RYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered after payment")]
-    AdvancePayment,
+    AdvancePayment = ExternalShipmentConditionCode.AdvancePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Goods/service delivered at the same time as payment.
-    /// Encoded/decoded by serializers as "DeliveryversusPayment".
+    /// Encoded/decoded by serializers as "PMNT".
     /// </summary>
     [EnumMember(Value = "PMNT")]
     [IsoId("_uUDnfvRYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered at the same time as payment.")]
-    DeliveryversusPayment,
+    DeliveryversusPayment = ExternalShipmentConditionCode.DeliveryversusPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Goods/service delivered before payment
-    /// Encoded/decoded by serializers as "TradeLoan".
+    /// Encoded/decoded by serializers as "TRLN".
     /// </summary>
     [EnumMember(Value = "TRLN")]
     [IsoId("_uUMxYvRYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered before payment")]
-    TradeLoan,
+    TradeLoan = ExternalShipmentConditionCode.TradeLoan, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +56,7 @@ public enum ExternalShipmentCondition1Code
 public static class ExternalShipmentCondition1CodeMetadataExtensions
 {
     private static readonly ExternalShipmentCondition1CodeDropdownSource _dropdownSource = new ExternalShipmentCondition1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

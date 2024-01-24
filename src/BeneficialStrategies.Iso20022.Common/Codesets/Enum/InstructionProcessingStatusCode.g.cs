@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aYLSwdp-Ed-ak6NoX_4Aeg_-433562560")]
 [Description(@"Specifies the status of an instruction.")]
-[Derivations(typeof(InstructionProcessingStatus1Code),typeof(TransactionProcessingStatus3Code),typeof(TransactionProcessingStatus4Code),typeof(TransactionProcessingStatus1Code),typeof(TransactionProcessingStatus2Code),typeof(SettlementConditionModificationProcessingStatus1Code),typeof(IntraPositionTransactionProcessingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TransactionProcessingStatus2Code),typeof(TransactionProcessingStatus1Code),typeof(SettlementConditionModificationProcessingStatus1Code),typeof(TransactionProcessingStatus3Code),typeof(TransactionProcessingStatus4Code),typeof(InstructionProcessingStatus1Code),typeof(IntraPositionTransactionProcessingStatus1Code))]
 public enum InstructionProcessingStatusCode
 {
     /// <summary>
@@ -344,7 +343,7 @@ public enum InstructionProcessingStatusCode
 public static class InstructionProcessingStatusCodeMetadataExtensions
 {
     private static readonly InstructionProcessingStatusCodeDropdownSource _dropdownSource = new InstructionProcessingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

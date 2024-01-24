@@ -21,48 +21,48 @@ public enum WorkflowStatus1Code
 {
     /// <summary>
     /// Level details are complete. All required data is populated and verified.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_1pRyozL3EeKU9IrkkToqcw_-758053791")]
     [Description(@"Level details are complete. All required data is populated and verified.")]
-    Complete,
+    Complete = WorkflowStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Level details are incomplete due to conflicting details from 2 or more sources.
-    /// Encoded/decoded by serializers as "Conflict".
+    /// Encoded/decoded by serializers as "CNFL".
     /// </summary>
     [EnumMember(Value = "CNFL")]
     [IsoId("_1pRypDL3EeKU9IrkkToqcw_-1512803665")]
     [Description(@"Level details are incomplete due to conflicting details from 2 or more sources.")]
-    Conflict,
+    Conflict = WorkflowStatusCode.Conflict, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Level details are complete pending a condition.
-    /// Encoded/decoded by serializers as "ConditionallyComplete".
+    /// Encoded/decoded by serializers as "COND".
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_1pRypTL3EeKU9IrkkToqcw_-1626642731")]
     [Description(@"Level details are complete pending a condition.")]
-    ConditionallyComplete,
+    ConditionallyComplete = WorkflowStatusCode.ConditionallyComplete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Level details are incomplete.
-    /// Encoded/decoded by serializers as "Incomplete".
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_1pa8kDL3EeKU9IrkkToqcw_-752038512")]
     [Description(@"Level details are incomplete.")]
-    Incomplete,
+    Incomplete = WorkflowStatusCode.Incomplete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Level has been deleted, cancelled/deactivated/invalidated by the source or due to error processing error.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DLTD".
     /// </summary>
     [EnumMember(Value = "DLTD")]
     [IsoId("_1pa8kTL3EeKU9IrkkToqcw_-1069815173")]
     [Description(@"Level has been deleted, cancelled/deactivated/invalidated by the source or due to error processing error.")]
-    Deleted,
+    Deleted = WorkflowStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum WorkflowStatus1Code
 public static class WorkflowStatus1CodeMetadataExtensions
 {
     private static readonly WorkflowStatus1CodeDropdownSource _dropdownSource = new WorkflowStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

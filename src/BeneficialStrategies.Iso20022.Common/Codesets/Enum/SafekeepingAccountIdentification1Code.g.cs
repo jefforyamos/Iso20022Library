@@ -21,12 +21,12 @@ public enum SafekeepingAccountIdentification1Code
 {
     /// <summary>
     /// Announcement applies to all safekeeping accounts that own underlying financial instrument. (Used for general or preliminary announcements.).
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GENR".
     /// </summary>
     [EnumMember(Value = "GENR")]
     [IsoId("_Y-eU5Np-Ed-ak6NoX_4Aeg_-2050057453")]
     [Description(@"Announcement applies to all safekeeping accounts that own underlying financial instrument. (Used for general or preliminary announcements.).")]
-    General,
+    General = SafekeepingAccountIdentificationCode.General, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SafekeepingAccountIdentification1Code
 public static class SafekeepingAccountIdentification1CodeMetadataExtensions
 {
     private static readonly SafekeepingAccountIdentification1CodeDropdownSource _dropdownSource = new SafekeepingAccountIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

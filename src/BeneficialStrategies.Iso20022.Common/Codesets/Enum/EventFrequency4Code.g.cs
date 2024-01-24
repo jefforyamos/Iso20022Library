@@ -21,57 +21,57 @@ public enum EventFrequency4Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ajzT8tp-Ed-ak6NoX_4Aeg_-2118703816")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = EventFrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place as necessary.
-    /// Encoded/decoded by serializers as "Adhoc".
+    /// Encoded/decoded by serializers as "ADHO".
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_ajzT89p-Ed-ak6NoX_4Aeg_-2090075609")]
     [Description(@"Event takes place as necessary.")]
-    Adhoc,
+    Adhoc = EventFrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ajzT9Np-Ed-ak6NoX_4Aeg_-2118703815")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = EventFrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ajzT9dp-Ed-ak6NoX_4Aeg_-2118703814")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = EventFrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "IntraDay".
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_ajzT9tp-Ed-ak6NoX_4Aeg_-2118703798")]
     [Description(@"Event takes place several times a day.")]
-    IntraDay,
+    IntraDay = EventFrequencyCode.IntraDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "Weekly".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ajzT99p-Ed-ak6NoX_4Aeg_-2118703797")]
     [Description(@"Event takes place once a week.")]
-    Weekly,
+    Weekly = EventFrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum EventFrequency4Code
 public static class EventFrequency4CodeMetadataExtensions
 {
     private static readonly EventFrequency4CodeDropdownSource _dropdownSource = new EventFrequency4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

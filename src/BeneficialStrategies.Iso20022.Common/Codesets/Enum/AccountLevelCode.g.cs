@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6Ukd8pqlEeGSON8vddiWzQ_1919731713")]
 [Description(@"Defines the level of an account within the account hierarchy.")]
 [Derivations(typeof(AccountLevel2Code),typeof(AccountLevel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountLevelCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum AccountLevelCode
 public static class AccountLevelCodeMetadataExtensions
 {
     private static readonly AccountLevelCodeDropdownSource _dropdownSource = new AccountLevelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

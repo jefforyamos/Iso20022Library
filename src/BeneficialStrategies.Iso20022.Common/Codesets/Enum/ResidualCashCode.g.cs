@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_qoyqE_peEeCLMa5EIHtDrg")]
 [Description(@"Specifies whether there is cash in the account that is awaiting investment.")]
 [Derivations(typeof(ResidualCash1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResidualCashCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ResidualCashCode
 public static class ResidualCashCodeMetadataExtensions
 {
     private static readonly ResidualCashCodeDropdownSource _dropdownSource = new ResidualCashCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

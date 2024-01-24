@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hblKmGliEeGaMcKyqKNRfQ_420935209")]
 [Description(@"Indicates the physical form of the securities.")]
 [Derivations(typeof(InitialPhysicalForm1Code),typeof(InitialPhysicalForm2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InitialPhysicalFormCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InitialPhysicalFormCode
 public static class InitialPhysicalFormCodeMetadataExtensions
 {
     private static readonly InitialPhysicalFormCodeDropdownSource _dropdownSource = new InitialPhysicalFormCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

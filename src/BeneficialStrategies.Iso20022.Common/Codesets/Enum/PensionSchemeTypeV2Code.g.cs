@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_BGikxDOSEeqKY_RYlDm6Pw")]
 [Description(@"Specifies a type of pension scheme.")]
 [Derivations(typeof(PensionSchemeType2Code),typeof(PensionSchemeType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PensionSchemeTypeV2Code
 {
     /// <summary>
@@ -209,7 +208,7 @@ public enum PensionSchemeTypeV2Code
 public static class PensionSchemeTypeV2CodeMetadataExtensions
 {
     private static readonly PensionSchemeTypeV2CodeDropdownSource _dropdownSource = new PensionSchemeTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

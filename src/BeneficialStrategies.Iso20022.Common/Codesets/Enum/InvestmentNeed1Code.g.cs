@@ -21,67 +21,66 @@ public enum InvestmentNeed1Code
 {
     /// <summary>
     /// Investment need is for environmental social corporate governance.
-    /// 
-    /// Encoded/decoded by serializers as "EnvironmentalSocialCorporateGovernance".
+    /// Encoded/decoded by serializers as "ESGO".
     /// </summary>
     [EnumMember(Value = "ESGO")]
     [IsoId("_-DCJ8TcdEeidBoT_PugKiA")]
-    [Description(@"Investment need is for environmental social corporate governance. ")]
-    EnvironmentalSocialCorporateGovernance,
+    [Description(@"Investment need is for environmental social corporate governance.|")]
+    EnvironmentalSocialCorporateGovernance = InvestmentNeedCode.EnvironmentalSocialCorporateGovernance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment need is for ethical investment.
-    /// Encoded/decoded by serializers as "EthicalInvestment".
+    /// Encoded/decoded by serializers as "ETHI".
     /// </summary>
     [EnumMember(Value = "ETHI")]
     [IsoId("_-IFpETcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for ethical investment.")]
-    EthicalInvestment,
+    EthicalInvestment = InvestmentNeedCode.EthicalInvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment need is for green investment.
-    /// Encoded/decoded by serializers as "GreenInvestment".
+    /// Encoded/decoded by serializers as "GRIN".
     /// </summary>
     [EnumMember(Value = "GRIN")]
     [IsoId("_-NJvQTcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for green investment.")]
-    GreenInvestment,
+    GreenInvestment = InvestmentNeedCode.GreenInvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment need is for Islamic banking.
-    /// Encoded/decoded by serializers as "IslamicBanking".
+    /// Encoded/decoded by serializers as "ISLB".
     /// </summary>
     [EnumMember(Value = "ISLB")]
     [IsoId("_-SgJUTcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for Islamic banking.")]
-    IslamicBanking,
+    IslamicBanking = InvestmentNeedCode.IslamicBanking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No specific need.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NSPE".
     /// </summary>
     [EnumMember(Value = "NSPE")]
     [IsoId("_-US5ETcdEeidBoT_PugKiA")]
     [Description(@"No specific need.")]
-    None,
+    None = InvestmentNeedCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other specific need.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-ZgJMTcdEeidBoT_PugKiA")]
     [Description(@"Other specific need.")]
-    Other,
+    Other = InvestmentNeedCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specific investment need.
-    /// Encoded/decoded by serializers as "SpecificNeed".
+    /// Encoded/decoded by serializers as "YSPE".
     /// </summary>
     [EnumMember(Value = "YSPE")]
     [IsoId("_c_wd0el4Eei6w4V2u1HOBw")]
     [Description(@"Specific investment need.")]
-    SpecificNeed,
+    SpecificNeed = InvestmentNeedCode.SpecificNeed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +91,7 @@ public enum InvestmentNeed1Code
 public static class InvestmentNeed1CodeMetadataExtensions
 {
     private static readonly InvestmentNeed1CodeDropdownSource _dropdownSource = new InvestmentNeed1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

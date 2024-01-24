@@ -21,21 +21,21 @@ public enum DayType1Code
 {
     /// <summary>
     /// Elapsed calendar days.
-    /// Encoded/decoded by serializers as "ElapsedCalendarDays".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_ay2ck9p-Ed-ak6NoX_4Aeg_1678509570")]
     [Description(@"Elapsed calendar days.")]
-    ElapsedCalendarDays,
+    ElapsedCalendarDays = DayTypeCode.ElapsedCalendarDays, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Elapsed business days.
-    /// Encoded/decoded by serializers as "ElapsedBusinessDays".
+    /// Encoded/decoded by serializers as "BUSE".
     /// </summary>
     [EnumMember(Value = "BUSE")]
     [IsoId("_ay2clNp-Ed-ak6NoX_4Aeg_1678509571")]
     [Description(@"Elapsed business days.")]
-    ElapsedBusinessDays,
+    ElapsedBusinessDays = DayTypeCode.ElapsedBusinessDays, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DayType1Code
 public static class DayType1CodeMetadataExtensions
 {
     private static readonly DayType1CodeDropdownSource _dropdownSource = new DayType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

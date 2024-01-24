@@ -21,21 +21,21 @@ public enum TypeOfAmount4Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_6oNx0VfvEeOuDtoQo1qilA")]
     [Description(@"Actual amount.")]
-    Actual,
+    Actual = TypeOfAmountCode.Actual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_6y7NAVfvEeOuDtoQo1qilA")]
     [Description(@"Estimated amount (the final amount could be above or below).")]
-    Estimated,
+    Estimated = TypeOfAmountCode.Estimated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TypeOfAmount4Code
 public static class TypeOfAmount4CodeMetadataExtensions
 {
     private static readonly TypeOfAmount4CodeDropdownSource _dropdownSource = new TypeOfAmount4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

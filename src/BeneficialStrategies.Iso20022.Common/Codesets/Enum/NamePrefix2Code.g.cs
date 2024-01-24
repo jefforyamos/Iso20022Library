@@ -21,48 +21,48 @@ public enum NamePrefix2Code
 {
     /// <summary>
     /// Title of the person is Doctor or Dr.
-    /// Encoded/decoded by serializers as "Doctor".
+    /// Encoded/decoded by serializers as "DOCT".
     /// </summary>
     [EnumMember(Value = "DOCT")]
     [IsoId("_SmTbEXRmEeiH1ZOt2UD8vQ")]
     [Description(@"Title of the person is Doctor or Dr.")]
-    Doctor,
+    Doctor = NamePrefixCode.Doctor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Madam.
-    /// Encoded/decoded by serializers as "Madam".
+    /// Encoded/decoded by serializers as "MADM".
     /// </summary>
     [EnumMember(Value = "MADM")]
     [IsoId("_SseUgXRmEeiH1ZOt2UD8vQ")]
     [Description(@"Title of the person is Madam.")]
-    Madam,
+    Madam = NamePrefixCode.Madam, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Miss.
-    /// Encoded/decoded by serializers as "Miss".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_SzqhoXRmEeiH1ZOt2UD8vQ")]
     [Description(@"Title of the person is Miss.")]
-    Miss,
+    Miss = NamePrefixCode.Miss, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is Mister or Mr.
-    /// Encoded/decoded by serializers as "Mister".
+    /// Encoded/decoded by serializers as "MIST".
     /// </summary>
     [EnumMember(Value = "MIST")]
     [IsoId("_S6p6cXRmEeiH1ZOt2UD8vQ")]
     [Description(@"Title of the person is Mister or Mr.")]
-    Mister,
+    Mister = NamePrefixCode.Mister, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Title of the person is gender neutral (Mx).
-    /// Encoded/decoded by serializers as "GenderNeutral".
+    /// Encoded/decoded by serializers as "MIKS".
     /// </summary>
     [EnumMember(Value = "MIKS")]
     [IsoId("_TCckgXRmEeiH1ZOt2UD8vQ")]
     [Description(@"Title of the person is gender neutral (Mx).")]
-    GenderNeutral,
+    GenderNeutral = NamePrefixCode.GenderNeutral, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum NamePrefix2Code
 public static class NamePrefix2CodeMetadataExtensions
 {
     private static readonly NamePrefix2CodeDropdownSource _dropdownSource = new NamePrefix2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

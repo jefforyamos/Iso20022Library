@@ -21,21 +21,21 @@ public enum ContentType3Code
 {
     /// <summary>
     /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
-    /// Encoded/decoded by serializers as "EnvelopedData".
+    /// Encoded/decoded by serializers as "EVLP".
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_W7MyET6OEeq_lLaSkIVjTQ")]
     [Description(@"Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).")]
-    EnvelopedData,
+    EnvelopedData = ContentTypeCode.EnvelopedData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General data encryption that conforms to the ISO 13492 standard.
-    /// Encoded/decoded by serializers as "ISOFinancialServicesDataEncryption".
+    /// Encoded/decoded by serializers as "IFSE".
     /// </summary>
     [EnumMember(Value = "IFSE")]
     [IsoId("_Zi3X4T6OEeq_lLaSkIVjTQ")]
     [Description(@"General data encryption that conforms to the ISO 13492 standard.")]
-    ISOFinancialServicesDataEncryption,
+    ISOFinancialServicesDataEncryption = ContentTypeCode.ISOFinancialServicesDataEncryption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ContentType3Code
 public static class ContentType3CodeMetadataExtensions
 {
     private static readonly ContentType3CodeDropdownSource _dropdownSource = new ContentType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

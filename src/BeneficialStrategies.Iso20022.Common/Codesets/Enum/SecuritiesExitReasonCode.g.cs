@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_10TW4DL3EeKU9IrkkToqcw_111370307")]
 [Description(@"Specifies the reason for DTC (The Depository Trust Company) to exit the shares.")]
 [Derivations(typeof(SecuritiesExitReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesExitReasonCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SecuritiesExitReasonCode
 public static class SecuritiesExitReasonCodeMetadataExtensions
 {
     private static readonly SecuritiesExitReasonCodeDropdownSource _dropdownSource = new SecuritiesExitReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

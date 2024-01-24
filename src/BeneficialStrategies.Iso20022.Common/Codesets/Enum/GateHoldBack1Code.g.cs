@@ -21,21 +21,21 @@ public enum GateHoldBack1Code
 {
     /// <summary>
     /// Gating of redemption proceeds.
-    /// Encoded/decoded by serializers as "Gating".
+    /// Encoded/decoded by serializers as "GATE".
     /// </summary>
     [EnumMember(Value = "GATE")]
     [IsoId("_Sqv5ITwwEeaFzejt0Yw_3A")]
     [Description(@"Gating of redemption proceeds.")]
-    Gating,
+    Gating = GateHoldBackCode.Gating, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hold back of redemption proceeds.
-    /// Encoded/decoded by serializers as "HoldBack".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_S1AoYTwwEeaFzejt0Yw_3A")]
     [Description(@"Hold back of redemption proceeds.")]
-    HoldBack,
+    HoldBack = GateHoldBackCode.HoldBack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum GateHoldBack1Code
 public static class GateHoldBack1CodeMetadataExtensions
 {
     private static readonly GateHoldBack1CodeDropdownSource _dropdownSource = new GateHoldBack1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

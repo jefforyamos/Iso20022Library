@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_axz6xNp-Ed-ak6NoX_4Aeg_335336023")]
 [Description(@"Designation of the capacity of the firm placing the order.")]
 [Derivations(typeof(CustomerOrderCapacity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustomerOrderCapacityCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CustomerOrderCapacityCode
 public static class CustomerOrderCapacityCodeMetadataExtensions
 {
     private static readonly CustomerOrderCapacityCodeDropdownSource _dropdownSource = new CustomerOrderCapacityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

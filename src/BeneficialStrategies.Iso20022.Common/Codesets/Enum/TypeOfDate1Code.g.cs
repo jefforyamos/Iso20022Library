@@ -21,21 +21,21 @@ public enum TypeOfDate1Code
 {
     /// <summary>
     /// Date / date and time is the actual date / date and time.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_Ua4UEVfvEeOuDtoQo1qilA")]
     [Description(@"Date / date and time is the actual date / date and time.")]
-    Actual,
+    Actual = TypeOfDateCode.Actual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date/date and time is estimated.
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_UiUY0VfvEeOuDtoQo1qilA")]
     [Description(@"Date/date and time is estimated.")]
-    Estimated,
+    Estimated = TypeOfDateCode.Estimated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TypeOfDate1Code
 public static class TypeOfDate1CodeMetadataExtensions
 {
     private static readonly TypeOfDate1CodeDropdownSource _dropdownSource = new TypeOfDate1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_znpagINmEeuHqfO1LgkE9Q")]
 [Description(@"Defines the type of endpoint.")]
 [Derivations(typeof(Endpoint1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EndpointCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum EndpointCode
 public static class EndpointCodeMetadataExtensions
 {
     private static readonly EndpointCodeDropdownSource _dropdownSource = new EndpointCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

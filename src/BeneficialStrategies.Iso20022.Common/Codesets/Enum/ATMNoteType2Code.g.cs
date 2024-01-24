@@ -21,66 +21,66 @@ public enum ATMNoteType2Code
 {
     /// <summary>
     /// Detected counterfeit notes.
-    /// Encoded/decoded by serializers as "Counterfeit".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_lznowYqhEeS4a4abTJTSSw")]
     [Description(@"Detected counterfeit notes.")]
-    Counterfeit,
+    Counterfeit = ATMNoteTypeCode.Counterfeit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fit bank notes.
-    /// Encoded/decoded by serializers as "Fit".
+    /// Encoded/decoded by serializers as "FITN".
     /// </summary>
     [EnumMember(Value = "FITN")]
     [IsoId("_l5u30YqhEeS4a4abTJTSSw")]
     [Description(@"Fit bank notes.")]
-    Fit,
+    Fit = ATMNoteTypeCode.Fit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fit and unfit bank notes, if fitness cannot be determined.
-    /// Encoded/decoded by serializers as "FitAndUnfit".
+    /// Encoded/decoded by serializers as "FITU".
     /// </summary>
     [EnumMember(Value = "FITU")]
     [IsoId("_mBByoYqhEeS4a4abTJTSSw")]
     [Description(@"Fit and unfit bank notes, if fitness cannot be determined.")]
-    FitAndUnfit,
+    FitAndUnfit = ATMNoteTypeCode.FitAndUnfit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notes stained by dye pack.
-    /// Encoded/decoded by serializers as "Neutralised".
+    /// Encoded/decoded by serializers as "NTRL".
     /// </summary>
     [EnumMember(Value = "NTRL")]
     [IsoId("_m4m64YqhEeS4a4abTJTSSw")]
     [Description(@"Notes stained by dye pack.")]
-    Neutralised,
+    Neutralised = ATMNoteTypeCode.Neutralised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspect notes.
-    /// Encoded/decoded by serializers as "Suspect".
+    /// Encoded/decoded by serializers as "SPCT".
     /// </summary>
     [EnumMember(Value = "SPCT")]
     [IsoId("_m_dw0YqhEeS4a4abTJTSSw")]
     [Description(@"Suspect notes.")]
-    Suspect,
+    Suspect = ATMNoteTypeCode.Suspect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unfit bank notes (unacceptable quality).
-    /// Encoded/decoded by serializers as "Unfit".
+    /// Encoded/decoded by serializers as "UNFT".
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_nI29YYqhEeS4a4abTJTSSw")]
     [Description(@"Unfit bank notes (unacceptable quality).")]
-    Unfit,
+    Unfit = ATMNoteTypeCode.Unfit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised notes.
-    /// Encoded/decoded by serializers as "Unrecognised".
+    /// Encoded/decoded by serializers as "UNRG".
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_nPaRUYqhEeS4a4abTJTSSw")]
     [Description(@"Unrecognised notes.")]
-    Unrecognised,
+    Unrecognised = ATMNoteTypeCode.Unrecognised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum ATMNoteType2Code
 public static class ATMNoteType2CodeMetadataExtensions
 {
     private static readonly ATMNoteType2CodeDropdownSource _dropdownSource = new ATMNoteType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

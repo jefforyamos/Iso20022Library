@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_kpxjk-5NEeCisYr99QEiWA_-1377825526")]
 [Description(@"Specifies the type of the party within a system.")]
 [Derivations(typeof(SystemPartyType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemPartyTypeCode
 {
     /// <summary>
@@ -63,7 +62,7 @@ public enum SystemPartyTypeCode
     /// </summary>
     [EnumMember(Value = "ECSD")]
     [IsoId("_kp6tg-5NEeCisYr99QEiWA_1619669745")]
-    [Description(@"Infrastructure that holds or controls the holding of physical or dematerialised financial instruments belonging to all, or a large portion of, the investors in a securities market. This effects the centralised transfer of ownership of such securities by entries on its books and records. The infrastructure is external to the system executing the instruction.")]
+    [Description(@"Infrastructure that holds or controls the holding of physical or dematerialised financial instruments belonging to all, or a large portion of, the investors in a securities market. This effects the centralised transfer of ownership of such securities by entries on its books and records.|The infrastructure is external to the system executing the instruction.")]
     ExternalCentralSecuritiesDepository,
     
 }
@@ -75,7 +74,7 @@ public enum SystemPartyTypeCode
 public static class SystemPartyTypeCodeMetadataExtensions
 {
     private static readonly SystemPartyTypeCodeDropdownSource _dropdownSource = new SystemPartyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

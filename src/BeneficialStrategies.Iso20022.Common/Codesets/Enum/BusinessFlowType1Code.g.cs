@@ -21,30 +21,30 @@ public enum BusinessFlowType1Code
 {
     /// <summary>
     /// Single leg process initiated by the delivering party.
-    /// Encoded/decoded by serializers as "SingleLegDeliveringParty".
+    /// Encoded/decoded by serializers as "SLDP".
     /// </summary>
     [EnumMember(Value = "SLDP")]
     [IsoId("_ad9YDv8xEeC-e_lDNJKWcg")]
     [Description(@"Single leg process initiated by the delivering party.")]
-    SingleLegDeliveringParty,
+    SingleLegDeliveringParty = BusinessFlowTypeCode.SingleLegDeliveringParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Single leg process initiated by the receiving party.
-    /// Encoded/decoded by serializers as "SingleLegReceivingParty".
+    /// Encoded/decoded by serializers as "SLRP".
     /// </summary>
     [EnumMember(Value = "SLRP")]
     [IsoId("_aiItbv8xEeC-e_lDNJKWcg")]
     [Description(@"Single leg process initiated by the receiving party.")]
-    SingleLegReceivingParty,
+    SingleLegReceivingParty = BusinessFlowTypeCode.SingleLegReceivingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Double leg process.
-    /// Encoded/decoded by serializers as "DoubleLegProcess".
+    /// Encoded/decoded by serializers as "DLPR".
     /// </summary>
     [EnumMember(Value = "DLPR")]
     [IsoId("_bIIWbv8xEeC-e_lDNJKWcg")]
     [Description(@"Double leg process.")]
-    DoubleLegProcess,
+    DoubleLegProcess = BusinessFlowTypeCode.DoubleLegProcess, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BusinessFlowType1Code
 public static class BusinessFlowType1CodeMetadataExtensions
 {
     private static readonly BusinessFlowType1CodeDropdownSource _dropdownSource = new BusinessFlowType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

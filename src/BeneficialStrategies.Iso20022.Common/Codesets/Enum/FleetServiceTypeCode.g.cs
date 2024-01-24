@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9zEEI_jUEeiM7KpzmLtmTQ")]
 [Description(@"Contains the list of fleet service type codes.")]
 [Derivations(typeof(FleetServiceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FleetServiceTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FleetServiceTypeCode
 public static class FleetServiceTypeCodeMetadataExtensions
 {
     private static readonly FleetServiceTypeCodeDropdownSource _dropdownSource = new FleetServiceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

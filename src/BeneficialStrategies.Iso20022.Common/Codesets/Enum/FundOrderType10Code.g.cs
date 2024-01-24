@@ -21,48 +21,48 @@ public enum FundOrderType10Code
 {
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_fPfJIbszEeiTr4dQrTCaYA")]
     [Description(@"Investment fund order is a subscription.")]
-    Subscription,
+    Subscription = FundOrderTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
+    /// Encoded/decoded by serializers as "RDIV".
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_f00q0bszEeiTr4dQrTCaYA")]
     [Description(@"Investment fund order is a dividend reinvestment (only applicable to a subscription).")]
-    ReinvestmentOfDividend,
+    ReinvestmentOfDividend = FundOrderTypeCode.ReinvestmentOfDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_gs6wcbszEeiTr4dQrTCaYA")]
     [Description(@"Investment fund order is a redemption.")]
-    Redemption,
+    Redemption = FundOrderTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RegularSavingsPlan".
+    /// Encoded/decoded by serializers as "RGSV".
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_hNyo4bszEeiTr4dQrTCaYA")]
     [Description(@"Investment fund order is a regular savings plan (only applicable to a subscription).")]
-    RegularSavingsPlan,
+    RegularSavingsPlan = FundOrderTypeCode.RegularSavingsPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "WIDP".
     /// </summary>
     [EnumMember(Value = "WIDP")]
     [IsoId("_hpd4QbszEeiTr4dQrTCaYA")]
     [Description(@"Investment fund order is for a withdrawal investment plan (only applicable to a redemption).")]
-    Withdrawal,
+    Withdrawal = FundOrderTypeCode.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum FundOrderType10Code
 public static class FundOrderType10CodeMetadataExtensions
 {
     private static readonly FundOrderType10CodeDropdownSource _dropdownSource = new FundOrderType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

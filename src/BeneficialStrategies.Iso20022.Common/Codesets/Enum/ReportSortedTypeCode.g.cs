@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VqbxRNp-Ed-ak6NoX_4Aeg_-2144991898")]
 [Description(@"Type of criterion is a country.")]
 [Derivations(typeof(ReportSortedType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReportSortedTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReportSortedTypeCode
 public static class ReportSortedTypeCodeMetadataExtensions
 {
     private static readonly ReportSortedTypeCodeDropdownSource _dropdownSource = new ReportSortedTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

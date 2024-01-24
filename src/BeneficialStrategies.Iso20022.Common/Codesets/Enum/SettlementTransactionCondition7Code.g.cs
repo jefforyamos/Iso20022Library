@@ -21,129 +21,129 @@ public enum SettlementTransactionCondition7Code
 {
     /// <summary>
     /// Transfer of ownership of the asset to another party during the closing of an option.
-    /// Encoded/decoded by serializers as "Assignment".
+    /// Encoded/decoded by serializers as "ASGN".
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("__wuqZdojEeC60axPepSq7g_724870590")]
     [Description(@"Transfer of ownership of the asset to another party during the closing of an option.")]
-    Assignment,
+    Assignment = SettlementTransactionConditionV2Code.Assignment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the trade was executed clean, ie government tax must not be paid on the accrued interest on the bond.
-    /// Encoded/decoded by serializers as "Clean".
+    /// Encoded/decoded by serializers as "CLEN".
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("__w30UNojEeC60axPepSq7g_-650054422")]
     [Description(@"Indicates that the trade was executed clean, ie government tax must not be paid on the accrued interest on the bond.")]
-    Clean,
+    Clean = SettlementTransactionConditionV2Code.Clean, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the trade was executed dirty, ie government tax must be paid on the accrued interest on the bond.
-    /// Encoded/decoded by serializers as "Dirty".
+    /// Encoded/decoded by serializers as "DIRT".
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("__w30UdojEeC60axPepSq7g_874013874")]
     [Description(@"Indicates that the trade was executed dirty, ie government tax must be paid on the accrued interest on the bond.")]
-    Dirty,
+    Dirty = SettlementTransactionConditionV2Code.Dirty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
-    /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
+    /// Encoded/decoded by serializers as "DLWM".
     /// </summary>
     [EnumMember(Value = "DLWM")]
     [IsoId("__w30UtojEeC60axPepSq7g_402380554")]
     [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
-    DeliveryWithoutMatching,
+    DeliveryWithoutMatching = SettlementTransactionConditionV2Code.DeliveryWithoutMatching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transactions relates to drawn securities.
-    /// Encoded/decoded by serializers as "Drawn".
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("__w30U9ojEeC60axPepSq7g_1926448850")]
     [Description(@"Settlement transactions relates to drawn securities.")]
-    Drawn,
+    Drawn = SettlementTransactionConditionV2Code.Drawn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transaction relates to options, futures or derivatives that are exercised.
-    /// Encoded/decoded by serializers as "Exercised".
+    /// Encoded/decoded by serializers as "EXER".
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("__xBlUNojEeC60axPepSq7g_1480400892")]
     [Description(@"Settlement transaction relates to options, futures or derivatives that are exercised.")]
-    Exercised,
+    Exercised = SettlementTransactionConditionV2Code.Exercised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery will be made free of payment but a clean payment order will be sent.
-    /// Encoded/decoded by serializers as "FreeCleanSettlement".
+    /// Encoded/decoded by serializers as "FRCL".
     /// </summary>
     [EnumMember(Value = "FRCL")]
     [IsoId("__xBlUdojEeC60axPepSq7g_-1290498108")]
     [Description(@"Delivery will be made free of payment but a clean payment order will be sent.")]
-    FreeCleanSettlement,
+    FreeCleanSettlement = SettlementTransactionConditionV2Code.FreeCleanSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transaction relates to options, futures or derivatives that are expired worthless.
-    /// Encoded/decoded by serializers as "KnockedOut".
+    /// Encoded/decoded by serializers as "KNOC".
     /// </summary>
     [EnumMember(Value = "KNOC")]
     [IsoId("__xBlUtojEeC60axPepSq7g_2066347918")]
     [Description(@"Settlement transaction relates to options, futures or derivatives that are expired worthless.")]
-    KnockedOut,
+    KnockedOut = SettlementTransactionConditionV2Code.KnockedOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities are to be physically settled.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("__xBlU9ojEeC60axPepSq7g_687664975")]
     [Description(@"Securities are to be physically settled.")]
-    Physical,
+    Physical = SettlementTransactionConditionV2Code.Physical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction on a security that is not eligible at the Central Securities Depository (CSD) but for which the payment will be enacted by the CSD.
-    /// Encoded/decoded by serializers as "CSDPaymentOnly".
+    /// Encoded/decoded by serializers as "CSDP".
     /// </summary>
     [EnumMember(Value = "CSDP")]
     [IsoId("__xBlVNojEeC60axPepSq7g_1823372701")]
     [Description(@"Transaction on a security that is not eligible at the Central Securities Depository (CSD) but for which the payment will be enacted by the CSD.")]
-    CSDPaymentOnly,
+    CSDPaymentOnly = SettlementTransactionConditionV2Code.CSDPaymentOnly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is in two different currencies.
-    /// Encoded/decoded by serializers as "SplitCurrencySettlement".
+    /// Encoded/decoded by serializers as "SPCS".
     /// </summary>
     [EnumMember(Value = "SPCS")]
     [IsoId("__xBlVdojEeC60axPepSq7g_-1322468872")]
     [Description(@"Settlement is in two different currencies.")]
-    SplitCurrencySettlement,
+    SplitCurrencySettlement = SettlementTransactionConditionV2Code.SplitCurrencySettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transactions to be settled with special delivery.
-    /// Encoded/decoded by serializers as "SpecialDelivery".
+    /// Encoded/decoded by serializers as "SPDL".
     /// </summary>
     [EnumMember(Value = "SPDL")]
     [IsoId("__xBlVtojEeC60axPepSq7g_1130653467")]
     [Description(@"Settlement transactions to be settled with special delivery.")]
-    SpecialDelivery,
+    SpecialDelivery = SettlementTransactionConditionV2Code.SpecialDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Money and financial instruments settle in different locations.
-    /// Encoded/decoded by serializers as "SplitSettlement".
+    /// Encoded/decoded by serializers as "SPST".
     /// </summary>
     [EnumMember(Value = "SPST")]
     [IsoId("__xBlV9ojEeC60axPepSq7g_-561526730")]
     [Description(@"Money and financial instruments settle in different locations.")]
-    SplitSettlement,
+    SplitSettlement = SettlementTransactionConditionV2Code.SplitSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery cannot be performed until money is received.
-    /// Encoded/decoded by serializers as "Unexposed".
+    /// Encoded/decoded by serializers as "UNEX".
     /// </summary>
     [EnumMember(Value = "UNEX")]
     [IsoId("__xLWUNojEeC60axPepSq7g_962541566")]
     [Description(@"Delivery cannot be performed until money is received.")]
-    Unexposed,
+    Unexposed = SettlementTransactionConditionV2Code.Unexposed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum SettlementTransactionCondition7Code
 public static class SettlementTransactionCondition7CodeMetadataExtensions
 {
     private static readonly SettlementTransactionCondition7CodeDropdownSource _dropdownSource = new SettlementTransactionCondition7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

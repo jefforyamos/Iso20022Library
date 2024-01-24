@@ -21,12 +21,12 @@ public enum AssetClassSubProductType40Code
 {
     /// <summary>
     /// Commodity of type diammonium phosphate.
-    /// Encoded/decoded by serializers as "DiammoniumPhosphate".
+    /// Encoded/decoded by serializers as "DAPH".
     /// </summary>
     [EnumMember(Value = "DAPH")]
     [IsoId("_VOFt81r3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type diammonium phosphate.")]
-    DiammoniumPhosphate,
+    DiammoniumPhosphate = AssetClassSubProductTypeCode.DiammoniumPhosphate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType40Code
 public static class AssetClassSubProductType40CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType40CodeDropdownSource _dropdownSource = new AssetClassSubProductType40CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

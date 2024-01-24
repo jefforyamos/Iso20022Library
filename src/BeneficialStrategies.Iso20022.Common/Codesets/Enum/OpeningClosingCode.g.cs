@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aO8eQNp-Ed-ak6NoX_4Aeg_492685359")]
 [Description(@"Specifies additional information relative to the processing of the trade.")]
 [Derivations(typeof(OpeningClosing1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OpeningClosingCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum OpeningClosingCode
 public static class OpeningClosingCodeMetadataExtensions
 {
     private static readonly OpeningClosingCodeDropdownSource _dropdownSource = new OpeningClosingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

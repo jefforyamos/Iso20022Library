@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cBwMgLwdEeivTd4NUfCi2g")]
 [Description(@"Collateral  transaction type expressed as an ISO 20022 code.")]
 [Derivations(typeof(CollateralTransactionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralTransactionTypeCode
 {
     /// <summary>
@@ -58,12 +57,11 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Delivery by value (DBV) transaction. 
-    /// 
     /// Encoded/decoded by serializers as "DBVT".
     /// </summary>
     [EnumMember(Value = "DBVT")]
     [IsoId("_hUpHYLyqEeivTd4NUfCi2g")]
-    [Description(@"Delivery by value (DBV) transaction.  ")]
+    [Description(@"Delivery by value (DBV) transaction. |")]
     DeliveredByValue,
     
     /// <summary>
@@ -77,12 +75,11 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change to margin. 
-    /// 
     /// Encoded/decoded by serializers as "MADJ".
     /// </summary>
     [EnumMember(Value = "MADJ")]
     [IsoId("_oC_OsLyqEeivTd4NUfCi2g")]
-    [Description(@"Change to margin.  ")]
+    [Description(@"Change to margin. |")]
     MarginAdjustment,
     
     /// <summary>
@@ -121,7 +118,7 @@ public enum CollateralTransactionTypeCode
 public static class CollateralTransactionTypeCodeMetadataExtensions
 {
     private static readonly CollateralTransactionTypeCodeDropdownSource _dropdownSource = new CollateralTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

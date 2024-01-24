@@ -21,57 +21,57 @@ public enum LoyaltyTransactionType1Code
 {
     /// <summary>
     /// Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of 	a payment resulting on rebates.
-    /// Encoded/decoded by serializers as "Award".
+    /// Encoded/decoded by serializers as "AWRD".
     /// </summary>
     [EnumMember(Value = "AWRD")]
     [IsoId("_4dBhoduKEeiB5uLfkg9ZJA")]
     [Description(@"Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of 	a payment resulting on rebates.")]
-    Award,
+    Award = LoyaltyTransactionTypeCode.Award, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refund of a loyalty award transaction.
-    /// Encoded/decoded by serializers as "AwardRefund".
+    /// Encoded/decoded by serializers as "AWRR".
     /// </summary>
     [EnumMember(Value = "AWRR")]
     [IsoId("_4hLB0duKEeiB5uLfkg9ZJA")]
     [Description(@"Refund of a loyalty award transaction.")]
-    AwardRefund,
+    AwardRefund = LoyaltyTransactionTypeCode.AwardRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refund of a loyalty rebate transaction.
-    /// Encoded/decoded by serializers as "RebateRefund".
+    /// Encoded/decoded by serializers as "REBR".
     /// </summary>
     [EnumMember(Value = "REBR")]
     [IsoId("_4ltjkduKEeiB5uLfkg9ZJA")]
     [Description(@"Refund of a loyalty rebate transaction.")]
-    RebateRefund,
+    RebateRefund = LoyaltyTransactionTypeCode.RebateRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rebate on a total amount, sale item amount, or sale items.
-    /// Encoded/decoded by serializers as "Rebate".
+    /// Encoded/decoded by serializers as "REBA".
     /// </summary>
     [EnumMember(Value = "REBA")]
     [IsoId("_4sHtkduKEeiB5uLfkg9ZJA")]
     [Description(@"Rebate on a total amount, sale item amount, or sale items.")]
-    Rebate,
+    Rebate = LoyaltyTransactionTypeCode.Rebate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption on a loyalty account.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDE".
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_4yUcMduKEeiB5uLfkg9ZJA")]
     [Description(@"Redemption on a loyalty account.")]
-    Redemption,
+    Redemption = LoyaltyTransactionTypeCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refund of a loyalty redemption transaction.
-    /// Encoded/decoded by serializers as "RedemptionRefund".
+    /// Encoded/decoded by serializers as "REDR".
     /// </summary>
     [EnumMember(Value = "REDR")]
     [IsoId("_45L5MduKEeiB5uLfkg9ZJA")]
     [Description(@"Refund of a loyalty redemption transaction.")]
-    RedemptionRefund,
+    RedemptionRefund = LoyaltyTransactionTypeCode.RedemptionRefund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum LoyaltyTransactionType1Code
 public static class LoyaltyTransactionType1CodeMetadataExtensions
 {
     private static readonly LoyaltyTransactionType1CodeDropdownSource _dropdownSource = new LoyaltyTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

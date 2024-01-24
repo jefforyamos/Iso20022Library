@@ -21,75 +21,75 @@ public enum CardDataReading1Code
 {
     /// <summary>
     /// Tag reading capabilities (RFID, etc.).
-    /// Encoded/decoded by serializers as "Tag".
+    /// Encoded/decoded by serializers as "TAGC".
     /// </summary>
     [EnumMember(Value = "TAGC")]
     [IsoId("_TSXNcgEcEeCQm6a_G2yO_w_1877381084")]
     [Description(@"Tag reading capabilities (RFID, etc.).")]
-    Tag,
+    Tag = CardDataReadingCode.Tag, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_TSXNcwEcEeCQm6a_G2yO_w_-764781715")]
     [Description(@"Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.")]
-    Physical,
+    Physical = CardDataReadingCode.Physical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bar code.
-    /// Encoded/decoded by serializers as "BarCode".
+    /// Encoded/decoded by serializers as "BRCD".
     /// </summary>
     [EnumMember(Value = "BRCD")]
     [IsoId("_TSXNdAEcEeCQm6a_G2yO_w_1172443458")]
     [Description(@"Bar code.")]
-    BarCode,
+    BarCode = CardDataReadingCode.BarCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MagneticStripe".
+    /// Encoded/decoded by serializers as "MGST".
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_TSXNdQEcEeCQm6a_G2yO_w_-439664208")]
     [Description(@"Magnetic stripe.")]
-    MagneticStripe,
+    MagneticStripe = CardDataReadingCode.MagneticStripe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
-    /// Encoded/decoded by serializers as "ICC".
+    /// Encoded/decoded by serializers as "CICC".
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_TSXNdgEcEeCQm6a_G2yO_w_-1892344504")]
     [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
-    ICC,
+    ICC = CardDataReadingCode.ICC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account data on file.
-    /// Encoded/decoded by serializers as "AccountData".
+    /// Encoded/decoded by serializers as "DFLE".
     /// </summary>
     [EnumMember(Value = "DFLE")]
     [IsoId("_TSXNdwEcEeCQm6a_G2yO_w_44880669")]
     [Description(@"Account data on file.")]
-    AccountData,
+    AccountData = CardDataReadingCode.AccountData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless proximity reader.
-    /// Encoded/decoded by serializers as "ProximityReader".
+    /// Encoded/decoded by serializers as "CTLS".
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_TSXNeAEcEeCQm6a_G2yO_w_1689489202")]
     [Description(@"Contactless proximity reader.")]
-    ProximityReader,
+    ProximityReader = CardDataReadingCode.ProximityReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVProximityReader".
+    /// Encoded/decoded by serializers as "ECTL".
     /// </summary>
     [EnumMember(Value = "ECTL")]
     [IsoId("_TSXNeQEcEeCQm6a_G2yO_w_-154379787")]
     [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
-    EMVProximityReader,
+    EMVProximityReader = CardDataReadingCode.EMVProximityReader, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum CardDataReading1Code
 public static class CardDataReading1CodeMetadataExtensions
 {
     private static readonly CardDataReading1CodeDropdownSource _dropdownSource = new CardDataReading1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

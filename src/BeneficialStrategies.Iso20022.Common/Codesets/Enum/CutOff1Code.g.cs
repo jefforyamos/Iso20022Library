@@ -21,30 +21,30 @@ public enum CutOff1Code
 {
     /// <summary>
     /// Cut-off may change to early.
-    /// Encoded/decoded by serializers as "AnticipatedEarlyCutoff".
+    /// Encoded/decoded by serializers as "AERL".
     /// </summary>
     [EnumMember(Value = "AERL")]
     [IsoId("_1pktkjL3EeKU9IrkkToqcw_1676180925")]
     [Description(@"Cut-off may change to early.")]
-    AnticipatedEarlyCutoff,
+    AnticipatedEarlyCutoff = CutOffCode.AnticipatedEarlyCutoff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cut-off occurs before the DTCC (The Depository Trust and Clearing Corporation) standard settlement cut-off. Early cut-off usually 1: 30 Eastern Standard Time.
-    /// Encoded/decoded by serializers as "Early".
+    /// Encoded/decoded by serializers as "EARL".
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_1pktkzL3EeKU9IrkkToqcw_1562341859")]
     [Description(@"Cut-off occurs before the DTCC (The Depository Trust and Clearing Corporation) standard settlement cut-off. Early cut-off usually 1: 30 Eastern Standard Time.")]
-    Early,
+    Early = CutOffCode.Early, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cut-off is after settlement at DTCC (The Depository Trust and Clearing Corporation).
-    /// Encoded/decoded by serializers as "Late".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_1pktlDL3EeKU9IrkkToqcw_2001298432")]
     [Description(@"Cut-off is after settlement at DTCC (The Depository Trust and Clearing Corporation).")]
-    Late,
+    Late = CutOffCode.Late, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CutOff1Code
 public static class CutOff1CodeMetadataExtensions
 {
     private static readonly CutOff1CodeDropdownSource _dropdownSource = new CutOff1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

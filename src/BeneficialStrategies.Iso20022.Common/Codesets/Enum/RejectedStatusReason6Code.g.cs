@@ -21,21 +21,21 @@ public enum RejectedStatusReason6Code
 {
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "InvestmentAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZdnvAtp-Ed-ak6NoX_4Aeg_281881272")]
     [Description(@"Investment account identification is not recognised or is invalid.")]
-    InvestmentAccount,
+    InvestmentAccount = RejectedStatusReasonCode.InvestmentAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NotCompliantWithSLA".
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZdnvA9p-Ed-ak6NoX_4Aeg_598649737")]
     [Description(@"Instruction is not compliant with the service level agreement.")]
-    NotCompliantWithSLA,
+    NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RejectedStatusReason6Code
 public static class RejectedStatusReason6CodeMetadataExtensions
 {
     private static readonly RejectedStatusReason6CodeDropdownSource _dropdownSource = new RejectedStatusReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

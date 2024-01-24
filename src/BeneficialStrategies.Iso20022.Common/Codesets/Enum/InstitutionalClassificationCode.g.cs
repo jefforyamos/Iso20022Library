@@ -72,7 +72,7 @@ public enum InstitutionalClassificationCode
 public static class InstitutionalClassificationCodeMetadataExtensions
 {
     private static readonly InstitutionalClassificationCodeDropdownSource _dropdownSource = new InstitutionalClassificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,84 +21,84 @@ public enum CorporateActionReversalReason2Code
 {
     /// <summary>
     /// Difference in day count basis.
-    /// Encoded/decoded by serializers as "DayCountBasisDifference".
+    /// Encoded/decoded by serializers as "DCBD".
     /// </summary>
     [EnumMember(Value = "DCBD")]
     [IsoId("_bu5sMTQVEe2o-K1dwNg8Gg")]
     [Description(@"Difference in day count basis.")]
-    DayCountBasisDifference,
+    DayCountBasisDifference = CorporateActionReversalReasonV2Code.DayCountBasisDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Funds have not been received.
-    /// Encoded/decoded by serializers as "FundsNotReceived".
+    /// Encoded/decoded by serializers as "FNRC".
     /// </summary>
     [EnumMember(Value = "FNRC")]
     [IsoId("_b8T2EjQVEe2o-K1dwNg8Gg")]
     [Description(@"Funds have not been received.")]
-    FundsNotReceived,
+    FundsNotReceived = CorporateActionReversalReasonV2Code.FundsNotReceived, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entitlement date is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectEntitlementDate".
+    /// Encoded/decoded by serializers as "IRED".
     /// </summary>
     [EnumMember(Value = "IRED")]
     [IsoId("_cI-ZEjQVEe2o-K1dwNg8Gg")]
     [Description(@"Entitlement date is incorrect.")]
-    IncorrectEntitlementDate,
+    IncorrectEntitlementDate = CorporateActionReversalReasonV2Code.IncorrectEntitlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event level tax rate is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectEventLevelTaxRate".
+    /// Encoded/decoded by serializers as "IETR".
     /// </summary>
     [EnumMember(Value = "IETR")]
     [IsoId("_cLqgsTQVEe2o-K1dwNg8Gg")]
     [Description(@"Event level tax rate is incorrect.")]
-    IncorrectEventLevelTaxRate,
+    IncorrectEventLevelTaxRate = CorporateActionReversalReasonV2Code.IncorrectEventLevelTaxRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment currency is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectPaymentCurrency".
+    /// Encoded/decoded by serializers as "IPCU".
     /// </summary>
     [EnumMember(Value = "IPCU")]
     [IsoId("_cVDGMTQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment currency is incorrect.")]
-    IncorrectPaymentCurrency,
+    IncorrectPaymentCurrency = CorporateActionReversalReasonV2Code.IncorrectPaymentCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectPrice".
+    /// Encoded/decoded by serializers as "IPRI".
     /// </summary>
     [EnumMember(Value = "IPRI")]
     [IsoId("_celcsjQVEe2o-K1dwNg8Gg")]
     [Description(@"Price is incorrect.")]
-    IncorrectPrice,
+    IncorrectPrice = CorporateActionReversalReasonV2Code.IncorrectPrice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value date is incorrect.
-    /// Encoded/decoded by serializers as "IncorrectValueDate".
+    /// Encoded/decoded by serializers as "IVAD".
     /// </summary>
     [EnumMember(Value = "IVAD")]
     [IsoId("_chRkUTQVEe2o-K1dwNg8Gg")]
     [Description(@"Value date is incorrect.")]
-    IncorrectValueDate,
+    IncorrectValueDate = CorporateActionReversalReasonV2Code.IncorrectValueDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment will occur outside of clearing system.
-    /// Encoded/decoded by serializers as "PaymentOutsideClearingSystem".
+    /// Encoded/decoded by serializers as "POCS".
     /// </summary>
     [EnumMember(Value = "POCS")]
     [IsoId("_cj9E4TQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment will occur outside of clearing system.")]
-    PaymentOutsideClearingSystem,
+    PaymentOutsideClearingSystem = CorporateActionReversalReasonV2Code.PaymentOutsideClearingSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment is not due.
-    /// Encoded/decoded by serializers as "UnduePayment".
+    /// Encoded/decoded by serializers as "UPAY".
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_cmyWcTQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment is not due.")]
-    UnduePayment,
+    UnduePayment = CorporateActionReversalReasonV2Code.UnduePayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum CorporateActionReversalReason2Code
 public static class CorporateActionReversalReason2CodeMetadataExtensions
 {
     private static readonly CorporateActionReversalReason2CodeDropdownSource _dropdownSource = new CorporateActionReversalReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

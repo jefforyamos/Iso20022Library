@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__qxMVNojEeC60axPepSq7g_1753446814")]
 [Description(@"Specifies the reason the transaction, transfer or settlement instruction is unaffirmed.")]
 [Derivations(typeof(UnaffirmedReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnaffirmedReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum UnaffirmedReasonCode
 public static class UnaffirmedReasonCodeMetadataExtensions
 {
     private static readonly UnaffirmedReasonCodeDropdownSource _dropdownSource = new UnaffirmedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

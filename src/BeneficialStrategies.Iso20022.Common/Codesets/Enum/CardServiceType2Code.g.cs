@@ -21,48 +21,48 @@ public enum CardServiceType2Code
 {
     /// <summary>
     /// Close communication at application level to stop store and forward process.
-    /// Encoded/decoded by serializers as "DisableStoreForward".
+    /// Encoded/decoded by serializers as "SFDS".
     /// </summary>
     [EnumMember(Value = "SFDS")]
     [IsoId("_gNOtAXvEEeSKFIcWw3l4Yw")]
     [Description(@"Close communication at application level to stop store and forward process.")]
-    DisableStoreForward,
+    DisableStoreForward = CardServiceTypeCode.DisableStoreForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Detection whether communication at application level is still active.
-    /// Encoded/decoded by serializers as "EchoTest".
+    /// Encoded/decoded by serializers as "ECHO".
     /// </summary>
     [EnumMember(Value = "ECHO")]
     [IsoId("_gYs9M3vEEeSKFIcWw3l4Yw")]
     [Description(@"Detection whether communication at application level is still active.")]
-    EchoTest,
+    EchoTest = CardServiceTypeCode.EchoTest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Establish communication at application level to start store and forward process.
-    /// Encoded/decoded by serializers as "EnableStoreForward".
+    /// Encoded/decoded by serializers as "SFEN".
     /// </summary>
     [EnumMember(Value = "SFEN")]
     [IsoId("_gkU-Y3vEEeSKFIcWw3l4Yw")]
     [Description(@"Establish communication at application level to start store and forward process.")]
-    EnableStoreForward,
+    EnableStoreForward = CardServiceTypeCode.EnableStoreForward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminate communication at application level.
-    /// Encoded/decoded by serializers as "SignOff".
+    /// Encoded/decoded by serializers as "SGNF".
     /// </summary>
     [EnumMember(Value = "SGNF")]
     [IsoId("_gxJSY3vEEeSKFIcWw3l4Yw")]
     [Description(@"Terminate communication at application level.")]
-    SignOff,
+    SignOff = CardServiceTypeCode.SignOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Establish communication at application level.
-    /// Encoded/decoded by serializers as "SignOn".
+    /// Encoded/decoded by serializers as "SGNN".
     /// </summary>
     [EnumMember(Value = "SGNN")]
     [IsoId("_g6ro43vEEeSKFIcWw3l4Yw")]
     [Description(@"Establish communication at application level.")]
-    SignOn,
+    SignOn = CardServiceTypeCode.SignOn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CardServiceType2Code
 public static class CardServiceType2CodeMetadataExtensions
 {
     private static readonly CardServiceType2CodeDropdownSource _dropdownSource = new CardServiceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

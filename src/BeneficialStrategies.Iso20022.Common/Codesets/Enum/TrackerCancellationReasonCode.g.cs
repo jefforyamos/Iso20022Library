@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_fBcYDm_bEem2FPn3x9pfnw")]
 [Description(@"Specifies the reason for requesting the cancellation of a payment instruction.")]
 [Derivations(typeof(CancellationReason7Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerCancellationReasonCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum TrackerCancellationReasonCode
 public static class TrackerCancellationReasonCodeMetadataExtensions
 {
     private static readonly TrackerCancellationReasonCodeDropdownSource _dropdownSource = new TrackerCancellationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

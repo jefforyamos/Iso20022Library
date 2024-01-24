@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZwscBtp-Ed-ak6NoX_4Aeg_-2076610546")]
 [Description(@"Specifies investment fund processes.")]
 [Derivations(typeof(OrderWaiverReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderWaiverReasonCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum OrderWaiverReasonCode
 public static class OrderWaiverReasonCodeMetadataExtensions
 {
     private static readonly OrderWaiverReasonCodeDropdownSource _dropdownSource = new OrderWaiverReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_NgO2UZfnEeSfnc-VXAEapg")]
 [Description(@"Specifies the type of report activity for a specific period.")]
 [Derivations(typeof(ReportPeriodActivity1Code),typeof(ReportPeriodActivity3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReportPeriodActivityCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReportPeriodActivityCode
 public static class ReportPeriodActivityCodeMetadataExtensions
 {
     private static readonly ReportPeriodActivityCodeDropdownSource _dropdownSource = new ReportPeriodActivityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

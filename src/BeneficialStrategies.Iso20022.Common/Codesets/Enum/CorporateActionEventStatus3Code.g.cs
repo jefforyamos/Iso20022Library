@@ -21,21 +21,21 @@ public enum CorporateActionEventStatus3Code
 {
     /// <summary>
     /// The CA event is cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bESK09p-Ed-ak6NoX_4Aeg_2065210908")]
     [Description(@"The CA event is cancelled.")]
-    Cancelled,
+    Cancelled = CorporateActionEventStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_bESK1Np-Ed-ak6NoX_4Aeg_2065210936")]
     [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.")]
-    Inactive,
+    Inactive = CorporateActionEventStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionEventStatus3Code
 public static class CorporateActionEventStatus3CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStatus3CodeDropdownSource _dropdownSource = new CorporateActionEventStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

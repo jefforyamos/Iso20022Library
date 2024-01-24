@@ -21,32 +21,32 @@ public enum EligibilityType1Code
 {
     /// <summary>
     /// Eligibility applies at securities level.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_jBwc4e5NEeCisYr99QEiWA_958890440")]
     [Description(@"Eligibility applies at securities level.")]
-    Securities,
+    Securities = EligibilityTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Eligibility applies at the level of issuer CSD.
     /// All of the securities issued by the issuer CSD are eligible.
-    /// Encoded/decoded by serializers as "IssuerCSD".
+    /// Encoded/decoded by serializers as "ISCS".
     /// </summary>
     [EnumMember(Value = "ISCS")]
     [IsoId("_jBwc4u5NEeCisYr99QEiWA_-1194522765")]
-    [Description(@"Eligibility applies at the level of issuer CSD. All of the securities issued by the issuer CSD are eligible.")]
-    IssuerCSD,
+    [Description(@"Eligibility applies at the level of issuer CSD.|All of the securities issued by the issuer CSD are eligible.")]
+    IssuerCSD = EligibilityTypeCode.IssuerCSD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Eligibility applies at country level.
     /// All of the securities issued in that country are eligible.
-    /// Encoded/decoded by serializers as "Country".
+    /// Encoded/decoded by serializers as "CTRY".
     /// </summary>
     [EnumMember(Value = "CTRY")]
     [IsoId("_jBwc4-5NEeCisYr99QEiWA_-869405258")]
-    [Description(@"Eligibility applies at country level. All of the securities issued in that country are eligible.")]
-    Country,
+    [Description(@"Eligibility applies at country level.|All of the securities issued in that country are eligible.")]
+    Country = EligibilityTypeCode.Country, // same ordinal as derivation source for type conversions
     
 }
 
@@ -57,7 +57,7 @@ public enum EligibilityType1Code
 public static class EligibilityType1CodeMetadataExtensions
 {
     private static readonly EligibilityType1CodeDropdownSource _dropdownSource = new EligibilityType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

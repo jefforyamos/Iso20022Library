@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aNmactp-Ed-ak6NoX_4Aeg_975102968")]
 [Description(@"Specifies information regarding the non eligibility of the outturn resources.")]
 [Derivations(typeof(NonEligibleProceedsIndicator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonEligibleProceedsIndicatorCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum NonEligibleProceedsIndicatorCode
 public static class NonEligibleProceedsIndicatorCodeMetadataExtensions
 {
     private static readonly NonEligibleProceedsIndicatorCodeDropdownSource _dropdownSource = new NonEligibleProceedsIndicatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

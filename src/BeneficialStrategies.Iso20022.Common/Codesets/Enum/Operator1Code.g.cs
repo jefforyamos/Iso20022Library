@@ -21,48 +21,48 @@ public enum Operator1Code
 {
     /// <summary>
     /// Smaller than.
-    /// Encoded/decoded by serializers as "SmallerThan".
+    /// Encoded/decoded by serializers as "SMAL".
     /// </summary>
     [EnumMember(Value = "SMAL")]
     [IsoId("_aPFoNNp-Ed-ak6NoX_4Aeg_1687113130")]
     [Description(@"Smaller than.")]
-    SmallerThan,
+    SmallerThan = OperatorCode.SmallerThan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Smaller or equal to.
-    /// Encoded/decoded by serializers as "SmallerOrEqualTo".
+    /// Encoded/decoded by serializers as "SMEQ".
     /// </summary>
     [EnumMember(Value = "SMEQ")]
     [IsoId("_aPFoNdp-Ed-ak6NoX_4Aeg_1687113165")]
     [Description(@"Smaller or equal to.")]
-    SmallerOrEqualTo,
+    SmallerOrEqualTo = OperatorCode.SmallerOrEqualTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greater than.
-    /// Encoded/decoded by serializers as "GreaterThan".
+    /// Encoded/decoded by serializers as "GREA".
     /// </summary>
     [EnumMember(Value = "GREA")]
     [IsoId("_aPFoNtp-Ed-ak6NoX_4Aeg_1687113207")]
     [Description(@"Greater than.")]
-    GreaterThan,
+    GreaterThan = OperatorCode.GreaterThan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Greater or equal to.
-    /// Encoded/decoded by serializers as "GreaterOrEqualTo".
+    /// Encoded/decoded by serializers as "GREQ".
     /// </summary>
     [EnumMember(Value = "GREQ")]
     [IsoId("_aPFoN9p-Ed-ak6NoX_4Aeg_1687113250")]
     [Description(@"Greater or equal to.")]
-    GreaterOrEqualTo,
+    GreaterOrEqualTo = OperatorCode.GreaterOrEqualTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equal to.
-    /// Encoded/decoded by serializers as "EqualTo".
+    /// Encoded/decoded by serializers as "EQAL".
     /// </summary>
     [EnumMember(Value = "EQAL")]
     [IsoId("_aPFoONp-Ed-ak6NoX_4Aeg_1687113519")]
     [Description(@"Equal to.")]
-    EqualTo,
+    EqualTo = OperatorCode.EqualTo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum Operator1Code
 public static class Operator1CodeMetadataExtensions
 {
     private static readonly Operator1CodeDropdownSource _dropdownSource = new Operator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

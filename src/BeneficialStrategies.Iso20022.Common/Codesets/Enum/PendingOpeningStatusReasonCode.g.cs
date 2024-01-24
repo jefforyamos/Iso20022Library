@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9mMHkGCJEeabZtzjEVWYCQ")]
 [Description(@"Specifies the reason for a pending account opening status.")]
 [Derivations(typeof(PendingOpeningStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PendingOpeningStatusReasonCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum PendingOpeningStatusReasonCode
 public static class PendingOpeningStatusReasonCodeMetadataExtensions
 {
     private static readonly PendingOpeningStatusReasonCodeDropdownSource _dropdownSource = new PendingOpeningStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

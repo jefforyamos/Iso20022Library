@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EDgcgDFrEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC extension codes for the specific use of pro ration.")]
 [Derivations(typeof(ProrationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProrationTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ProrationTypeCode
 public static class ProrationTypeCodeMetadataExtensions
 {
     private static readonly ProrationTypeCodeDropdownSource _dropdownSource = new ProrationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,22 +21,21 @@ public enum BuyInDeferral1Code
 {
     /// <summary>
     /// Buy-in is deferred.
-    /// 
-    /// Encoded/decoded by serializers as "BuyInDeferred".
+    /// Encoded/decoded by serializers as "DEFY".
     /// </summary>
     [EnumMember(Value = "DEFY")]
     [IsoId("_L555sZwWEeqtp-LOti013g")]
-    [Description(@"Buy-in is deferred. ")]
-    BuyInDeferred,
+    [Description(@"Buy-in is deferred.|")]
+    BuyInDeferred = BuyInDeferralCode.BuyInDeferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Buy-in is not deferred.
-    /// Encoded/decoded by serializers as "BuyInNotDeferred".
+    /// Encoded/decoded by serializers as "DEFN".
     /// </summary>
     [EnumMember(Value = "DEFN")]
     [IsoId("_L-gs4ZwWEeqtp-LOti013g")]
     [Description(@"Buy-in is not deferred.")]
-    BuyInNotDeferred,
+    BuyInNotDeferred = BuyInDeferralCode.BuyInNotDeferred, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +46,7 @@ public enum BuyInDeferral1Code
 public static class BuyInDeferral1CodeMetadataExtensions
 {
     private static readonly BuyInDeferral1CodeDropdownSource _dropdownSource = new BuyInDeferral1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

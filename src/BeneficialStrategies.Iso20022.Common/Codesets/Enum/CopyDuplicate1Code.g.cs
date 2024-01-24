@@ -21,30 +21,30 @@ public enum CopyDuplicate1Code
 {
     /// <summary>
     /// Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.
-    /// Encoded/decoded by serializers as "CopyDuplicate".
+    /// Encoded/decoded by serializers as "CODU".
     /// </summary>
     [EnumMember(Value = "CODU")]
     [IsoId("_bCWRJNp-Ed-ak6NoX_4Aeg_-462671298")]
     [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.")]
-    CopyDuplicate,
+    CopyDuplicate = CopyDuplicateCode.CopyDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message is being sent as a copy to a party other than the account owner, for information purposes.
-    /// Encoded/decoded by serializers as "Copy".
+    /// Encoded/decoded by serializers as "COPY".
     /// </summary>
     [EnumMember(Value = "COPY")]
     [IsoId("_bCWRJdp-Ed-ak6NoX_4Aeg_-462671239")]
     [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes.")]
-    Copy,
+    Copy = CopyDuplicateCode.Copy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message is for information/confirmation purposes. It is a duplicate of a message previously sent.
-    /// Encoded/decoded by serializers as "Duplicate".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bCWRJtp-Ed-ak6NoX_4Aeg_-462671187")]
     [Description(@"Message is for information/confirmation purposes. It is a duplicate of a message previously sent.")]
-    Duplicate,
+    Duplicate = CopyDuplicateCode.Duplicate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CopyDuplicate1Code
 public static class CopyDuplicate1CodeMetadataExtensions
 {
     private static readonly CopyDuplicate1CodeDropdownSource _dropdownSource = new CopyDuplicate1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

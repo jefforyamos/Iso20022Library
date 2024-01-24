@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YcpaMdp-Ed-ak6NoX_4Aeg_-46223766")]
 [Description(@"Specifies the nature of the disputed collateral amount.")]
 [Derivations(typeof(DisputeResolutionType2Code),typeof(DisputeResolutionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DisputeResolutionTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum DisputeResolutionTypeCode
 public static class DisputeResolutionTypeCodeMetadataExtensions
 {
     private static readonly DisputeResolutionTypeCodeDropdownSource _dropdownSource = new DisputeResolutionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

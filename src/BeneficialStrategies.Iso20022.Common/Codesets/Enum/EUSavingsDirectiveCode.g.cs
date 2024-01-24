@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ai58Edp-Ed-ak6NoX_4Aeg_-428222749")]
 [Description(@"Indicates whether or not the fund is subject to reporting under the EU Savings Directive. Enter ""Variable"" if the status of the fund is likely to change from time to time.")]
 [Derivations(typeof(EUSavingsDirective1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EUSavingsDirectiveCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum EUSavingsDirectiveCode
 public static class EUSavingsDirectiveCodeMetadataExtensions
 {
     private static readonly EUSavingsDirectiveCodeDropdownSource _dropdownSource = new EUSavingsDirectiveCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

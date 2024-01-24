@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_UvDdAFDiEeuzhPLt3qllKA")]
 [Description(@"Message response awaited by the initiator of the Request.")]
 [Derivations(typeof(ResponseMode2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResponseModeV2Code
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ResponseModeV2Code
 public static class ResponseModeV2CodeMetadataExtensions
 {
     private static readonly ResponseModeV2CodeDropdownSource _dropdownSource = new ResponseModeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

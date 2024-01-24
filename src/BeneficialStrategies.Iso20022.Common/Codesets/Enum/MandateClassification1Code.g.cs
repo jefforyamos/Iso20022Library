@@ -21,30 +21,30 @@ public enum MandateClassification1Code
 {
     /// <summary>
     /// Direct debit amount is fixed.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_nHOmAWVREeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is fixed.")]
-    Fixed,
+    Fixed = MandateClassificationCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit amount is based on usage.
-    /// Encoded/decoded by serializers as "UsageBased".
+    /// Encoded/decoded by serializers as "USGB".
     /// </summary>
     [EnumMember(Value = "USGB")]
     [IsoId("_nMlnIWVREeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is based on usage.")]
-    UsageBased,
+    UsageBased = MandateClassificationCode.UsageBased, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit amount is variable.
-    /// Encoded/decoded by serializers as "Variable".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_nVz0kWVREeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is variable.")]
-    Variable,
+    Variable = MandateClassificationCode.Variable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum MandateClassification1Code
 public static class MandateClassification1CodeMetadataExtensions
 {
     private static readonly MandateClassification1CodeDropdownSource _dropdownSource = new MandateClassification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

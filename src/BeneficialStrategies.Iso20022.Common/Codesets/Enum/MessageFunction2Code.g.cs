@@ -21,21 +21,21 @@ public enum MessageFunction2Code
 {
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_TRnmlgEcEeCQm6a_G2yO_w_-162813602")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a response.
-    /// Encoded/decoded by serializers as "Response".
+    /// Encoded/decoded by serializers as "RESP".
     /// </summary>
     [EnumMember(Value = "RESP")]
     [IsoId("_TRnmlwEcEeCQm6a_G2yO_w_218407664")]
     [Description(@"Message function is a response.")]
-    Response,
+    Response = MessageFunctionCode.Response, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MessageFunction2Code
 public static class MessageFunction2CodeMetadataExtensions
 {
     private static readonly MessageFunction2CodeDropdownSource _dropdownSource = new MessageFunction2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

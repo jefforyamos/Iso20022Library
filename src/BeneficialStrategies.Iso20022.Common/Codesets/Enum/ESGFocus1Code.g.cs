@@ -21,30 +21,30 @@ public enum ESGFocus1Code
 {
     /// <summary>
     /// Main focus will be environmental.
-    /// Encoded/decoded by serializers as "Environmental".
+    /// Encoded/decoded by serializers as "ENVR".
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_RHqrsdA7EeuSBa1PsnseFg")]
     [Description(@"Main focus will be environmental.")]
-    Environmental,
+    Environmental = ESGFocusCode.Environmental, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Main focus will be governance.
-    /// Encoded/decoded by serializers as "Governance".
+    /// Encoded/decoded by serializers as "GOVR".
     /// </summary>
     [EnumMember(Value = "GOVR")]
     [IsoId("_RN7EsdA7EeuSBa1PsnseFg")]
     [Description(@"Main focus will be governance.")]
-    Governance,
+    Governance = ESGFocusCode.Governance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Main focus will be social.
-    /// Encoded/decoded by serializers as "Social".
+    /// Encoded/decoded by serializers as "SOCL".
     /// </summary>
     [EnumMember(Value = "SOCL")]
     [IsoId("_RW2-QdA7EeuSBa1PsnseFg")]
     [Description(@"Main focus will be social.")]
-    Social,
+    Social = ESGFocusCode.Social, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ESGFocus1Code
 public static class ESGFocus1CodeMetadataExtensions
 {
     private static readonly ESGFocus1CodeDropdownSource _dropdownSource = new ESGFocus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum NotificationType3Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_1FTusa7PEemG7MmivSuE5g")]
     [Description(@"New notification.")]
-    New,
+    New = CorporateActionNotificationTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_1SZvgq7PEemG7MmivSuE5g")]
     [Description(@"Notification replacing a previously sent notification.")]
-    Replacement,
+    Replacement = CorporateActionNotificationTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification sent as a reminder of an event taking place.
-    /// Encoded/decoded by serializers as "Reminder".
+    /// Encoded/decoded by serializers as "RMDR".
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_1avMIq7PEemG7MmivSuE5g")]
     [Description(@"Notification sent as a reminder of an event taking place.")]
-    Reminder,
+    Reminder = CorporateActionNotificationTypeCode.Reminder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NotificationType3Code
 public static class NotificationType3CodeMetadataExtensions
 {
     private static readonly NotificationType3CodeDropdownSource _dropdownSource = new NotificationType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

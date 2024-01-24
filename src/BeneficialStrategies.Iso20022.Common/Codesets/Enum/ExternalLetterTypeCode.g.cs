@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_DhrL0LTLEeuzjuBeu7kFjQ")]
-[Description(@"Specifies the letter type as published in an external letter type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the letter type as published in an external letter type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalLetterType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalLetterTypeCode
 {
     /// <summary>
@@ -57,7 +56,7 @@ public enum ExternalLetterTypeCode
 public static class ExternalLetterTypeCodeMetadataExtensions
 {
     private static readonly ExternalLetterTypeCodeDropdownSource _dropdownSource = new ExternalLetterTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

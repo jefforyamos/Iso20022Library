@@ -21,57 +21,57 @@ public enum SystemSecuritiesAccountType1Code
 {
     /// <summary>
     /// Account owned by a CSD Participant|.
-    /// Encoded/decoded by serializers as "CSDParticipantAccount".
+    /// Encoded/decoded by serializers as "CSDP".
     /// </summary>
     [EnumMember(Value = "CSDP")]
     [IsoId("_hjxdR2liEeGaMcKyqKNRfQ_1173137579")]
     [Description(@"Account owned by a CSD Participant|.")]
-    CSDParticipantAccount,
+    CSDParticipantAccount = SystemSecuritiesAccountTypeCode.CSDParticipantAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account operated by CSD for mirroring positions|.
-    /// Encoded/decoded by serializers as "CSDMirrorAccount".
+    /// Encoded/decoded by serializers as "CSDM".
     /// </summary>
     [EnumMember(Value = "CSDM")]
     [IsoId("_hjxdSGliEeGaMcKyqKNRfQ_1627224848")]
     [Description(@"Account operated by CSD for mirroring positions|.")]
-    CSDMirrorAccount,
+    CSDMirrorAccount = SystemSecuritiesAccountTypeCode.CSDMirrorAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account operated by CSD for settlement of securities legs for instructions involving internal CSD s.
-    /// Encoded/decoded by serializers as "InterCSDAccount".
+    /// Encoded/decoded by serializers as "ICSA".
     /// </summary>
     [EnumMember(Value = "ICSA")]
     [IsoId("_hjxdSWliEeGaMcKyqKNRfQ_577417343")]
     [Description(@"Account operated by CSD for settlement of securities legs for instructions involving internal CSD s.")]
-    InterCSDAccount,
+    InterCSDAccount = SystemSecuritiesAccountTypeCode.InterCSDAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account operated by CSDs in a direct holding market context.
-    /// Encoded/decoded by serializers as "TechnicalOffsetAccount".
+    /// Encoded/decoded by serializers as "TOFF".
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_hjxdSmliEeGaMcKyqKNRfQ_-57614503")]
     [Description(@"Account operated by CSDs in a direct holding market context.")]
-    TechnicalOffsetAccount,
+    TechnicalOffsetAccount = SystemSecuritiesAccountTypeCode.TechnicalOffsetAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account operated by CSD in cross-CSD settlement context.
-    /// Encoded/decoded by serializers as "CSDOmnibusAccount".
+    /// Encoded/decoded by serializers as "CSDO".
     /// </summary>
     [EnumMember(Value = "CSDO")]
     [IsoId("_hjxdS2liEeGaMcKyqKNRfQ_545446579")]
     [Description(@"Account operated by CSD in cross-CSD settlement context.")]
-    CSDOmnibusAccount,
+    CSDOmnibusAccount = SystemSecuritiesAccountTypeCode.CSDOmnibusAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account reflecting the holdings of the participants of the issuer CSD for a given financial instrument.
-    /// Encoded/decoded by serializers as "IssuanceAccount".
+    /// Encoded/decoded by serializers as "ISSA".
     /// </summary>
     [EnumMember(Value = "ISSA")]
     [IsoId("_hjxdTGliEeGaMcKyqKNRfQ_-1782286940")]
     [Description(@"Account reflecting the holdings of the participants of the issuer CSD for a given financial instrument.")]
-    IssuanceAccount,
+    IssuanceAccount = SystemSecuritiesAccountTypeCode.IssuanceAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum SystemSecuritiesAccountType1Code
 public static class SystemSecuritiesAccountType1CodeMetadataExtensions
 {
     private static readonly SystemSecuritiesAccountType1CodeDropdownSource _dropdownSource = new SystemSecuritiesAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

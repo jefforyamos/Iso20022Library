@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_atyWZ9p-Ed-ak6NoX_4Aeg_275832843")]
 [Description(@"Specifies the gender of a person.")]
 [Derivations(typeof(Gender1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GenderCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum GenderCode
 public static class GenderCodeMetadataExtensions
 {
     private static readonly GenderCodeDropdownSource _dropdownSource = new GenderCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

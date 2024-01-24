@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jfoDtmzfEemD24gVaMSpeA")]
 [Description(@"Identifies the transaction initiator.")]
 [Derivations(typeof(TransactionInitiator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransactionInitiatorCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TransactionInitiatorCode
 public static class TransactionInitiatorCodeMetadataExtensions
 {
     private static readonly TransactionInitiatorCodeDropdownSource _dropdownSource = new TransactionInitiatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

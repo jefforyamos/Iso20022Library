@@ -21,30 +21,30 @@ public enum AutoBorrowing1Code
 {
     /// <summary>
     /// Only last resort borrowing should be considered to make settlement occur.
-    /// Encoded/decoded by serializers as "LastResort".
+    /// Encoded/decoded by serializers as "LAMI".
     /// </summary>
     [EnumMember(Value = "LAMI")]
     [IsoId("_bjlV9tp-Ed-ak6NoX_4Aeg_-1856844449")]
     [Description(@"Only last resort borrowing should be considered to make settlement occur.")]
-    LastResort,
+    LastResort = AutoBorrowingCode.LastResort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "NoAutomatic".
+    /// Encoded/decoded by serializers as "NBOR".
     /// </summary>
     [EnumMember(Value = "NBOR")]
     [IsoId("_bjlV99p-Ed-ak6NoX_4Aeg_-1856844448")]
     [Description(@"No automatic borrowing should take place.")]
-    NoAutomatic,
+    NoAutomatic = AutoBorrowingCode.NoAutomatic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "Automatic".
+    /// Encoded/decoded by serializers as "YBOR".
     /// </summary>
     [EnumMember(Value = "YBOR")]
     [IsoId("_bjlV-Np-Ed-ak6NoX_4Aeg_-1856844433")]
     [Description(@"Automatic borrowing should take place.")]
-    Automatic,
+    Automatic = AutoBorrowingCode.Automatic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AutoBorrowing1Code
 public static class AutoBorrowing1CodeMetadataExtensions
 {
     private static readonly AutoBorrowing1CodeDropdownSource _dropdownSource = new AutoBorrowing1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum Trading1MethodCode
 {
     /// <summary>
     /// Trade executed through an electronic trading system.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_YqgQA9p-Ed-ak6NoX_4Aeg_2750610")]
     [Description(@"Trade executed through an electronic trading system.")]
-    Electronic,
+    Electronic = TradingMethodCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade executed over the phone.
-    /// Encoded/decoded by serializers as "Phone".
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_YqgQBNp-Ed-ak6NoX_4Aeg_32300524")]
     [Description(@"Trade executed over the phone.")]
-    Phone,
+    Phone = TradingMethodCode.Phone, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade executed through a broker.
-    /// Encoded/decoded by serializers as "Broker".
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_YqgQBdp-Ed-ak6NoX_4Aeg_48002593")]
     [Description(@"Trade executed through a broker.")]
-    Broker,
+    Broker = TradingMethodCode.Broker, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Trading1MethodCode
 public static class Trading1MethodCodeMetadataExtensions
 {
     private static readonly Trading1MethodCodeDropdownSource _dropdownSource = new Trading1MethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

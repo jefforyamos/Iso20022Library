@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__saLE9ojEeC60axPepSq7g_1734395228")]
 [Description(@"Specifies the underlying business area/type of trade causing the collateral movement.")]
 [Derivations(typeof(ExposureType3Code),typeof(ExposureType10Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExposureTypeV2Code
 {
     /// <summary>
@@ -355,14 +354,11 @@ public enum ExposureTypeV2Code
     
     /// <summary>
     /// Total open market credit operations.
-    /// 
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "EOMO".
     /// </summary>
     [EnumMember(Value = "EOMO")]
     [IsoId("_zmFKQeMLEeuy-L_xpKAN3w")]
-    [Description(@"Total open market credit operations.   ")]
+    [Description(@"Total open market credit operations.|||")]
     TotalOpenMarketCreditOperations,
     
     /// <summary>
@@ -412,12 +408,11 @@ public enum ExposureTypeV2Code
     
     /// <summary>
     /// Total credit.
-    /// 
     /// Encoded/decoded by serializers as "ECRT".
     /// </summary>
     [EnumMember(Value = "ECRT")]
     [IsoId("_WznPAeMMEeuy-L_xpKAN3w")]
-    [Description(@"Total credit. ")]
+    [Description(@"Total credit.|")]
     TotalCredit,
     
     /// <summary>
@@ -438,7 +433,7 @@ public enum ExposureTypeV2Code
 public static class ExposureTypeV2CodeMetadataExtensions
 {
     private static readonly ExposureTypeV2CodeDropdownSource _dropdownSource = new ExposureTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-jTPExOBEeKjmvxNCObNeQ")]
 [Description(@"Specifies how information is to be distributed.")]
 [Derivations(typeof(InformationDistribution1Code),typeof(InformationDistribution2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InformationDistributionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InformationDistributionCode
 public static class InformationDistributionCodeMetadataExtensions
 {
     private static readonly InformationDistributionCodeDropdownSource _dropdownSource = new InformationDistributionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

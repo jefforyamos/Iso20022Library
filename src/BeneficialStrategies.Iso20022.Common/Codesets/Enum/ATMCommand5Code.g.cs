@@ -21,30 +21,30 @@ public enum ATMCommand5Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ATMBalance".
+    /// Encoded/decoded by serializers as "ABAL".
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_mQuCga47EeWRfYPBaeOY8w")]
     [Description(@"Provide the ATM counters, resetting those that are applicable.")]
-    ATMBalance,
+    ATMBalance = ATMCommandCode.ATMBalance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CountersInquiry".
+    /// Encoded/decoded by serializers as "CCNT".
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_mQuCg647EeWRfYPBaeOY8w")]
     [Description(@"Request the value of the ATM counters.")]
-    CountersInquiry,
+    CountersInquiry = ATMCommandCode.CountersInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "CountersReport".
+    /// Encoded/decoded by serializers as "RPTC".
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_p8M1wa47EeWRfYPBaeOY8w")]
     [Description(@"Provide the value of the ATM counters, no reinitialisation of the counters.")]
-    CountersReport,
+    CountersReport = ATMCommandCode.CountersReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMCommand5Code
 public static class ATMCommand5CodeMetadataExtensions
 {
     private static readonly ATMCommand5CodeDropdownSource _dropdownSource = new ATMCommand5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

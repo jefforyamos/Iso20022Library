@@ -21,30 +21,30 @@ public enum ConfirmationRequest1Code
 {
     /// <summary>
     /// To confirm the trade.
-    /// Encoded/decoded by serializers as "Confirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_lrBcsX6IEeSAlrUr1Vow5g")]
     [Description(@"To confirm the trade.")]
-    Confirmation,
+    Confirmation = ConfirmationRequestCode.Confirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To reject the confirmation of the trade.
-    /// Encoded/decoded by serializers as "ConfirmationRequestRejected".
+    /// Encoded/decoded by serializers as "CNRR".
     /// </summary>
     [EnumMember(Value = "CNRR")]
     [IsoId("_lwYd0X6IEeSAlrUr1Vow5g")]
     [Description(@"To reject the confirmation of the trade.")]
-    ConfirmationRequestRejected,
+    ConfirmationRequestRejected = ConfirmationRequestCode.ConfirmationRequestRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// To inquire about the status of the trade confirmation.
-    /// Encoded/decoded by serializers as "Status".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_l1rNgX6IEeSAlrUr1Vow5g")]
     [Description(@"To inquire about the status of the trade confirmation.")]
-    Status,
+    Status = ConfirmationRequestCode.Status, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ConfirmationRequest1Code
 public static class ConfirmationRequest1CodeMetadataExtensions
 {
     private static readonly ConfirmationRequest1CodeDropdownSource _dropdownSource = new ConfirmationRequest1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

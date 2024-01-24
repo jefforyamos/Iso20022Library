@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0-HZ0GKCEeGByYwyG-c4ow")]
 [Description(@"Specifies the type of information request related to a transaction number.")]
 [Derivations(typeof(TransactionRequestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransactionRequestTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TransactionRequestTypeCode
 public static class TransactionRequestTypeCodeMetadataExtensions
 {
     private static readonly TransactionRequestTypeCodeDropdownSource _dropdownSource = new TransactionRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

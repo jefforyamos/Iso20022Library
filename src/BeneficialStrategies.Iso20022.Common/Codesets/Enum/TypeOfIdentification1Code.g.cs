@@ -21,66 +21,66 @@ public enum TypeOfIdentification1Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_YwnfFtp-Ed-ak6NoX_4Aeg_-632668460")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = TypeOfIdentificationCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a passport authority.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "CCPT".
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_YwnfF9p-Ed-ak6NoX_4Aeg_-334369828")]
     [Description(@"Number assigned by a passport authority.")]
-    PassportNumber,
+    PassportNumber = TypeOfIdentificationCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a tax exempt entity.
-    /// Encoded/decoded by serializers as "TaxExemptIdentificationNumber".
+    /// Encoded/decoded by serializers as "CHTY".
     /// </summary>
     [EnumMember(Value = "CHTY")]
     [IsoId("_YwxQENp-Ed-ak6NoX_4Aeg_-332526291")]
     [Description(@"Number assigned to a tax exempt entity.")]
-    TaxExemptIdentificationNumber,
+    TaxExemptIdentificationNumber = TypeOfIdentificationCode.TaxExemptIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CorporateIdentification".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_YwxQEdp-Ed-ak6NoX_4Aeg_-332522818")]
     [Description(@"Number assigned to a corporate entity.")]
-    CorporateIdentification,
+    CorporateIdentification = TypeOfIdentificationCode.CorporateIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a driver's license.
-    /// Encoded/decoded by serializers as "DriverLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_YwxQEtp-Ed-ak6NoX_4Aeg_-331599633")]
     [Description(@"Number assigned to a driver's license.")]
-    DriverLicenseNumber,
+    DriverLicenseNumber = TypeOfIdentificationCode.DriverLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "ForeignInvestmentIdentityNumber".
+    /// Encoded/decoded by serializers as "FIIN".
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("_YwxQE9p-Ed-ak6NoX_4Aeg_-330676223")]
     [Description(@"Number assigned to a foreign investor (other than the alien number).")]
-    ForeignInvestmentIdentityNumber,
+    ForeignInvestmentIdentityNumber = TypeOfIdentificationCode.ForeignInvestmentIdentityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_YwxQFNp-Ed-ak6NoX_4Aeg_-329752873")]
     [Description(@"Number assigned by a tax authority to an entity.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = TypeOfIdentificationCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TypeOfIdentification1Code
 public static class TypeOfIdentification1CodeMetadataExtensions
 {
     private static readonly TypeOfIdentification1CodeDropdownSource _dropdownSource = new TypeOfIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

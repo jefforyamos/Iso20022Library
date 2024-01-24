@@ -21,39 +21,39 @@ public enum DTCCashRoundingType1Code
 {
     /// <summary>
     /// Round down to the nearest cent.
-    /// Encoded/decoded by serializers as "RoundDownToTheNearestCent".
+    /// Encoded/decoded by serializers as "RDNC".
     /// </summary>
     [EnumMember(Value = "RDNC")]
     [IsoId("_1sZ_JTL3EeKU9IrkkToqcw_-437406661")]
     [Description(@"Round down to the nearest cent.")]
-    RoundDownToTheNearestCent,
+    RoundDownToTheNearestCent = DTCCashRoundingTypeCode.RoundDownToTheNearestCent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round down to the nearest dollar.
-    /// Encoded/decoded by serializers as "RoundDownToTheNearestDollar".
+    /// Encoded/decoded by serializers as "RDND".
     /// </summary>
     [EnumMember(Value = "RDND")]
     [IsoId("_1sjJEDL3EeKU9IrkkToqcw_-1816089604")]
     [Description(@"Round down to the nearest dollar.")]
-    RoundDownToTheNearestDollar,
+    RoundDownToTheNearestDollar = DTCCashRoundingTypeCode.RoundDownToTheNearestDollar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round up to the nearest cent.
-    /// Encoded/decoded by serializers as "RoundUpToTheNearestCent".
+    /// Encoded/decoded by serializers as "RUNC".
     /// </summary>
     [EnumMember(Value = "RUNC")]
     [IsoId("_1sjJETL3EeKU9IrkkToqcw_-1929928670")]
     [Description(@"Round up to the nearest cent.")]
-    RoundUpToTheNearestCent,
+    RoundUpToTheNearestCent = DTCCashRoundingTypeCode.RoundUpToTheNearestCent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round up to the nearest dollar.
-    /// Encoded/decoded by serializers as "RoundUpToTheNearestDollar".
+    /// Encoded/decoded by serializers as "RUND".
     /// </summary>
     [EnumMember(Value = "RUND")]
     [IsoId("_1sjJEjL3EeKU9IrkkToqcw_-1827188381")]
     [Description(@"Round up to the nearest dollar.")]
-    RoundUpToTheNearestDollar,
+    RoundUpToTheNearestDollar = DTCCashRoundingTypeCode.RoundUpToTheNearestDollar, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DTCCashRoundingType1Code
 public static class DTCCashRoundingType1CodeMetadataExtensions
 {
     private static readonly DTCCashRoundingType1CodeDropdownSource _dropdownSource = new DTCCashRoundingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,90 +21,84 @@ public enum FinancialInstrumentContractType2Code
 {
     /// <summary>
     /// Contract of type contracts for difference.
-    /// Encoded/decoded by serializers as "ContractForDifference".
+    /// Encoded/decoded by serializers as "CFDS".
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_6FDLkZHrEeabEPkKgPJPcA")]
     [Description(@"Contract of type contracts for difference.")]
-    ContractForDifference,
+    ContractForDifference = FinancialInstrumentContractTypeCode.ContractForDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type forward rate agreement.
-    /// Encoded/decoded by serializers as "ForwardRateAgreement".
+    /// Encoded/decoded by serializers as "FRAS".
     /// </summary>
     [EnumMember(Value = "FRAS")]
     [IsoId("_6mlLUZHrEeabEPkKgPJPcA")]
     [Description(@"Contract of type forward rate agreement.")]
-    ForwardRateAgreement,
+    ForwardRateAgreement = FinancialInstrumentContractTypeCode.ForwardRateAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type future.
-    /// Encoded/decoded by serializers as "Futures".
+    /// Encoded/decoded by serializers as "FUTR".
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_7jFP0ZHrEeabEPkKgPJPcA")]
     [Description(@"Contract of type future.")]
-    Futures,
+    Futures = FinancialInstrumentContractTypeCode.Futures, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type forward.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "Forward".
+    /// Encoded/decoded by serializers as "FORW".
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_8OmSAZHrEeabEPkKgPJPcA")]
-    [Description(@"Contract of type forward.  ")]
-    Forward,
+    [Description(@"Contract of type forward.||")]
+    Forward = FinancialInstrumentContractTypeCode.Forward, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type option.
-    /// 
-    /// Encoded/decoded by serializers as "Option".
+    /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_8o0v4ZHrEeabEPkKgPJPcA")]
-    [Description(@"Contract of type option. ")]
-    Option,
+    [Description(@"Contract of type option.|")]
+    Option = FinancialInstrumentContractTypeCode.Option, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type spread betting.
-    /// 
-    /// Encoded/decoded by serializers as "SpreadBetting".
+    /// Encoded/decoded by serializers as "SPDB".
     /// </summary>
     [EnumMember(Value = "SPDB")]
     [IsoId("_9HN8EZHrEeabEPkKgPJPcA")]
-    [Description(@"Contract of type spread betting. ")]
-    SpreadBetting,
+    [Description(@"Contract of type spread betting.|")]
+    SpreadBetting = FinancialInstrumentContractTypeCode.SpreadBetting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type swap.
-    /// 
-    /// Encoded/decoded by serializers as "Swap".
+    /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_9yJIYZHrEeabEPkKgPJPcA")]
-    [Description(@"Contract of type swap. ")]
-    Swap,
+    [Description(@"Contract of type swap.|")]
+    Swap = FinancialInstrumentContractTypeCode.Swap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of type swaption.
-    /// 
-    /// Encoded/decoded by serializers as "Swaption".
+    /// Encoded/decoded by serializers as "SWPT".
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("_-I73wZHrEeabEPkKgPJPcA")]
-    [Description(@"Contract of type swaption. ")]
-    Swaption,
+    [Description(@"Contract of type swaption.|")]
+    Swaption = FinancialInstrumentContractTypeCode.Swaption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract of other financial instrument contract type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-oFR4ZHrEeabEPkKgPJPcA")]
     [Description(@"Contract of other financial instrument contract type.")]
-    Other,
+    Other = FinancialInstrumentContractTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -115,7 +109,7 @@ public enum FinancialInstrumentContractType2Code
 public static class FinancialInstrumentContractType2CodeMetadataExtensions
 {
     private static readonly FinancialInstrumentContractType2CodeDropdownSource _dropdownSource = new FinancialInstrumentContractType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

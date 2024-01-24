@@ -21,57 +21,57 @@ public enum SecuritiesFinancingTransactionType2Code
 {
     /// <summary>
     /// Relates to a repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "Repo".
+    /// Encoded/decoded by serializers as "REPU".
     /// </summary>
     [EnumMember(Value = "REPU")]
     [IsoId("_MNulQY7YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a repurchase agreement transaction.")]
-    Repo,
+    Repo = SecuritiesTransactionTypeV2Code.Repo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "ReverseRepo".
+    /// Encoded/decoded by serializers as "RVPO".
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_MNulQ47YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a reverse repurchase agreement transaction.")]
-    ReverseRepo,
+    ReverseRepo = SecuritiesTransactionTypeV2Code.ReverseRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities borrowing operation.
-    /// Encoded/decoded by serializers as "SecuritiesBorrowing".
+    /// Encoded/decoded by serializers as "SECB".
     /// </summary>
     [EnumMember(Value = "SECB")]
     [IsoId("_MNulRY7YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a securities borrowing operation.")]
-    SecuritiesBorrowing,
+    SecuritiesBorrowing = SecuritiesTransactionTypeV2Code.SecuritiesBorrowing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities lending operation.
-    /// Encoded/decoded by serializers as "SecuritiesLending".
+    /// Encoded/decoded by serializers as "SECL".
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_MNulR47YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a securities lending operation.")]
-    SecuritiesLending,
+    SecuritiesLending = SecuritiesTransactionTypeV2Code.SecuritiesLending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a buy sell back transaction.
-    /// Encoded/decoded by serializers as "BuySellBack".
+    /// Encoded/decoded by serializers as "BSBK".
     /// </summary>
     [EnumMember(Value = "BSBK")]
     [IsoId("_NiYrEY7YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a buy sell back transaction.")]
-    BuySellBack,
+    BuySellBack = SecuritiesTransactionTypeV2Code.BuySellBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a sell buy back transaction.
-    /// Encoded/decoded by serializers as "SellBuyBack".
+    /// Encoded/decoded by serializers as "SBBK".
     /// </summary>
     [EnumMember(Value = "SBBK")]
     [IsoId("_O0WpQY7YEeaa5_S8lsRKCQ")]
     [Description(@"Relates to a sell buy back transaction.")]
-    SellBuyBack,
+    SellBuyBack = SecuritiesTransactionTypeV2Code.SellBuyBack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum SecuritiesFinancingTransactionType2Code
 public static class SecuritiesFinancingTransactionType2CodeMetadataExtensions
 {
     private static readonly SecuritiesFinancingTransactionType2CodeDropdownSource _dropdownSource = new SecuritiesFinancingTransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

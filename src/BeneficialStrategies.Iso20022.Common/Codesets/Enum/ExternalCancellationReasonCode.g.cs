@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_6EBKgJF4EeeMPMycDdDCGw")]
-[Description(@"Specifies the cancellation reason, as published in an external cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the cancellation reason, as published in an external cancellation reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalCancellationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalCancellationReasonCode
 {
     /// <summary>
@@ -235,7 +234,7 @@ public enum ExternalCancellationReasonCode
     /// </summary>
     [EnumMember(Value = "UAPA")]
     [IsoId("_iHFfUAQyEey95qpfbNuEwg")]
-    [Description(@"The Debtor is requesting a return of the payment because the payment was not properly authorized. Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.")]
+    [Description(@"The Debtor is requesting a return of the payment because the payment was not properly authorized.|Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.")]
     UnauthorizedPayment,
     
     /// <summary>
@@ -283,7 +282,7 @@ public enum ExternalCancellationReasonCode
 public static class ExternalCancellationReasonCodeMetadataExtensions
 {
     private static readonly ExternalCancellationReasonCodeDropdownSource _dropdownSource = new ExternalCancellationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

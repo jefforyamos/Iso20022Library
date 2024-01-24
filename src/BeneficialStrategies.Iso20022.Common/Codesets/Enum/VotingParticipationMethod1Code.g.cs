@@ -21,57 +21,57 @@ public enum VotingParticipationMethod1Code
 {
     /// <summary>
     /// Vote participation is via documents sent through physical post / mail.
-    /// Encoded/decoded by serializers as "Correspondence".
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_gdrTga33EemG7MmivSuE5g")]
     [Description(@"Vote participation is via documents sent through physical post / mail.")]
-    Correspondence,
+    Correspondence = VotingParticipationMethodCode.Correspondence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote participation is through physical attendance.
-    /// Encoded/decoded by serializers as "InPerson".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_givZsa33EemG7MmivSuE5g")]
     [Description(@"Vote participation is through physical attendance.")]
-    InPerson,
+    InPerson = VotingParticipationMethodCode.InPerson, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participation to the meeting is in person but the person is not voting.
-    /// Encoded/decoded by serializers as "NotVoting".
+    /// Encoded/decoded by serializers as "PHNV".
     /// </summary>
     [EnumMember(Value = "PHNV")]
     [IsoId("_gqxUUq33EemG7MmivSuE5g")]
     [Description(@"Participation to the meeting is in person but the person is not voting.")]
-    NotVoting,
+    NotVoting = VotingParticipationMethodCode.NotVoting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote participation is through a proxy person.
-    /// Encoded/decoded by serializers as "Proxy".
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_gvh4ga33EemG7MmivSuE5g")]
     [Description(@"Vote participation is through a proxy person.")]
-    Proxy,
+    Proxy = VotingParticipationMethodCode.Proxy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. 
-    /// Encoded/decoded by serializers as "Virtual".
+    /// Encoded/decoded by serializers as "VIRT".
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_g5Dn8q33EemG7MmivSuE5g")]
     [Description(@"Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. ")]
-    Virtual,
+    Virtual = VotingParticipationMethodCode.Virtual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote participation is through electronic means like email or dedicated standards messaging or web based voting applications.
-    /// Encoded/decoded by serializers as "ElectronicVoting".
+    /// Encoded/decoded by serializers as "EVOT".
     /// </summary>
     [EnumMember(Value = "EVOT")]
     [IsoId("__atT0bISEemux5trsZcCpw")]
     [Description(@"Vote participation is through electronic means like email or dedicated standards messaging or web based voting applications.")]
-    ElectronicVoting,
+    ElectronicVoting = VotingParticipationMethodCode.ElectronicVoting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum VotingParticipationMethod1Code
 public static class VotingParticipationMethod1CodeMetadataExtensions
 {
     private static readonly VotingParticipationMethod1CodeDropdownSource _dropdownSource = new VotingParticipationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

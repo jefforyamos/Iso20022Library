@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__1DJsdojEeC60axPepSq7g_143503788")]
 [Description(@"Define the Charges/tax basis for the trade being allocated.")]
 [Derivations(typeof(ChargeTaxBasis1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ChargeTaxBasisCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ChargeTaxBasisCode
 public static class ChargeTaxBasisCodeMetadataExtensions
 {
     private static readonly ChargeTaxBasisCodeDropdownSource _dropdownSource = new ChargeTaxBasisCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

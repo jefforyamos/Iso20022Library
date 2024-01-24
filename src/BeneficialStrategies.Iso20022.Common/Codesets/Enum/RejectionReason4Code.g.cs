@@ -21,57 +21,57 @@ public enum RejectionReason4Code
 {
     /// <summary>
     /// Financial instrument's symbol has not been recognized.
-    /// Encoded/decoded by serializers as "UnknownSymbol".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_VvDLg9p-Ed-ak6NoX_4Aeg_-131495484")]
     [Description(@"Financial instrument's symbol has not been recognized.")]
-    UnknownSymbol,
+    UnknownSymbol = RejectionReasonCode.UnknownSymbol, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is for the wrong side.
-    /// Encoded/decoded by serializers as "WrongSide".
+    /// Encoded/decoded by serializers as "SIDE".
     /// </summary>
     [EnumMember(Value = "SIDE")]
     [IsoId("_VvDLhNp-Ed-ak6NoX_4Aeg_-127799851")]
     [Description(@"Order is for the wrong side.")]
-    WrongSide,
+    WrongSide = RejectionReasonCode.WrongSide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No counterparty order has been identified.
-    /// Encoded/decoded by serializers as "NoMatchInquiry".
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_VvDLhdp-Ed-ak6NoX_4Aeg_-59458814")]
     [Description(@"No counterparty order has been identified.")]
-    NoMatchInquiry,
+    NoMatchInquiry = RejectionReasonCode.NoMatchInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity in the execution exceeds the ordered quantity.
-    /// Encoded/decoded by serializers as "QuantityExceeds".
+    /// Encoded/decoded by serializers as "EQTY".
     /// </summary>
     [EnumMember(Value = "EQTY")]
     [IsoId("_VvDLhtp-Ed-ak6NoX_4Aeg_394914525")]
     [Description(@"Quantity in the execution exceeds the ordered quantity.")]
-    QuantityExceeds,
+    QuantityExceeds = RejectionReasonCode.QuantityExceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price in the execution exceeds the order price.
-    /// Encoded/decoded by serializers as "PriceExceeds".
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_VvDLh9p-Ed-ak6NoX_4Aeg_428161263")]
     [Description(@"Price in the execution exceeds the order price.")]
-    PriceExceeds,
+    PriceExceeds = RejectionReasonCode.PriceExceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This is primarily used when the Notice of Execution received by the buy-side contains fees, gross trade amount, net trade amount, etc., values that differ from the buy-side's calculations. Buy-side may reject the trade if they feel that the difference in calculations is too high.
-    /// Encoded/decoded by serializers as "CalculationDifference".
+    /// Encoded/decoded by serializers as "CADI".
     /// </summary>
     [EnumMember(Value = "CADI")]
     [IsoId("_VvDLiNp-Ed-ak6NoX_4Aeg_-877151049")]
     [Description(@"This is primarily used when the Notice of Execution received by the buy-side contains fees, gross trade amount, net trade amount, etc., values that differ from the buy-side's calculations. Buy-side may reject the trade if they feel that the difference in calculations is too high.")]
-    CalculationDifference,
+    CalculationDifference = RejectionReasonCode.CalculationDifference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum RejectionReason4Code
 public static class RejectionReason4CodeMetadataExtensions
 {
     private static readonly RejectionReason4CodeDropdownSource _dropdownSource = new RejectionReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

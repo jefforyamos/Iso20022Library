@@ -21,30 +21,30 @@ public enum SupportDocumentType1Code
 {
     /// <summary>
     /// Document is a letter from the bank.
-    /// Encoded/decoded by serializers as "LetterFromBank".
+    /// Encoded/decoded by serializers as "LFBK".
     /// </summary>
     [EnumMember(Value = "LFBK")]
     [IsoId("_NckB0dnTEeS--7IJLPC9lw")]
     [Description(@"Document is a letter from the bank.")]
-    LetterFromBank,
+    LetterFromBank = SupportDocumentTypeCode.LetterFromBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a letter to the bank.
-    /// Encoded/decoded by serializers as "LetterToBank".
+    /// Encoded/decoded by serializers as "LTBK".
     /// </summary>
     [EnumMember(Value = "LTBK")]
     [IsoId("_NmYsM9nTEeS--7IJLPC9lw")]
     [Description(@"Document is a letter to the bank.")]
-    LetterToBank,
+    LetterToBank = SupportDocumentTypeCode.LetterToBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a supporting document.
-    /// Encoded/decoded by serializers as "SupportingDocument".
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_NsetI9nTEeS--7IJLPC9lw")]
     [Description(@"Document is a supporting document.")]
-    SupportingDocument,
+    SupportingDocument = SupportDocumentTypeCode.SupportingDocument, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SupportDocumentType1Code
 public static class SupportDocumentType1CodeMetadataExtensions
 {
     private static readonly SupportDocumentType1CodeDropdownSource _dropdownSource = new SupportDocumentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

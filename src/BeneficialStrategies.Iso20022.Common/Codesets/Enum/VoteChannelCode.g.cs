@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_9SiF8DT8Ee2tRf29bleifQ")]
 [Description(@"Specifies the network channel through which the vote should be sent.")]
 [Derivations(typeof(VoteChannel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum VoteChannelCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum VoteChannelCode
 public static class VoteChannelCodeMetadataExtensions
 {
     private static readonly VoteChannelCodeDropdownSource _dropdownSource = new VoteChannelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

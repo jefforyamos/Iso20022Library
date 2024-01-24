@@ -21,21 +21,21 @@ public enum SpecialCollateral1Code
 {
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against general collateral.
-    /// Encoded/decoded by serializers as "GeneralCollateral".
+    /// Encoded/decoded by serializers as "GENE".
     /// </summary>
     [EnumMember(Value = "GENE")]
     [IsoId("_gWcacZf_EeSfnc-VXAEapg")]
     [Description(@"Identifies that all repurchase agreements are conducted against general collateral.")]
-    GeneralCollateral,
+    GeneralCollateral = SpecialCollateralCode.GeneralCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against special collateral.
-    /// Encoded/decoded by serializers as "SpecialCollateral".
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_gb8lgZf_EeSfnc-VXAEapg")]
     [Description(@"Identifies that all repurchase agreements are conducted against special collateral.")]
-    SpecialCollateral,
+    SpecialCollateral = SpecialCollateralCode.SpecialCollateral, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SpecialCollateral1Code
 public static class SpecialCollateral1CodeMetadataExtensions
 {
     private static readonly SpecialCollateral1CodeDropdownSource _dropdownSource = new SpecialCollateral1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

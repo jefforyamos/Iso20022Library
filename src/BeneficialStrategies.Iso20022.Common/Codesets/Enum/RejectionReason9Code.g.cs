@@ -21,39 +21,39 @@ public enum RejectionReason9Code
 {
     /// <summary>
     /// Cancellation is not allowed.
-    /// Encoded/decoded by serializers as "CancellationNotAllowed".
+    /// Encoded/decoded by serializers as "NCAN".
     /// </summary>
     [EnumMember(Value = "NCAN")]
     [IsoId("_ZmQto9p-Ed-ak6NoX_4Aeg_920218233")]
     [Description(@"Cancellation is not allowed.")]
-    CancellationNotAllowed,
+    CancellationNotAllowed = RejectionReasonCode.CancellationNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "Late".
+    /// Encoded/decoded by serializers as "LATT".
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_ZmQtpNp-Ed-ak6NoX_4Aeg_920218264")]
     [Description(@"Instruction/Request arrives too late.")]
-    Late,
+    Late = RejectionReasonCode.Late, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The election advice is already cancelled.
-    /// Encoded/decoded by serializers as "ElectionAlreadyCancelled".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZmQtpdp-Ed-ak6NoX_4Aeg_920218294")]
     [Description(@"The election advice is already cancelled.")]
-    ElectionAlreadyCancelled,
+    ElectionAlreadyCancelled = RejectionReasonCode.ElectionAlreadyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZmQtptp-Ed-ak6NoX_4Aeg_920218325")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RejectionReason9Code
 public static class RejectionReason9CodeMetadataExtensions
 {
     private static readonly RejectionReason9CodeDropdownSource _dropdownSource = new RejectionReason9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

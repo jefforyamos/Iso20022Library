@@ -21,30 +21,30 @@ public enum SoundAction1Code
 {
     /// <summary>
     /// Set the default volume of sounds.
-    /// Encoded/decoded by serializers as "SetDefaultVolume".
+    /// Encoded/decoded by serializers as "DVOL".
     /// </summary>
     [EnumMember(Value = "DVOL")]
     [IsoId("_qbO3Qd6-Eeiwsev40qZGEQ")]
     [Description(@"Set the default volume of sounds.")]
-    SetDefaultVolume,
+    SetDefaultVolume = SoundActionCode.SetDefaultVolume, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Start the sound as specified in the message.
-    /// Encoded/decoded by serializers as "StartSound".
+    /// Encoded/decoded by serializers as "STAS".
     /// </summary>
     [EnumMember(Value = "STAS")]
     [IsoId("_qhPYoN6-Eeiwsev40qZGEQ")]
     [Description(@"Start the sound as specified in the message.")]
-    StartSound,
+    StartSound = SoundActionCode.StartSound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stop the sound in progress.
-    /// Encoded/decoded by serializers as "StopSound".
+    /// Encoded/decoded by serializers as "STOS".
     /// </summary>
     [EnumMember(Value = "STOS")]
     [IsoId("_qkcdod6-Eeiwsev40qZGEQ")]
     [Description(@"Stop the sound in progress.")]
-    StopSound,
+    StopSound = SoundActionCode.StopSound, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SoundAction1Code
 public static class SoundAction1CodeMetadataExtensions
 {
     private static readonly SoundAction1CodeDropdownSource _dropdownSource = new SoundAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

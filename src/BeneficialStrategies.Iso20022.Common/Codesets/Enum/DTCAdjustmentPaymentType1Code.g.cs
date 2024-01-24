@@ -21,39 +21,39 @@ public enum DTCAdjustmentPaymentType1Code
 {
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "StockLoanPayment".
+    /// Encoded/decoded by serializers as "STOK".
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_16HD8jL3EeKU9IrkkToqcw_-1873975027")]
     [Description(@"Stock loan transaction.")]
-    StockLoanPayment,
+    StockLoanPayment = DTCAdjustmentPaymentTypeCode.StockLoanPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "RepoPayment".
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_16HD8zL3EeKU9IrkkToqcw_-990741740")]
     [Description(@"REPO (repurchase agreement) transaction.")]
-    RepoPayment,
+    RepoPayment = DTCAdjustmentPaymentTypeCode.RepoPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FailPayment".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_16HD9DL3EeKU9IrkkToqcw_-1315859247")]
     [Description(@"FAIL (undelivered securities) transaction.")]
-    FailPayment,
+    FailPayment = DTCAdjustmentPaymentTypeCode.FailPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MiscellaneousPayment".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_16HD9TL3EeKU9IrkkToqcw_-872870755")]
     [Description(@"Miscellaneous (adjustment) transaction.")]
-    MiscellaneousPayment,
+    MiscellaneousPayment = DTCAdjustmentPaymentTypeCode.MiscellaneousPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DTCAdjustmentPaymentType1Code
 public static class DTCAdjustmentPaymentType1CodeMetadataExtensions
 {
     private static readonly DTCAdjustmentPaymentType1CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum RejectedStatusReason8Code
 {
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CutOffTime".
+    /// Encoded/decoded by serializers as "CUTO".
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_ZfG8xNp-Ed-ak6NoX_4Aeg_-881859781")]
     [Description(@"Instruction has been received after the cut-off time.")]
-    CutOffTime,
+    CutOffTime = RejectedStatusReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructing party is not allowed to request a cancellation.
-    /// Encoded/decoded by serializers as "NotAllowedToCancel".
+    /// Encoded/decoded by serializers as "NALC".
     /// </summary>
     [EnumMember(Value = "NALC")]
     [IsoId("_ZfG8xdp-Ed-ak6NoX_4Aeg_-881859756")]
     [Description(@"Instructing party is not allowed to request a cancellation.")]
-    NotAllowedToCancel,
+    NotAllowedToCancel = RejectedStatusReasonCode.NotAllowedToCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NotCompliantWithSLA".
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZfG8xtp-Ed-ak6NoX_4Aeg_-881859686")]
     [Description(@"Instruction is not compliant with the service level agreement.")]
-    NotCompliantWithSLA,
+    NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legally impossible to cancel.
-    /// Encoded/decoded by serializers as "LegallyImpossible".
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_ZfG8x9p-Ed-ak6NoX_4Aeg_-881859644")]
     [Description(@"Legally impossible to cancel.")]
-    LegallyImpossible,
+    LegallyImpossible = RejectedStatusReasonCode.LegallyImpossible, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RejectedStatusReason8Code
 public static class RejectedStatusReason8CodeMetadataExtensions
 {
     private static readonly RejectedStatusReason8CodeDropdownSource _dropdownSource = new RejectedStatusReason8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

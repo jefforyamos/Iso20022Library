@@ -26,43 +26,43 @@ public enum DeviceIdentificationType1Code
     [EnumMember(Value = "IMEI")]
     [IsoId("_XS0CIZfOEeuqNYk2TG3bTg")]
     [Description(@"International Mobile Equipment Identity.")]
-    IMEI,
+    IMEI = DeviceIdentificationTypeCode.IMEI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other nationally assigned code.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_XaxrUZfOEeuqNYk2TG3bTg")]
     [Description(@"Other nationally assigned code.")]
-    OtherNational,
+    OtherNational = DeviceIdentificationTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other privately assigned code.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_X8TrEZfOEeuqNYk2TG3bTg")]
     [Description(@"Other privately assigned code.")]
-    OtherPrivate,
+    OtherPrivate = DeviceIdentificationTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure element ID.
-    /// Encoded/decoded by serializers as "SecureElementIdentification".
+    /// Encoded/decoded by serializers as "SEID".
     /// </summary>
     [EnumMember(Value = "SEID")]
     [IsoId("_X9ZQMZfOEeuqNYk2TG3bTg")]
     [Description(@"Secure element ID.")]
-    SecureElementIdentification,
+    SecureElementIdentification = DeviceIdentificationTypeCode.SecureElementIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device serial number.
-    /// Encoded/decoded by serializers as "SerialNumber".
+    /// Encoded/decoded by serializers as "SENU".
     /// </summary>
     [EnumMember(Value = "SENU")]
     [IsoId("_X-KsQZfOEeuqNYk2TG3bTg")]
     [Description(@"Device serial number.")]
-    SerialNumber,
+    SerialNumber = DeviceIdentificationTypeCode.SerialNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum DeviceIdentificationType1Code
 public static class DeviceIdentificationType1CodeMetadataExtensions
 {
     private static readonly DeviceIdentificationType1CodeDropdownSource _dropdownSource = new DeviceIdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_qiEvsM2tEeuAE-cYsQdwHQ")]
 [Description(@"Specifies the category of structured securities product.")]
 [Derivations(typeof(ESGCategoryGermanStructuredSecuritiesMarket1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ESGCategoryGermanStructuredSecuritiesMarketCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarketCode
 public static class ESGCategoryGermanStructuredSecuritiesMarketCodeMetadataExtensions
 {
     private static readonly ESGCategoryGermanStructuredSecuritiesMarketCodeDropdownSource _dropdownSource = new ESGCategoryGermanStructuredSecuritiesMarketCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

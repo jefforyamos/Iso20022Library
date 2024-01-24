@@ -21,21 +21,21 @@ public enum TerminalManagementErrorAction2Code
 {
     /// <summary>
     /// Send a status report immediately.
-    /// Encoded/decoded by serializers as "SendStatusReport".
+    /// Encoded/decoded by serializers as "SDSR".
     /// </summary>
     [EnumMember(Value = "SDSR")]
     [IsoId("_uWdDMx3YEeKKrOIoqWglDw")]
     [Description(@"Send a status report immediately.")]
-    SendStatusReport,
+    SendStatusReport = TerminalManagementErrorActionCode.SendStatusReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stop the current sequence of terminal management actions without any action, and do not notice the error with a status report.
-    /// Encoded/decoded by serializers as "StopSequence".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_ugRtkx3YEeKKrOIoqWglDw")]
     [Description(@"Stop the current sequence of terminal management actions without any action, and do not notice the error with a status report.")]
-    StopSequence,
+    StopSequence = TerminalManagementErrorActionCode.StopSequence, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TerminalManagementErrorAction2Code
 public static class TerminalManagementErrorAction2CodeMetadataExtensions
 {
     private static readonly TerminalManagementErrorAction2CodeDropdownSource _dropdownSource = new TerminalManagementErrorAction2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

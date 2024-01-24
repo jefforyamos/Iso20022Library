@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZYG85dp-Ed-ak6NoX_4Aeg_336258286")]
 [Description(@"Qualifies the nature of response to a previoulsy addressed quote.")]
 [Derivations(typeof(QuoteResponseType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QuoteResponseTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum QuoteResponseTypeCode
 public static class QuoteResponseTypeCodeMetadataExtensions
 {
     private static readonly QuoteResponseTypeCodeDropdownSource _dropdownSource = new QuoteResponseTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

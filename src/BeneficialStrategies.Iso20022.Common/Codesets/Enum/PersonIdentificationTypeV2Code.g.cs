@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aHCfdtp-Ed-ak6NoX_4Aeg_-1069011326")]
 [Description(@"Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.")]
 [Derivations(typeof(PersonIdentificationType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PersonIdentificationTypeV2Code
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum PersonIdentificationTypeV2Code
 public static class PersonIdentificationTypeV2CodeMetadataExtensions
 {
     private static readonly PersonIdentificationTypeV2CodeDropdownSource _dropdownSource = new PersonIdentificationTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0ldWpQlIEeGATtfOBToyew_2025918018")]
 [Description(@"Specifies the type of counterparty's action the response is related to.")]
 [Derivations(typeof(CounterpartyResponseStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CounterpartyResponseStatusReasonCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CounterpartyResponseStatusReasonCode
 public static class CounterpartyResponseStatusReasonCodeMetadataExtensions
 {
     private static readonly CounterpartyResponseStatusReasonCodeDropdownSource _dropdownSource = new CounterpartyResponseStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

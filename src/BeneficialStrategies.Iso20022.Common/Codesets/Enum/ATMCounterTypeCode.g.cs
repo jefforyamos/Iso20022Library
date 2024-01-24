@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vSNNoIqiEeS4a4abTJTSSw")]
 [Description(@"Type of ATM cassette counters.")]
 [Derivations(typeof(ATMCounterType1Code),typeof(ATMCounterType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMCounterTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ATMCounterTypeCode
 public static class ATMCounterTypeCodeMetadataExtensions
 {
     private static readonly ATMCounterTypeCodeDropdownSource _dropdownSource = new ATMCounterTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

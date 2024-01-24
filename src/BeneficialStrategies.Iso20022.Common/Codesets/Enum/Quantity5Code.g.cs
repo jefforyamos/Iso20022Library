@@ -21,12 +21,12 @@ public enum Quantity5Code
 {
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UnknownQuantity".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_lYgM6QFIEeGhYJiRaPcH8g")]
     [Description(@"Quantity is unknown by the sender or has not been established.")]
-    UnknownQuantity,
+    UnknownQuantity = QuantityCode.UnknownQuantity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum Quantity5Code
 public static class Quantity5CodeMetadataExtensions
 {
     private static readonly Quantity5CodeDropdownSource _dropdownSource = new Quantity5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

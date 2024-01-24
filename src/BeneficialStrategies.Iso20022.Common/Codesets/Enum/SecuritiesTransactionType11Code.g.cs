@@ -21,21 +21,21 @@ public enum SecuritiesTransactionType11Code
 {
     /// <summary>
     /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.
-    /// Encoded/decoded by serializers as "NonSyndicated".
+    /// Encoded/decoded by serializers as "NSYN".
     /// </summary>
     [EnumMember(Value = "NSYN")]
     [IsoId("_ha_UsmliEeGaMcKyqKNRfQ_-1686330340")]
     [Description(@"Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.")]
-    NonSyndicated,
+    NonSyndicated = SecuritiesTransactionTypeCode.NonSyndicated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
-    /// Encoded/decoded by serializers as "SyndicateUnderwriters".
+    /// Encoded/decoded by serializers as "SYND".
     /// </summary>
     [EnumMember(Value = "SYND")]
     [IsoId("_ha_Us2liEeGaMcKyqKNRfQ_835025507")]
     [Description(@"Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.")]
-    SyndicateUnderwriters,
+    SyndicateUnderwriters = SecuritiesTransactionTypeCode.SyndicateUnderwriters, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SecuritiesTransactionType11Code
 public static class SecuritiesTransactionType11CodeMetadataExtensions
 {
     private static readonly SecuritiesTransactionType11CodeDropdownSource _dropdownSource = new SecuritiesTransactionType11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

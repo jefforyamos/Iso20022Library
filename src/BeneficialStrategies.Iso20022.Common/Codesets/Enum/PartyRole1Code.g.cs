@@ -21,21 +21,21 @@ public enum PartyRole1Code
 {
     /// <summary>
     /// Party that safekeeps and administers assets on behalf of the owner.
-    /// Encoded/decoded by serializers as "Custodian".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_zsaVUSDSEeWCLu74WLgP4w")]
     [Description(@"Party that safekeeps and administers assets on behalf of the owner.")]
-    Custodian,
+    Custodian = PartyRoleCode.Custodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVS".
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_0PE9gSDSEeWCLu74WLgP4w")]
     [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
-    Investor,
+    Investor = PartyRoleCode.Investor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PartyRole1Code
 public static class PartyRole1CodeMetadataExtensions
 {
     private static readonly PartyRole1CodeDropdownSource _dropdownSource = new PartyRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

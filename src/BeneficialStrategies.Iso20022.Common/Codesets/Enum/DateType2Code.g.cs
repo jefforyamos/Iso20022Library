@@ -21,12 +21,12 @@ public enum DateType2Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayZwodp-Ed-ak6NoX_4Aeg_-723309217")]
     [Description(@"Open-dated, which indicates that the date has not been established.")]
-    Open,
+    Open = DateTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DateType2Code
 public static class DateType2CodeMetadataExtensions
 {
     private static readonly DateType2CodeDropdownSource _dropdownSource = new DateType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

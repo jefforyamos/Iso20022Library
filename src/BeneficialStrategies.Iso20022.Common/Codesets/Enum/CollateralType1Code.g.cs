@@ -21,39 +21,39 @@ public enum CollateralType1Code
 {
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_YghNldp-Ed-ak6NoX_4Aeg_-2096385794")]
     [Description(@"Collateral type is cash.")]
-    Cash,
+    Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YghNltp-Ed-ak6NoX_4Aeg_2084742436")]
     [Description(@"Collateral type is securities.")]
-    Securities,
+    Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
-    /// Encoded/decoded by serializers as "LetterOfCredit".
+    /// Encoded/decoded by serializers as "LCRE".
     /// </summary>
     [EnumMember(Value = "LCRE")]
     [IsoId("_YghNl9p-Ed-ak6NoX_4Aeg_-473975924")]
     [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
-    LetterOfCredit,
+    LetterOfCredit = CollateralTypeCode.LetterOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other assets that could be used as collateral.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YghNmNp-Ed-ak6NoX_4Aeg_400628295")]
     [Description(@"Other assets that could be used as collateral.")]
-    Other,
+    Other = CollateralTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CollateralType1Code
 public static class CollateralType1CodeMetadataExtensions
 {
     private static readonly CollateralType1CodeDropdownSource _dropdownSource = new CollateralType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

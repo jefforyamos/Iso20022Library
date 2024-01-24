@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bUhmQNp-Ed-ak6NoX_4Aeg_1989083397")]
 [Description(@"Type of cross being submitted to a market.")]
 [Derivations(typeof(CrossType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CrossTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CrossTypeCode
 public static class CrossTypeCodeMetadataExtensions
 {
     private static readonly CrossTypeCodeDropdownSource _dropdownSource = new CrossTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

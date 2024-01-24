@@ -21,129 +21,129 @@ public enum PendingReason11Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_V3td0SdwEeOXAt_43VmZGw")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax reclaim has been sent to the tax authorities.
-    /// Encoded/decoded by serializers as "SentToTaxAuthorities".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_YMot0SdwEeOXAt_43VmZGw")]
     [Description(@"Tax reclaim has been sent to the tax authorities.")]
-    SentToTaxAuthorities,
+    SentToTaxAuthorities = PendingFailingReasonCode.SentToTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending receipt of beneficiary owner details.
-    /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
+    /// Encoded/decoded by serializers as "BOIS".
     /// </summary>
     [EnumMember(Value = "BOIS")]
     [IsoId("_hO70wSdwEeOXAt_43VmZGw")]
     [Description(@"Pending receipt of beneficiary owner details.")]
-    PendingBeneficiaryOwnerDetails,
+    PendingBeneficiaryOwnerDetails = PendingFailingReasonCode.PendingBeneficiaryOwnerDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "QuantityDisagreement".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_jTyocSdwEeOXAt_43VmZGw")]
     [Description(@"Quantity of financial instruments does not match.")]
-    QuantityDisagreement,
+    QuantityDisagreement = PendingFailingReasonCode.QuantityDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LackOfSecurities".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_kuGqUSdwEeOXAt_43VmZGw")]
     [Description(@"Insufficient financial instruments in your account.")]
-    LackOfSecurities,
+    LackOfSecurities = PendingFailingReasonCode.LackOfSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_lx8F4SdwEeOXAt_43VmZGw")]
     [Description(@"Instruction was received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = PendingFailingReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MissingCertification".
+    /// Encoded/decoded by serializers as "MCER".
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_mv1RgSdwEeOXAt_43VmZGw")]
     [Description(@"Awaiting receipt of adequate certification.")]
-    MissingCertification,
+    MissingCertification = PendingFailingReasonCode.MissingCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "InsufficientMoney".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_n69n4SdwEeOXAt_43VmZGw")]
     [Description(@"Insufficient money in your account.")]
-    InsufficientMoney,
+    InsufficientMoney = PendingFailingReasonCode.InsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_o7PZISdwEeOXAt_43VmZGw")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment has not been made by issuer.
-    /// Encoded/decoded by serializers as "NoPayment".
+    /// Encoded/decoded by serializers as "NPAY".
     /// </summary>
     [EnumMember(Value = "NPAY")]
     [IsoId("_plCkESdwEeOXAt_43VmZGw")]
     [Description(@"Payment has not been made by issuer.")]
-    NoPayment,
+    NoPayment = PendingFailingReasonCode.NoPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments have not been delivered by the issuer.
-    /// Encoded/decoded by serializers as "NotDelivered".
+    /// Encoded/decoded by serializers as "NSEC".
     /// </summary>
     [EnumMember(Value = "NSEC")]
     [IsoId("_qSRdgSdwEeOXAt_43VmZGw")]
     [Description(@"Financial instruments have not been delivered by the issuer.")]
-    NotDelivered,
+    NotDelivered = PendingFailingReasonCode.NotDelivered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
-    /// Encoded/decoded by serializers as "PendingReceipt".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_rIbCYSdwEeOXAt_43VmZGw")]
     [Description(@"The instruction is pending receipt of securities, for example, from a purchase, loan etc.")]
-    PendingReceipt,
+    PendingReceipt = PendingFailingReasonCode.PendingReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
-    /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
+    /// Encoded/decoded by serializers as "VLDA".
     /// </summary>
     [EnumMember(Value = "VLDA")]
     [IsoId("_sNwSwSdwEeOXAt_43VmZGw")]
     [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
-    ValidForTaxAuthorities,
+    ValidForTaxAuthorities = PendingFailingReasonCode.ValidForTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_wSabASdwEeOXAt_43VmZGw")]
     [Description(@"Certificate number error.")]
-    WrongCertificatesNumbers,
+    WrongCertificatesNumbers = PendingFailingReasonCode.WrongCertificatesNumbers, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum PendingReason11Code
 public static class PendingReason11CodeMetadataExtensions
 {
     private static readonly PendingReason11CodeDropdownSource _dropdownSource = new PendingReason11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

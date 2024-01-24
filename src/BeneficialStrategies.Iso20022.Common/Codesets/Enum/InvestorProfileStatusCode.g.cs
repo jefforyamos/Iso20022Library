@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1CAzICDOEeWPMvNwVtiMsA")]
 [Description(@"Specifies the status of the investor profile.")]
 [Derivations(typeof(InvestorProfileStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestorProfileStatusCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum InvestorProfileStatusCode
 public static class InvestorProfileStatusCodeMetadataExtensions
 {
     private static readonly InvestorProfileStatusCodeDropdownSource _dropdownSource = new InvestorProfileStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

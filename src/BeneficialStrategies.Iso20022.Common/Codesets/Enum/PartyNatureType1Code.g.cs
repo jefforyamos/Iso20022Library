@@ -21,39 +21,39 @@ public enum PartyNatureType1Code
 {
     /// <summary>
     /// Other type of issuer.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ge0rER3dEeWTa7N6lo4ufA")]
     [Description(@"Other type of issuer.")]
-    Other,
+    Other = PartyNatureTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer is a non-financial institution.
-    /// Encoded/decoded by serializers as "NonFinancialInstitution".
+    /// Encoded/decoded by serializers as "NFIN".
     /// </summary>
     [EnumMember(Value = "NFIN")]
     [IsoId("_gts0kR3dEeWTa7N6lo4ufA")]
     [Description(@"Issuer is a non-financial institution.")]
-    NonFinancialInstitution,
+    NonFinancialInstitution = PartyNatureTypeCode.NonFinancialInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer is a financial institution.
-    /// Encoded/decoded by serializers as "FinancialInstitution".
+    /// Encoded/decoded by serializers as "FIIN".
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("_gyBT4R3dEeWTa7N6lo4ufA")]
     [Description(@"Issuer is a financial institution.")]
-    FinancialInstitution,
+    FinancialInstitution = PartyNatureTypeCode.FinancialInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer is a central counterparty.
-    /// Encoded/decoded by serializers as "CentralCounterparty".
+    /// Encoded/decoded by serializers as "CCPS".
     /// </summary>
     [EnumMember(Value = "CCPS")]
     [IsoId("_hBMYUR3dEeWTa7N6lo4ufA")]
     [Description(@"Issuer is a central counterparty.")]
-    CentralCounterparty,
+    CentralCounterparty = PartyNatureTypeCode.CentralCounterparty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PartyNatureType1Code
 public static class PartyNatureType1CodeMetadataExtensions
 {
     private static readonly PartyNatureType1CodeDropdownSource _dropdownSource = new PartyNatureType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

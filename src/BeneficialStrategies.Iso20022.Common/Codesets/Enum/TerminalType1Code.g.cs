@@ -21,48 +21,48 @@ public enum TerminalType1Code
 {
     /// <summary>
     /// Automated Teller Machine
-    /// Encoded/decoded by serializers as "ATM".
+    /// Encoded/decoded by serializers as "ATMT".
     /// </summary>
     [EnumMember(Value = "ATMT")]
     [IsoId("_jUzQIVHIEeeRzt0J6TBeaA")]
     [Description(@"Automated Teller Machine")]
-    ATM,
+    ATM = TerminalTypeCode.ATM, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mobile or tablet used as a Point of Sale terminal
-    /// Encoded/decoded by serializers as "mPOS".
+    /// Encoded/decoded by serializers as "MPOS".
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_jcsA0VHIEeeRzt0J6TBeaA")]
     [Description(@"Mobile or tablet used as a Point of Sale terminal")]
-    mPOS,
+    mPOS = TerminalTypeCode.mPOS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_jnZcAVHIEeeRzt0J6TBeaA")]
     [Description(@"Other type defined at national level")]
-    OtherNational,
+    OtherNational = TerminalTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other private type of terminal.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_j5jjAVHIEeeRzt0J6TBeaA")]
     [Description(@"Other private type of terminal.")]
-    OtherPrivate,
+    OtherPrivate = TerminalTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of Sale terminal.
-    /// Encoded/decoded by serializers as "POS".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_kF5V4VHIEeeRzt0J6TBeaA")]
     [Description(@"Point of Sale terminal.")]
-    POS,
+    POS = TerminalTypeCode.POS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TerminalType1Code
 public static class TerminalType1CodeMetadataExtensions
 {
     private static readonly TerminalType1CodeDropdownSource _dropdownSource = new TerminalType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

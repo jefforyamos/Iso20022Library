@@ -21,21 +21,21 @@ public enum CollateralRole1Code
 {
     /// <summary>
     /// Collateral giver.
-    /// Encoded/decoded by serializers as "CollateralGiver".
+    /// Encoded/decoded by serializers as "GIVE".
     /// </summary>
     [EnumMember(Value = "GIVE")]
     [IsoId("_qHyVISDCEeaned5xL18mUQ")]
     [Description(@"Collateral giver.")]
-    CollateralGiver,
+    CollateralGiver = CollateralRoleCode.CollateralGiver, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral taker. 
-    /// Encoded/decoded by serializers as "CollateralTaker".
+    /// Encoded/decoded by serializers as "TAKE".
     /// </summary>
     [EnumMember(Value = "TAKE")]
     [IsoId("_qPOZ4SDCEeaned5xL18mUQ")]
     [Description(@"Collateral taker. ")]
-    CollateralTaker,
+    CollateralTaker = CollateralRoleCode.CollateralTaker, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralRole1Code
 public static class CollateralRole1CodeMetadataExtensions
 {
     private static readonly CollateralRole1CodeDropdownSource _dropdownSource = new CollateralRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

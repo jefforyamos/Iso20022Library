@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_d4opsAxwEeKa_56Jbsi1RQ")]
 [Description(@"Status of a component belonging to a POI Terminal (Point of Interaction).")]
 [Derivations(typeof(POIComponentStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum POIComponentStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum POIComponentStatusCode
 public static class POIComponentStatusCodeMetadataExtensions
 {
     private static readonly POIComponentStatusCodeDropdownSource _dropdownSource = new POIComponentStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum TaxType2Code
 {
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "StampDuty".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_Veg1I9p-Ed-ak6NoX_4Aeg_1366299075")]
     [Description(@"Tax is on certain documents and transactions.")]
-    StampDuty,
+    StampDuty = TaxTypeCode.StampDuty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_Veg1JNp-Ed-ak6NoX_4Aeg_-1219693756")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WithholdingTax,
+    WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTaxRetention".
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_Veg1Jdp-Ed-ak6NoX_4Aeg_-1802624814")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTaxRetention,
+    EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TaxType2Code
 public static class TaxType2CodeMetadataExtensions
 {
     private static readonly TaxType2CodeDropdownSource _dropdownSource = new TaxType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

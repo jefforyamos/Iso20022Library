@@ -21,21 +21,21 @@ public enum TransferInFunction2Code
 {
     /// <summary>
     /// The transfer-in is a confirmation (rather than an advice).
-    /// Encoded/decoded by serializers as "Confirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ukgQsSVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in is a confirmation (rather than an advice).")]
-    Confirmation,
+    Confirmation = TransferInFunctionCode.Confirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transfer-in provides advice about account information for a transfer.
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVI".
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_uw_0kSVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in provides advice about account information for a transfer.")]
-    Advice,
+    Advice = TransferInFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransferInFunction2Code
 public static class TransferInFunction2CodeMetadataExtensions
 {
     private static readonly TransferInFunction2CodeDropdownSource _dropdownSource = new TransferInFunction2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

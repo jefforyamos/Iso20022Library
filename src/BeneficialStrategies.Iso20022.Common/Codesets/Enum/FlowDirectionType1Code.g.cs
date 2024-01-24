@@ -21,21 +21,21 @@ public enum FlowDirectionType1Code
 {
     /// <summary>
     /// Amount of money received.
-    /// Encoded/decoded by serializers as "Incoming".
+    /// Encoded/decoded by serializers as "INCG".
     /// </summary>
     [EnumMember(Value = "INCG")]
     [IsoId("_aq9E09p-Ed-ak6NoX_4Aeg_124504902")]
     [Description(@"Amount of money received.")]
-    Incoming,
+    Incoming = FlowDirectionTypeCode.Incoming, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money paid out.
-    /// Encoded/decoded by serializers as "Outgoing".
+    /// Encoded/decoded by serializers as "OUTG".
     /// </summary>
     [EnumMember(Value = "OUTG")]
     [IsoId("_aq9E1Np-Ed-ak6NoX_4Aeg_124504903")]
     [Description(@"Amount of money paid out.")]
-    Outgoing,
+    Outgoing = FlowDirectionTypeCode.Outgoing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FlowDirectionType1Code
 public static class FlowDirectionType1CodeMetadataExtensions
 {
     private static readonly FlowDirectionType1CodeDropdownSource _dropdownSource = new FlowDirectionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

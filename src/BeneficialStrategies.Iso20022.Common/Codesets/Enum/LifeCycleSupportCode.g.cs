@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0g248FJ3EeeHVODnW-1ONQ")]
 [Description(@"Indicates the point in the transaction lifecycle at which the lifecycle identifier was assigned.")]
 [Derivations(typeof(LifeCycleSupport1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LifeCycleSupportCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum LifeCycleSupportCode
 public static class LifeCycleSupportCodeMetadataExtensions
 {
     private static readonly LifeCycleSupportCodeDropdownSource _dropdownSource = new LifeCycleSupportCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

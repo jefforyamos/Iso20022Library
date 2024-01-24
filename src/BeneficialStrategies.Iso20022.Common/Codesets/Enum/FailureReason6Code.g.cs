@@ -21,39 +21,39 @@ public enum FailureReason6Code
 {
     /// <summary>
     /// Key is compromised.
-    /// Encoded/decoded by serializers as "Compromised".
+    /// Encoded/decoded by serializers as "CMPR".
     /// </summary>
     [EnumMember(Value = "CMPR")]
     [IsoId("_6MpPwYtDEeSxlKlAGYErFg")]
     [Description(@"Key is compromised.")]
-    Compromised,
+    Compromised = FailureReasonCode.Compromised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key has expired.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPR".
     /// </summary>
     [EnumMember(Value = "EXPR")]
     [IsoId("_6XX5EYtDEeSxlKlAGYErFg")]
     [Description(@"Key has expired.")]
-    Expired,
+    Expired = FailureReasonCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key check value is incorrect.
-    /// Encoded/decoded by serializers as "InvalidKCV".
+    /// Encoded/decoded by serializers as "KCVE".
     /// </summary>
     [EnumMember(Value = "KCVE")]
     [IsoId("_7HWkgYtDEeSxlKlAGYErFg")]
     [Description(@"Key check value is incorrect.")]
-    InvalidKCV,
+    InvalidKCV = FailureReasonCode.InvalidKCV, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error during the key download in the security device.
-    /// Encoded/decoded by serializers as "KeyLoadError".
+    /// Encoded/decoded by serializers as "KLOD".
     /// </summary>
     [EnumMember(Value = "KLOD")]
     [IsoId("_7N6fgYtDEeSxlKlAGYErFg")]
     [Description(@"Error during the key download in the security device.")]
-    KeyLoadError,
+    KeyLoadError = FailureReasonCode.KeyLoadError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum FailureReason6Code
 public static class FailureReason6CodeMetadataExtensions
 {
     private static readonly FailureReason6CodeDropdownSource _dropdownSource = new FailureReason6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

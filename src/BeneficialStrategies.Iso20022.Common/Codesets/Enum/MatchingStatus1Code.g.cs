@@ -21,21 +21,21 @@ public enum MatchingStatus1Code
 {
     /// <summary>
     /// Instruction has been matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MACH".
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_aVDGRNp-Ed-ak6NoX_4Aeg_189804200")]
     [Description(@"Instruction has been matched.")]
-    Matched,
+    Matched = MatchingStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has not been matched.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_aVDGRdp-Ed-ak6NoX_4Aeg_234135671")]
     [Description(@"Instruction has not been matched.")]
-    Unmatched,
+    Unmatched = MatchingStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MatchingStatus1Code
 public static class MatchingStatus1CodeMetadataExtensions
 {
     private static readonly MatchingStatus1CodeDropdownSource _dropdownSource = new MatchingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

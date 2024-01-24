@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KxndUJfMEeuqNYk2TG3bTg")]
 [Description(@"Type of identification for the device.")]
 [Derivations(typeof(DeviceIdentificationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeviceIdentificationTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum DeviceIdentificationTypeCode
 public static class DeviceIdentificationTypeCodeMetadataExtensions
 {
     private static readonly DeviceIdentificationTypeCodeDropdownSource _dropdownSource = new DeviceIdentificationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

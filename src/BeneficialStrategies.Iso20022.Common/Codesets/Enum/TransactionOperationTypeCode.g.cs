@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0tTA3JfpEeSfnc-VXAEapg")]
 [Description(@"Specifies the type of process related to a specific transaction.")]
-[Derivations(typeof(TransactionOperationType1Code),typeof(TransactionOperationType3Code),typeof(TransactionOperationType4Code),typeof(TransactionOperationType5Code),typeof(TransactionOperationType6Code),typeof(TransactionOperationType7Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TransactionOperationType3Code),typeof(TransactionOperationType4Code),typeof(TransactionOperationType5Code),typeof(TransactionOperationType6Code),typeof(TransactionOperationType1Code),typeof(TransactionOperationType7Code))]
 public enum TransactionOperationTypeCode
 {
     /// <summary>
@@ -182,7 +181,7 @@ public enum TransactionOperationTypeCode
 public static class TransactionOperationTypeCodeMetadataExtensions
 {
     private static readonly TransactionOperationTypeCodeDropdownSource _dropdownSource = new TransactionOperationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

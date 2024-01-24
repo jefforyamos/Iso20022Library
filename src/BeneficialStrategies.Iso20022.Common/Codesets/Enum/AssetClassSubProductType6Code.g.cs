@@ -21,12 +21,12 @@ public enum AssetClassSubProductType6Code
 {
     /// <summary>
     /// Commodity of type electricity.
-    /// Encoded/decoded by serializers as "Electricity".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_61phYQnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type electricity.")]
-    Electricity,
+    Electricity = AssetClassSubProductTypeCode.Electricity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType6Code
 public static class AssetClassSubProductType6CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType6CodeDropdownSource _dropdownSource = new AssetClassSubProductType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

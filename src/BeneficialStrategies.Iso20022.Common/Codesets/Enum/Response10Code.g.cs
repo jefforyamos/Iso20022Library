@@ -21,57 +21,57 @@ public enum Response10Code
 {
     /// <summary>
     /// Request is still in progress.
-    /// Encoded/decoded by serializers as "InProgress".
+    /// Encoded/decoded by serializers as "INPS".
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_SpLhgX0mEemfrNOe0zHQyg")]
     [Description(@"Request is still in progress.")]
-    InProgress,
+    InProgress = ResponseCode.InProgress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UnderReview".
+    /// Encoded/decoded by serializers as "UNRV".
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_SpLhg30mEemfrNOe0zHQyg")]
     [Description(@"Service is under review.")]
-    UnderReview,
+    UnderReview = ResponseCode.UnderReview, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_SpLhhX0mEemfrNOe0zHQyg")]
     [Description(@"Other type of processing result defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = ResponseCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_SpLhh30mEemfrNOe0zHQyg")]
     [Description(@"Other type of processing result defined at national level.")]
-    OtherNational,
+    OtherNational = ResponseCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
-    /// Encoded/decoded by serializers as "Failure".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_bt7vcX06Eem0U9m89kippg")]
     [Description(@"Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.")]
-    Failure,
+    Failure = ResponseCode.Failure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
-    /// Encoded/decoded by serializers as "Success".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_cQcmoX06Eem0U9m89kippg")]
     [Description(@"Processing OK. Information related to the result of the processing is contained in other parts of the response message.")]
-    Success,
+    Success = ResponseCode.Success, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum Response10Code
 public static class Response10CodeMetadataExtensions
 {
     private static readonly Response10CodeDropdownSource _dropdownSource = new Response10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

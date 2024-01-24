@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_beXewtp-Ed-ak6NoX_4Aeg_-112393777")]
 [Description(@"Specifies whether best execution rules as defined in the EU MiFID directive were followed for a transaction.")]
 [Derivations(typeof(BestExecution1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BestExecutionCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum BestExecutionCode
 public static class BestExecutionCodeMetadataExtensions
 {
     private static readonly BestExecutionCodeDropdownSource _dropdownSource = new BestExecutionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

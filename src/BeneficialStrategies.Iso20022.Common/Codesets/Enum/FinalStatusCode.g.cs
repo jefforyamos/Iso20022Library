@@ -21,39 +21,39 @@ public enum FinalStatusCode
 {
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "STLD".
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_an04Vdp-Ed-ak6NoX_4Aeg_-1727527993")]
     [Description(@"Transaction has been successfully processed by the clearing agent.")]
-    Settled,
+    Settled = PaymentInstructionStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been rejected by the clearing agent.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJTD".
     /// </summary>
     [EnumMember(Value = "RJTD")]
     [IsoId("_an04Vtp-Ed-ak6NoX_4Aeg_-1727527992")]
     [Description(@"Transaction has been rejected by the clearing agent.")]
-    Rejected,
+    Rejected = PaymentInstructionStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_an04V9p-Ed-ak6NoX_4Aeg_-1727527991")]
     [Description(@"Transaction has been cancelled.")]
-    Cancelled,
+    Cancelled = PaymentInstructionStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.
-    /// Encoded/decoded by serializers as "Finalised".
+    /// Encoded/decoded by serializers as "FNLD".
     /// </summary>
     [EnumMember(Value = "FNLD")]
     [IsoId("_an04WNp-Ed-ak6NoX_4Aeg_-1727527990")]
     [Description(@"Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.")]
-    Finalised,
+    Finalised = PaymentInstructionStatusCode.Finalised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum FinalStatusCode
 public static class FinalStatusCodeMetadataExtensions
 {
     private static readonly FinalStatusCodeDropdownSource _dropdownSource = new FinalStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

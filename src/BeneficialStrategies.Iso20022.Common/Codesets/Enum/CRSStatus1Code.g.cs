@@ -21,129 +21,129 @@ public enum CRSStatus1Code
 {
     /// <summary>
     /// Account holder type is a passive non-financial entity with one or more controlling persons that are foreign persons.
-    /// Encoded/decoded by serializers as "CRS101".
+    /// Encoded/decoded by serializers as "C101".
     /// </summary>
     [EnumMember(Value = "C101")]
     [IsoId("_N1X9EUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a passive non-financial entity with one or more controlling persons that are foreign persons.")]
-    CRS101,
+    CRS101 = CRSStatusCode.CRS101, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a foreign person.
-    /// Encoded/decoded by serializers as "CRS102".
+    /// Encoded/decoded by serializers as "C102".
     /// </summary>
     [EnumMember(Value = "C102")]
     [IsoId("_N_8OUUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a foreign person.")]
-    CRS102,
+    CRS102 = CRSStatusCode.CRS102, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a passive foreign non-financial entity without controlling persons that are foreign persons.
-    /// Encoded/decoded by serializers as "CRS103".
+    /// Encoded/decoded by serializers as "C103".
     /// </summary>
     [EnumMember(Value = "C103")]
     [IsoId("_ODDzwUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a passive foreign non-financial entity without controlling persons that are foreign persons.")]
-    CRS103,
+    CRS103 = CRSStatusCode.CRS103, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a financial institution such as a depositary, a custodial institution or a specified insurance company.
-    /// Encoded/decoded by serializers as "CRS104".
+    /// Encoded/decoded by serializers as "C104".
     /// </summary>
     [EnumMember(Value = "C104")]
     [IsoId("_ONeUAUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a financial institution such as a depositary, a custodial institution or a specified insurance company.")]
-    CRS104,
+    CRS104 = CRSStatusCode.CRS104, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a financial institution such as an investment entity of a non-participating jurisdiction and managed by another financial institution without one or more controlling persons that are foreign persons.
-    /// Encoded/decoded by serializers as "CRS105".
+    /// Encoded/decoded by serializers as "C105".
     /// </summary>
     [EnumMember(Value = "C105")]
     [IsoId("_OW2ScUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a financial institution such as an investment entity of a non-participating jurisdiction and managed by another financial institution without one or more controlling persons that are foreign persons.")]
-    CRS105,
+    CRS105 = CRSStatusCode.CRS105, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a financial institution such as an investment entity of a non-participating jurisdiction and managed by another financial institution with one or more controlling persons that are foreign persons.
-    /// Encoded/decoded by serializers as "CRS106".
+    /// Encoded/decoded by serializers as "C106".
     /// </summary>
     [EnumMember(Value = "C106")]
     [IsoId("_OhQysUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a financial institution such as an investment entity of a non-participating jurisdiction and managed by another financial institution with one or more controlling persons that are foreign persons.")]
-    CRS106,
+    CRS106 = CRSStatusCode.CRS106, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a financial institution such as another investment entity.
-    /// Encoded/decoded by serializers as "CRS107".
+    /// Encoded/decoded by serializers as "C107".
     /// </summary>
     [EnumMember(Value = "C107")]
     [IsoId("_OkY_MUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a financial institution such as another investment entity.")]
-    CRS107,
+    CRS107 = CRSStatusCode.CRS107, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is an active non-financial entity such as a corporation for which the stock is regularly traded on an established securities market.
-    /// Encoded/decoded by serializers as "CRS108".
+    /// Encoded/decoded by serializers as "C108".
     /// </summary>
     [EnumMember(Value = "C108")]
     [IsoId("_Ot6HkUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is an active non-financial entity such as a corporation for which the stock is regularly traded on an established securities market.")]
-    CRS108,
+    CRS108 = CRSStatusCode.CRS108, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is an active non-financial entity such as a corporation which is a related entity of a corporation for which the stock is regularly traded on an established securities market.
-    /// Encoded/decoded by serializers as "CRS109".
+    /// Encoded/decoded by serializers as "C109".
     /// </summary>
     [EnumMember(Value = "C109")]
     [IsoId("_O4Ld4UNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is an active non-financial entity such as a corporation which is a related entity of a corporation for which the stock is regularly traded on an established securities market.")]
-    CRS109,
+    CRS109 = CRSStatusCode.CRS109, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is an active non-financial entity such as a government entity.
-    /// Encoded/decoded by serializers as "CRS110".
+    /// Encoded/decoded by serializers as "C110".
     /// </summary>
     [EnumMember(Value = "C110")]
     [IsoId("_PB2XQUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is an active non-financial entity such as a government entity.")]
-    CRS110,
+    CRS110 = CRSStatusCode.CRS110, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is an active non-financial entity such as a central bank.
-    /// Encoded/decoded by serializers as "CRS111".
+    /// Encoded/decoded by serializers as "C111".
     /// </summary>
     [EnumMember(Value = "C111")]
     [IsoId("_PLXfoUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is an active non-financial entity such as a central bank.")]
-    CRS111,
+    CRS111 = CRSStatusCode.CRS111, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is an active non-financial entity such as an international organisation.
-    /// Encoded/decoded by serializers as "CRS112".
+    /// Encoded/decoded by serializers as "C112".
     /// </summary>
     [EnumMember(Value = "C112")]
     [IsoId("_PVoO4UNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is an active non-financial entity such as an international organisation.")]
-    CRS112,
+    CRS112 = CRSStatusCode.CRS112, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is not a foreign person.
-    /// Encoded/decoded by serializers as "CRS113".
+    /// Encoded/decoded by serializers as "C113".
     /// </summary>
     [EnumMember(Value = "C113")]
     [IsoId("_PYwbYUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is not a foreign person.")]
-    CRS113,
+    CRS113 = CRSStatusCode.CRS113, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account holder type is a financial institution such as an investment entity of a participating jurisdiction and managed by another financial institution.
-    /// Encoded/decoded by serializers as "CRS114".
+    /// Encoded/decoded by serializers as "C114".
     /// </summary>
     [EnumMember(Value = "C114")]
     [IsoId("_PiRjwUNsEeaS-NnwLNvMPg")]
     [Description(@"Account holder type is a financial institution such as an investment entity of a participating jurisdiction and managed by another financial institution.")]
-    CRS114,
+    CRS114 = CRSStatusCode.CRS114, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum CRSStatus1Code
 public static class CRSStatus1CodeMetadataExtensions
 {
     private static readonly CRSStatus1CodeDropdownSource _dropdownSource = new CRSStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

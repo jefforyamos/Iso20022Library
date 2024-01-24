@@ -21,57 +21,57 @@ public enum ChargeType14Code
 {
     /// <summary>
     /// Charge linked to an ADR (American Depositary Receipt).
-    /// Encoded/decoded by serializers as "ADRFee".
+    /// Encoded/decoded by serializers as "ADRF".
     /// </summary>
     [EnumMember(Value = "ADRF")]
     [IsoId("_a9IZ9Np-Ed-ak6NoX_4Aeg_1905396008")]
     [Description(@"Charge linked to an ADR (American Depositary Receipt).")]
-    ADRFee,
+    ADRFee = ChargeTypeCode.ADRFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee linked to the cancellation of an issuance.
-    /// Encoded/decoded by serializers as "IssuanceCancellationFee".
+    /// Encoded/decoded by serializers as "ISSC".
     /// </summary>
     [EnumMember(Value = "ISSC")]
     [IsoId("_a9IZ9dp-Ed-ak6NoX_4Aeg_1919247879")]
     [Description(@"Fee linked to the cancellation of an issuance.")]
-    IssuanceCancellationFee,
+    IssuanceCancellationFee = ChargeTypeCode.IssuanceCancellationFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid to a custodian in respect of custodial services.
-    /// Encoded/decoded by serializers as "CustodyFee".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_a9IZ9tp-Ed-ak6NoX_4Aeg_1935869866")]
     [Description(@"Fee paid to a custodian in respect of custodial services.")]
-    CustodyFee,
+    CustodyFee = ChargeTypeCode.CustodyFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "ServiceProvisionFee".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a9IZ99p-Ed-ak6NoX_4Aeg_-2057106020")]
     [Description(@"Fee paid for the provision of financial services.")]
-    ServiceProvisionFee,
+    ServiceProvisionFee = ChargeTypeCode.ServiceProvisionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous fee.
-    /// Encoded/decoded by serializers as "MiscellaneousFee".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_a9IZ-Np-Ed-ak6NoX_4Aeg_-2043252398")]
     [Description(@"Miscellaneous fee.")]
-    MiscellaneousFee,
+    MiscellaneousFee = ChargeTypeCode.MiscellaneousFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge linked to the issuance of security.
-    /// Encoded/decoded by serializers as "IssuanceFee".
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_a9SK8Np-Ed-ak6NoX_4Aeg_-1972140796")]
     [Description(@"Charge linked to the issuance of security.")]
-    IssuanceFee,
+    IssuanceFee = ChargeTypeCode.IssuanceFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ChargeType14Code
 public static class ChargeType14CodeMetadataExtensions
 {
     private static readonly ChargeType14CodeDropdownSource _dropdownSource = new ChargeType14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

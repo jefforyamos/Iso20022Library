@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ha1js2liEeGaMcKyqKNRfQ_477387752")]
 [Description(@"Defines the type of execution of the put feature.")]
 [Derivations(typeof(PutType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PutTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PutTypeCode
 public static class PutTypeCodeMetadataExtensions
 {
     private static readonly PutTypeCodeDropdownSource _dropdownSource = new PutTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

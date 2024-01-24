@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-IxzECC9EeWPMvNwVtiMsA")]
 [Description(@"Specifies whether the item is used as collateral.")]
 [Derivations(typeof(Collateral1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CollateralCode
 public static class CollateralCodeMetadataExtensions
 {
     private static readonly CollateralCodeDropdownSource _dropdownSource = new CollateralCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

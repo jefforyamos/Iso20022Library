@@ -21,21 +21,21 @@ public enum VoteType1Code
 {
     /// <summary>
     /// Results of a vote on a proposal is for advice only.
-    /// Encoded/decoded by serializers as "Advisory".
+    /// Encoded/decoded by serializers as "ADVI".
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_5URc0a37EemG7MmivSuE5g")]
     [Description(@"Results of a vote on a proposal is for advice only.")]
-    Advisory,
+    Advisory = VoteTypeCode.Advisory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Results of a vote on a proposal is binding.
-    /// Encoded/decoded by serializers as "Binding".
+    /// Encoded/decoded by serializers as "BNDG".
     /// </summary>
     [EnumMember(Value = "BNDG")]
     [IsoId("_5fbj8q37EemG7MmivSuE5g")]
     [Description(@"Results of a vote on a proposal is binding.")]
-    Binding,
+    Binding = VoteTypeCode.Binding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum VoteType1Code
 public static class VoteType1CodeMetadataExtensions
 {
     private static readonly VoteType1CodeDropdownSource _dropdownSource = new VoteType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

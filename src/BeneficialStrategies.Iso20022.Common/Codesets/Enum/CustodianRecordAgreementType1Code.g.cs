@@ -21,30 +21,30 @@ public enum CustodianRecordAgreementType1Code
 {
     /// <summary>
     /// Custodian record agrees with the composite record.
-    /// Encoded/decoded by serializers as "Agree".
+    /// Encoded/decoded by serializers as "AGRE".
     /// </summary>
     [EnumMember(Value = "AGRE")]
     [IsoId("_11fpsjL3EeKU9IrkkToqcw_-291543411")]
     [Description(@"Custodian record agrees with the composite record.")]
-    Agree,
+    Agree = CustodianRecordAgreementTypeCode.Agree, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Custodian record disagrees with the composite record.
-    /// Encoded/decoded by serializers as "Disagree".
+    /// Encoded/decoded by serializers as "DAGR".
     /// </summary>
     [EnumMember(Value = "DAGR")]
     [IsoId("_11fpszL3EeKU9IrkkToqcw_151445081")]
     [Description(@"Custodian record disagrees with the composite record.")]
-    Disagree,
+    Disagree = CustodianRecordAgreementTypeCode.Disagree, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No composite record available.
-    /// Encoded/decoded by serializers as "NoComposite".
+    /// Encoded/decoded by serializers as "NCOP".
     /// </summary>
     [EnumMember(Value = "NCOP")]
     [IsoId("_11fptDL3EeKU9IrkkToqcw_1073608391")]
     [Description(@"No composite record available.")]
-    NoComposite,
+    NoComposite = CustodianRecordAgreementTypeCode.NoComposite, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CustodianRecordAgreementType1Code
 public static class CustodianRecordAgreementType1CodeMetadataExtensions
 {
     private static readonly CustodianRecordAgreementType1CodeDropdownSource _dropdownSource = new CustodianRecordAgreementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

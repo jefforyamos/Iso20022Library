@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bdn359p-Ed-ak6NoX_4Aeg_-1583381957")]
 [Description(@"Specifies the type of certification completion required for a beneficiary.")]
 [Derivations(typeof(BeneficiaryCertificationCompletion1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BeneficiaryCertificationCompletionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BeneficiaryCertificationCompletionCode
 public static class BeneficiaryCertificationCompletionCodeMetadataExtensions
 {
     private static readonly BeneficiaryCertificationCompletionCodeDropdownSource _dropdownSource = new BeneficiaryCertificationCompletionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

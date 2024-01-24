@@ -21,48 +21,48 @@ public enum SequenceType3Code
 {
     /// <summary>
     /// First collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "First".
+    /// Encoded/decoded by serializers as "FRST".
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_t90OJFkyEeGeoaLUQk__nA_908612180")]
     [Description(@"First collection of a series of direct debit instructions.")]
-    First,
+    First = SequenceTypeCode.First, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "Recurring".
+    /// Encoded/decoded by serializers as "RCUR".
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_t99_IFkyEeGeoaLUQk__nA_1026483165")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
-    Recurring,
+    Recurring = SequenceTypeCode.Recurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FNAL".
     /// </summary>
     [EnumMember(Value = "FNAL")]
     [IsoId("_t99_IVkyEeGeoaLUQk__nA_-1801335368")]
     [Description(@"Final collection of a series of direct debit instructions.")]
-    Final,
+    Final = SequenceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OneOff".
+    /// Encoded/decoded by serializers as "OOFF".
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_t99_IlkyEeGeoaLUQk__nA_1948646475")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
-    OneOff,
+    OneOff = SequenceTypeCode.OneOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collection used to re-present previously reversed or returned direct debit transactions.
-    /// Encoded/decoded by serializers as "Represented".
+    /// Encoded/decoded by serializers as "RPRE".
     /// </summary>
     [EnumMember(Value = "RPRE")]
     [IsoId("_t99_I1kyEeGeoaLUQk__nA_-1832965217")]
     [Description(@"Collection used to re-present previously reversed or returned direct debit transactions.")]
-    Represented,
+    Represented = SequenceTypeCode.Represented, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum SequenceType3Code
 public static class SequenceType3CodeMetadataExtensions
 {
     private static readonly SequenceType3CodeDropdownSource _dropdownSource = new SequenceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

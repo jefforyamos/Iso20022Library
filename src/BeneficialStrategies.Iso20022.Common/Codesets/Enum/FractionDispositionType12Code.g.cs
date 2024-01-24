@@ -21,21 +21,21 @@ public enum FractionDispositionType12Code
 {
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundDown".
+    /// Encoded/decoded by serializers as "RDDN".
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_Of_qMZFGEeanIpS4qvJ1tw")]
     [Description(@"Round down to the nearest whole number.")]
-    RoundDown,
+    RoundDown = FractionDispositionTypeCode.RoundDown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundUp".
+    /// Encoded/decoded by serializers as "RDUP".
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_OqaKcZFGEeanIpS4qvJ1tw")]
     [Description(@"Round up to the nearest whole number.")]
-    RoundUp,
+    RoundUp = FractionDispositionTypeCode.RoundUp, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FractionDispositionType12Code
 public static class FractionDispositionType12CodeMetadataExtensions
 {
     private static readonly FractionDispositionType12CodeDropdownSource _dropdownSource = new FractionDispositionType12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

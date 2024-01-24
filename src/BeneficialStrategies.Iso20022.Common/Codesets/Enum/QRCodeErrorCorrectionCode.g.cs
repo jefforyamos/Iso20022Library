@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_55g6gNuaEeiB5uLfkg9ZJA")]
 [Description(@"Error Correction mode of Quick Response Code.")]
 [Derivations(typeof(QRCodeErrorCorrection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QRCodeErrorCorrectionCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum QRCodeErrorCorrectionCode
 public static class QRCodeErrorCorrectionCodeMetadataExtensions
 {
     private static readonly QRCodeErrorCorrectionCodeDropdownSource _dropdownSource = new QRCodeErrorCorrectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

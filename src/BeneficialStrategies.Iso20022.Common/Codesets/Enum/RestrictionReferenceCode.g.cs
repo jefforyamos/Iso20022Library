@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_s_iqUNarEei60tlze8Pqbw")]
 [Description(@"Restriction References applied on a transaction.")]
 [Derivations(typeof(RestrictionReference1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RestrictionReferenceCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum RestrictionReferenceCode
 public static class RestrictionReferenceCodeMetadataExtensions
 {
     private static readonly RestrictionReferenceCodeDropdownSource _dropdownSource = new RestrictionReferenceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

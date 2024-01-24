@@ -21,21 +21,21 @@ public enum RemarketingMarginType1Code
 {
     /// <summary>
     /// Agreed margin.
-    /// Encoded/decoded by serializers as "Agreed".
+    /// Encoded/decoded by serializers as "AGRE".
     /// </summary>
     [EnumMember(Value = "AGRE")]
     [IsoId("_aUJuZdp-Ed-ak6NoX_4Aeg_818404999")]
     [Description(@"Agreed margin.")]
-    Agreed,
+    Agreed = RemarketingMarginTypeCode.Agreed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Alternative margin.
-    /// Encoded/decoded by serializers as "Alternative".
+    /// Encoded/decoded by serializers as "ALTE".
     /// </summary>
     [EnumMember(Value = "ALTE")]
     [IsoId("_aUJuZtp-Ed-ak6NoX_4Aeg_1072371865")]
     [Description(@"Alternative margin.")]
-    Alternative,
+    Alternative = RemarketingMarginTypeCode.Alternative, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RemarketingMarginType1Code
 public static class RemarketingMarginType1CodeMetadataExtensions
 {
     private static readonly RemarketingMarginType1CodeDropdownSource _dropdownSource = new RemarketingMarginType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

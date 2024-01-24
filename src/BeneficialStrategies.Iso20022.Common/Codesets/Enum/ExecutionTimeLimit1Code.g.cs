@@ -21,93 +21,93 @@ public enum ExecutionTimeLimit1Code
 {
     /// <summary>
     /// A round lot order to be executed at the opening of the market.
-    /// Encoded/decoded by serializers as "AtTheOpening".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ak11yNp-Ed-ak6NoX_4Aeg_1612789296")]
     [Description(@"A round lot order to be executed at the opening of the market.")]
-    AtTheOpening,
+    AtTheOpening = ExecutionTimeLimitCode.AtTheOpening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order to buy or sell at the closing price or an odd lot order to buy or sell to be filled at the closing of the round lot offer, plus a differential for a buy order or minus the differential on a sell order.
-    /// Encoded/decoded by serializers as "AtTheClosing".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_ak_mwNp-Ed-ak6NoX_4Aeg_1212901803")]
     [Description(@"An order to buy or sell at the closing price or an odd lot order to buy or sell to be filled at the closing of the round lot offer, plus a differential for a buy order or minus the differential on a sell order.")]
-    AtTheClosing,
+    AtTheClosing = ExecutionTimeLimitCode.AtTheClosing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order that, if not executed, expires at the end of the trading day on which the order is entered.
-    /// Encoded/decoded by serializers as "GoodForTheDay".
+    /// Encoded/decoded by serializers as "GDAY".
     /// </summary>
     [EnumMember(Value = "GDAY")]
     [IsoId("_ak_mwdp-Ed-ak6NoX_4Aeg_1243378321")]
     [Description(@"An order that, if not executed, expires at the end of the trading day on which the order is entered.")]
-    GoodForTheDay,
+    GoodForTheDay = ExecutionTimeLimitCode.GoodForTheDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order that remains in effect until it is either executed or cancelled.
-    /// Encoded/decoded by serializers as "GoodUntilCancelled".
+    /// Encoded/decoded by serializers as "GTCA".
     /// </summary>
     [EnumMember(Value = "GTCA")]
     [IsoId("_ak_mwtp-Ed-ak6NoX_4Aeg_1266466316")]
     [Description(@"An order that remains in effect until it is either executed or cancelled.")]
-    GoodUntilCancelled,
+    GoodUntilCancelled = ExecutionTimeLimitCode.GoodUntilCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An Order that if not executed, expires at the end of the specified expiry date.
-    /// Encoded/decoded by serializers as "GoodThroughDate".
+    /// Encoded/decoded by serializers as "GTHD".
     /// </summary>
     [EnumMember(Value = "GTHD")]
     [IsoId("_ak_mw9p-Ed-ak6NoX_4Aeg_1525053559")]
     [Description(@"An Order that if not executed, expires at the end of the specified expiry date.")]
-    GoodThroughDate,
+    GoodThroughDate = ExecutionTimeLimitCode.GoodThroughDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order that, if not executed, expires at the end of the month on which the order is entered.
-    /// Encoded/decoded by serializers as "GoodForTheMonth".
+    /// Encoded/decoded by serializers as "GTMO".
     /// </summary>
     [EnumMember(Value = "GTMO")]
     [IsoId("_ak_mxNp-Ed-ak6NoX_4Aeg_1540753480")]
     [Description(@"An order that, if not executed, expires at the end of the month on which the order is entered.")]
-    GoodForTheMonth,
+    GoodForTheMonth = ExecutionTimeLimitCode.GoodForTheMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.
-    /// Encoded/decoded by serializers as "FillOrKill".
+    /// Encoded/decoded by serializers as "FIKI".
     /// </summary>
     [EnumMember(Value = "FIKI")]
     [IsoId("_ak_mxdp-Ed-ak6NoX_4Aeg_1559224088")]
     [Description(@"A market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.")]
-    FillOrKill,
+    FillOrKill = ExecutionTimeLimitCode.FillOrKill, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates an order that is good until the end of next month.
-    /// Encoded/decoded by serializers as "GoodUntilTheEndOfNextMonth".
+    /// Encoded/decoded by serializers as "GTNM".
     /// </summary>
     [EnumMember(Value = "GTNM")]
     [IsoId("_ak_mxtp-Ed-ak6NoX_4Aeg_1580465504")]
     [Description(@"Indicates an order that is good until the end of next month.")]
-    GoodUntilTheEndOfNextMonth,
+    GoodUntilTheEndOfNextMonth = ExecutionTimeLimitCode.GoodUntilTheEndOfNextMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates an order that is good till crossed.
-    /// Encoded/decoded by serializers as "GoodTillCrossed".
+    /// Encoded/decoded by serializers as "GTXO".
     /// </summary>
     [EnumMember(Value = "GTXO")]
     [IsoId("_ak_mx9p-Ed-ak6NoX_4Aeg_1597089688")]
     [Description(@"Indicates an order that is good till crossed.")]
-    GoodTillCrossed,
+    GoodTillCrossed = ExecutionTimeLimitCode.GoodTillCrossed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.
-    /// Encoded/decoded by serializers as "ImmediateOrCancel".
+    /// Encoded/decoded by serializers as "IOCA".
     /// </summary>
     [EnumMember(Value = "IOCA")]
     [IsoId("_ak_myNp-Ed-ak6NoX_4Aeg_1655271016")]
     [Description(@"A market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.")]
-    ImmediateOrCancel,
+    ImmediateOrCancel = ExecutionTimeLimitCode.ImmediateOrCancel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum ExecutionTimeLimit1Code
 public static class ExecutionTimeLimit1CodeMetadataExtensions
 {
     private static readonly ExecutionTimeLimit1CodeDropdownSource _dropdownSource = new ExecutionTimeLimit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

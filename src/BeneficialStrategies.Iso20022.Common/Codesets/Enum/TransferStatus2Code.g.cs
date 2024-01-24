@@ -21,48 +21,48 @@ public enum TransferStatus2Code
 {
     /// <summary>
     /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YvIRV9p-Ed-ak6NoX_4Aeg_82230149")]
     [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
-    Accepted,
+    Accepted = TransferStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "SentToNextParty".
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_YvIRWNp-Ed-ak6NoX_4Aeg_82230165")]
     [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
-    SentToNextParty,
+    SentToNextParty = TransferStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MACH".
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_YvRbQNp-Ed-ak6NoX_4Aeg_82230182")]
     [Description(@"Transfer or settlement instruction is matched.")]
-    Matched,
+    Matched = TransferStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is fully executed and the confirmation is sent.
-    /// Encoded/decoded by serializers as "AlreadyExecuted".
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_YvRbQdp-Ed-ak6NoX_4Aeg_82230200")]
     [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
-    AlreadyExecuted,
+    AlreadyExecuted = TransferStatusCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer or settlement instruction is settled.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_YvRbQtp-Ed-ak6NoX_4Aeg_630620620")]
     [Description(@"Transfer or settlement instruction is settled.")]
-    Settled,
+    Settled = TransferStatusCode.Settled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TransferStatus2Code
 public static class TransferStatus2CodeMetadataExtensions
 {
     private static readonly TransferStatus2CodeDropdownSource _dropdownSource = new TransferStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

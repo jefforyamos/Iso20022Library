@@ -21,50 +21,48 @@ public enum GoodAndServiceDeliverySchedule1Code
 {
     /// <summary>
     /// Other delivery schedule defined at national level.
-    /// 
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_XHWOAT5LEeyHI64WSlzTlg")]
-    [Description(@"Other delivery schedule defined at national level. ")]
-    OtherNational,
+    [Description(@"Other delivery schedule defined at national level.|")]
+    OtherNational = GoodAndServiceDeliveryScheduleCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other delivery schedule defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_XMX38T5LEeyHI64WSlzTlg")]
     [Description(@"Other delivery schedule defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = GoodAndServiceDeliveryScheduleCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Overnight delivery.
-    /// Encoded/decoded by serializers as "OvernightDelivery.".
+    /// Encoded/decoded by serializers as "ONDL".
     /// </summary>
     [EnumMember(Value = "ONDL")]
     [IsoId("_XQlpkT5LEeyHI64WSlzTlg")]
     [Description(@"Overnight delivery.")]
-    OvernightDelivery,
+    OvernightDelivery = GoodAndServiceDeliveryScheduleCode.OvernightDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Same day delivery.
-    /// 
-    /// Encoded/decoded by serializers as "SameDayDelivery".
+    /// Encoded/decoded by serializers as "SDDL".
     /// </summary>
     [EnumMember(Value = "SDDL")]
     [IsoId("_XW6UAT5LEeyHI64WSlzTlg")]
-    [Description(@"Same day delivery. ")]
-    SameDayDelivery,
+    [Description(@"Same day delivery.|")]
+    SameDayDelivery = GoodAndServiceDeliveryScheduleCode.SameDayDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Two days or more delivery.
-    /// Encoded/decoded by serializers as "TwoDaysOrMoreDelivery.".
+    /// Encoded/decoded by serializers as "TDDL".
     /// </summary>
     [EnumMember(Value = "TDDL")]
     [IsoId("_XalTET5LEeyHI64WSlzTlg")]
     [Description(@"Two days or more delivery.")]
-    TwoDaysOrMoreDelivery,
+    TwoDaysOrMoreDelivery = GoodAndServiceDeliveryScheduleCode.TwoDaysOrMoreDelivery, // same ordinal as derivation source for type conversions
     
 }
 
@@ -75,7 +73,7 @@ public enum GoodAndServiceDeliverySchedule1Code
 public static class GoodAndServiceDeliverySchedule1CodeMetadataExtensions
 {
     private static readonly GoodAndServiceDeliverySchedule1CodeDropdownSource _dropdownSource = new GoodAndServiceDeliverySchedule1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

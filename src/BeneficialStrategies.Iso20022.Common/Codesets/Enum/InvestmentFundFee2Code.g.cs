@@ -21,66 +21,66 @@ public enum InvestmentFundFee2Code
 {
     /// <summary>
     /// Fee paid by the investor to the fund or fund management company when redeeming.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_uPlWAa26EeerDLLe8bZJCA")]
     [Description(@"Fee paid by the investor to the fund or fund management company when redeeming.")]
-    BackEndLoad,
+    BackEndLoad = InvestmentFundFeeCode.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid by the investor to the fund or fund management company when subscribing.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_uhu18a26EeerDLLe8bZJCA")]
     [Description(@"Fee paid by the investor to the fund or fund management company when subscribing.")]
-    FrontEndLoad,
+    FrontEndLoad = InvestmentFundFeeCode.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TransferFee".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_uzbp8a26EeerDLLe8bZJCA")]
     [Description(@"In investment funds, a fee charged for the transfer of ownership of an investment fund.")]
-    TransferFee,
+    TransferFee = InvestmentFundFeeCode.TransferFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "PostageCharge".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_0rY70a26EeerDLLe8bZJCA")]
     [Description(@"Charge paid for the postage.")]
-    PostageCharge,
+    PostageCharge = InvestmentFundFeeCode.PostageCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by a regulatory authority, for example, securities and exchange fees.
-    /// Encoded/decoded by serializers as "RegulatoryFee".
+    /// Encoded/decoded by serializers as "REGF".
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_48070a26EeerDLLe8bZJCA")]
     [Description(@"Fee charged by a regulatory authority, for example, securities and exchange fees.")]
-    RegulatoryFee,
+    RegulatoryFee = InvestmentFundFeeCode.RegulatoryFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "ShippingCharge".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_6HEhYa26EeerDLLe8bZJCA")]
     [Description(@"Charge for shipping, including the insurance of securities.")]
-    ShippingCharge,
+    ShippingCharge = InvestmentFundFeeCode.ShippingCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SpecialConcessions".
+    /// Encoded/decoded by serializers as "SPCN".
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_uV2goa27EeerDLLe8bZJCA")]
     [Description(@"Fees, drawdown, or other reduction from or in addition to the deal price.")]
-    SpecialConcessions,
+    SpecialConcessions = InvestmentFundFeeCode.SpecialConcessions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum InvestmentFundFee2Code
 public static class InvestmentFundFee2CodeMetadataExtensions
 {
     private static readonly InvestmentFundFee2CodeDropdownSource _dropdownSource = new InvestmentFundFee2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

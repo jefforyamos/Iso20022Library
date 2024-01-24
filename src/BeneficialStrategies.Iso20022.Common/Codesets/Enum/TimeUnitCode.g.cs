@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YmCmwNp-Ed-ak6NoX_4Aeg_-22472882")]
 [Description(@"Specifies the time unit.")]
 [Derivations(typeof(TimeUnit1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TimeUnitCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum TimeUnitCode
 public static class TimeUnitCodeMetadataExtensions
 {
     private static readonly TimeUnitCodeDropdownSource _dropdownSource = new TimeUnitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

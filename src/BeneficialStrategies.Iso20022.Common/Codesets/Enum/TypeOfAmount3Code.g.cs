@@ -21,57 +21,57 @@ public enum TypeOfAmount3Code
 {
     /// <summary>
     /// Cash-back amount.
-    /// Encoded/decoded by serializers as "Cashback".
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_Y_iR4PwLEeGHDMP28rpT3g_-1513006654")]
     [Description(@"Cash-back amount.")]
-    Cashback,
+    Cashback = TypeOfAmountCode.Cashback, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gratuity amount.
-    /// Encoded/decoded by serializers as "Gratuity".
+    /// Encoded/decoded by serializers as "GRTY".
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_Y_iR4fwLEeGHDMP28rpT3g_-1804964392")]
     [Description(@"Gratuity amount.")]
-    Gratuity,
+    Gratuity = TypeOfAmountCode.Gratuity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service fee.
-    /// Encoded/decoded by serializers as "ServiceFee".
+    /// Encoded/decoded by serializers as "SRVF".
     /// </summary>
     [EnumMember(Value = "SRVF")]
     [IsoId("_Y_iR4vwLEeGHDMP28rpT3g_748675924")]
     [Description(@"Service fee.")]
-    ServiceFee,
+    ServiceFee = TypeOfAmountCode.ServiceFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "InterchangeFee".
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Y_iR4_wLEeGHDMP28rpT3g_1117249163")]
     [Description(@"Interchange fee.")]
-    InterchangeFee,
+    InterchangeFee = TypeOfAmountCode.InterchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original amount authorised during the real-time authorisation process.
-    /// Encoded/decoded by serializers as "Original".
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_Y_iR5PwLEeGHDMP28rpT3g_1606769617")]
     [Description(@"Original amount authorised during the real-time authorisation process.")]
-    Original,
+    Original = TypeOfAmountCode.Original, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_Y_iR5fwLEeGHDMP28rpT3g_1784888289")]
     [Description(@"Extra fee for a purchase or a withdrawal.")]
-    Surcharge,
+    Surcharge = TypeOfAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum TypeOfAmount3Code
 public static class TypeOfAmount3CodeMetadataExtensions
 {
     private static readonly TypeOfAmount3CodeDropdownSource _dropdownSource = new TypeOfAmount3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

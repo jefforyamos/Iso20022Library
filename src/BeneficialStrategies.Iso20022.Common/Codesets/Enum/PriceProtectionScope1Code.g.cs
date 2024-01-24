@@ -21,30 +21,30 @@ public enum PriceProtectionScope1Code
 {
     /// <summary>
     /// Price protection is local (for example, Exchange, ECN, ATS).
-    /// Encoded/decoded by serializers as "Local".
+    /// Encoded/decoded by serializers as "LOCA".
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aIreN9p-Ed-ak6NoX_4Aeg_-469828845")]
     [Description(@"Price protection is local (for example, Exchange, ECN, ATS).")]
-    Local,
+    Local = PriceProtectionScopeCode.Local, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price protection is national (across all national markets).
-    /// Encoded/decoded by serializers as "National".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_aIreONp-Ed-ak6NoX_4Aeg_-469828551")]
     [Description(@"Price protection is national (across all national markets).")]
-    National,
+    National = PriceProtectionScopeCode.National, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price protection is global (across all markets).
-    /// Encoded/decoded by serializers as "Global".
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PMNp-Ed-ak6NoX_4Aeg_-469828498")]
     [Description(@"Price protection is global (across all markets).")]
-    Global,
+    Global = PriceProtectionScopeCode.Global, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PriceProtectionScope1Code
 public static class PriceProtectionScope1CodeMetadataExtensions
 {
     private static readonly PriceProtectionScope1CodeDropdownSource _dropdownSource = new PriceProtectionScope1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

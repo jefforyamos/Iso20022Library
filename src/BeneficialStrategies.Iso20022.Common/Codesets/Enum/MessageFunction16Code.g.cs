@@ -16,54 +16,54 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_96BnAE9yEeePXdaAO32Uew")]
-[Description(@"Identifies the type of process related to a financial initiation and financial response message. ISO 8583 MTI")]
+[Description(@"Identifies the type of process related to a financial initiation and financial response message.|ISO 8583 MTI")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction16Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVC".
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_4blWEemrEemNVKPwszFC-A")]
     [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
-    Advice,
+    Advice = MessageFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "Notification".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_68aUEemrEemNVKPwszFC-A")]
     [Description(@"Information about the transaction.")]
-    Notification,
+    Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice about the capture of an activity already performed (response expected).
-    /// Encoded/decoded by serializers as "CaptureAdvice".
+    /// Encoded/decoded by serializers as "CAAD".
     /// </summary>
     [EnumMember(Value = "CAAD")]
     [IsoId("_86kp4emrEemNVKPwszFC-A")]
     [Description(@"Advice about the capture of an activity already performed (response expected).")]
-    CaptureAdvice,
+    CaptureAdvice = MessageFunctionCode.CaptureAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification about the capture of an activity already performed (no response expected).
-    /// Encoded/decoded by serializers as "CaptureNotification".
+    /// Encoded/decoded by serializers as "CANO".
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_9CAuoemrEemNVKPwszFC-A")]
     [Description(@"Notification about the capture of an activity already performed (no response expected).")]
-    CaptureNotification,
+    CaptureNotification = MessageFunctionCode.CaptureNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_90vMEemrEemNVKPwszFC-A")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
 }
 
@@ -74,7 +74,7 @@ public enum MessageFunction16Code
 public static class MessageFunction16CodeMetadataExtensions
 {
     private static readonly MessageFunction16CodeDropdownSource _dropdownSource = new MessageFunction16CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

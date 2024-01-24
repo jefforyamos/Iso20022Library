@@ -126,7 +126,7 @@ public enum DisruptionFallbackCode
 public static class DisruptionFallbackCodeMetadataExtensions
 {
     private static readonly DisruptionFallbackCodeDropdownSource _dropdownSource = new DisruptionFallbackCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

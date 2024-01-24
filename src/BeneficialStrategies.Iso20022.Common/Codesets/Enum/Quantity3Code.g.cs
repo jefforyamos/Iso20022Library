@@ -21,21 +21,21 @@ public enum Quantity3Code
 {
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "AllSecurities".
+    /// Encoded/decoded by serializers as "QALL".
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_q5bENmtdEeCY4-KZ9JEyUQ_-1074232711")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    AllSecurities,
+    AllSecurities = QuantityCode.AllSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UnknownQuantity".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5kOIGtdEeCY4-KZ9JEyUQ_-1913030463")]
     [Description(@"Quantity is unknown by the sender or has not been established.")]
-    UnknownQuantity,
+    UnknownQuantity = QuantityCode.UnknownQuantity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Quantity3Code
 public static class Quantity3CodeMetadataExtensions
 {
     private static readonly Quantity3CodeDropdownSource _dropdownSource = new Quantity3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

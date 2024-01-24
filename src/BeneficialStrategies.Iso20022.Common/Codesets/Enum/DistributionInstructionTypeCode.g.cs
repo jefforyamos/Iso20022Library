@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_awnn9dp-Ed-ak6NoX_4Aeg_-2013477214")]
 [Description(@"Specifies the type of distribution instruction.")]
 [Derivations(typeof(DistributionInstructionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DistributionInstructionTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum DistributionInstructionTypeCode
 public static class DistributionInstructionTypeCodeMetadataExtensions
 {
     private static readonly DistributionInstructionTypeCodeDropdownSource _dropdownSource = new DistributionInstructionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

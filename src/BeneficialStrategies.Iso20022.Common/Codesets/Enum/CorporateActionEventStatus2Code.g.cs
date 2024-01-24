@@ -21,30 +21,30 @@ public enum CorporateActionEventStatus2Code
 {
     /// <summary>
     /// The CA event is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_bEJA6Np-Ed-ak6NoX_4Aeg_2035657828")]
     [Description(@"The CA event is active.")]
-    Active,
+    Active = CorporateActionEventStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The CA event is cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bESK0Np-Ed-ak6NoX_4Aeg_2035657849")]
     [Description(@"The CA event is cancelled.")]
-    Cancelled,
+    Cancelled = CorporateActionEventStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_bESK0dp-Ed-ak6NoX_4Aeg_2035657858")]
     [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.")]
-    Inactive,
+    Inactive = CorporateActionEventStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionEventStatus2Code
 public static class CorporateActionEventStatus2CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStatus2CodeDropdownSource _dropdownSource = new CorporateActionEventStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

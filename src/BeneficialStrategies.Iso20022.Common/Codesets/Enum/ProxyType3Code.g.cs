@@ -21,39 +21,39 @@ public enum ProxyType3Code
 {
     /// <summary>
     /// Chairman of the meeting is the proxy.
-    /// Encoded/decoded by serializers as "Chairman".
+    /// Encoded/decoded by serializers as "CHRM".
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_cpOisRrfEeyhRdHRjakS2w")]
     [Description(@"Chairman of the meeting is the proxy.")]
-    Chairman,
+    Chairman = ProxyTypeCode.Chairman, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any type of proxy is allowed.
-    /// Encoded/decoded by serializers as "Discretionary".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_ctjCARrfEeyhRdHRjakS2w")]
     [Description(@"Any type of proxy is allowed.")]
-    Discretionary,
+    Discretionary = ProxyTypeCode.Discretionary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Neutral proxy nominated by the issuer to execute votes on behalf of investors at the meeting.
-    /// Encoded/decoded by serializers as "NeutralProxy".
+    /// Encoded/decoded by serializers as "NEPR".
     /// </summary>
     [EnumMember(Value = "NEPR")]
     [IsoId("_cyUNQRrfEeyhRdHRjakS2w")]
     [Description(@"Neutral proxy nominated by the issuer to execute votes on behalf of investors at the meeting.")]
-    NeutralProxy,
+    NeutralProxy = ProxyTypeCode.NeutralProxy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Proxy can only be a security holder.
-    /// Encoded/decoded by serializers as "SecurityHolder".
+    /// Encoded/decoded by serializers as "HLDR".
     /// </summary>
     [EnumMember(Value = "HLDR")]
     [IsoId("_c2ydkRrfEeyhRdHRjakS2w")]
     [Description(@"Proxy can only be a security holder.")]
-    SecurityHolder,
+    SecurityHolder = ProxyTypeCode.SecurityHolder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProxyType3Code
 public static class ProxyType3CodeMetadataExtensions
 {
     private static readonly ProxyType3CodeDropdownSource _dropdownSource = new ProxyType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

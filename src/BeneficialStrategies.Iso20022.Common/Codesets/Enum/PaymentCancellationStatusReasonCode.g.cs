@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OnEtsB04EeiYoZGjIMHr2A")]
 [Description(@"Provides status reasons with regards to the cancellation of the payment.")]
 [Derivations(typeof(PaymentCancellationStatusReason3Code),typeof(PaymentCancellationStatusReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentCancellationStatusReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PaymentCancellationStatusReasonCode
 public static class PaymentCancellationStatusReasonCodeMetadataExtensions
 {
     private static readonly PaymentCancellationStatusReasonCodeDropdownSource _dropdownSource = new PaymentCancellationStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

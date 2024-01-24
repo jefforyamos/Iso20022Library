@@ -21,48 +21,48 @@ public enum CancelledStatusReason11Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CancelledByYourself".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_q2JGtmtdEeCY4-KZ9JEyUQ_-816468203")]
     [Description(@"Transaction is cancelled by yourself.")]
-    CancelledByYourself,
+    CancelledByYourself = CancelledStatusReasonV2Code.CancelledByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CancelledByOther".
+    /// Encoded/decoded by serializers as "CANO".
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_q2S3sGtdEeCY4-KZ9JEyUQ_1372396382")]
     [Description(@"Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.")]
-    CancelledByOther,
+    CancelledByOther = CancelledStatusReasonV2Code.CancelledByOther, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelledBySystem".
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_q2S3sWtdEeCY4-KZ9JEyUQ_-1844550576")]
     [Description(@"Transaction is cancelled by the system.")]
-    CancelledBySystem,
+    CancelledBySystem = CancelledStatusReasonV2Code.CancelledBySystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_q2S3smtdEeCY4-KZ9JEyUQ_1453344367")]
     [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
-    CancelledByAgent,
+    CancelledByAgent = CancelledStatusReasonV2Code.CancelledByAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_q2S3s2tdEeCY4-KZ9JEyUQ_-486739620")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = CancelledStatusReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CancelledStatusReason11Code
 public static class CancelledStatusReason11CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason11CodeDropdownSource _dropdownSource = new CancelledStatusReason11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

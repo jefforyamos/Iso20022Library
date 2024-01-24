@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_m8c_gMm4EeWAGphE2LvqeA")]
 [Description(@"Specifies the combination of mode and type of the query information.")]
 [Derivations(typeof(RequestModeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RequestModeTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum RequestModeTypeCode
 public static class RequestModeTypeCodeMetadataExtensions
 {
     private static readonly RequestModeTypeCodeDropdownSource _dropdownSource = new RequestModeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

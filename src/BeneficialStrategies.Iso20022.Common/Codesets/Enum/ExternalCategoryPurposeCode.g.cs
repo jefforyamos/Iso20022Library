@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_gyn2AIKWEeeCI5iKR7LsYQ")]
-[Description(@"Specifies the category purpose, as published in an external category purpose code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the category purpose, as published in an external category purpose code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalCategoryPurpose1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalCategoryPurposeCode
 {
     /// <summary>
@@ -352,7 +351,7 @@ public enum ExternalCategoryPurposeCode
     /// </summary>
     [EnumMember(Value = "SWEP")]
     [IsoId("_ND97QFEoEey6cYDbEubNXg")]
-    [Description(@"Classification: Cash Management. Transaction relates to a cash management instruction, requesting a sweep of the account of the Debtor above an agreed floor amount, up to a target or zero balance. The purpose is to move the funds from multiple accounts to a single bank account. Funds can move domestically or across border and more than one bank can be used.")]
+    [Description(@"Classification: Cash Management. Transaction relates to a cash management instruction, requesting a sweep of the account of the Debtor above an agreed floor amount, up to a target or zero balance.|The purpose is to move the funds from multiple accounts to a single bank account. Funds can move domestically or across border and more than one bank can be used.")]
     CashManagementSweepAccount,
     
     /// <summary>
@@ -362,7 +361,7 @@ public enum ExternalCategoryPurposeCode
     /// </summary>
     [EnumMember(Value = "TOPG")]
     [IsoId("_0Z0gQFEoEey6cYDbEubNXg")]
-    [Description(@"Classification: Cash Management. Transaction relates to a cash management instruction, requesting to top the account of the Creditor above a certain floor amount, up to a target or zero balance.  The floor amount, if not pre-agreed by the parties involved, may be specified.")]
+    [Description(@"Classification: Cash Management. Transaction relates to a cash management instruction, requesting to top the account of the Creditor above a certain floor amount, up to a target or zero balance. |The floor amount, if not pre-agreed by the parties involved, may be specified.")]
     CashManagementTopAccount,
     
     /// <summary>
@@ -372,7 +371,7 @@ public enum ExternalCategoryPurposeCode
     /// </summary>
     [EnumMember(Value = "ZABA")]
     [IsoId("_oFvDAFEpEey6cYDbEubNXg")]
-    [Description(@"Transaction relates to a cash management instruction, requesting to zero balance the account of the Debtor. Zero Balance Accounts empty or fill the balances in accounts at the same bank, in the same country into or out of a main account each day.")]
+    [Description(@"Transaction relates to a cash management instruction, requesting to zero balance the account of the Debtor.|Zero Balance Accounts empty or fill the balances in accounts at the same bank, in the same country into or out of a main account each day.")]
     CashManagementZeroBalanceAccount,
     
     /// <summary>
@@ -429,7 +428,7 @@ public enum ExternalCategoryPurposeCode
 public static class ExternalCategoryPurposeCodeMetadataExtensions
 {
     private static readonly ExternalCategoryPurposeCodeDropdownSource _dropdownSource = new ExternalCategoryPurposeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

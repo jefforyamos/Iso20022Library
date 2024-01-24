@@ -21,84 +21,84 @@ public enum TerminalManagementActionResult2Code
 {
     /// <summary>
     /// Problem to connect while performing the action.
-    /// Encoded/decoded by serializers as "ConnectionError".
+    /// Encoded/decoded by serializers as "CNTE".
     /// </summary>
     [EnumMember(Value = "CNTE")]
     [IsoId("_wh7IcYr3EeSvuOJS0mmL0g")]
     [Description(@"Problem to connect while performing the action.")]
-    ConnectionError,
+    ConnectionError = TerminalManagementActionResultCode.ConnectionError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong format.
-    /// Encoded/decoded by serializers as "FormatError".
+    /// Encoded/decoded by serializers as "FMTE".
     /// </summary>
     [EnumMember(Value = "FMTE")]
     [IsoId("_ws0w44r3EeSvuOJS0mmL0g")]
     [Description(@"Data transferred has a wrong format.")]
-    FormatError,
+    FormatError = TerminalManagementActionResultCode.FormatError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hardware error.
-    /// Encoded/decoded by serializers as "Hardware".
+    /// Encoded/decoded by serializers as "HRDW".
     /// </summary>
     [EnumMember(Value = "HRDW")]
     [IsoId("_w1T-g4r3EeSvuOJS0mmL0g")]
     [Description(@"Hardware error.")]
-    Hardware,
+    Hardware = TerminalManagementActionResultCode.Hardware, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action is not supported.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "NSUP".
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_x7CQcor3EeSvuOJS0mmL0g")]
     [Description(@"Action is not supported.")]
-    NotSupported,
+    NotSupported = TerminalManagementActionResultCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security error.
-    /// Encoded/decoded by serializers as "Security".
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_yF5co4r3EeSvuOJS0mmL0g")]
     [Description(@"Security error.")]
-    Security,
+    Security = TerminalManagementActionResultCode.Security, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action was successfully performed.
-    /// Encoded/decoded by serializers as "Success".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_yNUTQYr3EeSvuOJS0mmL0g")]
     [Description(@"Action was successfully performed.")]
-    Success,
+    Success = TerminalManagementActionResultCode.Success, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data transferred has a wrong syntax.
-    /// Encoded/decoded by serializers as "SyntaxError".
+    /// Encoded/decoded by serializers as "SYNE".
     /// </summary>
     [EnumMember(Value = "SYNE")]
     [IsoId("_zAQME4r3EeSvuOJS0mmL0g")]
     [Description(@"Data transferred has a wrong syntax.")]
-    SyntaxError,
+    SyntaxError = TerminalManagementActionResultCode.SyntaxError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Timeout expired during the data transfer.
-    /// Encoded/decoded by serializers as "Timeout".
+    /// Encoded/decoded by serializers as "TIMO".
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_zG0HE4r3EeSvuOJS0mmL0g")]
     [Description(@"Timeout expired during the data transfer.")]
-    Timeout,
+    Timeout = TerminalManagementActionResultCode.Timeout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cryptographic key reference used for the data signature is not valid.
-    /// Encoded/decoded by serializers as "UnknownKeyReference".
+    /// Encoded/decoded by serializers as "UKRF".
     /// </summary>
     [EnumMember(Value = "UKRF")]
     [IsoId("_zbnSY4r3EeSvuOJS0mmL0g")]
     [Description(@"Cryptographic key reference used for the data signature is not valid.")]
-    UnknownKeyReference,
+    UnknownKeyReference = TerminalManagementActionResultCode.UnknownKeyReference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TerminalManagementActionResult2Code
 public static class TerminalManagementActionResult2CodeMetadataExtensions
 {
     private static readonly TerminalManagementActionResult2CodeDropdownSource _dropdownSource = new TerminalManagementActionResult2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

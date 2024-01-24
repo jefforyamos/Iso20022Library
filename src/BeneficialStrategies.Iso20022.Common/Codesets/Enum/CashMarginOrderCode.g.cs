@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a7DWUNp-Ed-ak6NoX_4Aeg_335335634")]
 [Description(@"Identifies whether an order is a non-margin, an opening margin or a closing margin order.")]
 [Derivations(typeof(CashMarginOrder1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashMarginOrderCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CashMarginOrderCode
 public static class CashMarginOrderCodeMetadataExtensions
 {
     private static readonly CashMarginOrderCodeDropdownSource _dropdownSource = new CashMarginOrderCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

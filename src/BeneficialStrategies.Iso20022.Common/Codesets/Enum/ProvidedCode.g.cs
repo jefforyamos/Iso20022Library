@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_5IF6kxKEEeKj15WxqwlXPw")]
 [Description(@"Specifies whether items have been provided.")]
 [Derivations(typeof(Provided1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProvidedCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ProvidedCode
 public static class ProvidedCodeMetadataExtensions
 {
     private static readonly ProvidedCodeDropdownSource _dropdownSource = new ProvidedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

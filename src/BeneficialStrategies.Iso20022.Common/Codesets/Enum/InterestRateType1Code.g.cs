@@ -21,21 +21,21 @@ public enum InterestRateType1Code
 {
     /// <summary>
     /// Rate is fixed.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_y3adwbtKEeSmENFdxjMqzQ")]
     [Description(@"Rate is fixed.")]
-    Fixed,
+    Fixed = InterestRateTypeCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is variable.
-    /// Encoded/decoded by serializers as "Variable".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_zCH48btKEeSmENFdxjMqzQ")]
     [Description(@"Rate is variable.")]
-    Variable,
+    Variable = InterestRateTypeCode.Variable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InterestRateType1Code
 public static class InterestRateType1CodeMetadataExtensions
 {
     private static readonly InterestRateType1CodeDropdownSource _dropdownSource = new InterestRateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

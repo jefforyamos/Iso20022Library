@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZPUNRtp-Ed-ak6NoX_4Aeg_1133516215")]
 [Description(@"Type of signature form.")]
 [Derivations(typeof(SignatureType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SignatureTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum SignatureTypeCode
 public static class SignatureTypeCodeMetadataExtensions
 {
     private static readonly SignatureTypeCodeDropdownSource _dropdownSource = new SignatureTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

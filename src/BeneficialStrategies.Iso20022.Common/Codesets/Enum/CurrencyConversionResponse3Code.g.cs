@@ -21,84 +21,84 @@ public enum CurrencyConversionResponse3Code
 {
     /// <summary>
     /// Dynamic currency conversion may be offered to the cardholder.
-    /// Encoded/decoded by serializers as "Allowed".
+    /// Encoded/decoded by serializers as "ODCC".
     /// </summary>
     [EnumMember(Value = "ODCC")]
     [IsoId("_TxYRga_VEeaepNKtQMrGAQ")]
     [Description(@"Dynamic currency conversion may be offered to the cardholder.")]
-    Allowed,
+    Allowed = CurrencyConversionResponseCode.Allowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction authorised with dynamic currency conversion.
-    /// Encoded/decoded by serializers as "Assumed".
+    /// Encoded/decoded by serializers as "DCCA".
     /// </summary>
     [EnumMember(Value = "DCCA")]
     [IsoId("_TxYRg6_VEeaepNKtQMrGAQ")]
     [Description(@"Transaction authorised with dynamic currency conversion.")]
-    Assumed,
+    Assumed = CurrencyConversionResponseCode.Assumed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "InvalidCard".
+    /// Encoded/decoded by serializers as "ICRD".
     /// </summary>
     [EnumMember(Value = "ICRD")]
     [IsoId("_TxYRha_VEeaepNKtQMrGAQ")]
     [Description(@"The card is not valid for dynamic currency conversion.")]
-    InvalidCard,
+    InvalidCard = CurrencyConversionResponseCode.InvalidCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card acceptor has not been recognised.
-    /// Encoded/decoded by serializers as "InvalidMerchant".
+    /// Encoded/decoded by serializers as "IMER".
     /// </summary>
     [EnumMember(Value = "IMER")]
     [IsoId("_TxYRh6_VEeaepNKtQMrGAQ")]
     [Description(@"The card acceptor has not been recognised.")]
-    InvalidMerchant,
+    InvalidMerchant = CurrencyConversionResponseCode.InvalidMerchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion service cannot be offered for this card product.
-    /// Encoded/decoded by serializers as "InvalidProduct".
+    /// Encoded/decoded by serializers as "IPRD".
     /// </summary>
     [EnumMember(Value = "IPRD")]
     [IsoId("_TxYRia_VEeaepNKtQMrGAQ")]
     [Description(@"Dynamic currency conversion service cannot be offered for this card product.")]
-    InvalidProduct,
+    InvalidProduct = CurrencyConversionResponseCode.InvalidProduct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange rates are not available.
-    /// Encoded/decoded by serializers as "NoRate".
+    /// Encoded/decoded by serializers as "IRAT".
     /// </summary>
     [EnumMember(Value = "IRAT")]
     [IsoId("_TxYRi6_VEeaepNKtQMrGAQ")]
     [Description(@"Exchange rates are not available.")]
-    NoRate,
+    NoRate = CurrencyConversionResponseCode.NoRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion is not available for other reason.
-    /// Encoded/decoded by serializers as "NotAvailable".
+    /// Encoded/decoded by serializers as "NDCC".
     /// </summary>
     [EnumMember(Value = "NDCC")]
     [IsoId("_TxYRja_VEeaepNKtQMrGAQ")]
     [Description(@"Dynamic currency conversion is not available for other reason.")]
-    NotAvailable,
+    NotAvailable = CurrencyConversionResponseCode.NotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conversion accepted for the requested amount exclusively.
-    /// Encoded/decoded by serializers as "Restriction".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_yMRGoa_VEeaepNKtQMrGAQ")]
     [Description(@"Conversion accepted for the requested amount exclusively.")]
-    Restriction,
+    Restriction = CurrencyConversionResponseCode.Restriction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conversion accepted for a range of amounts.
-    /// Encoded/decoded by serializers as "Catalogue".
+    /// Encoded/decoded by serializers as "CATG".
     /// </summary>
     [EnumMember(Value = "CATG")]
     [IsoId("_yiSZ8K_VEeaepNKtQMrGAQ")]
     [Description(@"Conversion accepted for a range of amounts.")]
-    Catalogue,
+    Catalogue = CurrencyConversionResponseCode.Catalogue, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum CurrencyConversionResponse3Code
 public static class CurrencyConversionResponse3CodeMetadataExtensions
 {
     private static readonly CurrencyConversionResponse3CodeDropdownSource _dropdownSource = new CurrencyConversionResponse3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

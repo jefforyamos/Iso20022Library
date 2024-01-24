@@ -21,21 +21,21 @@ public enum ClosedStatusReason1Code
 {
     /// <summary>
     /// Account is closed, following an instruction from the account servicer to close the account.
-    /// Encoded/decoded by serializers as "AccountServicerInstruction".
+    /// Encoded/decoded by serializers as "ASIN".
     /// </summary>
     [EnumMember(Value = "ASIN")]
     [IsoId("_Vq4u4U_wEeaB8-OWTiMVrQ")]
     [Description(@"Account is closed, following an instruction from the account servicer to close the account.")]
-    AccountServicerInstruction,
+    AccountServicerInstruction = ClosedStatusReasonCode.AccountServicerInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is closed, following an instruction from the client, or an authorised party, to close the account.
-    /// Encoded/decoded by serializers as "ClientInstruction".
+    /// Encoded/decoded by serializers as "CLIN".
     /// </summary>
     [EnumMember(Value = "CLIN")]
     [IsoId("_V0joQU_wEeaB8-OWTiMVrQ")]
     [Description(@"Account is closed, following an instruction from the client, or an authorised party, to close the account.")]
-    ClientInstruction,
+    ClientInstruction = ClosedStatusReasonCode.ClientInstruction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ClosedStatusReason1Code
 public static class ClosedStatusReason1CodeMetadataExtensions
 {
     private static readonly ClosedStatusReason1CodeDropdownSource _dropdownSource = new ClosedStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

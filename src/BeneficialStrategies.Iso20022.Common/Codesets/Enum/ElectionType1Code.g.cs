@@ -21,21 +21,21 @@ public enum ElectionType1Code
 {
     /// <summary>
     /// New election advice.
-    /// Encoded/decoded by serializers as "NewElection".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_ag-CaNp-Ed-ak6NoX_4Aeg_-1543884834")]
     [Description(@"New election advice.")]
-    NewElection,
+    NewElection = ElectionTypeCode.NewElection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Election advice which is the result of an option change.
-    /// Encoded/decoded by serializers as "OptionChange".
+    /// Encoded/decoded by serializers as "CHAN".
     /// </summary>
     [EnumMember(Value = "CHAN")]
     [IsoId("_ahHzYNp-Ed-ak6NoX_4Aeg_-1543884803")]
     [Description(@"Election advice which is the result of an option change.")]
-    OptionChange,
+    OptionChange = ElectionTypeCode.OptionChange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ElectionType1Code
 public static class ElectionType1CodeMetadataExtensions
 {
     private static readonly ElectionType1CodeDropdownSource _dropdownSource = new ElectionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

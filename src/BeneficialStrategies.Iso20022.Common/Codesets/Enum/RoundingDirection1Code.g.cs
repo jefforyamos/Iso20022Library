@@ -21,39 +21,39 @@ public enum RoundingDirection1Code
 {
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundUp".
+    /// Encoded/decoded by serializers as "RDUP".
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_Y-Bo9tp-Ed-ak6NoX_4Aeg_2066033827")]
     [Description(@"Round up to the nearest whole number.")]
-    RoundUp,
+    RoundUp = RoundingDirectionCode.RoundUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundDown".
+    /// Encoded/decoded by serializers as "RDWN".
     /// </summary>
     [EnumMember(Value = "RDWN")]
     [IsoId("_Y-Bo99p-Ed-ak6NoX_4Aeg_2066033828")]
     [Description(@"Round down to the nearest whole number.")]
-    RoundDown,
+    RoundDown = RoundingDirectionCode.RoundDown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round up or down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundToNearest".
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_Y-Bo-Np-Ed-ak6NoX_4Aeg_-1599090070")]
     [Description(@"Round up or down to the nearest whole number.")]
-    RoundToNearest,
+    RoundToNearest = RoundingDirectionCode.RoundToNearest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Do not round.
-    /// Encoded/decoded by serializers as "IssueFraction".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_Y-LZ8Np-Ed-ak6NoX_4Aeg_-1566769655")]
     [Description(@"Do not round.")]
-    IssueFraction,
+    IssueFraction = RoundingDirectionCode.IssueFraction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RoundingDirection1Code
 public static class RoundingDirection1CodeMetadataExtensions
 {
     private static readonly RoundingDirection1CodeDropdownSource _dropdownSource = new RoundingDirection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

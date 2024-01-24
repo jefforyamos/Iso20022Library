@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_rZdUMOXoEemEj48jhmlA0Q")]
 [Description(@"Specifies the type of dividend rate.")]
 [Derivations(typeof(NetDividendRateType7Code),typeof(NetDividendRateType6Code),typeof(GrossDividendRateType7Code),typeof(GrossDividendRateType6Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DividendRateTypeV2Code
 {
     /// <summary>
@@ -164,7 +163,7 @@ public enum DividendRateTypeV2Code
 public static class DividendRateTypeV2CodeMetadataExtensions
 {
     private static readonly DividendRateTypeV2CodeDropdownSource _dropdownSource = new DividendRateTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

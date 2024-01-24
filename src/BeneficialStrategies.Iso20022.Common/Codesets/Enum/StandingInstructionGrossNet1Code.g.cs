@@ -21,21 +21,21 @@ public enum StandingInstructionGrossNet1Code
 {
     /// <summary>
     /// Gross payment.
-    /// Encoded/decoded by serializers as "Gross".
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_ZPnIONp-Ed-ak6NoX_4Aeg_1018738724")]
     [Description(@"Gross payment.")]
-    Gross,
+    Gross = StandingInstructionGrossNetCode.Gross, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Net payment.
-    /// Encoded/decoded by serializers as "Net".
+    /// Encoded/decoded by serializers as "NETT".
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_ZPw5MNp-Ed-ak6NoX_4Aeg_1053834510")]
     [Description(@"Net payment.")]
-    Net,
+    Net = StandingInstructionGrossNetCode.Net, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StandingInstructionGrossNet1Code
 public static class StandingInstructionGrossNet1CodeMetadataExtensions
 {
     private static readonly StandingInstructionGrossNet1CodeDropdownSource _dropdownSource = new StandingInstructionGrossNet1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

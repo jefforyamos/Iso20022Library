@@ -21,75 +21,75 @@ public enum Frequency1Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_asJXoNp-Ed-ak6NoX_4Aeg_-1659048040")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = FrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_asJXodp-Ed-ak6NoX_4Aeg_-1659048023")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = FrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarterly".
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_asJXotp-Ed-ak6NoX_4Aeg_-1659047763")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarterly,
+    Quarterly = FrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SemiAnnual".
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_asJXo9p-Ed-ak6NoX_4Aeg_-1659047728")]
     [Description(@"Event takes place every six months or two times a year.")]
-    SemiAnnual,
+    SemiAnnual = FrequencyCode.SemiAnnual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "Weekly".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_asJXpNp-Ed-ak6NoX_4Aeg_-1659047711")]
     [Description(@"Event takes place once a week.")]
-    Weekly,
+    Weekly = FrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_asJXpdp-Ed-ak6NoX_4Aeg_-1659047650")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = FrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place on request or as necessary.
-    /// Encoded/decoded by serializers as "Adhoc".
+    /// Encoded/decoded by serializers as "ADHO".
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_asJXptp-Ed-ak6NoX_4Aeg_-1659047632")]
     [Description(@"Event takes place on request or as necessary.")]
-    Adhoc,
+    Adhoc = FrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "IntraDay".
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_asJXp9p-Ed-ak6NoX_4Aeg_-1659047324")]
     [Description(@"Event takes place several times a day.")]
-    IntraDay,
+    IntraDay = FrequencyCode.IntraDay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum Frequency1Code
 public static class Frequency1CodeMetadataExtensions
 {
     private static readonly Frequency1CodeDropdownSource _dropdownSource = new Frequency1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

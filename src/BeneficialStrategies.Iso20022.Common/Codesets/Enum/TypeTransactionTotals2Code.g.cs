@@ -21,57 +21,57 @@ public enum TypeTransactionTotals2Code
 {
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_b5dCUSqPEeKu3rbsflh_TQ")]
     [Description(@"Credit transactions (refund, account, cash service, as defined in the transaction service type).")]
-    Credit,
+    Credit = TypeTransactionTotalsCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CreditReverse".
+    /// Encoded/decoded by serializers as "CRDR".
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_cICQ4SqPEeKu3rbsflh_TQ")]
     [Description(@"Reversal of credit transactions (cancellation).")]
-    CreditReverse,
+    CreditReverse = TypeTransactionTotalsCode.CreditReverse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_cTpD8SqPEeKu3rbsflh_TQ")]
     [Description(@"Debit transactions on the cardholder account.")]
-    Debit,
+    Debit = TypeTransactionTotalsCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DebitReverse".
+    /// Encoded/decoded by serializers as "DBTR".
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_cgIn0SqPEeKu3rbsflh_TQ")]
     [Description(@"Reversal of debit transactions (cancellation).")]
-    DebitReverse,
+    DebitReverse = TypeTransactionTotalsCode.DebitReverse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Declined transactions.
-    /// Encoded/decoded by serializers as "Declined".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_csVQwSqPEeKu3rbsflh_TQ")]
     [Description(@"Declined transactions.")]
-    Declined,
+    Declined = TypeTransactionTotalsCode.Declined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Failed transactions.
-    /// Encoded/decoded by serializers as "Failed".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_c539gSqPEeKu3rbsflh_TQ")]
     [Description(@"Failed transactions.")]
-    Failed,
+    Failed = TypeTransactionTotalsCode.Failed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum TypeTransactionTotals2Code
 public static class TypeTransactionTotals2CodeMetadataExtensions
 {
     private static readonly TypeTransactionTotals2CodeDropdownSource _dropdownSource = new TypeTransactionTotals2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

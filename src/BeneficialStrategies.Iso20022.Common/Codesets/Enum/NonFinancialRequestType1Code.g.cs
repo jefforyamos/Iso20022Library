@@ -21,39 +21,39 @@ public enum NonFinancialRequestType1Code
 {
     /// <summary>
     /// According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.
-    /// Encoded/decoded by serializers as "AcquirerSelection".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_hzPIsS_rEeugIJ3Gvoevmg")]
     [Description(@"According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.")]
-    AcquirerSelection,
+    AcquirerSelection = NonFinancialRequestTypeCode.AcquirerSelection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.
-    /// Encoded/decoded by serializers as "ParRequest".
+    /// Encoded/decoded by serializers as "PARQ".
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_h4cY0S_rEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.")]
-    ParRequest,
+    ParRequest = NonFinancialRequestTypeCode.ParRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.
-    /// Encoded/decoded by serializers as "RiskManagement".
+    /// Encoded/decoded by serializers as "RISK".
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_h8-TgS_rEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.")]
-    RiskManagement,
+    RiskManagement = NonFinancialRequestTypeCode.RiskManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the token to use to process the transaction.
-    /// Encoded/decoded by serializers as "TokenRequest".
+    /// Encoded/decoded by serializers as "TOKN".
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_iB8TES_rEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer provides the token to use to process the transaction.")]
-    TokenRequest,
+    TokenRequest = NonFinancialRequestTypeCode.TokenRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum NonFinancialRequestType1Code
 public static class NonFinancialRequestType1CodeMetadataExtensions
 {
     private static readonly NonFinancialRequestType1CodeDropdownSource _dropdownSource = new NonFinancialRequestType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

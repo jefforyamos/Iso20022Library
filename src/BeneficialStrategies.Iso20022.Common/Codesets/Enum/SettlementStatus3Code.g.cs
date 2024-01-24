@@ -21,102 +21,102 @@ public enum SettlementStatus3Code
 {
     /// <summary>
     /// Settlement is accepted for settlement.
-    /// Encoded/decoded by serializers as "AcceptedForSettlement".
+    /// Encoded/decoded by serializers as "ASTL".
     /// </summary>
     [EnumMember(Value = "ASTL")]
     [IsoId("_IFf50QF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is accepted for settlement.")]
-    AcceptedForSettlement,
+    AcceptedForSettlement = SettlementStatusCode.AcceptedForSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is awaiting authorisation.
-    /// Encoded/decoded by serializers as "AwaitingAuthorisation".
+    /// Encoded/decoded by serializers as "AAUT".
     /// </summary>
     [EnumMember(Value = "AAUT")]
     [IsoId("_IKQeAQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is awaiting authorisation.")]
-    AwaitingAuthorisation,
+    AwaitingAuthorisation = SettlementStatusCode.AwaitingAuthorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is awaiting confirmation of creation.
-    /// Encoded/decoded by serializers as "AwaitingCreationConfirmation".
+    /// Encoded/decoded by serializers as "ACCF".
     /// </summary>
     [EnumMember(Value = "ACCF")]
     [IsoId("_IOk9UQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is awaiting confirmation of creation.")]
-    AwaitingCreationConfirmation,
+    AwaitingCreationConfirmation = SettlementStatusCode.AwaitingCreationConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is awaiting confirmation of rescind.
-    /// Encoded/decoded by serializers as "AwaitingRescindConfirmation".
+    /// Encoded/decoded by serializers as "ARCF".
     /// </summary>
     [EnumMember(Value = "ARCF")]
     [IsoId("_IScJoQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is awaiting confirmation of rescind.")]
-    AwaitingRescindConfirmation,
+    AwaitingRescindConfirmation = SettlementStatusCode.AwaitingRescindConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is matched.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MTCH".
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_IWwo8QF1EeutW5-TpeYJhA")]
     [Description(@"Instruction is matched.")]
-    Matched,
+    Matched = SettlementStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
-    /// Encoded/decoded by serializers as "PartiallySettled".
+    /// Encoded/decoded by serializers as "PSTL".
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_IaxmQQF1EeutW5-TpeYJhA")]
     [Description(@"Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.")]
-    PartiallySettled,
+    PartiallySettled = SettlementStatusCode.PartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_IfPPgQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is rejected.")]
-    Rejected,
+    Rejected = SettlementStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "Settled".
+    /// Encoded/decoded by serializers as "STLD".
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_IjQM0QF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is complete.")]
-    Settled,
+    Settled = SettlementStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement has been created.
-    /// Encoded/decoded by serializers as "SettlementTransactionCreated".
+    /// Encoded/decoded by serializers as "STCR".
     /// </summary>
     [EnumMember(Value = "STCR")]
     [IsoId("_InRKIQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement has been created.")]
-    SettlementTransactionCreated,
+    SettlementTransactionCreated = SettlementStatusCode.SettlementTransactionCreated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is split.
-    /// Encoded/decoded by serializers as "Split".
+    /// Encoded/decoded by serializers as "SPLT".
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_IruzYQF1EeutW5-TpeYJhA")]
     [Description(@"Settlement is split.")]
-    Split,
+    Split = SettlementStatusCode.Split, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is unmatched.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_Ix1bYQF1EeutW5-TpeYJhA")]
     [Description(@"Instruction is unmatched.")]
-    Unmatched,
+    Unmatched = SettlementStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum SettlementStatus3Code
 public static class SettlementStatus3CodeMetadataExtensions
 {
     private static readonly SettlementStatus3CodeDropdownSource _dropdownSource = new SettlementStatus3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

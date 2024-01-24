@@ -16,63 +16,63 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_VzKWseE8EeeV6-yubHrZaQ")]
-[Description(@"Identifies messages related to a retrieval request process. ISO 8583 MTI")]
+[Description(@"Identifies messages related to a retrieval request process.|ISO 8583 MTI")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction37Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "Advice".
+    /// Encoded/decoded by serializers as "ADVC".
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_lp1m8emuEemNVKPwszFC-A")]
     [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
-    Advice,
+    Advice = MessageFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "Notification".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_m5bmkemuEemNVKPwszFC-A")]
     [Description(@"Information about the transaction.")]
-    Notification,
+    Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_nhTe4emuEemNVKPwszFC-A")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification about the status of a transaction.
-    /// Encoded/decoded by serializers as "StatusNotification".
+    /// Encoded/decoded by serializers as "STNO".
     /// </summary>
     [EnumMember(Value = "STNO")]
     [IsoId("_osSrUemuEemNVKPwszFC-A")]
     [Description(@"Notification about the status of a transaction.")]
-    StatusNotification,
+    StatusNotification = MessageFunctionCode.StatusNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message function is a status request.
-    /// Encoded/decoded by serializers as "StatusRequest".
+    /// Encoded/decoded by serializers as "STRQ".
     /// </summary>
     [EnumMember(Value = "STRQ")]
     [IsoId("_pBkXwemuEemNVKPwszFC-A")]
     [Description(@"Message function is a status request.")]
-    StatusRequest,
+    StatusRequest = MessageFunctionCode.StatusRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Advice about the status of a transaction.
-    /// Encoded/decoded by serializers as "StatusAdvice".
+    /// Encoded/decoded by serializers as "STAD".
     /// </summary>
     [EnumMember(Value = "STAD")]
     [IsoId("_reXxYemuEemNVKPwszFC-A")]
     [Description(@"Advice about the status of a transaction.")]
-    StatusAdvice,
+    StatusAdvice = MessageFunctionCode.StatusAdvice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -83,7 +83,7 @@ public enum MessageFunction37Code
 public static class MessageFunction37CodeMetadataExtensions
 {
     private static readonly MessageFunction37CodeDropdownSource _dropdownSource = new MessageFunction37CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum FundIntention1Code
 {
     /// <summary>
     /// Qualified.
-    /// Encoded/decoded by serializers as "Qualified".
+    /// Encoded/decoded by serializers as "YQUA".
     /// </summary>
     [EnumMember(Value = "YQUA")]
     [IsoId("_YBiiASDYEeWCLu74WLgP4w")]
     [Description(@"Qualified.")]
-    Qualified,
+    Qualified = FundIntentionCode.Qualified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not qualified.
-    /// Encoded/decoded by serializers as "NotQualified".
+    /// Encoded/decoded by serializers as "NQUA".
     /// </summary>
     [EnumMember(Value = "NQUA")]
     [IsoId("_uOC44TavEeWxoIK_IhudJg")]
     [Description(@"Not qualified.")]
-    NotQualified,
+    NotQualified = FundIntentionCode.NotQualified, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FundIntention1Code
 public static class FundIntention1CodeMetadataExtensions
 {
     private static readonly FundIntention1CodeDropdownSource _dropdownSource = new FundIntention1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

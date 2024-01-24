@@ -21,21 +21,21 @@ public enum Validation2Code
 {
     /// <summary>
     /// Validation of the signature is successful.
-    /// Encoded/decoded by serializers as "ValidationSuccessful".
+    /// Encoded/decoded by serializers as "OKAY".
     /// </summary>
     [EnumMember(Value = "OKAY")]
     [IsoId("_H_9LkcmLEeWAGphE2LvqeA")]
     [Description(@"Validation of the signature is successful.")]
-    ValidationSuccessful,
+    ValidationSuccessful = ValidationCode.ValidationSuccessful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation of the signature has failed.
-    /// Encoded/decoded by serializers as "ValidationFailed".
+    /// Encoded/decoded by serializers as "NTOK".
     /// </summary>
     [EnumMember(Value = "NTOK")]
     [IsoId("_WPzBscnIEeWI4cSIO9foRA")]
     [Description(@"Validation of the signature has failed.")]
-    ValidationFailed,
+    ValidationFailed = ValidationCode.ValidationFailed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Validation2Code
 public static class Validation2CodeMetadataExtensions
 {
     private static readonly Validation2CodeDropdownSource _dropdownSource = new Validation2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

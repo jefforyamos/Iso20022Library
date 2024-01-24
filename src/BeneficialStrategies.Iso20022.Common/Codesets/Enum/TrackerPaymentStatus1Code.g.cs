@@ -21,30 +21,30 @@ public enum TrackerPaymentStatus1Code
 {
     /// <summary>
     /// Settlement on the creditor's account has been completed. 
-    /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_bARq4fpPEemXaqBx8S4XSg")]
     [Description(@"Settlement on the creditor's account has been completed. ")]
-    AcceptedCreditSettlementCompleted,
+    AcceptedCreditSettlementCompleted = TrackerPaymentStatusCode.AcceptedCreditSettlementCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_bIa6QfpPEemXaqBx8S4XSg")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = TrackerPaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_bPzUofpPEemXaqBx8S4XSg")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    Rejected,
+    Rejected = TrackerPaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TrackerPaymentStatus1Code
 public static class TrackerPaymentStatus1CodeMetadataExtensions
 {
     private static readonly TrackerPaymentStatus1CodeDropdownSource _dropdownSource = new TrackerPaymentStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

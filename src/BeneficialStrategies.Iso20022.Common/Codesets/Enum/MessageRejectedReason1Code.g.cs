@@ -21,21 +21,21 @@ public enum MessageRejectedReason1Code
 {
     /// <summary>
     /// Request contains an invalid or unrecognised business reference.
-    /// Encoded/decoded by serializers as "InvalidOrUnrecognisedReference".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_aL9bsdp-Ed-ak6NoX_4Aeg_1732404066")]
     [Description(@"Request contains an invalid or unrecognised business reference.")]
-    InvalidOrUnrecognisedReference,
+    InvalidOrUnrecognisedReference = RejectedStatusReasonCode.InvalidOrUnrecognisedReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructing party is not allowed to ask for a status for that specific order.
-    /// Encoded/decoded by serializers as "NotAllowedRequest".
+    /// Encoded/decoded by serializers as "NALO".
     /// </summary>
     [EnumMember(Value = "NALO")]
     [IsoId("_aL9bstp-Ed-ak6NoX_4Aeg_1732404091")]
     [Description(@"Instructing party is not allowed to ask for a status for that specific order.")]
-    NotAllowedRequest,
+    NotAllowedRequest = RejectedStatusReasonCode.NotAllowedRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MessageRejectedReason1Code
 public static class MessageRejectedReason1CodeMetadataExtensions
 {
     private static readonly MessageRejectedReason1CodeDropdownSource _dropdownSource = new MessageRejectedReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

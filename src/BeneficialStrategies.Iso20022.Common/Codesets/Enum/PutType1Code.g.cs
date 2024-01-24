@@ -21,30 +21,30 @@ public enum PutType1Code
 {
     /// <summary>
     /// Type of execution of the put feature is mandatory.
-    /// Encoded/decoded by serializers as "Mandatory".
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_ha1ju2liEeGaMcKyqKNRfQ_126631193")]
     [Description(@"Type of execution of the put feature is mandatory.")]
-    Mandatory,
+    Mandatory = PutTypeCode.Mandatory, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of execution of the put feature is optional.
-    /// Encoded/decoded by serializers as "Optional".
+    /// Encoded/decoded by serializers as "OPTI".
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_ha1jvGliEeGaMcKyqKNRfQ_-1580269150")]
     [Description(@"Type of execution of the put feature is optional.")]
-    Optional,
+    Optional = PutTypeCode.Optional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of execution of the put feature could be optional or mandatory.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_ha1jvWliEeGaMcKyqKNRfQ_-113120387")]
     [Description(@"Type of execution of the put feature could be optional or mandatory.")]
-    Both,
+    Both = PutTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PutType1Code
 public static class PutType1CodeMetadataExtensions
 {
     private static readonly PutType1CodeDropdownSource _dropdownSource = new PutType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

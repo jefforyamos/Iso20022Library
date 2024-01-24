@@ -21,21 +21,21 @@ public enum InformationDistribution1Code
 {
     /// <summary>
     /// Electronic distribution.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_jzUI8ROCEeKjmvxNCObNeQ")]
     [Description(@"Electronic distribution.")]
-    Electronic,
+    Electronic = InformationDistributionCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Paper distribution.
-    /// Encoded/decoded by serializers as "Paper".
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_j7gboROCEeKjmvxNCObNeQ")]
     [Description(@"Paper distribution.")]
-    Paper,
+    Paper = InformationDistributionCode.Paper, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InformationDistribution1Code
 public static class InformationDistribution1CodeMetadataExtensions
 {
     private static readonly InformationDistribution1CodeDropdownSource _dropdownSource = new InformationDistribution1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

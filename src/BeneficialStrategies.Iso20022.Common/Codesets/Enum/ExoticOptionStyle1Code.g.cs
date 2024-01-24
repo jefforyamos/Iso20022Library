@@ -21,39 +21,39 @@ public enum ExoticOptionStyle1Code
 {
     /// <summary>
     /// Agreement under which a fixed amount is paid out if a specific condition is met at any time during the exercise period. The expiration style is European or American. The binary option has only "payment triggers".
-    /// Encoded/decoded by serializers as "BinaryOption".
+    /// Encoded/decoded by serializers as "BINA".
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_KdV-IcRyEeOg-a7zWL_U0A")]
     [Description(@"Agreement under which a fixed amount is paid out if a specific condition is met at any time during the exercise period. The expiration style is European or American. The binary option has only ""payment triggers"".")]
-    BinaryOption,
+    BinaryOption = ExoticOptionStyleCode.BinaryOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agreement under which a fixed amount is paid out if a specific condition is met on expiration date. The digital option has only "payment triggers" which may be single or double trigger level.
-    /// Encoded/decoded by serializers as "DigitalOption".
+    /// Encoded/decoded by serializers as "DIGI".
     /// </summary>
     [EnumMember(Value = "DIGI")]
     [IsoId("_Kl5dMcRyEeOg-a7zWL_U0A")]
     [Description(@"Agreement under which a fixed amount is paid out if a specific condition is met on expiration date. The digital option has only ""payment triggers"" which may be single or double trigger level.")]
-    DigitalOption,
+    DigitalOption = ExoticOptionStyleCode.DigitalOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agreement under which a fixed amount is paid unless a specific condition is met. The notouch option has only "no payment triggers" which may be single or double trigger levels.
-    /// Encoded/decoded by serializers as "NoTouchOption".
+    /// Encoded/decoded by serializers as "NOTO".
     /// </summary>
     [EnumMember(Value = "NOTO")]
     [IsoId("_KojvocRyEeOg-a7zWL_U0A")]
     [Description(@"Agreement under which a fixed amount is paid unless a specific condition is met. The notouch option has only ""no payment triggers"" which may be single or double trigger levels.")]
-    NoTouchOption,
+    NoTouchOption = ExoticOptionStyleCode.NoTouchOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract that provides the buyer the right but not the obligation to buy or sell the underlying currency at a predetermined rate with expiration determined by the expiration style. The expiration style is European, American, Asian or Bermudan.
-    /// Encoded/decoded by serializers as "VanillaOption".
+    /// Encoded/decoded by serializers as "VANI".
     /// </summary>
     [EnumMember(Value = "VANI")]
     [IsoId("_KrfH0cRyEeOg-a7zWL_U0A")]
     [Description(@"Contract that provides the buyer the right but not the obligation to buy or sell the underlying currency at a predetermined rate with expiration determined by the expiration style. The expiration style is European, American, Asian or Bermudan.")]
-    VanillaOption,
+    VanillaOption = ExoticOptionStyleCode.VanillaOption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ExoticOptionStyle1Code
 public static class ExoticOptionStyle1CodeMetadataExtensions
 {
     private static readonly ExoticOptionStyle1CodeDropdownSource _dropdownSource = new ExoticOptionStyle1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

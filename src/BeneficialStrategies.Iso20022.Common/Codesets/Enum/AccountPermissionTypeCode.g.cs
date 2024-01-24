@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_fJFegJiuEeO4o528ngEXuw")]
 [Description(@"Specifies different levels of permission.")]
 [Derivations(typeof(AccountPermissionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountPermissionTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum AccountPermissionTypeCode
 public static class AccountPermissionTypeCodeMetadataExtensions
 {
     private static readonly AccountPermissionTypeCodeDropdownSource _dropdownSource = new AccountPermissionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

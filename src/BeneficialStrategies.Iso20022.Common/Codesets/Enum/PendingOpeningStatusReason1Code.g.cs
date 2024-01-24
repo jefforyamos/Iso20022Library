@@ -21,66 +21,66 @@ public enum PendingOpeningStatusReason1Code
 {
     /// <summary>
     /// Authorisation is required.
-    /// Encoded/decoded by serializers as "Authorisation".
+    /// Encoded/decoded by serializers as "ATHR".
     /// </summary>
     [EnumMember(Value = "ATHR")]
     [IsoId("_vgrwAWCKEeabZtzjEVWYCQ")]
     [Description(@"Authorisation is required.")]
-    Authorisation,
+    Authorisation = PendingOpeningStatusReasonCode.Authorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authorisation is provided but account opening is still pending.
-    /// Encoded/decoded by serializers as "AuthorisedButPending".
+    /// Encoded/decoded by serializers as "ATHP".
     /// </summary>
     [EnumMember(Value = "ATHP")]
     [IsoId("_vqNfcWCKEeabZtzjEVWYCQ")]
     [Description(@"Authorisation is provided but account opening is still pending.")]
-    AuthorisedButPending,
+    AuthorisedButPending = PendingOpeningStatusReasonCode.AuthorisedButPending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FATCA reporting date is missing.
-    /// Encoded/decoded by serializers as "FATCAReportingDateMissing".
+    /// Encoded/decoded by serializers as "FRDM".
     /// </summary>
     [EnumMember(Value = "FRDM")]
     [IsoId("_vz4Y0WCKEeabZtzjEVWYCQ")]
     [Description(@"FATCA reporting date is missing.")]
-    FATCAReportingDateMissing,
+    FATCAReportingDateMissing = PendingOpeningStatusReasonCode.FATCAReportingDateMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Know Your Customer (KYC) document is missing.
-    /// Encoded/decoded by serializers as "KnowYourCustomerDocumentMissing".
+    /// Encoded/decoded by serializers as "KYCM".
     /// </summary>
     [EnumMember(Value = "KYCM")]
     [IsoId("_v9PwMWCKEeabZtzjEVWYCQ")]
     [Description(@"Know Your Customer (KYC) document is missing.")]
-    KnowYourCustomerDocumentMissing,
+    KnowYourCustomerDocumentMissing = PendingOpeningStatusReasonCode.KnowYourCustomerDocumentMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is not yet open, even for partial use.
-    /// Encoded/decoded by serializers as "NotOpened".
+    /// Encoded/decoded by serializers as "NOTO".
     /// </summary>
     [EnumMember(Value = "NOTO")]
     [IsoId("_wG6pkWCKEeabZtzjEVWYCQ")]
     [Description(@"Account is not yet open, even for partial use.")]
-    NotOpened,
+    NotOpened = PendingOpeningStatusReasonCode.NotOpened, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account will be opened when restrictions are addressed.
-    /// Encoded/decoded by serializers as "Restrictions".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_wQJeEWCKEeabZtzjEVWYCQ")]
     [Description(@"Account will be opened when restrictions are addressed.")]
-    Restrictions,
+    Restrictions = PendingOpeningStatusReasonCode.Restrictions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rights holder information is missing.
-    /// Encoded/decoded by serializers as "RightsHolderMissing".
+    /// Encoded/decoded by serializers as "RIGH".
     /// </summary>
     [EnumMember(Value = "RIGH")]
     [IsoId("_wZ0XcWCKEeabZtzjEVWYCQ")]
     [Description(@"Rights holder information is missing.")]
-    RightsHolderMissing,
+    RightsHolderMissing = PendingOpeningStatusReasonCode.RightsHolderMissing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum PendingOpeningStatusReason1Code
 public static class PendingOpeningStatusReason1CodeMetadataExtensions
 {
     private static readonly PendingOpeningStatusReason1CodeDropdownSource _dropdownSource = new PendingOpeningStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

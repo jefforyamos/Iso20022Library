@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aQ4X9dp-Ed-ak6NoX_4Aeg_-2067326858")]
 [Description(@"Specifies the current status of an order confirmation or of an order confirmation amendment.")]
 [Derivations(typeof(OrderConfirmationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderConfirmationStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OrderConfirmationStatusCode
 public static class OrderConfirmationStatusCodeMetadataExtensions
 {
     private static readonly OrderConfirmationStatusCodeDropdownSource _dropdownSource = new OrderConfirmationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

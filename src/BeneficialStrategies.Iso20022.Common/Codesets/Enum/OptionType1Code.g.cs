@@ -21,21 +21,21 @@ public enum OptionType1Code
 {
     /// <summary>
     /// Right to buy a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "Call".
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_aQbsAtp-Ed-ak6NoX_4Aeg_-539829511")]
     [Description(@"Right to buy a quantity of an asset for an agreed price at exercise date.")]
-    Call,
+    Call = OptionDefinitionTypeCode.Call, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Right to sell a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "Put".
+    /// Encoded/decoded by serializers as "PUTO".
     /// </summary>
     [EnumMember(Value = "PUTO")]
     [IsoId("_aQbsA9p-Ed-ak6NoX_4Aeg_-539829469")]
     [Description(@"Right to sell a quantity of an asset for an agreed price at exercise date.")]
-    Put,
+    Put = OptionDefinitionTypeCode.Put, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OptionType1Code
 public static class OptionType1CodeMetadataExtensions
 {
     private static readonly OptionType1CodeDropdownSource _dropdownSource = new OptionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

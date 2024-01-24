@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bR2FsNp-Ed-ak6NoX_4Aeg_570400157")]
 [Description(@"Type of movement preliminary advice.")]
 [Derivations(typeof(CorporateActionPreliminaryAdviceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionPreliminaryAdviceTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CorporateActionPreliminaryAdviceTypeCode
 public static class CorporateActionPreliminaryAdviceTypeCodeMetadataExtensions
 {
     private static readonly CorporateActionPreliminaryAdviceTypeCodeDropdownSource _dropdownSource = new CorporateActionPreliminaryAdviceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

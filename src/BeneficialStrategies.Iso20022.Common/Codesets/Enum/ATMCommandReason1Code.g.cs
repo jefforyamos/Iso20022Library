@@ -21,48 +21,48 @@ public enum ATMCommandReason1Code
 {
     /// <summary>
     /// Request the status of or action from the ATM to perform a diagnostic.
-    /// Encoded/decoded by serializers as "Diagnostic".
+    /// Encoded/decoded by serializers as "DIAG".
     /// </summary>
     [EnumMember(Value = "DIAG")]
     [IsoId("_Z7ffwYtHEeSxlKlAGYErFg")]
     [Description(@"Request the status of or action from the ATM to perform a diagnostic.")]
-    Diagnostic,
+    Diagnostic = ATMCommandReasonCode.Diagnostic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supervise the ATM.
-    /// Encoded/decoded by serializers as "Monitoring".
+    /// Encoded/decoded by serializers as "MONI".
     /// </summary>
     [EnumMember(Value = "MONI")]
     [IsoId("_aBKC4YtHEeSxlKlAGYErFg")]
     [Description(@"Supervise the ATM.")]
-    Monitoring,
+    Monitoring = ATMCommandReasonCode.Monitoring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security error.
-    /// Encoded/decoded by serializers as "SecurityError".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_aLIeQ4tHEeSxlKlAGYErFg")]
     [Description(@"Security error.")]
-    SecurityError,
+    SecurityError = ATMCommandReasonCode.SecurityError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Desynchronisation of dialogue between entities.
-    /// Encoded/decoded by serializers as "Synchronisation".
+    /// Encoded/decoded by serializers as "SYNC".
     /// </summary>
     [EnumMember(Value = "SYNC")]
     [IsoId("_aQWVc4tHEeSxlKlAGYErFg")]
     [Description(@"Desynchronisation of dialogue between entities.")]
-    Synchronisation,
+    Synchronisation = ATMCommandReasonCode.Synchronisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the ATM.
-    /// Encoded/decoded by serializers as "Update".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_aW6QcYtHEeSxlKlAGYErFg")]
     [Description(@"Update the ATM.")]
-    Update,
+    Update = ATMCommandReasonCode.Update, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ATMCommandReason1Code
 public static class ATMCommandReason1CodeMetadataExtensions
 {
     private static readonly ATMCommandReason1CodeDropdownSource _dropdownSource = new ATMCommandReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

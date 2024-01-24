@@ -21,57 +21,57 @@ public enum ATMCassetteType1Code
 {
     /// <summary>
     /// Cassette for deposits.
-    /// Encoded/decoded by serializers as "In".
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_783pwYqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for deposits.")]
-    In,
+    In = ATMCassetteTypeCode.In, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cassette for dispense.
-    /// Encoded/decoded by serializers as "Out".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_8CFg8YqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for dispense.")]
-    Out,
+    Out = ATMCassetteTypeCode.Out, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cassette for recycling.
-    /// Encoded/decoded by serializers as "Recycling".
+    /// Encoded/decoded by serializers as "RCYC".
     /// </summary>
     [EnumMember(Value = "RCYC")]
     [IsoId("_8HvdAYqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for recycling.")]
-    Recycling,
+    Recycling = ATMCassetteTypeCode.Recycling, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cassette for reject.
-    /// Encoded/decoded by serializers as "Reject".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_8NQ2MYqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for reject.")]
-    Reject,
+    Reject = ATMCassetteTypeCode.Reject, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cassette for replenishment.
-    /// Encoded/decoded by serializers as "Replenishment".
+    /// Encoded/decoded by serializers as "RPLT".
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_8Sn3UYqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for replenishment.")]
-    Replenishment,
+    Replenishment = ATMCassetteTypeCode.Replenishment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cassette for retract.
-    /// Encoded/decoded by serializers as "Retract".
+    /// Encoded/decoded by serializers as "RTRC".
     /// </summary>
     [EnumMember(Value = "RTRC")]
     [IsoId("_8X_fgYqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for retract.")]
-    Retract,
+    Retract = ATMCassetteTypeCode.Retract, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ATMCassetteType1Code
 public static class ATMCassetteType1CodeMetadataExtensions
 {
     private static readonly ATMCassetteType1CodeDropdownSource _dropdownSource = new ATMCassetteType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

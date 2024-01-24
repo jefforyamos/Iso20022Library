@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_7bsNUM4EEeiAhd-njDxLnA")]
 [Description(@"Specifies if all assets are encashed and transferred as cash.")]
 [Derivations(typeof(CashAll1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashAllCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CashAllCode
 public static class CashAllCodeMetadataExtensions
 {
     private static readonly CashAllCodeDropdownSource _dropdownSource = new CashAllCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

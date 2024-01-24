@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cViSQN6aEeiwsev40qZGEQ")]
 [Description(@"Event the POI notifies to the sale system.")]
 [Derivations(typeof(EventToNotify1Code),typeof(EventToNotify2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EventToNotifyCode
 {
     /// <summary>
@@ -209,7 +208,7 @@ public enum EventToNotifyCode
 public static class EventToNotifyCodeMetadataExtensions
 {
     private static readonly EventToNotifyCodeDropdownSource _dropdownSource = new EventToNotifyCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

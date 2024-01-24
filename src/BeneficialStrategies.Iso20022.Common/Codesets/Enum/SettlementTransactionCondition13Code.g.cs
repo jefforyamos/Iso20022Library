@@ -21,75 +21,75 @@ public enum SettlementTransactionCondition13Code
 {
     /// <summary>
     /// Tax-exempt financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "Clean".
+    /// Encoded/decoded by serializers as "CLEN".
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_tm2EEgzVEeuUZuaHWzkTew")]
     [Description(@"Tax-exempt financial instruments are to be settled.")]
-    Clean,
+    Clean = SettlementTransactionConditionCode.Clean, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Taxable financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "Dirty".
+    /// Encoded/decoded by serializers as "DIRT".
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_tm2EFAzVEeuUZuaHWzkTew")]
     [Description(@"Taxable financial instruments are to be settled.")]
-    Dirty,
+    Dirty = SettlementTransactionConditionCode.Dirty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
-    /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
+    /// Encoded/decoded by serializers as "DLWM".
     /// </summary>
     [EnumMember(Value = "DLWM")]
     [IsoId("_tm2EEQzVEeuUZuaHWzkTew")]
     [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
-    DeliveryWithoutMatching,
+    DeliveryWithoutMatching = SettlementTransactionConditionCode.DeliveryWithoutMatching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities are to be physically settled.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_tm2EFQzVEeuUZuaHWzkTew")]
     [Description(@"Securities are to be physically settled.")]
-    Physical,
+    Physical = SettlementTransactionConditionCode.Physical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement transactions to be settled with special delivery.
-    /// Encoded/decoded by serializers as "SpecialDelivery".
+    /// Encoded/decoded by serializers as "SPDL".
     /// </summary>
     [EnumMember(Value = "SPDL")]
     [IsoId("_tm2EFgzVEeuUZuaHWzkTew")]
     [Description(@"Settlement transactions to be settled with special delivery.")]
-    SpecialDelivery,
+    SpecialDelivery = SettlementTransactionConditionCode.SpecialDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Money and financial instruments settle in different locations.
-    /// Encoded/decoded by serializers as "SplitSettlement".
+    /// Encoded/decoded by serializers as "SPST".
     /// </summary>
     [EnumMember(Value = "SPST")]
     [IsoId("_tm2EFwzVEeuUZuaHWzkTew")]
     [Description(@"Money and financial instruments settle in different locations.")]
-    SplitSettlement,
+    SplitSettlement = SettlementTransactionConditionCode.SplitSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No market claim should be automatically generated.
-    /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
+    /// Encoded/decoded by serializers as "NOMC".
     /// </summary>
     [EnumMember(Value = "NOMC")]
     [IsoId("_tm2EEwzVEeuUZuaHWzkTew")]
     [Description(@"No market claim should be automatically generated.")]
-    NoAutomaticMarketClaim,
+    NoAutomaticMarketClaim = SettlementTransactionConditionCode.NoAutomaticMarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of settlement instructions created as a result of a partial successful buy-in.
-    /// Encoded/decoded by serializers as "PartialSuccessfulBuyIn".
+    /// Encoded/decoded by serializers as "BPSS".
     /// </summary>
     [EnumMember(Value = "BPSS")]
     [IsoId("_ySxnsAzVEeuUZuaHWzkTew")]
     [Description(@"Identification of settlement instructions created as a result of a partial successful buy-in.")]
-    PartialSuccessfulBuyIn,
+    PartialSuccessfulBuyIn = SettlementTransactionConditionCode.PartialSuccessfulBuyIn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum SettlementTransactionCondition13Code
 public static class SettlementTransactionCondition13CodeMetadataExtensions
 {
     private static readonly SettlementTransactionCondition13CodeDropdownSource _dropdownSource = new SettlementTransactionCondition13CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

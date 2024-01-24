@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-snCEHi8EeaRm5xIK6nGuQ")]
 [Description(@"Specifies the reason for an instruction to change to an account status.")]
 [Derivations(typeof(AccountStatusUpdateRequestReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountStatusUpdateRequestReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum AccountStatusUpdateRequestReasonCode
 public static class AccountStatusUpdateRequestReasonCodeMetadataExtensions
 {
     private static readonly AccountStatusUpdateRequestReasonCodeDropdownSource _dropdownSource = new AccountStatusUpdateRequestReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

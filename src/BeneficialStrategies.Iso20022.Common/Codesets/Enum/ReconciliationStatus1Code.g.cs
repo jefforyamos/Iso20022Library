@@ -21,21 +21,21 @@ public enum ReconciliationStatus1Code
 {
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.
-    /// Encoded/decoded by serializers as "NonReconciled".
+    /// Encoded/decoded by serializers as "NREC".
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_oQJDcZSZEeyTze01ewG2Qw")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.")]
-    NonReconciled,
+    NonReconciled = ReconciliationStatusCode.NonReconciled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
-    /// Encoded/decoded by serializers as "Reconciled".
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_oU6OsZSZEeyTze01ewG2Qw")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.")]
-    Reconciled,
+    Reconciled = ReconciliationStatusCode.Reconciled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReconciliationStatus1Code
 public static class ReconciliationStatus1CodeMetadataExtensions
 {
     private static readonly ReconciliationStatus1CodeDropdownSource _dropdownSource = new ReconciliationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

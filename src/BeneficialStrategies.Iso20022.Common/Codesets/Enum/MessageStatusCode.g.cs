@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-yEE8NHAEeaokquJJ-K6uA")]
 [Description(@"Specifies the status of a whole message processing.")]
 [Derivations(typeof(ReportingMessageStatus1Code),typeof(ReportingMessageStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MessageStatusCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum MessageStatusCode
 public static class MessageStatusCodeMetadataExtensions
 {
     private static readonly MessageStatusCodeDropdownSource _dropdownSource = new MessageStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

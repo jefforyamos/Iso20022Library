@@ -21,21 +21,21 @@ public enum QuotationType1Code
 {
     /// <summary>
     /// Quotation expressed as a currency and amount.
-    /// Encoded/decoded by serializers as "ActualAmount".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_anpo8dK5EeihtcVwfFPNlg")]
     [Description(@"Quotation expressed as a currency and amount.")]
-    ActualAmount,
+    ActualAmount = QuotationTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quotation is expressed as percentage.
-    /// Encoded/decoded by serializers as "Percentage".
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_atwQ8dK5EeihtcVwfFPNlg")]
     [Description(@"Quotation is expressed as percentage.")]
-    Percentage,
+    Percentage = QuotationTypeCode.Percentage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum QuotationType1Code
 public static class QuotationType1CodeMetadataExtensions
 {
     private static readonly QuotationType1CodeDropdownSource _dropdownSource = new QuotationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum ProposalType1Code
 {
     /// <summary>
     /// Specifies this is an initial proposal.
-    /// Encoded/decoded by serializers as "Initial".
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_YdGGJNp-Ed-ak6NoX_4Aeg_-733247113")]
     [Description(@"Specifies this is an initial proposal.")]
-    Initial,
+    Initial = ProposalTypeCode.Initial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies this is a counter proposal.
-    /// Encoded/decoded by serializers as "Counter".
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_YdGGJdp-Ed-ak6NoX_4Aeg_698103565")]
     [Description(@"Specifies this is a counter proposal.")]
-    Counter,
+    Counter = ProposalTypeCode.Counter, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ProposalType1Code
 public static class ProposalType1CodeMetadataExtensions
 {
     private static readonly ProposalType1CodeDropdownSource _dropdownSource = new ProposalType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

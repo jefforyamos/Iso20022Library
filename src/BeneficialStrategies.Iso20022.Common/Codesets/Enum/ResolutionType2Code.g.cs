@@ -21,21 +21,21 @@ public enum ResolutionType2Code
 {
     /// <summary>
     /// Meeting resolution is extraordinary and may be subject to specific voting requirements.
-    /// Encoded/decoded by serializers as "Extraordinary".
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_-9l88VuFEeSmO6RkXg92Lg")]
     [Description(@"Meeting resolution is extraordinary and may be subject to specific voting requirements.")]
-    Extraordinary,
+    Extraordinary = ResolutionTypeCode.Extraordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).
-    /// Encoded/decoded by serializers as "Special".
+    /// Encoded/decoded by serializers as "SPCL".
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("__EcL0VuFEeSmO6RkXg92Lg")]
     [Description(@"Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).")]
-    Special,
+    Special = ResolutionTypeCode.Special, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResolutionType2Code
 public static class ResolutionType2CodeMetadataExtensions
 {
     private static readonly ResolutionType2CodeDropdownSource _dropdownSource = new ResolutionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

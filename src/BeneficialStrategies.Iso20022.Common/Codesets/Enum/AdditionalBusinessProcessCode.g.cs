@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bmaAc9p-Ed-ak6NoX_4Aeg_356428670")]
 [Description(@"Specifies the additional business process linked to a corporate action event such as an automatic market claim.")]
-[Derivations(typeof(AdditionalBusinessProcess3Code),typeof(AdditionalBusinessProcess4Code),typeof(AdditionalBusinessProcess2Code),typeof(AdditionalBusinessProcess1Code),typeof(AdditionalBusinessProcess7Code),typeof(AdditionalBusinessProcess5Code),typeof(AdditionalBusinessProcess6Code),typeof(AdditionalBusinessProcess8Code),typeof(AdditionalBusinessProcess9Code),typeof(AdditionalBusinessProcess10Code),typeof(AdditionalBusinessProcess11Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(AdditionalBusinessProcess1Code),typeof(AdditionalBusinessProcess4Code),typeof(AdditionalBusinessProcess7Code),typeof(AdditionalBusinessProcess10Code),typeof(AdditionalBusinessProcess11Code),typeof(AdditionalBusinessProcess3Code),typeof(AdditionalBusinessProcess2Code),typeof(AdditionalBusinessProcess5Code),typeof(AdditionalBusinessProcess6Code),typeof(AdditionalBusinessProcess9Code),typeof(AdditionalBusinessProcess8Code))]
 public enum AdditionalBusinessProcessCode
 {
     /// <summary>
@@ -164,7 +163,7 @@ public enum AdditionalBusinessProcessCode
 public static class AdditionalBusinessProcessCodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcessCodeDropdownSource _dropdownSource = new AdditionalBusinessProcessCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

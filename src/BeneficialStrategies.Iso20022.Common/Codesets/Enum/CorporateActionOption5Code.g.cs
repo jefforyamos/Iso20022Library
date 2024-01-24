@@ -21,21 +21,21 @@ public enum CorporateActionOption5Code
 {
     /// <summary>
     /// Option to choose cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_bMfEk9p-Ed-ak6NoX_4Aeg_160952572")]
     [Description(@"Option to choose cash.")]
-    Cash,
+    Cash = CorporateActionOptionCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of securities to holders.
-    /// Encoded/decoded by serializers as "Security".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_bMfElNp-Ed-ak6NoX_4Aeg_720605213")]
     [Description(@"Distribution of securities to holders.")]
-    Security,
+    Security = CorporateActionOptionCode.Security, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionOption5Code
 public static class CorporateActionOption5CodeMetadataExtensions
 {
     private static readonly CorporateActionOption5CodeDropdownSource _dropdownSource = new CorporateActionOption5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

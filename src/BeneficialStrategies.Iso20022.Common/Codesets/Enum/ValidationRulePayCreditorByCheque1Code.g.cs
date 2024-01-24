@@ -21,12 +21,12 @@ public enum ValidationRulePayCreditorByCheque1Code
 {
     /// <summary>
     /// Pay creditor by cheque.
-    /// Encoded/decoded by serializers as "PayCreditorByCheque".
+    /// Encoded/decoded by serializers as "CHQB".
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_XJzf0SAcEeuxStysDTgLiw")]
     [Description(@"Pay creditor by cheque.")]
-    PayCreditorByCheque,
+    PayCreditorByCheque = ValidationRuleCode.PayCreditorByCheque, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRulePayCreditorByCheque1Code
 public static class ValidationRulePayCreditorByCheque1CodeMetadataExtensions
 {
     private static readonly ValidationRulePayCreditorByCheque1CodeDropdownSource _dropdownSource = new ValidationRulePayCreditorByCheque1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

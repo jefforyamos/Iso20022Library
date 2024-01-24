@@ -21,30 +21,30 @@ public enum CILPaymentType1Code
 {
     /// <summary>
     /// Event pays daily at fixed rate.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_1tJmADL3EeKU9IrkkToqcw_1674898907")]
     [Description(@"Event pays daily at fixed rate.")]
-    Fixed,
+    Fixed = CILPaymentTypeCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price can fluctuate. Payment is held until released.
-    /// Encoded/decoded by serializers as "Hold".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_1tJmATL3EeKU9IrkkToqcw_1955757868")]
     [Description(@"Price can fluctuate. Payment is held until released.")]
-    Hold,
+    Hold = CILPaymentTypeCode.Hold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pays on same day as convert/exercise instructions.
-    /// Encoded/decoded by serializers as "PayCIL".
+    /// Encoded/decoded by serializers as "PCIL".
     /// </summary>
     [EnumMember(Value = "PCIL")]
     [IsoId("_1tJmAjL3EeKU9IrkkToqcw_-43100213")]
     [Description(@"Pays on same day as convert/exercise instructions.")]
-    PayCIL,
+    PayCIL = CILPaymentTypeCode.PayCIL, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CILPaymentType1Code
 public static class CILPaymentType1CodeMetadataExtensions
 {
     private static readonly CILPaymentType1CodeDropdownSource _dropdownSource = new CILPaymentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

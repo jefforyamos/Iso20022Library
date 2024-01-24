@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_j4AIZO5NEeCisYr99QEiWA_1321527549")]
 [Description(@"Specifies the type of settlement instruction query to be executed.")]
 [Derivations(typeof(SettlementQueryType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementQueryTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SettlementQueryTypeCode
 public static class SettlementQueryTypeCodeMetadataExtensions
 {
     private static readonly SettlementQueryTypeCodeDropdownSource _dropdownSource = new SettlementQueryTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

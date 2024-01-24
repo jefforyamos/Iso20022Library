@@ -21,30 +21,30 @@ public enum TypeOfPrice15Code
 {
     /// <summary>
     /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
-    /// Encoded/decoded by serializers as "Bid".
+    /// Encoded/decoded by serializers as "BIDE".
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_WOMlpNp-Ed-ak6NoX_4Aeg_1777611101")]
     [Description(@"Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.")]
-    Bid,
+    Bid = TypeOfPriceCode.Bid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
-    /// Encoded/decoded by serializers as "Offer".
+    /// Encoded/decoded by serializers as "OFFR".
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_WOMlpdp-Ed-ak6NoX_4Aeg_1777611123")]
     [Description(@"Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.")]
-    Offer,
+    Offer = TypeOfPriceCode.Offer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
-    /// Encoded/decoded by serializers as "NetAssetValue".
+    /// Encoded/decoded by serializers as "NAVL".
     /// </summary>
     [EnumMember(Value = "NAVL")]
     [IsoId("_WOMlptp-Ed-ak6NoX_4Aeg_1777611131")]
     [Description(@"Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.")]
-    NetAssetValue,
+    NetAssetValue = TypeOfPriceCode.NetAssetValue, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TypeOfPrice15Code
 public static class TypeOfPrice15CodeMetadataExtensions
 {
     private static readonly TypeOfPrice15CodeDropdownSource _dropdownSource = new TypeOfPrice15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

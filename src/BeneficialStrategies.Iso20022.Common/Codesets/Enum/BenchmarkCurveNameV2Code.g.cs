@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_mLaJqODJEeuz7dQgWWfCfA")]
 [Description(@"Identifies a benchmark curve name.")]
 [Derivations(typeof(BenchmarkCurveName7Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BenchmarkCurveNameV2Code
 {
     /// <summary>
@@ -40,13 +39,12 @@ public enum BenchmarkCurveNameV2Code
     
     /// <summary>
     /// Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.
-    /// 
     /// London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.
     /// Encoded/decoded by serializers as "LIBI".
     /// </summary>
     [EnumMember(Value = "LIBI")]
     [IsoId("_mLaJquDJEeuz7dQgWWfCfA")]
-    [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.  London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
+    [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.||London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
     LIBID,
     
     /// <summary>
@@ -382,7 +380,7 @@ public enum BenchmarkCurveNameV2Code
 public static class BenchmarkCurveNameV2CodeMetadataExtensions
 {
     private static readonly BenchmarkCurveNameV2CodeDropdownSource _dropdownSource = new BenchmarkCurveNameV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

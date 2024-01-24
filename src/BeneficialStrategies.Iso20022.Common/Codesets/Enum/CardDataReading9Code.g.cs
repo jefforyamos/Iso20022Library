@@ -21,102 +21,102 @@ public enum CardDataReading9Code
 {
     /// <summary>
     /// Unknown card reading capability.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UNKW".
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_JDP14ZlfEeu76rs9yGlfEg")]
     [Description(@"Unknown card reading capability.")]
-    Unknown,
+    Unknown = CardDataReadingCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other national capability type assigned at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_JtshEZlfEeu76rs9yGlfEg")]
     [Description(@"Other national capability type assigned at national level.")]
-    OtherNational,
+    OtherNational = CardDataReadingCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other card reading capability assigned on a private basis.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_J0hh0ZlfEeu76rs9yGlfEg")]
     [Description(@"Other card reading capability assigned on a private basis.")]
-    OtherPrivate,
+    OtherPrivate = CardDataReadingCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card details captured via camera.
-    /// Encoded/decoded by serializers as "Camera".
+    /// Encoded/decoded by serializers as "CAMR".
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_N2p6gZlfEeu76rs9yGlfEg")]
     [Description(@"Card details captured via camera.")]
-    Camera,
+    Camera = CardDataReadingCode.Camera, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key entered.
-    /// Encoded/decoded by serializers as "KeyEntered".
+    /// Encoded/decoded by serializers as "KEEN".
     /// </summary>
     [EnumMember(Value = "KEEN")]
     [IsoId("_ujzGIZlfEeu76rs9yGlfEg")]
     [Description(@"Key entered.")]
-    KeyEntered,
+    KeyEntered = CardDataReadingCode.KeyEntered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ICC contactless proximity
-    /// Encoded/decoded by serializers as "ICCProximity".
+    /// Encoded/decoded by serializers as "ICPY".
     /// </summary>
     [EnumMember(Value = "ICPY")]
     [IsoId("_05JGUazhEeurLutE1vUWxQ")]
     [Description(@"ICC contactless proximity")]
-    ICCProximity,
+    ICCProximity = CardDataReadingCode.ICCProximity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Optical coded reading capabilities (e.g. barcode, QR code, etc.)
-    /// Encoded/decoded by serializers as "OpticalCode".
+    /// Encoded/decoded by serializers as "OPTC".
     /// </summary>
     [EnumMember(Value = "OPTC")]
     [IsoId("_iyilMa7BEeuhTp7lI6XAzA")]
     [Description(@"Optical coded reading capabilities (e.g. barcode, QR code, etc.)")]
-    OpticalCode,
+    OpticalCode = CardDataReadingCode.OpticalCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card information are stored on a file.
-    /// Encoded/decoded by serializers as "CardOnFile".
+    /// Encoded/decoded by serializers as "CDFL".
     /// </summary>
     [EnumMember(Value = "CDFL")]
     [IsoId("_b9Nm8cmuEeuF1f85xf6dbg")]
     [Description(@"Card information are stored on a file.")]
-    CardOnFile,
+    CardOnFile = CardDataReadingCode.CardOnFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card details were obtained via a mobile banking application.
-    /// Encoded/decoded by serializers as "MobileBankingApplication".
+    /// Encoded/decoded by serializers as "MBNK".
     /// </summary>
     [EnumMember(Value = "MBNK")]
     [IsoId("_4QIqAcmuEeuF1f85xf6dbg")]
     [Description(@"Card details were obtained via a mobile banking application.")]
-    MobileBankingApplication,
+    MobileBankingApplication = CardDataReadingCode.MobileBankingApplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card details were obtained via a token.
-    /// Encoded/decoded by serializers as "Token".
+    /// Encoded/decoded by serializers as "TOKN".
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_OuQc4cmvEeuF1f85xf6dbg")]
     [Description(@"Card details were obtained via a token.")]
-    Token,
+    Token = CardDataReadingCode.Token, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ICC contact capability
-    /// Encoded/decoded by serializers as "ICCContact".
+    /// Encoded/decoded by serializers as "ICCY".
     /// </summary>
     [EnumMember(Value = "ICCY")]
     [IsoId("_XJ0T8cmvEeuF1f85xf6dbg")]
     [Description(@"ICC contact capability")]
-    ICCContact,
+    ICCContact = CardDataReadingCode.ICCContact, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum CardDataReading9Code
 public static class CardDataReading9CodeMetadataExtensions
 {
     private static readonly CardDataReading9CodeDropdownSource _dropdownSource = new CardDataReading9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

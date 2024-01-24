@@ -21,39 +21,39 @@ public enum ResponseMode1Code
 {
     /// <summary>
     /// The Message Response is immediate, after taking into account the request.
-    /// Encoded/decoded by serializers as "Immediate".
+    /// Encoded/decoded by serializers as "IMMD".
     /// </summary>
     [EnumMember(Value = "IMMD")]
     [IsoId("_Q6JkUd6rEeiwsev40qZGEQ")]
     [Description(@"The Message Response is immediate, after taking into account the request.")]
-    Immediate,
+    Immediate = ResponseModeCode.Immediate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Message Response is not required, except in case of error.
-    /// Encoded/decoded by serializers as "NotRequired".
+    /// Encoded/decoded by serializers as "NREQ".
     /// </summary>
     [EnumMember(Value = "NREQ")]
     [IsoId("_Q-JTgd6rEeiwsev40qZGEQ")]
     [Description(@"The Message Response is not required, except in case of error.")]
-    NotRequired,
+    NotRequired = ResponseModeCode.NotRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Print Response is required at the end of print.
-    /// Encoded/decoded by serializers as "PrintEnd".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_RCfA8d6rEeiwsev40qZGEQ")]
     [Description(@"The Print Response is required at the end of print.")]
-    PrintEnd,
+    PrintEnd = ResponseModeCode.PrintEnd, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Sound Response is required at the end of play.
-    /// Encoded/decoded by serializers as "SoundEnd".
+    /// Encoded/decoded by serializers as "SEND".
     /// </summary>
     [EnumMember(Value = "SEND")]
     [IsoId("_Er0_EVDkEeu39vke54yxqA")]
     [Description(@"The Sound Response is required at the end of play.")]
-    SoundEnd,
+    SoundEnd = ResponseModeCode.SoundEnd, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ResponseMode1Code
 public static class ResponseMode1CodeMetadataExtensions
 {
     private static readonly ResponseMode1CodeDropdownSource _dropdownSource = new ResponseMode1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

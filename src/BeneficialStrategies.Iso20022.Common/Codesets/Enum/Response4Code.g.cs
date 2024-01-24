@@ -21,30 +21,30 @@ public enum Response4Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_0y2tISxQEeW0Obqrzm1X8Q")]
     [Description(@"Service has been successfuly provided.")]
-    Approved,
+    Approved = ResponseCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "Declined".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_040yQSxQEeW0Obqrzm1X8Q")]
     [Description(@"Service is declined.")]
-    Declined,
+    Declined = ResponseCode.Declined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PartialApproved".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_1HPowSxQEeW0Obqrzm1X8Q")]
     [Description(@"Service has been partialy provided.")]
-    PartialApproved,
+    PartialApproved = ResponseCode.PartialApproved, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Response4Code
 public static class Response4CodeMetadataExtensions
 {
     private static readonly Response4CodeDropdownSource _dropdownSource = new Response4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

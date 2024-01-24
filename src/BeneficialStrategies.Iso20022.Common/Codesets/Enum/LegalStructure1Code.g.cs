@@ -21,48 +21,48 @@ public enum LegalStructure1Code
 {
     /// <summary>
     /// Legal structure is a state.
-    /// Encoded/decoded by serializers as "State".
+    /// Encoded/decoded by serializers as "STAE".
     /// </summary>
     [EnumMember(Value = "STAE")]
     [IsoId("_VbY_4X0lEemfrNOe0zHQyg")]
     [Description(@"Legal structure is a state.")]
-    State,
+    State = LegalStructureCode.State, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a province.
-    /// Encoded/decoded by serializers as "Province".
+    /// Encoded/decoded by serializers as "PVIN".
     /// </summary>
     [EnumMember(Value = "PVIN")]
     [IsoId("_VbY_430lEemfrNOe0zHQyg")]
     [Description(@"Legal structure is a province.")]
-    Province,
+    Province = LegalStructureCode.Province, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a municipal.
-    /// Encoded/decoded by serializers as "Municipal".
+    /// Encoded/decoded by serializers as "MUNI".
     /// </summary>
     [EnumMember(Value = "MUNI")]
     [IsoId("_VbY_5X0lEemfrNOe0zHQyg")]
     [Description(@"Legal structure is a municipal.")]
-    Municipal,
+    Municipal = LegalStructureCode.Municipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a county.
-    /// Encoded/decoded by serializers as "County".
+    /// Encoded/decoded by serializers as "CNTY".
     /// </summary>
     [EnumMember(Value = "CNTY")]
     [IsoId("_VbY_530lEemfrNOe0zHQyg")]
     [Description(@"Legal structure is a county.")]
-    County,
+    County = LegalStructureCode.County, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal structure is a state.
-    /// Encoded/decoded by serializers as "National".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_VbY_6X0lEemfrNOe0zHQyg")]
     [Description(@"Legal structure is a state.")]
-    National,
+    National = LegalStructureCode.National, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum LegalStructure1Code
 public static class LegalStructure1CodeMetadataExtensions
 {
     private static readonly LegalStructure1CodeDropdownSource _dropdownSource = new LegalStructure1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

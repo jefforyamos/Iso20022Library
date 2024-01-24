@@ -21,12 +21,12 @@ public enum AcknowledgementReason9Code
 {
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_dJBg4ekIEemm4qhb2yFPOw")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AcknowledgementReason9Code
 public static class AcknowledgementReason9CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason9CodeDropdownSource _dropdownSource = new AcknowledgementReason9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

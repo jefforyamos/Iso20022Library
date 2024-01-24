@@ -21,21 +21,21 @@ public enum PartialSettlement1Code
 {
     /// <summary>
     /// Confirmation is for partial settlement. Part of the transaction remains unsettled.
-    /// Encoded/decoded by serializers as "PartialSettlement".
+    /// Encoded/decoded by serializers as "PAIN".
     /// </summary>
     [EnumMember(Value = "PAIN")]
     [IsoId("_ZxlM0dp-Ed-ak6NoX_4Aeg_-145694704")]
     [Description(@"Confirmation is for partial settlement. Part of the transaction remains unsettled.")]
-    PartialSettlement,
+    PartialSettlement = PartialSettlementCode.PartialSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Confirmation is for the remaining part of an instruction that was previously partially confirmed.
-    /// Encoded/decoded by serializers as "PreviouslyPartialConfirmed".
+    /// Encoded/decoded by serializers as "PARC".
     /// </summary>
     [EnumMember(Value = "PARC")]
     [IsoId("_ZxlM0tp-Ed-ak6NoX_4Aeg_-145694679")]
     [Description(@"Confirmation is for the remaining part of an instruction that was previously partially confirmed.")]
-    PreviouslyPartialConfirmed,
+    PreviouslyPartialConfirmed = PartialSettlementCode.PreviouslyPartialConfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PartialSettlement1Code
 public static class PartialSettlement1CodeMetadataExtensions
 {
     private static readonly PartialSettlement1CodeDropdownSource _dropdownSource = new PartialSettlement1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

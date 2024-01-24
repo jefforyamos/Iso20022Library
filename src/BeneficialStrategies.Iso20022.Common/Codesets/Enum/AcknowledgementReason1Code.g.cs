@@ -21,21 +21,21 @@ public enum AcknowledgementReason1Code
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bo8XFtp-Ed-ak6NoX_4Aeg_1134564404")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = AcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
+    /// Encoded/decoded by serializers as "SMPG".
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_bo8XF9p-Ed-ak6NoX_4Aeg_1419930057")]
     [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
-    MarketPracticeRuleDiscrepency,
+    MarketPracticeRuleDiscrepency = AcknowledgementReasonCode.MarketPracticeRuleDiscrepency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AcknowledgementReason1Code
 public static class AcknowledgementReason1CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason1CodeDropdownSource _dropdownSource = new AcknowledgementReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

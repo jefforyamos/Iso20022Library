@@ -21,305 +21,300 @@ public enum RejectionReason62Code
 {
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "ReferenceRejection".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_XhXCkRIvEeyHZKWo4KVxBw")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    ReferenceRejection,
+    ReferenceRejection = RejectionReasonV3Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_XhXCkxIvEeyHZKWo4KVxBw")]
     [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonV3Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid client collateral instruction identification.
-    /// Encoded/decoded by serializers as "ClientCollateralInstructionIdentification".
+    /// Encoded/decoded by serializers as "CCIX".
     /// </summary>
     [EnumMember(Value = "CCIX")]
     [IsoId("_XhXClRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid client collateral instruction identification.")]
-    ClientCollateralInstructionIdentification,
+    ClientCollateralInstructionIdentification = RejectionReasonV3Code.ClientCollateralInstructionIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid Client Collateral Transaction Identification.
-    /// Encoded/decoded by serializers as "ClientCollateralTransactionIdentification".
+    /// Encoded/decoded by serializers as "CCTI".
     /// </summary>
     [EnumMember(Value = "CCTI")]
     [IsoId("_XhXClxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid Client Collateral Transaction Identification.")]
-    ClientCollateralTransactionIdentification,
+    ClientCollateralTransactionIdentification = RejectionReasonV3Code.ClientCollateralTransactionIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "CommonReferenceRejection".
+    /// Encoded/decoded by serializers as "IIND".
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_XhXCmRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised, invalid or missing common reference.")]
-    CommonReferenceRejection,
+    CommonReferenceRejection = RejectionReasonV3Code.CommonReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or Invalid Party A.
-    /// Encoded/decoded by serializers as "InvalidPartyA".
+    /// Encoded/decoded by serializers as "PTYA".
     /// </summary>
     [EnumMember(Value = "PTYA")]
     [IsoId("_XhXCmxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or Invalid Party A.")]
-    InvalidPartyA,
+    InvalidPartyA = RejectionReasonV3Code.InvalidPartyA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or Invalid Party B
-    /// Encoded/decoded by serializers as "InvalidPartyB".
+    /// Encoded/decoded by serializers as "PTYB".
     /// </summary>
     [EnumMember(Value = "PTYB")]
     [IsoId("_XhXCnRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or Invalid Party B")]
-    InvalidPartyB,
+    InvalidPartyB = RejectionReasonV3Code.InvalidPartyB, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or Invalid Triparty Agent
-    /// Encoded/decoded by serializers as "InvalidTripartyAgent".
+    /// Encoded/decoded by serializers as "ITPA".
     /// </summary>
     [EnumMember(Value = "ITPA")]
     [IsoId("_XhXCnxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or Invalid Triparty Agent")]
-    InvalidTripartyAgent,
+    InvalidTripartyAgent = RejectionReasonV3Code.InvalidTripartyAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_XhXCoRIvEeyHZKWo4KVxBw")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonV3Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid Party A Safekeeping Account
-    /// Encoded/decoded by serializers as "PartyASafekeepingAccount".
+    /// Encoded/decoded by serializers as "SAFA".
     /// </summary>
     [EnumMember(Value = "SAFA")]
     [IsoId("_XhXCoxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid Party A Safekeeping Account")]
-    PartyASafekeepingAccount,
+    PartyASafekeepingAccount = RejectionReasonV3Code.PartyASafekeepingAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or Invalid Party B Safekeeping Account.
-    /// Encoded/decoded by serializers as "PartyBSafekeepingAccount".
+    /// Encoded/decoded by serializers as "SAFB".
     /// </summary>
     [EnumMember(Value = "SAFB")]
     [IsoId("_XhXCpRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or Invalid Party B Safekeeping Account.")]
-    PartyBSafekeepingAccount,
+    PartyBSafekeepingAccount = RejectionReasonV3Code.PartyBSafekeepingAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid execution date/time
-    /// Encoded/decoded by serializers as "RequestedExecutionDateTime".
+    /// Encoded/decoded by serializers as "REDT".
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_XhXCpxIvEeyHZKWo4KVxBw")]
     [Description(@"Invalid execution date/time")]
-    RequestedExecutionDateTime,
+    RequestedExecutionDateTime = RejectionReasonV3Code.RequestedExecutionDateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement process instructed.
-    /// 
-    /// Encoded/decoded by serializers as "SettlementProcessRejection".
+    /// Encoded/decoded by serializers as "SEPR".
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_XhXCqRIvEeyHZKWo4KVxBw")]
-    [Description(@"Unrecognised or invalid settlement process instructed. ")]
-    SettlementProcessRejection,
+    [Description(@"Unrecognised or invalid settlement process instructed.|")]
+    SettlementProcessRejection = RejectionReasonV3Code.SettlementProcessRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number of lookback days not supported.
-    /// 
-    /// Encoded/decoded by serializers as "LookbackDaysRejection".
+    /// Encoded/decoded by serializers as "LBDR".
     /// </summary>
     [EnumMember(Value = "LBDR")]
     [IsoId("_XhXCqxIvEeyHZKWo4KVxBw")]
-    [Description(@"Number of lookback days not supported. ")]
-    LookbackDaysRejection,
+    [Description(@"Number of lookback days not supported.|")]
+    LookbackDaysRejection = RejectionReasonV3Code.LookbackDaysRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Day count basis not supported.
-    /// 
-    /// Encoded/decoded by serializers as "DayCountBasis".
+    /// Encoded/decoded by serializers as "DCBR".
     /// </summary>
     [EnumMember(Value = "DCBR")]
     [IsoId("_XhXCrRIvEeyHZKWo4KVxBw")]
-    [Description(@"Day count basis not supported. ")]
-    DayCountBasis,
+    [Description(@"Day count basis not supported.|")]
+    DayCountBasis = RejectionReasonV3Code.DayCountBasis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Compound simple accrual calculation is not supported.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "CompoundSimpleAccrualCalculationRejection".
+    /// Encoded/decoded by serializers as "CSAC".
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_XhXCrxIvEeyHZKWo4KVxBw")]
-    [Description(@"Compound simple accrual calculation is not supported.  ")]
-    CompoundSimpleAccrualCalculationRejection,
+    [Description(@"Compound simple accrual calculation is not supported.||")]
+    CompoundSimpleAccrualCalculationRejection = RejectionReasonV3Code.CompoundSimpleAccrualCalculationRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid closing date/time.
-    /// Encoded/decoded by serializers as "ClosingDateTimeRejection".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_XhXCsRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid closing date/time.")]
-    ClosingDateTimeRejection,
+    ClosingDateTimeRejection = RejectionReasonV3Code.ClosingDateTimeRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "TradeDate".
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_XhXCsxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid trade date or requested trade date or future trade date.")]
-    TradeDate,
+    TradeDate = RejectionReasonV3Code.TradeDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "SettlementDateRejection".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_XhXCtRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    SettlementDateRejection,
+    SettlementDateRejection = RejectionReasonV3Code.SettlementDateRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "SettlementAmountCurrencyRejection".
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_XhXCtxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid settlement amount currency.")]
-    SettlementAmountCurrencyRejection,
+    SettlementAmountCurrencyRejection = RejectionReasonV3Code.SettlementAmountCurrencyRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This is an unrecognised or invalid Eligibility Set Profile.
-    /// Encoded/decoded by serializers as "InvalidEligibilitySetProfile".
+    /// Encoded/decoded by serializers as "IESP".
     /// </summary>
     [EnumMember(Value = "IESP")]
     [IsoId("_XhXCuRIvEeyHZKWo4KVxBw")]
     [Description(@"This is an unrecognised or invalid Eligibility Set Profile.")]
-    InvalidEligibilitySetProfile,
+    InvalidEligibilitySetProfile = RejectionReasonV3Code.InvalidEligibilitySetProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This is an unrecognised or invalid Exposure Type (used when a proprietary code is sent).
-    /// Encoded/decoded by serializers as "InvalidExposureType".
+    /// Encoded/decoded by serializers as "IEXT".
     /// </summary>
     [EnumMember(Value = "IEXT")]
     [IsoId("_XhXCuxIvEeyHZKWo4KVxBw")]
     [Description(@"This is an unrecognised or invalid Exposure Type (used when a proprietary code is sent).")]
-    InvalidExposureType,
+    InvalidExposureType = RejectionReasonV3Code.InvalidExposureType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid Preferential Basket identification.
-    /// Encoded/decoded by serializers as "InvalidPreferentialBasketIdentification".
+    /// Encoded/decoded by serializers as "IPBI".
     /// </summary>
     [EnumMember(Value = "IPBI")]
     [IsoId("_XhXCvRIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid Preferential Basket identification.")]
-    InvalidPreferentialBasketIdentification,
+    InvalidPreferentialBasketIdentification = RejectionReasonV3Code.InvalidPreferentialBasketIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid Rate Index Type (used when a proprietary code is sent).
-    /// Encoded/decoded by serializers as "InvalidRateIndexType".
+    /// Encoded/decoded by serializers as "IRIT".
     /// </summary>
     [EnumMember(Value = "IRIT")]
     [IsoId("_XhXCvxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid Rate Index Type (used when a proprietary code is sent).")]
-    InvalidRateIndexType,
+    InvalidRateIndexType = RejectionReasonV3Code.InvalidRateIndexType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Termination amount currency not supported.
-    /// Encoded/decoded by serializers as "TerminationAmountCurrency".
+    /// Encoded/decoded by serializers as "TMAC".
     /// </summary>
     [EnumMember(Value = "TMAC")]
     [IsoId("_XhXCwRIvEeyHZKWo4KVxBw")]
     [Description(@"Termination amount currency not supported.")]
-    TerminationAmountCurrency,
+    TerminationAmountCurrency = RejectionReasonV3Code.TerminationAmountCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid termination transaction amount.
-    /// Encoded/decoded by serializers as "TerminationTransactionAmount".
+    /// Encoded/decoded by serializers as "REPA".
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_XhXCwxIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid termination transaction amount.")]
-    TerminationTransactionAmount,
+    TerminationTransactionAmount = RejectionReasonV3Code.TerminationTransactionAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount currency not supported.
-    /// Encoded/decoded by serializers as "TransactionAmountCurrency".
+    /// Encoded/decoded by serializers as "TXAC".
     /// </summary>
     [EnumMember(Value = "TXAC")]
     [IsoId("_XhXCxRIvEeyHZKWo4KVxBw")]
     [Description(@"Transaction amount currency not supported.")]
-    TransactionAmountCurrency,
+    TransactionAmountCurrency = RejectionReasonV3Code.TransactionAmountCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// More than one instruction match the criteria.
-    /// Encoded/decoded by serializers as "NoMatch".
+    /// Encoded/decoded by serializers as "NRGM".
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_XhXCxxIvEeyHZKWo4KVxBw")]
     [Description(@"More than one instruction match the criteria.")]
-    NoMatch,
+    NoMatch = RejectionReasonV3Code.NoMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount breakdown currency differs from transaction amount currency.
-    /// Encoded/decoded by serializers as "TransactionAmountBreakdownCurrency".
+    /// Encoded/decoded by serializers as "TABC".
     /// </summary>
     [EnumMember(Value = "TABC")]
     [IsoId("_XhXCyRIvEeyHZKWo4KVxBw")]
     [Description(@"Transaction amount breakdown currency differs from transaction amount currency.")]
-    TransactionAmountBreakdownCurrency,
+    TransactionAmountBreakdownCurrency = RejectionReasonV3Code.TransactionAmountBreakdownCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This is an unrecognised or invalid Collateral Transaction Type.
-    /// Encoded/decoded by serializers as "InvalidCollateralTransactionType".
+    /// Encoded/decoded by serializers as "ICTT".
     /// </summary>
     [EnumMember(Value = "ICTT")]
     [IsoId("_XhXCyxIvEeyHZKWo4KVxBw")]
     [Description(@"This is an unrecognised or invalid Collateral Transaction Type.")]
-    InvalidCollateralTransactionType,
+    InvalidCollateralTransactionType = RejectionReasonV3Code.InvalidCollateralTransactionType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation, modification or termination request has been rejected since the instruction could not be found.
-    /// Encoded/decoded by serializers as "NotFoundRejectionForCancellationModificationOrTermination".
+    /// Encoded/decoded by serializers as "NRJN".
     /// </summary>
     [EnumMember(Value = "NRJN")]
     [IsoId("_XhXCzRIvEeyHZKWo4KVxBw")]
     [Description(@"Cancellation, modification or termination request has been rejected since the instruction could not be found.")]
-    NotFoundRejectionForCancellationModificationOrTermination,
+    NotFoundRejectionForCancellationModificationOrTermination = RejectionReasonV3Code.NotFoundRejectionForCancellationModificationOrTermination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been rejected as the corresponding allegement was cancelled.
-    /// Encoded/decoded by serializers as "NotFoundCorrespondingAllegement".
+    /// Encoded/decoded by serializers as "NFCA".
     /// </summary>
     [EnumMember(Value = "NFCA")]
     [IsoId("_XhXCzxIvEeyHZKWo4KVxBw")]
     [Description(@"Instruction has been rejected as the corresponding allegement was cancelled.")]
-    NotFoundCorrespondingAllegement,
+    NotFoundCorrespondingAllegement = RejectionReasonV3Code.NotFoundCorrespondingAllegement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid closing closing amount.
-    /// Encoded/decoded by serializers as "ClosingTransactionAmount".
+    /// Encoded/decoded by serializers as "CTRA".
     /// </summary>
     [EnumMember(Value = "CTRA")]
     [IsoId("_XhXC0RIvEeyHZKWo4KVxBw")]
     [Description(@"Unrecognised or invalid closing closing amount.")]
-    ClosingTransactionAmount,
+    ClosingTransactionAmount = RejectionReasonV3Code.ClosingTransactionAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -330,7 +325,7 @@ public enum RejectionReason62Code
 public static class RejectionReason62CodeMetadataExtensions
 {
     private static readonly RejectionReason62CodeDropdownSource _dropdownSource = new RejectionReason62CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

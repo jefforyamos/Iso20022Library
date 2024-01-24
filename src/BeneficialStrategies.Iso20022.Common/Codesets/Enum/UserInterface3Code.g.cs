@@ -21,30 +21,30 @@ public enum UserInterface3Code
 {
     /// <summary>
     /// Acquirer.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQU".
     /// </summary>
     [EnumMember(Value = "ACQU")]
     [IsoId("_ecl4wYO6EeSWSLYdc10LRg")]
     [Description(@"Acquirer.")]
-    Acquirer,
+    Acquirer = UserInterfaceCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_ejvpoYO6EeSWSLYdc10LRg")]
     [Description(@"Agent.")]
-    Agent,
+    Agent = UserInterfaceCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer.
-    /// Encoded/decoded by serializers as "Issuer".
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_euVJAYO6EeSWSLYdc10LRg")]
     [Description(@"Issuer.")]
-    Issuer,
+    Issuer = UserInterfaceCode.Issuer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum UserInterface3Code
 public static class UserInterface3CodeMetadataExtensions
 {
     private static readonly UserInterface3CodeDropdownSource _dropdownSource = new UserInterface3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

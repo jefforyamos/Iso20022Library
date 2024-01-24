@@ -21,30 +21,30 @@ public enum BeneficiaryType1Code
 {
     /// <summary>
     /// Beneficiary is a dependent.
-    /// Encoded/decoded by serializers as "Dependent".
+    /// Encoded/decoded by serializers as "DEPE".
     /// </summary>
     [EnumMember(Value = "DEPE")]
     [IsoId("_Opuc0VNhEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a dependent.")]
-    Dependent,
+    Dependent = BeneficiaryTypeCode.Dependent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficiary is a nominee.
-    /// Encoded/decoded by serializers as "Nominee".
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_OtcfMVNhEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a nominee.")]
-    Nominee,
+    Nominee = BeneficiaryTypeCode.Nominee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficiary is a successor.
-    /// Encoded/decoded by serializers as "Successor".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_OxnNgVNhEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a successor.")]
-    Successor,
+    Successor = BeneficiaryTypeCode.Successor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BeneficiaryType1Code
 public static class BeneficiaryType1CodeMetadataExtensions
 {
     private static readonly BeneficiaryType1CodeDropdownSource _dropdownSource = new BeneficiaryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

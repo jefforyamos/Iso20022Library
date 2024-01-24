@@ -21,21 +21,21 @@ public enum RateStatus1Code
 {
     /// <summary>
     /// Rate is actual.
-    /// Encoded/decoded by serializers as "ActualRate".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_ZY_ttNp-Ed-ak6NoX_4Aeg_1472885768")]
     [Description(@"Rate is actual.")]
-    ActualRate,
+    ActualRate = RateStatusCode.ActualRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is indicative.
-    /// Encoded/decoded by serializers as "IndicativeRate".
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_ZY_ttdp-Ed-ak6NoX_4Aeg_1472885797")]
     [Description(@"Rate is indicative.")]
-    IndicativeRate,
+    IndicativeRate = RateStatusCode.IndicativeRate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RateStatus1Code
 public static class RateStatus1CodeMetadataExtensions
 {
     private static readonly RateStatus1CodeDropdownSource _dropdownSource = new RateStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

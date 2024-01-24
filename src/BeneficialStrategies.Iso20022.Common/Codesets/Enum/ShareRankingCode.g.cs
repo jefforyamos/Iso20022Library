@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZOkmaNp-Ed-ak6NoX_4Aeg_1801695812")]
 [Description(@"Specifies whether the shares are ranking for dividend or pari passu.")]
 [Derivations(typeof(ShareRanking1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ShareRankingCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ShareRankingCode
 public static class ShareRankingCodeMetadataExtensions
 {
     private static readonly ShareRankingCodeDropdownSource _dropdownSource = new ShareRankingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

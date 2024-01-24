@@ -21,39 +21,39 @@ public enum TaxWithholdingMethod1Code
 {
     /// <summary>
     /// Tax is withheld at source.
-    /// Encoded/decoded by serializers as "WithholdTax".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_YlcJ0dp-Ed-ak6NoX_4Aeg_403829980")]
     [Description(@"Tax is withheld at source.")]
-    WithholdTax,
+    WithholdTax = TaxWithholdingMethodCode.WithholdTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax information is reported to the tax authorities and therefore not withheld at source.
-    /// Encoded/decoded by serializers as "ReportTax".
+    /// Encoded/decoded by serializers as "REPT".
     /// </summary>
     [EnumMember(Value = "REPT")]
     [IsoId("_YlcJ0tp-Ed-ak6NoX_4Aeg_403830040")]
     [Description(@"Tax information is reported to the tax authorities and therefore not withheld at source.")]
-    ReportTax,
+    ReportTax = TaxWithholdingMethodCode.ReportTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.
-    /// Encoded/decoded by serializers as "TaxCertificate".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_YlcJ09p-Ed-ak6NoX_4Aeg_403830075")]
     [Description(@"Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.")]
-    TaxCertificate,
+    TaxCertificate = TaxWithholdingMethodCode.TaxCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is withheld at source and the tax information is also reported to the tax authorities.
-    /// Encoded/decoded by serializers as "WithholdTaxAndReport".
+    /// Encoded/decoded by serializers as "WTRE".
     /// </summary>
     [EnumMember(Value = "WTRE")]
     [IsoId("_YlcJ1Np-Ed-ak6NoX_4Aeg_403830117")]
     [Description(@"Tax is withheld at source and the tax information is also reported to the tax authorities.")]
-    WithholdTaxAndReport,
+    WithholdTaxAndReport = TaxWithholdingMethodCode.WithholdTaxAndReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TaxWithholdingMethod1Code
 public static class TaxWithholdingMethod1CodeMetadataExtensions
 {
     private static readonly TaxWithholdingMethod1CodeDropdownSource _dropdownSource = new TaxWithholdingMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

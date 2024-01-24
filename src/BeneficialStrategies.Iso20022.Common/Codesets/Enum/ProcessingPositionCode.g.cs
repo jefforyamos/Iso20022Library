@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aLED0tp-Ed-ak6NoX_4Aeg_1278061835")]
 [Description(@"Specifies when an transaction/instruction is to be executed relative to a linked transaction/instruction.")]
 [Derivations(typeof(ProcessingPosition3Code),typeof(ProcessingPosition4Code),typeof(ProcessingPosition2Code),typeof(ProcessingPosition5Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProcessingPositionCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ProcessingPositionCode
 public static class ProcessingPositionCodeMetadataExtensions
 {
     private static readonly ProcessingPositionCodeDropdownSource _dropdownSource = new ProcessingPositionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

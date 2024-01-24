@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1qBZgDL3EeKU9IrkkToqcw_183881059")]
 [Description(@"Specifies whether the calculation basis is on base (original) or disbursed (distributed) security.")]
 [Derivations(typeof(DTCBaseDisbursed1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCBaseDisbursedCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DTCBaseDisbursedCode
 public static class DTCBaseDisbursedCodeMetadataExtensions
 {
     private static readonly DTCBaseDisbursedCodeDropdownSource _dropdownSource = new DTCBaseDisbursedCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_EroPkPeZEee0h5ZXun0VTA")]
-[Description(@"Specifies the information type, as published in an external information type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the information type, as published in an external information type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalInformationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalInformationTypeCode
 {
     /// <summary>
@@ -84,7 +83,7 @@ public enum ExternalInformationTypeCode
 public static class ExternalInformationTypeCodeMetadataExtensions
 {
     private static readonly ExternalInformationTypeCodeDropdownSource _dropdownSource = new ExternalInformationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

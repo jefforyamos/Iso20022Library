@@ -8,7 +8,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017).
-/// 
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IReturnExcessCashCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>

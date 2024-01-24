@@ -21,30 +21,30 @@ public enum StayOnSideType1Code
 {
     /// <summary>
     /// An order pegged against the offer price.
-    /// Encoded/decoded by serializers as "Offer".
+    /// Encoded/decoded by serializers as "OFFR".
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_zbzooA93EeGeV5vP7Mvdig_183499807")]
     [Description(@"An order pegged against the offer price.")]
-    Offer,
+    Offer = StayOnSideTypeCode.Offer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order pegged against the bid price.
-    /// Encoded/decoded by serializers as "Bid".
+    /// Encoded/decoded by serializers as "BIDE".
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_zbzooQ93EeGeV5vP7Mvdig_-571250067")]
     [Description(@"An order pegged against the bid price.")]
-    Bid,
+    Bid = StayOnSideTypeCode.Bid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a voluntary absence of choice/decision.
-    /// Encoded/decoded by serializers as "DontCare".
+    /// Encoded/decoded by serializers as "DCAR".
     /// </summary>
     [EnumMember(Value = "DCAR")]
     [IsoId("_zbzoog93EeGeV5vP7Mvdig_-128261575")]
     [Description(@"Indicates a voluntary absence of choice/decision.")]
-    DontCare,
+    DontCare = StayOnSideTypeCode.DontCare, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum StayOnSideType1Code
 public static class StayOnSideType1CodeMetadataExtensions
 {
     private static readonly StayOnSideType1CodeDropdownSource _dropdownSource = new StayOnSideType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

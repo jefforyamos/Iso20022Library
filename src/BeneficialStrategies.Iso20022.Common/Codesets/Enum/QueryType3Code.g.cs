@@ -21,30 +21,30 @@ public enum QueryType3Code
 {
     /// <summary>
     /// Specifies that the query requests that all matching items be returned.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ99p-Ed-ak6NoX_4Aeg_1181990669")]
     [Description(@"Specifies that the query requests that all matching items be returned.")]
-    All,
+    All = QueryTypeCode.All, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the query requests that only new matching items since the last similar query be returned.
-    /// Encoded/decoded by serializers as "Changed".
+    /// Encoded/decoded by serializers as "CHNG".
     /// </summary>
     [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ-Np-Ed-ak6NoX_4Aeg_1181990712")]
     [Description(@"Specifies that the query requests that only new matching items since the last similar query be returned.")]
-    Changed,
+    Changed = QueryTypeCode.Changed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the query requests that only items that have changed since the last query be returned.
-    /// Encoded/decoded by serializers as "Modified".
+    /// Encoded/decoded by serializers as "MODF".
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_ZXza4Np-Ed-ak6NoX_4Aeg_1181990713")]
     [Description(@"Specifies that the query requests that only items that have changed since the last query be returned.")]
-    Modified,
+    Modified = QueryTypeCode.Modified, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum QueryType3Code
 public static class QueryType3CodeMetadataExtensions
 {
     private static readonly QueryType3CodeDropdownSource _dropdownSource = new QueryType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

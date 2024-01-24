@@ -21,156 +21,156 @@ public enum KeyUsage1Code
 {
     /// <summary>
     /// Key may encrypt.
-    /// Encoded/decoded by serializers as "Encryption".
+    /// Encoded/decoded by serializers as "ENCR".
     /// </summary>
     [EnumMember(Value = "ENCR")]
     [IsoId("_KSJO8X1DEeCF8NjrBemJWQ_952269426")]
     [Description(@"Key may encrypt.")]
-    Encryption,
+    Encryption = KeyUsageCode.Encryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may decrypt.
-    /// Encoded/decoded by serializers as "Decryption".
+    /// Encoded/decoded by serializers as "DCPT".
     /// </summary>
     [EnumMember(Value = "DCPT")]
     [IsoId("_KSJO8n1DEeCF8NjrBemJWQ_119194564")]
     [Description(@"Key may decrypt.")]
-    Decryption,
+    Decryption = KeyUsageCode.Decryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may encrypt data.
-    /// Encoded/decoded by serializers as "DataEncryption".
+    /// Encoded/decoded by serializers as "DENC".
     /// </summary>
     [EnumMember(Value = "DENC")]
     [IsoId("_KSJO831DEeCF8NjrBemJWQ_1538814257")]
     [Description(@"Key may encrypt data.")]
-    DataEncryption,
+    DataEncryption = KeyUsageCode.DataEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may decrypt data.
-    /// Encoded/decoded by serializers as "DataDecryption".
+    /// Encoded/decoded by serializers as "DDEC".
     /// </summary>
     [EnumMember(Value = "DDEC")]
     [IsoId("_KSJO9H1DEeCF8NjrBemJWQ_-1258974949")]
     [Description(@"Key may decrypt data.")]
-    DataDecryption,
+    DataDecryption = KeyUsageCode.DataDecryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may encrypt information before translation.
-    /// Encoded/decoded by serializers as "TranslateInput".
+    /// Encoded/decoded by serializers as "TRNI".
     /// </summary>
     [EnumMember(Value = "TRNI")]
     [IsoId("_KSJO9X1DEeCF8NjrBemJWQ_1013497304")]
     [Description(@"Key may encrypt information before translation.")]
-    TranslateInput,
+    TranslateInput = KeyUsageCode.TranslateInput, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may encrypt information after translation.
-    /// Encoded/decoded by serializers as "TranslateOutput".
+    /// Encoded/decoded by serializers as "TRNX".
     /// </summary>
     [EnumMember(Value = "TRNX")]
     [IsoId("_KSJO9n1DEeCF8NjrBemJWQ_940936689")]
     [Description(@"Key may encrypt information after translation.")]
-    TranslateOutput,
+    TranslateOutput = KeyUsageCode.TranslateOutput, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may generate message authentication codes (MAC).
-    /// Encoded/decoded by serializers as "MessageAuthenticationCodeGeneration".
+    /// Encoded/decoded by serializers as "MACG".
     /// </summary>
     [EnumMember(Value = "MACG")]
     [IsoId("_KSJO931DEeCF8NjrBemJWQ_1560885913")]
     [Description(@"Key may generate message authentication codes (MAC).")]
-    MessageAuthenticationCodeGeneration,
+    MessageAuthenticationCodeGeneration = KeyUsageCode.MessageAuthenticationCodeGeneration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may verify message authentication codes (MAC).
-    /// Encoded/decoded by serializers as "MessageAuthenticationCodeVerification".
+    /// Encoded/decoded by serializers as "MACV".
     /// </summary>
     [EnumMember(Value = "MACV")]
     [IsoId("_KSJO-H1DEeCF8NjrBemJWQ_584260954")]
     [Description(@"Key may verify message authentication codes (MAC).")]
-    MessageAuthenticationCodeVerification,
+    MessageAuthenticationCodeVerification = KeyUsageCode.MessageAuthenticationCodeVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may generate digital signatures.
-    /// Encoded/decoded by serializers as "SignatureGeneration".
+    /// Encoded/decoded by serializers as "SIGG".
     /// </summary>
     [EnumMember(Value = "SIGG")]
     [IsoId("_KSJO-X1DEeCF8NjrBemJWQ_-918308253")]
     [Description(@"Key may generate digital signatures.")]
-    SignatureGeneration,
+    SignatureGeneration = KeyUsageCode.SignatureGeneration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may verify digital signatures.
-    /// Encoded/decoded by serializers as "SignatureVerification".
+    /// Encoded/decoded by serializers as "SUGV".
     /// </summary>
     [EnumMember(Value = "SUGV")]
     [IsoId("_KSSY4H1DEeCF8NjrBemJWQ_951000548")]
     [Description(@"Key may verify digital signatures.")]
-    SignatureVerification,
+    SignatureVerification = KeyUsageCode.SignatureVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may encrypt personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PINEncryption".
+    /// Encoded/decoded by serializers as "PINE".
     /// </summary>
     [EnumMember(Value = "PINE")]
     [IsoId("_KSSY4X1DEeCF8NjrBemJWQ_-1604204545")]
     [Description(@"Key may encrypt personal identification numbers (PIN).")]
-    PINEncryption,
+    PINEncryption = KeyUsageCode.PINEncryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may decrypt personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PINDecryption".
+    /// Encoded/decoded by serializers as "PIND".
     /// </summary>
     [EnumMember(Value = "PIND")]
     [IsoId("_KSSY4n1DEeCF8NjrBemJWQ_-108961006")]
     [Description(@"Key may decrypt personal identification numbers (PIN).")]
-    PINDecryption,
+    PINDecryption = KeyUsageCode.PINDecryption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may verify personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PINVerification".
+    /// Encoded/decoded by serializers as "PINV".
     /// </summary>
     [EnumMember(Value = "PINV")]
     [IsoId("_KSSY431DEeCF8NjrBemJWQ_596427236")]
     [Description(@"Key may verify personal identification numbers (PIN).")]
-    PINVerification,
+    PINVerification = KeyUsageCode.PINVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may generate keys.
-    /// Encoded/decoded by serializers as "KeyGeneration".
+    /// Encoded/decoded by serializers as "KEYG".
     /// </summary>
     [EnumMember(Value = "KEYG")]
     [IsoId("_KSSY5H1DEeCF8NjrBemJWQ_1055922580")]
     [Description(@"Key may generate keys.")]
-    KeyGeneration,
+    KeyGeneration = KeyUsageCode.KeyGeneration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may import keys.
-    /// Encoded/decoded by serializers as "KeyImport".
+    /// Encoded/decoded by serializers as "KEYI".
     /// </summary>
     [EnumMember(Value = "KEYI")]
     [IsoId("_KSSY5X1DEeCF8NjrBemJWQ_-1633900113")]
     [Description(@"Key may import keys.")]
-    KeyImport,
+    KeyImport = KeyUsageCode.KeyImport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may export keys.
-    /// Encoded/decoded by serializers as "KeyExport".
+    /// Encoded/decoded by serializers as "KEYX".
     /// </summary>
     [EnumMember(Value = "KEYX")]
     [IsoId("_KSSY5n1DEeCF8NjrBemJWQ_-204001317")]
     [Description(@"Key may export keys.")]
-    KeyExport,
+    KeyExport = KeyUsageCode.KeyExport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key may derive keys.
-    /// Encoded/decoded by serializers as "KeyDerivation".
+    /// Encoded/decoded by serializers as "KEYD".
     /// </summary>
     [EnumMember(Value = "KEYD")]
     [IsoId("_KSSY531DEeCF8NjrBemJWQ_1499653549")]
     [Description(@"Key may derive keys.")]
-    KeyDerivation,
+    KeyDerivation = KeyUsageCode.KeyDerivation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum KeyUsage1Code
 public static class KeyUsage1CodeMetadataExtensions
 {
     private static readonly KeyUsage1CodeDropdownSource _dropdownSource = new KeyUsage1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

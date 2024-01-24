@@ -21,12 +21,12 @@ public enum TransactionReversalReason2Code
 {
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_YuO5dNp-Ed-ak6NoX_4Aeg_1711187306")]
     [Description(@"This message appears to have been duplicated.")]
-    Duplication,
+    Duplication = TransactionReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum TransactionReversalReason2Code
 public static class TransactionReversalReason2CodeMetadataExtensions
 {
     private static readonly TransactionReversalReason2CodeDropdownSource _dropdownSource = new TransactionReversalReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Oq2Raq7DEemG7MmivSuE5g")]
 [Description(@"Specifies the type of security holders meeting.")]
 [Derivations(typeof(MeetingType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MeetingTypeV2Code
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum MeetingTypeV2Code
 public static class MeetingTypeV2CodeMetadataExtensions
 {
     private static readonly MeetingTypeV2CodeDropdownSource _dropdownSource = new MeetingTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

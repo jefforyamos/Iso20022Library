@@ -21,57 +21,57 @@ public enum BatchManagementType1Code
 {
     /// <summary>
     /// Acknowledgement requested by the originator to the destination (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AcknowledgementRequest".
+    /// Encoded/decoded by serializers as "AKRQ".
     /// </summary>
     [EnumMember(Value = "AKRQ")]
     [IsoId("_UGUJIVAaEeedyPuM0kK2EQ")]
     [Description(@"Acknowledgement requested by the originator to the destination (used with a notification message exclusively).")]
-    AcknowledgementRequest,
+    AcknowledgementRequest = BatchManagementTypeCode.AcknowledgementRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement response by the destination to the originator (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AcknowledgementResponse".
+    /// Encoded/decoded by serializers as "AKRP".
     /// </summary>
     [EnumMember(Value = "AKRP")]
     [IsoId("_UYKuIlAaEeedyPuM0kK2EQ")]
     [Description(@"Acknowledgement response by the destination to the originator (used with a notification message exclusively).")]
-    AcknowledgementResponse,
+    AcknowledgementResponse = BatchManagementTypeCode.AcknowledgementResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// End of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "End".
+    /// Encoded/decoded by serializers as "ENDB".
     /// </summary>
     [EnumMember(Value = "ENDB")]
     [IsoId("_Uk0DAlAaEeedyPuM0kK2EQ")]
     [Description(@"End of a collection or batch by the originator (used with a request message exclusively).")]
-    End,
+    End = BatchManagementTypeCode.End, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any other type of batch management transaction defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_UxKc8lAaEeedyPuM0kK2EQ")]
     [Description(@"Any other type of batch management transaction defined at national level.")]
-    OtherNational,
+    OtherNational = BatchManagementTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any other type of batch management transaction defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VDne4lAaEeedyPuM0kK2EQ")]
     [Description(@"Any other type of batch management transaction defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = BatchManagementTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initiation of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "Start".
+    /// Encoded/decoded by serializers as "STRT".
     /// </summary>
     [EnumMember(Value = "STRT")]
     [IsoId("_VQZ9slAaEeedyPuM0kK2EQ")]
     [Description(@"Initiation of a collection or batch by the originator (used with a request message exclusively).")]
-    Start,
+    Start = BatchManagementTypeCode.Start, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum BatchManagementType1Code
 public static class BatchManagementType1CodeMetadataExtensions
 {
     private static readonly BatchManagementType1CodeDropdownSource _dropdownSource = new BatchManagementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

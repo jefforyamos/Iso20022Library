@@ -21,120 +21,120 @@ public enum TypeOfPrice1Code
 {
     /// <summary>
     /// Price is an average execution price.
-    /// Encoded/decoded by serializers as "Average".
+    /// Encoded/decoded by serializers as "AVER".
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_Yx9i5tp-Ed-ak6NoX_4Aeg_-960547282")]
     [Description(@"Price is an average execution price.")]
-    Average,
+    Average = TypeOfPriceCode.Average, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is an override of the average price.
-    /// Encoded/decoded by serializers as "AverageOverride".
+    /// Encoded/decoded by serializers as "AVOV".
     /// </summary>
     [EnumMember(Value = "AVOV")]
     [IsoId("_Yx9i59p-Ed-ak6NoX_4Aeg_-960547190")]
     [Description(@"Price is an override of the average price.")]
-    AverageOverride,
+    AverageOverride = TypeOfPriceCode.AverageOverride, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is composed of the combined expenses (used in the UK market).
-    /// Encoded/decoded by serializers as "Combined".
+    /// Encoded/decoded by serializers as "COMB".
     /// </summary>
     [EnumMember(Value = "COMB")]
     [IsoId("_Yx9i6Np-Ed-ak6NoX_4Aeg_-960547129")]
     [Description(@"Price is composed of the combined expenses (used in the UK market).")]
-    Combined,
+    Combined = TypeOfPriceCode.Combined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is a gross execution price. The price is an all inclusive price, ie, including all charges, fees, and taxes.
-    /// Encoded/decoded by serializers as "GrossOfAll".
+    /// Encoded/decoded by serializers as "GREX".
     /// </summary>
     [EnumMember(Value = "GREX")]
     [IsoId("_YyGs0Np-Ed-ak6NoX_4Aeg_-960547015")]
     [Description(@"Price is a gross execution price. The price is an all inclusive price, ie, including all charges, fees, and taxes.")]
-    GrossOfAll,
+    GrossOfAll = TypeOfPriceCode.GrossOfAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the limit price of a limit order, eg, a customer might put in a limit order to sell financial instruments at 67 or to buy at 60.
-    /// Encoded/decoded by serializers as "Limit".
+    /// Encoded/decoded by serializers as "LIMI".
     /// </summary>
     [EnumMember(Value = "LIMI")]
     [IsoId("_YyGs0dp-Ed-ak6NoX_4Aeg_-960546706")]
     [Description(@"Price is the limit price of a limit order, eg, a customer might put in a limit order to sell financial instruments at 67 or to buy at 60.")]
-    Limit,
+    Limit = TypeOfPriceCode.Limit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is a net price, ie, net only of local broker's commission, local fees and local taxes.
-    /// Encoded/decoded by serializers as "Net".
+    /// Encoded/decoded by serializers as "NET2".
     /// </summary>
     [EnumMember(Value = "NET2")]
     [IsoId("_YyGs0tp-Ed-ak6NoX_4Aeg_-960546614")]
     [Description(@"Price is a net price, ie, net only of local broker's commission, local fees and local taxes.")]
-    Net,
+    Net = TypeOfPriceCode.Net, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is net to the disclosed client.
-    /// Encoded/decoded by serializers as "NetDisclosed".
+    /// Encoded/decoded by serializers as "NDIS".
     /// </summary>
     [EnumMember(Value = "NDIS")]
     [IsoId("_YyGs09p-Ed-ak6NoX_4Aeg_-960546274")]
     [Description(@"Price is net to the disclosed client.")]
-    NetDisclosed,
+    NetDisclosed = TypeOfPriceCode.NetDisclosed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is a net price, ie, net of all charges, fees and taxes.
-    /// Encoded/decoded by serializers as "NetOfAll".
+    /// Encoded/decoded by serializers as "NET1".
     /// </summary>
     [EnumMember(Value = "NET1")]
     [IsoId("_YyGs1Np-Ed-ak6NoX_4Aeg_-960546182")]
     [Description(@"Price is a net price, ie, net of all charges, fees and taxes.")]
-    NetOfAll,
+    NetOfAll = TypeOfPriceCode.NetOfAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is net to the client undisclosed (used in the UK market).
-    /// Encoded/decoded by serializers as "NetUndisclosed".
+    /// Encoded/decoded by serializers as "NUND".
     /// </summary>
     [EnumMember(Value = "NUND")]
     [IsoId("_YyGs1dp-Ed-ak6NoX_4Aeg_-960546090")]
     [Description(@"Price is net to the client undisclosed (used in the UK market).")]
-    NetUndisclosed,
+    NetUndisclosed = TypeOfPriceCode.NetUndisclosed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is notional gross (used in the UK market).
-    /// Encoded/decoded by serializers as "NotionalGross".
+    /// Encoded/decoded by serializers as "NOGR".
     /// </summary>
     [EnumMember(Value = "NOGR")]
     [IsoId("_YyGs1tp-Ed-ak6NoX_4Aeg_-960545758")]
     [Description(@"Price is notional gross (used in the UK market).")]
-    NotionalGross,
+    NotionalGross = TypeOfPriceCode.NotionalGross, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is equal to the nominal or face value of the instrument.
-    /// Encoded/decoded by serializers as "ParValue".
+    /// Encoded/decoded by serializers as "PARV".
     /// </summary>
     [EnumMember(Value = "PARV")]
     [IsoId("_YyGs19p-Ed-ak6NoX_4Aeg_-959625664")]
     [Description(@"Price is equal to the nominal or face value of the instrument.")]
-    ParValue,
+    ParValue = TypeOfPriceCode.ParValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is a rounded average price.
-    /// Encoded/decoded by serializers as "RoundedAverage".
+    /// Encoded/decoded by serializers as "RDAV".
     /// </summary>
     [EnumMember(Value = "RDAV")]
     [IsoId("_YyGs2Np-Ed-ak6NoX_4Aeg_-959625572")]
     [Description(@"Price is a rounded average price.")]
-    RoundedAverage,
+    RoundedAverage = TypeOfPriceCode.RoundedAverage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is a stop price used in an order to buy. The order becomes a market order when the financial instrument trades at or above the stop price after the order is submitted. In an order to sell the order becomes a market order when the financial instrument trades at or below the stop price.
-    /// Encoded/decoded by serializers as "Stop".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_YyQd0Np-Ed-ak6NoX_4Aeg_-959625450")]
     [Description(@"Price is a stop price used in an order to buy. The order becomes a market order when the financial instrument trades at or above the stop price after the order is submitted. In an order to sell the order becomes a market order when the financial instrument trades at or below the stop price.")]
-    Stop,
+    Stop = TypeOfPriceCode.Stop, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum TypeOfPrice1Code
 public static class TypeOfPrice1CodeMetadataExtensions
 {
     private static readonly TypeOfPrice1CodeDropdownSource _dropdownSource = new TypeOfPrice1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

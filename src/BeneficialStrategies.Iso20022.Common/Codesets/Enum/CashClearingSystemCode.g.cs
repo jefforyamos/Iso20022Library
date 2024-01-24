@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a5tSg9p-Ed-ak6NoX_4Aeg_381100265")]
 [Description(@"Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is to be processed.")]
 [Derivations(typeof(CashClearingSystem1Code),typeof(CashClearingSystem3Code),typeof(CashClearingSystem2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashClearingSystemCode
 {
     /// <summary>
@@ -731,7 +730,7 @@ public enum CashClearingSystemCode
 public static class CashClearingSystemCodeMetadataExtensions
 {
     private static readonly CashClearingSystemCodeDropdownSource _dropdownSource = new CashClearingSystemCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum ChequeType2Code
 {
     /// <summary>
     /// Cheque drawn on the account of the debtor, and debited on the debtor's account when the cheque is cashed. Synonym is 'corporate cheque'.
-    /// Encoded/decoded by serializers as "CustomerCheque".
+    /// Encoded/decoded by serializers as "CCHQ".
     /// </summary>
     [EnumMember(Value = "CCHQ")]
     [IsoId("_a-7JsNp-Ed-ak6NoX_4Aeg_1485265041")]
     [Description(@"Cheque drawn on the account of the debtor, and debited on the debtor's account when the cheque is cashed. Synonym is 'corporate cheque'.")]
-    CustomerCheque,
+    CustomerCheque = ChequeTypeCode.CustomerCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque drawn on the account of the debtor, and debited on the debtor's account when the cheque is cashed. The financial institution prints and certifies the cheque, guaranteeing the payment.
-    /// Encoded/decoded by serializers as "CertifiedCustomerCheque".
+    /// Encoded/decoded by serializers as "CCCH".
     /// </summary>
     [EnumMember(Value = "CCCH")]
     [IsoId("_a-7Jsdp-Ed-ak6NoX_4Aeg_1485265119")]
     [Description(@"Cheque drawn on the account of the debtor, and debited on the debtor's account when the cheque is cashed. The financial institution prints and certifies the cheque, guaranteeing the payment.")]
-    CertifiedCustomerCheque,
+    CertifiedCustomerCheque = ChequeTypeCode.CertifiedCustomerCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque drawn on the account of the debtor's financial institution, which is debited on the debtor's account when the cheque is issued.These cheques are printed by the debtor's financial institution and payment is guaranteed by the financial institution. Synonym is 'cashier's cheque'.
-    /// Encoded/decoded by serializers as "BankCheque".
+    /// Encoded/decoded by serializers as "BCHQ".
     /// </summary>
     [EnumMember(Value = "BCHQ")]
     [IsoId("_a-7Jstp-Ed-ak6NoX_4Aeg_1485265197")]
     [Description(@"Cheque drawn on the account of the debtor's financial institution, which is debited on the debtor's account when the cheque is issued.These cheques are printed by the debtor's financial institution and payment is guaranteed by the financial institution. Synonym is 'cashier's cheque'.")]
-    BankCheque,
+    BankCheque = ChequeTypeCode.BankCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
-    /// Encoded/decoded by serializers as "Draft".
+    /// Encoded/decoded by serializers as "DRFT".
     /// </summary>
     [EnumMember(Value = "DRFT")]
     [IsoId("_a-7Js9p-Ed-ak6NoX_4Aeg_1485265523")]
     [Description(@"A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
-    Draft,
+    Draft = ChequeTypeCode.Draft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
-    /// Encoded/decoded by serializers as "ElectronicDraft".
+    /// Encoded/decoded by serializers as "ELDR".
     /// </summary>
     [EnumMember(Value = "ELDR")]
     [IsoId("_a-7JtNp-Ed-ak6NoX_4Aeg_-1349960623")]
     [Description(@"An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
-    ElectronicDraft,
+    ElectronicDraft = ChequeTypeCode.ElectronicDraft, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ChequeType2Code
 public static class ChequeType2CodeMetadataExtensions
 {
     private static readonly ChequeType2CodeDropdownSource _dropdownSource = new ChequeType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

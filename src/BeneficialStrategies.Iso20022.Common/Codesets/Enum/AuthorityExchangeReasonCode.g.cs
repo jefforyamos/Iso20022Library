@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YchP0B5REeWc9bJOIIhUUw")]
 [Description(@"Specifies the reason for the exchange with the national competent authority.")]
 [Derivations(typeof(AuthorityExchangeReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AuthorityExchangeReasonCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum AuthorityExchangeReasonCode
 public static class AuthorityExchangeReasonCodeMetadataExtensions
 {
     private static readonly AuthorityExchangeReasonCodeDropdownSource _dropdownSource = new AuthorityExchangeReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

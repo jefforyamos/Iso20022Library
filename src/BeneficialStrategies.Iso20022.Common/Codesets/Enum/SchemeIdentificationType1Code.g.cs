@@ -21,39 +21,39 @@ public enum SchemeIdentificationType1Code
 {
     /// <summary>
     /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
-    /// Encoded/decoded by serializers as "MarginAccount".
+    /// Encoded/decoded by serializers as "MARG".
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_Gz2FkXa-Eee2GNSe_4BSzQ")]
     [Description(@"Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.")]
-    MarginAccount,
+    MarginAccount = SchemeIdentificationTypeCode.MarginAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
-    /// Encoded/decoded by serializers as "CollateralAccount".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_G6lmwXa-Eee2GNSe_4BSzQ")]
     [Description(@"Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.")]
-    CollateralAccount,
+    CollateralAccount = SchemeIdentificationTypeCode.CollateralAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
-    /// Encoded/decoded by serializers as "PositionAccount".
+    /// Encoded/decoded by serializers as "POSI".
     /// </summary>
     [EnumMember(Value = "POSI")]
     [IsoId("_HFG0sXa-Eee2GNSe_4BSzQ")]
     [Description(@"Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.")]
-    PositionAccount,
+    PositionAccount = SchemeIdentificationTypeCode.PositionAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legal entity that is a participant in a clearing service of a central counterparty, that is the legal counterparty to all novated trades for all the accounts associated with such counterparty.
-    /// Encoded/decoded by serializers as "ClearingMemberAccount".
+    /// Encoded/decoded by serializers as "CLIM".
     /// </summary>
     [EnumMember(Value = "CLIM")]
     [IsoId("_YWoVkXtNEee8tZ67_DQBAw")]
     [Description(@"Legal entity that is a participant in a clearing service of a central counterparty, that is the legal counterparty to all novated trades for all the accounts associated with such counterparty.")]
-    ClearingMemberAccount,
+    ClearingMemberAccount = SchemeIdentificationTypeCode.ClearingMemberAccount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SchemeIdentificationType1Code
 public static class SchemeIdentificationType1CodeMetadataExtensions
 {
     private static readonly SchemeIdentificationType1CodeDropdownSource _dropdownSource = new SchemeIdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

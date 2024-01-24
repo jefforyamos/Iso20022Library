@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ar_mpNp-Ed-ak6NoX_4Aeg_-1147157283")]
 [Description(@"Indicates the arrangement as to the freight charges.")]
 [Derivations(typeof(FreightCharges1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FreightChargesCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FreightChargesCode
 public static class FreightChargesCodeMetadataExtensions
 {
     private static readonly FreightChargesCodeDropdownSource _dropdownSource = new FreightChargesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

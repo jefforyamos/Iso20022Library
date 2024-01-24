@@ -21,21 +21,21 @@ public enum CollateralAccountType3Code
 {
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
-    /// Encoded/decoded by serializers as "Margin".
+    /// Encoded/decoded by serializers as "MGIN".
     /// </summary>
     [EnumMember(Value = "MGIN")]
     [IsoId("_Ce_XEVHQEeeqtLmveSCYmA")]
     [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.")]
-    Margin,
+    Margin = CollateralAccountTypeCode.Margin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers clearing member's default risk.
-    /// Encoded/decoded by serializers as "DefaultFund".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_Cwzf0VHQEeeqtLmveSCYmA")]
     [Description(@"Specifies that the account is used to post collateral that covers clearing member's default risk.")]
-    DefaultFund,
+    DefaultFund = CollateralAccountTypeCode.DefaultFund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralAccountType3Code
 public static class CollateralAccountType3CodeMetadataExtensions
 {
     private static readonly CollateralAccountType3CodeDropdownSource _dropdownSource = new CollateralAccountType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

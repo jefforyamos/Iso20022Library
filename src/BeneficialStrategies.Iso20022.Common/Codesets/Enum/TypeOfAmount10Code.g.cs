@@ -21,48 +21,48 @@ public enum TypeOfAmount10Code
 {
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "InterchangeFee".
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_jvU-AVKOEeeHVODnW-1ONQ")]
     [Description(@"Interchange fee.")]
-    InterchangeFee,
+    InterchangeFee = TypeOfAmountCode.InterchangeFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "ProcessingFees".
+    /// Encoded/decoded by serializers as "FEEP".
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_oXifQVKOEeeHVODnW-1ONQ")]
     [Description(@"Processing fees.")]
-    ProcessingFees,
+    ProcessingFees = TypeOfAmountCode.ProcessingFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_pN11IVKOEeeHVODnW-1ONQ")]
     [Description(@"Other type of amount defined at national level.")]
-    OtherNational,
+    OtherNational = TypeOfAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_pR2ycVKOEeeHVODnW-1ONQ")]
     [Description(@"Other type of amount defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = TypeOfAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
+    /// Encoded/decoded by serializers as "FEEA".
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_rf7I4X03Eem0U9m89kippg")]
     [Description(@"International service assessment fees.")]
-    InternationalServiceAssessmentFees,
+    InternationalServiceAssessmentFees = TypeOfAmountCode.InternationalServiceAssessmentFees, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TypeOfAmount10Code
 public static class TypeOfAmount10CodeMetadataExtensions
 {
     private static readonly TypeOfAmount10CodeDropdownSource _dropdownSource = new TypeOfAmount10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

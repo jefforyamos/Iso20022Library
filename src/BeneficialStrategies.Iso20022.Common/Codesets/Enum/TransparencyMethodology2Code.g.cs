@@ -21,39 +21,39 @@ public enum TransparencyMethodology2Code
 {
     /// <summary>
     /// Calculation based on yearly cycle.
-    /// Encoded/decoded by serializers as "Year".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_IUk-oXvuEeanCNPcMT7sSg")]
     [Description(@"Calculation based on yearly cycle.")]
-    Year,
+    Year = TransparencyMethodologyCode.Year, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Results of calculations supporting Systematic Internaliser regime.
-    /// Encoded/decoded by serializers as "SystematicInternaliser".
+    /// Encoded/decoded by serializers as "SINT".
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_IYpmUXvuEeanCNPcMT7sSg")]
     [Description(@"Results of calculations supporting Systematic Internaliser regime.")]
-    SystematicInternaliser,
+    SystematicInternaliser = TransparencyMethodologyCode.SystematicInternaliser, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Calculation based on first Four Weeks of Trading for Equity Instruments.
-    /// Encoded/decoded by serializers as "FirstFourWeeks".
+    /// Encoded/decoded by serializers as "FFWK".
     /// </summary>
     [EnumMember(Value = "FFWK")]
     [IsoId("_IcsY0XvuEeanCNPcMT7sSg")]
     [Description(@"Calculation based on first Four Weeks of Trading for Equity Instruments.")]
-    FirstFourWeeks,
+    FirstFourWeeks = TransparencyMethodologyCode.FirstFourWeeks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Estimation for New Equity Instruments.
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_IgesoXvuEeanCNPcMT7sSg")]
     [Description(@"Estimation for New Equity Instruments.")]
-    Estimated,
+    Estimated = TransparencyMethodologyCode.Estimated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TransparencyMethodology2Code
 public static class TransparencyMethodology2CodeMetadataExtensions
 {
     private static readonly TransparencyMethodology2CodeDropdownSource _dropdownSource = new TransparencyMethodology2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum UnderlyingEquityType3Code
 {
     /// <summary>
     /// Underlying is a basket.
-    /// Encoded/decoded by serializers as "Basket".
+    /// Encoded/decoded by serializers as "BSKT".
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_rI7j8WlOEeaLAKoEUNsD9g")]
     [Description(@"Underlying is a basket.")]
-    Basket,
+    Basket = UnderlyingTypeV2Code.Basket, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum UnderlyingEquityType3Code
 public static class UnderlyingEquityType3CodeMetadataExtensions
 {
     private static readonly UnderlyingEquityType3CodeDropdownSource _dropdownSource = new UnderlyingEquityType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

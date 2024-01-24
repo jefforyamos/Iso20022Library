@@ -21,48 +21,48 @@ public enum PartyType20Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_d0zP0U0pEeea0Mdu1TOzDQ")]
     [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
-    Acceptor,
+    Acceptor = PartyTypeCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_hILFEk0pEeea0Mdu1TOzDQ")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holder of a payment card.
-    /// Encoded/decoded by serializers as "Cardholder".
+    /// Encoded/decoded by serializers as "CRDH".
     /// </summary>
     [EnumMember(Value = "CRDH")]
     [IsoId("_hxsjMU0pEeea0Mdu1TOzDQ")]
     [Description(@"Holder of a payment card.")]
-    Cardholder,
+    Cardholder = PartyTypeCode.Cardholder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_i0EmMk0pEeea0Mdu1TOzDQ")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_nvk8AZmKEee_M7tURHTZTQ")]
     [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
-    Agent,
+    Agent = PartyTypeCode.Agent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PartyType20Code
 public static class PartyType20CodeMetadataExtensions
 {
     private static readonly PartyType20CodeDropdownSource _dropdownSource = new PartyType20CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

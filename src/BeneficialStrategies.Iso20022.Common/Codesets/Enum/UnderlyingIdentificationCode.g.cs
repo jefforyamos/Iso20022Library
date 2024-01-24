@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_zm6XAHZVEeWM6LeFwEMTgg")]
 [Description(@"Specifies the type of the underlying identification.")]
 [Derivations(typeof(UnderlyingIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnderlyingIdentificationCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum UnderlyingIdentificationCode
 public static class UnderlyingIdentificationCodeMetadataExtensions
 {
     private static readonly UnderlyingIdentificationCodeDropdownSource _dropdownSource = new UnderlyingIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

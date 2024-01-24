@@ -21,30 +21,30 @@ public enum ATMTransactionStatus1Code
 {
     /// <summary>
     /// Undetermined status, for instance possibly forgotten notes.
-    /// Encoded/decoded by serializers as "Doubt".
+    /// Encoded/decoded by serializers as "DOBT".
     /// </summary>
     [EnumMember(Value = "DOBT")]
     [IsoId("_VAzJoYqSEeSRT5rEzcAHEw")]
     [Description(@"Undetermined status, for instance possibly forgotten notes.")]
-    Doubt,
+    Doubt = ATMTransactionStatusCode.Doubt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction failed.
-    /// Encoded/decoded by serializers as "Failure".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_VE0uAYqSEeSRT5rEzcAHEw")]
     [Description(@"Transaction failed.")]
-    Failure,
+    Failure = ATMTransactionStatusCode.Failure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was successfully completed.
-    /// Encoded/decoded by serializers as "Success".
+    /// Encoded/decoded by serializers as "SCSS".
     /// </summary>
     [EnumMember(Value = "SCSS")]
     [IsoId("_VMHo04qSEeSRT5rEzcAHEw")]
     [Description(@"Transaction was successfully completed.")]
-    Success,
+    Success = ATMTransactionStatusCode.Success, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMTransactionStatus1Code
 public static class ATMTransactionStatus1CodeMetadataExtensions
 {
     private static readonly ATMTransactionStatus1CodeDropdownSource _dropdownSource = new ATMTransactionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

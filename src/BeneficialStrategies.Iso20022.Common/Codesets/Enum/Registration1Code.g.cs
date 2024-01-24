@@ -21,21 +21,21 @@ public enum Registration1Code
 {
     /// <summary>
     /// Hold the securities in street name. If there is a standing instruction in place to register on receipt, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "StreetName".
+    /// Encoded/decoded by serializers as "NREG".
     /// </summary>
     [EnumMember(Value = "NREG")]
     [IsoId("_Za7nZNp-Ed-ak6NoX_4Aeg_-365554140")]
     [Description(@"Hold the securities in street name. If there is a standing instruction in place to register on receipt, then this standing instruction is to be ignored.")]
-    StreetName,
+    StreetName = RegistrationCode.StreetName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Register on receipt. If there is a standing instruction in place to hold the securities in street name, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "Registered".
+    /// Encoded/decoded by serializers as "YREG".
     /// </summary>
     [EnumMember(Value = "YREG")]
     [IsoId("_Za7nZdp-Ed-ak6NoX_4Aeg_-165149890")]
     [Description(@"Register on receipt. If there is a standing instruction in place to hold the securities in street name, then this standing instruction is to be ignored.")]
-    Registered,
+    Registered = RegistrationCode.Registered, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Registration1Code
 public static class Registration1CodeMetadataExtensions
 {
     private static readonly Registration1CodeDropdownSource _dropdownSource = new Registration1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

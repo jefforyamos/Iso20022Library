@@ -21,21 +21,21 @@ public enum OvernightIndexSwapType1Code
 {
     /// <summary>
     /// Fixed interest rate is paid by the reporting agent.
-    /// Encoded/decoded by serializers as "Paid".
+    /// Encoded/decoded by serializers as "PAID".
     /// </summary>
     [EnumMember(Value = "PAID")]
     [IsoId("_MMw1obu9EeSXxOgurgHGgw")]
     [Description(@"Fixed interest rate is paid by the reporting agent.")]
-    Paid,
+    Paid = OvernightIndexSwapTypeCode.Paid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed interest rate is received by the reporting agent.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_MTdTg7u9EeSXxOgurgHGgw")]
     [Description(@"Fixed interest rate is received by the reporting agent.")]
-    Received,
+    Received = OvernightIndexSwapTypeCode.Received, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OvernightIndexSwapType1Code
 public static class OvernightIndexSwapType1CodeMetadataExtensions
 {
     private static readonly OvernightIndexSwapType1CodeDropdownSource _dropdownSource = new OvernightIndexSwapType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

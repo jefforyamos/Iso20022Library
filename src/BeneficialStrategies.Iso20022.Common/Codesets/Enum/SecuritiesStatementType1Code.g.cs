@@ -21,21 +21,21 @@ public enum SecuritiesStatementType1Code
 {
     /// <summary>
     /// Statement is a custody statement.
-    /// Encoded/decoded by serializers as "Custody".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ZF7As9p-Ed-ak6NoX_4Aeg_-1354761291")]
     [Description(@"Statement is a custody statement.")]
-    Custody,
+    Custody = SecuritiesStatementTypeCode.Custody, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement is an accounting statement.
-    /// Encoded/decoded by serializers as "Accounting".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_ZF7AtNp-Ed-ak6NoX_4Aeg_-1354760395")]
     [Description(@"Statement is an accounting statement.")]
-    Accounting,
+    Accounting = SecuritiesStatementTypeCode.Accounting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SecuritiesStatementType1Code
 public static class SecuritiesStatementType1CodeMetadataExtensions
 {
     private static readonly SecuritiesStatementType1CodeDropdownSource _dropdownSource = new SecuritiesStatementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

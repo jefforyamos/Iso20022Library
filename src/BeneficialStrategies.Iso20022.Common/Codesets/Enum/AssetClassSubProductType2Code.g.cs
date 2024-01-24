@@ -21,12 +21,12 @@ public enum AssetClassSubProductType2Code
 {
     /// <summary>
     /// Commodity of type softs.
-    /// Encoded/decoded by serializers as "Softs".
+    /// Encoded/decoded by serializers as "SOFT".
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_MkTJ4QnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type softs.")]
-    Softs,
+    Softs = AssetClassSubProductTypeCode.Softs, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType2Code
 public static class AssetClassSubProductType2CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType2CodeDropdownSource _dropdownSource = new AssetClassSubProductType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

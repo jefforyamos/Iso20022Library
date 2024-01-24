@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZKGWEtp-Ed-ak6NoX_4Aeg_274745711")]
 [Description(@"Specifies the status of the security.")]
 [Derivations(typeof(SecurityStatus1Code),typeof(SecurityStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecurityStatusCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum SecurityStatusCode
 public static class SecurityStatusCodeMetadataExtensions
 {
     private static readonly SecurityStatusCodeDropdownSource _dropdownSource = new SecurityStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

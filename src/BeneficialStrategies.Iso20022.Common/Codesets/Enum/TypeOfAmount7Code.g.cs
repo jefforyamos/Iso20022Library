@@ -21,48 +21,48 @@ public enum TypeOfAmount7Code
 {
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "Fees".
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_NBM3MYN-EeSNofOeou9G3A")]
     [Description(@"Fees.")]
-    Fees,
+    Fees = TypeOfAmountCode.Fees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fees amount from the card issuer.
-    /// Encoded/decoded by serializers as "IssuerFees".
+    /// Encoded/decoded by serializers as "FEEI".
     /// </summary>
     [EnumMember(Value = "FEEI")]
     [IsoId("_NWACgYN-EeSNofOeou9G3A")]
     [Description(@"Fees amount from the card issuer.")]
-    IssuerFees,
+    IssuerFees = TypeOfAmountCode.IssuerFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interchange fees.
-    /// Encoded/decoded by serializers as "InterchangeFees".
+    /// Encoded/decoded by serializers as "FEEH".
     /// </summary>
     [EnumMember(Value = "FEEH")]
     [IsoId("_gi3gAYN-EeSNofOeou9G3A")]
     [Description(@"Interchange fees.")]
-    InterchangeFees,
+    InterchangeFees = TypeOfAmountCode.InterchangeFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "ProcessingFees".
+    /// Encoded/decoded by serializers as "FEEP".
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_nk6mcYN-EeSNofOeou9G3A")]
     [Description(@"Processing fees.")]
-    ProcessingFees,
+    ProcessingFees = TypeOfAmountCode.ProcessingFees, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
+    /// Encoded/decoded by serializers as "FEEA".
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_63UEMYN-EeSNofOeou9G3A")]
     [Description(@"International service assessment fees.")]
-    InternationalServiceAssessmentFees,
+    InternationalServiceAssessmentFees = TypeOfAmountCode.InternationalServiceAssessmentFees, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TypeOfAmount7Code
 public static class TypeOfAmount7CodeMetadataExtensions
 {
     private static readonly TypeOfAmount7CodeDropdownSource _dropdownSource = new TypeOfAmount7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

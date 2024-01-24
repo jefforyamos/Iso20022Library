@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bJkrQBl9EeKxsrht2duUcg")]
 [Description(@"Specifies the function of the price report.")]
 [Derivations(typeof(PriceReportFunction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PriceReportFunctionCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PriceReportFunctionCode
 public static class PriceReportFunctionCodeMetadataExtensions
 {
     private static readonly PriceReportFunctionCodeDropdownSource _dropdownSource = new PriceReportFunctionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

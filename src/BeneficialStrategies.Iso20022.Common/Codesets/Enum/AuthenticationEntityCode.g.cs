@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TVyU7AEcEeCQm6a_G2yO_w_1327141076")]
 [Description(@"Entity or object in charge of verifying the cardholder authenticity.")]
 [Derivations(typeof(AuthenticationEntity1Code),typeof(AuthenticationEntity2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AuthenticationEntityCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum AuthenticationEntityCode
 public static class AuthenticationEntityCodeMetadataExtensions
 {
     private static readonly AuthenticationEntityCodeDropdownSource _dropdownSource = new AuthenticationEntityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,84 +21,84 @@ public enum ActionType1Code
 {
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DisplayMessage".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_TR6hgwEcEeCQm6a_G2yO_w_707859768")]
     [Description(@"Message to display, print or log.")]
-    DisplayMessage,
+    DisplayMessage = ActionTypeCode.DisplayMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PrintMessage".
+    /// Encoded/decoded by serializers as "PRNT".
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_TR6hhAEcEeCQm6a_G2yO_w_-1829270022")]
     [Description(@"Print a message.")]
-    PrintMessage,
+    PrintMessage = ActionTypeCode.PrintMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "Referral".
+    /// Encoded/decoded by serializers as "RFRL".
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_TR6hhQEcEeCQm6a_G2yO_w_107955151")]
     [Description(@"Referral has to be performed.")]
-    Referral,
+    Referral = ActionTypeCode.Referral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CaptureCard".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_TR6hhgEcEeCQm6a_G2yO_w_-1550000880")]
     [Description(@"Capture the card.")]
-    CaptureCard,
+    CaptureCard = ActionTypeCode.CaptureCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINRetry".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_TR6hhwEcEeCQm6a_G2yO_w_1672961357")]
     [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
-    PINRetry,
+    PINRetry = ActionTypeCode.PINRetry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINLastTry".
+    /// Encoded/decoded by serializers as "PINL".
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_TR6hiAEcEeCQm6a_G2yO_w_-684780766")]
     [Description(@"Last PIN (Personal Identification Number) try.")]
-    PINLastTry,
+    PINLastTry = ActionTypeCode.PINLastTry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request additional data through a displayed text and request confirmation by an attendant.
-    /// Encoded/decoded by serializers as "RequestData".
+    /// Encoded/decoded by serializers as "RQDT".
     /// </summary>
     [EnumMember(Value = "RQDT")]
     [IsoId("_TR6hiQEcEeCQm6a_G2yO_w_1355184696")]
     [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
-    RequestData,
+    RequestData = ActionTypeCode.RequestData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "Busy".
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_TR6higEcEeCQm6a_G2yO_w_-1002557427")]
     [Description(@"Server busy, try later.")]
-    Busy,
+    Busy = ActionTypeCode.Busy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "IdentificationRequired".
+    /// Encoded/decoded by serializers as "RQID".
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_TR6hiwEcEeCQm6a_G2yO_w_2115949849")]
     [Description(@"Additional identification required (passport, ID card, etc.).")]
-    IdentificationRequired,
+    IdentificationRequired = ActionTypeCode.IdentificationRequired, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum ActionType1Code
 public static class ActionType1CodeMetadataExtensions
 {
     private static readonly ActionType1CodeDropdownSource _dropdownSource = new ActionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

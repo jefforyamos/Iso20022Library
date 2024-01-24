@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_mjIcEIKWEeeCI5iKR7LsYQ")]
-[Description(@"Specifies the clearing system identification code, as published in an external clearing system identification code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the clearing system identification code, as published in an external clearing system identification code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalClearingSystemIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalClearingSystemIdentificationCode
 {
     /// <summary>
@@ -300,7 +299,7 @@ public enum ExternalClearingSystemIdentificationCode
 public static class ExternalClearingSystemIdentificationCodeMetadataExtensions
 {
     private static readonly ExternalClearingSystemIdentificationCodeDropdownSource _dropdownSource = new ExternalClearingSystemIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum PriceReportFunction1Code
 {
     /// <summary>
     /// The price report conveys the correction of the complete set of prices previously sent for the same price report identification.
-    /// Encoded/decoded by serializers as "CompleteReplacementPriceReport".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_mYciARl-EeKxsrht2duUcg")]
     [Description(@"The price report conveys the correction of the complete set of prices previously sent for the same price report identification.")]
-    CompleteReplacementPriceReport,
+    CompleteReplacementPriceReport = PriceReportFunctionCode.CompleteReplacementPriceReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The price report is ‘new’, that is the report is not being used as a correction of previously sent prices.
-    /// Encoded/decoded by serializers as "NewPriceReport".
+    /// Encoded/decoded by serializers as "NEWP".
     /// </summary>
     [EnumMember(Value = "NEWP")]
     [IsoId("_mibkcRl-EeKxsrht2duUcg")]
     [Description(@"The price report is ‘new’, that is the report is not being used as a correction of previously sent prices.")]
-    NewPriceReport,
+    NewPriceReport = PriceReportFunctionCode.NewPriceReport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The price report conveys the correction of some of the prices previously sent for the same price report identification.
-    /// Encoded/decoded by serializers as "PartialCorrectionPriceReport".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_mrhPARl-EeKxsrht2duUcg")]
     [Description(@"The price report conveys the correction of some of the prices previously sent for the same price report identification.")]
-    PartialCorrectionPriceReport,
+    PartialCorrectionPriceReport = PriceReportFunctionCode.PartialCorrectionPriceReport, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PriceReportFunction1Code
 public static class PriceReportFunction1CodeMetadataExtensions
 {
     private static readonly PriceReportFunction1CodeDropdownSource _dropdownSource = new PriceReportFunction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

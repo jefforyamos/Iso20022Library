@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jBmr4e5NEeCisYr99QEiWA_-1187231304")]
 [Description(@"Defines the type of eligibility.")]
 [Derivations(typeof(EligibilityType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EligibilityTypeCode
 {
     /// <summary>
@@ -36,7 +35,7 @@ public enum EligibilityTypeCode
     /// </summary>
     [EnumMember(Value = "ISCS")]
     [IsoId("_jBmr4-5NEeCisYr99QEiWA_597315770")]
-    [Description(@"Eligibility applies at the level of issuer CSD. All of the securities issued by the issuer CSD are eligible.")]
+    [Description(@"Eligibility applies at the level of issuer CSD.|All of the securities issued by the issuer CSD are eligible.")]
     IssuerCSD,
     
     /// <summary>
@@ -46,7 +45,7 @@ public enum EligibilityTypeCode
     /// </summary>
     [EnumMember(Value = "CTRY")]
     [IsoId("_jBmr5O5NEeCisYr99QEiWA_1479587050")]
-    [Description(@"Eligibility applies at country level. All of the securities issued in that country are eligible.")]
+    [Description(@"Eligibility applies at country level.|All of the securities issued in that country are eligible.")]
     Country,
     
 }
@@ -58,7 +57,7 @@ public enum EligibilityTypeCode
 public static class EligibilityTypeCodeMetadataExtensions
 {
     private static readonly EligibilityTypeCodeDropdownSource _dropdownSource = new EligibilityTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

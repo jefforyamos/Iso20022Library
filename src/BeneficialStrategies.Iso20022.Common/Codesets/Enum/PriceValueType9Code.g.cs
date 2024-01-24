@@ -21,30 +21,30 @@ public enum PriceValueType9Code
 {
     /// <summary>
     /// Price to be specified by account owner.
-    /// Encoded/decoded by serializers as "ToBeSpecified".
+    /// Encoded/decoded by serializers as "TBSP".
     /// </summary>
     [EnumMember(Value = "TBSP")]
     [IsoId("_q5bEM2tdEeCY4-KZ9JEyUQ_-401797513")]
     [Description(@"Price to be specified by account owner.")]
-    ToBeSpecified,
+    ToBeSpecified = PriceValueTypeCode.ToBeSpecified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "Unspecified".
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_q5bENGtdEeCY4-KZ9JEyUQ_-519195689")]
     [Description(@"Price is not required to be specified by account owner.")]
-    Unspecified,
+    Unspecified = PriceValueTypeCode.Unspecified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5bENWtdEeCY4-KZ9JEyUQ_-1516268042")]
     [Description(@"Price is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = PriceValueTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PriceValueType9Code
 public static class PriceValueType9CodeMetadataExtensions
 {
     private static readonly PriceValueType9CodeDropdownSource _dropdownSource = new PriceValueType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

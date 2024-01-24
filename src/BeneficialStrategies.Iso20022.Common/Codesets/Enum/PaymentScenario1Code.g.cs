@@ -21,21 +21,21 @@ public enum PaymentScenario1Code
 {
     /// <summary>
     /// Indicates cover payment(s).
-    /// Encoded/decoded by serializers as "Cover".
+    /// Encoded/decoded by serializers as "COVE".
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_oL9tYDKmEeipv8GJ5uBgPw")]
     [Description(@"Indicates cover payment(s).")]
-    Cover,
+    Cover = PaymentScenarioCode.Cover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates customer credit transfer(s).
-    /// Encoded/decoded by serializers as "CustomerCreditTransfer".
+    /// Encoded/decoded by serializers as "CCTR".
     /// </summary>
     [EnumMember(Value = "CCTR")]
     [IsoId("_iz73oXYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s).")]
-    CustomerCreditTransfer,
+    CustomerCreditTransfer = PaymentScenarioCode.CustomerCreditTransfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PaymentScenario1Code
 public static class PaymentScenario1CodeMetadataExtensions
 {
     private static readonly PaymentScenario1CodeDropdownSource _dropdownSource = new PaymentScenario1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

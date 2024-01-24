@@ -21,102 +21,102 @@ public enum ChargeType17Code
 {
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "PostageCharge".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_TQuOtAEcEeCQm6a_G2yO_w_-860308422")]
     [Description(@"Charge paid for the postage.")]
-    PostageCharge,
+    PostageCharge = ChargeTypeCode.PostageCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "RegulatoryFee".
+    /// Encoded/decoded by serializers as "REGF".
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_TQuOtQEcEeCQm6a_G2yO_w_-1566692032")]
     [Description(@"Fee charged by a regulatory authority, eg, Securities and Exchange fees.")]
-    RegulatoryFee,
+    RegulatoryFee = ChargeTypeCode.RegulatoryFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "ShippingCharge".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_TQuOtgEcEeCQm6a_G2yO_w_-1577790809")]
     [Description(@"Charge for shipping, including the insurance of securities.")]
-    ShippingCharge,
+    ShippingCharge = ChargeTypeCode.ShippingCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "ServiceProvisionFee".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_TQuOtwEcEeCQm6a_G2yO_w_-110642046")]
     [Description(@"Fee paid for the provision of financial services.")]
-    ServiceProvisionFee,
+    ServiceProvisionFee = ChargeTypeCode.ServiceProvisionFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of charge.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_TQuOuAEcEeCQm6a_G2yO_w_981104540")]
     [Description(@"Another type of charge.")]
-    Other,
+    Other = ChargeTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
-    /// Encoded/decoded by serializers as "Premium".
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_TQuOuQEcEeCQm6a_G2yO_w_49770569")]
     [Description(@"In investment funds, pre-arranged addition to the trade amount based on the published net asset value.")]
-    Premium,
+    Premium = ChargeTypeCode.Premium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge is for packaging of goods.
-    /// Encoded/decoded by serializers as "Packaging".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_TQuOugEcEeCQm6a_G2yO_w_-756432644")]
     [Description(@"Charge is for packaging of goods.")]
-    Packaging,
+    Packaging = ChargeTypeCode.Packaging, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge is for pick-up of goods.
-    /// Encoded/decoded by serializers as "PickUp".
+    /// Encoded/decoded by serializers as "PICK".
     /// </summary>
     [EnumMember(Value = "PICK")]
     [IsoId("_TQuOuwEcEeCQm6a_G2yO_w_710716119")]
     [Description(@"Charge is for pick-up of goods.")]
-    PickUp,
+    PickUp = ChargeTypeCode.PickUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge is for security.
-    /// Encoded/decoded by serializers as "SecurityCharge".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_TQuOvAEcEeCQm6a_G2yO_w_360968694")]
     [Description(@"Charge is for security.")]
-    SecurityCharge,
+    SecurityCharge = ChargeTypeCode.SecurityCharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge is a premium for insurance.
-    /// Encoded/decoded by serializers as "InsurancePremium".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_TQuOvQEcEeCQm6a_G2yO_w_1060959384")]
     [Description(@"Charge is a premium for insurance.")]
-    InsurancePremium,
+    InsurancePremium = ChargeTypeCode.InsurancePremium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous fee.
-    /// Encoded/decoded by serializers as "MiscellaneousFee".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_TQuOvgEcEeCQm6a_G2yO_w_-970868659")]
     [Description(@"Miscellaneous fee.")]
-    MiscellaneousFee,
+    MiscellaneousFee = ChargeTypeCode.MiscellaneousFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum ChargeType17Code
 public static class ChargeType17CodeMetadataExtensions
 {
     private static readonly ChargeType17CodeDropdownSource _dropdownSource = new ChargeType17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ei1oQc2IEeS6sY79p-9Zxw")]
 [Description(@"Specifies the nature of a counterparty.")]
 [Derivations(typeof(PartyNatureType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PartyNatureTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PartyNatureTypeCode
 public static class PartyNatureTypeCodeMetadataExtensions
 {
     private static readonly PartyNatureTypeCodeDropdownSource _dropdownSource = new PartyNatureTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

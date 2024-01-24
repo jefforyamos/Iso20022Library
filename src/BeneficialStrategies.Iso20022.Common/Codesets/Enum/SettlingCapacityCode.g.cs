@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZOkmYdp-Ed-ak6NoX_4Aeg_-1171911201")]
 [Description(@"Specifies the role of the party in the settlement of the transaction.")]
 [Derivations(typeof(SettlingCapacity1Code),typeof(SettlingCapacity2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlingCapacityCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum SettlingCapacityCode
 public static class SettlingCapacityCodeMetadataExtensions
 {
     private static readonly SettlingCapacityCodeDropdownSource _dropdownSource = new SettlingCapacityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

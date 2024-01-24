@@ -21,75 +21,75 @@ public enum ProductStructure1Code
 {
     /// <summary>
     /// Product is a bond.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_V8ap8bVQEeqkjqDuFVh1-A")]
     [Description(@"Product is a bond.")]
-    Bond,
+    Bond = ProductStructureCode.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NonUCITSMoneyMarketFund".
+    /// Encoded/decoded by serializers as "NUMM".
     /// </summary>
     [EnumMember(Value = "NUMM")]
     [IsoId("_WykO0bVQEeqkjqDuFVh1-A")]
     [Description(@"Product is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    NonUCITSMoneyMarketFund,
+    NonUCITSMoneyMarketFund = ProductStructureCode.NonUCITSMoneyMarketFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.
-    /// Encoded/decoded by serializers as "UCITSMoneyMarketFund".
+    /// Encoded/decoded by serializers as "UCMM".
     /// </summary>
     [EnumMember(Value = "UCMM")]
     [IsoId("_XXdrobVQEeqkjqDuFVh1-A")]
     [Description(@"Product is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.")]
-    UCITSMoneyMarketFund,
+    UCITSMoneyMarketFund = ProductStructureCode.UCITSMoneyMarketFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is an exchange traded commodity.
-    /// Encoded/decoded by serializers as "ExchangeTradedCommodity".
+    /// Encoded/decoded by serializers as "EXTC".
     /// </summary>
     [EnumMember(Value = "EXTC")]
     [IsoId("_YkPAwbVQEeqkjqDuFVh1-A")]
     [Description(@"Product is an exchange traded commodity.")]
-    ExchangeTradedCommodity,
+    ExchangeTradedCommodity = ProductStructureCode.ExchangeTradedCommodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "UCITS".
+    /// Encoded/decoded by serializers as "UCIT".
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_ZVVGgbVQEeqkjqDuFVh1-A")]
     [Description(@"Product is an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    UCITS,
+    UCITS = ProductStructureCode.UCITS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is a structured security.
-    /// Encoded/decoded by serializers as "StructuredSecurity".
+    /// Encoded/decoded by serializers as "SSEC".
     /// </summary>
     [EnumMember(Value = "SSEC")]
     [IsoId("_aEMXobVQEeqkjqDuFVh1-A")]
     [Description(@"Product is a structured security.")]
-    StructuredSecurity,
+    StructuredSecurity = ProductStructureCode.StructuredSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is a structured fund.
-    /// Encoded/decoded by serializers as "StructuredFund".
+    /// Encoded/decoded by serializers as "SFUN".
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_ban_EbVQEeqkjqDuFVh1-A")]
     [Description(@"Product is a structured fund.")]
-    StructuredFund,
+    StructuredFund = ProductStructureCode.StructuredFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Product is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NonUCITS".
+    /// Encoded/decoded by serializers as "NUCI".
     /// </summary>
     [EnumMember(Value = "NUCI")]
     [IsoId("_clAukbVQEeqkjqDuFVh1-A")]
     [Description(@"Product is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).")]
-    NonUCITS,
+    NonUCITS = ProductStructureCode.NonUCITS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum ProductStructure1Code
 public static class ProductStructure1CodeMetadataExtensions
 {
     private static readonly ProductStructure1CodeDropdownSource _dropdownSource = new ProductStructure1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

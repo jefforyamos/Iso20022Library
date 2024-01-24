@@ -21,102 +21,102 @@ public enum ActionType5Code
 {
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "Busy".
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_cEJbwXuYEeSVeNXcmBQ4hQ")]
     [Description(@"Server busy, try later.")]
-    Busy,
+    Busy = ActionTypeCode.Busy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CaptureCard".
+    /// Encoded/decoded by serializers as "CPTR".
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_cNY3U3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Capture the card.")]
-    CaptureCard,
+    CaptureCard = ActionTypeCode.CaptureCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DisplayMessage".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_cc4r43uYEeSVeNXcmBQ4hQ")]
     [Description(@"Message to display, print or log.")]
-    DisplayMessage,
+    DisplayMessage = ActionTypeCode.DisplayMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application cannot propose to the merchant an override of the payment transaction.
-    /// Encoded/decoded by serializers as "ForbidOverride".
+    /// Encoded/decoded by serializers as "NOVR".
     /// </summary>
     [EnumMember(Value = "NOVR")]
     [IsoId("_dZ0OM3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Payment application cannot propose to the merchant an override of the payment transaction.")]
-    ForbidOverride,
+    ForbidOverride = ActionTypeCode.ForbidOverride, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "IdentificationRequired".
+    /// Encoded/decoded by serializers as "RQID".
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_djpfo3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Additional identification required (passport, ID card, etc.).")]
-    IdentificationRequired,
+    IdentificationRequired = ActionTypeCode.IdentificationRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINLastTry".
+    /// Encoded/decoded by serializers as "PINL".
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_exd9o3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Last PIN (Personal Identification Number) try.")]
-    PINLastTry,
+    PINLastTry = ActionTypeCode.PINLastTry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINRetry".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_e5qQU3uYEeSVeNXcmBQ4hQ")]
     [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
-    PINRetry,
+    PINRetry = ActionTypeCode.PINRetry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PrintMessage".
+    /// Encoded/decoded by serializers as "PRNT".
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_fAhGQ3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Print a message.")]
-    PrintMessage,
+    PrintMessage = ActionTypeCode.PrintMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "Referral".
+    /// Encoded/decoded by serializers as "RFRL".
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_f_w8w3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Referral has to be performed.")]
-    Referral,
+    Referral = ActionTypeCode.Referral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request additional data through a displayed text and request confirmation by an attendant.
-    /// Encoded/decoded by serializers as "RequestData".
+    /// Encoded/decoded by serializers as "RQDT".
     /// </summary>
     [EnumMember(Value = "RQDT")]
     [IsoId("_hcqYk3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
-    RequestData,
+    RequestData = ActionTypeCode.RequestData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track provided in the response must be updated on the card.
-    /// Encoded/decoded by serializers as "UpdateTrack".
+    /// Encoded/decoded by serializers as "TRCK".
     /// </summary>
     [EnumMember(Value = "TRCK")]
     [IsoId("_h-CnU3uYEeSVeNXcmBQ4hQ")]
     [Description(@"Track provided in the response must be updated on the card.")]
-    UpdateTrack,
+    UpdateTrack = ActionTypeCode.UpdateTrack, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum ActionType5Code
 public static class ActionType5CodeMetadataExtensions
 {
     private static readonly ActionType5CodeDropdownSource _dropdownSource = new ActionType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

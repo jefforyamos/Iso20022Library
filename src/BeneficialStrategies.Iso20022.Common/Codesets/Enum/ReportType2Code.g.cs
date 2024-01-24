@@ -21,21 +21,21 @@ public enum ReportType2Code
 {
     /// <summary>
     /// The report is precalculated. This type of report is sent when an amendment is proposed.
-    /// Encoded/decoded by serializers as "Precalculated".
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_ZTVxp9p-Ed-ak6NoX_4Aeg_-1137964591")]
     [Description(@"The report is precalculated. This type of report is sent when an amendment is proposed.")]
-    Precalculated,
+    Precalculated = ReportTypeCode.Precalculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The report is calculated on the basis of a dataset matched with a baseline.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_ZTVxqNp-Ed-ak6NoX_4Aeg_-1137964548")]
     [Description(@"The report is calculated on the basis of a dataset matched with a baseline.")]
-    Current,
+    Current = ReportTypeCode.Current, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReportType2Code
 public static class ReportType2CodeMetadataExtensions
 {
     private static readonly ReportType2CodeDropdownSource _dropdownSource = new ReportType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

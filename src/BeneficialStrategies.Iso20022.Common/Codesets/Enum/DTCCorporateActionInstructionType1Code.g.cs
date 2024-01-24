@@ -21,39 +21,39 @@ public enum DTCCorporateActionInstructionType1Code
 {
     /// <summary>
     /// Instruction on a option in corporate action.
-    /// Encoded/decoded by serializers as "ElectionInstruction".
+    /// Encoded/decoded by serializers as "ELCT".
     /// </summary>
     [EnumMember(Value = "ELCT")]
     [IsoId("_12iLhDL3EeKU9IrkkToqcw_2002789136")]
     [Description(@"Instruction on a option in corporate action.")]
-    ElectionInstruction,
+    ElectionInstruction = DTCCorporateActionInstructionTypeCode.ElectionInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction for a protect on a corporate action.
-    /// Encoded/decoded by serializers as "ProtectInstruction".
+    /// Encoded/decoded by serializers as "PRTC".
     /// </summary>
     [EnumMember(Value = "PRTC")]
     [IsoId("_12iLhTL3EeKU9IrkkToqcw_1976970213")]
     [Description(@"Instruction for a protect on a corporate action.")]
-    ProtectInstruction,
+    ProtectInstruction = DTCCorporateActionInstructionTypeCode.ProtectInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction on covering a protect at the service provider.
-    /// Encoded/decoded by serializers as "CoverProtectSystem".
+    /// Encoded/decoded by serializers as "CPSY".
     /// </summary>
     [EnumMember(Value = "CPSY")]
     [IsoId("_12iLhjL3EeKU9IrkkToqcw_738877285")]
     [Description(@"Instruction on covering a protect at the service provider.")]
-    CoverProtectSystem,
+    CoverProtectSystem = DTCCorporateActionInstructionTypeCode.CoverProtectSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction on covering a protect at the agent.
-    /// Encoded/decoded by serializers as "CoverProtectAgent".
+    /// Encoded/decoded by serializers as "CPAG".
     /// </summary>
     [EnumMember(Value = "CPAG")]
     [IsoId("_12r8gDL3EeKU9IrkkToqcw_727778508")]
     [Description(@"Instruction on covering a protect at the agent.")]
-    CoverProtectAgent,
+    CoverProtectAgent = DTCCorporateActionInstructionTypeCode.CoverProtectAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DTCCorporateActionInstructionType1Code
 public static class DTCCorporateActionInstructionType1CodeMetadataExtensions
 {
     private static readonly DTCCorporateActionInstructionType1CodeDropdownSource _dropdownSource = new DTCCorporateActionInstructionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

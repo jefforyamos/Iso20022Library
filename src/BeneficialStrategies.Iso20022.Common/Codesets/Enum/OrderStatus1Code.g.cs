@@ -21,138 +21,138 @@ public enum OrderStatus1Code
 {
     /// <summary>
     /// Outstanding order with no executions.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWW".
     /// </summary>
     [EnumMember(Value = "NEWW")]
     [IsoId("_aRn-1tp-Ed-ak6NoX_4Aeg_1651923156")]
     [Description(@"Outstanding order with no executions.")]
-    New,
+    New = OrderStatusCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Outstanding order with executions and remaining quantity.
-    /// Encoded/decoded by serializers as "PartialFill".
+    /// Encoded/decoded by serializers as "PARF".
     /// </summary>
     [EnumMember(Value = "PARF")]
     [IsoId("_aRn-19p-Ed-ak6NoX_4Aeg_1651923198")]
     [Description(@"Outstanding order with executions and remaining quantity.")]
-    PartialFill,
+    PartialFill = OrderStatusCode.PartialFill, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order completely filled, no remaining quantity.
-    /// Encoded/decoded by serializers as "Filled".
+    /// Encoded/decoded by serializers as "FILL".
     /// </summary>
     [EnumMember(Value = "FILL")]
     [IsoId("_aRn-2Np-Ed-ak6NoX_4Aeg_1651923216")]
     [Description(@"Order completely filled, no remaining quantity.")]
-    Filled,
+    Filled = OrderStatusCode.Filled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been partially filled, and is done for the day, ie, no further executions will take place today.
-    /// Encoded/decoded by serializers as "DoneForDay".
+    /// Encoded/decoded by serializers as "DONE".
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_aRxIwNp-Ed-ak6NoX_4Aeg_1651923258")]
     [Description(@"Order has been partially filled, and is done for the day, ie, no further executions will take place today.")]
-    DoneForDay,
+    DoneForDay = OrderStatusCode.DoneForDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancelled order with or without executions.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_aRxIwdp-Ed-ak6NoX_4Aeg_1651923293")]
     [Description(@"Cancelled order with or without executions.")]
-    Cancelled,
+    Cancelled = OrderStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been replaced.
-    /// Encoded/decoded by serializers as "Replaced".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_aRxIwtp-Ed-ak6NoX_4Aeg_1651923336")]
     [Description(@"Order has been replaced.")]
-    Replaced,
+    Replaced = OrderStatusCode.Replaced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
-    /// Encoded/decoded by serializers as "PendingCancel".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_aRxIw9p-Ed-ak6NoX_4Aeg_1651923371")]
     [Description(@"Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.")]
-    PendingCancel,
+    PendingCancel = OrderStatusCode.PendingCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.
-    /// Encoded/decoded by serializers as "Stopped".
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_aRxIxNp-Ed-ak6NoX_4Aeg_1651923630")]
     [Description(@"Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.")]
-    Stopped,
+    Stopped = OrderStatusCode.Stopped, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_aRxIxdp-Ed-ak6NoX_4Aeg_1651923674")]
     [Description(@"Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.")]
-    Rejected,
+    Rejected = OrderStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been placed in suspended state at the request of the client.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_aRxIxtp-Ed-ak6NoX_4Aeg_1651923726")]
     [Description(@"Order has been placed in suspended state at the request of the client.")]
-    Suspended,
+    Suspended = OrderStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been received by sell-side system but not yet accepted for execution. An execution message with this status will only be sent in response to a Status Request message.
-    /// Encoded/decoded by serializers as "PendingNew".
+    /// Encoded/decoded by serializers as "PENN".
     /// </summary>
     [EnumMember(Value = "PENN")]
     [IsoId("_aRxIx9p-Ed-ak6NoX_4Aeg_1651923769")]
     [Description(@"Order has been received by sell-side system but not yet accepted for execution. An execution message with this status will only be sent in response to a Status Request message.")]
-    PendingNew,
+    PendingNew = OrderStatusCode.PendingNew, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been completed for the day (either filled or done for day). Commission or currency settlement details have been calculated and reported in this execution message.
-    /// Encoded/decoded by serializers as "Calculated".
+    /// Encoded/decoded by serializers as "CALC".
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_aRxIyNp-Ed-ak6NoX_4Aeg_1651924052")]
     [Description(@"Order has been completed for the day (either filled or done for day). Commission or currency settlement details have been calculated and reported in this execution message.")]
-    Calculated,
+    Calculated = OrderStatusCode.Calculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been cancelled in the broker's system due to time in force instructions.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_aRxIydp-Ed-ak6NoX_4Aeg_1651924112")]
     [Description(@"Order has been cancelled in the broker's system due to time in force instructions.")]
-    Expired,
+    Expired = OrderStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order has been received and is being evaluated for pricing.
-    /// Encoded/decoded by serializers as "AcceptedForBidding".
+    /// Encoded/decoded by serializers as "ACBI".
     /// </summary>
     [EnumMember(Value = "ACBI")]
     [IsoId("_aR65wNp-Ed-ak6NoX_4Aeg_1651924172")]
     [Description(@"Order has been received and is being evaluated for pricing.")]
-    AcceptedForBidding,
+    AcceptedForBidding = OrderStatusCode.AcceptedForBidding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order with an Order Cancel/Replace Request pending, used to confirm receipt of an Order Cancel/Replace Request. Does not indicate that the order has been replaced.
-    /// Encoded/decoded by serializers as "PendingReplace".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_aR65wdp-Ed-ak6NoX_4Aeg_1651924207")]
     [Description(@"Order with an Order Cancel/Replace Request pending, used to confirm receipt of an Order Cancel/Replace Request. Does not indicate that the order has been replaced.")]
-    PendingReplace,
+    PendingReplace = OrderStatusCode.PendingReplace, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum OrderStatus1Code
 public static class OrderStatus1CodeMetadataExtensions
 {
     private static readonly OrderStatus1CodeDropdownSource _dropdownSource = new OrderStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

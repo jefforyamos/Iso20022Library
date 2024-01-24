@@ -21,39 +21,39 @@ public enum AdditionalIdentificationType1Code
 {
     /// <summary>
     /// Other Additional Identification defined at a private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_JyUzMS7SEemIy6A-26wnAg")]
     [Description(@"Other Additional Identification defined at a private level.")]
-    OtherPrivate,
+    OtherPrivate = AdditionalIdentificationTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Additional Identification defined at a national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_J2Pp4S7SEemIy6A-26wnAg")]
     [Description(@"Other Additional Identification defined at a national level.")]
-    OtherNational,
+    OtherNational = AdditionalIdentificationTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contains the North American Industry Classification System (NAICS) code assigned to the card acceptor.
-    /// Encoded/decoded by serializers as "NAICS".
+    /// Encoded/decoded by serializers as "ICSN".
     /// </summary>
     [EnumMember(Value = "ICSN")]
     [IsoId("_J38TAS7SEemIy6A-26wnAg")]
     [Description(@"Contains the North American Industry Classification System (NAICS) code assigned to the card acceptor.")]
-    NAICS,
+    NAICS = AdditionalIdentificationTypeCode.NAICS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contains the Austin-Tetra Number assigned to the card acceptor.
-    /// Encoded/decoded by serializers as "AustinTetra".
+    /// Encoded/decoded by serializers as "ATNU".
     /// </summary>
     [EnumMember(Value = "ATNU")]
     [IsoId("_J7TwES7SEemIy6A-26wnAg")]
     [Description(@"Contains the Austin-Tetra Number assigned to the card acceptor.")]
-    AustinTetra,
+    AustinTetra = AdditionalIdentificationTypeCode.AustinTetra, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AdditionalIdentificationType1Code
 public static class AdditionalIdentificationType1CodeMetadataExtensions
 {
     private static readonly AdditionalIdentificationType1CodeDropdownSource _dropdownSource = new AdditionalIdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

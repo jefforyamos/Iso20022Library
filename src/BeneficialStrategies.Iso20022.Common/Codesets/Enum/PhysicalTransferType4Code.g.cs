@@ -21,30 +21,30 @@ public enum PhysicalTransferType4Code
 {
     /// <summary>
     /// Physical transfer.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_tMiAQYBAEeall68-KLgmUw")]
     [Description(@"Physical transfer.")]
-    Physical,
+    Physical = PhysicalTransferTypeV2Code.Physical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Determined by a third party or optional for counterparty.
-    /// Encoded/decoded by serializers as "Optional".
+    /// Encoded/decoded by serializers as "OPTL".
     /// </summary>
     [EnumMember(Value = "OPTL")]
     [IsoId("_tbaJwYBAEeall68-KLgmUw")]
     [Description(@"Determined by a third party or optional for counterparty.")]
-    Optional,
+    Optional = PhysicalTransferTypeV2Code.Optional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash transfer.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_tmRV8YBAEeall68-KLgmUw")]
     [Description(@"Cash transfer.")]
-    Cash,
+    Cash = PhysicalTransferTypeV2Code.Cash, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PhysicalTransferType4Code
 public static class PhysicalTransferType4CodeMetadataExtensions
 {
     private static readonly PhysicalTransferType4CodeDropdownSource _dropdownSource = new PhysicalTransferType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

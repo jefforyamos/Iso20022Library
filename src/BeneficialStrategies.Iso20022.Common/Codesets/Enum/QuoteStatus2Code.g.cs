@@ -21,48 +21,48 @@ public enum QuoteStatus2Code
 {
     /// <summary>
     /// Indicates that all quotes are cancelled for a financial instrument's symbol.
-    /// Encoded/decoded by serializers as "CancelSymbol".
+    /// Encoded/decoded by serializers as "SYMB".
     /// </summary>
     [EnumMember(Value = "SYMB")]
     [IsoId("_ZYjBwNp-Ed-ak6NoX_4Aeg_-1041278909")]
     [Description(@"Indicates that all quotes are cancelled for a financial instrument's symbol.")]
-    CancelSymbol,
+    CancelSymbol = QuoteStatusCode.CancelSymbol, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled for a specific security.
-    /// Encoded/decoded by serializers as "CancelSecurity".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZYjBwdp-Ed-ak6NoX_4Aeg_-1041278866")]
     [Description(@"Indicates that all quotes are cancelled for a specific security.")]
-    CancelSecurity,
+    CancelSecurity = QuoteStatusCode.CancelSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled for an underlying financial instrument.
-    /// Encoded/decoded by serializers as "CancelUnderlying".
+    /// Encoded/decoded by serializers as "UNSY".
     /// </summary>
     [EnumMember(Value = "UNSY")]
     [IsoId("_ZYjBwtp-Ed-ak6NoX_4Aeg_-1041278806")]
     [Description(@"Indicates that all quotes are cancelled for an underlying financial instrument.")]
-    CancelUnderlying,
+    CancelUnderlying = QuoteStatusCode.CancelUnderlying, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that all quotes are cancelled.
-    /// Encoded/decoded by serializers as "CancelAll".
+    /// Encoded/decoded by serializers as "ALLE".
     /// </summary>
     [EnumMember(Value = "ALLE")]
     [IsoId("_ZYjBw9p-Ed-ak6NoX_4Aeg_-1041278771")]
     [Description(@"Indicates that all quotes are cancelled.")]
-    CancelAll,
+    CancelAll = QuoteStatusCode.CancelAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that no quote can be computed or communicated.
-    /// Encoded/decoded by serializers as "QuoteNotFound".
+    /// Encoded/decoded by serializers as "NQUO".
     /// </summary>
     [EnumMember(Value = "NQUO")]
     [IsoId("_ZYjBxNp-Ed-ak6NoX_4Aeg_-799316486")]
     [Description(@"Indicates that no quote can be computed or communicated.")]
-    QuoteNotFound,
+    QuoteNotFound = QuoteStatusCode.QuoteNotFound, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum QuoteStatus2Code
 public static class QuoteStatus2CodeMetadataExtensions
 {
     private static readonly QuoteStatus2CodeDropdownSource _dropdownSource = new QuoteStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

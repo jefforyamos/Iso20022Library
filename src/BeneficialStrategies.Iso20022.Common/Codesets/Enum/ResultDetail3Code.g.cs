@@ -21,21 +21,21 @@ public enum ResultDetail3Code
 {
     /// <summary>
     /// The certificate is unknown.
-    /// Encoded/decoded by serializers as "UnknownCertificate".
+    /// Encoded/decoded by serializers as "CRTU".
     /// </summary>
     [EnumMember(Value = "CRTU")]
     [IsoId("_dRl0sY4YEeW6h7rGyYlyTg")]
     [Description(@"The certificate is unknown.")]
-    UnknownCertificate,
+    UnknownCertificate = ResultDetailCode.UnknownCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested service not supported.
-    /// Encoded/decoded by serializers as "UnsupportedService".
+    /// Encoded/decoded by serializers as "SVSU".
     /// </summary>
     [EnumMember(Value = "SVSU")]
     [IsoId("_eBK3g44YEeW6h7rGyYlyTg")]
     [Description(@"Requested service not supported.")]
-    UnsupportedService,
+    UnsupportedService = ResultDetailCode.UnsupportedService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResultDetail3Code
 public static class ResultDetail3CodeMetadataExtensions
 {
     private static readonly ResultDetail3CodeDropdownSource _dropdownSource = new ResultDetail3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

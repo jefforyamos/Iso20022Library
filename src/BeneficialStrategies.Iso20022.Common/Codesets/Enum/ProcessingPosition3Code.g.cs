@@ -21,39 +21,39 @@ public enum ProcessingPosition3Code
 {
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "After".
+    /// Encoded/decoded by serializers as "AFTE".
     /// </summary>
     [EnumMember(Value = "AFTE")]
     [IsoId("_aK6559p-Ed-ak6NoX_4Aeg_-1877116893")]
     [Description(@"Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.")]
-    After,
+    After = ProcessingPositionCode.After, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "With".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_aK656Np-Ed-ak6NoX_4Aeg_-1877116876")]
     [Description(@"Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.")]
-    With,
+    With = ProcessingPositionCode.With, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "Before".
+    /// Encoded/decoded by serializers as "BEFO".
     /// </summary>
     [EnumMember(Value = "BEFO")]
     [IsoId("_aLED0Np-Ed-ak6NoX_4Aeg_-1877116833")]
     [Description(@"Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.")]
-    Before,
+    Before = ProcessingPositionCode.Before, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the transactions/instructions are linked for information purposes only.
-    /// Encoded/decoded by serializers as "Information".
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_aLED0dp-Ed-ak6NoX_4Aeg_-1877116816")]
     [Description(@"Specifies that the transactions/instructions are linked for information purposes only.")]
-    Information,
+    Information = ProcessingPositionCode.Information, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProcessingPosition3Code
 public static class ProcessingPosition3CodeMetadataExtensions
 {
     private static readonly ProcessingPosition3CodeDropdownSource _dropdownSource = new ProcessingPosition3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

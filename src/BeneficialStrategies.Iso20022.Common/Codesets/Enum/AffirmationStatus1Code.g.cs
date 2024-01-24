@@ -21,21 +21,21 @@ public enum AffirmationStatus1Code
 {
     /// <summary>
     /// Status of the transaction is affirmed.
-    /// Encoded/decoded by serializers as "Affirmed".
+    /// Encoded/decoded by serializers as "AFFI".
     /// </summary>
     [EnumMember(Value = "AFFI")]
     [IsoId("_bndJUNp-Ed-ak6NoX_4Aeg_589689024")]
     [Description(@"Status of the transaction is affirmed.")]
-    Affirmed,
+    Affirmed = AffirmationStatusCode.Affirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the transaction is unaffirmed.
-    /// Encoded/decoded by serializers as "Unaffirmed".
+    /// Encoded/decoded by serializers as "NAFI".
     /// </summary>
     [EnumMember(Value = "NAFI")]
     [IsoId("_bndJUdp-Ed-ak6NoX_4Aeg_618318083")]
     [Description(@"Status of the transaction is unaffirmed.")]
-    Unaffirmed,
+    Unaffirmed = AffirmationStatusCode.Unaffirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AffirmationStatus1Code
 public static class AffirmationStatus1CodeMetadataExtensions
 {
     private static readonly AffirmationStatus1CodeDropdownSource _dropdownSource = new AffirmationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

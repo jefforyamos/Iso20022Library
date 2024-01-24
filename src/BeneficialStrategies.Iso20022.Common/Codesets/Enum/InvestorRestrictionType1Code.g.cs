@@ -21,30 +21,30 @@ public enum InvestorRestrictionType1Code
 {
     /// <summary>
     /// Restriction applies to a legal resident.
-    /// Encoded/decoded by serializers as "LegalResident".
+    /// Encoded/decoded by serializers as "LERE".
     /// </summary>
     [EnumMember(Value = "LERE")]
     [IsoId("_harytWliEeGaMcKyqKNRfQ_1492655760")]
     [Description(@"Restriction applies to a legal resident.")]
-    LegalResident,
+    LegalResident = InvestorRestrictionTypeCode.LegalResident, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Restriction applies to a citizen.
-    /// Encoded/decoded by serializers as "Citizen".
+    /// Encoded/decoded by serializers as "CITI".
     /// </summary>
     [EnumMember(Value = "CITI")]
     [IsoId("_harytmliEeGaMcKyqKNRfQ_-1044474030")]
     [Description(@"Restriction applies to a citizen.")]
-    Citizen,
+    Citizen = InvestorRestrictionTypeCode.Citizen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Restriction applies to an individual.
-    /// Encoded/decoded by serializers as "Individual".
+    /// Encoded/decoded by serializers as "INDV".
     /// </summary>
     [EnumMember(Value = "INDV")]
     [IsoId("_haryt2liEeGaMcKyqKNRfQ_1166734162")]
     [Description(@"Restriction applies to an individual.")]
-    Individual,
+    Individual = InvestorRestrictionTypeCode.Individual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestorRestrictionType1Code
 public static class InvestorRestrictionType1CodeMetadataExtensions
 {
     private static readonly InvestorRestrictionType1CodeDropdownSource _dropdownSource = new InvestorRestrictionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

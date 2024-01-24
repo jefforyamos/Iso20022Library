@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_afVDoNp-Ed-ak6NoX_4Aeg_-1698330271")]
 [Description(@"Specifies the precise type of liquidity management limit.")]
 [Derivations(typeof(LiquidityLimitType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LiquidityLimitTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum LiquidityLimitTypeCode
 public static class LiquidityLimitTypeCodeMetadataExtensions
 {
     private static readonly LiquidityLimitTypeCodeDropdownSource _dropdownSource = new LiquidityLimitTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum RepurchaseType4Code
 {
     /// <summary>
     /// Relates to a change in the closing or maturity date.
-    /// Encoded/decoded by serializers as "RepurchaseCall".
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_ZTx2hdp-Ed-ak6NoX_4Aeg_708958784")]
     [Description(@"Relates to a change in the closing or maturity date.")]
-    RepurchaseCall,
+    RepurchaseCall = RepurchaseTypeCode.RepurchaseCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Is part of a pair-off.
-    /// Encoded/decoded by serializers as "RepoRate".
+    /// Encoded/decoded by serializers as "RATE".
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_ZTx2htp-Ed-ak6NoX_4Aeg_708958801")]
     [Description(@"Is part of a pair-off.")]
-    RepoRate,
+    RepoRate = RepurchaseTypeCode.RepoRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "Rollover".
+    /// Encoded/decoded by serializers as "ROLP".
     /// </summary>
     [EnumMember(Value = "ROLP")]
     [IsoId("_ZTx2h9p-Ed-ak6NoX_4Aeg_708958802")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    Rollover,
+    Rollover = RepurchaseTypeCode.Rollover, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RepurchaseType4Code
 public static class RepurchaseType4CodeMetadataExtensions
 {
     private static readonly RepurchaseType4CodeDropdownSource _dropdownSource = new RepurchaseType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

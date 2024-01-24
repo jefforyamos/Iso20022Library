@@ -21,21 +21,21 @@ public enum DTCCorporateActionInstructionType2Code
 {
     /// <summary>
     /// Withdrawal of previously submitted instruction.
-    /// Encoded/decoded by serializers as "InstructionWithdrawal".
+    /// Encoded/decoded by serializers as "WIIN".
     /// </summary>
     [EnumMember(Value = "WIIN")]
     [IsoId("_12r8gjL3EeKU9IrkkToqcw_776378901")]
     [Description(@"Withdrawal of previously submitted instruction.")]
-    InstructionWithdrawal,
+    InstructionWithdrawal = DTCCorporateActionInstructionTypeCode.InstructionWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal of a previously submitted protect instruction.
-    /// Encoded/decoded by serializers as "ProtectWithdrawal".
+    /// Encoded/decoded by serializers as "WIPR".
     /// </summary>
     [EnumMember(Value = "WIPR")]
     [IsoId("_12r8gzL3EeKU9IrkkToqcw_-2051439632")]
     [Description(@"Withdrawal of a previously submitted protect instruction.")]
-    ProtectWithdrawal,
+    ProtectWithdrawal = DTCCorporateActionInstructionTypeCode.ProtectWithdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCCorporateActionInstructionType2Code
 public static class DTCCorporateActionInstructionType2CodeMetadataExtensions
 {
     private static readonly DTCCorporateActionInstructionType2CodeDropdownSource _dropdownSource = new DTCCorporateActionInstructionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

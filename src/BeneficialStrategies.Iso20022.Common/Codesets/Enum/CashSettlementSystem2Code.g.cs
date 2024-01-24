@@ -21,21 +21,21 @@ public enum CashSettlementSystem2Code
 {
     /// <summary>
     /// Settle money through gross settlement system.
-    /// Encoded/decoded by serializers as "GrossSettlementSystem".
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_a7WRRNp-Ed-ak6NoX_4Aeg_-702652999")]
     [Description(@"Settle money through gross settlement system.")]
-    GrossSettlementSystem,
+    GrossSettlementSystem = CashSettlementSystemCode.GrossSettlementSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle money through net settlement system.
-    /// Encoded/decoded by serializers as "NetSettlementSystem".
+    /// Encoded/decoded by serializers as "NETS".
     /// </summary>
     [EnumMember(Value = "NETS")]
     [IsoId("_a7WRRdp-Ed-ak6NoX_4Aeg_1056453502")]
     [Description(@"Settle money through net settlement system.")]
-    NetSettlementSystem,
+    NetSettlementSystem = CashSettlementSystemCode.NetSettlementSystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CashSettlementSystem2Code
 public static class CashSettlementSystem2CodeMetadataExtensions
 {
     private static readonly CashSettlementSystem2CodeDropdownSource _dropdownSource = new CashSettlementSystem2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

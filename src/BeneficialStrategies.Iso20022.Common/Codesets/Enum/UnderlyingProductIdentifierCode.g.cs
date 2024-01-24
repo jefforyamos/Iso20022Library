@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_QQZXoCjmEeK1Sbo8NpBROA")]
 [Description(@"Indicates the underlying product type for reporting to trade repositories. These product codes must be in line with the ISDA Product Taxonomy.")]
 [Derivations(typeof(UnderlyingProductIdentifier1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnderlyingProductIdentifierCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum UnderlyingProductIdentifierCode
 public static class UnderlyingProductIdentifierCodeMetadataExtensions
 {
     private static readonly UnderlyingProductIdentifierCodeDropdownSource _dropdownSource = new UnderlyingProductIdentifierCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

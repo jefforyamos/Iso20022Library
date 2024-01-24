@@ -21,39 +21,39 @@ public enum AutoBorrowing2Code
 {
     /// <summary>
     /// Only last resort borrowing should be considered to make settlement occur.
-    /// Encoded/decoded by serializers as "LastResort".
+    /// Encoded/decoded by serializers as "LAMI".
     /// </summary>
     [EnumMember(Value = "LAMI")]
     [IsoId("_bjuf4dp-Ed-ak6NoX_4Aeg_-875280874")]
     [Description(@"Only last resort borrowing should be considered to make settlement occur.")]
-    LastResort,
+    LastResort = AutoBorrowingCode.LastResort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "NoAutomatic".
+    /// Encoded/decoded by serializers as "NBOR".
     /// </summary>
     [EnumMember(Value = "NBOR")]
     [IsoId("_bjuf4tp-Ed-ak6NoX_4Aeg_-875280873")]
     [Description(@"No automatic borrowing should take place.")]
-    NoAutomatic,
+    NoAutomatic = AutoBorrowingCode.NoAutomatic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "Automatic".
+    /// Encoded/decoded by serializers as "YBOR".
     /// </summary>
     [EnumMember(Value = "YBOR")]
     [IsoId("_bjuf49p-Ed-ak6NoX_4Aeg_-875280857")]
     [Description(@"Automatic borrowing should take place.")]
-    Automatic,
+    Automatic = AutoBorrowingCode.Automatic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Return of stocks should take place.
-    /// Encoded/decoded by serializers as "Return".
+    /// Encoded/decoded by serializers as "RTRN".
     /// </summary>
     [EnumMember(Value = "RTRN")]
     [IsoId("_bjuf5Np-Ed-ak6NoX_4Aeg_-871586494")]
     [Description(@"Return of stocks should take place.")]
-    Return,
+    Return = AutoBorrowingCode.Return, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AutoBorrowing2Code
 public static class AutoBorrowing2CodeMetadataExtensions
 {
     private static readonly AutoBorrowing2CodeDropdownSource _dropdownSource = new AutoBorrowing2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

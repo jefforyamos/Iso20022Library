@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aLqgwtp-Ed-ak6NoX_4Aeg_-1869032551")]
 [Description(@"Specifies the live status of a member of a system.")]
 [Derivations(typeof(MemberStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MemberStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum MemberStatusCode
 public static class MemberStatusCodeMetadataExtensions
 {
     private static readonly MemberStatusCodeDropdownSource _dropdownSource = new MemberStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AllegementReason1Code
 {
     /// <summary>
     /// Allegement has been received and no match could be found.
-    /// Encoded/decoded by serializers as "AllegementReceived".
+    /// Encoded/decoded by serializers as "ALG1".
     /// </summary>
     [EnumMember(Value = "ALG1")]
     [IsoId("__0Jx0NojEeC60axPepSq7g_1527696364")]
     [Description(@"Allegement has been received and no match could be found.")]
-    AllegementReceived,
+    AllegementReceived = AllegementReasonCode.AllegementReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AllegementReason1Code
 public static class AllegementReason1CodeMetadataExtensions
 {
     private static readonly AllegementReason1CodeDropdownSource _dropdownSource = new AllegementReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

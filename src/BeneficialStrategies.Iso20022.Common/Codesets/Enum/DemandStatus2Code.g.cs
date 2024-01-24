@@ -21,12 +21,12 @@ public enum DemandStatus2Code
 {
     /// <summary>
     /// Demand refused.
-    /// Encoded/decoded by serializers as "Refused".
+    /// Encoded/decoded by serializers as "REFD".
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_kDeoRnyaEeGWJuGCfvwOsQ")]
     [Description(@"Demand refused.")]
-    Refused,
+    Refused = DemandStatusCode.Refused, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DemandStatus2Code
 public static class DemandStatus2CodeMetadataExtensions
 {
     private static readonly DemandStatus2CodeDropdownSource _dropdownSource = new DemandStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

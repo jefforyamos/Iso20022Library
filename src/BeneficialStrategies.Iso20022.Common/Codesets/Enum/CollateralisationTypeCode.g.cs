@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_dUlFoPP5EeS_qLctCs2aRQ")]
 [Description(@"Specifies the type of collateral agreement between two parties.")]
 [Derivations(typeof(CollateralisationType1Code),typeof(CollateralisationType2Code),typeof(CollateralisationType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CollateralisationTypeCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum CollateralisationTypeCode
 public static class CollateralisationTypeCodeMetadataExtensions
 {
     private static readonly CollateralisationTypeCodeDropdownSource _dropdownSource = new CollateralisationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

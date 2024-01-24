@@ -21,21 +21,21 @@ public enum ExecutionStatus1Code
 {
     /// <summary>
     /// Transaction which has been initiated and has not yet closed.
-    /// Encoded/decoded by serializers as "Initiated".
+    /// Encoded/decoded by serializers as "INTD".
     /// </summary>
     [EnumMember(Value = "INTD")]
     [IsoId("_68mnMcX5EeiSF9q-coWegA")]
     [Description(@"Transaction which has been initiated and has not yet closed.")]
-    Initiated,
+    Initiated = ExecutionStatusCode.Initiated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending Initiation.
-    /// Encoded/decoded by serializers as "PendingInitiation".
+    /// Encoded/decoded by serializers as "PINT".
     /// </summary>
     [EnumMember(Value = "PINT")]
     [IsoId("_7CGyQcX5EeiSF9q-coWegA")]
     [Description(@"Pending Initiation.")]
-    PendingInitiation,
+    PendingInitiation = ExecutionStatusCode.PendingInitiation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ExecutionStatus1Code
 public static class ExecutionStatus1CodeMetadataExtensions
 {
     private static readonly ExecutionStatus1CodeDropdownSource _dropdownSource = new ExecutionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,84 +21,84 @@ public enum SecuritiesTransactionReason1Code
 {
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
-    /// Encoded/decoded by serializers as "Cancellation".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_ZGExsNp-Ed-ak6NoX_4Aeg_503817342")]
     [Description(@"Specifies the reason why the instruction is cancelled.")]
-    Cancellation,
+    Cancellation = SecuritiesTransactionReasonCode.Cancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why a cancellation request sent for the related instruction is pending.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_ZGExsdp-Ed-ak6NoX_4Aeg_503817403")]
     [Description(@"Specifies the reason why a cancellation request sent for the related instruction is pending.")]
-    PendingCancellation,
+    PendingCancellation = SecuritiesTransactionReasonCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the transaction was generated.
-    /// Encoded/decoded by serializers as "Generated".
+    /// Encoded/decoded by serializers as "CGEN".
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_ZGExstp-Ed-ak6NoX_4Aeg_503817650")]
     [Description(@"Specifies the reason why the transaction was generated.")]
-    Generated,
+    Generated = SecuritiesTransactionReasonCode.Generated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_ZGExs9p-Ed-ak6NoX_4Aeg_503817681")]
     [Description(@"Specifies the reason why the instruction has an unmatched status.")]
-    Unmatched,
+    Unmatched = SecuritiesTransactionReasonCode.Unmatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies additional information about the processed instruction.
-    /// Encoded/decoded by serializers as "Acknowledgement".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZGExtNp-Ed-ak6NoX_4Aeg_503817742")]
     [Description(@"Specifies additional information about the processed instruction.")]
-    Acknowledgement,
+    Acknowledgement = SecuritiesTransactionReasonCode.Acknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending status.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZGExtdp-Ed-ak6NoX_4Aeg_503817773")]
     [Description(@"Specifies the reason why the instruction has a pending status.")]
-    Pending,
+    Pending = SecuritiesTransactionReasonCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the instruction has a failing settlement status.
-    /// Encoded/decoded by serializers as "Failing".
+    /// Encoded/decoded by serializers as "PENF".
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZGExttp-Ed-ak6NoX_4Aeg_503818082")]
     [Description(@"Specifies the reason why the instruction has a failing settlement status.")]
-    Failing,
+    Failing = SecuritiesTransactionReasonCode.Failing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
-    /// Encoded/decoded by serializers as "PendingProcessing".
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_ZGExt9p-Ed-ak6NoX_4Aeg_503818113")]
     [Description(@"Specifies the reason why the instruction has a pending processing status.")]
-    PendingProcessing,
+    PendingProcessing = SecuritiesTransactionReasonCode.PendingProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the reason why the instruction is in repair.
-    /// Encoded/decoded by serializers as "Repair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_ZGExuNp-Ed-ak6NoX_4Aeg_503818143")]
     [Description(@"Specifies the reason why the instruction is in repair.")]
-    Repair,
+    Repair = SecuritiesTransactionReasonCode.Repair, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum SecuritiesTransactionReason1Code
 public static class SecuritiesTransactionReason1CodeMetadataExtensions
 {
     private static readonly SecuritiesTransactionReason1CodeDropdownSource _dropdownSource = new SecuritiesTransactionReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

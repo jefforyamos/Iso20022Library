@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1qKjcDL3EeKU9IrkkToqcw_-1097096548")]
 [Description(@"Specifies the type of the calculation of entitlements.")]
 [Derivations(typeof(DTCEntitlementCalculationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCEntitlementCalculationMethodCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum DTCEntitlementCalculationMethodCode
 public static class DTCEntitlementCalculationMethodCodeMetadataExtensions
 {
     private static readonly DTCEntitlementCalculationMethodCodeDropdownSource _dropdownSource = new DTCEntitlementCalculationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

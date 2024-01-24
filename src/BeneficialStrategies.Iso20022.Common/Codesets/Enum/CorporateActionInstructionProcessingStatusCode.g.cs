@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bKjK4dp-Ed-ak6NoX_4Aeg_-1308410939")]
 [Description(@"Specifies the status of a corporate action instruction.")]
 [Derivations(typeof(CorporateActionInstructionProcessingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionInstructionProcessingStatusCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CorporateActionInstructionProcessingStatusCode
 public static class CorporateActionInstructionProcessingStatusCodeMetadataExtensions
 {
     private static readonly CorporateActionInstructionProcessingStatusCodeDropdownSource _dropdownSource = new CorporateActionInstructionProcessingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum DTCMultiplyDivide1Code
 {
     /// <summary>
     /// Positions multiplied by rate.
-    /// Encoded/decoded by serializers as "Multiply".
+    /// Encoded/decoded by serializers as "MULT".
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_1p3ogzL3EeKU9IrkkToqcw_1860873575")]
     [Description(@"Positions multiplied by rate.")]
-    Multiply,
+    Multiply = DTCMultiplyDivideCode.Multiply, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Positions divided by rate.
-    /// Encoded/decoded by serializers as "Divide".
+    /// Encoded/decoded by serializers as "DVDE".
     /// </summary>
     [EnumMember(Value = "DVDE")]
     [IsoId("_1p3ohDL3EeKU9IrkkToqcw_-935145883")]
     [Description(@"Positions divided by rate.")]
-    Divide,
+    Divide = DTCMultiplyDivideCode.Divide, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCMultiplyDivide1Code
 public static class DTCMultiplyDivide1CodeMetadataExtensions
 {
     private static readonly DTCMultiplyDivide1CodeDropdownSource _dropdownSource = new DTCMultiplyDivide1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

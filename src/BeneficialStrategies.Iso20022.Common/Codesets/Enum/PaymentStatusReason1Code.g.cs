@@ -21,30 +21,30 @@ public enum PaymentStatusReason1Code
 {
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent with transaction’s service obligations maintained.
-    /// Encoded/decoded by serializers as "PaymentDeliveredAndSLAMaintained".
+    /// Encoded/decoded by serializers as "G005".
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_JwolkUleEei_aPHvPJUVuw")]
     [Description(@"Credit Transfer has been delivered to creditor agent with transaction’s service obligations maintained.")]
-    PaymentDeliveredAndSLAMaintained,
+    PaymentDeliveredAndSLAMaintained = ExternalPaymentStatusReasonCode.PaymentDeliveredAndSLAMaintained, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent where the transaction’s service obligations were no longer maintained.
-    /// Encoded/decoded by serializers as "PaymentDeliveredAndSLANoLongerMaintained".
+    /// Encoded/decoded by serializers as "G006".
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_KAQ9AUleEei_aPHvPJUVuw")]
     [Description(@"Credit Transfer has been delivered to creditor agent where the transaction’s service obligations were no longer maintained.")]
-    PaymentDeliveredAndSLANoLongerMaintained,
+    PaymentDeliveredAndSLANoLongerMaintained = ExternalPaymentStatusReasonCode.PaymentDeliveredAndSLANoLongerMaintained, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "PaymentTransferredAndSLANoLongerMaintained".
+    /// Encoded/decoded by serializers as "G001".
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_32zh4YN0EeiZB_kIT07yOA")]
     [Description(@"The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.")]
-    PaymentTransferredAndSLANoLongerMaintained,
+    PaymentTransferredAndSLANoLongerMaintained = ExternalPaymentStatusReasonCode.PaymentTransferredAndSLANoLongerMaintained, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentStatusReason1Code
 public static class PaymentStatusReason1CodeMetadataExtensions
 {
     private static readonly PaymentStatusReason1CodeDropdownSource _dropdownSource = new PaymentStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

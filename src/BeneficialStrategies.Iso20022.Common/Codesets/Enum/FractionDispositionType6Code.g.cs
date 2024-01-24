@@ -21,39 +21,39 @@ public enum FractionDispositionType6Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BuyUp".
+    /// Encoded/decoded by serializers as "BUYU".
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_q4hsVWtdEeCY4-KZ9JEyUQ_1821179655")]
     [Description(@"Buy securities up to next whole number.")]
-    BuyUp,
+    BuyUp = FractionDispositionTypeCode.BuyUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CashInLieuOfFraction".
+    /// Encoded/decoded by serializers as "CINL".
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_q4hsVmtdEeCY4-KZ9JEyUQ_-844509347")]
     [Description(@"Fractional part of cash. Take cash in lieu of fractions.")]
-    CashInLieuOfFraction,
+    CashInLieuOfFraction = FractionDispositionTypeCode.CashInLieuOfFraction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "IssueFraction".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_q4rdUGtdEeCY4-KZ9JEyUQ_1872116818")]
     [Description(@"Take distribution of fractions in the form of securities.")]
-    IssueFraction,
+    IssueFraction = FractionDispositionTypeCode.IssueFraction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Let fractions expire worthless.
-    /// Encoded/decoded by serializers as "Expire".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_q4rdUWtdEeCY4-KZ9JEyUQ_875044465")]
     [Description(@"Let fractions expire worthless.")]
-    Expire,
+    Expire = FractionDispositionTypeCode.Expire, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum FractionDispositionType6Code
 public static class FractionDispositionType6CodeMetadataExtensions
 {
     private static readonly FractionDispositionType6CodeDropdownSource _dropdownSource = new FractionDispositionType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

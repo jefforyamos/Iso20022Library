@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_oGUJ5lSUEempisJfoIfvvQ")]
 [Description(@"Indicates the calculation method to be used to caculate on which dates the shares have been acquired.")]
 [Derivations(typeof(DateCalculationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DateCalculationMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DateCalculationMethodCode
 public static class DateCalculationMethodCodeMetadataExtensions
 {
     private static readonly DateCalculationMethodCodeDropdownSource _dropdownSource = new DateCalculationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

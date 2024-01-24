@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_xKIOEHs3EeSTS7uHCe8FPQ")]
 [Description(@"Reason to send an card acquirer to issuer message.")]
 [Derivations(typeof(MessageReason1Code),typeof(MessageReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MessageReasonCode
 {
     /// <summary>
@@ -1073,7 +1072,7 @@ public enum MessageReasonCode
 public static class MessageReasonCodeMetadataExtensions
 {
     private static readonly MessageReasonCodeDropdownSource _dropdownSource = new MessageReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

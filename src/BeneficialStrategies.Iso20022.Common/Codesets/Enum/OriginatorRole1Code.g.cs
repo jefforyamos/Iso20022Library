@@ -21,48 +21,48 @@ public enum OriginatorRole1Code
 {
     /// <summary>
     /// Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI's will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as "mini"exchanges.
-    /// Encoded/decoded by serializers as "SystematicInternaliser".
+    /// Encoded/decoded by serializers as "SINT".
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_Zw1l9Np-Ed-ak6NoX_4Aeg_1072441670")]
     [Description(@"Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI's will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as ""mini""exchanges.")]
-    SystematicInternaliser,
+    SystematicInternaliser = OriginatorRoleCode.SystematicInternaliser, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
-    /// Encoded/decoded by serializers as "MultilateralTradingFacility".
+    /// Encoded/decoded by serializers as "MLTF".
     /// </summary>
     [EnumMember(Value = "MLTF")]
     [IsoId("_Zw1l9dp-Ed-ak6NoX_4Aeg_1072441706")]
     [Description(@"Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.")]
-    MultilateralTradingFacility,
+    MultilateralTradingFacility = OriginatorRoleCode.MultilateralTradingFacility, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Market on which financial instruments can be traded according to rules defined by the stock exchange.
-    /// Encoded/decoded by serializers as "RegulatedMarket".
+    /// Encoded/decoded by serializers as "RMKT".
     /// </summary>
     [EnumMember(Value = "RMKT")]
     [IsoId("_Zw1l9tp-Ed-ak6NoX_4Aeg_1072441731")]
     [Description(@"Market on which financial instruments can be traded according to rules defined by the stock exchange.")]
-    RegulatedMarket,
+    RegulatedMarket = OriginatorRoleCode.RegulatedMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.
-    /// Encoded/decoded by serializers as "MarketMaker".
+    /// Encoded/decoded by serializers as "MKTM".
     /// </summary>
     [EnumMember(Value = "MKTM")]
     [IsoId("_Zw1l99p-Ed-ak6NoX_4Aeg_1072441748")]
     [Description(@"Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.")]
-    MarketMaker,
+    MarketMaker = OriginatorRoleCode.MarketMaker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_Zw1l-Np-Ed-ak6NoX_4Aeg_1072442008")]
     [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
-    Investor,
+    Investor = OriginatorRoleCode.Investor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum OriginatorRole1Code
 public static class OriginatorRole1CodeMetadataExtensions
 {
     private static readonly OriginatorRole1CodeDropdownSource _dropdownSource = new OriginatorRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

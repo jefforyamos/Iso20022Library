@@ -21,39 +21,39 @@ public enum CancelledStatusReason17Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CancelledByYourself".
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_8oENQuBBEeiVRbNQx5-Vhg")]
     [Description(@"Transaction is cancelled by yourself.")]
-    CancelledByYourself,
+    CancelledByYourself = CancelledStatusReasonCode.CancelledByYourself, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other (see additional information).
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_zdUNIQiAEeuAafINYd9EUw")]
     [Description(@"Other (see additional information).")]
-    Other,
+    Other = CancelledStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the agent.
-    /// Encoded/decoded by serializers as "CancelledByAgent".
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_EvmEwSAQEeu0P6yLvKBt0w")]
     [Description(@"Transaction is cancelled by the agent.")]
-    CancelledByAgent,
+    CancelledByAgent = CancelledStatusReasonCode.CancelledByAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelledBySystem".
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_IGRssSAQEeu0P6yLvKBt0w")]
     [Description(@"Transaction is cancelled by the system.")]
-    CancelledBySystem,
+    CancelledBySystem = CancelledStatusReasonCode.CancelledBySystem, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CancelledStatusReason17Code
 public static class CancelledStatusReason17CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason17CodeDropdownSource _dropdownSource = new CancelledStatusReason17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

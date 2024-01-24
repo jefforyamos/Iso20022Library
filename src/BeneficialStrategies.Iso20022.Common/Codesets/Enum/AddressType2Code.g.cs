@@ -21,57 +21,57 @@ public enum AddressType2Code
 {
     /// <summary>
     /// Address is the complete postal address.
-    /// Encoded/decoded by serializers as "Postal".
+    /// Encoded/decoded by serializers as "ADDR".
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_bm2sYdp-Ed-ak6NoX_4Aeg_878577717")]
     [Description(@"Address is the complete postal address.")]
-    Postal,
+    Postal = AddressTypeCode.Postal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is a postal office (PO) box.
-    /// Encoded/decoded by serializers as "POBox".
+    /// Encoded/decoded by serializers as "PBOX".
     /// </summary>
     [EnumMember(Value = "PBOX")]
     [IsoId("_bm2sYtp-Ed-ak6NoX_4Aeg_878578132")]
     [Description(@"Address is a postal office (PO) box.")]
-    POBox,
+    POBox = AddressTypeCode.POBox, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is the home address.
-    /// Encoded/decoded by serializers as "Residential".
+    /// Encoded/decoded by serializers as "HOME".
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_bm2sY9p-Ed-ak6NoX_4Aeg_2106193409")]
     [Description(@"Address is the home address.")]
-    Residential,
+    Residential = AddressTypeCode.Residential, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is the business address.
-    /// Encoded/decoded by serializers as "Business".
+    /// Encoded/decoded by serializers as "BIZZ".
     /// </summary>
     [EnumMember(Value = "BIZZ")]
     [IsoId("_bm2sZNp-Ed-ak6NoX_4Aeg_2106193529")]
     [Description(@"Address is the business address.")]
-    Business,
+    Business = AddressTypeCode.Business, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is the address to which mail is sent.
-    /// Encoded/decoded by serializers as "MailTo".
+    /// Encoded/decoded by serializers as "MLTO".
     /// </summary>
     [EnumMember(Value = "MLTO")]
     [IsoId("_bm2sZdp-Ed-ak6NoX_4Aeg_2106193606")]
     [Description(@"Address is the address to which mail is sent.")]
-    MailTo,
+    MailTo = AddressTypeCode.MailTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is the address to which delivery is to take place.
-    /// Encoded/decoded by serializers as "DeliveryTo".
+    /// Encoded/decoded by serializers as "DLVY".
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_bm2sZtp-Ed-ak6NoX_4Aeg_2106193624")]
     [Description(@"Address is the address to which delivery is to take place.")]
-    DeliveryTo,
+    DeliveryTo = AddressTypeCode.DeliveryTo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AddressType2Code
 public static class AddressType2CodeMetadataExtensions
 {
     private static readonly AddressType2CodeDropdownSource _dropdownSource = new AddressType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

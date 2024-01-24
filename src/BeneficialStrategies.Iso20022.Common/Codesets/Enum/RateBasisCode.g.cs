@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ro2ZMc5IEeSc85GUbgBycw")]
 [Description(@"Specifies the rate basis.")]
 [Derivations(typeof(RateBasis1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RateBasisCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum RateBasisCode
 public static class RateBasisCodeMetadataExtensions
 {
     private static readonly RateBasisCodeDropdownSource _dropdownSource = new RateBasisCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

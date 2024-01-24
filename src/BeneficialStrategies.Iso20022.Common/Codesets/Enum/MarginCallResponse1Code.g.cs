@@ -21,21 +21,21 @@ public enum MarginCallResponse1Code
 {
     /// <summary>
     /// Indicates that the margin call request was sent on a non valuation day.
-    /// Encoded/decoded by serializers as "NonValuationDay".
+    /// Encoded/decoded by serializers as "NVDA".
     /// </summary>
     [EnumMember(Value = "NVDA")]
     [IsoId("_Yc8VJ9p-Ed-ak6NoX_4Aeg_661474467")]
     [Description(@"Indicates that the margin call request was sent on a non valuation day.")]
-    NonValuationDay,
+    NonValuationDay = MarginCallResponseCode.NonValuationDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the margin call request was sent after the notification time.
-    /// Encoded/decoded by serializers as "ReceivedAfterNotificationTime".
+    /// Encoded/decoded by serializers as "RANT".
     /// </summary>
     [EnumMember(Value = "RANT")]
     [IsoId("_Yc8VKNp-Ed-ak6NoX_4Aeg_-631136566")]
     [Description(@"Indicates that the margin call request was sent after the notification time.")]
-    ReceivedAfterNotificationTime,
+    ReceivedAfterNotificationTime = MarginCallResponseCode.ReceivedAfterNotificationTime, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MarginCallResponse1Code
 public static class MarginCallResponse1CodeMetadataExtensions
 {
     private static readonly MarginCallResponse1CodeDropdownSource _dropdownSource = new MarginCallResponse1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,165 +21,165 @@ public enum LocationAmenity1Code
 {
     /// <summary>
     /// Interstate Access and Exit Number information with directions Available
-    /// Encoded/decoded by serializers as "AccessAndDirectionsAvailable".
+    /// Encoded/decoded by serializers as "AADA".
     /// </summary>
     [EnumMember(Value = "AADA")]
     [IsoId("_xUQuYTEtEemzCpWiCwK4aQ")]
     [Description(@"Interstate Access and Exit Number information with directions Available")]
-    AccessAndDirectionsAvailable,
+    AccessAndDirectionsAvailable = LocationAmenityCode.AccessAndDirectionsAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Alternative fuel locations available
-    /// Encoded/decoded by serializers as "AlternativeFuelLocationsAvailable".
+    /// Encoded/decoded by serializers as "AFLA".
     /// </summary>
     [EnumMember(Value = "AFLA")]
     [IsoId("_xxnYwTEtEemzCpWiCwK4aQ")]
     [Description(@"Alternative fuel locations available")]
-    AlternativeFuelLocationsAvailable,
+    AlternativeFuelLocationsAvailable = LocationAmenityCode.AlternativeFuelLocationsAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Aviation locations available
-    /// Encoded/decoded by serializers as "AviationLocationsAvailable".
+    /// Encoded/decoded by serializers as "AVLA".
     /// </summary>
     [EnumMember(Value = "AVLA")]
     [IsoId("_yGdAUTEtEemzCpWiCwK4aQ")]
     [Description(@"Aviation locations available")]
-    AviationLocationsAvailable,
+    AviationLocationsAvailable = LocationAmenityCode.AviationLocationsAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Car wash available
-    /// Encoded/decoded by serializers as "CarWashAvailable".
+    /// Encoded/decoded by serializers as "CRWA".
     /// </summary>
     [EnumMember(Value = "CRWA")]
     [IsoId("_yc9b0TEtEemzCpWiCwK4aQ")]
     [Description(@"Car wash available")]
-    CarWashAvailable,
+    CarWashAvailable = LocationAmenityCode.CarWashAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Convenience Store Available
-    /// Encoded/decoded by serializers as "ConvenienceStoreAvailable".
+    /// Encoded/decoded by serializers as "CVSA".
     /// </summary>
     [EnumMember(Value = "CVSA")]
     [IsoId("_yyuQcTEtEemzCpWiCwK4aQ")]
     [Description(@"Convenience Store Available")]
-    ConvenienceStoreAvailable,
+    ConvenienceStoreAvailable = LocationAmenityCode.ConvenienceStoreAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Diesel Sites Available
-    /// Encoded/decoded by serializers as "DieselSitesAvailable".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_zIoPATEtEemzCpWiCwK4aQ")]
     [Description(@"Diesel Sites Available")]
-    DieselSitesAvailable,
+    DieselSitesAvailable = LocationAmenityCode.DieselSitesAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// 18-wheeler access availability
-    /// Encoded/decoded by serializers as "EighteenWheelAccessAvailable".
+    /// Encoded/decoded by serializers as "EWAA".
     /// </summary>
     [EnumMember(Value = "EWAA")]
     [IsoId("_zgeHQTEtEemzCpWiCwK4aQ")]
     [Description(@"18-wheeler access availability")]
-    EighteenWheelAccessAvailable,
+    EighteenWheelAccessAvailable = LocationAmenityCode.EighteenWheelAccessAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Marina locations available
-    /// Encoded/decoded by serializers as "MarinaLocationsAvailable".
+    /// Encoded/decoded by serializers as "MRLA".
     /// </summary>
     [EnumMember(Value = "MRLA")]
     [IsoId("_zoOVETEtEemzCpWiCwK4aQ")]
     [Description(@"Marina locations available")]
-    MarinaLocationsAvailable,
+    MarinaLocationsAvailable = LocationAmenityCode.MarinaLocationsAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other amenities defined at the national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_z3uJoTEtEemzCpWiCwK4aQ")]
     [Description(@"Other amenities defined at the national level.")]
-    OtherNational,
+    OtherNational = LocationAmenityCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other amenities defined at the private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_z9FKwTEtEemzCpWiCwK4aQ")]
     [Description(@"Other amenities defined at the private level.")]
-    OtherPrivate,
+    OtherPrivate = LocationAmenityCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pay-at-pump available
-    /// Encoded/decoded by serializers as "PayAtPumpAvailable".
+    /// Encoded/decoded by serializers as "PAPA".
     /// </summary>
     [EnumMember(Value = "PAPA")]
     [IsoId("_0S_JUTEtEemzCpWiCwK4aQ")]
     [Description(@"Pay-at-pump available")]
-    PayAtPumpAvailable,
+    PayAtPumpAvailable = LocationAmenityCode.PayAtPumpAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Truck Stop Hotel Available
-    /// Encoded/decoded by serializers as "TruckStopHotelAvailable".
+    /// Encoded/decoded by serializers as "TSHA".
     /// </summary>
     [EnumMember(Value = "TSHA")]
     [IsoId("_0qr3oTEtEemzCpWiCwK4aQ")]
     [Description(@"Truck Stop Hotel Available")]
-    TruckStopHotelAvailable,
+    TruckStopHotelAvailable = LocationAmenityCode.TruckStopHotelAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Truck Stop Restaurant Available
-    /// Encoded/decoded by serializers as "TruckStopRestaurantAvailable".
+    /// Encoded/decoded by serializers as "TSRA".
     /// </summary>
     [EnumMember(Value = "TSRA")]
     [IsoId("_1AAAUTEtEemzCpWiCwK4aQ")]
     [Description(@"Truck Stop Restaurant Available")]
-    TruckStopRestaurantAvailable,
+    TruckStopRestaurantAvailable = LocationAmenityCode.TruckStopRestaurantAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Truck stop with showers available
-    /// Encoded/decoded by serializers as "TruckStopWithShowersAvailable".
+    /// Encoded/decoded by serializers as "TSSA".
     /// </summary>
     [EnumMember(Value = "TSSA")]
     [IsoId("_1GtFQTEtEemzCpWiCwK4aQ")]
     [Description(@"Truck stop with showers available")]
-    TruckStopWithShowersAvailable,
+    TruckStopWithShowersAvailable = LocationAmenityCode.TruckStopWithShowersAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// 24 hour availability
-    /// Encoded/decoded by serializers as "TwentyFourHourAvailablity".
+    /// Encoded/decoded by serializers as "TFHA".
     /// </summary>
     [EnumMember(Value = "TFHA")]
     [IsoId("_1arKITEtEemzCpWiCwK4aQ")]
     [Description(@"24 hour availability")]
-    TwentyFourHourAvailablity,
+    TwentyFourHourAvailablity = LocationAmenityCode.TwentyFourHourAvailablity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vehicle scales and weigh services available
-    /// Encoded/decoded by serializers as "VehicleScalesWeight".
+    /// Encoded/decoded by serializers as "VSWA".
     /// </summary>
     [EnumMember(Value = "VSWA")]
     [IsoId("_2OPVETEtEemzCpWiCwK4aQ")]
     [Description(@"Vehicle scales and weigh services available")]
-    VehicleScalesWeight,
+    VehicleScalesWeight = LocationAmenityCode.VehicleScalesWeight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vehicle parking available
-    /// Encoded/decoded by serializers as "VehicleParking".
+    /// Encoded/decoded by serializers as "VHPA".
     /// </summary>
     [EnumMember(Value = "VHPA")]
     [IsoId("_2ioQsTEtEemzCpWiCwK4aQ")]
     [Description(@"Vehicle parking available")]
-    VehicleParking,
+    VehicleParking = LocationAmenityCode.VehicleParking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vehicle maintenance/repair bays available
-    /// Encoded/decoded by serializers as "VehicleMaintenanceRepairBaysAvailable".
+    /// Encoded/decoded by serializers as "VMRA".
     /// </summary>
     [EnumMember(Value = "VMRA")]
     [IsoId("_24GKYTEtEemzCpWiCwK4aQ")]
     [Description(@"Vehicle maintenance/repair bays available")]
-    VehicleMaintenanceRepairBaysAvailable,
+    VehicleMaintenanceRepairBaysAvailable = LocationAmenityCode.VehicleMaintenanceRepairBaysAvailable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum LocationAmenity1Code
 public static class LocationAmenity1CodeMetadataExtensions
 {
     private static readonly LocationAmenity1CodeDropdownSource _dropdownSource = new LocationAmenity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

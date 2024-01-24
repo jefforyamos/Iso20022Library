@@ -21,75 +21,75 @@ public enum DateType9Code
 {
     /// <summary>
     /// Blocking occurs until and inclusive of the end of the election period of the option.
-    /// Encoded/decoded by serializers as "BlockingTillEndOfElectionPeriod".
+    /// Encoded/decoded by serializers as "PWAL".
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_fv2X0e4EEeqc-LCjwLsUVg")]
     [Description(@"Blocking occurs until and inclusive of the end of the election period of the option.")]
-    BlockingTillEndOfElectionPeriod,
+    BlockingTillEndOfElectionPeriod = DateTypeCode.BlockingTillEndOfElectionPeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Blocking occurs until and inclusive of the market deadline of the option.
-    /// Encoded/decoded by serializers as "BlockingTillMarketDeadline".
+    /// Encoded/decoded by serializers as "MKDT".
     /// </summary>
     [EnumMember(Value = "MKDT")]
     [IsoId("_f1gT4e4EEeqc-LCjwLsUVg")]
     [Description(@"Blocking occurs until and inclusive of the market deadline of the option.")]
-    BlockingTillMarketDeadline,
+    BlockingTillMarketDeadline = DateTypeCode.BlockingTillMarketDeadline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Blocking occurs until and inclusive of the meeting date.
-    /// Encoded/decoded by serializers as "BlockingTillMeetingDate".
+    /// Encoded/decoded by serializers as "MEET".
     /// </summary>
     [EnumMember(Value = "MEET")]
     [IsoId("_f7Ae8e4EEeqc-LCjwLsUVg")]
     [Description(@"Blocking occurs until and inclusive of the meeting date.")]
-    BlockingTillMeetingDate,
+    BlockingTillMeetingDate = DateTypeCode.BlockingTillMeetingDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unblocking will occur on payment date of the option.
-    /// Encoded/decoded by serializers as "BlockingTillPaymentDate".
+    /// Encoded/decoded by serializers as "PAYD".
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_gAqbAe4EEeqc-LCjwLsUVg")]
     [Description(@"Unblocking will occur on payment date of the option.")]
-    BlockingTillPaymentDate,
+    BlockingTillPaymentDate = DateTypeCode.BlockingTillPaymentDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Blocking occurs until and inclusive of the record date of the event.
-    /// Encoded/decoded by serializers as "BlockingTillRecordDate".
+    /// Encoded/decoded by serializers as "RDTE".
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_gGKmEe4EEeqc-LCjwLsUVg")]
     [Description(@"Blocking occurs until and inclusive of the record date of the event.")]
-    BlockingTillRecordDate,
+    BlockingTillRecordDate = DateTypeCode.BlockingTillRecordDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Blocking occurs until and inclusive of the account servicer deadline for the option.
-    /// Encoded/decoded by serializers as "BlockingTillResponseDeadline".
+    /// Encoded/decoded by serializers as "RDDT".
     /// </summary>
     [EnumMember(Value = "RDDT")]
     [IsoId("_gMROEe4EEeqc-LCjwLsUVg")]
     [Description(@"Blocking occurs until and inclusive of the account servicer deadline for the option.")]
-    BlockingTillResponseDeadline,
+    BlockingTillResponseDeadline = DateTypeCode.BlockingTillResponseDeadline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refer to additional information element for the date until when the securities are blocked.
-    /// Encoded/decoded by serializers as "NarrativeUnblockingDate".
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_gUv0oe4EEeqc-LCjwLsUVg")]
     [Description(@"Refer to additional information element for the date until when the securities are blocked.")]
-    NarrativeUnblockingDate,
+    NarrativeUnblockingDate = DateTypeCode.NarrativeUnblockingDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_gordQe4EEeqc-LCjwLsUVg")]
     [Description(@"Date is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum DateType9Code
 public static class DateType9CodeMetadataExtensions
 {
     private static readonly DateType9CodeDropdownSource _dropdownSource = new DateType9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum TaxableIncomePerShareCalculated2Code
 {
     /// <summary>
     /// Fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundCalculates".
+    /// Encoded/decoded by serializers as "TSIY".
     /// </summary>
     [EnumMember(Value = "TSIY")]
     [IsoId("_ZSSoxdp-Ed-ak6NoX_4Aeg_206054111")]
     [Description(@"Fund is calculating the taxable interest per share with the NAV.")]
-    FundCalculates,
+    FundCalculates = TaxableIncomePerShareCalculatedCode.FundCalculates, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund is not calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundDoesNotCalculate".
+    /// Encoded/decoded by serializers as "TSIN".
     /// </summary>
     [EnumMember(Value = "TSIN")]
     [IsoId("_ZSSoxtp-Ed-ak6NoX_4Aeg_206055154")]
     [Description(@"Fund is not calculating the taxable interest per share with the NAV.")]
-    FundDoesNotCalculate,
+    FundDoesNotCalculate = TaxableIncomePerShareCalculatedCode.FundDoesNotCalculate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether the fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "FundCalculatesUnknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZSSox9p-Ed-ak6NoX_4Aeg_206055214")]
     [Description(@"Unknown whether the fund is calculating the taxable interest per share with the NAV.")]
-    FundCalculatesUnknown,
+    FundCalculatesUnknown = TaxableIncomePerShareCalculatedCode.FundCalculatesUnknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TaxableIncomePerShareCalculated2Code
 public static class TaxableIncomePerShareCalculated2CodeMetadataExtensions
 {
     private static readonly TaxableIncomePerShareCalculated2CodeDropdownSource _dropdownSource = new TaxableIncomePerShareCalculated2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

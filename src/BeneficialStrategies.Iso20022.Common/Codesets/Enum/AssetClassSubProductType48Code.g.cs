@@ -21,12 +21,12 @@ public enum AssetClassSubProductType48Code
 {
     /// <summary>
     /// Commodity of type non deliverable.
-    /// Encoded/decoded by serializers as "NonDeliverable".
+    /// Encoded/decoded by serializers as "NDLV".
     /// </summary>
     [EnumMember(Value = "NDLV")]
     [IsoId("_oS0CcfwhEeW4Wthd0Ze_kA")]
     [Description(@"Commodity of type non deliverable.")]
-    NonDeliverable,
+    NonDeliverable = AssetClassSubProductTypeCode.NonDeliverable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType48Code
 public static class AssetClassSubProductType48CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType48CodeDropdownSource _dropdownSource = new AssetClassSubProductType48CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

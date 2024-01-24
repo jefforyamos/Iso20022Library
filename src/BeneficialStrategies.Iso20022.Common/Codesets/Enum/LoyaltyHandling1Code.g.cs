@@ -21,48 +21,48 @@ public enum LoyaltyHandling1Code
 {
     /// <summary>
     /// The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). 
-    /// Encoded/decoded by serializers as "Allowed".
+    /// Encoded/decoded by serializers as "ALLO".
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_WKvCUdt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). ")]
-    Allowed,
+    Allowed = LoyaltyHandlingCode.Allowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.
-    /// Encoded/decoded by serializers as "Forbidden".
+    /// Encoded/decoded by serializers as "DENY".
     /// </summary>
     [EnumMember(Value = "DENY")]
     [IsoId("_WO5Jkdt4EeiXqq0XHEoNUA")]
     [Description(@"No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.")]
-    Forbidden,
+    Forbidden = LoyaltyHandlingCode.Forbidden, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.
-    /// Encoded/decoded by serializers as "Processed".
+    /// Encoded/decoded by serializers as "PRCS".
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_WS0nUdt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.")]
-    Processed,
+    Processed = LoyaltyHandlingCode.Processed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.
-    /// Encoded/decoded by serializers as "Proposed".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_WW-Hgdt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.")]
-    Proposed,
+    Proposed = LoyaltyHandlingCode.Proposed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.
-    /// Encoded/decoded by serializers as "Required".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_WbW4Qdt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.")]
-    Required,
+    Required = LoyaltyHandlingCode.Required, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum LoyaltyHandling1Code
 public static class LoyaltyHandling1CodeMetadataExtensions
 {
     private static readonly LoyaltyHandling1CodeDropdownSource _dropdownSource = new LoyaltyHandling1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

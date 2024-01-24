@@ -21,21 +21,21 @@ public enum Rank1Code
 {
     /// <summary>
     /// Element is the primary one.
-    /// Encoded/decoded by serializers as "Primary".
+    /// Encoded/decoded by serializers as "PRIM".
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_8Vcd8ZNgEeWSf8tCOKY7Ug")]
     [Description(@"Element is the primary one.")]
-    Primary,
+    Primary = RankCode.Primary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Element is the primary one.
-    /// Encoded/decoded by serializers as "Secondary".
+    /// Encoded/decoded by serializers as "SECO".
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_8dx6kZNgEeWSf8tCOKY7Ug")]
     [Description(@"Element is the primary one.")]
-    Secondary,
+    Secondary = RankCode.Secondary, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Rank1Code
 public static class Rank1CodeMetadataExtensions
 {
     private static readonly Rank1CodeDropdownSource _dropdownSource = new Rank1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

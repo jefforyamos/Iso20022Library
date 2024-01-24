@@ -21,39 +21,39 @@ public enum QualifiedDividendTax1Code
 {
     /// <summary>
     /// Dividend income is potentially qualified (for instance common or preferred stock dividends, income distribution by mutual funds).
-    /// Encoded/decoded by serializers as "FullyQualified".
+    /// Encoded/decoded by serializers as "FQUD".
     /// </summary>
     [EnumMember(Value = "FQUD")]
     [IsoId("_10Jl4jL3EeKU9IrkkToqcw_-2047470535")]
     [Description(@"Dividend income is potentially qualified (for instance common or preferred stock dividends, income distribution by mutual funds).")]
-    FullyQualified,
+    FullyQualified = QualifiedDividendTaxCode.FullyQualified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Part of dividend income is potentially qualified (for instance income form a mutual fund which holds both stocks and bonds).
-    /// Encoded/decoded by serializers as "PartlyQualified".
+    /// Encoded/decoded by serializers as "PQUD".
     /// </summary>
     [EnumMember(Value = "PQUD")]
     [IsoId("_10Jl4zL3EeKU9IrkkToqcw_-1448298646")]
     [Description(@"Part of dividend income is potentially qualified (for instance income form a mutual fund which holds both stocks and bonds).")]
-    PartlyQualified,
+    PartlyQualified = QualifiedDividendTaxCode.PartlyQualified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend is not qualified (for instance UIT dividends, REIT dividends).
-    /// Encoded/decoded by serializers as "NotQualified".
+    /// Encoded/decoded by serializers as "NQUD".
     /// </summary>
     [EnumMember(Value = "NQUD")]
     [IsoId("_10Jl5DL3EeKU9IrkkToqcw_1154488453")]
     [Description(@"Dividend is not qualified (for instance UIT dividends, REIT dividends).")]
-    NotQualified,
+    NotQualified = QualifiedDividendTaxCode.NotQualified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Qualified dividend tax status is unknown (for instance if dividend tax status information is unavailable at the time of the dividend update, it will be provided when new information is received).
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_10Jl5TL3EeKU9IrkkToqcw_1143389676")]
     [Description(@"Qualified dividend tax status is unknown (for instance if dividend tax status information is unavailable at the time of the dividend update, it will be provided when new information is received).")]
-    Unknown,
+    Unknown = QualifiedDividendTaxCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum QualifiedDividendTax1Code
 public static class QualifiedDividendTax1CodeMetadataExtensions
 {
     private static readonly QualifiedDividendTax1CodeDropdownSource _dropdownSource = new QualifiedDividendTax1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

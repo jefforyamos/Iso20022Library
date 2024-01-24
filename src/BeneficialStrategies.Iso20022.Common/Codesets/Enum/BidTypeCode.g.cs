@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_begosNp-Ed-ak6NoX_4Aeg_451517447")]
 [Description(@"Code to identify the type of bid request.")]
 [Derivations(typeof(BidType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BidTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BidTypeCode
 public static class BidTypeCodeMetadataExtensions
 {
     private static readonly BidTypeCodeDropdownSource _dropdownSource = new BidTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

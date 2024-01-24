@@ -21,21 +21,21 @@ public enum PhysicalTransferType1Code
 {
     /// <summary>
     /// Dematerialised transfer.
-    /// Encoded/decoded by serializers as "Dematerialised".
+    /// Encoded/decoded by serializers as "DEMT".
     /// </summary>
     [EnumMember(Value = "DEMT")]
     [IsoId("_kzEcnv8vEeCuNd2SpsBr7g")]
     [Description(@"Dematerialised transfer.")]
-    Dematerialised,
+    Dematerialised = PhysicalTransferTypeCode.Dematerialised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical transfer.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_k2gLHv8vEeCuNd2SpsBr7g")]
     [Description(@"Physical transfer.")]
-    Physical,
+    Physical = PhysicalTransferTypeCode.Physical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PhysicalTransferType1Code
 public static class PhysicalTransferType1CodeMetadataExtensions
 {
     private static readonly PhysicalTransferType1CodeDropdownSource _dropdownSource = new PhysicalTransferType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

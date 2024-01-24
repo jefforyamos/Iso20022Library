@@ -21,12 +21,12 @@ public enum DateType3Code
 {
     /// <summary>
     /// Partial trades have occurred over a period of two or more days.
-    /// Encoded/decoded by serializers as "Various".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_ayZwo9p-Ed-ak6NoX_4Aeg_-1348690126")]
     [Description(@"Partial trades have occurred over a period of two or more days.")]
-    Various,
+    Various = DateTypeCode.Various, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DateType3Code
 public static class DateType3CodeMetadataExtensions
 {
     private static readonly DateType3CodeDropdownSource _dropdownSource = new DateType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

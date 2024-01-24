@@ -21,30 +21,30 @@ public enum ATMServiceType6Code
 {
     /// <summary>
     /// Making change between media types.
-    /// Encoded/decoded by serializers as "MakingChange".
+    /// Encoded/decoded by serializers as "MCHG".
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_P5EiUa3_EeWL1uap3dNhCQ")]
     [Description(@"Making change between media types.")]
-    MakingChange,
+    MakingChange = ATMServiceTypeCode.MakingChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit of media items unverified by the ATM, for instance in an envelope.
-    /// Encoded/decoded by serializers as "NonVerifiedDeposit".
+    /// Encoded/decoded by serializers as "DPSN".
     /// </summary>
     [EnumMember(Value = "DPSN")]
     [IsoId("_QHYEE63_EeWL1uap3dNhCQ")]
     [Description(@"Deposit of media items unverified by the ATM, for instance in an envelope.")]
-    NonVerifiedDeposit,
+    NonVerifiedDeposit = ATMServiceTypeCode.NonVerifiedDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit of media items verified by the ATM.
-    /// Encoded/decoded by serializers as "VerifiedDeposit".
+    /// Encoded/decoded by serializers as "DPSV".
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_QbvKg63_EeWL1uap3dNhCQ")]
     [Description(@"Deposit of media items verified by the ATM.")]
-    VerifiedDeposit,
+    VerifiedDeposit = ATMServiceTypeCode.VerifiedDeposit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMServiceType6Code
 public static class ATMServiceType6CodeMetadataExtensions
 {
     private static readonly ATMServiceType6CodeDropdownSource _dropdownSource = new ATMServiceType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

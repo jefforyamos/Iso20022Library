@@ -21,30 +21,30 @@ public enum WithdrawalReason1Code
 {
     /// <summary>
     /// Alleged trade is rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_3S_I0ZElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is rejected.")]
-    Rejected,
+    Rejected = WithdrawalReasonCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Alleged trade is rescinded.
-    /// Encoded/decoded by serializers as "Rescinded".
+    /// Encoded/decoded by serializers as "RSCD".
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_3dH8QZElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is rescinded.")]
-    Rescinded,
+    Rescinded = WithdrawalReasonCode.Rescinded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Alleged trade is withdrawn due to an amendment.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WTDN".
     /// </summary>
     [EnumMember(Value = "WTDN")]
     [IsoId("_3nQIoZElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is withdrawn due to an amendment.")]
-    Withdrawn,
+    Withdrawn = WithdrawalReasonCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum WithdrawalReason1Code
 public static class WithdrawalReason1CodeMetadataExtensions
 {
     private static readonly WithdrawalReason1CodeDropdownSource _dropdownSource = new WithdrawalReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

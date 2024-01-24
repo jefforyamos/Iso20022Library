@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_deqTgEyMEeiepssxrmRw1A")]
 [Description(@"Specifies a type of asset.")]
 [Derivations(typeof(OtherAsset1Code),typeof(OtherAsset2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OtherAssetCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum OtherAssetCode
 public static class OtherAssetCodeMetadataExtensions
 {
     private static readonly OtherAssetCodeDropdownSource _dropdownSource = new OtherAssetCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

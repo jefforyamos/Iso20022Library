@@ -21,30 +21,30 @@ public enum EventFrequency6Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_YZq-sdp-Ed-ak6NoX_4Aeg_903765456")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = EventFrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "IntraDay".
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_YZq-stp-Ed-ak6NoX_4Aeg_699827861")]
     [Description(@"Event takes place several times a day.")]
-    IntraDay,
+    IntraDay = EventFrequencyCode.IntraDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place on demand.
-    /// Encoded/decoded by serializers as "OnDemand".
+    /// Encoded/decoded by serializers as "ONDE".
     /// </summary>
     [EnumMember(Value = "ONDE")]
     [IsoId("_YZq-s9p-Ed-ak6NoX_4Aeg_-652104133")]
     [Description(@"Event takes place on demand.")]
-    OnDemand,
+    OnDemand = EventFrequencyCode.OnDemand, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EventFrequency6Code
 public static class EventFrequency6CodeMetadataExtensions
 {
     private static readonly EventFrequency6CodeDropdownSource _dropdownSource = new EventFrequency6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

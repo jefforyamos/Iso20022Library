@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8y6XACmsEeerta_tWXAsWQ")]
 [Description(@"Common report status for all individual reports sent / received.")]
 [Derivations(typeof(PairedReconciled1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PairedReconciledCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PairedReconciledCode
 public static class PairedReconciledCodeMetadataExtensions
 {
     private static readonly PairedReconciledCodeDropdownSource _dropdownSource = new PairedReconciledCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

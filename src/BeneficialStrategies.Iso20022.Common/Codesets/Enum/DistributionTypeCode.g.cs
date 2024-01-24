@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aw6i49p-Ed-ak6NoX_4Aeg_1235409327")]
 [Description(@"Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.")]
 [Derivations(typeof(DistributionType1Code),typeof(DistributionType2Code),typeof(DistributionType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DistributionTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum DistributionTypeCode
 public static class DistributionTypeCodeMetadataExtensions
 {
     private static readonly DistributionTypeCodeDropdownSource _dropdownSource = new DistributionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

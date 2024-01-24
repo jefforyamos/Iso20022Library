@@ -21,30 +21,30 @@ public enum StatusResponse1Code
 {
     /// <summary>
     /// Response not provided yet.
-    /// Encoded/decoded by serializers as "NoResponseYet".
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_tNlTBj2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response not provided yet.")]
-    NoResponseYet,
+    NoResponseYet = StatusResponseCode.NoResponseYet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response is partially provided.
-    /// Encoded/decoded by serializers as "PartialResponse".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_tTP2Jj2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response is partially provided.")]
-    PartialResponse,
+    PartialResponse = StatusResponseCode.PartialResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response is complete.
-    /// Encoded/decoded by serializers as "CompleteResponse".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_tZXFNj2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response is complete.")]
-    CompleteResponse,
+    CompleteResponse = StatusResponseCode.CompleteResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum StatusResponse1Code
 public static class StatusResponse1CodeMetadataExtensions
 {
     private static readonly StatusResponse1CodeDropdownSource _dropdownSource = new StatusResponse1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

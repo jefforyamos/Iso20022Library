@@ -21,39 +21,39 @@ public enum SecuritiesFinancingTransactionType1Code
 {
     /// <summary>
     /// Relates to a repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "Repo".
+    /// Encoded/decoded by serializers as "REPU".
     /// </summary>
     [EnumMember(Value = "REPU")]
     [IsoId("_ZFoFwtp-Ed-ak6NoX_4Aeg_-738371349")]
     [Description(@"Relates to a repurchase agreement transaction.")]
-    Repo,
+    Repo = SecuritiesTransactionTypeV2Code.Repo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "ReverseRepo".
+    /// Encoded/decoded by serializers as "RVPO".
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_ZFoFw9p-Ed-ak6NoX_4Aeg_-738371331")]
     [Description(@"Relates to a reverse repurchase agreement transaction.")]
-    ReverseRepo,
+    ReverseRepo = SecuritiesTransactionTypeV2Code.ReverseRepo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities borrowing operation.
-    /// Encoded/decoded by serializers as "SecuritiesBorrowing".
+    /// Encoded/decoded by serializers as "SECB".
     /// </summary>
     [EnumMember(Value = "SECB")]
     [IsoId("_ZFoFxNp-Ed-ak6NoX_4Aeg_-738371296")]
     [Description(@"Relates to a securities borrowing operation.")]
-    SecuritiesBorrowing,
+    SecuritiesBorrowing = SecuritiesTransactionTypeV2Code.SecuritiesBorrowing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a securities lending operation.
-    /// Encoded/decoded by serializers as "SecuritiesLending".
+    /// Encoded/decoded by serializers as "SECL".
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_ZFoFxdp-Ed-ak6NoX_4Aeg_-738371271")]
     [Description(@"Relates to a securities lending operation.")]
-    SecuritiesLending,
+    SecuritiesLending = SecuritiesTransactionTypeV2Code.SecuritiesLending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum SecuritiesFinancingTransactionType1Code
 public static class SecuritiesFinancingTransactionType1CodeMetadataExtensions
 {
     private static readonly SecuritiesFinancingTransactionType1CodeDropdownSource _dropdownSource = new SecuritiesFinancingTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

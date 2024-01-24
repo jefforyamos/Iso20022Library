@@ -21,75 +21,75 @@ public enum PaymentTime1Code
 {
     /// <summary>
     /// Code for payment on delivery.
-    /// Encoded/decoded by serializers as "PaymentOnDelivery".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Z7kPRNp-Ed-ak6NoX_4Aeg_428253334")]
     [Description(@"Code for payment on delivery.")]
-    PaymentOnDelivery,
+    PaymentOnDelivery = PaymentTimeCode.PaymentOnDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of month of delivery.
-    /// Encoded/decoded by serializers as "EndOfMonthOfDelivery".
+    /// Encoded/decoded by serializers as "EMTD".
     /// </summary>
     [EnumMember(Value = "EMTD")]
     [IsoId("_Z7kPRdp-Ed-ak6NoX_4Aeg_428253352")]
     [Description(@"Code for payment at end of month of delivery.")]
-    EndOfMonthOfDelivery,
+    EndOfMonthOfDelivery = PaymentTimeCode.EndOfMonthOfDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of period after delivery.
-    /// Encoded/decoded by serializers as "EndOfPeriodAfterDelivery".
+    /// Encoded/decoded by serializers as "EPRD".
     /// </summary>
     [EnumMember(Value = "EPRD")]
     [IsoId("_Z7kPRtp-Ed-ak6NoX_4Aeg_428253377")]
     [Description(@"Code for payment at end of period after delivery.")]
-    EndOfPeriodAfterDelivery,
+    EndOfPeriodAfterDelivery = PaymentTimeCode.EndOfPeriodAfterDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of period after end of month of delivery.
-    /// Encoded/decoded by serializers as "EndOfPeriodAfterEndOfDeliveryMonth".
+    /// Encoded/decoded by serializers as "PRMD".
     /// </summary>
     [EnumMember(Value = "PRMD")]
     [IsoId("_Z7kPR9p-Ed-ak6NoX_4Aeg_428253378")]
     [Description(@"Code for payment at end of period after end of month of delivery.")]
-    EndOfPeriodAfterEndOfDeliveryMonth,
+    EndOfPeriodAfterEndOfDeliveryMonth = PaymentTimeCode.EndOfPeriodAfterEndOfDeliveryMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment on receipt of invoice.
-    /// Encoded/decoded by serializers as "PaymentOnReceiptOfInvoice".
+    /// Encoded/decoded by serializers as "IREC".
     /// </summary>
     [EnumMember(Value = "IREC")]
     [IsoId("_Z7kPSNp-Ed-ak6NoX_4Aeg_428253394")]
     [Description(@"Code for payment on receipt of invoice.")]
-    PaymentOnReceiptOfInvoice,
+    PaymentOnReceiptOfInvoice = PaymentTimeCode.PaymentOnReceiptOfInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of period after end of month of receipt of invoice.
-    /// Encoded/decoded by serializers as "EndOfPeriodAfterEndOfReceiptMonth".
+    /// Encoded/decoded by serializers as "PRMR".
     /// </summary>
     [EnumMember(Value = "PRMR")]
     [IsoId("_Z7kPSdp-Ed-ak6NoX_4Aeg_428253412")]
     [Description(@"Code for payment at end of period after end of month of receipt of invoice.")]
-    EndOfPeriodAfterEndOfReceiptMonth,
+    EndOfPeriodAfterEndOfReceiptMonth = PaymentTimeCode.EndOfPeriodAfterEndOfReceiptMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of period after receipt of invoice.
-    /// Encoded/decoded by serializers as "EndOfPeriodAfterReceipt".
+    /// Encoded/decoded by serializers as "EPRR".
     /// </summary>
     [EnumMember(Value = "EPRR")]
     [IsoId("_Z7uAQNp-Ed-ak6NoX_4Aeg_428253429")]
     [Description(@"Code for payment at end of period after receipt of invoice.")]
-    EndOfPeriodAfterReceipt,
+    EndOfPeriodAfterReceipt = PaymentTimeCode.EndOfPeriodAfterReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for payment at end of month of receipt of invoice.
-    /// Encoded/decoded by serializers as "EndOfMonthOfReceipt".
+    /// Encoded/decoded by serializers as "EMTR".
     /// </summary>
     [EnumMember(Value = "EMTR")]
     [IsoId("_Z7uAQdp-Ed-ak6NoX_4Aeg_428253447")]
     [Description(@"Code for payment at end of month of receipt of invoice.")]
-    EndOfMonthOfReceipt,
+    EndOfMonthOfReceipt = PaymentTimeCode.EndOfMonthOfReceipt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum PaymentTime1Code
 public static class PaymentTime1CodeMetadataExtensions
 {
     private static readonly PaymentTime1CodeDropdownSource _dropdownSource = new PaymentTime1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

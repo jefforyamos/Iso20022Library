@@ -21,21 +21,21 @@ public enum TechnicalValidationStatus1Code
 {
     /// <summary>
     /// Indicates that the request has been correctly received and that the technical validation was successful.
-    /// Encoded/decoded by serializers as "ReceptionConfirmation".
+    /// Encoded/decoded by serializers as "RCCF".
     /// </summary>
     [EnumMember(Value = "RCCF")]
     [IsoId("_Yll60tp-Ed-ak6NoX_4Aeg_1971021771")]
     [Description(@"Indicates that the request has been correctly received and that the technical validation was successful.")]
-    ReceptionConfirmation,
+    ReceptionConfirmation = TechnicalValidationStatusCode.ReceptionConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates there was an error in the reception of the request or that the technical validation was not successful.
-    /// Encoded/decoded by serializers as "ReceptionError".
+    /// Encoded/decoded by serializers as "RCER".
     /// </summary>
     [EnumMember(Value = "RCER")]
     [IsoId("_Yll609p-Ed-ak6NoX_4Aeg_1971021772")]
     [Description(@"Indicates there was an error in the reception of the request or that the technical validation was not successful.")]
-    ReceptionError,
+    ReceptionError = TechnicalValidationStatusCode.ReceptionError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TechnicalValidationStatus1Code
 public static class TechnicalValidationStatus1CodeMetadataExtensions
 {
     private static readonly TechnicalValidationStatus1CodeDropdownSource _dropdownSource = new TechnicalValidationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

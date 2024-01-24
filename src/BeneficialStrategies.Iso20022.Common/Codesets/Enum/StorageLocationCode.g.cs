@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_b6ylkJx-EeuwYeL1lHu9zw")]
 [Description(@"Code that specifies the storage location.")]
 [Derivations(typeof(StorageLocation1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StorageLocationCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum StorageLocationCode
 public static class StorageLocationCodeMetadataExtensions
 {
     private static readonly StorageLocationCodeDropdownSource _dropdownSource = new StorageLocationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

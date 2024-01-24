@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZUrOYNp-Ed-ak6NoX_4Aeg_-459088300")]
 [Description(@"Specifies the precise type of reservation.")]
 [Derivations(typeof(ReservationType1Code),typeof(ReservationType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReservationTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ReservationTypeCode
 public static class ReservationTypeCodeMetadataExtensions
 {
     private static readonly ReservationTypeCodeDropdownSource _dropdownSource = new ReservationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

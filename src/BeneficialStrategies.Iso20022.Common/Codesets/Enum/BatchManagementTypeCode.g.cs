@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zw7p8FAXEeedyPuM0kK2EQ")]
 [Description(@"Type of batch management activity.")]
 [Derivations(typeof(BatchManagementType1Code),typeof(BatchManagementType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BatchManagementTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum BatchManagementTypeCode
 public static class BatchManagementTypeCodeMetadataExtensions
 {
     private static readonly BatchManagementTypeCodeDropdownSource _dropdownSource = new BatchManagementTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

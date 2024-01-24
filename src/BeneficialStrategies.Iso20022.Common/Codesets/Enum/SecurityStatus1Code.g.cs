@@ -21,21 +21,21 @@ public enum SecurityStatus1Code
 {
     /// <summary>
     /// The status is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZKGWENp-Ed-ak6NoX_4Aeg_243065")]
     [Description(@"The status is active.")]
-    Active,
+    Active = SecurityStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The status is inactive.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ZKGWEdp-Ed-ak6NoX_4Aeg_243066")]
     [Description(@"The status is inactive.")]
-    Inactive,
+    Inactive = SecurityStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SecurityStatus1Code
 public static class SecurityStatus1CodeMetadataExtensions
 {
     private static readonly SecurityStatus1CodeDropdownSource _dropdownSource = new SecurityStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

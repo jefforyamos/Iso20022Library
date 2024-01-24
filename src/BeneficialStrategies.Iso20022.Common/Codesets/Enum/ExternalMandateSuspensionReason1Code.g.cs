@@ -17,63 +17,63 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_z3ff4YPDEeahmOIR_zFG6A")]
-[Description(@"Specifies the external mandate suspension reason code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external mandate suspension reason code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalMandateSuspensionReasonCode))]
 public enum ExternalMandateSuspensionReason1Code
 {
     /// <summary>
     /// Mandate suspended due to amendment of the contract.
-    /// Encoded/decoded by serializers as "ContractAmended".
+    /// Encoded/decoded by serializers as "CTAM".
     /// </summary>
     [EnumMember(Value = "CTAM")]
     [IsoId("_uY0ytfRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to amendment of the contract.")]
-    ContractAmended,
+    ContractAmended = ExternalMandateSuspensionReasonCode.ContractAmended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate suspended due to cancellation of the contract, requested by the debtor.
-    /// Encoded/decoded by serializers as "ContractCancellationInitiatedByDebtor".
+    /// Encoded/decoded by serializers as "CTCA".
     /// </summary>
     [EnumMember(Value = "CTCA")]
     [IsoId("_uY98ovRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to cancellation of the contract, requested by the debtor.")]
-    ContractCancellationInitiatedByDebtor,
+    ContractCancellationInitiatedByDebtor = ExternalMandateSuspensionReasonCode.ContractCancellationInitiatedByDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate suspended due to the contract that expired.
-    /// Encoded/decoded by serializers as "ContractExpired".
+    /// Encoded/decoded by serializers as "CTEX".
     /// </summary>
     [EnumMember(Value = "CTEX")]
     [IsoId("_uY98pfRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to the contract that expired.")]
-    ContractExpired,
+    ContractExpired = ExternalMandateSuspensionReasonCode.ContractExpired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate suspended as final collection took place.
-    /// Encoded/decoded by serializers as "MandateSuspendedFinalCollection".
+    /// Encoded/decoded by serializers as "MCFC".
     /// </summary>
     [EnumMember(Value = "MCFC")]
     [IsoId("_uY98qPRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended as final collection took place.")]
-    MandateSuspendedFinalCollection,
+    MandateSuspendedFinalCollection = ExternalMandateSuspensionReasonCode.MandateSuspendedFinalCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate suspended as the once off collection took place.
-    /// Encoded/decoded by serializers as "MandateSuspendedOnceOffCollection".
+    /// Encoded/decoded by serializers as "MCOC".
     /// </summary>
     [EnumMember(Value = "MCOC")]
     [IsoId("_uY98q_RYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended as the once off collection took place.")]
-    MandateSuspendedOnceOffCollection,
+    MandateSuspendedOnceOffCollection = ExternalMandateSuspensionReasonCode.MandateSuspendedOnceOffCollection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate suspended after 7 consecutive unsuccessful collections.
-    /// Encoded/decoded by serializers as "MandateSuspended7ConsecutiveUnsuccessfulCollections".
+    /// Encoded/decoded by serializers as "MSUC".
     /// </summary>
     [EnumMember(Value = "MSUC")]
     [IsoId("_uY98rvRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended after 7 consecutive unsuccessful collections.")]
-    MandateSuspended7ConsecutiveUnsuccessfulCollections,
+    MandateSuspended7ConsecutiveUnsuccessfulCollections = ExternalMandateSuspensionReasonCode.MandateSuspended7ConsecutiveUnsuccessfulCollections, // same ordinal as derivation source for type conversions
     
 }
 
@@ -84,7 +84,7 @@ public enum ExternalMandateSuspensionReason1Code
 public static class ExternalMandateSuspensionReason1CodeMetadataExtensions
 {
     private static readonly ExternalMandateSuspensionReason1CodeDropdownSource _dropdownSource = new ExternalMandateSuspensionReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

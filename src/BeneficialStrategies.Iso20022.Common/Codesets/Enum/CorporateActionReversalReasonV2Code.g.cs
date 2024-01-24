@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_DUt1SjQVEe2o-K1dwNg8Gg")]
 [Description(@"The reason why a reversal of payment is taking place in corporate action processing.")]
 [Derivations(typeof(CorporateActionReversalReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionReversalReasonV2Code
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum CorporateActionReversalReasonV2Code
 public static class CorporateActionReversalReasonV2CodeMetadataExtensions
 {
     private static readonly CorporateActionReversalReasonV2CodeDropdownSource _dropdownSource = new CorporateActionReversalReasonV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

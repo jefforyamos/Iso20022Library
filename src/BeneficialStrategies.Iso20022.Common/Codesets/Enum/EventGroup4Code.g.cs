@@ -21,39 +21,39 @@ public enum EventGroup4Code
 {
     /// <summary>
     /// Distribution domain events.
-    /// Encoded/decoded by serializers as "Distribution".
+    /// Encoded/decoded by serializers as "DISN".
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_mGuugQB8EeqouY-yI_q3qQ")]
     [Description(@"Distribution domain events.")]
-    Distribution,
+    Distribution = EventGroupCode.Distribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General domain events.
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GENL".
     /// </summary>
     [EnumMember(Value = "GENL")]
     [IsoId("_mLWIwQB8EeqouY-yI_q3qQ")]
     [Description(@"General domain events.")]
-    General,
+    General = EventGroupCode.General, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption domain events.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_mPg3EQB8EeqouY-yI_q3qQ")]
     [Description(@"Redemption domain events.")]
-    Redemption,
+    Redemption = EventGroupCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganization domain events.
-    /// Encoded/decoded by serializers as "Reorganization".
+    /// Encoded/decoded by serializers as "REOR".
     /// </summary>
     [EnumMember(Value = "REOR")]
     [IsoId("_mT0vUQB8EeqouY-yI_q3qQ")]
     [Description(@"Reorganization domain events.")]
-    Reorganization,
+    Reorganization = EventGroupCode.Reorganization, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum EventGroup4Code
 public static class EventGroup4CodeMetadataExtensions
 {
     private static readonly EventGroup4CodeDropdownSource _dropdownSource = new EventGroup4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

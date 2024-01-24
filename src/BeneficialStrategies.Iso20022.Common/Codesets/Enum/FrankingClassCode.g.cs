@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_WlzwAVfuEeOuDtoQo1qilA")]
 [Description(@"Code defining the dvidend / distribution class where this franking information applies to.")]
 [Derivations(typeof(FrankingClass1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FrankingClassCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum FrankingClassCode
 public static class FrankingClassCodeMetadataExtensions
 {
     private static readonly FrankingClassCodeDropdownSource _dropdownSource = new FrankingClassCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bRQP1Np-Ed-ak6NoX_4Aeg_1657166115")]
 [Description(@"Specifies the type of CA options.")]
 [Derivations(typeof(CorporateActionOptionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionOptionTypeCode
 {
     /// <summary>
@@ -265,7 +264,7 @@ public enum CorporateActionOptionTypeCode
     
     /// <summary>
     /// Exchange of securities into the 144A tranche. Will typically be used in the restricted period, i.e. the period when a party can change its holdings between 144A and REGS.
-    /// Encoded/decoded by serializers as "_144A".
+    /// Encoded/decoded by serializers as "144A".
     /// </summary>
     [EnumMember(Value = "144A")]
     [IsoId("_bRs7w9p-Ed-ak6NoX_4Aeg_1773530879")]
@@ -308,7 +307,7 @@ public enum CorporateActionOptionTypeCode
 public static class CorporateActionOptionTypeCodeMetadataExtensions
 {
     private static readonly CorporateActionOptionTypeCodeDropdownSource _dropdownSource = new CorporateActionOptionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

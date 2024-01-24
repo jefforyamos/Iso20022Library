@@ -21,147 +21,147 @@ public enum AuthenticationMethod5Code
 {
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OnLinePIN".
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_Tp2zEYIGEeS7UOLM47txvA")]
     [Description(@"On-line PIN authentication (Personal Identification Number).")]
-    OnLinePIN,
+    OnLinePIN = AuthenticationMethodCode.OnLinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Handwritten paper signature.
-    /// Encoded/decoded by serializers as "PaperSignature".
+    /// Encoded/decoded by serializers as "PPSG".
     /// </summary>
     [EnumMember(Value = "PPSG")]
     [IsoId("_Tp2zE4IGEeS7UOLM47txvA")]
     [Description(@"Handwritten paper signature.")]
-    PaperSignature,
+    PaperSignature = AuthenticationMethodCode.PaperSignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "Password".
+    /// Encoded/decoded by serializers as "PSWD".
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_Tp2zFYIGEeS7UOLM47txvA")]
     [Description(@"Authentication by a password.")]
-    Password,
+    Password = AuthenticationMethodCode.Password, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SecureCertificate".
+    /// Encoded/decoded by serializers as "SCRT".
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_Tp2zF4IGEeS7UOLM47txvA")]
     [Description(@"Electronic commerce transaction secured with the X.509 certificate of a customer.")]
-    SecureCertificate,
+    SecureCertificate = AuthenticationMethodCode.SecureCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SecuredChannel".
+    /// Encoded/decoded by serializers as "SCNL".
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_Tp2zGYIGEeS7UOLM47txvA")]
     [Description(@"Channel-encrypted transaction.")]
-    SecuredChannel,
+    SecuredChannel = AuthenticationMethodCode.SecuredChannel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure electronic transaction without cardholder certificate.
-    /// Encoded/decoded by serializers as "SecureNoCertificate".
+    /// Encoded/decoded by serializers as "SNCT".
     /// </summary>
     [EnumMember(Value = "SNCT")]
     [IsoId("_Tp2zG4IGEeS7UOLM47txvA")]
     [Description(@"Secure electronic transaction without cardholder certificate.")]
-    SecureNoCertificate,
+    SecureNoCertificate = AuthenticationMethodCode.SecureNoCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic signature capture (handwritten signature).
-    /// Encoded/decoded by serializers as "SignatureCapture".
+    /// Encoded/decoded by serializers as "CPSG".
     /// </summary>
     [EnumMember(Value = "CPSG")]
     [IsoId("_Tp2zHYIGEeS7UOLM47txvA")]
     [Description(@"Electronic signature capture (handwritten signature).")]
-    SignatureCapture,
+    SignatureCapture = AuthenticationMethodCode.SignatureCapture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder billing address verification.
-    /// Encoded/decoded by serializers as "BillingAddressVerification".
+    /// Encoded/decoded by serializers as "ADDB".
     /// </summary>
     [EnumMember(Value = "ADDB")]
     [IsoId("_Tp2zH4IGEeS7UOLM47txvA")]
     [Description(@"Cardholder billing address verification.")]
-    BillingAddressVerification,
+    BillingAddressVerification = AuthenticationMethodCode.BillingAddressVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Biometric authentication of the cardholder.
-    /// Encoded/decoded by serializers as "Biometry".
+    /// Encoded/decoded by serializers as "BIOM".
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_Tp2zIYIGEeS7UOLM47txvA")]
     [Description(@"Biometric authentication of the cardholder.")]
-    Biometry,
+    Biometry = AuthenticationMethodCode.Biometry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder data provided for verification, for instance social security number, driver license number, passport number.
-    /// Encoded/decoded by serializers as "CardholderIdentificationData".
+    /// Encoded/decoded by serializers as "CDHI".
     /// </summary>
     [EnumMember(Value = "CDHI")]
     [IsoId("_Tp2zI4IGEeS7UOLM47txvA")]
     [Description(@"Cardholder data provided for verification, for instance social security number, driver license number, passport number.")]
-    CardholderIdentificationData,
+    CardholderIdentificationData = AuthenticationMethodCode.CardholderIdentificationData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification of a cryptogram generated by a chip card or another device, for instance ARQC (Authorisation Request Cryptogram).
-    /// Encoded/decoded by serializers as "CryptogramVerification".
+    /// Encoded/decoded by serializers as "CRYP".
     /// </summary>
     [EnumMember(Value = "CRYP")]
     [IsoId("_Tp2zJYIGEeS7UOLM47txvA")]
     [Description(@"Verification of a cryptogram generated by a chip card or another device, for instance ARQC (Authorisation Request Cryptogram).")]
-    CryptogramVerification,
+    CryptogramVerification = AuthenticationMethodCode.CryptogramVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification of Card Security Code.
-    /// Encoded/decoded by serializers as "CSCVerification".
+    /// Encoded/decoded by serializers as "CSCV".
     /// </summary>
     [EnumMember(Value = "CSCV")]
     [IsoId("_Tp2zJ4IGEeS7UOLM47txvA")]
     [Description(@"Verification of Card Security Code.")]
-    CSCVerification,
+    CSCVerification = AuthenticationMethodCode.CSCVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication based on statistical cardholder behaviour.
-    /// Encoded/decoded by serializers as "PassiveAuthentication".
+    /// Encoded/decoded by serializers as "PSVE".
     /// </summary>
     [EnumMember(Value = "PSVE")]
     [IsoId("_Tp2zKYIGEeS7UOLM47txvA")]
     [Description(@"Authentication based on statistical cardholder behaviour.")]
-    PassiveAuthentication,
+    PassiveAuthentication = AuthenticationMethodCode.PassiveAuthentication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication performed during a secure electronic commerce transaction.
-    /// Encoded/decoded by serializers as "SecureElectronicCommerce".
+    /// Encoded/decoded by serializers as "CSEC".
     /// </summary>
     [EnumMember(Value = "CSEC")]
     [IsoId("_Tp2zK4IGEeS7UOLM47txvA")]
     [Description(@"Authentication performed during a secure electronic commerce transaction.")]
-    SecureElectronicCommerce,
+    SecureElectronicCommerce = AuthenticationMethodCode.SecureElectronicCommerce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder shipping address verification.
-    /// Encoded/decoded by serializers as "ShippingAddressVerification".
+    /// Encoded/decoded by serializers as "ADDS".
     /// </summary>
     [EnumMember(Value = "ADDS")]
     [IsoId("_Tp2zLYIGEeS7UOLM47txvA")]
     [Description(@"Cardholder shipping address verification.")]
-    ShippingAddressVerification,
+    ShippingAddressVerification = AuthenticationMethodCode.ShippingAddressVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification or authentication related to the use of a payment token, for instance the validation of the authorised use of a token.
-    /// Encoded/decoded by serializers as "PaymentToken".
+    /// Encoded/decoded by serializers as "TOKP".
     /// </summary>
     [EnumMember(Value = "TOKP")]
     [IsoId("_b119EYIGEeS7UOLM47txvA")]
     [Description(@"Verification or authentication related to the use of a payment token, for instance the validation of the authorised use of a token.")]
-    PaymentToken,
+    PaymentToken = AuthenticationMethodCode.PaymentToken, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum AuthenticationMethod5Code
 public static class AuthenticationMethod5CodeMetadataExtensions
 {
     private static readonly AuthenticationMethod5CodeDropdownSource _dropdownSource = new AuthenticationMethod5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

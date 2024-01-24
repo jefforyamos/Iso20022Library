@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aiBLR9p-Ed-ak6NoX_4Aeg_-993643887")]
 [Description(@"Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June) for an income realised upon sale, a refund or redemption of shares and units etc.")]
 [Derivations(typeof(EUCapitalGain1Code),typeof(EUCapitalGain2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EUCapitalGainCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum EUCapitalGainCode
 public static class EUCapitalGainCodeMetadataExtensions
 {
     private static readonly EUCapitalGainCodeDropdownSource _dropdownSource = new EUCapitalGainCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

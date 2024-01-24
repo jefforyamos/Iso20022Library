@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YczLM9p-Ed-ak6NoX_4Aeg_-483728852")]
 [Description(@"Determines how the variation margin requirement will be calculated, either net or gross.")]
 [Derivations(typeof(ExposureConventionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExposureConventionTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ExposureConventionTypeCode
 public static class ExposureConventionTypeCodeMetadataExtensions
 {
     private static readonly ExposureConventionTypeCodeDropdownSource _dropdownSource = new ExposureConventionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

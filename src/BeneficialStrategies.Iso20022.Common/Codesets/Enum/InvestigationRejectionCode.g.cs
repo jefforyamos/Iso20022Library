@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ab58Mtp-Ed-ak6NoX_4Aeg_-1473436095")]
 [Description(@"Specifies the reason for rejecting an investigation case.")]
 [Derivations(typeof(InvestigationRejection1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestigationRejectionCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum InvestigationRejectionCode
 public static class InvestigationRejectionCodeMetadataExtensions
 {
     private static readonly InvestigationRejectionCodeDropdownSource _dropdownSource = new InvestigationRejectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

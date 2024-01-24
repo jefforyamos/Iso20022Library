@@ -21,30 +21,30 @@ public enum TransactionEnvironment3Code
 {
     /// <summary>
     /// Bank environment.
-    /// Encoded/decoded by serializers as "Branch".
+    /// Encoded/decoded by serializers as "BRCH".
     /// </summary>
     [EnumMember(Value = "BRCH")]
     [IsoId("_6F6BoXsIEeSR68OJvMfxJQ")]
     [Description(@"Bank environment.")]
-    Branch,
+    Branch = TransactionEnvironmentCode.Branch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant environment.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_6Md8oXsIEeSR68OJvMfxJQ")]
     [Description(@"Merchant environment.")]
-    Merchant,
+    Merchant = TransactionEnvironmentCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other environments, for instance a mall or an airport.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_6SkkoXsIEeSR68OJvMfxJQ")]
     [Description(@"Other environments, for instance a mall or an airport.")]
-    Other,
+    Other = TransactionEnvironmentCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransactionEnvironment3Code
 public static class TransactionEnvironment3CodeMetadataExtensions
 {
     private static readonly TransactionEnvironment3CodeDropdownSource _dropdownSource = new TransactionEnvironment3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

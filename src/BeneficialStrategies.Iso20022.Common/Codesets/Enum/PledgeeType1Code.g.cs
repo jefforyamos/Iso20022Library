@@ -21,21 +21,21 @@ public enum PledgeeType1Code
 {
     /// <summary>
     /// Financial instruments are pledged to a counterparty.
-    /// Encoded/decoded by serializers as "Counterparty".
+    /// Encoded/decoded by serializers as "CPTY".
     /// </summary>
     [EnumMember(Value = "CPTY")]
     [IsoId("_o56mAVj2EeSYweXGddZAOA")]
     [Description(@"Financial instruments are pledged to a counterparty.")]
-    Counterparty,
+    Counterparty = PledgeeTypeCode.Counterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are pledged to a regulatory body.
-    /// Encoded/decoded by serializers as "RegulatoryBody".
+    /// Encoded/decoded by serializers as "REGB".
     /// </summary>
     [EnumMember(Value = "REGB")]
     [IsoId("_pCsHgVj2EeSYweXGddZAOA")]
     [Description(@"Financial instruments are pledged to a regulatory body.")]
-    RegulatoryBody,
+    RegulatoryBody = PledgeeTypeCode.RegulatoryBody, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PledgeeType1Code
 public static class PledgeeType1CodeMetadataExtensions
 {
     private static readonly PledgeeType1CodeDropdownSource _dropdownSource = new PledgeeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

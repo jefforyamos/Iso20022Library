@@ -21,30 +21,30 @@ public enum PaymentCancellationRejection1Code
 {
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
-    /// Encoded/decoded by serializers as "LegalDecision".
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_zb9ZoQ93EeGeV5vP7Mvdig_323838395")]
     [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
-    LegalDecision,
+    LegalDecision = PaymentCancellationRejectionCode.LegalDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
-    /// Encoded/decoded by serializers as "AgentDecision".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_zb9Zog93EeGeV5vP7Mvdig_-596999348")]
     [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
-    AgentDecision,
+    AgentDecision = PaymentCancellationRejectionCode.AgentDecision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
-    /// Encoded/decoded by serializers as "CustomerDecision".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_zb9Zow93EeGeV5vP7Mvdig_749712831")]
     [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
-    CustomerDecision,
+    CustomerDecision = PaymentCancellationRejectionCode.CustomerDecision, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentCancellationRejection1Code
 public static class PaymentCancellationRejection1CodeMetadataExtensions
 {
     private static readonly PaymentCancellationRejection1CodeDropdownSource _dropdownSource = new PaymentCancellationRejection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

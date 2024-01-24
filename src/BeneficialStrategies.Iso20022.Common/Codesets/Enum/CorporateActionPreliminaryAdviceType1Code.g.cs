@@ -21,21 +21,21 @@ public enum CorporateActionPreliminaryAdviceType1Code
 {
     /// <summary>
     /// New movement preliminary advice.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_bRs7yNp-Ed-ak6NoX_4Aeg_1528787514")]
     [Description(@"New movement preliminary advice.")]
-    New,
+    New = CorporateActionPreliminaryAdviceTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Movement preliminary advice replacing a previously sent preliminary advice.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_bRs7ydp-Ed-ak6NoX_4Aeg_-1299031019")]
     [Description(@"Movement preliminary advice replacing a previously sent preliminary advice.")]
-    Replacement,
+    Replacement = CorporateActionPreliminaryAdviceTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionPreliminaryAdviceType1Code
 public static class CorporateActionPreliminaryAdviceType1CodeMetadataExtensions
 {
     private static readonly CorporateActionPreliminaryAdviceType1CodeDropdownSource _dropdownSource = new CorporateActionPreliminaryAdviceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

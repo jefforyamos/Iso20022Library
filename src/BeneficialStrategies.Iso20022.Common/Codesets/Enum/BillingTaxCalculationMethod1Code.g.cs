@@ -21,57 +21,57 @@ public enum BillingTaxCalculationMethod1Code
 {
     /// <summary>
     /// No taxes are calculated or due on this account.
-    /// Encoded/decoded by serializers as "NoTaxes".
+    /// Encoded/decoded by serializers as "NTAX".
     /// </summary>
     [EnumMember(Value = "NTAX")]
     [IsoId("_6Vd105qlEeGSON8vddiWzQ_-1535157938")]
     [Description(@"No taxes are calculated or due on this account.")]
-    NoTaxes,
+    NoTaxes = BillingTaxCalculationMethodCode.NoTaxes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line-by-line per service calculation and settlement currency translation.
-    /// Encoded/decoded by serializers as "MethodA".
+    /// Encoded/decoded by serializers as "MTDA".
     /// </summary>
     [EnumMember(Value = "MTDA")]
     [IsoId("_6Vd11JqlEeGSON8vddiWzQ_1775205103")]
     [Description(@"Line-by-line per service calculation and settlement currency translation.")]
-    MethodA,
+    MethodA = BillingTaxCalculationMethodCode.MethodA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line-by-line per service calculation with settlement currency translation performed on the statement tax total.
-    /// Encoded/decoded by serializers as "MethodB".
+    /// Encoded/decoded by serializers as "MTDB".
     /// </summary>
     [EnumMember(Value = "MTDB")]
     [IsoId("_6Vd11ZqlEeGSON8vddiWzQ_-1052613430")]
     [Description(@"Line-by-line per service calculation with settlement currency translation performed on the statement tax total.")]
-    MethodB,
+    MethodB = BillingTaxCalculationMethodCode.MethodB, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Group tax calculation with group settlement currency translation.
-    /// Encoded/decoded by serializers as "MethodC".
+    /// Encoded/decoded by serializers as "MTDC".
     /// </summary>
     [EnumMember(Value = "MTDC")]
     [IsoId("_6Vd11pqlEeGSON8vddiWzQ_1967073441")]
     [Description(@"Group tax calculation with group settlement currency translation.")]
-    MethodC,
+    MethodC = BillingTaxCalculationMethodCode.MethodC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line-by-line per service calculation with all charges and taxes due in the pricing currency.
-    /// Encoded/decoded by serializers as "MethodD".
+    /// Encoded/decoded by serializers as "MTDD".
     /// </summary>
     [EnumMember(Value = "MTDD")]
     [IsoId("_6Vd115qlEeGSON8vddiWzQ_-2002776348")]
     [Description(@"Line-by-line per service calculation with all charges and taxes due in the pricing currency.")]
-    MethodD,
+    MethodD = BillingTaxCalculationMethodCode.MethodD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax calculation method is not defined or unknown.
-    /// Encoded/decoded by serializers as "Undefined".
+    /// Encoded/decoded by serializers as "UDFD".
     /// </summary>
     [EnumMember(Value = "UDFD")]
     [IsoId("_6Vd12JqlEeGSON8vddiWzQ_-535627585")]
     [Description(@"Tax calculation method is not defined or unknown.")]
-    Undefined,
+    Undefined = BillingTaxCalculationMethodCode.Undefined, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum BillingTaxCalculationMethod1Code
 public static class BillingTaxCalculationMethod1CodeMetadataExtensions
 {
     private static readonly BillingTaxCalculationMethod1CodeDropdownSource _dropdownSource = new BillingTaxCalculationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

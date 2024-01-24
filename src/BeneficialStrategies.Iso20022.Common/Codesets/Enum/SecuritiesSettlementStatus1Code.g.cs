@@ -21,21 +21,21 @@ public enum SecuritiesSettlementStatus1Code
 {
     /// <summary>
     /// Instruction is pending. Settlement at the instructed settlement date is still possible.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZFx2xtp-Ed-ak6NoX_4Aeg_1558336292")]
     [Description(@"Instruction is pending. Settlement at the instructed settlement date is still possible.")]
-    Pending,
+    Pending = SecuritiesSettlementStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
-    /// Encoded/decoded by serializers as "Failing".
+    /// Encoded/decoded by serializers as "PENF".
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZFx2x9p-Ed-ak6NoX_4Aeg_1570340511")]
     [Description(@"Instruction is failing. Settlement at the instructed settlement date is no longer possible.")]
-    Failing,
+    Failing = SecuritiesSettlementStatusCode.Failing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SecuritiesSettlementStatus1Code
 public static class SecuritiesSettlementStatus1CodeMetadataExtensions
 {
     private static readonly SecuritiesSettlementStatus1CodeDropdownSource _dropdownSource = new SecuritiesSettlementStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

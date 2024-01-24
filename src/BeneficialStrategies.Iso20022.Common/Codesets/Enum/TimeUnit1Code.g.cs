@@ -21,66 +21,66 @@ public enum TimeUnit1Code
 {
     /// <summary>
     /// Time unit is calendar day.
-    /// Encoded/decoded by serializers as "CalendarDay".
+    /// Encoded/decoded by serializers as "DAYC".
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_Yl41wtp-Ed-ak6NoX_4Aeg_-1921054302")]
     [Description(@"Time unit is calendar day.")]
-    CalendarDay,
+    CalendarDay = TimeUnitCode.CalendarDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is hour.
-    /// Encoded/decoded by serializers as "Hour".
+    /// Encoded/decoded by serializers as "HOUR".
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_Yl41w9p-Ed-ak6NoX_4Aeg_-1921054301")]
     [Description(@"Time unit is hour.")]
-    Hour,
+    Hour = TimeUnitCode.Hour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is minute.
-    /// Encoded/decoded by serializers as "Minute".
+    /// Encoded/decoded by serializers as "MINU".
     /// </summary>
     [EnumMember(Value = "MINU")]
     [IsoId("_Yl41xNp-Ed-ak6NoX_4Aeg_-1921054284")]
     [Description(@"Time unit is minute.")]
-    Minute,
+    Minute = TimeUnitCode.Minute, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is month.
-    /// Encoded/decoded by serializers as "Month".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_Yl41xdp-Ed-ak6NoX_4Aeg_-1921054283")]
     [Description(@"Time unit is month.")]
-    Month,
+    Month = TimeUnitCode.Month, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is second.
-    /// Encoded/decoded by serializers as "Second".
+    /// Encoded/decoded by serializers as "SECO".
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_Yl41xtp-Ed-ak6NoX_4Aeg_-1921054275")]
     [Description(@"Time unit is second.")]
-    Second,
+    Second = TimeUnitCode.Second, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is week.
-    /// Encoded/decoded by serializers as "Week".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_Yl41x9p-Ed-ak6NoX_4Aeg_-1921054259")]
     [Description(@"Time unit is week.")]
-    Week,
+    Week = TimeUnitCode.Week, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Time unit is year.
-    /// Encoded/decoded by serializers as "Year".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_Yl41yNp-Ed-ak6NoX_4Aeg_-1921054258")]
     [Description(@"Time unit is year.")]
-    Year,
+    Year = TimeUnitCode.Year, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TimeUnit1Code
 public static class TimeUnit1CodeMetadataExtensions
 {
     private static readonly TimeUnit1CodeDropdownSource _dropdownSource = new TimeUnit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

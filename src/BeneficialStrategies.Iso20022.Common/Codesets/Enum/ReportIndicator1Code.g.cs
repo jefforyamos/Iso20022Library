@@ -21,21 +21,21 @@ public enum ReportIndicator1Code
 {
     /// <summary>
     /// Requested report must contain information in the format of a statement.
-    /// Encoded/decoded by serializers as "Standard".
+    /// Encoded/decoded by serializers as "STND".
     /// </summary>
     [EnumMember(Value = "STND")]
     [IsoId("_ZTCPo9p-Ed-ak6NoX_4Aeg_1969382793")]
     [Description(@"Requested report must contain information in the format of a statement.")]
-    Standard,
+    Standard = ReportIndicatorCode.Standard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested report must contain information in a bilaterally agreed format.
-    /// Encoded/decoded by serializers as "Proprietary".
+    /// Encoded/decoded by serializers as "PRPR".
     /// </summary>
     [EnumMember(Value = "PRPR")]
     [IsoId("_ZTCPpNp-Ed-ak6NoX_4Aeg_2001706027")]
     [Description(@"Requested report must contain information in a bilaterally agreed format.")]
-    Proprietary,
+    Proprietary = ReportIndicatorCode.Proprietary, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReportIndicator1Code
 public static class ReportIndicator1CodeMetadataExtensions
 {
     private static readonly ReportIndicator1CodeDropdownSource _dropdownSource = new ReportIndicator1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

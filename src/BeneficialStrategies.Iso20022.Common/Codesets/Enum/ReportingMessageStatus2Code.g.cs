@@ -21,48 +21,48 @@ public enum ReportingMessageStatus2Code
 {
     /// <summary>
     /// Whole message has been accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_Wl48AT5-Ee2Z1_pdMHu4SA")]
     [Description(@"Whole message has been accepted.")]
-    Accepted,
+    Accepted = MessageStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Wl48CT5-Ee2Z1_pdMHu4SA")]
     [Description(@"Message has been rejected.")]
-    Rejected,
+    Rejected = MessageStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "IncorrectFilename".
+    /// Encoded/decoded by serializers as "INCF".
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_Wl48Dz5-Ee2Z1_pdMHu4SA")]
     [Description(@"File containing the report has an incorrect filename.")]
-    IncorrectFilename,
+    IncorrectFilename = MessageStatusCode.IncorrectFilename, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CorruptedFile".
+    /// Encoded/decoded by serializers as "CRPT".
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_Wl48ET5-Ee2Z1_pdMHu4SA")]
     [Description(@"File containing the report is corrupted.")]
-    CorruptedFile,
+    CorruptedFile = MessageStatusCode.CorruptedFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message was rejected due to authorisation/permission issues.
-    /// Encoded/decoded by serializers as "NotAuthorised".
+    /// Encoded/decoded by serializers as "NAUT".
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_zlZYQT5-Ee2Z1_pdMHu4SA")]
     [Description(@"Message was rejected due to authorisation/permission issues.")]
-    NotAuthorised,
+    NotAuthorised = MessageStatusCode.NotAuthorised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ReportingMessageStatus2Code
 public static class ReportingMessageStatus2CodeMetadataExtensions
 {
     private static readonly ReportingMessageStatus2CodeDropdownSource _dropdownSource = new ReportingMessageStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

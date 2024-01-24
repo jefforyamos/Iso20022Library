@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_JsWoAMV3Eeua2vd9tJAtHg")]
 [Description(@"Identifies the mode used to present a QR Code for a transaction.")]
 [Derivations(typeof(QRCodePresentmentMode1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QRCodePresentmentModeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum QRCodePresentmentModeCode
 public static class QRCodePresentmentModeCodeMetadataExtensions
 {
     private static readonly QRCodePresentmentModeCodeDropdownSource _dropdownSource = new QRCodePresentmentModeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum CorporateActionFrequencyType3Code
 {
     /// <summary>
     /// Payment of a dividend, less amounts already paid through interim dividends.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_FXLZ8SXfEeO4bIO_HtGo9Q")]
     [Description(@"Payment of a dividend, less amounts already paid through interim dividends.")]
-    Final,
+    Final = CorporateActionFrequencyTypeV2Code.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend declared and paid before annual earnings have been determined.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_FeT8sSXfEeO4bIO_HtGo9Q")]
     [Description(@"Dividend declared and paid before annual earnings have been determined.")]
-    Interim,
+    Interim = CorporateActionFrequencyTypeV2Code.Interim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reinvestment of cash distributed.
-    /// Encoded/decoded by serializers as "Reinvestment".
+    /// Encoded/decoded by serializers as "REIN".
     /// </summary>
     [EnumMember(Value = "REIN")]
     [IsoId("_FmDjcSXfEeO4bIO_HtGo9Q")]
     [Description(@"Reinvestment of cash distributed.")]
-    Reinvestment,
+    Reinvestment = CorporateActionFrequencyTypeV2Code.Reinvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend paid at regular interval, for example, quarterly.
-    /// Encoded/decoded by serializers as "Regular".
+    /// Encoded/decoded by serializers as "REGR".
     /// </summary>
     [EnumMember(Value = "REGR")]
     [IsoId("_Fu-18SXfEeO4bIO_HtGo9Q")]
     [Description(@"Dividend paid at regular interval, for example, quarterly.")]
-    Regular,
+    Regular = CorporateActionFrequencyTypeV2Code.Regular, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend in addition to the regular dividend being paid by the company.
-    /// Encoded/decoded by serializers as "Special".
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_F2t1oSXfEeO4bIO_HtGo9Q")]
     [Description(@"Dividend in addition to the regular dividend being paid by the company.")]
-    Special,
+    Special = CorporateActionFrequencyTypeV2Code.Special, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CorporateActionFrequencyType3Code
 public static class CorporateActionFrequencyType3CodeMetadataExtensions
 {
     private static readonly CorporateActionFrequencyType3CodeDropdownSource _dropdownSource = new CorporateActionFrequencyType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

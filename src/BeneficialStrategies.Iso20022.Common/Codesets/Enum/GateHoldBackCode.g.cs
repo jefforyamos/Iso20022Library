@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ygvPwDwvEeaFzejt0Yw_3A")]
 [Description(@"Specifies the type of hold back on redemption proceeds.")]
 [Derivations(typeof(GateHoldBack1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GateHoldBackCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum GateHoldBackCode
 public static class GateHoldBackCodeMetadataExtensions
 {
     private static readonly GateHoldBackCodeDropdownSource _dropdownSource = new GateHoldBackCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

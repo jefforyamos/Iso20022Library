@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zy7Qqdp-Ed-ak6NoX_4Aeg_1329401919")]
 [Description(@"Returned when a request for cancellation cannot be executed.")]
 [Derivations(typeof(PaymentCancellationRejection1Code),typeof(PaymentCancellationRejection2Code),typeof(PaymentCancellationRejection3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentCancellationRejectionCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum PaymentCancellationRejectionCode
 public static class PaymentCancellationRejectionCodeMetadataExtensions
 {
     private static readonly PaymentCancellationRejectionCodeDropdownSource _dropdownSource = new PaymentCancellationRejectionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

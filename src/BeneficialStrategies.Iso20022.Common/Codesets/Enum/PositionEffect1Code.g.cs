@@ -21,39 +21,39 @@ public enum PositionEffect1Code
 {
     /// <summary>
     /// Position after the trade should be open.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aHWBdtp-Ed-ak6NoX_4Aeg_-191177094")]
     [Description(@"Position after the trade should be open.")]
-    Open,
+    Open = PositionEffectCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Position after the trade should be closed.
-    /// Encoded/decoded by serializers as "Close".
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_aHWBd9p-Ed-ak6NoX_4Aeg_-191177059")]
     [Description(@"Position after the trade should be closed.")]
-    Close,
+    Close = PositionEffectCode.Close, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Results in a position obtained in a security previously held, sold and repurchased.
-    /// Encoded/decoded by serializers as "Rolled".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_aHfLYNp-Ed-ak6NoX_4Aeg_-191177016")]
     [Description(@"Results in a position obtained in a security previously held, sold and repurchased.")]
-    Rolled,
+    Rolled = PositionEffectCode.Rolled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "Fifo".
+    /// Encoded/decoded by serializers as "FIFO".
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("_aHfLYdp-Ed-ak6NoX_4Aeg_-191176981")]
     [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
-    Fifo,
+    Fifo = PositionEffectCode.Fifo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PositionEffect1Code
 public static class PositionEffect1CodeMetadataExtensions
 {
     private static readonly PositionEffect1CodeDropdownSource _dropdownSource = new PositionEffect1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

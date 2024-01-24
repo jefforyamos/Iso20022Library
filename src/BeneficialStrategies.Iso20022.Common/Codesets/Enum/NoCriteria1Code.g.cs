@@ -21,12 +21,12 @@ public enum NoCriteria1Code
 {
     /// <summary>
     /// No criteria.
-    /// Encoded/decoded by serializers as "NoCriteria".
+    /// Encoded/decoded by serializers as "NOCR".
     /// </summary>
     [EnumMember(Value = "NOCR")]
     [IsoId("_aNcpc9p-Ed-ak6NoX_4Aeg_-678428636")]
     [Description(@"No criteria.")]
-    NoCriteria,
+    NoCriteria = NoCriteriaCode.NoCriteria, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum NoCriteria1Code
 public static class NoCriteria1CodeMetadataExtensions
 {
     private static readonly NoCriteria1CodeDropdownSource _dropdownSource = new NoCriteria1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

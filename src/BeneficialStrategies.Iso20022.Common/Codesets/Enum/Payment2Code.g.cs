@@ -21,12 +21,12 @@ public enum Payment2Code
 {
     /// <summary>
     /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
-    /// Encoded/decoded by serializers as "ActualPayment".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_KIs2sbXPEeiTob_PrFFUxA")]
     [Description(@"The cash payment occurs or will occur upon receipt of proceeds from the issuer.")]
-    ActualPayment,
+    ActualPayment = PaymentCode.ActualPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum Payment2Code
 public static class Payment2CodeMetadataExtensions
 {
     private static readonly Payment2CodeDropdownSource _dropdownSource = new Payment2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

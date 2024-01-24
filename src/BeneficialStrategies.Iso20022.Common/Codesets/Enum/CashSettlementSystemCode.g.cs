@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a7WRRtp-Ed-ak6NoX_4Aeg_-901576222")]
 [Description(@"Specifies the cash settlement system used.")]
 [Derivations(typeof(CashSettlementSystem2Code),typeof(CashSettlementSystem1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CashSettlementSystemCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum CashSettlementSystemCode
 public static class CashSettlementSystemCodeMetadataExtensions
 {
     private static readonly CashSettlementSystemCodeDropdownSource _dropdownSource = new CashSettlementSystemCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

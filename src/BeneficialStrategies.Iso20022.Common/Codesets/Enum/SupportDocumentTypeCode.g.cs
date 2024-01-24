@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_3DrUQNnSEeS--7IJLPC9lw")]
 [Description(@"Specifies a type of supporting document.")]
 [Derivations(typeof(SupportDocumentType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SupportDocumentTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SupportDocumentTypeCode
 public static class SupportDocumentTypeCodeMetadataExtensions
 {
     private static readonly SupportDocumentTypeCodeDropdownSource _dropdownSource = new SupportDocumentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

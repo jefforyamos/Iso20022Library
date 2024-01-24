@@ -21,21 +21,21 @@ public enum StatementUpdateType1Code
 {
     /// <summary>
     /// Statement is complete.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ZQM-GNp-Ed-ak6NoX_4Aeg_1368668707")]
     [Description(@"Statement is complete.")]
-    Complete,
+    Complete = StatementUpdateTypeV2Code.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement contains changes only.
-    /// Encoded/decoded by serializers as "Delta".
+    /// Encoded/decoded by serializers as "DELT".
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ZQWvENp-Ed-ak6NoX_4Aeg_1368668708")]
     [Description(@"Statement contains changes only.")]
-    Delta,
+    Delta = StatementUpdateTypeV2Code.Delta, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StatementUpdateType1Code
 public static class StatementUpdateType1CodeMetadataExtensions
 {
     private static readonly StatementUpdateType1CodeDropdownSource _dropdownSource = new StatementUpdateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

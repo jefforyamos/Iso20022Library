@@ -21,93 +21,93 @@ public enum Frequency11Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_3AYVEchvEeadgvwNGwK05w")]
     [Description(@"Event takes place every year or once a year.")]
-    Annual,
+    Annual = FrequencyCode.Annual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_3I1GcchvEeadgvwNGwK05w")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = FrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_36qzEchvEeadgvwNGwK05w")]
     [Description(@"Event takes place every month or once a month.")]
-    Monthly,
+    Monthly = FrequencyCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event occurs on expiry of a financial contract.
-    /// Encoded/decoded by serializers as "OnExpiry".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_42kaochvEeadgvwNGwK05w")]
     [Description(@"Event occurs on expiry of a financial contract.")]
-    OnExpiry,
+    OnExpiry = FrequencyCode.OnExpiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place overnight.
-    /// Encoded/decoded by serializers as "Overnight".
+    /// Encoded/decoded by serializers as "OVNG".
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_5PZxYchvEeadgvwNGwK05w")]
     [Description(@"Event takes place overnight.")]
-    Overnight,
+    Overnight = FrequencyCode.Overnight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "Quarterly".
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_5WEaEchvEeadgvwNGwK05w")]
     [Description(@"Event takes place every three months or four times a year.")]
-    Quarterly,
+    Quarterly = FrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SemiAnnual".
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_5y8jUchvEeadgvwNGwK05w")]
     [Description(@"Event takes place every six months or two times a year.")]
-    SemiAnnual,
+    SemiAnnual = FrequencyCode.SemiAnnual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event that takes place at the initiation of a trade or agreement.
-    /// Encoded/decoded by serializers as "Upfront".
+    /// Encoded/decoded by serializers as "UPFR".
     /// </summary>
     [EnumMember(Value = "UPFR")]
     [IsoId("_6EIZ8chvEeadgvwNGwK05w")]
     [Description(@"Event that takes place at the initiation of a trade or agreement.")]
-    Upfront,
+    Upfront = FrequencyCode.Upfront, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "Weekly".
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_6Nd8IchvEeadgvwNGwK05w")]
     [Description(@"Event takes place once a week.")]
-    Weekly,
+    Weekly = FrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event occurs due to a credit event occurring for an issuer.
-    /// Encoded/decoded by serializers as "OnCreditEvent".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_6uQ8EchvEeadgvwNGwK05w")]
     [Description(@"Event occurs due to a credit event occurring for an issuer.")]
-    OnCreditEvent,
+    OnCreditEvent = FrequencyCode.OnCreditEvent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum Frequency11Code
 public static class Frequency11CodeMetadataExtensions
 {
     private static readonly Frequency11CodeDropdownSource _dropdownSource = new Frequency11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

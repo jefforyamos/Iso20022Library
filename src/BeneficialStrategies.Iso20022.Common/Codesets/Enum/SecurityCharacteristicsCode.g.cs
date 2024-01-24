@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_X8tNUEqzEeenp6hmNprBHg")]
 [Description(@"Security characteristics of the communication link between a cardholder and a card acceptor.")]
 [Derivations(typeof(SecurityCharacteristics1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecurityCharacteristicsCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum SecurityCharacteristicsCode
 public static class SecurityCharacteristicsCodeMetadataExtensions
 {
     private static readonly SecurityCharacteristicsCodeDropdownSource _dropdownSource = new SecurityCharacteristicsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

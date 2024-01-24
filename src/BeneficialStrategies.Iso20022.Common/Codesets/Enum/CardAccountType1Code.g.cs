@@ -21,66 +21,66 @@ public enum CardAccountType1Code
 {
     /// <summary>
     /// Default account.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_TSNcfQEcEeCQm6a_G2yO_w_-449669424")]
     [Description(@"Default account.")]
-    Default,
+    Default = CardAccountTypeCode.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVNG".
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_TSNcfgEcEeCQm6a_G2yO_w_1127404324")]
     [Description(@"Savings account.")]
-    Savings,
+    Savings = CardAccountTypeCode.Savings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Checking account.
-    /// Encoded/decoded by serializers as "Checking".
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_TSNcfwEcEeCQm6a_G2yO_w_1944410752")]
     [Description(@"Checking account.")]
-    Checking,
+    Checking = CardAccountTypeCode.Checking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CreditCard".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TSNcgAEcEeCQm6a_G2yO_w_-2082317872")]
     [Description(@"Credit card account.")]
-    CreditCard,
+    CreditCard = CardAccountTypeCode.CreditCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "Universal".
+    /// Encoded/decoded by serializers as "UVRL".
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_TSNcgQEcEeCQm6a_G2yO_w_-469218526")]
     [Description(@"Universal account.")]
-    Universal,
+    Universal = CardAccountTypeCode.Universal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account.
-    /// Encoded/decoded by serializers as "Investment".
+    /// Encoded/decoded by serializers as "INVS".
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_TSNcggEcEeCQm6a_G2yO_w_2114733823")]
     [Description(@"Investment account.")]
-    Investment,
+    Investment = CardAccountTypeCode.Investment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EpurseCard".
+    /// Encoded/decoded by serializers as "EPRS".
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("_TSXNcAEcEeCQm6a_G2yO_w_-304672763")]
     [Description(@"Electronic purse card account.")]
-    EpurseCard,
+    EpurseCard = CardAccountTypeCode.EpurseCard, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CardAccountType1Code
 public static class CardAccountType1CodeMetadataExtensions
 {
     private static readonly CardAccountType1CodeDropdownSource _dropdownSource = new CardAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

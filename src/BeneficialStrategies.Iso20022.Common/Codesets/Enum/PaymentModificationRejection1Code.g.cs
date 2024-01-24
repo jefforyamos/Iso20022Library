@@ -216,7 +216,7 @@ public enum PaymentModificationRejection1Code
 public static class PaymentModificationRejection1CodeMetadataExtensions
 {
     private static readonly PaymentModificationRejection1CodeDropdownSource _dropdownSource = new PaymentModificationRejection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

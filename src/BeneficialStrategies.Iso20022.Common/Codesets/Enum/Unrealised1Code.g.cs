@@ -21,21 +21,21 @@ public enum Unrealised1Code
 {
     /// <summary>
     /// Unrealised gain.
-    /// Encoded/decoded by serializers as "Gain".
+    /// Encoded/decoded by serializers as "GAIN".
     /// </summary>
     [EnumMember(Value = "GAIN")]
     [IsoId("_m59_YfNBEeCuA5Tr22BnwA_1098512688")]
     [Description(@"Unrealised gain.")]
-    Gain,
+    Gain = UnrealisedCode.Gain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrealised loss.
-    /// Encoded/decoded by serializers as "Loss".
+    /// Encoded/decoded by serializers as "LOSS".
     /// </summary>
     [EnumMember(Value = "LOSS")]
     [IsoId("_m59_YvNBEeCuA5Tr22BnwA_-1551187173")]
     [Description(@"Unrealised loss.")]
-    Loss,
+    Loss = UnrealisedCode.Loss, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Unrealised1Code
 public static class Unrealised1CodeMetadataExtensions
 {
     private static readonly Unrealised1CodeDropdownSource _dropdownSource = new Unrealised1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aIreM9p-Ed-ak6NoX_4Aeg_-1724055279")]
 [Description(@"Specifies the type of pricing calculation method.")]
 [Derivations(typeof(PriceMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PriceMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PriceMethodCode
 public static class PriceMethodCodeMetadataExtensions
 {
     private static readonly PriceMethodCodeDropdownSource _dropdownSource = new PriceMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

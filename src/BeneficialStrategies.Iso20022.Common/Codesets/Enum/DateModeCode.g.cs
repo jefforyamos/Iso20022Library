@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_NR5vEFuREeSmO6RkXg92Lg")]
 [Description(@"Specifies, for a date, when the event or operation is to take place, for example at the beginning or end of the day.")]
 [Derivations(typeof(DateMode1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DateModeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DateModeCode
 public static class DateModeCodeMetadataExtensions
 {
     private static readonly DateModeCodeDropdownSource _dropdownSource = new DateModeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

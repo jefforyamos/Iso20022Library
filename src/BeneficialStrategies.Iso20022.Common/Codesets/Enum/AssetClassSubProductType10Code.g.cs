@@ -21,12 +21,12 @@ public enum AssetClassSubProductType10Code
 {
     /// <summary>
     /// Commodity of type emission.
-    /// Encoded/decoded by serializers as "Emission".
+    /// Encoded/decoded by serializers as "EMIS".
     /// </summary>
     [EnumMember(Value = "EMIS")]
     [IsoId("_XZ6MEQn0EeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type emission.")]
-    Emission,
+    Emission = AssetClassSubProductTypeCode.Emission, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType10Code
 public static class AssetClassSubProductType10CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType10CodeDropdownSource _dropdownSource = new AssetClassSubProductType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

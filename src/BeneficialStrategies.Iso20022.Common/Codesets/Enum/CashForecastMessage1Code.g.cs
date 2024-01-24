@@ -21,39 +21,39 @@ public enum CashForecastMessage1Code
 {
     /// <summary>
     /// Fund estimated cash forecast report (camt.040).
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "CF40".
     /// </summary>
     [EnumMember(Value = "CF40")]
     [IsoId("_a65lUdp-Ed-ak6NoX_4Aeg_1040652616")]
     [Description(@"Fund estimated cash forecast report (camt.040).")]
-    Estimated,
+    Estimated = MessageTypeCode.Estimated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund detailed estimated cash forecast Report (042).
-    /// Encoded/decoded by serializers as "EstimatedDetailed".
+    /// Encoded/decoded by serializers as "CF42".
     /// </summary>
     [EnumMember(Value = "CF42")]
     [IsoId("_a65lUtp-Ed-ak6NoX_4Aeg_-1588280260")]
     [Description(@"Fund detailed estimated cash forecast Report (042).")]
-    EstimatedDetailed,
+    EstimatedDetailed = MessageTypeCode.EstimatedDetailed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund confirmed cash forecast report (camt.041).
-    /// Encoded/decoded by serializers as "Confirmed".
+    /// Encoded/decoded by serializers as "CF41".
     /// </summary>
     [EnumMember(Value = "CF41")]
     [IsoId("_a65lU9p-Ed-ak6NoX_4Aeg_-1557804493")]
     [Description(@"Fund confirmed cash forecast report (camt.041).")]
-    Confirmed,
+    Confirmed = MessageTypeCode.Confirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fund detailed confirmed cash forecast report (camt.043).
-    /// Encoded/decoded by serializers as "CornfirmedDetailed".
+    /// Encoded/decoded by serializers as "CF43".
     /// </summary>
     [EnumMember(Value = "CF43")]
     [IsoId("_a65lVNp-Ed-ak6NoX_4Aeg_-1535641166")]
     [Description(@"Fund detailed confirmed cash forecast report (camt.043).")]
-    CornfirmedDetailed,
+    CornfirmedDetailed = MessageTypeCode.CornfirmedDetailed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CashForecastMessage1Code
 public static class CashForecastMessage1CodeMetadataExtensions
 {
     private static readonly CashForecastMessage1CodeDropdownSource _dropdownSource = new CashForecastMessage1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

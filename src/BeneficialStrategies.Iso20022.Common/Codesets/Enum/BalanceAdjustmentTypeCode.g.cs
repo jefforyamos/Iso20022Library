@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6URjCJqlEeGSON8vddiWzQ_-920501493")]
 [Description(@"Defines the type of allowed balance adjustment.")]
 [Derivations(typeof(BalanceAdjustmentType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BalanceAdjustmentTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BalanceAdjustmentTypeCode
 public static class BalanceAdjustmentTypeCodeMetadataExtensions
 {
     private static readonly BalanceAdjustmentTypeCodeDropdownSource _dropdownSource = new BalanceAdjustmentTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum POIComponentStatus1Code
 {
     /// <summary>
     /// Component not yet activated.
-    /// Encoded/decoded by serializers as "WaitingActivation".
+    /// Encoded/decoded by serializers as "WAIT".
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_LHVRYQxxEeKa_56Jbsi1RQ")]
     [Description(@"Component not yet activated.")]
-    WaitingActivation,
+    WaitingActivation = POIComponentStatusCode.WaitingActivation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component not working properly.
-    /// Encoded/decoded by serializers as "OutOfOrder".
+    /// Encoded/decoded by serializers as "OUTD".
     /// </summary>
     [EnumMember(Value = "OUTD")]
     [IsoId("_LO6gEQxxEeKa_56Jbsi1RQ")]
     [Description(@"Component not working properly.")]
-    OutOfOrder,
+    OutOfOrder = POIComponentStatusCode.OutOfOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component activated and in operation.
-    /// Encoded/decoded by serializers as "InOperation".
+    /// Encoded/decoded by serializers as "OPER".
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_LUHwMwxxEeKa_56Jbsi1RQ")]
     [Description(@"Component activated and in operation.")]
-    InOperation,
+    InOperation = POIComponentStatusCode.InOperation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component has been deactivated.
-    /// Encoded/decoded by serializers as "Deactivated".
+    /// Encoded/decoded by serializers as "DACT".
     /// </summary>
     [EnumMember(Value = "DACT")]
     [IsoId("_Lbj08QxxEeKa_56Jbsi1RQ")]
     [Description(@"Component has been deactivated.")]
-    Deactivated,
+    Deactivated = POIComponentStatusCode.Deactivated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum POIComponentStatus1Code
 public static class POIComponentStatus1CodeMetadataExtensions
 {
     private static readonly POIComponentStatus1CodeDropdownSource _dropdownSource = new POIComponentStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

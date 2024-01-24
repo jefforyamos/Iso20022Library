@@ -21,12 +21,12 @@ public enum AccountStatusUpdateRequestReason1Code
 {
     /// <summary>
     /// Previous account closure instruction was sent in error.
-    /// Encoded/decoded by serializers as "AccountClosureInstructionError".
+    /// Encoded/decoded by serializers as "CLOE".
     /// </summary>
     [EnumMember(Value = "CLOE")]
     [IsoId("_cw_7YXjAEeaRm5xIK6nGuQ")]
     [Description(@"Previous account closure instruction was sent in error.")]
-    AccountClosureInstructionError,
+    AccountClosureInstructionError = AccountStatusUpdateRequestReasonCode.AccountClosureInstructionError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AccountStatusUpdateRequestReason1Code
 public static class AccountStatusUpdateRequestReason1CodeMetadataExtensions
 {
     private static readonly AccountStatusUpdateRequestReason1CodeDropdownSource _dropdownSource = new AccountStatusUpdateRequestReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

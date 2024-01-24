@@ -21,30 +21,30 @@ public enum DerivativeExerciseStatus1Code
 {
     /// <summary>
     /// Derivative is exercised.
-    /// Encoded/decoded by serializers as "Exercised".
+    /// Encoded/decoded by serializers as "EXEC".
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_ULyikYAxEeSUJZYcWGKkkw")]
     [Description(@"Derivative is exercised.")]
-    Exercised,
+    Exercised = DerivativeExerciseStatusCode.Exercised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Derivative is expired and will not be exercised.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_UQXgkYAxEeSUJZYcWGKkkw")]
     [Description(@"Derivative is expired and will not be exercised.")]
-    Expired,
+    Expired = DerivativeExerciseStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Derivative is not exercised.
-    /// Encoded/decoded by serializers as "Valid".
+    /// Encoded/decoded by serializers as "VALI".
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_UU6CUYAxEeSUJZYcWGKkkw")]
     [Description(@"Derivative is not exercised.")]
-    Valid,
+    Valid = DerivativeExerciseStatusCode.Valid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DerivativeExerciseStatus1Code
 public static class DerivativeExerciseStatus1CodeMetadataExtensions
 {
     private static readonly DerivativeExerciseStatus1CodeDropdownSource _dropdownSource = new DerivativeExerciseStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum ActionType10Code
 {
     /// <summary>
     /// Activate device or service.
-    /// Encoded/decoded by serializers as "Activate".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_MS5GAU0uEeea0Mdu1TOzDQ")]
     [Description(@"Activate device or service.")]
-    Activate,
+    Activate = ActionTypeCode.Activate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deactivate device or service.
-    /// Encoded/decoded by serializers as "Deactivate".
+    /// Encoded/decoded by serializers as "DEAC".
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_NWZxck0uEeea0Mdu1TOzDQ")]
     [Description(@"Deactivate device or service.")]
-    Deactivate,
+    Deactivate = ActionTypeCode.Deactivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DisplayMessage".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_OQieck0uEeea0Mdu1TOzDQ")]
     [Description(@"Message to display, print or log.")]
-    DisplayMessage,
+    DisplayMessage = ActionTypeCode.DisplayMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update a data file.
-    /// Encoded/decoded by serializers as "FileUpdate".
+    /// Encoded/decoded by serializers as "FUPD".
     /// </summary>
     [EnumMember(Value = "FUPD")]
     [IsoId("_PDBEQk0uEeea0Mdu1TOzDQ")]
     [Description(@"Update a data file.")]
-    FileUpdate,
+    FileUpdate = ActionTypeCode.FileUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PrintMessage".
+    /// Encoded/decoded by serializers as "PRNT".
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_QG8mck0uEeea0Mdu1TOzDQ")]
     [Description(@"Print a message.")]
-    PrintMessage,
+    PrintMessage = ActionTypeCode.PrintMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send a message.
-    /// Encoded/decoded by serializers as "SendMessage".
+    /// Encoded/decoded by serializers as "SNDM".
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_QxFvok0uEeea0Mdu1TOzDQ")]
     [Description(@"Send a message.")]
-    SendMessage,
+    SendMessage = ActionTypeCode.SendMessage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ActionType10Code
 public static class ActionType10CodeMetadataExtensions
 {
     private static readonly ActionType10CodeDropdownSource _dropdownSource = new ActionType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

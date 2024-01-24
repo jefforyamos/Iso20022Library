@@ -21,21 +21,21 @@ public enum Gender1Code
 {
     /// <summary>
     /// Individual is a female.
-    /// Encoded/decoded by serializers as "Female".
+    /// Encoded/decoded by serializers as "FEMA".
     /// </summary>
     [EnumMember(Value = "FEMA")]
     [IsoId("_LwE5wYoTEeahcZ3Nzs1Qag")]
     [Description(@"Individual is a female.")]
-    Female,
+    Female = GenderCode.Female, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Individual is a male.
-    /// Encoded/decoded by serializers as "Male".
+    /// Encoded/decoded by serializers as "MALE".
     /// </summary>
     [EnumMember(Value = "MALE")]
     [IsoId("_L01d8YoTEeahcZ3Nzs1Qag")]
     [Description(@"Individual is a male.")]
-    Male,
+    Male = GenderCode.Male, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Gender1Code
 public static class Gender1CodeMetadataExtensions
 {
     private static readonly Gender1CodeDropdownSource _dropdownSource = new Gender1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

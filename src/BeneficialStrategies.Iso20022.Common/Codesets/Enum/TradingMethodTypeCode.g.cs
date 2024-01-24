@@ -17,27 +17,24 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_tZm3wESaEeS6cOLECtYLrA")]
 [Description(@"Identifies the type of trading method.")]
 [Derivations(typeof(TradingMethodType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingMethodTypeCode
 {
     /// <summary>
     /// Members submit orders, and trading system uses matchmaking mechanism of Centralized Price Bidding to match orders.
-    /// 
     /// Encoded/decoded by serializers as "CERB".
     /// </summary>
     [EnumMember(Value = "CERB")]
     [IsoId("_KXx3QESbEeS6cOLECtYLrA")]
-    [Description(@"Members submit orders, and trading system uses matchmaking mechanism of Centralized Price Bidding to match orders. ")]
+    [Description(@"Members submit orders, and trading system uses matchmaking mechanism of Centralized Price Bidding to match orders.|")]
     CentralizedPriceBidding,
     
     /// <summary>
     /// Members submit orders, and trading system uses continuous matchmaking mechanism to match orders.
-    /// 
     /// Encoded/decoded by serializers as "CUMA".
     /// </summary>
     [EnumMember(Value = "CUMA")]
     [IsoId("_VtZrsESbEeS6cOLECtYLrA")]
-    [Description(@"Members submit orders, and trading system uses continuous matchmaking mechanism to match orders. ")]
+    [Description(@"Members submit orders, and trading system uses continuous matchmaking mechanism to match orders.|")]
     ContinuousMatching,
     
     /// <summary>
@@ -78,22 +75,20 @@ public enum TradingMethodTypeCode
     
     /// <summary>
     /// Market members can click the predetermined price setted by issuer to make a deal， and then the subscription amount will deduct in time.
-    /// 
     /// Encoded/decoded by serializers as "QUAU".
     /// </summary>
     [EnumMember(Value = "QUAU")]
     [IsoId("_DMXMoEVPEeSGWeX3z5zSZQ")]
-    [Description(@"Market members can click the predetermined price setted by issuer to make a deal， and then the subscription amount will deduct in time. ")]
+    [Description(@"Market members can click the predetermined price setted by issuer to make a deal， and then the subscription amount will deduct in time.|")]
     QuotationAuction,
     
     /// <summary>
     /// Administrator reviews the deposit that filled by issuer, and sends it to the tenderers as reference. Atfer this, the issuer confirms the tendering result.
-    /// 
     /// Encoded/decoded by serializers as "TEAU".
     /// </summary>
     [EnumMember(Value = "TEAU")]
     [IsoId("_EkLUIEVPEeSGWeX3z5zSZQ")]
-    [Description(@"Administrator reviews the deposit that filled by issuer, and sends it to the tenderers as reference. Atfer this, the issuer confirms the tendering result. ")]
+    [Description(@"Administrator reviews the deposit that filled by issuer, and sends it to the tenderers as reference. Atfer this, the issuer confirms the tendering result.|")]
     TenderingAuction,
     
     /// <summary>
@@ -114,7 +109,7 @@ public enum TradingMethodTypeCode
 public static class TradingMethodTypeCodeMetadataExtensions
 {
     private static readonly TradingMethodTypeCodeDropdownSource _dropdownSource = new TradingMethodTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

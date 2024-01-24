@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_rmRbMJUiEemC09f0MxYkRg")]
 [Description(@"Status of a politically exposed person.")]
 [Derivations(typeof(PoliticallyExposedPersonStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PoliticallyExposedPersonStatusCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum PoliticallyExposedPersonStatusCode
     /// </summary>
     [EnumMember(Value = "PE02")]
     [IsoId("_ihzQYJUqEemC09f0MxYkRg")]
-    [Description(@"Family member of the politically exposed person. A family member includes:  (a) the spouse, or a person considered to be equivalent to a spouse, of the politically exposed person, (b) the children and their spouses, or persons considered to be equivalent to a spouse, of the politically exposed person, (c) the parents of the politically exposed person.")]
+    [Description(@"Family member of the politically exposed person. A family member includes: |(a) the spouse, or a person considered to be equivalent to a spouse, of the politically exposed person,|(b) the children and their spouses, or persons considered to be equivalent to a spouse, of the politically exposed person,|(c) the parents of the politically exposed person.")]
     FamilyMember,
     
     /// <summary>
@@ -49,7 +48,7 @@ public enum PoliticallyExposedPersonStatusCode
     /// </summary>
     [EnumMember(Value = "PE03")]
     [IsoId("_isqckJUqEemC09f0MxYkRg")]
-    [Description(@"Person known to be a close associate of the politically exposed person. A person known to be a close associate includes:  (a) a natural person who is known to have joint beneficial ownership of legal entities or legal arrangements, or any other close business relations, with the  politically exposed person, (b) a natural person who has sole beneficial ownership of a legal entity or legal arrangement which is known to have been set up for the de facto benefit of a politically exposed person.")]
+    [Description(@"Person known to be a close associate of the politically exposed person. A person known to be a close associate includes: |(a) a natural person who is known to have joint beneficial ownership of legal entities or legal arrangements, or any other close business relations, with the  politically exposed person,|(b) a natural person who has sole beneficial ownership of a legal entity or legal arrangement which is known to have been set up for the de facto benefit of a politically exposed person.")]
     CloseAssociate,
     
 }
@@ -61,7 +60,7 @@ public enum PoliticallyExposedPersonStatusCode
 public static class PoliticallyExposedPersonStatusCodeMetadataExtensions
 {
     private static readonly PoliticallyExposedPersonStatusCodeDropdownSource _dropdownSource = new PoliticallyExposedPersonStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

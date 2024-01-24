@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZYjBxdp-Ed-ak6NoX_4Aeg_336258615")]
 [Description(@"Identifies the status of a quote acknowledgement.")]
 [Derivations(typeof(QuoteStatus1Code),typeof(QuoteStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QuoteStatusCode
 {
     /// <summary>
@@ -173,7 +172,7 @@ public enum QuoteStatusCode
 public static class QuoteStatusCodeMetadataExtensions
 {
     private static readonly QuoteStatusCodeDropdownSource _dropdownSource = new QuoteStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

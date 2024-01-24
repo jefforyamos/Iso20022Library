@@ -21,93 +21,93 @@ public enum InvestorProfileStatus1Code
 {
     /// <summary>
     /// Status of the investor profile is disabled.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_vl8EoSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is disabled.")]
-    Disabled,
+    Disabled = InvestorProfileStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is in the process of being disabled.
-    /// Encoded/decoded by serializers as "Disabling".
+    /// Encoded/decoded by serializers as "DISG".
     /// </summary>
     [EnumMember(Value = "DISG")]
     [IsoId("_vt9_QSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in the process of being disabled.")]
-    Disabling,
+    Disabling = InvestorProfileStatusCode.Disabling, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is enabled.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_v2cl0SDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is enabled.")]
-    Enabled,
+    Enabled = InvestorProfileStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is in the process of being enabled.
-    /// Encoded/decoded by serializers as "Enabling".
+    /// Encoded/decoded by serializers as "ENBG".
     /// </summary>
     [EnumMember(Value = "ENBG")]
     [IsoId("_v-yCcSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in the process of being enabled.")]
-    Enabling,
+    Enabling = InvestorProfileStatusCode.Enabling, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is in admission.
-    /// Encoded/decoded by serializers as "InAdmission".
+    /// Encoded/decoded by serializers as "ADMI".
     /// </summary>
     [EnumMember(Value = "ADMI")]
     [IsoId("_wBms8SDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in admission.")]
-    InAdmission,
+    InAdmission = InvestorProfileStatusCode.InAdmission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is in analysis.
-    /// Encoded/decoded by serializers as "InAnalysis".
+    /// Encoded/decoded by serializers as "ANLY".
     /// </summary>
     [EnumMember(Value = "ANLY")]
     [IsoId("_wJ8JkSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in analysis.")]
-    InAnalysis,
+    InAnalysis = InvestorProfileStatusCode.InAnalysis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is not approved.
-    /// Encoded/decoded by serializers as "NotApproved".
+    /// Encoded/decoded by serializers as "NAPP".
     /// </summary>
     [EnumMember(Value = "NAPP")]
     [IsoId("_wTBNESDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is not approved.")]
-    NotApproved,
+    NotApproved = InvestorProfileStatusCode.NotApproved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is partially suspended.
-    /// Encoded/decoded by serializers as "PartiallySuspended".
+    /// Encoded/decoded by serializers as "PSUS".
     /// </summary>
     [EnumMember(Value = "PSUS")]
     [IsoId("_wV13kSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is partially suspended.")]
-    PartiallySuspended,
+    PartiallySuspended = InvestorProfileStatusCode.PartiallySuspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is pending approval.
-    /// Encoded/decoded by serializers as "PendingApproval".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_wd3yMSDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is pending approval.")]
-    PendingApproval,
+    PendingApproval = InvestorProfileStatusCode.PendingApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Status of the investor profile is suspended.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SUPS".
     /// </summary>
     [EnumMember(Value = "SUPS")]
     [IsoId("_wl6T4SDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is suspended.")]
-    Suspended,
+    Suspended = InvestorProfileStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum InvestorProfileStatus1Code
 public static class InvestorProfileStatus1CodeMetadataExtensions
 {
     private static readonly InvestorProfileStatus1CodeDropdownSource _dropdownSource = new InvestorProfileStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

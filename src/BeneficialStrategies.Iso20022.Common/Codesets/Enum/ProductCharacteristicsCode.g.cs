@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZVkmQtp-Ed-ak6NoX_4Aeg_-499524855")]
 [Description(@"Specifies the charateristics of a product.")]
 [Derivations(typeof(ProductCharacteristics1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProductCharacteristicsCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum ProductCharacteristicsCode
 public static class ProductCharacteristicsCodeMetadataExtensions
 {
     private static readonly ProductCharacteristicsCodeDropdownSource _dropdownSource = new ProductCharacteristicsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

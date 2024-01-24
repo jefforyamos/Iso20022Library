@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZQM-ENp-Ed-ak6NoX_4Aeg_1615497688")]
 [Description(@"Specifies the type of balances on which the statement is prepared.")]
 [Derivations(typeof(StatementStructure1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatementStructureCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StatementStructureCode
 public static class StatementStructureCodeMetadataExtensions
 {
     private static readonly StatementStructureCodeDropdownSource _dropdownSource = new StatementStructureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jj4Sgu5NEeCisYr99QEiWA_1468427888")]
 [Description(@"Specifies the type of instruction queried.")]
 [Derivations(typeof(InstructionQueryType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstructionQueryTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InstructionQueryTypeCode
 public static class InstructionQueryTypeCodeMetadataExtensions
 {
     private static readonly InstructionQueryTypeCodeDropdownSource _dropdownSource = new InstructionQueryTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

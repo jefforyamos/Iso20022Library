@@ -21,21 +21,21 @@ public enum AmountType1Code
 {
     /// <summary>
     /// The amount is open.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_be0Kstp-Ed-ak6NoX_4Aeg_334790348")]
     [Description(@"The amount is open.")]
-    Open,
+    Open = AmountTypeCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The amount is unkown.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_be0Ks9p-Ed-ak6NoX_4Aeg_334790370")]
     [Description(@"The amount is unkown.")]
-    Unknown,
+    Unknown = AmountTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AmountType1Code
 public static class AmountType1CodeMetadataExtensions
 {
     private static readonly AmountType1CodeDropdownSource _dropdownSource = new AmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

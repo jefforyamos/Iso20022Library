@@ -21,147 +21,147 @@ public enum CustomerDeviceType2Code
 {
     /// <summary>
     /// Mobile phone
-    /// Encoded/decoded by serializers as "Mobile".
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_GeUjgZfJEeuqNYk2TG3bTg")]
     [Description(@"Mobile phone")]
-    Mobile,
+    Mobile = CustomerDeviceTypeCode.Mobile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other device defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_GeUjg5fJEeuqNYk2TG3bTg")]
     [Description(@"Other device defined at national level")]
-    OtherNational,
+    OtherNational = CustomerDeviceTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other device defined in a private way.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_GeUjhZfJEeuqNYk2TG3bTg")]
     [Description(@"Other device defined in a private way.")]
-    OtherPrivate,
+    OtherPrivate = CustomerDeviceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Personal computer
-    /// Encoded/decoded by serializers as "PersonalComputer".
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_GeUjh5fJEeuqNYk2TG3bTg")]
     [Description(@"Personal computer")]
-    PersonalComputer,
+    PersonalComputer = CustomerDeviceTypeCode.PersonalComputer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tablet
-    /// Encoded/decoded by serializers as "Tablet".
+    /// Encoded/decoded by serializers as "TBLT".
     /// </summary>
     [EnumMember(Value = "TBLT")]
     [IsoId("_GeUjiZfJEeuqNYk2TG3bTg")]
     [Description(@"Tablet")]
-    Tablet,
+    Tablet = CustomerDeviceTypeCode.Tablet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-secure card reader attached to the customer device.
-    /// Encoded/decoded by serializers as "NonSecureCardReader".
+    /// Encoded/decoded by serializers as "NSCR".
     /// </summary>
     [EnumMember(Value = "NSCR")]
     [IsoId("_GeUji5fJEeuqNYk2TG3bTg")]
     [Description(@"Non-secure card reader attached to the customer device.")]
-    NonSecureCardReader,
+    NonSecureCardReader = CustomerDeviceTypeCode.NonSecureCardReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure card reader attached to the customer device
-    /// Encoded/decoded by serializers as "SecureCardReader".
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_GeUjjZfJEeuqNYk2TG3bTg")]
     [Description(@"Secure card reader attached to the customer device")]
-    SecureCardReader,
+    SecureCardReader = CustomerDeviceTypeCode.SecureCardReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Embedded in a device.
-    /// Encoded/decoded by serializers as "Embedded".
+    /// Encoded/decoded by serializers as "EMBD".
     /// </summary>
     [EnumMember(Value = "EMBD")]
     [IsoId("_jCjZAZfJEeuqNYk2TG3bTg")]
     [Description(@"Embedded in a device.")]
-    Embedded,
+    Embedded = CustomerDeviceTypeCode.Embedded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vehicle.
-    /// Encoded/decoded by serializers as "Vehicle".
+    /// Encoded/decoded by serializers as "VHCL".
     /// </summary>
     [EnumMember(Value = "VHCL")]
     [IsoId("_jkdMMZfJEeuqNYk2TG3bTg")]
     [Description(@"Vehicle.")]
-    Vehicle,
+    Vehicle = CustomerDeviceTypeCode.Vehicle, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wearable device.
-    /// Encoded/decoded by serializers as "Wearable".
+    /// Encoded/decoded by serializers as "WRBL".
     /// </summary>
     [EnumMember(Value = "WRBL")]
     [IsoId("_j6peoZfJEeuqNYk2TG3bTg")]
     [Description(@"Wearable device.")]
-    Wearable,
+    Wearable = CustomerDeviceTypeCode.Wearable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Watch
-    /// Encoded/decoded by serializers as "Watch".
+    /// Encoded/decoded by serializers as "WATC".
     /// </summary>
     [EnumMember(Value = "WATC")]
     [IsoId("_V800YSbNEeyhZIgCcGlTyA")]
     [Description(@"Watch")]
-    Watch,
+    Watch = CustomerDeviceTypeCode.Watch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gaming Device
-    /// Encoded/decoded by serializers as "GamingDevice".
+    /// Encoded/decoded by serializers as "GAMB".
     /// </summary>
     [EnumMember(Value = "GAMB")]
     [IsoId("_WCc7QSbNEeyhZIgCcGlTyA")]
     [Description(@"Gaming Device")]
-    GamingDevice,
+    GamingDevice = CustomerDeviceTypeCode.GamingDevice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Jewellery
-    /// Encoded/decoded by serializers as "Jewellery".
+    /// Encoded/decoded by serializers as "JEWL".
     /// </summary>
     [EnumMember(Value = "JEWL")]
     [IsoId("_WHQiwSbNEeyhZIgCcGlTyA")]
     [Description(@"Jewellery")]
-    Jewellery,
+    Jewellery = CustomerDeviceTypeCode.Jewellery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key Fob
-    /// Encoded/decoded by serializers as "KeyFob".
+    /// Encoded/decoded by serializers as "KFOB".
     /// </summary>
     [EnumMember(Value = "KFOB")]
     [IsoId("_WPLvsSbNEeyhZIgCcGlTyA")]
     [Description(@"Key Fob")]
-    KeyFob,
+    KeyFob = CustomerDeviceTypeCode.KeyFob, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sticker
-    /// Encoded/decoded by serializers as "Sticker".
+    /// Encoded/decoded by serializers as "STIC".
     /// </summary>
     [EnumMember(Value = "STIC")]
     [IsoId("_WjVawSbNEeyhZIgCcGlTyA")]
     [Description(@"Sticker")]
-    Sticker,
+    Sticker = CustomerDeviceTypeCode.Sticker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device type unknown
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UNKW".
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_dOHV4UQHEeyANrrBvBlqVg")]
     [Description(@"Device type unknown")]
-    Unknown,
+    Unknown = CustomerDeviceTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum CustomerDeviceType2Code
 public static class CustomerDeviceType2CodeMetadataExtensions
 {
     private static readonly CustomerDeviceType2CodeDropdownSource _dropdownSource = new CustomerDeviceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

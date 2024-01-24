@@ -21,21 +21,21 @@ public enum CashAssetType1Code
 {
     /// <summary>
     /// Cash is cash in the holding not yet invested.
-    /// Encoded/decoded by serializers as "CashInHolding".
+    /// Encoded/decoded by serializers as "CSH2".
     /// </summary>
     [EnumMember(Value = "CSH2")]
     [IsoId("_z92S0UyLEeiepssxrmRw1A")]
     [Description(@"Cash is cash in the holding not yet invested.")]
-    CashInHolding,
+    CashInHolding = CashAssetTypeCode.CashInHolding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash is attributed to a cash investment.
-    /// Encoded/decoded by serializers as "CashInvestment".
+    /// Encoded/decoded by serializers as "CSH1".
     /// </summary>
     [EnumMember(Value = "CSH1")]
     [IsoId("_0EGEwUyLEeiepssxrmRw1A")]
     [Description(@"Cash is attributed to a cash investment.")]
-    CashInvestment,
+    CashInvestment = CashAssetTypeCode.CashInvestment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CashAssetType1Code
 public static class CashAssetType1CodeMetadataExtensions
 {
     private static readonly CashAssetType1CodeDropdownSource _dropdownSource = new CashAssetType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

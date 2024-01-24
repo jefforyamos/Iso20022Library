@@ -144,7 +144,7 @@ public enum CapitalTypeCode
 public static class CapitalTypeCodeMetadataExtensions
 {
     private static readonly CapitalTypeCodeDropdownSource _dropdownSource = new CapitalTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

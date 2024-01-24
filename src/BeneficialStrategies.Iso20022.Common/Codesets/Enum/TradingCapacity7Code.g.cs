@@ -21,21 +21,21 @@ public enum TradingCapacity7Code
 {
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_yxDyIfP1EeS_qLctCs2aRQ")]
     [Description(@"Trading as Agent on behalf of a customer.")]
-    Agent,
+    Agent = TradingCapacityCode.Agent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "Principal".
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_zMIkk_P1EeS_qLctCs2aRQ")]
     [Description(@"Trading as Principal.")]
-    Principal,
+    Principal = TradingCapacityCode.Principal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradingCapacity7Code
 public static class TradingCapacity7CodeMetadataExtensions
 {
     private static readonly TradingCapacity7CodeDropdownSource _dropdownSource = new TradingCapacity7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

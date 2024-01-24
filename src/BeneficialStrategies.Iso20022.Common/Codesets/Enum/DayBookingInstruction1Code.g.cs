@@ -21,21 +21,21 @@ public enum DayBookingInstruction1Code
 {
     /// <summary>
     /// Can trigger booking without reference to the order initiator.
-    /// Encoded/decoded by serializers as "Auto".
+    /// Encoded/decoded by serializers as "AUTO".
     /// </summary>
     [EnumMember(Value = "AUTO")]
     [IsoId("_aytSpdp-Ed-ak6NoX_4Aeg_1465007733")]
     [Description(@"Can trigger booking without reference to the order initiator.")]
-    Auto,
+    Auto = DayBookingInstructionCode.Auto, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Speak with order initiator before booking.
-    /// Encoded/decoded by serializers as "SpeakFirst".
+    /// Encoded/decoded by serializers as "TALK".
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_aytSptp-Ed-ak6NoX_4Aeg_1465007750")]
     [Description(@"Speak with order initiator before booking.")]
-    SpeakFirst,
+    SpeakFirst = DayBookingInstructionCode.SpeakFirst, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DayBookingInstruction1Code
 public static class DayBookingInstruction1CodeMetadataExtensions
 {
     private static readonly DayBookingInstruction1CodeDropdownSource _dropdownSource = new DayBookingInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

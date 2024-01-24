@@ -21,13 +21,12 @@ public enum PendingPaymentCancellationReason2Code
 {
     /// <summary>
     /// Cancellation indemnity is required. 
-    /// 
-    /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_8g490SCMEei5H9PsIMzTkw")]
-    [Description(@"Cancellation indemnity is required.  ")]
-    CancellationIndemnityRequired,
+    [Description(@"Cancellation indemnity is required. |")]
+    CancellationIndemnityRequired = PendingPaymentCancellationReasonCode.CancellationIndemnityRequired, // same ordinal as derivation source for type conversions
     
 }
 
@@ -38,7 +37,7 @@ public enum PendingPaymentCancellationReason2Code
 public static class PendingPaymentCancellationReason2CodeMetadataExtensions
 {
     private static readonly PendingPaymentCancellationReason2CodeDropdownSource _dropdownSource = new PendingPaymentCancellationReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

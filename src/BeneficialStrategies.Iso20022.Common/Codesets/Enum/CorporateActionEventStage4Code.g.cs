@@ -21,30 +21,30 @@ public enum CorporateActionEventStage4Code
 {
     /// <summary>
     /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
-    /// Encoded/decoded by serializers as "CancellationAndReRun".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_5wragSUmEeO8eOSw0QN9mA")]
     [Description(@"Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.")]
-    CancellationAndReRun,
+    CancellationAndReRun = CorporateActionEventStageV2Code.CancellationAndReRun, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
-    /// Encoded/decoded by serializers as "SupplementalCancellationAndReRun".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_6CSu8SUmEeO8eOSw0QN9mA")]
     [Description(@"Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.")]
-    SupplementalCancellationAndReRun,
+    SupplementalCancellationAndReRun = CorporateActionEventStageV2Code.SupplementalCancellationAndReRun, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
-    /// Encoded/decoded by serializers as "SupplementalCancellation".
+    /// Encoded/decoded by serializers as "RESC".
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_6OILgSUmEeO8eOSw0QN9mA")]
     [Description(@"A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.")]
-    SupplementalCancellation,
+    SupplementalCancellation = CorporateActionEventStageV2Code.SupplementalCancellation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionEventStage4Code
 public static class CorporateActionEventStage4CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStage4CodeDropdownSource _dropdownSource = new CorporateActionEventStage4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

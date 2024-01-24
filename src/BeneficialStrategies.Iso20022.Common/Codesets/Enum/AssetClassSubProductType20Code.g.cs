@@ -21,12 +21,12 @@ public enum AssetClassSubProductType20Code
 {
     /// <summary>
     /// Commodity of type dairy.
-    /// Encoded/decoded by serializers as "Dairy".
+    /// Encoded/decoded by serializers as "DIRY".
     /// </summary>
     [EnumMember(Value = "DIRY")]
     [IsoId("_prJicVq_EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type dairy.")]
-    Dairy,
+    Dairy = AssetClassSubProductTypeCode.Dairy, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType20Code
 public static class AssetClassSubProductType20CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType20CodeDropdownSource _dropdownSource = new AssetClassSubProductType20CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

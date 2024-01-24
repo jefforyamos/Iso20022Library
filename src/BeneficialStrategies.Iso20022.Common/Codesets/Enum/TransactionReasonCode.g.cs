@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YsS_xdp-Ed-ak6NoX_4Aeg_-819075130")]
 [Description(@"Specifies the reason for a transaction to be rejected, returned or reversed by an instructed agent or somebody acting on behalf of an instructed agent.")]
-[Derivations(typeof(TransactionRejectReason2Code),typeof(TransactionReversalReason1Code),typeof(TransactionRejectReason4Code),typeof(TransactionRejectReason5Code),typeof(TransactionReversalReason2Code),typeof(TransactionRejectReason7Code),typeof(TransactionReturnReason1Code),typeof(TransactionRejectReason6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TransactionReturnReason1Code),typeof(TransactionRejectReason5Code),typeof(TransactionRejectReason6Code),typeof(TransactionReversalReason2Code),typeof(TransactionRejectReason4Code),typeof(TransactionRejectReason2Code),typeof(TransactionReversalReason1Code),typeof(TransactionRejectReason7Code))]
 public enum TransactionReasonCode
 {
     /// <summary>
@@ -479,7 +478,7 @@ public enum TransactionReasonCode
 public static class TransactionReasonCodeMetadataExtensions
 {
     private static readonly TransactionReasonCodeDropdownSource _dropdownSource = new TransactionReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

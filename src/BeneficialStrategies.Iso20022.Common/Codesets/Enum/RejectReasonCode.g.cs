@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_TVMfBgEcEeCQm6a_G2yO_w_-1586887773")]
 [Description(@"Reason of transmission of a rejection message in response to a request or an advice.")]
 [Derivations(typeof(RejectReason1Code),typeof(RejectReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RejectReasonCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum RejectReasonCode
 public static class RejectReasonCodeMetadataExtensions
 {
     private static readonly RejectReasonCodeDropdownSource _dropdownSource = new RejectReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

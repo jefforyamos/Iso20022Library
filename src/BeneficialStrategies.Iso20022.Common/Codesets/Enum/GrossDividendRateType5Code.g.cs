@@ -21,138 +21,138 @@ public enum GrossDividendRateType5Code
 {
     /// <summary>
     /// Rate relating to the underlying security for which capital is distributed.
-    /// Encoded/decoded by serializers as "CapitalPortion".
+    /// Encoded/decoded by serializers as "CAPO".
     /// </summary>
     [EnumMember(Value = "CAPO")]
     [IsoId("__sZAuZb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which capital is distributed.")]
-    CapitalPortion,
+    CapitalPortion = DividendRateTypeCode.CapitalPortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution rate relating to the full period units, for example Group I units in UK.
-    /// Encoded/decoded by serializers as "FullPeriodUnitsIncomePortion".
+    /// Encoded/decoded by serializers as "FUPU".
     /// </summary>
     [EnumMember(Value = "FUPU")]
     [IsoId("__sZAtJb8Eee8S7xwGG7Veg")]
     [Description(@"Distribution rate relating to the full period units, for example Group I units in UK.")]
-    FullPeriodUnitsIncomePortion,
+    FullPeriodUnitsIncomePortion = DividendRateTypeCode.FullPeriodUnitsIncomePortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.
-    /// Encoded/decoded by serializers as "FullyFranked".
+    /// Encoded/decoded by serializers as "FLFR".
     /// </summary>
     [EnumMember(Value = "FLFR")]
     [IsoId("__sZAsZb8Eee8S7xwGG7Veg")]
     [Description(@"Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.")]
-    FullyFranked,
+    FullyFranked = DividendRateTypeCode.FullyFranked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security for which income is distributed.
-    /// Encoded/decoded by serializers as "IncomePortion".
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("__sZAtZb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which income is distributed.")]
-    IncomePortion,
+    IncomePortion = DividendRateTypeCode.IncomePortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security for which interest is paid.
-    /// Encoded/decoded by serializers as "Interest".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("__sZAs5b8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which interest is paid.")]
-    Interest,
+    Interest = DividendRateTypeCode.Interest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Long term capital gain.
-    /// Encoded/decoded by serializers as "LongTermCapitalGain".
+    /// Encoded/decoded by serializers as "LTCG".
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("__sZAuJb8Eee8S7xwGG7Veg")]
     [Description(@"Long term capital gain.")]
-    LongTermCapitalGain,
+    LongTermCapitalGain = DividendRateTypeCode.LongTermCapitalGain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution rate relating to the part way period units, for example Group II units in UK.
-    /// Encoded/decoded by serializers as "PartWayPeriodUnitsIncomePortion".
+    /// Encoded/decoded by serializers as "PAPU".
     /// </summary>
     [EnumMember(Value = "PAPU")]
     [IsoId("__sZAt5b8Eee8S7xwGG7Veg")]
     [Description(@"Distribution rate relating to the part way period units, for example Group II units in UK.")]
-    PartWayPeriodUnitsIncomePortion,
+    PartWayPeriodUnitsIncomePortion = DividendRateTypeCode.PartWayPeriodUnitsIncomePortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Short term capital gain.
-    /// Encoded/decoded by serializers as "ShortTermCapitalGain".
+    /// Encoded/decoded by serializers as "STCG".
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("__sZAupb8Eee8S7xwGG7Veg")]
     [Description(@"Short term capital gain.")]
-    ShortTermCapitalGain,
+    ShortTermCapitalGain = DividendRateTypeCode.ShortTermCapitalGain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security for which other income is paid.
-    /// Encoded/decoded by serializers as "SundryOrOtherIncome".
+    /// Encoded/decoded by serializers as "SOIC".
     /// </summary>
     [EnumMember(Value = "SOIC")]
     [IsoId("__sZAvJb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which other income is paid.")]
-    SundryOrOtherIncome,
+    SundryOrOtherIncome = DividendRateTypeCode.SundryOrOtherIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is charged.
-    /// Encoded/decoded by serializers as "TaxablePortion".
+    /// Encoded/decoded by serializers as "TXBL".
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("__sZAtpb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which tax is charged.")]
-    TaxablePortion,
+    TaxablePortion = DividendRateTypeCode.TaxablePortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is deferred.
-    /// Encoded/decoded by serializers as "TaxDeferred".
+    /// Encoded/decoded by serializers as "TXDF".
     /// </summary>
     [EnumMember(Value = "TXDF")]
     [IsoId("__sZAspb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security for which tax is deferred.")]
-    TaxDeferred,
+    TaxDeferred = DividendRateTypeCode.TaxDeferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to the underlying security which is not taxable.
-    /// Encoded/decoded by serializers as "TaxFree".
+    /// Encoded/decoded by serializers as "TXFR".
     /// </summary>
     [EnumMember(Value = "TXFR")]
     [IsoId("__sZAvZb8Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to the underlying security which is not taxable.")]
-    TaxFree,
+    TaxFree = DividendRateTypeCode.TaxFree, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.
-    /// Encoded/decoded by serializers as "Unfranked".
+    /// Encoded/decoded by serializers as "UNFR".
     /// </summary>
     [EnumMember(Value = "UNFR")]
     [IsoId("__sZAsJb8Eee8S7xwGG7Veg")]
     [Description(@"Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.")]
-    Unfranked,
+    Unfranked = DividendRateTypeCode.Unfranked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate of income distribution originated by real estate investment.
-    /// Encoded/decoded by serializers as "RealEstatePropertyIncomePortion".
+    /// Encoded/decoded by serializers as "REES".
     /// </summary>
     [EnumMember(Value = "REES")]
     [IsoId("__sZAu5b8Eee8S7xwGG7Veg")]
     [Description(@"Rate of income distribution originated by real estate investment.")]
-    RealEstatePropertyIncomePortion,
+    RealEstatePropertyIncomePortion = DividendRateTypeCode.RealEstatePropertyIncomePortion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate relating to a conduit foreign income type.
-    /// Encoded/decoded by serializers as "ConduitForeignIncome".
+    /// Encoded/decoded by serializers as "CDFI".
     /// </summary>
     [EnumMember(Value = "CDFI")]
     [IsoId("_EtAa0Zb9Eee8S7xwGG7Veg")]
     [Description(@"Rate relating to a conduit foreign income type.")]
-    ConduitForeignIncome,
+    ConduitForeignIncome = DividendRateTypeCode.ConduitForeignIncome, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum GrossDividendRateType5Code
 public static class GrossDividendRateType5CodeMetadataExtensions
 {
     private static readonly GrossDividendRateType5CodeDropdownSource _dropdownSource = new GrossDividendRateType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

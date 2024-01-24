@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0hGmQLC1EeaSl6vJk5Bd8w")]
 [Description(@"Categorisation of margin models used by central counterparties.")]
 [Derivations(typeof(ModelType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ModelTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ModelTypeCode
 public static class ModelTypeCodeMetadataExtensions
 {
     private static readonly ModelTypeCodeDropdownSource _dropdownSource = new ModelTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

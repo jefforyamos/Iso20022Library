@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_jZW04Gi3EeS87LmvcA55sg")]
 [Description(@"Format of data before encryption, if the format is not plaintext or implicit.")]
 [Derivations(typeof(EncryptionFormat1Code),typeof(EncryptionFormat2Code),typeof(EncryptionFormat3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EncryptionFormatCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum EncryptionFormatCode
 public static class EncryptionFormatCodeMetadataExtensions
 {
     private static readonly EncryptionFormatCodeDropdownSource _dropdownSource = new EncryptionFormatCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

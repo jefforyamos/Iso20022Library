@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_mutCoK53Eee6Q7mFsDuJBA")]
 [Description(@"Type of other amount.")]
 [Derivations(typeof(OtherAmountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OtherAmountTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum OtherAmountTypeCode
 public static class OtherAmountTypeCodeMetadataExtensions
 {
     private static readonly OtherAmountTypeCodeDropdownSource _dropdownSource = new OtherAmountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

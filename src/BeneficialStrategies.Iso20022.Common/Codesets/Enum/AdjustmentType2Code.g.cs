@@ -21,39 +21,39 @@ public enum AdjustmentType2Code
 {
     /// <summary>
     /// Adjustment is a rebate.
-    /// Encoded/decoded by serializers as "Rebate".
+    /// Encoded/decoded by serializers as "REBA".
     /// </summary>
     [EnumMember(Value = "REBA")]
     [IsoId("_bnKOZ9p-Ed-ak6NoX_4Aeg_-1989744440")]
     [Description(@"Adjustment is a rebate.")]
-    Rebate,
+    Rebate = AdjustmentTypeCode.Rebate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment is a discount.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_bnTYUNp-Ed-ak6NoX_4Aeg_-1989744416")]
     [Description(@"Adjustment is a discount.")]
-    Discount,
+    Discount = AdjustmentTypeCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment is a credit note.
-    /// Encoded/decoded by serializers as "CreditNote".
+    /// Encoded/decoded by serializers as "CREN".
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_bnTYUdp-Ed-ak6NoX_4Aeg_-1989744399")]
     [Description(@"Adjustment is a credit note.")]
-    CreditNote,
+    CreditNote = AdjustmentTypeCode.CreditNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment is a surcharge.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SURC".
     /// </summary>
     [EnumMember(Value = "SURC")]
     [IsoId("_bnTYUtp-Ed-ak6NoX_4Aeg_-1488271597")]
     [Description(@"Adjustment is a surcharge.")]
-    Surcharge,
+    Surcharge = AdjustmentTypeCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AdjustmentType2Code
 public static class AdjustmentType2CodeMetadataExtensions
 {
     private static readonly AdjustmentType2CodeDropdownSource _dropdownSource = new AdjustmentType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

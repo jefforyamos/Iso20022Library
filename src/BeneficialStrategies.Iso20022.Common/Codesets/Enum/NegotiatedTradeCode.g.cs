@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aNJuiNp-Ed-ak6NoX_4Aeg_1309549909")]
 [Description(@"Specifies whether the trade is negotiated.")]
 [Derivations(typeof(NegotiatedTrade1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NegotiatedTradeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum NegotiatedTradeCode
 public static class NegotiatedTradeCodeMetadataExtensions
 {
     private static readonly NegotiatedTradeCodeDropdownSource _dropdownSource = new NegotiatedTradeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

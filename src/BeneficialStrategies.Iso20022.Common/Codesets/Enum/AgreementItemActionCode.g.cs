@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_OTgzMjc4-AOSNFX-8224496")]
-[Description(@"Specifies the type of action concerning registration information. The default value is OPEN.")]
+[Description(@"Specifies the type of action concerning registration information.|The default value is OPEN.")]
 [Derivations(typeof(AgreementItemAction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AgreementItemActionCode
 {
     /// <summary>
@@ -93,7 +92,7 @@ public enum AgreementItemActionCode
 public static class AgreementItemActionCodeMetadataExtensions
 {
     private static readonly AgreementItemActionCodeDropdownSource _dropdownSource = new AgreementItemActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

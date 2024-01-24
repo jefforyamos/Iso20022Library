@@ -21,21 +21,21 @@ public enum FreightCharges1Code
 {
     /// <summary>
     /// Freight charges are to collect from consignee.
-    /// Encoded/decoded by serializers as "Collect".
+    /// Encoded/decoded by serializers as "CLCT".
     /// </summary>
     [EnumMember(Value = "CLCT")]
     [IsoId("_ar_motp-Ed-ak6NoX_4Aeg_-1412907475")]
     [Description(@"Freight charges are to collect from consignee.")]
-    Collect,
+    Collect = FreightChargesCode.Collect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Freight charges are paid by shipper.
-    /// Encoded/decoded by serializers as "Prepaid".
+    /// Encoded/decoded by serializers as "PRPD".
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_ar_mo9p-Ed-ak6NoX_4Aeg_-1412907458")]
     [Description(@"Freight charges are paid by shipper.")]
-    Prepaid,
+    Prepaid = FreightChargesCode.Prepaid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FreightCharges1Code
 public static class FreightCharges1CodeMetadataExtensions
 {
     private static readonly FreightCharges1CodeDropdownSource _dropdownSource = new FreightCharges1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

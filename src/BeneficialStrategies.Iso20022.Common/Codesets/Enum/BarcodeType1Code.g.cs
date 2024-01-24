@@ -21,75 +21,75 @@ public enum BarcodeType1Code
 {
     /// <summary>
     /// Barcode encoded according to the 2Dimensions Quick Response Code Standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAs2DQRCode".
+    /// Encoded/decoded by serializers as "COQR".
     /// </summary>
     [EnumMember(Value = "COQR")]
     [IsoId("_0H1FMduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the 2Dimensions Quick Response Code Standard.")]
-    BarcodeEncodedAs2DQRCode,
+    BarcodeEncodedAs2DQRCode = BarcodeTypeCode.BarcodeEncodedAs2DQRCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the Code 128 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsCode128".
+    /// Encoded/decoded by serializers as "C128".
     /// </summary>
     [EnumMember(Value = "C128")]
     [IsoId("_0L5s4duZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 128 standard.")]
-    BarcodeEncodedAsCode128,
+    BarcodeEncodedAsCode128 = BarcodeTypeCode.BarcodeEncodedAsCode128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the Code 25 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsCode25".
+    /// Encoded/decoded by serializers as "C025".
     /// </summary>
     [EnumMember(Value = "C025")]
     [IsoId("_0Pz8gduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 25 standard.")]
-    BarcodeEncodedAsCode25,
+    BarcodeEncodedAsCode25 = BarcodeTypeCode.BarcodeEncodedAsCode25, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the Code 39 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsCode39".
+    /// Encoded/decoded by serializers as "C039".
     /// </summary>
     [EnumMember(Value = "C039")]
     [IsoId("_0TuMIduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 39 standard.")]
-    BarcodeEncodedAsCode39,
+    BarcodeEncodedAsCode39 = BarcodeTypeCode.BarcodeEncodedAsCode39, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the EAN13 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsEA13".
+    /// Encoded/decoded by serializers as "EA13".
     /// </summary>
     [EnumMember(Value = "EA13")]
     [IsoId("_0XfR0duZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the EAN13 standard.")]
-    BarcodeEncodedAsEA13,
+    BarcodeEncodedAsEA13 = BarcodeTypeCode.BarcodeEncodedAsEA13, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the EAN8 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsEAN8".
+    /// Encoded/decoded by serializers as "EAN8".
     /// </summary>
     [EnumMember(Value = "EAN8")]
     [IsoId("_0d1KYduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the EAN8 standard.")]
-    BarcodeEncodedAsEAN8,
+    BarcodeEncodedAsEAN8 = BarcodeTypeCode.BarcodeEncodedAsEAN8, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the PDF417 standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsPDF417".
+    /// Encoded/decoded by serializers as "P417".
     /// </summary>
     [EnumMember(Value = "P417")]
     [IsoId("_0h0SgduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the PDF417 standard.")]
-    BarcodeEncodedAsPDF417,
+    BarcodeEncodedAsPDF417 = BarcodeTypeCode.BarcodeEncodedAsPDF417, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Barcode encoded according to the UPCA standard.
-    /// Encoded/decoded by serializers as "BarcodeEncodedAsUPCA".
+    /// Encoded/decoded by serializers as "UPCA".
     /// </summary>
     [EnumMember(Value = "UPCA")]
     [IsoId("_0mNqUduZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the UPCA standard.")]
-    BarcodeEncodedAsUPCA,
+    BarcodeEncodedAsUPCA = BarcodeTypeCode.BarcodeEncodedAsUPCA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum BarcodeType1Code
 public static class BarcodeType1CodeMetadataExtensions
 {
     private static readonly BarcodeType1CodeDropdownSource _dropdownSource = new BarcodeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

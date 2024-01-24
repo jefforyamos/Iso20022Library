@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yNcYIBRHEeOKWo1NF21OVw")]
 [Description(@"Specifies the investment account category.")]
 [Derivations(typeof(InvestmentAccountCategory1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestmentAccountCategoryCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InvestmentAccountCategoryCode
 public static class InvestmentAccountCategoryCodeMetadataExtensions
 {
     private static readonly InvestmentAccountCategoryCodeDropdownSource _dropdownSource = new InvestmentAccountCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

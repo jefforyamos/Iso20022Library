@@ -21,21 +21,21 @@ public enum ATMStatus1Code
 {
     /// <summary>
     /// Component is in service.
-    /// Encoded/decoded by serializers as "InService".
+    /// Encoded/decoded by serializers as "INSV".
     /// </summary>
     [EnumMember(Value = "INSV")]
     [IsoId("_pVnK0YqLEeSRT5rEzcAHEw")]
     [Description(@"Component is in service.")]
-    InService,
+    InService = ATMStatusCode.InService, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ATM out of service.
-    /// Encoded/decoded by serializers as "OutOfService".
+    /// Encoded/decoded by serializers as "OUTS".
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_pZx5IYqLEeSRT5rEzcAHEw")]
     [Description(@"ATM out of service.")]
-    OutOfService,
+    OutOfService = ATMStatusCode.OutOfService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ATMStatus1Code
 public static class ATMStatus1CodeMetadataExtensions
 {
     private static readonly ATMStatus1CodeDropdownSource _dropdownSource = new ATMStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

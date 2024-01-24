@@ -21,21 +21,21 @@ public enum MarketType5Code
 {
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OverTheCounter".
+    /// Encoded/decoded by serializers as "OTCO".
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUwLUdp-Ed-ak6NoX_4Aeg_1589066038")]
     [Description(@"The place is over the counter.")]
-    OverTheCounter,
+    OverTheCounter = MarketTypeCode.OverTheCounter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aUwLUtp-Ed-ak6NoX_4Aeg_-1956234882")]
     [Description(@"The place is a stock exchange.")]
-    StockExchange,
+    StockExchange = MarketTypeCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MarketType5Code
 public static class MarketType5CodeMetadataExtensions
 {
     private static readonly MarketType5CodeDropdownSource _dropdownSource = new MarketType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,31 +21,30 @@ public enum MOTO1Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MailOrder".
+    /// Encoded/decoded by serializers as "MAOR".
     /// </summary>
     [EnumMember(Value = "MAOR")]
     [IsoId("_V2gisTxSEeyuG4d2lhAp-w")]
     [Description(@"Mail order.")]
-    MailOrder,
+    MailOrder = MOTOCode.MailOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mail order or telephone order.
-    /// 
-    /// Encoded/decoded by serializers as "MailOrderOrTelephoneOrder.".
+    /// Encoded/decoded by serializers as "MOTO".
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_V6r4ETxSEeyuG4d2lhAp-w")]
-    [Description(@"Mail order or telephone order. ")]
-    MailOrderOrTelephoneOrder,
+    [Description(@"Mail order or telephone order.|")]
+    MailOrderOrTelephoneOrder = MOTOCode.MailOrderOrTelephoneOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Telephone order
-    /// Encoded/decoded by serializers as "TelephoneOrder".
+    /// Encoded/decoded by serializers as "TPOR".
     /// </summary>
     [EnumMember(Value = "TPOR")]
     [IsoId("_V-eL4TxSEeyuG4d2lhAp-w")]
     [Description(@"Telephone order")]
-    TelephoneOrder,
+    TelephoneOrder = MOTOCode.TelephoneOrder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +55,7 @@ public enum MOTO1Code
 public static class MOTO1CodeMetadataExtensions
 {
     private static readonly MOTO1CodeDropdownSource _dropdownSource = new MOTO1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

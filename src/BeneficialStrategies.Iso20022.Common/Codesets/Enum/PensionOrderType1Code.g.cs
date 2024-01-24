@@ -21,21 +21,21 @@ public enum PensionOrderType1Code
 {
     /// <summary>
     /// Pension policy, plan or scheme has been earmarked (set aside.)
-    /// Encoded/decoded by serializers as "Earmark".
+    /// Encoded/decoded by serializers as "EARM".
     /// </summary>
     [EnumMember(Value = "EARM")]
     [IsoId("_j14EwbT5EeiENt6AoDfPXg")]
     [Description(@"Pension policy, plan or scheme has been earmarked (set aside.)")]
-    Earmark,
+    Earmark = PensionOrderTypeCode.Earmark, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sharing order for the pension policy, plan or scheme has been issued by a court.
-    /// Encoded/decoded by serializers as "Sharing".
+    /// Encoded/decoded by serializers as "SHAR".
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_j7FU4bT5EeiENt6AoDfPXg")]
     [Description(@"Sharing order for the pension policy, plan or scheme has been issued by a court.")]
-    Sharing,
+    Sharing = PensionOrderTypeCode.Sharing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PensionOrderType1Code
 public static class PensionOrderType1CodeMetadataExtensions
 {
     private static readonly PensionOrderType1CodeDropdownSource _dropdownSource = new PensionOrderType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

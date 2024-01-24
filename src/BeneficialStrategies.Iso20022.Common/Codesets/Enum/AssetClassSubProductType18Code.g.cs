@@ -21,12 +21,12 @@ public enum AssetClassSubProductType18Code
 {
     /// <summary>
     /// Commodity of type plastic.
-    /// Encoded/decoded by serializers as "Plastic".
+    /// Encoded/decoded by serializers as "PLST".
     /// </summary>
     [EnumMember(Value = "PLST")]
     [IsoId("_AZyv0Q2sEeW72qLtWESimw")]
     [Description(@"Commodity of type plastic.")]
-    Plastic,
+    Plastic = AssetClassSubProductTypeCode.Plastic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType18Code
 public static class AssetClassSubProductType18CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType18CodeDropdownSource _dropdownSource = new AssetClassSubProductType18CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

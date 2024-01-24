@@ -21,21 +21,21 @@ public enum WaivingInstruction1Code
 {
     /// <summary>
     /// Form of commission waived is cash.
-    /// Encoded/decoded by serializers as "WaiveInCash".
+    /// Encoded/decoded by serializers as "WICA".
     /// </summary>
     [EnumMember(Value = "WICA")]
     [IsoId("_Y9k9CNp-Ed-ak6NoX_4Aeg_1408944804")]
     [Description(@"Form of commission waived is cash.")]
-    WaiveInCash,
+    WaiveInCash = WaivingInstructionCode.WaiveInCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Form of commission waived is additional units of a financial instrument.
-    /// Encoded/decoded by serializers as "WaiveInUnits".
+    /// Encoded/decoded by serializers as "WIUN".
     /// </summary>
     [EnumMember(Value = "WIUN")]
     [IsoId("_Y9uuANp-Ed-ak6NoX_4Aeg_1408944916")]
     [Description(@"Form of commission waived is additional units of a financial instrument.")]
-    WaiveInUnits,
+    WaiveInUnits = WaivingInstructionCode.WaiveInUnits, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum WaivingInstruction1Code
 public static class WaivingInstruction1CodeMetadataExtensions
 {
     private static readonly WaivingInstruction1CodeDropdownSource _dropdownSource = new WaivingInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

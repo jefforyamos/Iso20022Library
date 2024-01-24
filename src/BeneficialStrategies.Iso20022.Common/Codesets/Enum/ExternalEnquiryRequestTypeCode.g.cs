@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_lY1lkZIgEeect698_YsnIA")]
-[Description(@"Specifies the external request type code for the enquiry on a position in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code set published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external request type code for the enquiry on a position in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalEnquiryRequestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalEnquiryRequestTypeCode
 {
     /// <summary>
@@ -85,7 +84,7 @@ public enum ExternalEnquiryRequestTypeCode
 public static class ExternalEnquiryRequestTypeCodeMetadataExtensions
 {
     private static readonly ExternalEnquiryRequestTypeCodeDropdownSource _dropdownSource = new ExternalEnquiryRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

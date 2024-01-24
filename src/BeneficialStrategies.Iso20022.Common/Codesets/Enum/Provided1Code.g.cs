@@ -21,21 +21,21 @@ public enum Provided1Code
 {
     /// <summary>
     /// Not provided.
-    /// Encoded/decoded by serializers as "NotProvided".
+    /// Encoded/decoded by serializers as "NPRO".
     /// </summary>
     [EnumMember(Value = "NPRO")]
     [IsoId("_ba2ZIRKFEeKj15WxqwlXPw")]
     [Description(@"Not provided.")]
-    NotProvided,
+    NotProvided = ProvidedCode.NotProvided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provided.
-    /// Encoded/decoded by serializers as "Provided".
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_bllCcRKFEeKj15WxqwlXPw")]
     [Description(@"Provided.")]
-    Provided,
+    Provided = ProvidedCode.Provided, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Provided1Code
 public static class Provided1CodeMetadataExtensions
 {
     private static readonly Provided1CodeDropdownSource _dropdownSource = new Provided1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

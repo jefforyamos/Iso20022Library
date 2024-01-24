@@ -21,75 +21,75 @@ public enum TransactionProcessingStatus4Code
 {
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "AcknowledgedAccepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_j3smZu5NEeCisYr99QEiWA_1509485244")]
     [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
-    AcknowledgedAccepted,
+    AcknowledgedAccepted = InstructionProcessingStatusCode.AcknowledgedAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PendingProcessing".
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_j3smZ-5NEeCisYr99QEiWA_405378159")]
     [Description(@"Processing of the instruction is pending.")]
-    PendingProcessing,
+    PendingProcessing = InstructionProcessingStatusCode.PendingProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_j32XYO5NEeCisYr99QEiWA_87601498")]
     [Description(@"Instruction has been rejected for further processing.")]
-    Rejected,
+    Rejected = InstructionProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "InRepair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_j32XYe5NEeCisYr99QEiWA_-398456535")]
     [Description(@"Instruction is accepted but in repair.")]
-    InRepair,
+    InRepair = InstructionProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_j32XYu5NEeCisYr99QEiWA_563889893")]
     [Description(@"Instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = InstructionProcessingStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_j32XY-5NEeCisYr99QEiWA_826912670")]
     [Description(@"Cancellation request from yourself for this instruction is pending waiting for further processing.")]
-    PendingCancellation,
+    PendingCancellation = InstructionProcessingStatusCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
-    /// Encoded/decoded by serializers as "CancellationRequested".
+    /// Encoded/decoded by serializers as "CPRC".
     /// </summary>
     [EnumMember(Value = "CPRC")]
     [IsoId("_j32XZO5NEeCisYr99QEiWA_1615433270")]
     [Description(@"Cancellation request from the counterparty is awaiting for your cancellation request or your consent.")]
-    CancellationRequested,
+    CancellationRequested = InstructionProcessingStatusCode.CancellationRequested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification request from the counterparty is awaiting for your modification request or your consent.
-    /// Encoded/decoded by serializers as "ModificationRequested".
+    /// Encoded/decoded by serializers as "MPRC".
     /// </summary>
     [EnumMember(Value = "MPRC")]
     [IsoId("_j32XZe5NEeCisYr99QEiWA_1449930477")]
     [Description(@"Modification request from the counterparty is awaiting for your modification request or your consent.")]
-    ModificationRequested,
+    ModificationRequested = InstructionProcessingStatusCode.ModificationRequested, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TransactionProcessingStatus4Code
 public static class TransactionProcessingStatus4CodeMetadataExtensions
 {
     private static readonly TransactionProcessingStatus4CodeDropdownSource _dropdownSource = new TransactionProcessingStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

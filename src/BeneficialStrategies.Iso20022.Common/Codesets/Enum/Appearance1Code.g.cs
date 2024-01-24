@@ -21,75 +21,75 @@ public enum Appearance1Code
 {
     /// <summary>
     /// Physical certificates exist.
-    /// Encoded/decoded by serializers as "Deliverable".
+    /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_be9Uo9p-Ed-ak6NoX_4Aeg_1019818408")]
     [Description(@"Physical certificates exist.")]
-    Deliverable,
+    Deliverable = AppearanceCode.Deliverable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not yet deliverable contract.
-    /// Encoded/decoded by serializers as "NotDeliverable".
+    /// Encoded/decoded by serializers as "NDEL".
     /// </summary>
     [EnumMember(Value = "NDEL")]
     [IsoId("_be9UpNp-Ed-ak6NoX_4Aeg_1019818683")]
     [Description(@"Not yet deliverable contract.")]
-    NotDeliverable,
+    NotDeliverable = AppearanceCode.NotDeliverable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limited or partial deliverability.
-    /// Encoded/decoded by serializers as "Limited".
+    /// Encoded/decoded by serializers as "LIMI".
     /// </summary>
     [EnumMember(Value = "LIMI")]
     [IsoId("_be9Updp-Ed-ak6NoX_4Aeg_1019818935")]
     [Description(@"Limited or partial deliverability.")]
-    Limited,
+    Limited = AppearanceCode.Limited, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security exists only as an electronic record, ie, there are no physical certificates representing the security.
-    /// Encoded/decoded by serializers as "BookEntry".
+    /// Encoded/decoded by serializers as "BENT".
     /// </summary>
     [EnumMember(Value = "BENT")]
     [IsoId("_be9Uptp-Ed-ak6NoX_4Aeg_1019818978")]
     [Description(@"Security exists only as an electronic record, ie, there are no physical certificates representing the security.")]
-    BookEntry,
+    BookEntry = AppearanceCode.BookEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deferred printing, book entry.
-    /// Encoded/decoded by serializers as "DeferredBookEntry".
+    /// Encoded/decoded by serializers as "DFBE".
     /// </summary>
     [EnumMember(Value = "DFBE")]
     [IsoId("_be9Up9p-Ed-ak6NoX_4Aeg_1019819013")]
     [Description(@"Deferred printing, book entry.")]
-    DeferredBookEntry,
+    DeferredBookEntry = AppearanceCode.DeferredBookEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deliverable, book entry.
-    /// Encoded/decoded by serializers as "DeliverableBookEntry".
+    /// Encoded/decoded by serializers as "DLBE".
     /// </summary>
     [EnumMember(Value = "DLBE")]
     [IsoId("_be9UqNp-Ed-ak6NoX_4Aeg_1020739027")]
     [Description(@"Deliverable, book entry.")]
-    DeliverableBookEntry,
+    DeliverableBookEntry = AppearanceCode.DeliverableBookEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deferred printing, global certificate.
-    /// Encoded/decoded by serializers as "TemporaryGlobal".
+    /// Encoded/decoded by serializers as "TMPG".
     /// </summary>
     [EnumMember(Value = "TMPG")]
     [IsoId("_bfHFoNp-Ed-ak6NoX_4Aeg_1020739087")]
     [Description(@"Deferred printing, global certificate.")]
-    TemporaryGlobal,
+    TemporaryGlobal = AppearanceCode.TemporaryGlobal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not deliverable, global certificate.
-    /// Encoded/decoded by serializers as "Global".
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_bfHFodp-Ed-ak6NoX_4Aeg_1020739165")]
     [Description(@"Not deliverable, global certificate.")]
-    Global,
+    Global = AppearanceCode.Global, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum Appearance1Code
 public static class Appearance1CodeMetadataExtensions
 {
     private static readonly Appearance1CodeDropdownSource _dropdownSource = new Appearance1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

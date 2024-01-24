@@ -21,30 +21,30 @@ public enum BillingCurrencyType1Code
 {
     /// <summary>
     /// Currency type used for the billing is the account currency.
-    /// Encoded/decoded by serializers as "Account".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_6WXNtJqlEeGSON8vddiWzQ_42035703")]
     [Description(@"Currency type used for the billing is the account currency.")]
-    Account,
+    Account = BillingCurrencyTypeCode.Account, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Currency type used for the billing is the settlement currency.
-    /// Encoded/decoded by serializers as "Settlement".
+    /// Encoded/decoded by serializers as "STLM".
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_6WXNtZqlEeGSON8vddiWzQ_-2111377502")]
     [Description(@"Currency type used for the billing is the settlement currency.")]
-    Settlement,
+    Settlement = BillingCurrencyTypeCode.Settlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Currency type used for the billing is the pricing currency.
-    /// Encoded/decoded by serializers as "Pricing".
+    /// Encoded/decoded by serializers as "PRCG".
     /// </summary>
     [EnumMember(Value = "PRCG")]
     [IsoId("_6WXNtpqlEeGSON8vddiWzQ_-644228739")]
     [Description(@"Currency type used for the billing is the pricing currency.")]
-    Pricing,
+    Pricing = BillingCurrencyTypeCode.Pricing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BillingCurrencyType1Code
 public static class BillingCurrencyType1CodeMetadataExtensions
 {
     private static readonly BillingCurrencyType1CodeDropdownSource _dropdownSource = new BillingCurrencyType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

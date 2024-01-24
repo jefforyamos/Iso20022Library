@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aZEqotp-Ed-ak6NoX_4Aeg_976637789")]
 [Description(@"List of standards insurance clauses. (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).")]
 [Derivations(typeof(InsuranceClauses1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InsuranceClausesCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum InsuranceClausesCode
 public static class InsuranceClausesCodeMetadataExtensions
 {
     private static readonly InsuranceClausesCodeDropdownSource _dropdownSource = new InsuranceClausesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

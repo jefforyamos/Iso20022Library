@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ndM2AHbBEeef9c2nwgY9Xw")]
 [Description(@"Type of fraud reporting.")]
 [Derivations(typeof(FraudReportingAction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FraudReportingActionCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum FraudReportingActionCode
 public static class FraudReportingActionCodeMetadataExtensions
 {
     private static readonly FraudReportingActionCodeDropdownSource _dropdownSource = new FraudReportingActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

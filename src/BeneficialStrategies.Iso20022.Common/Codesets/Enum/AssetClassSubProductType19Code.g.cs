@@ -21,21 +21,21 @@ public enum AssetClassSubProductType19Code
 {
     /// <summary>
     /// Commodity of type deliverable.
-    /// Encoded/decoded by serializers as "Deliverable".
+    /// Encoded/decoded by serializers as "DLVR".
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_TB5cIQ3oEeWc7_0KPiuk6w")]
     [Description(@"Commodity of type deliverable.")]
-    Deliverable,
+    Deliverable = AssetClassSubProductTypeCode.Deliverable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity of type non deliverable.
-    /// Encoded/decoded by serializers as "NonDeliverable".
+    /// Encoded/decoded by serializers as "NDLV".
     /// </summary>
     [EnumMember(Value = "NDLV")]
     [IsoId("_T0xqkQ3oEeWc7_0KPiuk6w")]
     [Description(@"Commodity of type non deliverable.")]
-    NonDeliverable,
+    NonDeliverable = AssetClassSubProductTypeCode.NonDeliverable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssetClassSubProductType19Code
 public static class AssetClassSubProductType19CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType19CodeDropdownSource _dropdownSource = new AssetClassSubProductType19CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

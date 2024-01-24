@@ -21,39 +21,39 @@ public enum EquityReturnParameter1Code
 {
     /// <summary>
     /// Equity derivative parameter Return Dividend.
-    /// Encoded/decoded by serializers as "ParameterReturnDividend".
+    /// Encoded/decoded by serializers as "PRDV".
     /// </summary>
     [EnumMember(Value = "PRDV")]
     [IsoId("_eyxSAQneEeWa7rBfPECYsw")]
     [Description(@"Equity derivative parameter Return Dividend.")]
-    ParameterReturnDividend,
+    ParameterReturnDividend = EquityReturnParameterCode.ParameterReturnDividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity derivative parameter Return Variance.
-    /// Encoded/decoded by serializers as "ParameterReturnVariance".
+    /// Encoded/decoded by serializers as "PRVA".
     /// </summary>
     [EnumMember(Value = "PRVA")]
     [IsoId("_e3rnMQneEeWa7rBfPECYsw")]
     [Description(@"Equity derivative parameter Return Variance.")]
-    ParameterReturnVariance,
+    ParameterReturnVariance = EquityReturnParameterCode.ParameterReturnVariance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity derivative parameter Return Volatility.
-    /// Encoded/decoded by serializers as "ParameterReturnVolatility".
+    /// Encoded/decoded by serializers as "PRVO".
     /// </summary>
     [EnumMember(Value = "PRVO")]
     [IsoId("_e_kX4QneEeWa7rBfPECYsw")]
     [Description(@"Equity derivative parameter Return Volatility.")]
-    ParameterReturnVolatility,
+    ParameterReturnVolatility = EquityReturnParameterCode.ParameterReturnVolatility, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Equity derivative parameter Price Return Basis Performance.
-    /// Encoded/decoded by serializers as "PriceReturnBasicPerformanceParameter".
+    /// Encoded/decoded by serializers as "PRBP".
     /// </summary>
     [EnumMember(Value = "PRBP")]
     [IsoId("_fD4QIQneEeWa7rBfPECYsw")]
     [Description(@"Equity derivative parameter Price Return Basis Performance.")]
-    PriceReturnBasicPerformanceParameter,
+    PriceReturnBasicPerformanceParameter = EquityReturnParameterCode.PriceReturnBasicPerformanceParameter, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum EquityReturnParameter1Code
 public static class EquityReturnParameter1CodeMetadataExtensions
 {
     private static readonly EquityReturnParameter1CodeDropdownSource _dropdownSource = new EquityReturnParameter1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

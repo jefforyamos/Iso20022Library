@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1rgnQDL3EeKU9IrkkToqcw_126985823")]
 [Description(@"Specifies the fractional security handling rule that does not have an ISO value.")]
 [Derivations(typeof(FractionalSecurityRule1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FractionalSecurityRuleCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FractionalSecurityRuleCode
 public static class FractionalSecurityRuleCodeMetadataExtensions
 {
     private static readonly FractionalSecurityRuleCodeDropdownSource _dropdownSource = new FractionalSecurityRuleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

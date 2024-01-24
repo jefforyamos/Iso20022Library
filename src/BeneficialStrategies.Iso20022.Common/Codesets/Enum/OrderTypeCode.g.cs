@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aTj4hNp-Ed-ak6NoX_4Aeg_-82501079")]
 [Description(@"Indicates the type of instruction to a broker or dealer to buy or sell a financial instrument.")]
 [Derivations(typeof(OrderType1Code),typeof(OrderType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OrderTypeCode
 {
     /// <summary>
@@ -317,7 +316,7 @@ public enum OrderTypeCode
 public static class OrderTypeCodeMetadataExtensions
 {
     private static readonly OrderTypeCodeDropdownSource _dropdownSource = new OrderTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

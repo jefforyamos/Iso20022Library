@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8JmxAKMgEeCJ6YNENx4h-w_1084364172")]
 [Description(@"Specifies the type of processing restrictions the central system must apply.")]
 [Derivations(typeof(ProcessingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProcessingTypeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum ProcessingTypeCode
 public static class ProcessingTypeCodeMetadataExtensions
 {
     private static readonly ProcessingTypeCodeDropdownSource _dropdownSource = new ProcessingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6Vwww5qlEeGSON8vddiWzQ_197335871")]
 [Description(@"Defines if and how charges and taxes due are paid to the financial institution.")]
 [Derivations(typeof(CompensationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CompensationMethodCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CompensationMethodCode
 public static class CompensationMethodCodeMetadataExtensions
 {
     private static readonly CompensationMethodCodeDropdownSource _dropdownSource = new CompensationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

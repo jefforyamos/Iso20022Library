@@ -21,12 +21,12 @@ public enum ExtendedEventType3Code
 {
     /// <summary>
     /// Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.
-    /// Encoded/decoded by serializers as "Termination".
+    /// Encoded/decoded by serializers as "TMTN".
     /// </summary>
     [EnumMember(Value = "TMTN")]
     [IsoId("_VygL0Z5REeWsgrkrngh7Ew")]
     [Description(@"Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.")]
-    Termination,
+    Termination = ExtendedEventTypeV2Code.Termination, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ExtendedEventType3Code
 public static class ExtendedEventType3CodeMetadataExtensions
 {
     private static readonly ExtendedEventType3CodeDropdownSource _dropdownSource = new ExtendedEventType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,57 +21,57 @@ public enum ValidationGroupStatus2Code
 {
     /// <summary>
     /// Authentication and syntactical and semantical validation are successful.
-    /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_Y81WINp-Ed-ak6NoX_4Aeg_2013656215")]
     [Description(@"Authentication and syntactical and semantical validation are successful.")]
-    AcceptedTechnicalValidation,
+    AcceptedTechnicalValidation = PaymentStatusCode.AcceptedTechnicalValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preceding check of technical validation was successful. Customer profile check was also successful.
-    /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_Y81WIdp-Ed-ak6NoX_4Aeg_2013656244")]
     [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
-    AcceptedCustomerProfile,
+    AcceptedCustomerProfile = PaymentStatusCode.AcceptedCustomerProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_Y81WItp-Ed-ak6NoX_4Aeg_2013656245")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = PaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
-    /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACSC".
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_Y81WI9p-Ed-ak6NoX_4Aeg_2013656492")]
     [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
-    AcceptedSettlementCompleted,
+    AcceptedSettlementCompleted = PaymentStatusCode.AcceptedSettlementCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but a change will be made, such as date or remittance not sent.
-    /// Encoded/decoded by serializers as "AcceptedWithChange".
+    /// Encoded/decoded by serializers as "ACWC".
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_Y81WJNp-Ed-ak6NoX_4Aeg_2013656522")]
     [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
-    AcceptedWithChange,
+    AcceptedWithChange = PaymentStatusCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_Y81WJdp-Ed-ak6NoX_4Aeg_2013656553")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.")]
-    Pending,
+    Pending = PaymentStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ValidationGroupStatus2Code
 public static class ValidationGroupStatus2CodeMetadataExtensions
 {
     private static readonly ValidationGroupStatus2CodeDropdownSource _dropdownSource = new ValidationGroupStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

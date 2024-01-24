@@ -21,381 +21,381 @@ public enum ReconciliationMessageType2Code
 {
     /// <summary>
     /// Batch Transfer Response
-    /// Encoded/decoded by serializers as "BatchTransferResponse".
+    /// Encoded/decoded by serializers as "BATR".
     /// </summary>
     [EnumMember(Value = "BATR")]
     [IsoId("_ErhfQSB4Eey8XKHwKquEQw")]
     [Description(@"Batch Transfer Response")]
-    BatchTransferResponse,
+    BatchTransferResponse = ReconciliationMessageTypeCode.BatchTransferResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card Management Initiation
-    /// Encoded/decoded by serializers as "CardManagementInitiation".
+    /// Encoded/decoded by serializers as "CAMI".
     /// </summary>
     [EnumMember(Value = "CAMI")]
     [IsoId("_ErhfQyB4Eey8XKHwKquEQw")]
     [Description(@"Card Management Initiation")]
-    CardManagementInitiation,
+    CardManagementInitiation = ReconciliationMessageTypeCode.CardManagementInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card Management Response
-    /// Encoded/decoded by serializers as "CardManagementResponse".
+    /// Encoded/decoded by serializers as "CAMR".
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_ErhfRSB4Eey8XKHwKquEQw")]
     [Description(@"Card Management Response")]
-    CardManagementResponse,
+    CardManagementResponse = ReconciliationMessageTypeCode.CardManagementResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Chargeback Initiation
-    /// Encoded/decoded by serializers as "ChargebackInitiation".
+    /// Encoded/decoded by serializers as "CGBI".
     /// </summary>
     [EnumMember(Value = "CGBI")]
     [IsoId("_ErhfRyB4Eey8XKHwKquEQw")]
     [Description(@"Chargeback Initiation")]
-    ChargebackInitiation,
+    ChargebackInitiation = ReconciliationMessageTypeCode.ChargebackInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Chargeback Response
-    /// Encoded/decoded by serializers as "ChargebackResponse".
+    /// Encoded/decoded by serializers as "CGBR".
     /// </summary>
     [EnumMember(Value = "CGBR")]
     [IsoId("_ErhfSSB4Eey8XKHwKquEQw")]
     [Description(@"Chargeback Response")]
-    ChargebackResponse,
+    ChargebackResponse = ReconciliationMessageTypeCode.ChargebackResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error
-    /// Encoded/decoded by serializers as "Error".
+    /// Encoded/decoded by serializers as "EROR".
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_ErhfSyB4Eey8XKHwKquEQw")]
     [Description(@"Error")]
-    Error,
+    Error = ReconciliationMessageTypeCode.Error, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee Collection Initiation
-    /// Encoded/decoded by serializers as "FeeCollectionInitiation".
+    /// Encoded/decoded by serializers as "FECI".
     /// </summary>
     [EnumMember(Value = "FECI")]
     [IsoId("_ErhfTSB4Eey8XKHwKquEQw")]
     [Description(@"Fee Collection Initiation")]
-    FeeCollectionInitiation,
+    FeeCollectionInitiation = ReconciliationMessageTypeCode.FeeCollectionInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee Collection Response
-    /// Encoded/decoded by serializers as "FeeCollectionResponse".
+    /// Encoded/decoded by serializers as "FECR".
     /// </summary>
     [EnumMember(Value = "FECR")]
     [IsoId("_ErhfTyB4Eey8XKHwKquEQw")]
     [Description(@"Fee Collection Response")]
-    FeeCollectionResponse,
+    FeeCollectionResponse = ReconciliationMessageTypeCode.FeeCollectionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File Action Initiation
-    /// Encoded/decoded by serializers as "FileActionInitiation".
+    /// Encoded/decoded by serializers as "FIAI".
     /// </summary>
     [EnumMember(Value = "FIAI")]
     [IsoId("_ErhfUSB4Eey8XKHwKquEQw")]
     [Description(@"File Action Initiation")]
-    FileActionInitiation,
+    FileActionInitiation = ReconciliationMessageTypeCode.FileActionInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File Action Response
-    /// Encoded/decoded by serializers as "FileActionResponse".
+    /// Encoded/decoded by serializers as "FIAR".
     /// </summary>
     [EnumMember(Value = "FIAR")]
     [IsoId("_ErhfUyB4Eey8XKHwKquEQw")]
     [Description(@"File Action Response")]
-    FileActionResponse,
+    FileActionResponse = ReconciliationMessageTypeCode.FileActionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial Response
-    /// Encoded/decoded by serializers as "FinancialResponse".
+    /// Encoded/decoded by serializers as "FINR".
     /// </summary>
     [EnumMember(Value = "FINR")]
     [IsoId("_ErhfVSB4Eey8XKHwKquEQw")]
     [Description(@"Financial Response")]
-    FinancialResponse,
+    FinancialResponse = ReconciliationMessageTypeCode.FinancialResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial Initiation
-    /// Encoded/decoded by serializers as "FinancialInitiation".
+    /// Encoded/decoded by serializers as "FINI".
     /// </summary>
     [EnumMember(Value = "FINI")]
     [IsoId("_ErhfVyB4Eey8XKHwKquEQw")]
     [Description(@"Financial Initiation")]
-    FinancialInitiation,
+    FinancialInitiation = ReconciliationMessageTypeCode.FinancialInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fraud Disposition Initiation
-    /// Encoded/decoded by serializers as "FraudDispositionInitiation".
+    /// Encoded/decoded by serializers as "FRDI".
     /// </summary>
     [EnumMember(Value = "FRDI")]
     [IsoId("_ErhfWSB4Eey8XKHwKquEQw")]
     [Description(@"Fraud Disposition Initiation")]
-    FraudDispositionInitiation,
+    FraudDispositionInitiation = ReconciliationMessageTypeCode.FraudDispositionInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fraud Disposition Response
-    /// Encoded/decoded by serializers as "FraudDispositionResponse".
+    /// Encoded/decoded by serializers as "FRDR".
     /// </summary>
     [EnumMember(Value = "FRDR")]
     [IsoId("_ErhfWyB4Eey8XKHwKquEQw")]
     [Description(@"Fraud Disposition Response")]
-    FraudDispositionResponse,
+    FraudDispositionResponse = ReconciliationMessageTypeCode.FraudDispositionResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fraud Reporting Initiation
-    /// Encoded/decoded by serializers as "FraudReportingInitiation".
+    /// Encoded/decoded by serializers as "FRRI".
     /// </summary>
     [EnumMember(Value = "FRRI")]
     [IsoId("_ErhfXSB4Eey8XKHwKquEQw")]
     [Description(@"Fraud Reporting Initiation")]
-    FraudReportingInitiation,
+    FraudReportingInitiation = ReconciliationMessageTypeCode.FraudReportingInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fraud Reporting Response
-    /// Encoded/decoded by serializers as "FraudReportingResponse".
+    /// Encoded/decoded by serializers as "FRRR".
     /// </summary>
     [EnumMember(Value = "FRRR")]
     [IsoId("_ErhfXyB4Eey8XKHwKquEQw")]
     [Description(@"Fraud Reporting Response")]
-    FraudReportingResponse,
+    FraudReportingResponse = ReconciliationMessageTypeCode.FraudReportingResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inquiry Initiation
-    /// Encoded/decoded by serializers as "InquiryInitiation".
+    /// Encoded/decoded by serializers as "INQI".
     /// </summary>
     [EnumMember(Value = "INQI")]
     [IsoId("_ErhfYSB4Eey8XKHwKquEQw")]
     [Description(@"Inquiry Initiation")]
-    InquiryInitiation,
+    InquiryInitiation = ReconciliationMessageTypeCode.InquiryInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inquiry Response
-    /// Encoded/decoded by serializers as "InquiryResponse".
+    /// Encoded/decoded by serializers as "INQR".
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_ErhfYyB4Eey8XKHwKquEQw")]
     [Description(@"Inquiry Response")]
-    InquiryResponse,
+    InquiryResponse = ReconciliationMessageTypeCode.InquiryResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key Exchange Initiation
-    /// Encoded/decoded by serializers as "KeyExchangeInitiation".
+    /// Encoded/decoded by serializers as "KYEI".
     /// </summary>
     [EnumMember(Value = "KYEI")]
     [IsoId("_ErhfZSB4Eey8XKHwKquEQw")]
     [Description(@"Key Exchange Initiation")]
-    KeyExchangeInitiation,
+    KeyExchangeInitiation = ReconciliationMessageTypeCode.KeyExchangeInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Key Exchange Response
-    /// Encoded/decoded by serializers as "KeyExchangeResponse".
+    /// Encoded/decoded by serializers as "KYER".
     /// </summary>
     [EnumMember(Value = "KYER")]
     [IsoId("_ErhfZyB4Eey8XKHwKquEQw")]
     [Description(@"Key Exchange Response")]
-    KeyExchangeResponse,
+    KeyExchangeResponse = ReconciliationMessageTypeCode.KeyExchangeResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Network Management Initiation.
-    /// Encoded/decoded by serializers as "NetworkManagementInitiation".
+    /// Encoded/decoded by serializers as "NWMI".
     /// </summary>
     [EnumMember(Value = "NWMI")]
     [IsoId("_ErhfaSB4Eey8XKHwKquEQw")]
     [Description(@"Network Management Initiation.")]
-    NetworkManagementInitiation,
+    NetworkManagementInitiation = ReconciliationMessageTypeCode.NetworkManagementInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Network Management Response
-    /// Encoded/decoded by serializers as "NetworkManagementResponse".
+    /// Encoded/decoded by serializers as "NWMR".
     /// </summary>
     [EnumMember(Value = "NWMR")]
     [IsoId("_ErhfayB4Eey8XKHwKquEQw")]
     [Description(@"Network Management Response")]
-    NetworkManagementResponse,
+    NetworkManagementResponse = ReconciliationMessageTypeCode.NetworkManagementResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation Initiation
-    /// Encoded/decoded by serializers as "ReconciliationInitiation".
+    /// Encoded/decoded by serializers as "RECI".
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_ErhfbSB4Eey8XKHwKquEQw")]
     [Description(@"Reconciliation Initiation")]
-    ReconciliationInitiation,
+    ReconciliationInitiation = ReconciliationMessageTypeCode.ReconciliationInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reconciliation Response
-    /// Encoded/decoded by serializers as "ReconciliationResponse".
+    /// Encoded/decoded by serializers as "RECR".
     /// </summary>
     [EnumMember(Value = "RECR")]
     [IsoId("_ErhfbyB4Eey8XKHwKquEQw")]
     [Description(@"Reconciliation Response")]
-    ReconciliationResponse,
+    ReconciliationResponse = ReconciliationMessageTypeCode.ReconciliationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retrieval Fulfilment Initiation
-    /// Encoded/decoded by serializers as "RetrievalFulfilmentInitiation".
+    /// Encoded/decoded by serializers as "RTFI".
     /// </summary>
     [EnumMember(Value = "RTFI")]
     [IsoId("_ErhfcSB4Eey8XKHwKquEQw")]
     [Description(@"Retrieval Fulfilment Initiation")]
-    RetrievalFulfilmentInitiation,
+    RetrievalFulfilmentInitiation = ReconciliationMessageTypeCode.RetrievalFulfilmentInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retrieval Fulfilment Response
-    /// Encoded/decoded by serializers as "RetrievalFulfilmentResponse".
+    /// Encoded/decoded by serializers as "RTFR".
     /// </summary>
     [EnumMember(Value = "RTFR")]
     [IsoId("_ErhfcyB4Eey8XKHwKquEQw")]
     [Description(@"Retrieval Fulfilment Response")]
-    RetrievalFulfilmentResponse,
+    RetrievalFulfilmentResponse = ReconciliationMessageTypeCode.RetrievalFulfilmentResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retrieval Response
-    /// Encoded/decoded by serializers as "RetrievalResponse".
+    /// Encoded/decoded by serializers as "RTRI".
     /// </summary>
     [EnumMember(Value = "RTRI")]
     [IsoId("_ErhfdyB4Eey8XKHwKquEQw")]
     [Description(@"Retrieval Response")]
-    RetrievalResponse,
+    RetrievalResponse = ReconciliationMessageTypeCode.RetrievalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal Initiation
-    /// Encoded/decoded by serializers as "ReversalInitiation".
+    /// Encoded/decoded by serializers as "REVI".
     /// </summary>
     [EnumMember(Value = "REVI")]
     [IsoId("_ErhfeSB4Eey8XKHwKquEQw")]
     [Description(@"Reversal Initiation")]
-    ReversalInitiation,
+    ReversalInitiation = ReconciliationMessageTypeCode.ReversalInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reversal Response
-    /// Encoded/decoded by serializers as "ReversalResponse".
+    /// Encoded/decoded by serializers as "REVR".
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_EriGUSB4Eey8XKHwKquEQw")]
     [Description(@"Reversal Response")]
-    ReversalResponse,
+    ReversalResponse = ReconciliationMessageTypeCode.ReversalResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement Reporting Initiation
-    /// Encoded/decoded by serializers as "SettlementReportingInitiation".
+    /// Encoded/decoded by serializers as "SERI".
     /// </summary>
     [EnumMember(Value = "SERI")]
     [IsoId("_EriGUyB4Eey8XKHwKquEQw")]
     [Description(@"Settlement Reporting Initiation")]
-    SettlementReportingInitiation,
+    SettlementReportingInitiation = ReconciliationMessageTypeCode.SettlementReportingInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement Reporting Response
-    /// Encoded/decoded by serializers as "SettlementReportingResponse".
+    /// Encoded/decoded by serializers as "SERR".
     /// </summary>
     [EnumMember(Value = "SERR")]
     [IsoId("_EriGVSB4Eey8XKHwKquEQw")]
     [Description(@"Settlement Reporting Response")]
-    SettlementReportingResponse,
+    SettlementReportingResponse = ReconciliationMessageTypeCode.SettlementReportingResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification Initiation.
-    /// Encoded/decoded by serializers as "VerificationInitiation".
+    /// Encoded/decoded by serializers as "VERI".
     /// </summary>
     [EnumMember(Value = "VERI")]
     [IsoId("_EriGVyB4Eey8XKHwKquEQw")]
     [Description(@"Verification Initiation.")]
-    VerificationInitiation,
+    VerificationInitiation = ReconciliationMessageTypeCode.VerificationInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification Response
-    /// Encoded/decoded by serializers as "VerificationResponse".
+    /// Encoded/decoded by serializers as "VERR".
     /// </summary>
     [EnumMember(Value = "VERR")]
     [IsoId("_EriGWSB4Eey8XKHwKquEQw")]
     [Description(@"Verification Response")]
-    VerificationResponse,
+    VerificationResponse = ReconciliationMessageTypeCode.VerificationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amendment
-    /// Encoded/decoded by serializers as "Amendment".
+    /// Encoded/decoded by serializers as "AMDT".
     /// </summary>
     [EnumMember(Value = "AMDT")]
     [IsoId("_EriGWyB4Eey8XKHwKquEQw")]
     [Description(@"Amendment")]
-    Amendment,
+    Amendment = ReconciliationMessageTypeCode.Amendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authorisation Initiation
-    /// Encoded/decoded by serializers as "AuthorisationInitiation".
+    /// Encoded/decoded by serializers as "ATHI".
     /// </summary>
     [EnumMember(Value = "ATHI")]
     [IsoId("_EriGXSB4Eey8XKHwKquEQw")]
     [Description(@"Authorisation Initiation")]
-    AuthorisationInitiation,
+    AuthorisationInitiation = ReconciliationMessageTypeCode.AuthorisationInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authorisation Response
-    /// Encoded/decoded by serializers as "AuthorisationResponse".
+    /// Encoded/decoded by serializers as "ATHR".
     /// </summary>
     [EnumMember(Value = "ATHR")]
     [IsoId("_EriGXyB4Eey8XKHwKquEQw")]
     [Description(@"Authorisation Response")]
-    AuthorisationResponse,
+    AuthorisationResponse = ReconciliationMessageTypeCode.AuthorisationResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Batch Management Initiation
-    /// Encoded/decoded by serializers as "BatchManagementInitiation".
+    /// Encoded/decoded by serializers as "BAMI".
     /// </summary>
     [EnumMember(Value = "BAMI")]
     [IsoId("_EriGYSB4Eey8XKHwKquEQw")]
     [Description(@"Batch Management Initiation")]
-    BatchManagementInitiation,
+    BatchManagementInitiation = ReconciliationMessageTypeCode.BatchManagementInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Batch Management Response
-    /// Encoded/decoded by serializers as "BatchManagementResponse".
+    /// Encoded/decoded by serializers as "BAMR".
     /// </summary>
     [EnumMember(Value = "BAMR")]
     [IsoId("_EriGYyB4Eey8XKHwKquEQw")]
     [Description(@"Batch Management Response")]
-    BatchManagementResponse,
+    BatchManagementResponse = ReconciliationMessageTypeCode.BatchManagementResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Batch Transfer Initiation
-    /// Encoded/decoded by serializers as "BatchTransferInitiation".
+    /// Encoded/decoded by serializers as "BATI".
     /// </summary>
     [EnumMember(Value = "BATI")]
     [IsoId("_EriGZSB4Eey8XKHwKquEQw")]
     [Description(@"Batch Transfer Initiation")]
-    BatchTransferInitiation,
+    BatchTransferInitiation = ReconciliationMessageTypeCode.BatchTransferInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Addendum initiation
-    /// Encoded/decoded by serializers as "AddendumInitiation".
+    /// Encoded/decoded by serializers as "ADDI".
     /// </summary>
     [EnumMember(Value = "ADDI")]
     [IsoId("_EriGZyB4Eey8XKHwKquEQw")]
     [Description(@"Addendum initiation")]
-    AddendumInitiation,
+    AddendumInitiation = ReconciliationMessageTypeCode.AddendumInitiation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Addendum response
-    /// Encoded/decoded by serializers as "AddendumResponse".
+    /// Encoded/decoded by serializers as "ADDR".
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_EriGaSB4Eey8XKHwKquEQw")]
     [Description(@"Addendum response")]
-    AddendumResponse,
+    AddendumResponse = ReconciliationMessageTypeCode.AddendumResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retrieval Initiation Message
-    /// Encoded/decoded by serializers as "RetrievalInitiation".
+    /// Encoded/decoded by serializers as "RTVI".
     /// </summary>
     [EnumMember(Value = "RTVI")]
     [IsoId("_vgp9IS3iEeyg-aG5nXcnfg")]
     [Description(@"Retrieval Initiation Message")]
-    RetrievalInitiation,
+    RetrievalInitiation = ReconciliationMessageTypeCode.RetrievalInitiation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -406,7 +406,7 @@ public enum ReconciliationMessageType2Code
 public static class ReconciliationMessageType2CodeMetadataExtensions
 {
     private static readonly ReconciliationMessageType2CodeDropdownSource _dropdownSource = new ReconciliationMessageType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

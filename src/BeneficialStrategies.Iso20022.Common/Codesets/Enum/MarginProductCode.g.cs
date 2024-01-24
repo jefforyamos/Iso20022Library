@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YZq-t9p-Ed-ak6NoX_4Aeg_1067655731")]
 [Description(@"Specifies the underlying product of the margin.")]
 [Derivations(typeof(MarginProduct1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MarginProductCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MarginProductCode
 public static class MarginProductCodeMetadataExtensions
 {
     private static readonly MarginProductCodeDropdownSource _dropdownSource = new MarginProductCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

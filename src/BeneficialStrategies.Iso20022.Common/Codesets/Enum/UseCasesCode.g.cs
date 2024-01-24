@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Ya3Rgdp-Ed-ak6NoX_4Aeg_1660587071")]
 [Description(@"Specifies the action on the cash account.")]
 [Derivations(typeof(UseCases1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UseCasesCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum UseCasesCode
 public static class UseCasesCodeMetadataExtensions
 {
     private static readonly UseCasesCodeDropdownSource _dropdownSource = new UseCasesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

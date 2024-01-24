@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_X-nhUE4LEeiQHa-q1Uephw")]
 [Description(@"Specifies a type of tax efficient product.")]
 [Derivations(typeof(TaxEfficientProductType1Code),typeof(TaxEfficientProductType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TaxEfficientProductTypeCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum TaxEfficientProductTypeCode
 public static class TaxEfficientProductTypeCodeMetadataExtensions
 {
     private static readonly TaxEfficientProductTypeCodeDropdownSource _dropdownSource = new TaxEfficientProductTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassSubProductType1Code
 {
     /// <summary>
     /// Commodity of type grain oil seeds.
-    /// Encoded/decoded by serializers as "GrainOilSeeds".
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_LOvsMQnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type grain oil seeds.")]
-    GrainOilSeeds,
+    GrainOilSeeds = AssetClassSubProductTypeCode.GrainOilSeeds, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType1Code
 public static class AssetClassSubProductType1CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType1CodeDropdownSource _dropdownSource = new AssetClassSubProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

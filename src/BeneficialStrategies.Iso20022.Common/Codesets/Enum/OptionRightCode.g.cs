@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__vYmkdojEeC60axPepSq7g_-720567481")]
 [Description(@"Specifies the option rights.")]
 [Derivations(typeof(OptionRight1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OptionRightCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OptionRightCode
 public static class OptionRightCodeMetadataExtensions
 {
     private static readonly OptionRightCodeDropdownSource _dropdownSource = new OptionRightCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

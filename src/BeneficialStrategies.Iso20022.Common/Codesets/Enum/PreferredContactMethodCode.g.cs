@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6UHyCJqlEeGSON8vddiWzQ_1695397384")]
 [Description(@"Preferred method used to reach the individual contact within an organisation.")]
 [Derivations(typeof(PreferredContactMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PreferredContactMethodCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PreferredContactMethodCode
 public static class PreferredContactMethodCodeMetadataExtensions
 {
     private static readonly PreferredContactMethodCodeDropdownSource _dropdownSource = new PreferredContactMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

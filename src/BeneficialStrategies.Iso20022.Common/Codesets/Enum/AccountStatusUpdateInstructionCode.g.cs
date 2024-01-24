@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-lU1sHi5EeaRm5xIK6nGuQ")]
 [Description(@"Specifies the type of account status update instructed.")]
 [Derivations(typeof(AccountStatusUpdateInstruction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountStatusUpdateInstructionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AccountStatusUpdateInstructionCode
 public static class AccountStatusUpdateInstructionCodeMetadataExtensions
 {
     private static readonly AccountStatusUpdateInstructionCodeDropdownSource _dropdownSource = new AccountStatusUpdateInstructionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

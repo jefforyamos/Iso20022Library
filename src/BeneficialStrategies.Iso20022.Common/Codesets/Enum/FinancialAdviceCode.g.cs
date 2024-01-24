@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_an-pVNp-Ed-ak6NoX_4Aeg_610878701")]
 [Description(@"Specifies if advice has been received from an independent financial advisor.")]
 [Derivations(typeof(FinancialAdvice1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FinancialAdviceCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FinancialAdviceCode
 public static class FinancialAdviceCodeMetadataExtensions
 {
     private static readonly FinancialAdviceCodeDropdownSource _dropdownSource = new FinancialAdviceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

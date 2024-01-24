@@ -17,81 +17,81 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_ukpS8JkYEeu3i5QmrY5b7Q")]
-[Description(@"Specifies the external rates and tenors code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external rates and tenors code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalRatesAndTenorsCode))]
 public enum ExternalRatesAndTenors1Code
 {
     /// <summary>
     /// Euro interbank offered rate (3 months, 6 months and other tenors).
-    /// Encoded/decoded by serializers as "Euribor".
+    /// Encoded/decoded by serializers as "EURI".
     /// </summary>
     [EnumMember(Value = "EURI")]
     [IsoId("_9lCmAQTyEey95qpfbNuEwg")]
     [Description(@"Euro interbank offered rate (3 months, 6 months and other tenors).")]
-    Euribor,
+    Euribor = ExternalRatesAndTenorsCode.Euribor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Euro Overnight Index Swap (ESTROIS) 1 day, 1 week, other tenors.
-    /// Encoded/decoded by serializers as "EuroOvernightIndexSwap".
+    /// Encoded/decoded by serializers as "ESOI".
     /// </summary>
     [EnumMember(Value = "ESOI")]
     [IsoId("_9rTmEQTyEey95qpfbNuEwg")]
     [Description(@"Euro Overnight Index Swap (ESTROIS) 1 day, 1 week, other tenors.")]
-    EuroOvernightIndexSwap,
+    EuroOvernightIndexSwap = ExternalRatesAndTenorsCode.EuroOvernightIndexSwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Euro short-term rate.
-    /// Encoded/decoded by serializers as "EuroShortTermRate".
+    /// Encoded/decoded by serializers as "ESTR".
     /// </summary>
     [EnumMember(Value = "ESTR")]
     [IsoId("_9w0YMQTyEey95qpfbNuEwg")]
     [Description(@"Euro short-term rate.")]
-    EuroShortTermRate,
+    EuroShortTermRate = ExternalRatesAndTenorsCode.EuroShortTermRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pound sterling London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
-    /// Encoded/decoded by serializers as "GBPLibor".
+    /// Encoded/decoded by serializers as "GBPO".
     /// </summary>
     [EnumMember(Value = "GBPO")]
     [IsoId("_97sLcQTyEey95qpfbNuEwg")]
     [Description(@"Pound sterling London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.")]
-    GBPLibor,
+    GBPLibor = ExternalRatesAndTenorsCode.GBPLibor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other floating rates and tenors.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-FiD8QTyEey95qpfbNuEwg")]
     [Description(@"Other floating rates and tenors.")]
-    Other,
+    Other = ExternalRatesAndTenorsCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secured overnight financing rate (1 months, 3 months, other tenors).
-    /// Encoded/decoded by serializers as "SecuredOvernightFinancingRate".
+    /// Encoded/decoded by serializers as "SOFR".
     /// </summary>
     [EnumMember(Value = "SOFR")]
     [IsoId("_-KcZIQTyEey95qpfbNuEwg")]
     [Description(@"Secured overnight financing rate (1 months, 3 months, other tenors).")]
-    SecuredOvernightFinancingRate,
+    SecuredOvernightFinancingRate = ExternalRatesAndTenorsCode.SecuredOvernightFinancingRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// US dollar overnight index swap (1 day, 1 week, other tenors), USDOIS.
-    /// Encoded/decoded by serializers as "USDOvernightIndexSwap".
+    /// Encoded/decoded by serializers as "USOI".
     /// </summary>
     [EnumMember(Value = "USOI")]
     [IsoId("_-P9LQQTyEey95qpfbNuEwg")]
     [Description(@"US dollar overnight index swap (1 day, 1 week, other tenors), USDOIS.")]
-    USDOvernightIndexSwap,
+    USDOvernightIndexSwap = ExternalRatesAndTenorsCode.USDOvernightIndexSwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// US dollar London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
-    /// Encoded/decoded by serializers as "USDLibor".
+    /// Encoded/decoded by serializers as "USPO".
     /// </summary>
     [EnumMember(Value = "USPO")]
     [IsoId("_-U4HgQTyEey95qpfbNuEwg")]
     [Description(@"US dollar London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.")]
-    USDLibor,
+    USDLibor = ExternalRatesAndTenorsCode.USDLibor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -102,7 +102,7 @@ public enum ExternalRatesAndTenors1Code
 public static class ExternalRatesAndTenors1CodeMetadataExtensions
 {
     private static readonly ExternalRatesAndTenors1CodeDropdownSource _dropdownSource = new ExternalRatesAndTenors1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

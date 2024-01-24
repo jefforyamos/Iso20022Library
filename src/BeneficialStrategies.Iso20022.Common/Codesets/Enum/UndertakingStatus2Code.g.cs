@@ -21,21 +21,21 @@ public enum UndertakingStatus2Code
 {
     /// <summary>
     /// Accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_9NC3RnymEeGWJuGCfvwOsQ")]
     [Description(@"Accepted.")]
-    Accepted,
+    Accepted = UndertakingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_u-8y1n4EEeG05p8M2uqofg")]
     [Description(@"Rejected.")]
-    Rejected,
+    Rejected = UndertakingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum UndertakingStatus2Code
 public static class UndertakingStatus2CodeMetadataExtensions
 {
     private static readonly UndertakingStatus2CodeDropdownSource _dropdownSource = new UndertakingStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

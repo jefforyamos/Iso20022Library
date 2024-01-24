@@ -21,21 +21,21 @@ public enum CorporateActionCancellationReason1Code
 {
     /// <summary>
     /// Cancellation due to the corporate action event being cancelled by the issuer.
-    /// Encoded/decoded by serializers as "Withrawal".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bCpMFNp-Ed-ak6NoX_4Aeg_-232047422")]
     [Description(@"Cancellation due to the corporate action event being cancelled by the issuer.")]
-    Withrawal,
+    Withrawal = CorporateActionCancellationReasonCode.Withrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation due to a processing error.
-    /// Encoded/decoded by serializers as "Processing".
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_bCpMFdp-Ed-ak6NoX_4Aeg_167838210")]
     [Description(@"Cancellation due to a processing error.")]
-    Processing,
+    Processing = CorporateActionCancellationReasonCode.Processing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionCancellationReason1Code
 public static class CorporateActionCancellationReason1CodeMetadataExtensions
 {
     private static readonly CorporateActionCancellationReason1CodeDropdownSource _dropdownSource = new CorporateActionCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

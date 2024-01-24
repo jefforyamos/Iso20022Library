@@ -21,21 +21,21 @@ public enum ReconciliationImpact1Code
 {
     /// <summary>
     /// Debit category
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("__1Z-cS7OEemIy6A-26wnAg")]
     [Description(@"Debit category")]
-    Debit,
+    Debit = ReconciliationImpactCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit category
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("__5E9gS7OEemIy6A-26wnAg")]
     [Description(@"Credit category")]
-    Credit,
+    Credit = ReconciliationImpactCode.Credit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReconciliationImpact1Code
 public static class ReconciliationImpact1CodeMetadataExtensions
 {
     private static readonly ReconciliationImpact1CodeDropdownSource _dropdownSource = new ReconciliationImpact1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

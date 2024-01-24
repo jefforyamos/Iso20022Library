@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_JJT9wLh0Eea3PLWeF1tJsQ")]
 [Description(@"Domain of an identifier.")]
 [Derivations(typeof(SchemeIdentificationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SchemeIdentificationTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum SchemeIdentificationTypeCode
 public static class SchemeIdentificationTypeCodeMetadataExtensions
 {
     private static readonly SchemeIdentificationTypeCodeDropdownSource _dropdownSource = new SchemeIdentificationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

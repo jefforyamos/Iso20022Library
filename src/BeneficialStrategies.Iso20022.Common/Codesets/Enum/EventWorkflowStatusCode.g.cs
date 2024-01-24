@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1v-3kzL3EeKU9IrkkToqcw_-1586819968")]
 [Description(@"Specifies the workflow status of the announcement record based on validation procedure.")]
 [Derivations(typeof(EventWorkflowStatus1Code),typeof(EventWorkflowStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EventWorkflowStatusCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum EventWorkflowStatusCode
 public static class EventWorkflowStatusCodeMetadataExtensions
 {
     private static readonly EventWorkflowStatusCodeDropdownSource _dropdownSource = new EventWorkflowStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

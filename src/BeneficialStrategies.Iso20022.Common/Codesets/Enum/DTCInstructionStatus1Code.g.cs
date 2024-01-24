@@ -21,39 +21,39 @@ public enum DTCInstructionStatus1Code
 {
     /// <summary>
     /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
-    /// Encoded/decoded by serializers as "Recycle".
+    /// Encoded/decoded by serializers as "RECY".
     /// </summary>
     [EnumMember(Value = "RECY")]
     [IsoId("_121thTL3EeKU9IrkkToqcw_1047722971")]
     [Description(@"Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.")]
-    Recycle,
+    Recycle = DTCInstructionStatusCode.Recycle, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fully processed instruction.
-    /// Encoded/decoded by serializers as "Made".
+    /// Encoded/decoded by serializers as "MADE".
     /// </summary>
     [EnumMember(Value = "MADE")]
     [IsoId("_121thjL3EeKU9IrkkToqcw_-1664224946")]
     [Description(@"Fully processed instruction.")]
-    Made,
+    Made = DTCInstructionStatusCode.Made, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction dropped due to insufficient position.
-    /// Encoded/decoded by serializers as "Dropped".
+    /// Encoded/decoded by serializers as "DROP".
     /// </summary>
     [EnumMember(Value = "DROP")]
     [IsoId("_12-3cDL3EeKU9IrkkToqcw_1558737291")]
     [Description(@"Instruction dropped due to insufficient position.")]
-    Dropped,
+    Dropped = DTCInstructionStatusCode.Dropped, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction rejected.
-    /// Encoded/decoded by serializers as "EditReject".
+    /// Encoded/decoded by serializers as "EDRJ".
     /// </summary>
     [EnumMember(Value = "EDRJ")]
     [IsoId("_12-3cTL3EeKU9IrkkToqcw_-1269081242")]
     [Description(@"Transaction rejected.")]
-    EditReject,
+    EditReject = DTCInstructionStatusCode.EditReject, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DTCInstructionStatus1Code
 public static class DTCInstructionStatus1CodeMetadataExtensions
 {
     private static readonly DTCInstructionStatus1CodeDropdownSource _dropdownSource = new DTCInstructionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

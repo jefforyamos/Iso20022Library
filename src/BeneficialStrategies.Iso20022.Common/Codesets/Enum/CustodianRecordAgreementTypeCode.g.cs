@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_11V4tDL3EeKU9IrkkToqcw_-319409576")]
 [Description(@"Specifies the state of the agreement of the custodian record when compared to composite record.")]
 [Derivations(typeof(CustodianRecordAgreementType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustodianRecordAgreementTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CustodianRecordAgreementTypeCode
 public static class CustodianRecordAgreementTypeCodeMetadataExtensions
 {
     private static readonly CustodianRecordAgreementTypeCodeDropdownSource _dropdownSource = new CustodianRecordAgreementTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

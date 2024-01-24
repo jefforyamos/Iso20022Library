@@ -17,855 +17,855 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_nN1oMDNmEe2UWZuK9pqFtg")]
-[Description(@"Specifies the external unit of measure by means of a code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external unit of measure by means of a code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUnitOfMeasureCode))]
 public enum ExternalUnitOfMeasure1Code
 {
     /// <summary>
     /// Basic unit of mass in the SI system, 1000 grams.
-    /// Encoded/decoded by serializers as "Kilogram".
+    /// Encoded/decoded by serializers as "KILO".
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_nPi4YTNmEe2UWZuK9pqFtg")]
     [Description(@"Basic unit of mass in the SI system, 1000 grams.")]
-    Kilogram,
+    Kilogram = ExternalUnitOfMeasureCode.Kilogram, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard length of cloth, wallpaper, as an item for sale or amount of a substance.
-    /// Encoded/decoded by serializers as "Piece".
+    /// Encoded/decoded by serializers as "PIEC".
     /// </summary>
     [EnumMember(Value = "PIEC")]
     [IsoId("_nPi4YzNmEe2UWZuK9pqFtg")]
     [Description(@"Standard length of cloth, wallpaper, as an item for sale or amount of a substance.")]
-    Piece,
+    Piece = ExternalUnitOfMeasureCode.Piece, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).
-    /// Encoded/decoded by serializers as "Ton".
+    /// Encoded/decoded by serializers as "TONS".
     /// </summary>
     [EnumMember(Value = "TONS")]
     [IsoId("_nPi4ZTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).")]
-    Ton,
+    Ton = ExternalUnitOfMeasureCode.Ton, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length in the metric system, equal to 39.37 inches.
-    /// Encoded/decoded by serializers as "Metre".
+    /// Encoded/decoded by serializers as "METR".
     /// </summary>
     [EnumMember(Value = "METR")]
     [IsoId("_nPi4ZzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of length in the metric system, equal to 39.37 inches.")]
-    Metre,
+    Metre = ExternalUnitOfMeasureCode.Metre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of length equal to 2.54 cm.
-    /// Encoded/decoded by serializers as "Inch".
+    /// Encoded/decoded by serializers as "INCH".
     /// </summary>
     [EnumMember(Value = "INCH")]
     [IsoId("_nPi4aTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of length equal to 2.54 cm.")]
-    Inch,
+    Inch = ExternalUnitOfMeasureCode.Inch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 3 feet or 0.9144 metre.
-    /// Encoded/decoded by serializers as "Yard".
+    /// Encoded/decoded by serializers as "YARD".
     /// </summary>
     [EnumMember(Value = "YARD")]
     [IsoId("_nPi4azNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of length equal to 3 feet or 0.9144 metre.")]
-    Yard,
+    Yard = ExternalUnitOfMeasureCode.Yard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "GBGallon".
+    /// Encoded/decoded by serializers as "GBGA".
     /// </summary>
     [EnumMember(Value = "GBGA")]
     [IsoId("_nPi4bTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 8 pints.")]
-    GBGallon,
+    GBGallon = ExternalUnitOfMeasureCode.GBGallon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to a 1, 000th of a kilo.
-    /// Encoded/decoded by serializers as "Gram".
+    /// Encoded/decoded by serializers as "GRAM".
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_nPi4bzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to a 1, 000th of a kilo.")]
-    Gram,
+    Gram = ExternalUnitOfMeasureCode.Gram, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to one hundredth of a metre.
-    /// Encoded/decoded by serializers as "Centimetre".
+    /// Encoded/decoded by serializers as "CMET".
     /// </summary>
     [EnumMember(Value = "CMET")]
     [IsoId("_nPi4cTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to one hundredth of a metre.")]
-    Centimetre,
+    Centimetre = ExternalUnitOfMeasureCode.Centimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one metre by one metre.
-    /// Encoded/decoded by serializers as "SquareMetre".
+    /// Encoded/decoded by serializers as "SMET".
     /// </summary>
     [EnumMember(Value = "SMET")]
     [IsoId("_nPjfcTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one metre by one metre.")]
-    SquareMetre,
+    SquareMetre = ExternalUnitOfMeasureCode.SquareMetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 1/3 yard.
-    /// Encoded/decoded by serializers as "Foot".
+    /// Encoded/decoded by serializers as "FOOT".
     /// </summary>
     [EnumMember(Value = "FOOT")]
     [IsoId("_nPjfczNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of length equal to 1/3 yard.")]
-    Foot,
+    Foot = ExternalUnitOfMeasureCode.Foot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "Mile".
+    /// Encoded/decoded by serializers as "MILE".
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_nPjfdTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of length equal to 1, 760 yards.")]
-    Mile,
+    Mile = ExternalUnitOfMeasureCode.Mile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one inch by one inch.
-    /// Encoded/decoded by serializers as "SquareInch".
+    /// Encoded/decoded by serializers as "SQIN".
     /// </summary>
     [EnumMember(Value = "SQIN")]
     [IsoId("_nPjfdzNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one inch by one inch.")]
-    SquareInch,
+    SquareInch = ExternalUnitOfMeasureCode.SquareInch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one foot by one foot.
-    /// Encoded/decoded by serializers as "SquareFoot".
+    /// Encoded/decoded by serializers as "SQFO".
     /// </summary>
     [EnumMember(Value = "SQFO")]
     [IsoId("_nPjfeTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one foot by one foot.")]
-    SquareFoot,
+    SquareFoot = ExternalUnitOfMeasureCode.SquareFoot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one mile by one mile.
-    /// Encoded/decoded by serializers as "SquareMile".
+    /// Encoded/decoded by serializers as "SQMI".
     /// </summary>
     [EnumMember(Value = "SQMI")]
     [IsoId("_nPjfezNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one mile by one mile.")]
-    SquareMile,
+    SquareMile = ExternalUnitOfMeasureCode.SquareMile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "GBOunce".
+    /// Encoded/decoded by serializers as "GBOU".
     /// </summary>
     [EnumMember(Value = "GBOU")]
     [IsoId("_nPjffTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight equal to a sixteenth of a pound.")]
-    GBOunce,
+    GBOunce = ExternalUnitOfMeasureCode.GBOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "USOunce".
+    /// Encoded/decoded by serializers as "USOU".
     /// </summary>
     [EnumMember(Value = "USOU")]
     [IsoId("_nPjffzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight equal to a sixteenth of a pound.")]
-    USOunce,
+    USOunce = ExternalUnitOfMeasureCode.USOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 568 cubic centimetres.
-    /// Encoded/decoded by serializers as "GBPint".
+    /// Encoded/decoded by serializers as "GBPI".
     /// </summary>
     [EnumMember(Value = "GBPI")]
     [IsoId("_nPjfgTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 568 cubic centimetres.")]
-    GBPint,
+    GBPint = ExternalUnitOfMeasureCode.GBPint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 473 cubic centimetres.
-    /// Encoded/decoded by serializers as "USPint".
+    /// Encoded/decoded by serializers as "USPI".
     /// </summary>
     [EnumMember(Value = "USPI")]
     [IsoId("_nPjfgzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 473 cubic centimetres.")]
-    USPint,
+    USPint = ExternalUnitOfMeasureCode.USPint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "GBQuart".
+    /// Encoded/decoded by serializers as "GBQA".
     /// </summary>
     [EnumMember(Value = "GBQA")]
     [IsoId("_nPjfhTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 2 pints.")]
-    GBQuart,
+    GBQuart = ExternalUnitOfMeasureCode.GBQuart, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "USQuart".
+    /// Encoded/decoded by serializers as "USQA".
     /// </summary>
     [EnumMember(Value = "USQA")]
     [IsoId("_nPjfhzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 2 pints.")]
-    USQuart,
+    USQuart = ExternalUnitOfMeasureCode.USQuart, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "USGallon".
+    /// Encoded/decoded by serializers as "USGA".
     /// </summary>
     [EnumMember(Value = "USGA")]
     [IsoId("_nPjfiTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 8 pints.")]
-    USGallon,
+    USGallon = ExternalUnitOfMeasureCode.USGallon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is a thousandth of one metre.
-    /// Encoded/decoded by serializers as "Millimetre".
+    /// Encoded/decoded by serializers as "MMET".
     /// </summary>
     [EnumMember(Value = "MMET")]
     [IsoId("_nPjfizNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is a thousandth of one metre.")]
-    Millimetre,
+    Millimetre = ExternalUnitOfMeasureCode.Millimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to 1, 000 meters.
-    /// Encoded/decoded by serializers as "Kilometre".
+    /// Encoded/decoded by serializers as "KMET".
     /// </summary>
     [EnumMember(Value = "KMET")]
     [IsoId("_nPjfjTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to 1, 000 meters.")]
-    Kilometre,
+    Kilometre = ExternalUnitOfMeasureCode.Kilometre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one yard by one yard.
-    /// Encoded/decoded by serializers as "SquareYard".
+    /// Encoded/decoded by serializers as "SQYA".
     /// </summary>
     [EnumMember(Value = "SQYA")]
     [IsoId("_nPjfjzNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one yard by one yard.")]
-    SquareYard,
+    SquareYard = ExternalUnitOfMeasureCode.SquareYard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure equal to 4, 840 square yards.
-    /// Encoded/decoded by serializers as "Acre".
+    /// Encoded/decoded by serializers as "ACRE".
     /// </summary>
     [EnumMember(Value = "ACRE")]
     [IsoId("_nPjfkTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure equal to 4, 840 square yards.")]
-    Acre,
+    Acre = ExternalUnitOfMeasureCode.Acre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure equal to a 100 square meters.
-    /// Encoded/decoded by serializers as "Are".
+    /// Encoded/decoded by serializers as "ARES".
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_nPjfkzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure equal to a 100 square meters.")]
-    Are,
+    Are = ExternalUnitOfMeasureCode.Are, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one millimetre by one millimetre.
-    /// Encoded/decoded by serializers as "SquareMillimetre".
+    /// Encoded/decoded by serializers as "SMIL".
     /// </summary>
     [EnumMember(Value = "SMIL")]
     [IsoId("_nPjflTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one millimetre by one millimetre.")]
-    SquareMillimetre,
+    SquareMillimetre = ExternalUnitOfMeasureCode.SquareMillimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one centimetre by one centimetre.
-    /// Encoded/decoded by serializers as "SquareCentimetre".
+    /// Encoded/decoded by serializers as "SCMT".
     /// </summary>
     [EnumMember(Value = "SCMT")]
     [IsoId("_nPjflzNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one centimetre by one centimetre.")]
-    SquareCentimetre,
+    SquareCentimetre = ExternalUnitOfMeasureCode.SquareCentimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to 10, 000 square meters.
-    /// Encoded/decoded by serializers as "Hectare".
+    /// Encoded/decoded by serializers as "HECT".
     /// </summary>
     [EnumMember(Value = "HECT")]
     [IsoId("_nPjfmTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to 10, 000 square meters.")]
-    Hectare,
+    Hectare = ExternalUnitOfMeasureCode.Hectare, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one kilometre by one kilometre.
-    /// Encoded/decoded by serializers as "SquareKilometre".
+    /// Encoded/decoded by serializers as "SQKI".
     /// </summary>
     [EnumMember(Value = "SQKI")]
     [IsoId("_nPjfmzNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a surface, one kilometre by one kilometre.")]
-    SquareKilometre,
+    SquareKilometre = ExternalUnitOfMeasureCode.SquareKilometre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one thousandth of a litre.
-    /// Encoded/decoded by serializers as "MilliLitre".
+    /// Encoded/decoded by serializers as "MILI".
     /// </summary>
     [EnumMember(Value = "MILI")]
     [IsoId("_nPjfnTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to one thousandth of a litre.")]
-    MilliLitre,
+    MilliLitre = ExternalUnitOfMeasureCode.MilliLitre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one hundredth of a litre.
-    /// Encoded/decoded by serializers as "Centilitre".
+    /// Encoded/decoded by serializers as "CELI".
     /// </summary>
     [EnumMember(Value = "CELI")]
     [IsoId("_nPjfnzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to one hundredth of a litre.")]
-    Centilitre,
+    Centilitre = ExternalUnitOfMeasureCode.Centilitre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to a thousand cubic centimetres.
-    /// Encoded/decoded by serializers as "Litre".
+    /// Encoded/decoded by serializers as "LITR".
     /// </summary>
     [EnumMember(Value = "LITR")]
     [IsoId("_nPjfoTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to a thousand cubic centimetres.")]
-    Litre,
+    Litre = ExternalUnitOfMeasureCode.Litre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to 0.454 kilograms.
-    /// Encoded/decoded by serializers as "Pound".
+    /// Encoded/decoded by serializers as "PUND".
     /// </summary>
     [EnumMember(Value = "PUND")]
     [IsoId("_nPjfozNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight equal to 0.454 kilograms.")]
-    Pound,
+    Pound = ExternalUnitOfMeasureCode.Pound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money deducted from a price or an amount due.
-    /// Encoded/decoded by serializers as "Allowances".
+    /// Encoded/decoded by serializers as "ALOW".
     /// </summary>
     [EnumMember(Value = "ALOW")]
     [IsoId("_nPjfpTNmEe2UWZuK9pqFtg")]
     [Description(@"Amount of money deducted from a price or an amount due.")]
-    Allowances,
+    Allowances = ExternalUnitOfMeasureCode.Allowances, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number of monetary units specified in a currency, where the unit of currency is explicit and compliant with ISO 4217.
-    /// Encoded/decoded by serializers as "AmountOfCurrency".
+    /// Encoded/decoded by serializers as "ACCY".
     /// </summary>
     [EnumMember(Value = "ACCY")]
     [IsoId("_nPjfpzNmEe2UWZuK9pqFtg")]
     [Description(@"Number of monetary units specified in a currency, where the unit of currency is explicit and compliant with ISO 4217.")]
-    AmountOfCurrency,
+    AmountOfCurrency = ExternalUnitOfMeasureCode.AmountOfCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 42 US gallons.
-    /// Encoded/decoded by serializers as "Barrels".
+    /// Encoded/decoded by serializers as "BARL".
     /// </summary>
     [EnumMember(Value = "BARL")]
     [IsoId("_nPkGgTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 42 US gallons.")]
-    Barrels,
+    Barrels = ExternalUnitOfMeasureCode.Barrels, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure for large volumes of natural gas equivalent to 28316846 cubic meters.
-    /// Encoded/decoded by serializers as "BillionCubicFeet".
+    /// Encoded/decoded by serializers as "BCUF".
     /// </summary>
     [EnumMember(Value = "BCUF")]
     [IsoId("_nPkGgzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure for large volumes of natural gas equivalent to 28316846 cubic meters.")]
-    BillionCubicFeet,
+    BillionCubicFeet = ExternalUnitOfMeasureCode.BillionCubicFeet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of length equal to 144 cubic inches.
-    /// Encoded/decoded by serializers as "BoardFeet".
+    /// Encoded/decoded by serializers as "BDFT".
     /// </summary>
     [EnumMember(Value = "BDFT")]
     [IsoId("_nPkGhTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of length equal to 144 cubic inches.")]
-    BoardFeet,
+    BoardFeet = ExternalUnitOfMeasureCode.BoardFeet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight that is equal to 8 gallons. Mostly used for agricultural products with a specification of weight defined for each commodity differently.
-    /// Encoded/decoded by serializers as "Bushels".
+    /// Encoded/decoded by serializers as "BUSL".
     /// </summary>
     [EnumMember(Value = "BUSL")]
     [IsoId("_nPkGhzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight that is equal to 8 gallons. Mostly used for agricultural products with a specification of weight defined for each commodity differently.")]
-    Bushels,
+    Bushels = ExternalUnitOfMeasureCode.Bushels, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of emissions type (or carbon credits) issued by the Clean Development Mechanism (CDM) Executive Board for emission reductions achieved by CDM projects and verified by a DOE (Designated Operational Entity) under the rules of the Kyoto Protocol.
-    /// Encoded/decoded by serializers as "CertifiedEmissionsReduction".
+    /// Encoded/decoded by serializers as "CEER".
     /// </summary>
     [EnumMember(Value = "CEER")]
     [IsoId("_nPkGiTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of emissions type (or carbon credits) issued by the Clean Development Mechanism (CDM) Executive Board for emission reductions achieved by CDM projects and verified by a DOE (Designated Operational Entity) under the rules of the Kyoto Protocol.")]
-    CertifiedEmissionsReduction,
+    CertifiedEmissionsReduction = ExternalUnitOfMeasureCode.CertifiedEmissionsReduction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of offset credits used by the Climate Action Reserve. One Climate Reserve Tonne is equal to one metric ton of Greenhouse Gas (GHG) reduced/sequestered.
-    /// Encoded/decoded by serializers as "ClimateReserveTonnes".
+    /// Encoded/decoded by serializers as "CLRT".
     /// </summary>
     [EnumMember(Value = "CLRT")]
     [IsoId("_nPkGizNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of offset credits used by the Climate Action Reserve. One Climate Reserve Tonne is equal to one metric ton of Greenhouse Gas (GHG) reduced/sequestered.")]
-    ClimateReserveTonnes,
+    ClimateReserveTonnes = ExternalUnitOfMeasureCode.ClimateReserveTonnes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one meter in length, breadth and height or also equal to 1000 liters.
-    /// Encoded/decoded by serializers as "CubicMeters".
+    /// Encoded/decoded by serializers as "CBME".
     /// </summary>
     [EnumMember(Value = "CBME")]
     [IsoId("_nPkGjTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to one meter in length, breadth and height or also equal to 1000 liters.")]
-    CubicMeters,
+    CubicMeters = ExternalUnitOfMeasureCode.CubicMeters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of time that is equal to 24 hours.
-    /// Encoded/decoded by serializers as "Days".
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_nPkGjzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of time that is equal to 24 hours.")]
-    Days,
+    Days = ExternalUnitOfMeasureCode.Days, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight that is equal to the same mass value as a metric ton excluding moisture.
-    /// Encoded/decoded by serializers as "DryMetricTons".
+    /// Encoded/decoded by serializers as "DMET".
     /// </summary>
     [EnumMember(Value = "DMET")]
     [IsoId("_nPkGkTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight that is equal to the same mass value as a metric ton excluding moisture.")]
-    DryMetricTons,
+    DryMetricTons = ExternalUnitOfMeasureCode.DryMetricTons, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure for ownership of credit (or allowance) of carbon dioxide emission (in metric ton).
-    /// Encoded/decoded by serializers as "EnvironmentalCredit".
+    /// Encoded/decoded by serializers as "ENVC".
     /// </summary>
     [EnumMember(Value = "ENVC")]
     [IsoId("_nPkGkzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure for ownership of credit (or allowance) of carbon dioxide emission (in metric ton).")]
-    EnvironmentalCredit,
+    EnvironmentalCredit = ExternalUnitOfMeasureCode.EnvironmentalCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure for reduction of carbon dioxide emission (in metric ton) that may result in Environmental Credit.
-    /// Encoded/decoded by serializers as "EnvironmentalOffset".
+    /// Encoded/decoded by serializers as "ENVO".
     /// </summary>
     [EnumMember(Value = "ENVO")]
     [IsoId("_nPkGlTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure for reduction of carbon dioxide emission (in metric ton) that may result in Environmental Credit.")]
-    EnvironmentalOffset,
+    EnvironmentalOffset = ExternalUnitOfMeasureCode.EnvironmentalOffset, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight or mass of various values in the Imperial Unit System also known as quintal, cental or centum.
-    /// Encoded/decoded by serializers as "Hundredweight".
+    /// Encoded/decoded by serializers as "HUWG".
     /// </summary>
     [EnumMember(Value = "HUWG")]
     [IsoId("_nPkGlzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight or mass of various values in the Imperial Unit System also known as quintal, cental or centum.")]
-    Hundredweight,
+    Hundredweight = ExternalUnitOfMeasureCode.Hundredweight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one day.
-    /// Encoded/decoded by serializers as "KilowattDayCapacity".
+    /// Encoded/decoded by serializers as "KWDC".
     /// </summary>
     [EnumMember(Value = "KWDC")]
     [IsoId("_nPkGmTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000 watt in one day.")]
-    KilowattDayCapacity,
+    KilowattDayCapacity = ExternalUnitOfMeasureCode.KilowattDayCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one kilowatt during one hour.
-    /// Encoded/decoded by serializers as "KilowattHours".
+    /// Encoded/decoded by serializers as "KWHO".
     /// </summary>
     [EnumMember(Value = "KWHO")]
     [IsoId("_nPkGmzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to the power consumption of one kilowatt during one hour.")]
-    KilowattHours,
+    KilowattHours = ExternalUnitOfMeasureCode.KilowattHours, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one hour.
-    /// Encoded/decoded by serializers as "KilowattHoursCapacity".
+    /// Encoded/decoded by serializers as "KWHC".
     /// </summary>
     [EnumMember(Value = "KWHC")]
     [IsoId("_nPkGnTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000 watt in one hour.")]
-    KilowattHoursCapacity,
+    KilowattHoursCapacity = ExternalUnitOfMeasureCode.KilowattHoursCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one minute.
-    /// Encoded/decoded by serializers as "KilowattMinuteCapacity".
+    /// Encoded/decoded by serializers as "KMOC".
     /// </summary>
     [EnumMember(Value = "KMOC")]
     [IsoId("_nPkGnzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000 watt in one minute.")]
-    KilowattMinuteCapacity,
+    KilowattMinuteCapacity = ExternalUnitOfMeasureCode.KilowattMinuteCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one month.
-    /// Encoded/decoded by serializers as "KilowattMonthCapacity".
+    /// Encoded/decoded by serializers as "KWMC".
     /// </summary>
     [EnumMember(Value = "KWMC")]
     [IsoId("_nPkGoTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000 watt in one month.")]
-    KilowattMonthCapacity,
+    KilowattMonthCapacity = ExternalUnitOfMeasureCode.KilowattMonthCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one year.
-    /// Encoded/decoded by serializers as "KilowattYearCapacity".
+    /// Encoded/decoded by serializers as "KWYC".
     /// </summary>
     [EnumMember(Value = "KWYC")]
     [IsoId("_nPkGozNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000 watt in one year.")]
-    KilowattYearCapacity,
+    KilowattYearCapacity = ExternalUnitOfMeasureCode.KilowattYearCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one day.
-    /// Encoded/decoded by serializers as "MegawattDayCapacity".
+    /// Encoded/decoded by serializers as "MWDC".
     /// </summary>
     [EnumMember(Value = "MWDC")]
     [IsoId("_nPkGpTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000000 watt in one day.")]
-    MegawattDayCapacity,
+    MegawattDayCapacity = ExternalUnitOfMeasureCode.MegawattDayCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one megawatt during one hour.
-    /// Encoded/decoded by serializers as "MegawattHours".
+    /// Encoded/decoded by serializers as "MWHO".
     /// </summary>
     [EnumMember(Value = "MWHO")]
     [IsoId("_nPkGpzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to the power consumption of one megawatt during one hour.")]
-    MegawattHours,
+    MegawattHours = ExternalUnitOfMeasureCode.MegawattHours, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one hour.
-    /// Encoded/decoded by serializers as "MegawattHoursCapacity".
+    /// Encoded/decoded by serializers as "MWHC".
     /// </summary>
     [EnumMember(Value = "MWHC")]
     [IsoId("_nPkGqTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000000 watt in one hour.")]
-    MegawattHoursCapacity,
+    MegawattHoursCapacity = ExternalUnitOfMeasureCode.MegawattHoursCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one minute.
-    /// Encoded/decoded by serializers as "MegawattMinuteCapacity".
+    /// Encoded/decoded by serializers as "MWMC".
     /// </summary>
     [EnumMember(Value = "MWMC")]
     [IsoId("_nPkGqzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000000 watt in one minute.")]
-    MegawattMinuteCapacity,
+    MegawattMinuteCapacity = ExternalUnitOfMeasureCode.MegawattMinuteCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one month.
-    /// Encoded/decoded by serializers as "MegawattMonthCapacity".
+    /// Encoded/decoded by serializers as "MMOC".
     /// </summary>
     [EnumMember(Value = "MMOC")]
     [IsoId("_nPkGrTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000000 watt in one month.")]
-    MegawattMonthCapacity,
+    MegawattMonthCapacity = ExternalUnitOfMeasureCode.MegawattMonthCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one year.
-    /// Encoded/decoded by serializers as "MegawattYearCapacity".
+    /// Encoded/decoded by serializers as "MWYC".
     /// </summary>
     [EnumMember(Value = "MWYC")]
     [IsoId("_nPkGrzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of the capacity of production of electric power equal to 1000000 watt in one year.")]
-    MegawattYearCapacity,
+    MegawattYearCapacity = ExternalUnitOfMeasureCode.MegawattYearCapacity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of mass equal to 1000 kilograms; equivalent to approximately 2,204.6 pounds, 1.102 short tons (US) or 0.984 long tons (imperial).
-    /// Encoded/decoded by serializers as "MetricTons".
+    /// Encoded/decoded by serializers as "TONE".
     /// </summary>
     [EnumMember(Value = "TONE")]
     [IsoId("_nPkGsTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of mass equal to 1000 kilograms; equivalent to approximately 2,204.6 pounds, 1.102 short tons (US) or 0.984 long tons (imperial).")]
-    MetricTons,
+    MetricTons = ExternalUnitOfMeasureCode.MetricTons, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 1 million barrels equivalent to 42.000.000 US gallons.
-    /// Encoded/decoded by serializers as "MillionBarrels".
+    /// Encoded/decoded by serializers as "MIBA".
     /// </summary>
     [EnumMember(Value = "MIBA")]
     [IsoId("_nPkGszNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to 1 million barrels equivalent to 42.000.000 US gallons.")]
-    MillionBarrels,
+    MillionBarrels = ExternalUnitOfMeasureCode.MillionBarrels, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of heat equal to one million British thermal unit (BTU).
-    /// Encoded/decoded by serializers as "OneMillionBTU".
+    /// Encoded/decoded by serializers as "MBTU".
     /// </summary>
     [EnumMember(Value = "MBTU")]
     [IsoId("_nPkGtTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of heat equal to one million British thermal unit (BTU).")]
-    OneMillionBTU,
+    OneMillionBTU = ExternalUnitOfMeasureCode.OneMillionBTU, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to 31.1034768 grams. Used in precious metals.
-    /// Encoded/decoded by serializers as "TroyOunces".
+    /// Encoded/decoded by serializers as "OZTR".
     /// </summary>
     [EnumMember(Value = "OZTR")]
     [IsoId("_nPkGtzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight equal to 31.1034768 grams. Used in precious metals.")]
-    TroyOunces,
+    TroyOunces = ExternalUnitOfMeasureCode.TroyOunces, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight or mass of various values in the US Customary System also known as quintal, cental or centum. Equal to 100 lbs.
-    /// Encoded/decoded by serializers as "USHundredweight".
+    /// Encoded/decoded by serializers as "UCWT".
     /// </summary>
     [EnumMember(Value = "UCWT")]
     [IsoId("_nPkGuTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of weight or mass of various values in the US Customary System also known as quintal, cental or centum. Equal to 100 lbs.")]
-    USHundredweight,
+    USHundredweight = ExternalUnitOfMeasureCode.USHundredweight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Decimal number used to calculate an amount or a price.
-    /// Encoded/decoded by serializers as "IndexPoint".
+    /// Encoded/decoded by serializers as "IPNT".
     /// </summary>
     [EnumMember(Value = "IPNT")]
     [IsoId("_nPkGuzNmEe2UWZuK9pqFtg")]
     [Description(@"Decimal number used to calculate an amount or a price.")]
-    IndexPoint,
+    IndexPoint = ExternalUnitOfMeasureCode.IndexPoint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money borrowed, or part of that amount which remains unpaid (excluding interest).
-    /// Encoded/decoded by serializers as "PrincipalWithRelationToDebtInstrument".
+    /// Encoded/decoded by serializers as "PWRD".
     /// </summary>
     [EnumMember(Value = "PWRD")]
     [IsoId("_nPkGvTNmEe2UWZuK9pqFtg")]
     [Description(@"Amount of money borrowed, or part of that amount which remains unpaid (excluding interest).")]
-    PrincipalWithRelationToDebtInstrument,
+    PrincipalWithRelationToDebtInstrument = ExternalUnitOfMeasureCode.PrincipalWithRelationToDebtInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of fuel alternative equal to one gallon of diesel.
-    /// Encoded/decoded by serializers as "DieselGallonEquivalent".
+    /// Encoded/decoded by serializers as "DGEU".
     /// </summary>
     [EnumMember(Value = "DGEU")]
     [IsoId("_nPkGvzNmEe2UWZuK9pqFtg")]
     [Description(@"Amount of fuel alternative equal to one gallon of diesel.")]
-    DieselGallonEquivalent,
+    DieselGallonEquivalent = ExternalUnitOfMeasureCode.DieselGallonEquivalent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of fuel alternative equal to one gallon of gasoline.
-    /// Encoded/decoded by serializers as "GasolineGallonEquivalent".
+    /// Encoded/decoded by serializers as "GGEU".
     /// </summary>
     [EnumMember(Value = "GGEU")]
     [IsoId("_nPkGwTNmEe2UWZuK9pqFtg")]
     [Description(@"Amount of fuel alternative equal to one gallon of gasoline.")]
-    GasolineGallonEquivalent,
+    GasolineGallonEquivalent = ExternalUnitOfMeasureCode.GasolineGallonEquivalent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tons of carbon dioxide.
-    /// Encoded/decoded by serializers as "TonsOfCarbonDioxide".
+    /// Encoded/decoded by serializers as "TOCD".
     /// </summary>
     [EnumMember(Value = "TOCD")]
     [IsoId("_nPkGwzNmEe2UWZuK9pqFtg")]
     [Description(@"Tons of carbon dioxide.")]
-    TonsOfCarbonDioxide,
+    TonsOfCarbonDioxide = ExternalUnitOfMeasureCode.TonsOfCarbonDioxide, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument that gives the owner right to dividends paid by a company and the most junior claim on the companies assets in the event of a bankruptcy.
-    /// Encoded/decoded by serializers as "Shares".
+    /// Encoded/decoded by serializers as "SHAS".
     /// </summary>
     [EnumMember(Value = "SHAS")]
     [IsoId("_nPkGxTNmEe2UWZuK9pqFtg")]
     [Description(@"Financial instrument that gives the owner right to dividends paid by a company and the most junior claim on the companies assets in the event of a bankruptcy.")]
-    Shares,
+    Shares = ExternalUnitOfMeasureCode.Shares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of heat, often used a unit of measure for natural gas in the UK.
-    /// Encoded/decoded by serializers as "Therms".
+    /// Encoded/decoded by serializers as "THMS".
     /// </summary>
     [EnumMember(Value = "THMS")]
     [IsoId("_nPkGxzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of heat, often used a unit of measure for natural gas in the UK.")]
-    Therms,
+    Therms = ExternalUnitOfMeasureCode.Therms, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange traded contract that defines an agreement to buy specific quantities of a commodity or financial instrument at an agreed time in the future.
-    /// Encoded/decoded by serializers as "Future".
+    /// Encoded/decoded by serializers as "FUTU".
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_nPkGyTNmEe2UWZuK9pqFtg")]
     [Description(@"Exchange traded contract that defines an agreement to buy specific quantities of a commodity or financial instrument at an agreed time in the future.")]
-    Future,
+    Future = ExternalUnitOfMeasureCode.Future, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one Gigawatt during one hour.
-    /// Encoded/decoded by serializers as "GigawattHours".
+    /// Encoded/decoded by serializers as "GWHO".
     /// </summary>
     [EnumMember(Value = "GWHO")]
     [IsoId("_nPkGyzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure that is equal to the power consumption of one Gigawatt during one hour.")]
-    GigawattHours,
+    GigawattHours = ExternalUnitOfMeasureCode.GigawattHours, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure of heat required to raise the temperature of one pound of water by one degree Fahrenheit.
-    /// Encoded/decoded by serializers as "BritishThermalUnit".
+    /// Encoded/decoded by serializers as "BRTU".
     /// </summary>
     [EnumMember(Value = "BRTU")]
     [IsoId("_nPkGzTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of measure of heat required to raise the temperature of one pound of water by one degree Fahrenheit.")]
-    BritishThermalUnit,
+    BritishThermalUnit = ExternalUnitOfMeasureCode.BritishThermalUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indication of the unit of measurement.
-    /// Encoded/decoded by serializers as "Lot".
+    /// Encoded/decoded by serializers as "LOTS".
     /// </summary>
     [EnumMember(Value = "LOTS")]
     [IsoId("_nPkGzzNmEe2UWZuK9pqFtg")]
     [Description(@"Indication of the unit of measurement.")]
-    Lot,
+    Lot = ExternalUnitOfMeasureCode.Lot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a bag.
-    /// Encoded/decoded by serializers as "Bag".
+    /// Encoded/decoded by serializers as "BAGG".
     /// </summary>
     [EnumMember(Value = "BAGG")]
     [IsoId("_nPkG0TNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a bag.")]
-    Bag,
+    Bag = ExternalUnitOfMeasureCode.Bag, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a bale.
-    /// Encoded/decoded by serializers as "Bale".
+    /// Encoded/decoded by serializers as "BALE".
     /// </summary>
     [EnumMember(Value = "BALE")]
     [IsoId("_nPkG0zNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a bale.")]
-    Bale,
+    Bale = ExternalUnitOfMeasureCode.Bale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a bottle.
-    /// Encoded/decoded by serializers as "Bottle".
+    /// Encoded/decoded by serializers as "BOTL".
     /// </summary>
     [EnumMember(Value = "BOTL")]
     [IsoId("_nPkG1TNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a bottle.")]
-    Bottle,
+    Bottle = ExternalUnitOfMeasureCode.Bottle, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a box.
-    /// Encoded/decoded by serializers as "Box".
+    /// Encoded/decoded by serializers as "BOXX".
     /// </summary>
     [EnumMember(Value = "BOXX")]
     [IsoId("_nPkG1zNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a box.")]
-    Box,
+    Box = ExternalUnitOfMeasureCode.Box, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a carton.
-    /// Encoded/decoded by serializers as "Carton".
+    /// Encoded/decoded by serializers as "CRTN".
     /// </summary>
     [EnumMember(Value = "CRTN")]
     [IsoId("_nPkG2TNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a carton.")]
-    Carton,
+    Carton = ExternalUnitOfMeasureCode.Carton, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a container.
-    /// Encoded/decoded by serializers as "Container".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_nPkG2zNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a container.")]
-    Container,
+    Container = ExternalUnitOfMeasureCode.Container, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Code for a crate.
-    /// Encoded/decoded by serializers as "Crate".
+    /// Encoded/decoded by serializers as "CRAT".
     /// </summary>
     [EnumMember(Value = "CRAT")]
     [IsoId("_nPkG3TNmEe2UWZuK9pqFtg")]
     [Description(@"Code for a crate.")]
-    Crate,
+    Crate = ExternalUnitOfMeasureCode.Crate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a volume, one inch by one inch by one inch.
-    /// Encoded/decoded by serializers as "CubicInch".
+    /// Encoded/decoded by serializers as "CBIN".
     /// </summary>
     [EnumMember(Value = "CBIN")]
     [IsoId("_nPkG3zNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of a volume, one inch by one inch by one inch.")]
-    CubicInch,
+    CubicInch = ExternalUnitOfMeasureCode.CubicInch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one thousandth of a litre.
-    /// Encoded/decoded by serializers as "CubicMillimetre".
+    /// Encoded/decoded by serializers as "CBML".
     /// </summary>
     [EnumMember(Value = "CBML")]
     [IsoId("_nPktkTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume that is equal to one thousandth of a litre.")]
-    CubicMillimetre,
+    CubicMillimetre = ExternalUnitOfMeasureCode.CubicMillimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume equal to 2, 841 306 centilitre.
-    /// Encoded/decoded by serializers as "GBFuildOunce".
+    /// Encoded/decoded by serializers as "GBFO".
     /// </summary>
     [EnumMember(Value = "GBFO")]
     [IsoId("_nPktkzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume equal to 2, 841 306 centilitre.")]
-    GBFuildOunce,
+    GBFuildOunce = ExternalUnitOfMeasureCode.GBFuildOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of weight, in Britain 2240 lb (long ton).
-    /// Encoded/decoded by serializers as "GBTon".
+    /// Encoded/decoded by serializers as "GBTN".
     /// </summary>
     [EnumMember(Value = "GBTN")]
     [IsoId("_nPktlTNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of weight, in Britain 2240 lb (long ton).")]
-    GBTon,
+    GBTon = ExternalUnitOfMeasureCode.GBTon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume equal to 158, 9873 litre.
-    /// Encoded/decoded by serializers as "USBarrel".
+    /// Encoded/decoded by serializers as "USBA".
     /// </summary>
     [EnumMember(Value = "USBA")]
     [IsoId("_nPktlzNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume equal to 158, 9873 litre.")]
-    USBarrel,
+    USBarrel = ExternalUnitOfMeasureCode.USBarrel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume equal to 2, 957353 centilitre.
-    /// Encoded/decoded by serializers as "USFluidOunce".
+    /// Encoded/decoded by serializers as "USFO".
     /// </summary>
     [EnumMember(Value = "USFO")]
     [IsoId("_nPktmTNmEe2UWZuK9pqFtg")]
     [Description(@"Unit of volume equal to 2, 957353 centilitre.")]
-    USFluidOunce,
+    USFluidOunce = ExternalUnitOfMeasureCode.USFluidOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of weight, in the US 2000 lb (short ton).
-    /// Encoded/decoded by serializers as "USTon".
+    /// Encoded/decoded by serializers as "USTN".
     /// </summary>
     [EnumMember(Value = "USTN")]
     [IsoId("_nPktmzNmEe2UWZuK9pqFtg")]
     [Description(@"Measure of weight, in the US 2000 lb (short ton).")]
-    USTon,
+    USTon = ExternalUnitOfMeasureCode.USTon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cooling degree day
-    /// Encoded/decoded by serializers as "CoolingDegreeDay".
+    /// Encoded/decoded by serializers as "CDDA".
     /// </summary>
     [EnumMember(Value = "CDDA")]
     [IsoId("_nPktnTNmEe2UWZuK9pqFtg")]
     [Description(@"Cooling degree day")]
-    CoolingDegreeDay,
+    CoolingDegreeDay = ExternalUnitOfMeasureCode.CoolingDegreeDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Heating degree day
-    /// Encoded/decoded by serializers as "HeatingDegreeDay".
+    /// Encoded/decoded by serializers as "HDDA".
     /// </summary>
     [EnumMember(Value = "HDDA")]
     [IsoId("_nPktnzNmEe2UWZuK9pqFtg")]
     [Description(@"Heating degree day")]
-    HeatingDegreeDay,
+    HeatingDegreeDay = ExternalUnitOfMeasureCode.HeatingDegreeDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Critical precipitation day
-    /// Encoded/decoded by serializers as "CriticalPrecipitationDay".
+    /// Encoded/decoded by serializers as "CPDA".
     /// </summary>
     [EnumMember(Value = "CPDA")]
     [IsoId("_nPktoTNmEe2UWZuK9pqFtg")]
     [Description(@"Critical precipitation day")]
-    CriticalPrecipitationDay,
+    CriticalPrecipitationDay = ExternalUnitOfMeasureCode.CriticalPrecipitationDay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -876,7 +876,7 @@ public enum ExternalUnitOfMeasure1Code
 public static class ExternalUnitOfMeasure1CodeMetadataExtensions
 {
     private static readonly ExternalUnitOfMeasure1CodeDropdownSource _dropdownSource = new ExternalUnitOfMeasure1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

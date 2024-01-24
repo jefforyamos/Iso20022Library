@@ -21,111 +21,111 @@ public enum Action2Code
 {
     /// <summary>
     /// Request to submit a twin baseline.
-    /// Encoded/decoded by serializers as "SubmitTwin".
+    /// Encoded/decoded by serializers as "SBTW".
     /// </summary>
     [EnumMember(Value = "SBTW")]
     [IsoId("_bp1u8Np-Ed-ak6NoX_4Aeg_-339875060")]
     [Description(@"Request to submit a twin baseline.")]
-    SubmitTwin,
+    SubmitTwin = ActionCode.SubmitTwin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to resubmit a twin baseline.
-    /// Encoded/decoded by serializers as "ReSubmitTwin".
+    /// Encoded/decoded by serializers as "RSTW".
     /// </summary>
     [EnumMember(Value = "RSTW")]
     [IsoId("_bp1u8dp-Ed-ak6NoX_4Aeg_-339875035")]
     [Description(@"Request to resubmit a twin baseline.")]
-    ReSubmitTwin,
+    ReSubmitTwin = ActionCode.ReSubmitTwin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to resubmit a baseline.
-    /// Encoded/decoded by serializers as "ReSubmitBaseline".
+    /// Encoded/decoded by serializers as "RSBS".
     /// </summary>
     [EnumMember(Value = "RSBS")]
     [IsoId("_bp1u8tp-Ed-ak6NoX_4Aeg_-339875018")]
     [Description(@"Request to resubmit a baseline.")]
-    ReSubmitBaseline,
+    ReSubmitBaseline = ActionCode.ReSubmitBaseline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to accept or reject mismatched data set(s).
-    /// Encoded/decoded by serializers as "AcceptOrRejectDataSetMisMatches".
+    /// Encoded/decoded by serializers as "ARDM".
     /// </summary>
     [EnumMember(Value = "ARDM")]
     [IsoId("_bp1u89p-Ed-ak6NoX_4Aeg_-339875000")]
     [Description(@"Request to accept or reject mismatched data set(s).")]
-    AcceptOrRejectDataSetMisMatches,
+    AcceptOrRejectDataSetMisMatches = ActionCode.AcceptOrRejectDataSetMisMatches, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to accept or reject a request for a change of status of the baseline.
-    /// Encoded/decoded by serializers as "AcceptOrRejectChangeOfStatus".
+    /// Encoded/decoded by serializers as "ARCS".
     /// </summary>
     [EnumMember(Value = "ARCS")]
     [IsoId("_bp1u9Np-Ed-ak6NoX_4Aeg_-339874965")]
     [Description(@"Request to accept or reject a request for a change of status of the baseline.")]
-    AcceptOrRejectChangeOfStatus,
+    AcceptOrRejectChangeOfStatus = ActionCode.AcceptOrRejectChangeOfStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to accept or reject a request for an extension of the period of validity of the status of the baseline.
-    /// Encoded/decoded by serializers as "AcceptOrRejectExtensionOfStatus".
+    /// Encoded/decoded by serializers as "ARES".
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_bp1u9dp-Ed-ak6NoX_4Aeg_-339874940")]
     [Description(@"Request to accept or reject a request for an extension of the period of validity of the status of the baseline.")]
-    AcceptOrRejectExtensionOfStatus,
+    AcceptOrRejectExtensionOfStatus = ActionCode.AcceptOrRejectExtensionOfStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to wait until the baseline is established.
-    /// Encoded/decoded by serializers as "WaitForBaselineEstablished".
+    /// Encoded/decoded by serializers as "WAIT".
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_bp1u9tp-Ed-ak6NoX_4Aeg_-339874923")]
     [Description(@"Request to wait until the baseline is established.")]
-    WaitForBaselineEstablished,
+    WaitForBaselineEstablished = ActionCode.WaitForBaselineEstablished, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to update and resend.
-    /// Encoded/decoded by serializers as "UpdateAndResend".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_bp1u99p-Ed-ak6NoX_4Aeg_-339874905")]
     [Description(@"Request to update and resend.")]
-    UpdateAndResend,
+    UpdateAndResend = ActionCode.UpdateAndResend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to submit data set(s).
-    /// Encoded/decoded by serializers as "SubmitDataSet".
+    /// Encoded/decoded by serializers as "SBDS".
     /// </summary>
     [EnumMember(Value = "SBDS")]
     [IsoId("_bp1u-Np-Ed-ak6NoX_4Aeg_-339874615")]
     [Description(@"Request to submit data set(s).")]
-    SubmitDataSet,
+    SubmitDataSet = ActionCode.SubmitDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to accept or reject a request for a baseline amendment.
-    /// Encoded/decoded by serializers as "AcceptOrRejectBaselineAmendment".
+    /// Encoded/decoded by serializers as "ARBA".
     /// </summary>
     [EnumMember(Value = "ARBA")]
     [IsoId("_bp1u-dp-Ed-ak6NoX_4Aeg_-339874597")]
     [Description(@"Request to accept or reject a request for a baseline amendment.")]
-    AcceptOrRejectBaselineAmendment,
+    AcceptOrRejectBaselineAmendment = ActionCode.AcceptOrRejectBaselineAmendment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to accept or reject a baseline and the role contained in it for the financial institution.
-    /// Encoded/decoded by serializers as "AcceptOrRejectBaselineAndRole".
+    /// Encoded/decoded by serializers as "ARRO".
     /// </summary>
     [EnumMember(Value = "ARRO")]
     [IsoId("_bp-44Np-Ed-ak6NoX_4Aeg_-1348151246")]
     [Description(@"Request to accept or reject a baseline and the role contained in it for the financial institution.")]
-    AcceptOrRejectBaselineAndRole,
+    AcceptOrRejectBaselineAndRole = ActionCode.AcceptOrRejectBaselineAndRole, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to check invoice number because it was not found.
-    /// Encoded/decoded by serializers as "CheckInvoiceReference".
+    /// Encoded/decoded by serializers as "CINR".
     /// </summary>
     [EnumMember(Value = "CINR")]
     [IsoId("_bp-44dp-Ed-ak6NoX_4Aeg_82175680")]
     [Description(@"Request to check invoice number because it was not found.")]
-    CheckInvoiceReference,
+    CheckInvoiceReference = ActionCode.CheckInvoiceReference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum Action2Code
 public static class Action2CodeMetadataExtensions
 {
     private static readonly Action2CodeDropdownSource _dropdownSource = new Action2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

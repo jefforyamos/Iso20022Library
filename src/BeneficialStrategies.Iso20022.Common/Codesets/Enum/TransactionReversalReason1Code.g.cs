@@ -21,48 +21,48 @@ public enum TransactionReversalReason1Code
 {
     /// <summary>
     /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "ClosedAccountNumber".
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_YuFId9p-Ed-ak6NoX_4Aeg_1201920053")]
     [Description(@"Account number specified has been closed on the Receiver's books.")]
-    ClosedAccountNumber,
+    ClosedAccountNumber = TransactionReasonCode.ClosedAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_YuFIeNp-Ed-ak6NoX_4Aeg_1202840611")]
     [Description(@"This message appears to have been duplicated.")]
-    Duplication,
+    Duplication = TransactionReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver.
-    /// Encoded/decoded by serializers as "InvalidBankOperationCode".
+    /// Encoded/decoded by serializers as "AG02".
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_YuO5cNp-Ed-ak6NoX_4Aeg_1202842147")]
     [Description(@"Bank Operation code specified in the message is not valid for receiver.")]
-    InvalidBankOperationCode,
+    InvalidBankOperationCode = TransactionReasonCode.InvalidBankOperationCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "NoMandate".
+    /// Encoded/decoded by serializers as "MD01".
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_YuO5cdp-Ed-ak6NoX_4Aeg_1204688750")]
     [Description(@"Mandate is cancelled or invalid.")]
-    NoMandate,
+    NoMandate = TransactionReasonCode.NoMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creditor or creditor's agent should not have collected the direct debit.
-    /// Encoded/decoded by serializers as "CollectionNotDue".
+    /// Encoded/decoded by serializers as "MD05".
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_YuO5ctp-Ed-ak6NoX_4Aeg_1205611187")]
     [Description(@"Creditor or creditor's agent should not have collected the direct debit.")]
-    CollectionNotDue,
+    CollectionNotDue = TransactionReasonCode.CollectionNotDue, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TransactionReversalReason1Code
 public static class TransactionReversalReason1CodeMetadataExtensions
 {
     private static readonly TransactionReversalReason1CodeDropdownSource _dropdownSource = new TransactionReversalReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,156 +21,156 @@ public enum PendingStatus4Code
 {
     /// <summary>
     /// Transaction has been accepted by the clearing agent.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPD".
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_aGJupNp-Ed-ak6NoX_4Aeg_1263998562")]
     [Description(@"Transaction has been accepted by the clearing agent.")]
-    Accepted,
+    Accepted = PaymentInstructionStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been validated by the clearing agent.
-    /// Encoded/decoded by serializers as "Validated".
+    /// Encoded/decoded by serializers as "VALD".
     /// </summary>
     [EnumMember(Value = "VALD")]
     [IsoId("_aGJupdp-Ed-ak6NoX_4Aeg_1263998838")]
     [Description(@"Transaction has been validated by the clearing agent.")]
-    Validated,
+    Validated = PaymentInstructionStatusCode.Validated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been matched with a corresponding transaction by the clearing agent.
-    /// Encoded/decoded by serializers as "Matched".
+    /// Encoded/decoded by serializers as "MATD".
     /// </summary>
     [EnumMember(Value = "MATD")]
     [IsoId("_aGJuptp-Ed-ak6NoX_4Aeg_1263998873")]
     [Description(@"Transaction has been matched with a corresponding transaction by the clearing agent.")]
-    Matched,
+    Matched = PaymentInstructionStatusCode.Matched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been authorised by the transaction administrator or authorised party.
-    /// Encoded/decoded by serializers as "Authorised".
+    /// Encoded/decoded by serializers as "AUTD".
     /// </summary>
     [EnumMember(Value = "AUTD")]
     [IsoId("_aGJup9p-Ed-ak6NoX_4Aeg_1263998915")]
     [Description(@"Transaction has been authorised by the transaction administrator or authorised party.")]
-    Authorised,
+    Authorised = PaymentInstructionStatusCode.Authorised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is invalid.
-    /// Encoded/decoded by serializers as "Invalid".
+    /// Encoded/decoded by serializers as "INVD".
     /// </summary>
     [EnumMember(Value = "INVD")]
     [IsoId("_aGJuqNp-Ed-ak6NoX_4Aeg_1263998933")]
     [Description(@"Transaction is invalid.")]
-    Invalid,
+    Invalid = PaymentInstructionStatusCode.Invalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing agent attempted to match the transaction with a corresponding transaction but failed.
-    /// Encoded/decoded by serializers as "Unmatched".
+    /// Encoded/decoded by serializers as "UMAC".
     /// </summary>
     [EnumMember(Value = "UMAC")]
     [IsoId("_aGJuqdp-Ed-ak6NoX_4Aeg_1263998968")]
     [Description(@"Clearing agent attempted to match the transaction with a corresponding transaction but failed.")]
-    Unmatched,
+    Unmatched = PaymentInstructionStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is eligible for future settlement.
-    /// Encoded/decoded by serializers as "SettlementEligible".
+    /// Encoded/decoded by serializers as "STLE".
     /// </summary>
     [EnumMember(Value = "STLE")]
     [IsoId("_aGS4kNp-Ed-ak6NoX_4Aeg_1263999258")]
     [Description(@"Transaction is eligible for future settlement.")]
-    SettlementEligible,
+    SettlementEligible = PaymentInstructionStatusCode.SettlementEligible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is eligible for immediate settlement.
-    /// Encoded/decoded by serializers as "SettlementMature".
+    /// Encoded/decoded by serializers as "STLM".
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_aGS4kdp-Ed-ak6NoX_4Aeg_1263999276")]
     [Description(@"Transaction is eligible for immediate settlement.")]
-    SettlementMature,
+    SettlementMature = PaymentInstructionStatusCode.SettlementMature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction has been suspended by the clearing agent.
-    /// Encoded/decoded by serializers as "Suspended".
+    /// Encoded/decoded by serializers as "SSPD".
     /// </summary>
     [EnumMember(Value = "SSPD")]
     [IsoId("_aGS4ktp-Ed-ak6NoX_4Aeg_1263999318")]
     [Description(@"Transaction has been suspended by the clearing agent.")]
-    Suspended,
+    Suspended = PaymentInstructionStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "PCAN".
     /// </summary>
     [EnumMember(Value = "PCAN")]
     [IsoId("_aGS4k9p-Ed-ak6NoX_4Aeg_1263999336")]
     [Description(@"Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.")]
-    PendingCancellation,
+    PendingCancellation = PaymentInstructionStatusCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is eligible for settlement, but is pending.
-    /// Encoded/decoded by serializers as "PendingSettlement".
+    /// Encoded/decoded by serializers as "PSTL".
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_aGS4lNp-Ed-ak6NoX_4Aeg_1263999371")]
     [Description(@"Transaction is eligible for settlement, but is pending.")]
-    PendingSettlement,
+    PendingSettlement = PaymentInstructionStatusCode.PendingSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction eligible for immediate settlement, has failed to settle.
-    /// Encoded/decoded by serializers as "PendingFailingSettlement".
+    /// Encoded/decoded by serializers as "PFST".
     /// </summary>
     [EnumMember(Value = "PFST")]
     [IsoId("_aGS4ldp-Ed-ak6NoX_4Aeg_1263999413")]
     [Description(@"Transaction eligible for immediate settlement, has failed to settle.")]
-    PendingFailingSettlement,
+    PendingFailingSettlement = PaymentInstructionStatusCode.PendingFailingSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SenderMultilateralLimitRelated".
+    /// Encoded/decoded by serializers as "SMLR".
     /// </summary>
     [EnumMember(Value = "SMLR")]
     [IsoId("_aGS4ltp-Ed-ak6NoX_4Aeg_1263999431")]
     [Description(@"Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.")]
-    SenderMultilateralLimitRelated,
+    SenderMultilateralLimitRelated = PaymentInstructionStatusCode.SenderMultilateralLimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "ReceiverMultilateralLimitRelated".
+    /// Encoded/decoded by serializers as "RMLR".
     /// </summary>
     [EnumMember(Value = "RMLR")]
     [IsoId("_aGS4l9p-Ed-ak6NoX_4Aeg_1263999473")]
     [Description(@"Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.")]
-    ReceiverMultilateralLimitRelated,
+    ReceiverMultilateralLimitRelated = PaymentInstructionStatusCode.ReceiverMultilateralLimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SenderReceiverBilateralLimitRelated".
+    /// Encoded/decoded by serializers as "SRBL".
     /// </summary>
     [EnumMember(Value = "SRBL")]
     [IsoId("_aGS4mNp-Ed-ak6NoX_4Aeg_1263999508")]
     [Description(@"Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.")]
-    SenderReceiverBilateralLimitRelated,
+    SenderReceiverBilateralLimitRelated = PaymentInstructionStatusCode.SenderReceiverBilateralLimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the message is queued to the receiving payment system and is awaiting processing because the receiving payment system is not operational (open) at that point in time.
-    /// Encoded/decoded by serializers as "HeldForServiceAvailability".
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_aGS4mdp-Ed-ak6NoX_4Aeg_1263999526")]
     [Description(@"Specifies that the message is queued to the receiving payment system and is awaiting processing because the receiving payment system is not operational (open) at that point in time.")]
-    HeldForServiceAvailability,
+    HeldForServiceAvailability = PaymentInstructionStatusCode.HeldForServiceAvailability, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction causes the multilateral limits fixed between Sender and Receiver to be exceeded by the total amount of submitted payments at the end of the day and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SenderReceiverMultilateralLimitRelated".
+    /// Encoded/decoded by serializers as "SRML".
     /// </summary>
     [EnumMember(Value = "SRML")]
     [IsoId("_aGcpkNp-Ed-ak6NoX_4Aeg_588640614")]
     [Description(@"Transaction causes the multilateral limits fixed between Sender and Receiver to be exceeded by the total amount of submitted payments at the end of the day and cannot currently be processed.")]
-    SenderReceiverMultilateralLimitRelated,
+    SenderReceiverMultilateralLimitRelated = PaymentInstructionStatusCode.SenderReceiverMultilateralLimitRelated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum PendingStatus4Code
 public static class PendingStatus4CodeMetadataExtensions
 {
     private static readonly PendingStatus4CodeDropdownSource _dropdownSource = new PendingStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum PriceProtectionScope2Code
 {
     /// <summary>
     /// Price protection is local (for example, Exchange, ECN, ATS).
-    /// Encoded/decoded by serializers as "Local".
+    /// Encoded/decoded by serializers as "LOCA".
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aI1PMtp-Ed-ak6NoX_4Aeg_-40654570")]
     [Description(@"Price protection is local (for example, Exchange, ECN, ATS).")]
-    Local,
+    Local = PriceProtectionScopeCode.Local, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price protection is national (across all national markets).
-    /// Encoded/decoded by serializers as "National".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_aI1PM9p-Ed-ak6NoX_4Aeg_-40654240")]
     [Description(@"Price protection is national (across all national markets).")]
-    National,
+    National = PriceProtectionScopeCode.National, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price protection is global (across all markets).
-    /// Encoded/decoded by serializers as "Global".
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PNNp-Ed-ak6NoX_4Aeg_-40654239")]
     [Description(@"Price protection is global (across all markets).")]
-    Global,
+    Global = PriceProtectionScopeCode.Global, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price protection is national (across all national markets) excluding local price protection.
-    /// Encoded/decoded by serializers as "NationalExcludingLocal".
+    /// Encoded/decoded by serializers as "NAEL".
     /// </summary>
     [EnumMember(Value = "NAEL")]
     [IsoId("_aI1PNdp-Ed-ak6NoX_4Aeg_-40654215")]
     [Description(@"Price protection is national (across all national markets) excluding local price protection.")]
-    NationalExcludingLocal,
+    NationalExcludingLocal = PriceProtectionScopeCode.NationalExcludingLocal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum PriceProtectionScope2Code
 public static class PriceProtectionScope2CodeMetadataExtensions
 {
     private static readonly PriceProtectionScope2CodeDropdownSource _dropdownSource = new PriceProtectionScope2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

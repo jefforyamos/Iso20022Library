@@ -21,12 +21,12 @@ public enum AssetClassDetailedSubProductType4Code
 {
     /// <summary>
     /// Commodity attribute of type lampante.
-    /// Encoded/decoded by serializers as "Lampante".
+    /// Encoded/decoded by serializers as "LAMP".
     /// </summary>
     [EnumMember(Value = "LAMP")]
     [IsoId("_6BOAsVq5EeWN79Bl6BUd3g")]
     [Description(@"Commodity attribute of type lampante.")]
-    Lampante,
+    Lampante = AssetClassDetailedSubProductTypeCode.Lampante, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassDetailedSubProductType4Code
 public static class AssetClassDetailedSubProductType4CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType4CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

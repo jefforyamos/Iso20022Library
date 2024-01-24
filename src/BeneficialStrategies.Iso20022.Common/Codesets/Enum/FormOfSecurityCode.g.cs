@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yTuAQNu8EeGvDJc6a1miEg_1096213532")]
 [Description(@"Specifies the form of the security.")]
 [Derivations(typeof(FormOfSecurity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FormOfSecurityCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FormOfSecurityCode
 public static class FormOfSecurityCodeMetadataExtensions
 {
     private static readonly FormOfSecurityCodeDropdownSource _dropdownSource = new FormOfSecurityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

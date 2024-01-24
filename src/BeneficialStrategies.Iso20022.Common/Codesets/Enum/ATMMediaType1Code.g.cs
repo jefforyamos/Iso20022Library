@@ -21,66 +21,66 @@ public enum ATMMediaType1Code
 {
     /// <summary>
     /// Card media.
-    /// Encoded/decoded by serializers as "Cards".
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_JV2vAYqeEeS4a4abTJTSSw")]
     [Description(@"Card media.")]
-    Cards,
+    Cards = ATMMediaTypeCode.Cards, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Coin media.
-    /// Encoded/decoded by serializers as "Coins".
+    /// Encoded/decoded by serializers as "COIN".
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_Jcs94YqeEeS4a4abTJTSSw")]
     [Description(@"Coin media.")]
-    Coins,
+    Coins = ATMMediaTypeCode.Coins, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non fixed value of the media, for instance gold, silver.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "CMDT".
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_Jiqb8YqeEeS4a4abTJTSSw")]
     [Description(@"Non fixed value of the media, for instance gold, silver.")]
-    Commodity,
+    Commodity = ATMMediaTypeCode.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Coupon media.
-    /// Encoded/decoded by serializers as "Coupons".
+    /// Encoded/decoded by serializers as "CPNS".
     /// </summary>
     [EnumMember(Value = "CPNS")]
     [IsoId("_JnvJMYqeEeS4a4abTJTSSw")]
     [Description(@"Coupon media.")]
-    Coupons,
+    Coupons = ATMMediaTypeCode.Coupons, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank note media.
-    /// Encoded/decoded by serializers as "Notes".
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_J9VlwYqeEeS4a4abTJTSSw")]
     [Description(@"Bank note media.")]
-    Notes,
+    Notes = ATMMediaTypeCode.Notes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stamp media.
-    /// Encoded/decoded by serializers as "Stamps".
+    /// Encoded/decoded by serializers as "STMP".
     /// </summary>
     [EnumMember(Value = "STMP")]
     [IsoId("_KFrpcYqeEeS4a4abTJTSSw")]
     [Description(@"Stamp media.")]
-    Stamps,
+    Stamps = ATMMediaTypeCode.Stamps, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undetermined medias.
-    /// Encoded/decoded by serializers as "Undetermined".
+    /// Encoded/decoded by serializers as "UDTM".
     /// </summary>
     [EnumMember(Value = "UDTM")]
     [IsoId("_KMFzcYqeEeS4a4abTJTSSw")]
     [Description(@"Undetermined medias.")]
-    Undetermined,
+    Undetermined = ATMMediaTypeCode.Undetermined, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum ATMMediaType1Code
 public static class ATMMediaType1CodeMetadataExtensions
 {
     private static readonly ATMMediaType1CodeDropdownSource _dropdownSource = new ATMMediaType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

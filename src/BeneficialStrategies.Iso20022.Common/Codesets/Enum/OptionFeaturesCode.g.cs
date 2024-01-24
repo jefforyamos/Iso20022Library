@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aPsFJtp-Ed-ak6NoX_4Aeg_322763675")]
 [Description(@"Specifies the features that may apply to a corporate action option.")]
-[Derivations(typeof(OptionFeatures1Code),typeof(OptionFeatures2Code),typeof(OptionFeatures3Code),typeof(OptionFeatures4Code),typeof(OptionFeatures5Code),typeof(OptionFeatures8Code),typeof(OptionFeatures7Code),typeof(OptionFeatures6Code),typeof(OptionFeatures10Code),typeof(OptionFeatures11Code),typeof(OptionFeatures12Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(OptionFeatures7Code),typeof(OptionFeatures11Code),typeof(OptionFeatures6Code),typeof(OptionFeatures1Code),typeof(OptionFeatures3Code),typeof(OptionFeatures8Code),typeof(OptionFeatures5Code),typeof(OptionFeatures12Code),typeof(OptionFeatures4Code),typeof(OptionFeatures10Code),typeof(OptionFeatures2Code))]
 public enum OptionFeaturesCode
 {
     /// <summary>
@@ -164,7 +163,7 @@ public enum OptionFeaturesCode
 public static class OptionFeaturesCodeMetadataExtensions
 {
     private static readonly OptionFeaturesCodeDropdownSource _dropdownSource = new OptionFeaturesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum NetworkType1Code
 {
     /// <summary>
     /// Protocol of an IP network.
-    /// Encoded/decoded by serializers as "InternetProtocol".
+    /// Encoded/decoded by serializers as "IPNW".
     /// </summary>
     [EnumMember(Value = "IPNW")]
     [IsoId("_pr02YWpVEeSR-ZWLvO-1dg")]
     [Description(@"Protocol of an IP network.")]
-    InternetProtocol,
+    InternetProtocol = NetworkTypeCode.InternetProtocol, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Protocol of a Public Switched Telephone Network (PSTN).
-    /// Encoded/decoded by serializers as "PublicTelephone".
+    /// Encoded/decoded by serializers as "PSTN".
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_pyrsUWpVEeSR-ZWLvO-1dg")]
     [Description(@"Protocol of a Public Switched Telephone Network (PSTN).")]
-    PublicTelephone,
+    PublicTelephone = NetworkTypeCode.PublicTelephone, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NetworkType1Code
 public static class NetworkType1CodeMetadataExtensions
 {
     private static readonly NetworkType1CodeDropdownSource _dropdownSource = new NetworkType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

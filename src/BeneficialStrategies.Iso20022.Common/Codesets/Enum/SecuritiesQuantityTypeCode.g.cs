@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Bj5NMzFwEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC codes for planned, maximum and minimum of shares to be purchased.")]
 [Derivations(typeof(SecuritiesQuantity1Code),typeof(SecuritiesQuantity2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesQuantityTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SecuritiesQuantityTypeCode
 public static class SecuritiesQuantityTypeCodeMetadataExtensions
 {
     private static readonly SecuritiesQuantityTypeCodeDropdownSource _dropdownSource = new SecuritiesQuantityTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

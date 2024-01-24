@@ -21,30 +21,30 @@ public enum TaxRateMarker1Code
 {
     /// <summary>
     /// Specifies the amount quoted less life assurance premium rate income tax.
-    /// Encoded/decoded by serializers as "AmountQuotedLessLifeAssurance".
+    /// Encoded/decoded by serializers as "ALPR".
     /// </summary>
     [EnumMember(Value = "ALPR")]
     [IsoId("_z5l70Q2YEeSNWNtJlXOAhg")]
     [Description(@"Specifies the amount quoted less life assurance premium rate income tax.")]
-    AmountQuotedLessLifeAssurance,
+    AmountQuotedLessLifeAssurance = TaxRateMarkerCode.AmountQuotedLessLifeAssurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the amount quoted less standard rate income tax.
-    /// Encoded/decoded by serializers as "AmountQuotedLessStandardRate".
+    /// Encoded/decoded by serializers as "ALIT".
     /// </summary>
     [EnumMember(Value = "ALIT")]
     [IsoId("_z-DlEQ2YEeSNWNtJlXOAhg")]
     [Description(@"Specifies the amount quoted less standard rate income tax.")]
-    AmountQuotedLessStandardRate,
+    AmountQuotedLessStandardRate = TaxRateMarkerCode.AmountQuotedLessStandardRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies an amount before the deduction of tax.
-    /// Encoded/decoded by serializers as "GrossAmount".
+    /// Encoded/decoded by serializers as "GRSS".
     /// </summary>
     [EnumMember(Value = "GRSS")]
     [IsoId("_0Cq_UQ2YEeSNWNtJlXOAhg")]
     [Description(@"Specifies an amount before the deduction of tax.")]
-    GrossAmount,
+    GrossAmount = TaxRateMarkerCode.GrossAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TaxRateMarker1Code
 public static class TaxRateMarker1CodeMetadataExtensions
 {
     private static readonly TaxRateMarker1CodeDropdownSource _dropdownSource = new TaxRateMarker1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

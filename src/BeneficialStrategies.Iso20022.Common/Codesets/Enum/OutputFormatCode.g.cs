@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tW6kUHr5EeSZrs_hiwNOWA")]
 [Description(@"Available message format to display or print.")]
-[Derivations(typeof(OutputFormat1Code),typeof(OutputFormat2Code),typeof(OutputFormat3Code),typeof(OutputFormat4Code),typeof(OutputFormat5Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(OutputFormat5Code),typeof(OutputFormat1Code),typeof(OutputFormat3Code),typeof(OutputFormat2Code),typeof(OutputFormat4Code))]
 public enum OutputFormatCode
 {
     /// <summary>
@@ -218,7 +217,7 @@ public enum OutputFormatCode
 public static class OutputFormatCodeMetadataExtensions
 {
     private static readonly OutputFormatCodeDropdownSource _dropdownSource = new OutputFormatCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -11,24 +11,23 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies the confirmation for the cross-element validation rules.
-/// 
 /// Usage: the code set is used when the formal validation rules make reference of an external code sets.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_lfBx8CBpEeugLNJneiyzbA")]
-[Description(@"Specifies the confirmation for the cross-element validation rules.  Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
+[Description(@"Specifies the confirmation for the cross-element validation rules.||Usage: the code set is used when the formal validation rules make reference of an external code sets.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
 public enum ValidationRuleConfirmation1Code
 {
     /// <summary>
     /// Confirmation party in trade.
-    /// Encoded/decoded by serializers as "Confirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_0NxeUSBpEeugLNJneiyzbA")]
     [Description(@"Confirmation party in trade.")]
-    Confirmation,
+    Confirmation = ValidationRuleCode.Confirmation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -39,7 +38,7 @@ public enum ValidationRuleConfirmation1Code
 public static class ValidationRuleConfirmation1CodeMetadataExtensions
 {
     private static readonly ValidationRuleConfirmation1CodeDropdownSource _dropdownSource = new ValidationRuleConfirmation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

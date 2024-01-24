@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yPkKwDwwEeaFzejt0Yw_3A")]
 [Description(@"Specifies the redemption status of the redemption order.")]
 [Derivations(typeof(RedemptionCompletion1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RedemptionCompletionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RedemptionCompletionCode
 public static class RedemptionCompletionCodeMetadataExtensions
 {
     private static readonly RedemptionCompletionCodeDropdownSource _dropdownSource = new RedemptionCompletionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

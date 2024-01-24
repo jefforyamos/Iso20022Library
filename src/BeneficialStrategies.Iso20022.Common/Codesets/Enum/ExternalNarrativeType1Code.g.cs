@@ -16,72 +16,72 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MYPEG7iEeKo25nLKvGr8w_2503812")]
-[Description(@"Specifies the external narrative type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external narrative type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalNarrativeTypeCode))]
 public enum ExternalNarrativeType1Code
 {
     /// <summary>
     /// Narrative text describing the additional terms and conditions.
-    /// Encoded/decoded by serializers as "AdditionalTermsAndConditions".
+    /// Encoded/decoded by serializers as "ADDI".
     /// </summary>
     [EnumMember(Value = "ADDI")]
     [IsoId("_uPvIJfRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the additional terms and conditions.")]
-    AdditionalTermsAndConditions,
+    AdditionalTermsAndConditions = ExternalNarrativeTypeCode.AdditionalTermsAndConditions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the charge details.
-    /// Encoded/decoded by serializers as "ChargeDetails".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_uPvIKPRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the charge details.")]
-    ChargeDetails,
+    ChargeDetails = ExternalNarrativeTypeCode.ChargeDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the drawing details.
-    /// Encoded/decoded by serializers as "DrawingDetails".
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_uP4SEvRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the drawing details.")]
-    DrawingDetails,
+    DrawingDetails = ExternalNarrativeTypeCode.DrawingDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the assignment of proceeds terms and conditions.
-    /// Encoded/decoded by serializers as "ProceedsAssignable".
+    /// Encoded/decoded by serializers as "PRAS".
     /// </summary>
     [EnumMember(Value = "PRAS")]
     [IsoId("_uP4SFfRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the assignment of proceeds terms and conditions.")]
-    ProceedsAssignable,
+    ProceedsAssignable = ExternalNarrativeTypeCode.ProceedsAssignable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the terms of effectiveness.
-    /// Encoded/decoded by serializers as "TermsOfEffectiveness".
+    /// Encoded/decoded by serializers as "TEFF".
     /// </summary>
     [EnumMember(Value = "TEFF")]
     [IsoId("_uP4SGPRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the terms of effectiveness.")]
-    TermsOfEffectiveness,
+    TermsOfEffectiveness = ExternalNarrativeTypeCode.TermsOfEffectiveness, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the transfer terms and conditions.
-    /// Encoded/decoded by serializers as "Transfer".
+    /// Encoded/decoded by serializers as "TRNF".
     /// </summary>
     [EnumMember(Value = "TRNF")]
     [IsoId("_uP4SG_RYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the transfer terms and conditions.")]
-    Transfer,
+    Transfer = ExternalNarrativeTypeCode.Transfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Narrative text describing the terms of variation.
-    /// Encoded/decoded by serializers as "TermsOfVariation".
+    /// Encoded/decoded by serializers as "TVAR".
     /// </summary>
     [EnumMember(Value = "TVAR")]
     [IsoId("_uP4SHvRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the terms of variation.")]
-    TermsOfVariation,
+    TermsOfVariation = ExternalNarrativeTypeCode.TermsOfVariation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum ExternalNarrativeType1Code
 public static class ExternalNarrativeType1CodeMetadataExtensions
 {
     private static readonly ExternalNarrativeType1CodeDropdownSource _dropdownSource = new ExternalNarrativeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum AllocationStatus1Code
 {
     /// <summary>
     /// Instruction has been fully covered by collateral.
-    /// Encoded/decoded by serializers as "FullyAllocated".
+    /// Encoded/decoded by serializers as "AOLF".
     /// </summary>
     [EnumMember(Value = "AOLF")]
     [IsoId("_boymENp-Ed-ak6NoX_4Aeg_1464332565")]
     [Description(@"Instruction has been fully covered by collateral.")]
-    FullyAllocated,
+    FullyAllocated = AllocationStatusCode.FullyAllocated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been partially covered by collateral.
-    /// Encoded/decoded by serializers as "PartiallyAllocated".
+    /// Encoded/decoded by serializers as "AOLP".
     /// </summary>
     [EnumMember(Value = "AOLP")]
     [IsoId("_boymEdp-Ed-ak6NoX_4Aeg_1464332594")]
     [Description(@"Instruction has been partially covered by collateral.")]
-    PartiallyAllocated,
+    PartiallyAllocated = AllocationStatusCode.PartiallyAllocated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AllocationStatus1Code
 public static class AllocationStatus1CodeMetadataExtensions
 {
     private static readonly AllocationStatus1CodeDropdownSource _dropdownSource = new AllocationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

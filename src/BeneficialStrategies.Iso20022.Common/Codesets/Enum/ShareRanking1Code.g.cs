@@ -21,21 +21,21 @@ public enum ShareRanking1Code
 {
     /// <summary>
     /// Payable on the date specified.
-    /// Encoded/decoded by serializers as "Dividend".
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_ZOkmZtp-Ed-ak6NoX_4Aeg_1470328798")]
     [Description(@"Payable on the date specified.")]
-    Dividend,
+    Dividend = ShareRankingCode.Dividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pari Passu. With equal rights as other shares of the company.
-    /// Encoded/decoded by serializers as "PariPassu".
+    /// Encoded/decoded by serializers as "PARI".
     /// </summary>
     [EnumMember(Value = "PARI")]
     [IsoId("_ZOkmZ9p-Ed-ak6NoX_4Aeg_1470328827")]
     [Description(@"Pari Passu. With equal rights as other shares of the company.")]
-    PariPassu,
+    PariPassu = ShareRankingCode.PariPassu, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ShareRanking1Code
 public static class ShareRanking1CodeMetadataExtensions
 {
     private static readonly ShareRanking1CodeDropdownSource _dropdownSource = new ShareRanking1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

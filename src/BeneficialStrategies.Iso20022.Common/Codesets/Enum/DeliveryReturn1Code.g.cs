@@ -21,66 +21,66 @@ public enum DeliveryReturn1Code
 {
     /// <summary>
     /// Original delivery is not recognized.
-    /// Encoded/decoded by serializers as "UnrecognisedDelivery".
+    /// Encoded/decoded by serializers as "UNRE".
     /// </summary>
     [EnumMember(Value = "UNRE")]
     [IsoId("_azTIhNp-Ed-ak6NoX_4Aeg_-959595290")]
     [Description(@"Original delivery is not recognized.")]
-    UnrecognisedDelivery,
+    UnrecognisedDelivery = DeliveryReturnCode.UnrecognisedDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wrong quantity delivered in the original instruction.
-    /// Encoded/decoded by serializers as "WrongQuantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_azTIhdp-Ed-ak6NoX_4Aeg_-917110811")]
     [Description(@"Wrong quantity delivered in the original instruction.")]
-    WrongQuantity,
+    WrongQuantity = DeliveryReturnCode.WrongQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wrong settlement amount settled in the original delivery.
-    /// Encoded/decoded by serializers as "WrongSettlementAmount".
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_azTIhtp-Ed-ak6NoX_4Aeg_-872782203")]
     [Description(@"Wrong settlement amount settled in the original delivery.")]
-    WrongSettlementAmount,
+    WrongSettlementAmount = DeliveryReturnCode.WrongSettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Only a portion of the original transaction quantity was delivered by the Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "PartialDelivery".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_azTIh9p-Ed-ak6NoX_4Aeg_-845078527")]
     [Description(@"Only a portion of the original transaction quantity was delivered by the Central Securities Depository (CSD).")]
-    PartialDelivery,
+    PartialDelivery = DeliveryReturnCode.PartialDelivery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account information is missing in the original delivery.
-    /// Encoded/decoded by serializers as "AccountMissing".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_azc5gNp-Ed-ak6NoX_4Aeg_-829378346")]
     [Description(@"Account information is missing in the original delivery.")]
-    AccountMissing,
+    AccountMissing = DeliveryReturnCode.AccountMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Due bill information missing in the original delivery.
-    /// Encoded/decoded by serializers as "DueBiillMissing".
+    /// Encoded/decoded by serializers as "DUEB".
     /// </summary>
     [EnumMember(Value = "DUEB")]
     [IsoId("_azc5gdp-Ed-ak6NoX_4Aeg_-573562488")]
     [Description(@"Due bill information missing in the original delivery.")]
-    DueBiillMissing,
+    DueBiillMissing = DeliveryReturnCode.DueBiillMissing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Portion of the original transaction quantity was returned by the receiver.
-    /// Encoded/decoded by serializers as "PartialReturn".
+    /// Encoded/decoded by serializers as "PARD".
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_azc5gtp-Ed-ak6NoX_4Aeg_-502450366")]
     [Description(@"Portion of the original transaction quantity was returned by the receiver.")]
-    PartialReturn,
+    PartialReturn = DeliveryReturnCode.PartialReturn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum DeliveryReturn1Code
 public static class DeliveryReturn1CodeMetadataExtensions
 {
     private static readonly DeliveryReturn1CodeDropdownSource _dropdownSource = new DeliveryReturn1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YbdHZdp-Ed-ak6NoX_4Aeg_630710567")]
 [Description(@"Specifies the agreement type details for the margin call.")]
 [Derivations(typeof(AgreementFramework1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AgreementFrameworkCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AgreementFrameworkCode
 public static class AgreementFrameworkCodeMetadataExtensions
 {
     private static readonly AgreementFrameworkCodeDropdownSource _dropdownSource = new AgreementFrameworkCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

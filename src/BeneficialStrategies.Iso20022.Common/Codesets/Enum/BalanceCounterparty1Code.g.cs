@@ -21,21 +21,21 @@ public enum BalanceCounterparty1Code
 {
     /// <summary>
     /// Balance calculated regarding one member in the system.
-    /// Encoded/decoded by serializers as "Bilateral".
+    /// Encoded/decoded by serializers as "BILA".
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_bkBa09p-Ed-ak6NoX_4Aeg_678189977")]
     [Description(@"Balance calculated regarding one member in the system.")]
-    Bilateral,
+    Bilateral = BalanceCounterpartyCode.Bilateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance calculated regarding all members in the system.
-    /// Encoded/decoded by serializers as "Multilateral".
+    /// Encoded/decoded by serializers as "MULT".
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_bkBa1Np-Ed-ak6NoX_4Aeg_678189978")]
     [Description(@"Balance calculated regarding all members in the system.")]
-    Multilateral,
+    Multilateral = BalanceCounterpartyCode.Multilateral, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BalanceCounterparty1Code
 public static class BalanceCounterparty1CodeMetadataExtensions
 {
     private static readonly BalanceCounterparty1CodeDropdownSource _dropdownSource = new BalanceCounterparty1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

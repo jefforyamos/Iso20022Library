@@ -38,12 +38,11 @@ public enum DerivativeEventTypeCode
     
     /// <summary>
     /// Compression or post-trade risk reduction exercise.
-    /// 
     /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_d4cKcCjBEeuKKc2MztSwPw")]
-    [Description(@"Compression or post-trade risk reduction exercise. ")]
+    [Description(@"Compression or post-trade risk reduction exercise.|")]
     Compression,
     
     /// <summary>
@@ -66,12 +65,11 @@ public enum DerivativeEventTypeCode
     
     /// <summary>
     /// The exercise of an option or a swaption by one counterparty of the transaction, fully or partially. 
-    /// 
     /// Encoded/decoded by serializers as "EXER".
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("_qTyQ0CjBEeuKKc2MztSwPw")]
-    [Description(@"The exercise of an option or a swaption by one counterparty of the transaction, fully or partially.  ")]
+    [Description(@"The exercise of an option or a swaption by one counterparty of the transaction, fully or partially. |")]
     Exercise,
     
     /// <summary>
@@ -155,7 +153,7 @@ public enum DerivativeEventTypeCode
 public static class DerivativeEventTypeCodeMetadataExtensions
 {
     private static readonly DerivativeEventTypeCodeDropdownSource _dropdownSource = new DerivativeEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

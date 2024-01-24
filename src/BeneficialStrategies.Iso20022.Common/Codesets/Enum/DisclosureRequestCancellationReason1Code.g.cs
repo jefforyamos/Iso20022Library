@@ -21,21 +21,21 @@ public enum DisclosureRequestCancellationReason1Code
 {
     /// <summary>
     /// The cancellation of the disclosure request is due to a processsing error.
-    /// Encoded/decoded by serializers as "Processing".
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_uyAM8UV5EemRx7jyevcLwg")]
     [Description(@"The cancellation of the disclosure request is due to a processsing error.")]
-    Processing,
+    Processing = DisclosureRequestCancellationReasonCode.Processing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_u4Zv4UV5EemRx7jyevcLwg")]
     [Description(@"The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.")]
-    Withdrawal,
+    Withdrawal = DisclosureRequestCancellationReasonCode.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DisclosureRequestCancellationReason1Code
 public static class DisclosureRequestCancellationReason1CodeMetadataExtensions
 {
     private static readonly DisclosureRequestCancellationReason1CodeDropdownSource _dropdownSource = new DisclosureRequestCancellationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

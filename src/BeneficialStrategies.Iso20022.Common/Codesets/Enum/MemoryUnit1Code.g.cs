@@ -21,66 +21,66 @@ public enum MemoryUnit1Code
 {
     /// <summary>
     /// Byte.
-    /// Encoded/decoded by serializers as "Byte".
+    /// Encoded/decoded by serializers as "BYTE".
     /// </summary>
     [EnumMember(Value = "BYTE")]
     [IsoId("_1rmBMQxzEeKa_56Jbsi1RQ")]
     [Description(@"Byte.")]
-    Byte,
+    Byte = MemoryUnitCode.Byte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exa byte.
-    /// Encoded/decoded by serializers as "ExaByte".
+    /// Encoded/decoded by serializers as "EXAB".
     /// </summary>
     [EnumMember(Value = "EXAB")]
     [IsoId("_1yuj8wxzEeKa_56Jbsi1RQ")]
     [Description(@"Exa byte.")]
-    ExaByte,
+    ExaByte = MemoryUnitCode.ExaByte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Giga byte.
-    /// Encoded/decoded by serializers as "GigaByte".
+    /// Encoded/decoded by serializers as "GIGA".
     /// </summary>
     [EnumMember(Value = "GIGA")]
     [IsoId("_17gsgwxzEeKa_56Jbsi1RQ")]
     [Description(@"Giga byte.")]
-    GigaByte,
+    GigaByte = MemoryUnitCode.GigaByte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kilo byte.
-    /// Encoded/decoded by serializers as "KiloByte".
+    /// Encoded/decoded by serializers as "KILO".
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_2AkLowxzEeKa_56Jbsi1RQ")]
     [Description(@"Kilo byte.")]
-    KiloByte,
+    KiloByte = MemoryUnitCode.KiloByte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mega byte.
-    /// Encoded/decoded by serializers as "MegaByte".
+    /// Encoded/decoded by serializers as "MEGA".
     /// </summary>
     [EnumMember(Value = "MEGA")]
     [IsoId("_2HQpgQxzEeKa_56Jbsi1RQ")]
     [Description(@"Mega byte.")]
-    MegaByte,
+    MegaByte = MemoryUnitCode.MegaByte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Peta byte.
-    /// Encoded/decoded by serializers as "PetaByte".
+    /// Encoded/decoded by serializers as "PETA".
     /// </summary>
     [EnumMember(Value = "PETA")]
     [IsoId("_2O_pMQxzEeKa_56Jbsi1RQ")]
     [Description(@"Peta byte.")]
-    PetaByte,
+    PetaByte = MemoryUnitCode.PetaByte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tera byte.
-    /// Encoded/decoded by serializers as "TeraByte".
+    /// Encoded/decoded by serializers as "TERA".
     /// </summary>
     [EnumMember(Value = "TERA")]
     [IsoId("_2fgxcQxzEeKa_56Jbsi1RQ")]
     [Description(@"Tera byte.")]
-    TeraByte,
+    TeraByte = MemoryUnitCode.TeraByte, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum MemoryUnit1Code
 public static class MemoryUnit1CodeMetadataExtensions
 {
     private static readonly MemoryUnit1CodeDropdownSource _dropdownSource = new MemoryUnit1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

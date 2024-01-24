@@ -21,21 +21,21 @@ public enum LendingTransactionMethod1Code
 {
     /// <summary>
     /// Contract applies to a specific security only.
-    /// Encoded/decoded by serializers as "OnDemandTrade".
+    /// Encoded/decoded by serializers as "ODTR".
     /// </summary>
     [EnumMember(Value = "ODTR")]
     [IsoId("__2_DYdojEeC60axPepSq7g_-945747247")]
     [Description(@"Contract applies to a specific security only.")]
-    OnDemandTrade,
+    OnDemandTrade = LendingTransactionMethodCode.OnDemandTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract applies to a number of different securities within the same pool/fund.
-    /// Encoded/decoded by serializers as "ExclusiveTrade".
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("__2_DYtojEeC60axPepSq7g_1548205403")]
     [Description(@"Contract applies to a number of different securities within the same pool/fund.")]
-    ExclusiveTrade,
+    ExclusiveTrade = LendingTransactionMethodCode.ExclusiveTrade, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum LendingTransactionMethod1Code
 public static class LendingTransactionMethod1CodeMetadataExtensions
 {
     private static readonly LendingTransactionMethod1CodeDropdownSource _dropdownSource = new LendingTransactionMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_jcPvQBLeEeumtumXS98aGg")]
-[Description(@"Specifies the external verification reason code, as published in an external verification code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external verification reason code, as published in an external verification code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalVerificationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalVerificationReasonCode
 {
     /// <summary>
@@ -57,7 +56,7 @@ public enum ExternalVerificationReasonCode
 public static class ExternalVerificationReasonCodeMetadataExtensions
 {
     private static readonly ExternalVerificationReasonCodeDropdownSource _dropdownSource = new ExternalVerificationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

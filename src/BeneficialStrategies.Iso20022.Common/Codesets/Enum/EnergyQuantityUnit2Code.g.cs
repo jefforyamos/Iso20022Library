@@ -21,183 +21,183 @@ public enum EnergyQuantityUnit2Code
 {
     /// <summary>
     /// British Thermal Unit Per Day
-    /// Encoded/decoded by serializers as "BritishThermalUnitPerDay".
+    /// Encoded/decoded by serializers as "BTUD".
     /// </summary>
     [EnumMember(Value = "BTUD")]
     [IsoId("_kRrPUSi_EeuKKc2MztSwPw")]
     [Description(@"British Thermal Unit Per Day")]
-    BritishThermalUnitPerDay,
+    BritishThermalUnitPerDay = EnergyQuantityUnitCode.BritishThermalUnitPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cm per day.
-    /// Encoded/decoded by serializers as "CMPerDay".
+    /// Encoded/decoded by serializers as "CMPD".
     /// </summary>
     [EnumMember(Value = "CMPD")]
     [IsoId("_kYg3ISi_EeuKKc2MztSwPw")]
     [Description(@"Cm per day.")]
-    CMPerDay,
+    CMPerDay = EnergyQuantityUnitCode.CMPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// GigaJoule Per Day.
-    /// Encoded/decoded by serializers as "GigaJoulePerDay".
+    /// Encoded/decoded by serializers as "GJDD".
     /// </summary>
     [EnumMember(Value = "GJDD")]
     [IsoId("_kduHQSi_EeuKKc2MztSwPw")]
     [Description(@"GigaJoule Per Day.")]
-    GigaJoulePerDay,
+    GigaJoulePerDay = EnergyQuantityUnitCode.GigaJoulePerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Giga Watt.
-    /// Encoded/decoded by serializers as "GW".
+    /// Encoded/decoded by serializers as "GWAT".
     /// </summary>
     [EnumMember(Value = "GWAT")]
     [IsoId("_kmDj4Si_EeuKKc2MztSwPw")]
     [Description(@"Giga Watt.")]
-    GW,
+    GW = EnergyQuantityUnitCode.GW, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Giga Watt hour per day.
-    /// Encoded/decoded by serializers as "GWhPerDay".
+    /// Encoded/decoded by serializers as "GWHD".
     /// </summary>
     [EnumMember(Value = "GWHD")]
     [IsoId("_krtf8Si_EeuKKc2MztSwPw")]
     [Description(@"Giga Watt hour per day.")]
-    GWhPerDay,
+    GWhPerDay = EnergyQuantityUnitCode.GWhPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Giga Watt hour per hour.
-    /// Encoded/decoded by serializers as "GWhPerHour".
+    /// Encoded/decoded by serializers as "GWHH".
     /// </summary>
     [EnumMember(Value = "GWHH")]
     [IsoId("_kvudQSi_EeuKKc2MztSwPw")]
     [Description(@"Giga Watt hour per hour.")]
-    GWhPerHour,
+    GWhPerHour = EnergyQuantityUnitCode.GWhPerHour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hundred MegaJoule Per Day.
-    /// Encoded/decoded by serializers as "HundredMegaJoulePerDay".
+    /// Encoded/decoded by serializers as "HMJD".
     /// </summary>
     [EnumMember(Value = "HMJD")]
     [IsoId("_k0fBcSi_EeuKKc2MztSwPw")]
     [Description(@"Hundred MegaJoule Per Day.")]
-    HundredMegaJoulePerDay,
+    HundredMegaJoulePerDay = EnergyQuantityUnitCode.HundredMegaJoulePerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// KTherm per day.
-    /// Encoded/decoded by serializers as "KThermPerDay".
+    /// Encoded/decoded by serializers as "KTMD".
     /// </summary>
     [EnumMember(Value = "KTMD")]
     [IsoId("_k4y5sSi_EeuKKc2MztSwPw")]
     [Description(@"KTherm per day.")]
-    KThermPerDay,
+    KThermPerDay = EnergyQuantityUnitCode.KThermPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kilo Watt.
-    /// Encoded/decoded by serializers as "KW".
+    /// Encoded/decoded by serializers as "KWAT".
     /// </summary>
     [EnumMember(Value = "KWAT")]
     [IsoId("_k8XyISi_EeuKKc2MztSwPw")]
     [Description(@"Kilo Watt.")]
-    KW,
+    KW = EnergyQuantityUnitCode.KW, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kilo Watt hour per day.
-    /// Encoded/decoded by serializers as "KWhPerDay".
+    /// Encoded/decoded by serializers as "KWHD".
     /// </summary>
     [EnumMember(Value = "KWHD")]
     [IsoId("_lAigcSi_EeuKKc2MztSwPw")]
     [Description(@"Kilo Watt hour per day.")]
-    KWhPerDay,
+    KWhPerDay = EnergyQuantityUnitCode.KWhPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Kilo Watt hour per hour.
-    /// Encoded/decoded by serializers as "KWhPerHour".
+    /// Encoded/decoded by serializers as "KWHH".
     /// </summary>
     [EnumMember(Value = "KWHH")]
     [IsoId("_lLZFkSi_EeuKKc2MztSwPw")]
     [Description(@"Kilo Watt hour per hour.")]
-    KWhPerHour,
+    KWhPerHour = EnergyQuantityUnitCode.KWhPerHour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mcm per day.
-    /// Encoded/decoded by serializers as "MCMPerDay".
+    /// Encoded/decoded by serializers as "MCMD".
     /// </summary>
     [EnumMember(Value = "MCMD")]
     [IsoId("_lQwGsSi_EeuKKc2MztSwPw")]
     [Description(@"Mcm per day.")]
-    MCMPerDay,
+    MCMPerDay = EnergyQuantityUnitCode.MCMPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MegaJoule Per Day.
-    /// Encoded/decoded by serializers as "MegaJoulePerDay".
+    /// Encoded/decoded by serializers as "MJDD".
     /// </summary>
     [EnumMember(Value = "MJDD")]
     [IsoId("_lVqb4Si_EeuKKc2MztSwPw")]
     [Description(@"MegaJoule Per Day.")]
-    MegaJoulePerDay,
+    MegaJoulePerDay = EnergyQuantityUnitCode.MegaJoulePerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Million British Thermal Unit Per Day.
-    /// Encoded/decoded by serializers as "MillionBritishThermalUnitPerDay".
+    /// Encoded/decoded by serializers as "MBTD".
     /// </summary>
     [EnumMember(Value = "MBTD")]
     [IsoId("_lZ-UISi_EeuKKc2MztSwPw")]
     [Description(@"Million British Thermal Unit Per Day.")]
-    MillionBritishThermalUnitPerDay,
+    MillionBritishThermalUnitPerDay = EnergyQuantityUnitCode.MillionBritishThermalUnitPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Million MegaJoule Per Day.
-    /// Encoded/decoded by serializers as "MillionMegaJoulePerDay".
+    /// Encoded/decoded by serializers as "MMJD".
     /// </summary>
     [EnumMember(Value = "MMJD")]
     [IsoId("_lh3E0Si_EeuKKc2MztSwPw")]
     [Description(@"Million MegaJoule Per Day.")]
-    MillionMegaJoulePerDay,
+    MillionMegaJoulePerDay = EnergyQuantityUnitCode.MillionMegaJoulePerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// MTherm per day.
-    /// Encoded/decoded by serializers as "MThermPerDay".
+    /// Encoded/decoded by serializers as "MTMD".
     /// </summary>
     [EnumMember(Value = "MTMD")]
     [IsoId("_lotTsSi_EeuKKc2MztSwPw")]
     [Description(@"MTherm per day.")]
-    MThermPerDay,
+    MThermPerDay = EnergyQuantityUnitCode.MThermPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mega Watt.
-    /// Encoded/decoded by serializers as "MW".
+    /// Encoded/decoded by serializers as "MWAT".
     /// </summary>
     [EnumMember(Value = "MWAT")]
     [IsoId("_ltBL8Si_EeuKKc2MztSwPw")]
     [Description(@"Mega Watt.")]
-    MW,
+    MW = EnergyQuantityUnitCode.MW, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mega Watt hour per day.
-    /// Encoded/decoded by serializers as "MWhPerDay".
+    /// Encoded/decoded by serializers as "MWHD".
     /// </summary>
     [EnumMember(Value = "MWHD")]
     [IsoId("_lx7hISi_EeuKKc2MztSwPw")]
     [Description(@"Mega Watt hour per day.")]
-    MWhPerDay,
+    MWhPerDay = EnergyQuantityUnitCode.MWhPerDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mega Watt hour per hour.
-    /// Encoded/decoded by serializers as "MWhPerHour".
+    /// Encoded/decoded by serializers as "MWHH".
     /// </summary>
     [EnumMember(Value = "MWHH")]
     [IsoId("_l2iUUSi_EeuKKc2MztSwPw")]
     [Description(@"Mega Watt hour per hour.")]
-    MWhPerHour,
+    MWhPerHour = EnergyQuantityUnitCode.MWhPerHour, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Therm per day.
-    /// Encoded/decoded by serializers as "ThermPerDay".
+    /// Encoded/decoded by serializers as "THMD".
     /// </summary>
     [EnumMember(Value = "THMD")]
     [IsoId("_l8o8USi_EeuKKc2MztSwPw")]
     [Description(@"Therm per day.")]
-    ThermPerDay,
+    ThermPerDay = EnergyQuantityUnitCode.ThermPerDay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum EnergyQuantityUnit2Code
 public static class EnergyQuantityUnit2CodeMetadataExtensions
 {
     private static readonly EnergyQuantityUnit2CodeDropdownSource _dropdownSource = new EnergyQuantityUnit2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

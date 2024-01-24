@@ -21,21 +21,21 @@ public enum Liability1Code
 {
     /// <summary>
     /// Investor is responsible.
-    /// Encoded/decoded by serializers as "Investor".
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_Bm3FsSDNEeWPMvNwVtiMsA")]
     [Description(@"Investor is responsible.")]
-    Investor,
+    Investor = LiabilityCode.Investor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Broker is responsible.
-    /// Encoded/decoded by serializers as "Broker".
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_D6Zo4Ta2EeWxoIK_IhudJg")]
     [Description(@"Broker is responsible.")]
-    Broker,
+    Broker = LiabilityCode.Broker, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Liability1Code
 public static class Liability1CodeMetadataExtensions
 {
     private static readonly Liability1CodeDropdownSource _dropdownSource = new Liability1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

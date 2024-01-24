@@ -21,57 +21,57 @@ public enum CorporateActionNarrative1Code
 {
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message.
-    /// Encoded/decoded by serializers as "TaxationConditions".
+    /// Encoded/decoded by serializers as "TAXE".
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_bK2F0dp-Ed-ak6NoX_4Aeg_24208786")]
     [Description(@"Provides taxation conditions that cannot be included within the structured fields of this message.")]
-    TaxationConditions,
+    TaxationConditions = CorporateActionNarrativeCode.TaxationConditions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Provides information required for the registration.
-    /// Encoded/decoded by serializers as "RegistrationDetails".
+    /// Encoded/decoded by serializers as "REGI".
     /// </summary>
     [EnumMember(Value = "REGI")]
     [IsoId("_bK2F0tp-Ed-ak6NoX_4Aeg_24208815")]
     [Description(@"Provides information required for the registration.")]
-    RegistrationDetails,
+    RegistrationDetails = CorporateActionNarrativeCode.RegistrationDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification process for withholding tax reduction or exemption based on the tax status of the holder.
-    /// Encoded/decoded by serializers as "WithholdingTaxReliefCertification".
+    /// Encoded/decoded by serializers as "WTRC".
     /// </summary>
     [EnumMember(Value = "WTRC")]
     [IsoId("_bK2F09p-Ed-ak6NoX_4Aeg_24209063")]
     [Description(@"Certification process for withholding tax reduction or exemption based on the tax status of the holder.")]
-    WithholdingTaxReliefCertification,
+    WithholdingTaxReliefCertification = CorporateActionNarrativeCode.WithholdingTaxReliefCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In the context of a corporate action, an International Central Securities Depository (ICSD) refuses a mark-up/mark-down confirmation sent by the account servicer.
-    /// Encoded/decoded by serializers as "ICSDRefusalOfMarkUpDownConfirmation".
+    /// Encoded/decoded by serializers as "RFMC".
     /// </summary>
     [EnumMember(Value = "RFMC")]
     [IsoId("_bK2F1Np-Ed-ak6NoX_4Aeg_24209085")]
     [Description(@"In the context of a corporate action, an International Central Securities Depository (ICSD) refuses a mark-up/mark-down confirmation sent by the account servicer.")]
-    ICSDRefusalOfMarkUpDownConfirmation,
+    ICSDRefusalOfMarkUpDownConfirmation = CorporateActionNarrativeCode.ICSDRefusalOfMarkUpDownConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// International Central Securities Depository (ICSD) chases the authorisation from the account servicer in order to process the exchange from global temporary to global permanent.
-    /// Encoded/decoded by serializers as "ChasingOfPriorAuthorization".
+    /// Encoded/decoded by serializers as "PAUT".
     /// </summary>
     [EnumMember(Value = "PAUT")]
     [IsoId("_bK2F1dp-Ed-ak6NoX_4Aeg_24209116")]
     [Description(@"International Central Securities Depository (ICSD) chases the authorisation from the account servicer in order to process the exchange from global temporary to global permanent.")]
-    ChasingOfPriorAuthorization,
+    ChasingOfPriorAuthorization = CorporateActionNarrativeCode.ChasingOfPriorAuthorization, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Confirmation of transfer of interests between International Central Securities Depositories (ICSDs) following a corporate actions.
-    /// Encoded/decoded by serializers as "ConfirmationOfHoldingTransfer".
+    /// Encoded/decoded by serializers as "CTIN".
     /// </summary>
     [EnumMember(Value = "CTIN")]
     [IsoId("_bK2F1tp-Ed-ak6NoX_4Aeg_24209125")]
     [Description(@"Confirmation of transfer of interests between International Central Securities Depositories (ICSDs) following a corporate actions.")]
-    ConfirmationOfHoldingTransfer,
+    ConfirmationOfHoldingTransfer = CorporateActionNarrativeCode.ConfirmationOfHoldingTransfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum CorporateActionNarrative1Code
 public static class CorporateActionNarrative1CodeMetadataExtensions
 {
     private static readonly CorporateActionNarrative1CodeDropdownSource _dropdownSource = new CorporateActionNarrative1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

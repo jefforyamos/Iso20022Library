@@ -21,21 +21,21 @@ public enum PreConfirmation1Code
 {
     /// <summary>
     /// Pre-confirmation of the movement of the cash, pending the movement of securities.
-    /// Encoded/decoded by serializers as "PreConfirmCash".
+    /// Encoded/decoded by serializers as "PRCA".
     /// </summary>
     [EnumMember(Value = "PRCA")]
     [IsoId("_zdcnYA93EeGeV5vP7Mvdig_1988763861")]
     [Description(@"Pre-confirmation of the movement of the cash, pending the movement of securities.")]
-    PreConfirmCash,
+    PreConfirmCash = PreConfirmationCode.PreConfirmCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-confirmation of the movement of the securities, pending the movement of cash.
-    /// Encoded/decoded by serializers as "PreConfirmSecurities".
+    /// Encoded/decoded by serializers as "PRSE".
     /// </summary>
     [EnumMember(Value = "PRSE")]
     [IsoId("_zdcnYQ93EeGeV5vP7Mvdig_-1228183097")]
     [Description(@"Pre-confirmation of the movement of the securities, pending the movement of cash.")]
-    PreConfirmSecurities,
+    PreConfirmSecurities = PreConfirmationCode.PreConfirmSecurities, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PreConfirmation1Code
 public static class PreConfirmation1CodeMetadataExtensions
 {
     private static readonly PreConfirmation1CodeDropdownSource _dropdownSource = new PreConfirmation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

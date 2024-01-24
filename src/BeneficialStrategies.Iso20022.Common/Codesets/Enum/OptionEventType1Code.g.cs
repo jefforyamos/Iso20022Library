@@ -21,57 +21,57 @@ public enum OptionEventType1Code
 {
     /// <summary>
     /// Notice of a close out of the position.
-    /// Encoded/decoded by serializers as "CloseOut".
+    /// Encoded/decoded by serializers as "CLST".
     /// </summary>
     [EnumMember(Value = "CLST")]
     [IsoId("_FFj5wcR1EeOg-a7zWL_U0A")]
     [Description(@"Notice of a close out of the position.")]
-    CloseOut,
+    CloseOut = OptionEventTypeCode.CloseOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// First confirmation.
-    /// Encoded/decoded by serializers as "FirstConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_FNK9ocR1EeOg-a7zWL_U0A")]
     [Description(@"First confirmation.")]
-    FirstConfirmation,
+    FirstConfirmation = OptionEventTypeCode.FirstConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.
-    /// Encoded/decoded by serializers as "KnockIn".
+    /// Encoded/decoded by serializers as "KNIN".
     /// </summary>
     [EnumMember(Value = "KNIN")]
     [IsoId("_FbHTAcR1EeOg-a7zWL_U0A")]
     [Description(@"Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.")]
-    KnockIn,
+    KnockIn = OptionEventTypeCode.KnockIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.
-    /// Encoded/decoded by serializers as "KnockOut".
+    /// Encoded/decoded by serializers as "KNOC".
     /// </summary>
     [EnumMember(Value = "KNOC")]
     [IsoId("_FiiwscR1EeOg-a7zWL_U0A")]
     [Description(@"Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.")]
-    KnockOut,
+    KnockOut = OptionEventTypeCode.KnockOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of event.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_FqH_YcR1EeOg-a7zWL_U0A")]
     [Description(@"Another type of event.")]
-    Other,
+    Other = OptionEventTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notice of a trigger hit.
-    /// Encoded/decoded by serializers as "Trigger".
+    /// Encoded/decoded by serializers as "TRIG".
     /// </summary>
     [EnumMember(Value = "TRIG")]
     [IsoId("_FxfLocR1EeOg-a7zWL_U0A")]
     [Description(@"Notice of a trigger hit.")]
-    Trigger,
+    Trigger = OptionEventTypeCode.Trigger, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum OptionEventType1Code
 public static class OptionEventType1CodeMetadataExtensions
 {
     private static readonly OptionEventType1CodeDropdownSource _dropdownSource = new OptionEventType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

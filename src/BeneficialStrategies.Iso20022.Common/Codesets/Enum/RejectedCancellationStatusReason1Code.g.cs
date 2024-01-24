@@ -21,30 +21,30 @@ public enum RejectedCancellationStatusReason1Code
 {
     /// <summary>
     /// Request contains an invalid or unrecognised business reference.
-    /// Encoded/decoded by serializers as "InvalidOrUnrecognisedReference".
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_ZbPJZ9p-Ed-ak6NoX_4Aeg_1582722964")]
     [Description(@"Request contains an invalid or unrecognised business reference.")]
-    InvalidOrUnrecognisedReference,
+    InvalidOrUnrecognisedReference = RejectedStatusReasonCode.InvalidOrUnrecognisedReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
-    /// Encoded/decoded by serializers as "NoCancellationMatch".
+    /// Encoded/decoded by serializers as "NRGM".
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_ZbPJaNp-Ed-ak6NoX_4Aeg_1582722965")]
     [Description(@"The cancellation request has been rejected since more than one instruction match to the cancellation criteria.")]
-    NoCancellationMatch,
+    NoCancellationMatch = RejectedStatusReasonCode.NoCancellationMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NotCompliantWithSLA".
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZbYTUNp-Ed-ak6NoX_4Aeg_1582722981")]
     [Description(@"Instruction is not compliant with the service level agreement.")]
-    NotCompliantWithSLA,
+    NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RejectedCancellationStatusReason1Code
 public static class RejectedCancellationStatusReason1CodeMetadataExtensions
 {
     private static readonly RejectedCancellationStatusReason1CodeDropdownSource _dropdownSource = new RejectedCancellationStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

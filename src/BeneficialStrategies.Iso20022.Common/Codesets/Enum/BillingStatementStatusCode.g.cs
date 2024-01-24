@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6VUE1pqlEeGSON8vddiWzQ_861577519")]
 [Description(@"Defines the status of the billing statement.")]
 [Derivations(typeof(BillingStatementStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BillingStatementStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BillingStatementStatusCode
 public static class BillingStatementStatusCodeMetadataExtensions
 {
     private static readonly BillingStatementStatusCodeDropdownSource _dropdownSource = new BillingStatementStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

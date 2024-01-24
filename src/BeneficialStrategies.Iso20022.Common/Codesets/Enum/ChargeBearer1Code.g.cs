@@ -21,30 +21,30 @@ public enum ChargeBearer1Code
 {
     /// <summary>
     /// All transaction charges are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "BorneByDebtor".
+    /// Encoded/decoded by serializers as "OUR".
     /// </summary>
     [EnumMember(Value = "OUR")]
     [IsoId("_a78HJ9p-Ed-ak6NoX_4Aeg_-676764336")]
     [Description(@"All transaction charges are to be borne by the debtor.")]
-    BorneByDebtor,
+    BorneByDebtor = ChargeBearerCode.BorneByDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All transaction charges are to be borne by the creditor.
-    /// Encoded/decoded by serializers as "BorneByCreditor".
+    /// Encoded/decoded by serializers as "BEN".
     /// </summary>
     [EnumMember(Value = "BEN")]
     [IsoId("_a8F4INp-Ed-ak6NoX_4Aeg_-674914229")]
     [Description(@"All transaction charges are to be borne by the creditor.")]
-    BorneByCreditor,
+    BorneByCreditor = ChargeBearerCode.BorneByCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Under the credit transfer scenario, transaction charges on the sender's side are to be borne by the debtor; transaction charges on the receiver's side are to be borne by the creditor.
-    /// Encoded/decoded by serializers as "Shared".
+    /// Encoded/decoded by serializers as "SHA".
     /// </summary>
     [EnumMember(Value = "SHA")]
     [IsoId("_a8F4Idp-Ed-ak6NoX_4Aeg_-671223087")]
     [Description(@"Under the credit transfer scenario, transaction charges on the sender's side are to be borne by the debtor; transaction charges on the receiver's side are to be borne by the creditor.")]
-    Shared,
+    Shared = ChargeBearerCode.Shared, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ChargeBearer1Code
 public static class ChargeBearer1CodeMetadataExtensions
 {
     private static readonly ChargeBearer1CodeDropdownSource _dropdownSource = new ChargeBearer1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -11,16 +11,13 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Frequencies for a floating rate transaction.
-/// 
 /// *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****
-/// 
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_3_6sMI9LEeqMo4JxiuZGSw")]
-[Description(@"Frequencies for a floating rate transaction.  *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.**** ")]
+[Description(@"Frequencies for a floating rate transaction.||*** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****|")]
 [Derivations(typeof(FrequencyRateFixing1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FrequencyRateFixingCode
 {
     /// <summary>
@@ -59,7 +56,7 @@ public enum FrequencyRateFixingCode
 public static class FrequencyRateFixingCodeMetadataExtensions
 {
     private static readonly FrequencyRateFixingCodeDropdownSource _dropdownSource = new FrequencyRateFixingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

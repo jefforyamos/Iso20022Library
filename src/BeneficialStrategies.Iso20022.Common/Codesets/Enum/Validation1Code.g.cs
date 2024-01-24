@@ -21,30 +21,30 @@ public enum Validation1Code
 {
     /// <summary>
     /// Validation of the signature is successful.
-    /// Encoded/decoded by serializers as "ValidationSuccessful".
+    /// Encoded/decoded by serializers as "OKAY".
     /// </summary>
     [EnumMember(Value = "OKAY")]
     [IsoId("_-T5V8smKEeWAGphE2LvqeA")]
     [Description(@"Validation of the signature is successful.")]
-    ValidationSuccessful,
+    ValidationSuccessful = ValidationCode.ValidationSuccessful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation of the signature is unknown or not yet executed.
-    /// Encoded/decoded by serializers as "ValidationUnkonwn".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_-VFBscmKEeWAGphE2LvqeA")]
     [Description(@"Validation of the signature is unknown or not yet executed.")]
-    ValidationUnkonwn,
+    ValidationUnkonwn = ValidationCode.ValidationUnkonwn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Validation of the signature has failed.
-    /// Encoded/decoded by serializers as "ValidationFailed".
+    /// Encoded/decoded by serializers as "NTOK".
     /// </summary>
     [EnumMember(Value = "NTOK")]
     [IsoId("_UqKgocnIEeWI4cSIO9foRA")]
     [Description(@"Validation of the signature has failed.")]
-    ValidationFailed,
+    ValidationFailed = ValidationCode.ValidationFailed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Validation1Code
 public static class Validation1CodeMetadataExtensions
 {
     private static readonly Validation1CodeDropdownSource _dropdownSource = new Validation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,39 +21,39 @@ public enum LimitStatus1Code
 {
     /// <summary>
     /// Limit is currently in effect.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_zdviUg93EeGeV5vP7Mvdig_372741033")]
     [Description(@"Limit is currently in effect.")]
-    Enabled,
+    Enabled = LimitStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limit is not currently in effect.
-    /// Encoded/decoded by serializers as "Disabled".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_zdviUw93EeGeV5vP7Mvdig_815729525")]
     [Description(@"Limit is not currently in effect.")]
-    Disabled,
+    Disabled = LimitStatusCode.Disabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limit has been deleted or suspended.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DELD".
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_zdviVA93EeGeV5vP7Mvdig_1401676551")]
     [Description(@"Limit has been deleted or suspended.")]
-    Deleted,
+    Deleted = LimitStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limit has been asked for and is not yet enabled.
-    /// Encoded/decoded by serializers as "Requested".
+    /// Encoded/decoded by serializers as "REQD".
     /// </summary>
     [EnumMember(Value = "REQD")]
     [IsoId("_zdviVQ93EeGeV5vP7Mvdig_348111115")]
     [Description(@"Limit has been asked for and is not yet enabled.")]
-    Requested,
+    Requested = LimitStatusCode.Requested, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum LimitStatus1Code
 public static class LimitStatus1CodeMetadataExtensions
 {
     private static readonly LimitStatus1CodeDropdownSource _dropdownSource = new LimitStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

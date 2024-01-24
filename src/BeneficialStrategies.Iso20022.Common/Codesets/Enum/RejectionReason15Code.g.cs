@@ -21,12 +21,12 @@ public enum RejectionReason15Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZhMnc9p-Ed-ak6NoX_4Aeg_-1572959091")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum RejectionReason15Code
 public static class RejectionReason15CodeMetadataExtensions
 {
     private static readonly RejectionReason15CodeDropdownSource _dropdownSource = new RejectionReason15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

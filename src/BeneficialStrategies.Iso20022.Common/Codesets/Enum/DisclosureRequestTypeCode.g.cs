@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_2Py7kEV2EemRx7jyevcLwg")]
 [Description(@"Type of disclosure request.")]
 [Derivations(typeof(DisclosureRequestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DisclosureRequestTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DisclosureRequestTypeCode
 public static class DisclosureRequestTypeCodeMetadataExtensions
 {
     private static readonly DisclosureRequestTypeCodeDropdownSource _dropdownSource = new DisclosureRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

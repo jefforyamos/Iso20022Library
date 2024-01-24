@@ -21,21 +21,21 @@ public enum CorporateActionStatementType1Code
 {
     /// <summary>
     /// Statement contains missing instructions.
-    /// Encoded/decoded by serializers as "Missing".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_bTMJg9p-Ed-ak6NoX_4Aeg_1348068920")]
     [Description(@"Statement contains missing instructions.")]
-    Missing,
+    Missing = CorporateActionStatementTypeCode.Missing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement contains all instructions.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_bTMJhNp-Ed-ak6NoX_4Aeg_1358228102")]
     [Description(@"Statement contains all instructions.")]
-    All,
+    All = CorporateActionStatementTypeCode.All, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CorporateActionStatementType1Code
 public static class CorporateActionStatementType1CodeMetadataExtensions
 {
     private static readonly CorporateActionStatementType1CodeDropdownSource _dropdownSource = new CorporateActionStatementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

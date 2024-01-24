@@ -21,66 +21,66 @@ public enum RejectionReason2Code
 {
     /// <summary>
     /// Instruction contains an invalid message reference, reference is unknown.
-    /// Encoded/decoded by serializers as "InvalidReference".
+    /// Encoded/decoded by serializers as "ULNK".
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zkxf49p-Ed-ak6NoX_4Aeg_-438583092")]
     [Description(@"Instruction contains an invalid message reference, reference is unknown.")]
-    InvalidReference,
+    InvalidReference = RejectionReasonCode.InvalidReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer or Registrar has rejected the instruction.
-    /// Encoded/decoded by serializers as "RejectedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RBIS".
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_Zkxf5Np-Ed-ak6NoX_4Aeg_-413646475")]
     [Description(@"Issuer or Registrar has rejected the instruction.")]
-    RejectedByIssuerOrRegistrar,
+    RejectedByIssuerOrRegistrar = RejectionReasonCode.RejectedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The instruction is irrevocable.
-    /// Encoded/decoded by serializers as "InstructionIrrevocable".
+    /// Encoded/decoded by serializers as "INIR".
     /// </summary>
     [EnumMember(Value = "INIR")]
     [IsoId("_Zkxf5dp-Ed-ak6NoX_4Aeg_-354541132")]
     [Description(@"The instruction is irrevocable.")]
-    InstructionIrrevocable,
+    InstructionIrrevocable = RejectionReasonCode.InstructionIrrevocable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Zkxf5tp-Ed-ak6NoX_4Aeg_-325913625")]
     [Description(@"Instruction received after the account servicers specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Zkxf59p-Ed-ak6NoX_4Aeg_-43315191")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
+    /// Encoded/decoded by serializers as "DCAN".
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_Zkxf6Np-Ed-ak6NoX_4Aeg_-13761369")]
     [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
-    RejectedSinceAlreadyCancelled,
+    RejectedSinceAlreadyCancelled = RejectionReasonCode.RejectedSinceAlreadyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "RejectedSinceInProgress".
+    /// Encoded/decoded by serializers as "DPRG".
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_Zkxf6dp-Ed-ak6NoX_4Aeg_4708938")]
     [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
-    RejectedSinceInProgress,
+    RejectedSinceInProgress = RejectionReasonCode.RejectedSinceInProgress, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum RejectionReason2Code
 public static class RejectionReason2CodeMetadataExtensions
 {
     private static readonly RejectionReason2CodeDropdownSource _dropdownSource = new RejectionReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

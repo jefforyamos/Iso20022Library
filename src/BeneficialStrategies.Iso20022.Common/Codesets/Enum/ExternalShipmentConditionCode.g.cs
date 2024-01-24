@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_AFUk0e8hEemHC5W45DWzKA")]
-[Description(@"Specifies a shipment conditions code, as published in the external ISO 20022 external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies a shipment conditions code, as published in the external ISO 20022 external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalShipmentCondition1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalShipmentConditionCode
 {
     /// <summary>
@@ -57,7 +56,7 @@ public enum ExternalShipmentConditionCode
 public static class ExternalShipmentConditionCodeMetadataExtensions
 {
     private static readonly ExternalShipmentConditionCodeDropdownSource _dropdownSource = new ExternalShipmentConditionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

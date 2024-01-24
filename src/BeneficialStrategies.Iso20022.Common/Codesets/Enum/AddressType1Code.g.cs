@@ -21,21 +21,21 @@ public enum AddressType1Code
 {
     /// <summary>
     /// Address is the home address.
-    /// Encoded/decoded by serializers as "Residential".
+    /// Encoded/decoded by serializers as "HOME".
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_bmtidtp-Ed-ak6NoX_4Aeg_-1758352550")]
     [Description(@"Address is the home address.")]
-    Residential,
+    Residential = AddressTypeCode.Residential, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Address is the business address.
-    /// Encoded/decoded by serializers as "Business".
+    /// Encoded/decoded by serializers as "BIZZ".
     /// </summary>
     [EnumMember(Value = "BIZZ")]
     [IsoId("_bmtid9p-Ed-ak6NoX_4Aeg_-1742653638")]
     [Description(@"Address is the business address.")]
-    Business,
+    Business = AddressTypeCode.Business, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AddressType1Code
 public static class AddressType1CodeMetadataExtensions
 {
     private static readonly AddressType1CodeDropdownSource _dropdownSource = new AddressType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

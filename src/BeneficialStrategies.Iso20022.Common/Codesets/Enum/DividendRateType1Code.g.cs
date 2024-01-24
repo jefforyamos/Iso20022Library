@@ -21,12 +21,12 @@ public enum DividendRateType1Code
 {
     /// <summary>
     /// Rate relating to the underlying security for which tax is charged.
-    /// Encoded/decoded by serializers as "TaxablePortion".
+    /// Encoded/decoded by serializers as "TXBL".
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_q3yFdGtdEeCY4-KZ9JEyUQ_-747091417")]
     [Description(@"Rate relating to the underlying security for which tax is charged.")]
-    TaxablePortion,
+    TaxablePortion = DividendRateTypeCode.TaxablePortion, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DividendRateType1Code
 public static class DividendRateType1CodeMetadataExtensions
 {
     private static readonly DividendRateType1CodeDropdownSource _dropdownSource = new DividendRateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

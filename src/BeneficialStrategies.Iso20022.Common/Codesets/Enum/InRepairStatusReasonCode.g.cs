@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aWsFB9p-Ed-ak6NoX_4Aeg_1106691227")]
 [Description(@"Specifies the reason for a In Repair status.")]
 [Derivations(typeof(InRepairStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InRepairStatusReasonCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum InRepairStatusReasonCode
 public static class InRepairStatusReasonCodeMetadataExtensions
 {
     private static readonly InRepairStatusReasonCodeDropdownSource _dropdownSource = new InRepairStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

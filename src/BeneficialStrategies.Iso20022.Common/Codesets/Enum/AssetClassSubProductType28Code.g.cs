@@ -21,12 +21,12 @@ public enum AssetClassSubProductType28Code
 {
     /// <summary>
     /// Commodity of type renewable energy.
-    /// Encoded/decoded by serializers as "RenewableEnergy".
+    /// Encoded/decoded by serializers as "RNNG".
     /// </summary>
     [EnumMember(Value = "RNNG")]
     [IsoId("_sQ1KRVrKEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type renewable energy.")]
-    RenewableEnergy,
+    RenewableEnergy = AssetClassSubProductTypeCode.RenewableEnergy, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType28Code
 public static class AssetClassSubProductType28CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType28CodeDropdownSource _dropdownSource = new AssetClassSubProductType28CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

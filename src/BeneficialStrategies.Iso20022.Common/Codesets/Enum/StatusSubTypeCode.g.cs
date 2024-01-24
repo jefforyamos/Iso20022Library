@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_T_BfoB3cEeKXIbeXfdPzuw")]
 [Description(@"Indicates the sub status of the trade notification.")]
 [Derivations(typeof(StatusSubType1Code),typeof(StatusSubType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatusSubTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum StatusSubTypeCode
 public static class StatusSubTypeCodeMetadataExtensions
 {
     private static readonly StatusSubTypeCodeDropdownSource _dropdownSource = new StatusSubTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

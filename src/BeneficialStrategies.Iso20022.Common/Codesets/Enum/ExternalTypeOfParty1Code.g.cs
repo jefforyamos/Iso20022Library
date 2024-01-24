@@ -16,126 +16,126 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MYPFG7iEeKo25nLKvGr8w_227763993")]
-[Description(@"Specifies the external type of party code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external type of party code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalTypeOfPartyCode))]
 public enum ExternalTypeOfParty1Code
 {
     /// <summary>
     /// Party advising the undertaking.
-    /// Encoded/decoded by serializers as "AdvisingParty".
+    /// Encoded/decoded by serializers as "ADVP".
     /// </summary>
     [EnumMember(Value = "ADVP")]
     [IsoId("_uQCDG_RYEeuLhpyIdtJzwg")]
     [Description(@"Party advising the undertaking.")]
-    AdvisingParty,
+    AdvisingParty = ExternalTypeOfPartyCode.AdvisingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any bank.
-    /// Encoded/decoded by serializers as "AnyBank".
+    /// Encoded/decoded by serializers as "ANYB".
     /// </summary>
     [EnumMember(Value = "ANYB")]
     [IsoId("_uQCDHvRYEeuLhpyIdtJzwg")]
     [Description(@"Any bank.")]
-    AnyBank,
+    AnyBank = ExternalTypeOfPartyCode.AnyBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party named in the undertaking as the “applicant”. 
-    /// Encoded/decoded by serializers as "Applicant".
+    /// Encoded/decoded by serializers as "APPL".
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_uQL0EvRYEeuLhpyIdtJzwg")]
     [Description(@"Party named in the undertaking as the “applicant”. ")]
-    Applicant,
+    Applicant = ExternalTypeOfPartyCode.Applicant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
-    /// Encoded/decoded by serializers as "Beneficiary".
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_uQL0FfRYEeuLhpyIdtJzwg")]
     [Description(@"Party in whose favour the undertaking (or counter-undertaking) is issued.")]
-    Beneficiary,
+    Beneficiary = ExternalTypeOfPartyCode.Beneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking.
-    /// Encoded/decoded by serializers as "ConfirmationParty".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uQL0GPRYEeuLhpyIdtJzwg")]
     [Description(@"Party that adds its undertaking to honour the undertaking.")]
-    ConfirmationParty,
+    ConfirmationParty = ExternalTypeOfPartyCode.ConfirmationParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficiary of the second counter-undertaking.
-    /// Encoded/decoded by serializers as "SecondCounterUndertakingBeneficiary".
+    /// Encoded/decoded by serializers as "CUB2".
     /// </summary>
     [EnumMember(Value = "CUB2")]
     [IsoId("_uQL0G_RYEeuLhpyIdtJzwg")]
     [Description(@"Beneficiary of the second counter-undertaking.")]
-    SecondCounterUndertakingBeneficiary,
+    SecondCounterUndertakingBeneficiary = ExternalTypeOfPartyCode.SecondCounterUndertakingBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Beneficiary of the third counter-undertaking.
-    /// Encoded/decoded by serializers as "ThirdCounterUndertakingBeneficiary".
+    /// Encoded/decoded by serializers as "CUB3".
     /// </summary>
     [EnumMember(Value = "CUB3")]
     [IsoId("_uQL0HvRYEeuLhpyIdtJzwg")]
     [Description(@"Beneficiary of the third counter-undertaking.")]
-    ThirdCounterUndertakingBeneficiary,
+    ThirdCounterUndertakingBeneficiary = ExternalTypeOfPartyCode.ThirdCounterUndertakingBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking). 
-    /// Encoded/decoded by serializers as "Issuer".
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_uQU-AvRYEeuLhpyIdtJzwg")]
     [Description(@"Party that issues the undertaking (or counter-undertaking). ")]
-    Issuer,
+    Issuer = ExternalTypeOfPartyCode.Issuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party obligated to reimburse the issuer. 
-    /// Encoded/decoded by serializers as "Obligor".
+    /// Encoded/decoded by serializers as "OBLG".
     /// </summary>
     [EnumMember(Value = "OBLG")]
     [IsoId("_uQU-BfRYEeuLhpyIdtJzwg")]
     [Description(@"Party obligated to reimburse the issuer. ")]
-    Obligor,
+    Obligor = ExternalTypeOfPartyCode.Obligor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant's bank.
-    /// Encoded/decoded by serializers as "OrderingParty".
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_uQevAvRYEeuLhpyIdtJzwg")]
     [Description(@"Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant's bank.")]
-    OrderingParty,
+    OrderingParty = ExternalTypeOfPartyCode.OrderingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party nominated to receive presentation. 
-    /// Encoded/decoded by serializers as "PresentingParty".
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_uQevBfRYEeuLhpyIdtJzwg")]
     [Description(@"Party nominated to receive presentation. ")]
-    PresentingParty,
+    PresentingParty = ExternalTypeOfPartyCode.PresentingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Second advising party.
-    /// Encoded/decoded by serializers as "SecondAdvisingParty".
+    /// Encoded/decoded by serializers as "SADV".
     /// </summary>
     [EnumMember(Value = "SADV")]
     [IsoId("_uQevCPRYEeuLhpyIdtJzwg")]
     [Description(@"Second advising party.")]
-    SecondAdvisingParty,
+    SecondAdvisingParty = ExternalTypeOfPartyCode.SecondAdvisingParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party located at specified address.
-    /// Encoded/decoded by serializers as "SpecifiedAddress".
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_uQevC_RYEeuLhpyIdtJzwg")]
     [Description(@"Party located at specified address.")]
-    SpecifiedAddress,
+    SpecifiedAddress = ExternalTypeOfPartyCode.SpecifiedAddress, // same ordinal as derivation source for type conversions
     
 }
 
@@ -146,7 +146,7 @@ public enum ExternalTypeOfParty1Code
 public static class ExternalTypeOfParty1CodeMetadataExtensions
 {
     private static readonly ExternalTypeOfParty1CodeDropdownSource _dropdownSource = new ExternalTypeOfParty1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

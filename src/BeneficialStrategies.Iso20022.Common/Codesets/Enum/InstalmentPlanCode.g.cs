@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_pQ8HgDDgEeO9waS4ina8CA")]
 [Description(@"Type of instalment plan.")]
 [Derivations(typeof(InstalmentPlan1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstalmentPlanCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InstalmentPlanCode
 public static class InstalmentPlanCodeMetadataExtensions
 {
     private static readonly InstalmentPlanCodeDropdownSource _dropdownSource = new InstalmentPlanCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

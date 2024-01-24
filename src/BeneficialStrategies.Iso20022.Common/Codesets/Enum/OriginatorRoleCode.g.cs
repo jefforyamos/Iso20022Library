@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Zw_W9tp-Ed-ak6NoX_4Aeg_141531855")]
 [Description(@"Specifies in what capacity (role) the originator of a quote is acting.")]
 [Derivations(typeof(OriginatorRole2Code),typeof(OriginatorRole1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OriginatorRoleCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum OriginatorRoleCode
 public static class OriginatorRoleCodeMetadataExtensions
 {
     private static readonly OriginatorRoleCodeDropdownSource _dropdownSource = new OriginatorRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

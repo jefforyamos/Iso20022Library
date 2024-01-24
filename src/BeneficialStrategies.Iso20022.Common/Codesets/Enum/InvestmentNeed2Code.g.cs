@@ -21,30 +21,30 @@ public enum InvestmentNeed2Code
 {
     /// <summary>
     /// No specific need.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NSPE".
     /// </summary>
     [EnumMember(Value = "NSPE")]
     [IsoId("_i8cCMaDtEequlaOyi6MUhw")]
     [Description(@"No specific need.")]
-    None,
+    None = InvestmentNeedCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other specific need.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jD4G8aDtEequlaOyi6MUhw")]
     [Description(@"Other specific need.")]
-    Other,
+    Other = InvestmentNeedCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment need is for Islamic banking.
-    /// Encoded/decoded by serializers as "IslamicBanking".
+    /// Encoded/decoded by serializers as "ISLB".
     /// </summary>
     [EnumMember(Value = "ISLB")]
     [IsoId("_jK3fwaDtEequlaOyi6MUhw")]
     [Description(@"Investment need is for Islamic banking.")]
-    IslamicBanking,
+    IslamicBanking = InvestmentNeedCode.IslamicBanking, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InvestmentNeed2Code
 public static class InvestmentNeed2CodeMetadataExtensions
 {
     private static readonly InvestmentNeed2CodeDropdownSource _dropdownSource = new InvestmentNeed2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

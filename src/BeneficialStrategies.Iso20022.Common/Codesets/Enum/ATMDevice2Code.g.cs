@@ -21,201 +21,201 @@ public enum ATMDevice2Code
 {
     /// <summary>
     /// Alarm sensors, such as tamper, seismic or heat sensors.
-    /// Encoded/decoded by serializers as "AlarmSensors".
+    /// Encoded/decoded by serializers as "ALRM".
     /// </summary>
     [EnumMember(Value = "ALRM")]
     [IsoId("_6MaQYYqtEeSIDtZ76p6McQ")]
     [Description(@"Alarm sensors, such as tamper, seismic or heat sensors.")]
-    AlarmSensors,
+    AlarmSensors = ATMDeviceCode.AlarmSensors, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device scanning barcodes using any scanning technology.
-    /// Encoded/decoded by serializers as "BarCodeReader".
+    /// Encoded/decoded by serializers as "BRCD".
     /// </summary>
     [EnumMember(Value = "BRCD")]
     [IsoId("_6VDPA4qtEeSIDtZ76p6McQ")]
     [Description(@"Device scanning barcodes using any scanning technology.")]
-    BarCodeReader,
+    BarCodeReader = ATMDeviceCode.BarCodeReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Camera, recorder, video mixer.
-    /// Encoded/decoded by serializers as "Camera".
+    /// Encoded/decoded by serializers as "CAMR".
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_6WicwYqtEeSIDtZ76p6McQ")]
     [Description(@"Camera, recorder, video mixer.")]
-    Camera,
+    Camera = ATMDeviceCode.Camera, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device dispensing card to a consumer.
-    /// Encoded/decoded by serializers as "CardDispenser".
+    /// Encoded/decoded by serializers as "CRDD".
     /// </summary>
     [EnumMember(Value = "CRDD")]
     [IsoId("_6jM_w4qtEeSIDtZ76p6McQ")]
     [Description(@"Device dispensing card to a consumer.")]
-    CardDispenser,
+    CardDispenser = ATMDeviceCode.CardDispenser, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device to read and optionally write card with various entry modes.
-    /// Encoded/decoded by serializers as "CardUnit".
+    /// Encoded/decoded by serializers as "CRDR".
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_6oH8AYqtEeSIDtZ76p6McQ")]
     [Description(@"Device to read and optionally write card with various entry modes.")]
-    CardUnit,
+    CardUnit = ATMDeviceCode.CardUnit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device dispensing cash in an automated environment, or with an operator present.
-    /// Encoded/decoded by serializers as "CashDispenser".
+    /// Encoded/decoded by serializers as "CSHD".
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_6w6ro4qtEeSIDtZ76p6McQ")]
     [Description(@"Device dispensing cash in an automated environment, or with an operator present.")]
-    CashDispenser,
+    CashDispenser = ATMDeviceCode.CashDispenser, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device accepting in-out of items as coupons, documents, bills and coins.
-    /// Encoded/decoded by serializers as "CashInModule".
+    /// Encoded/decoded by serializers as "CSHI".
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_62Ii04qtEeSIDtZ76p6McQ")]
     [Description(@"Device accepting in-out of items as coupons, documents, bills and coins.")]
-    CashInModule,
+    CashInModule = ATMDeviceCode.CashInModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Compound device with cash in module, cash dispenser, and cash exchange.
-    /// Encoded/decoded by serializers as "CashRecycler".
+    /// Encoded/decoded by serializers as "CSHR".
     /// </summary>
     [EnumMember(Value = "CSHR")]
     [IsoId("_6-LEgYqtEeSIDtZ76p6McQ")]
     [Description(@"Compound device with cash in module, cash dispenser, and cash exchange.")]
-    CashRecycler,
+    CashRecycler = ATMDeviceCode.CashRecycler, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Check reader and check image scanner.
-    /// Encoded/decoded by serializers as "CheckReader".
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_7G90I4qtEeSIDtZ76p6McQ")]
     [Description(@"Check reader and check image scanner.")]
-    CheckReader,
+    CheckReader = ATMDeviceCode.CheckReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer display and keyboard.
-    /// Encoded/decoded by serializers as "CustomerConsole".
+    /// Encoded/decoded by serializers as "CDIS".
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("_7Ido8YqtEeSIDtZ76p6McQ")]
     [Description(@"Customer display and keyboard.")]
-    CustomerConsole,
+    CustomerConsole = ATMDeviceCode.CustomerConsole, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device for the deposit of media in envelopes or deposit of bags containing bulk media.
-    /// Encoded/decoded by serializers as "Deposit".
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_7hMSAYqtEeSIDtZ76p6McQ")]
     [Description(@"Device for the deposit of media in envelopes or deposit of bags containing bulk media.")]
-    Deposit,
+    Deposit = ATMDeviceCode.Deposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Printer for full-size forms documents and supporting the printing of text and graphic.
-    /// Encoded/decoded by serializers as "DocumentPrinter".
+    /// Encoded/decoded by serializers as "DPRN".
     /// </summary>
     [EnumMember(Value = "DPRN")]
     [IsoId("_7pFpwYqtEeSIDtZ76p6McQ")]
     [Description(@"Printer for full-size forms documents and supporting the printing of text and graphic.")]
-    DocumentPrinter,
+    DocumentPrinter = ATMDeviceCode.DocumentPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Door sensors, such as cabinet, safe or vandal shield doors.
-    /// Encoded/decoded by serializers as "DoorSensors".
+    /// Encoded/decoded by serializers as "DOOR".
     /// </summary>
     [EnumMember(Value = "DOOR")]
     [IsoId("_7yCKYYqtEeSIDtZ76p6McQ")]
     [Description(@"Door sensors, such as cabinet, safe or vandal shield doors.")]
-    DoorSensors,
+    DoorSensors = ATMDeviceCode.DoorSensors, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Self service device processing items.
-    /// Encoded/decoded by serializers as "InputProcessingModule".
+    /// Encoded/decoded by serializers as "INPM".
     /// </summary>
     [EnumMember(Value = "INPM")]
     [IsoId("_75e2MYqtEeSIDtZ76p6McQ")]
     [Description(@"Self service device processing items.")]
-    InputProcessingModule,
+    InputProcessingModule = ATMDeviceCode.InputProcessingModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event log.
-    /// Encoded/decoded by serializers as "Journal".
+    /// Encoded/decoded by serializers as "JRNL".
     /// </summary>
     [EnumMember(Value = "JRNL")]
     [IsoId("_8BYN8YqtEeSIDtZ76p6McQ")]
     [Description(@"Event log.")]
-    Journal,
+    Journal = ATMDeviceCode.Journal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
-    /// Encoded/decoded by serializers as "JournalPrinter".
+    /// Encoded/decoded by serializers as "JPRN".
     /// </summary>
     [EnumMember(Value = "JPRN")]
     [IsoId("_8MtUMYqtEeSIDtZ76p6McQ")]
     [Description(@"Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.")]
-    JournalPrinter,
+    JournalPrinter = ATMDeviceCode.JournalPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other sensors and indicators unit.
-    /// Encoded/decoded by serializers as "OtherSensor".
+    /// Encoded/decoded by serializers as "SNSR".
     /// </summary>
     [EnumMember(Value = "SNSR")]
     [IsoId("_8YoQUYqtEeSIDtZ76p6McQ")]
     [Description(@"Other sensors and indicators unit.")]
-    OtherSensor,
+    OtherSensor = ATMDeviceCode.OtherSensor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Passbook device supporting automatic positioning of the book.
-    /// Encoded/decoded by serializers as "PassbookPrinter".
+    /// Encoded/decoded by serializers as "PSBK".
     /// </summary>
     [EnumMember(Value = "PSBK")]
     [IsoId("_8g-UAYqtEeSIDtZ76p6McQ")]
     [Description(@"Passbook device supporting automatic positioning of the book.")]
-    PassbookPrinter,
+    PassbookPrinter = ATMDeviceCode.PassbookPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hardware security module allowing the PIN (Personal Identification Number) entry, secure storing of cryptographic keys, and other cryptographic functions.
-    /// Encoded/decoded by serializers as "PINKeypad".
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_8oa_0YqtEeSIDtZ76p6McQ")]
     [Description(@"Hardware security module allowing the PIN (Personal Identification Number) entry, secure storing of cryptographic keys, and other cryptographic functions.")]
-    PINKeypad,
+    PINKeypad = ATMDeviceCode.PINKeypad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt printer used to print cut sheet documents.
-    /// Encoded/decoded by serializers as "ReceiptPrinter".
+    /// Encoded/decoded by serializers as "RPRN".
     /// </summary>
     [EnumMember(Value = "RPRN")]
     [IsoId("_8wxDgYqtEeSIDtZ76p6McQ")]
     [Description(@"Receipt printer used to print cut sheet documents.")]
-    ReceiptPrinter,
+    ReceiptPrinter = ATMDeviceCode.ReceiptPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device incorporating both the capabilities to scan inserted documents and optionally to print on them.
-    /// Encoded/decoded by serializers as "ScannerPrinter".
+    /// Encoded/decoded by serializers as "SCAN".
     /// </summary>
     [EnumMember(Value = "SCAN")]
     [IsoId("_840MQYqtEeSIDtZ76p6McQ")]
     [Description(@"Device incorporating both the capabilities to scan inserted documents and optionally to print on them.")]
-    ScannerPrinter,
+    ScannerPrinter = ATMDeviceCode.ScannerPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt of the withdrawal transactions.
-    /// Encoded/decoded by serializers as "WithdrawalReceipt".
+    /// Encoded/decoded by serializers as "RWDR".
     /// </summary>
     [EnumMember(Value = "RWDR")]
     [IsoId("_YA_OIY65EeSUpManOYhRpw")]
     [Description(@"Receipt of the withdrawal transactions.")]
-    WithdrawalReceipt,
+    WithdrawalReceipt = ATMDeviceCode.WithdrawalReceipt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -226,7 +226,7 @@ public enum ATMDevice2Code
 public static class ATMDevice2CodeMetadataExtensions
 {
     private static readonly ATMDevice2CodeDropdownSource _dropdownSource = new ATMDevice2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

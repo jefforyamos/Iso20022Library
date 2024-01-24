@@ -21,30 +21,30 @@ public enum FrequencyRateFixing1Code
 {
     /// <summary>
     /// No update of  the rate for the duration of the trade.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_Iq2REY9PEeqMo4JxiuZGSw")]
     [Description(@"No update of  the rate for the duration of the trade.")]
-    None,
+    None = FrequencyRateFixingCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Daily fixing according to the tenor of the index.
-    /// Encoded/decoded by serializers as "Overnight".
+    /// Encoded/decoded by serializers as "OVNG".
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_IwpXEo9PEeqMo4JxiuZGSw")]
     [Description(@"Daily fixing according to the tenor of the index.")]
-    Overnight,
+    Overnight = FrequencyRateFixingCode.Overnight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Periodic fixing of the rate in line with   (according to) the Tenor of the rate.
-    /// Encoded/decoded by serializers as "Periodic".
+    /// Encoded/decoded by serializers as "PRDC".
     /// </summary>
     [EnumMember(Value = "PRDC")]
     [IsoId("_I4Fb0o9PEeqMo4JxiuZGSw")]
     [Description(@"Periodic fixing of the rate in line with   (according to) the Tenor of the rate.")]
-    Periodic,
+    Periodic = FrequencyRateFixingCode.Periodic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FrequencyRateFixing1Code
 public static class FrequencyRateFixing1CodeMetadataExtensions
 {
     private static readonly FrequencyRateFixing1CodeDropdownSource _dropdownSource = new FrequencyRateFixing1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

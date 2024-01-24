@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_7XcKNQNyEe2-vqzwMUAewg")]
 [Description(@"Specifies the type of amount for foreign exchange commissions or fees.")]
 [Derivations(typeof(FXAmountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FXAmountTypeCode
 {
     /// <summary>
@@ -288,7 +287,7 @@ public enum FXAmountTypeCode
     /// </summary>
     [EnumMember(Value = "ACCA")]
     [IsoId("_UQsiQAQSEe24oO8ckv9xmw")]
-    [Description(@"Amount of unpaid interest (on bonds which have defaulted and have subsequently  restructured), which is capitalized and added to the original principal amount of the bond.")]
+    [Description(@"Amount of unpaid interest (on bonds which have defaulted and have subsequently |restructured), which is capitalized and added to the original principal amount of the bond.")]
     AccruedCapitalisation,
     
     /// <summary>
@@ -498,7 +497,7 @@ public enum FXAmountTypeCode
 public static class FXAmountTypeCodeMetadataExtensions
 {
     private static readonly FXAmountTypeCodeDropdownSource _dropdownSource = new FXAmountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

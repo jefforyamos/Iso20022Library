@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_amB7QM0UEeuAE-cYsQdwHQ")]
 [Description(@"Specifies whether the product is compatible with investors that have sustainability preferences. ")]
 [Derivations(typeof(SustainabilityPreferences1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SustainabilityPreferencesCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SustainabilityPreferencesCode
 public static class SustainabilityPreferencesCodeMetadataExtensions
 {
     private static readonly SustainabilityPreferencesCodeDropdownSource _dropdownSource = new SustainabilityPreferencesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

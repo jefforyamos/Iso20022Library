@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TV8F4AEcEeCQm6a_G2yO_w_-487459684")]
 [Description(@"Method used to authenticate a cardholder.")]
-[Derivations(typeof(AuthenticationMethod1Code),typeof(AuthenticationMethod2Code),typeof(AuthenticationMethod4Code),typeof(AuthenticationMethod3Code),typeof(AuthenticationMethod7Code),typeof(AuthenticationMethod5Code),typeof(AuthenticationMethod6Code),typeof(AuthenticationMethod8Code),typeof(AuthenticationMethod11Code),typeof(AuthenticationMethod12Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(AuthenticationMethod12Code),typeof(AuthenticationMethod11Code),typeof(AuthenticationMethod7Code),typeof(AuthenticationMethod8Code),typeof(AuthenticationMethod1Code),typeof(AuthenticationMethod4Code),typeof(AuthenticationMethod6Code),typeof(AuthenticationMethod3Code),typeof(AuthenticationMethod2Code),typeof(AuthenticationMethod5Code))]
 public enum AuthenticationMethodCode
 {
     /// <summary>
@@ -659,7 +658,7 @@ public enum AuthenticationMethodCode
 public static class AuthenticationMethodCodeMetadataExtensions
 {
     private static readonly AuthenticationMethodCodeDropdownSource _dropdownSource = new AuthenticationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

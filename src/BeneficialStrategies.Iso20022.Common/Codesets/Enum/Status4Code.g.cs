@@ -21,21 +21,21 @@ public enum Status4Code
 {
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_YgFIttp-Ed-ak6NoX_4Aeg_703110423")]
     [Description(@"Instruction has been rejected.")]
-    Rejected,
+    Rejected = StatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YgFIt9p-Ed-ak6NoX_4Aeg_-1140758566")]
     [Description(@"Instruction has been accepted and is validated for further processing.")]
-    Accepted,
+    Accepted = StatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Status4Code
 public static class Status4CodeMetadataExtensions
 {
     private static readonly Status4CodeDropdownSource _dropdownSource = new Status4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

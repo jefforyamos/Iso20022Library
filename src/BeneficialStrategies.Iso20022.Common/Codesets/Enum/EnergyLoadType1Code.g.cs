@@ -21,67 +21,66 @@ public enum EnergyLoadType1Code
 {
     /// <summary>
     /// Base load.
-    /// Encoded/decoded by serializers as "BaseLoad".
+    /// Encoded/decoded by serializers as "BSLD".
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_rT4f4RVoEeWXLoZC9OIRgg")]
     [Description(@"Base load.")]
-    BaseLoad,
+    BaseLoad = EnergyLoadTypeCode.BaseLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gas day.
-    /// Encoded/decoded by serializers as "GasDay".
+    /// Encoded/decoded by serializers as "GASD".
     /// </summary>
     [EnumMember(Value = "GASD")]
     [IsoId("_rf7X0RVoEeWXLoZC9OIRgg")]
     [Description(@"Gas day.")]
-    GasDay,
+    GasDay = EnergyLoadTypeCode.GasDay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hour and block hours.
-    /// Encoded/decoded by serializers as "HourAndBlockHours".
+    /// Encoded/decoded by serializers as "HABH".
     /// </summary>
     [EnumMember(Value = "HABH")]
     [IsoId("_rsRxwRVoEeWXLoZC9OIRgg")]
     [Description(@"Hour and block hours.")]
-    HourAndBlockHours,
+    HourAndBlockHours = EnergyLoadTypeCode.HourAndBlockHours, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Off-Peak.
-    /// 
-    /// Encoded/decoded by serializers as "Off_Peak".
+    /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_r4VQwRVoEeWXLoZC9OIRgg")]
-    [Description(@"Off-Peak. ")]
-    Off_Peak,
+    [Description(@"Off-Peak.|")]
+    Off_Peak = EnergyLoadTypeCode.Off_Peak, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_sEYIsRVoEeWXLoZC9OIRgg")]
     [Description(@"Other.")]
-    Other,
+    Other = EnergyLoadTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Peak load.
-    /// Encoded/decoded by serializers as "PeakLoad".
+    /// Encoded/decoded by serializers as "PKLD".
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_sQbnsRVoEeWXLoZC9OIRgg")]
     [Description(@"Peak load.")]
-    PeakLoad,
+    PeakLoad = EnergyLoadTypeCode.PeakLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Shaped.
-    /// Encoded/decoded by serializers as "Shaped".
+    /// Encoded/decoded by serializers as "SHPD".
     /// </summary>
     [EnumMember(Value = "SHPD")]
     [IsoId("_scVVsRVoEeWXLoZC9OIRgg")]
     [Description(@"Shaped.")]
-    Shaped,
+    Shaped = EnergyLoadTypeCode.Shaped, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +91,7 @@ public enum EnergyLoadType1Code
 public static class EnergyLoadType1CodeMetadataExtensions
 {
     private static readonly EnergyLoadType1CodeDropdownSource _dropdownSource = new EnergyLoadType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

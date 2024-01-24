@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aVDGQNp-Ed-ak6NoX_4Aeg_-850156011")]
 [Description(@"Specifies the action to be performed on the matching process.")]
 [Derivations(typeof(MatchingProcess1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MatchingProcessCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum MatchingProcessCode
 public static class MatchingProcessCodeMetadataExtensions
 {
     private static readonly MatchingProcessCodeDropdownSource _dropdownSource = new MatchingProcessCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

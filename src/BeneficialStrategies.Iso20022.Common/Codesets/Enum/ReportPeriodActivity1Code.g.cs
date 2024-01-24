@@ -21,12 +21,12 @@ public enum ReportPeriodActivity1Code
 {
     /// <summary>
     /// No transaction has been identified during the period.
-    /// Encoded/decoded by serializers as "NoTransaction".
+    /// Encoded/decoded by serializers as "NOTX".
     /// </summary>
     [EnumMember(Value = "NOTX")]
     [IsoId("_Lbu1sZfsEeSfnc-VXAEapg")]
     [Description(@"No transaction has been identified during the period.")]
-    NoTransaction,
+    NoTransaction = ReportPeriodActivityCode.NoTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ReportPeriodActivity1Code
 public static class ReportPeriodActivity1CodeMetadataExtensions
 {
     private static readonly ReportPeriodActivity1CodeDropdownSource _dropdownSource = new ReportPeriodActivity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

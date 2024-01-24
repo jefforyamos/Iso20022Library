@@ -21,21 +21,21 @@ public enum TransferInFunction1Code
 {
     /// <summary>
     /// The transfer-in is an advice and request, that is, the message is used to inform the receiver to expect an unsolicited transfer in confirmation and to request account information for the transfer.
-    /// Encoded/decoded by serializers as "AdviceAndRequest".
+    /// Encoded/decoded by serializers as "ADRE".
     /// </summary>
     [EnumMember(Value = "ADRE")]
     [IsoId("_nxMJ0SVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in is an advice and request, that is, the message is used to inform the receiver to expect an unsolicited transfer in confirmation and to request account information for the transfer.")]
-    AdviceAndRequest,
+    AdviceAndRequest = TransferInFunctionCode.AdviceAndRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The transfer-in is an instruction.
-    /// Encoded/decoded by serializers as "Instruction".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_n5X1cSVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in is an instruction.")]
-    Instruction,
+    Instruction = TransferInFunctionCode.Instruction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransferInFunction1Code
 public static class TransferInFunction1CodeMetadataExtensions
 {
     private static readonly TransferInFunction1CodeDropdownSource _dropdownSource = new TransferInFunction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_tIBiYP4zEeix6ug6HlF6IQ")]
 [Description(@"Indicates the corporate tax identification type.")]
 [Derivations(typeof(CorporateTaxType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateTaxTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CorporateTaxTypeCode
 public static class CorporateTaxTypeCodeMetadataExtensions
 {
     private static readonly CorporateTaxTypeCodeDropdownSource _dropdownSource = new CorporateTaxTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

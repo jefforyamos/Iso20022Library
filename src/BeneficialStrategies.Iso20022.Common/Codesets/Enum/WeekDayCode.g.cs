@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vVeyEA3eEeW9YKj3GUmIEw")]
 [Description(@"Specifies the day of the week of the delivery.")]
 [Derivations(typeof(WeekDay2Code),typeof(WeekDay3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum WeekDayCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum WeekDayCode
 public static class WeekDayCodeMetadataExtensions
 {
     private static readonly WeekDayCodeDropdownSource _dropdownSource = new WeekDayCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -12,573 +12,572 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// Specifies the element that has been encrypted, as published in an external data to encrypt type code set.
 /// External code sets can be downloaded from www.iso20022.org.
-/// 
 /// These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_2F7gYFdTEeqBUKlIwxdUog")]
-[Description(@"Specifies the element that has been encrypted, as published in an external data to encrypt type code set. External code sets can be downloaded from www.iso20022.org.  These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.")]
+[Description(@"Specifies the element that has been encrypted, as published in an external data to encrypt type code set.|External code sets can be downloaded from www.iso20022.org.||These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.")]
 [DerivedFrom(typeof(ExternalEncryptedElementIdentificationCode))]
 public enum ExternalEncryptedElementIdentification1Code
 {
     /// <summary>
     /// Primary Account Number
-    /// Encoded/decoded by serializers as "PAN".
+    /// Encoded/decoded by serializers as "8A".
     /// </summary>
     [EnumMember(Value = "8A")]
     [IsoId("_upNYGPRYEeuLhpyIdtJzwg")]
     [Description(@"Primary Account Number")]
-    PAN,
+    PAN = ExternalEncryptedElementIdentificationCode.PAN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track1
-    /// Encoded/decoded by serializers as "Track1".
+    /// Encoded/decoded by serializers as "8C".
     /// </summary>
     [EnumMember(Value = "8C")]
     [IsoId("_upNYG_RYEeuLhpyIdtJzwg")]
     [Description(@"Track1")]
-    Track1,
+    Track1 = ExternalEncryptedElementIdentificationCode.Track1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track2
-    /// Encoded/decoded by serializers as "Track2".
+    /// Encoded/decoded by serializers as "8D".
     /// </summary>
     [EnumMember(Value = "8D")]
     [IsoId("_upXJEvRYEeuLhpyIdtJzwg")]
     [Description(@"Track2")]
-    Track2,
+    Track2 = ExternalEncryptedElementIdentificationCode.Track2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Track3
-    /// Encoded/decoded by serializers as "Track3".
+    /// Encoded/decoded by serializers as "8E".
     /// </summary>
     [EnumMember(Value = "8E")]
     [IsoId("_upXJFfRYEeuLhpyIdtJzwg")]
     [Description(@"Track3")]
-    Track3,
+    Track3 = ExternalEncryptedElementIdentificationCode.Track3, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Visible Card Security Code
-    /// Encoded/decoded by serializers as "VisibleCSC".
+    /// Encoded/decoded by serializers as "8F".
     /// </summary>
     [EnumMember(Value = "8F")]
     [IsoId("_upg6EvRYEeuLhpyIdtJzwg")]
     [Description(@"Visible Card Security Code")]
-    VisibleCSC,
+    VisibleCSC = ExternalEncryptedElementIdentificationCode.VisibleCSC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-agreed structure for encrypting data. Permits combination of data elements as per bilateral agreement.
-    /// Encoded/decoded by serializers as "Preagreedstructure".
+    /// Encoded/decoded by serializers as "89".
     /// </summary>
     [EnumMember(Value = "89")]
     [IsoId("_upg6FfRYEeuLhpyIdtJzwg")]
     [Description(@"Pre-agreed structure for encrypting data. Permits combination of data elements as per bilateral agreement.")]
-    Preagreedstructure,
+    Preagreedstructure = ExternalEncryptedElementIdentificationCode.Preagreedstructure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Expiry Date
-    /// Encoded/decoded by serializers as "ExpiryDate".
+    /// Encoded/decoded by serializers as "90".
     /// </summary>
     [EnumMember(Value = "90")]
     [IsoId("_upg6GPRYEeuLhpyIdtJzwg")]
     [Description(@"Expiry Date")]
-    ExpiryDate,
+    ExpiryDate = ExternalEncryptedElementIdentificationCode.ExpiryDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment Account Reference (PAR)
-    /// Encoded/decoded by serializers as "PaymentAccountReferencePAR".
+    /// Encoded/decoded by serializers as "91".
     /// </summary>
     [EnumMember(Value = "91")]
     [IsoId("_upqEAvRYEeuLhpyIdtJzwg")]
     [Description(@"Payment Account Reference (PAR)")]
-    PaymentAccountReferencePAR,
+    PaymentAccountReferencePAR = ExternalEncryptedElementIdentificationCode.PaymentAccountReferencePAR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Identification 
-    /// Encoded/decoded by serializers as "PayerIdentification".
+    /// Encoded/decoded by serializers as "92".
     /// </summary>
     [EnumMember(Value = "92")]
     [IsoId("_upqEBfRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Identification ")]
-    PayerIdentification,
+    PayerIdentification = ExternalEncryptedElementIdentificationCode.PayerIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Name
-    /// Encoded/decoded by serializers as "PayerName".
+    /// Encoded/decoded by serializers as "93".
     /// </summary>
     [EnumMember(Value = "93")]
     [IsoId("_upz1AvRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Name")]
-    PayerName,
+    PayerName = ExternalEncryptedElementIdentificationCode.PayerName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Address
-    /// Encoded/decoded by serializers as "PayerAddress".
+    /// Encoded/decoded by serializers as "94".
     /// </summary>
     [EnumMember(Value = "94")]
     [IsoId("_upz1BfRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Address")]
-    PayerAddress,
+    PayerAddress = ExternalEncryptedElementIdentificationCode.PayerAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Credentials Alien Registration Number
-    /// Encoded/decoded by serializers as "PayerCredentialsAlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "95".
     /// </summary>
     [EnumMember(Value = "95")]
     [IsoId("_upz1CPRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Credentials Alien Registration Number")]
-    PayerCredentialsAlienRegistrationNumber,
+    PayerCredentialsAlienRegistrationNumber = ExternalEncryptedElementIdentificationCode.PayerCredentialsAlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Credentials Driver Licence Identification
-    /// Encoded/decoded by serializers as "PayerCredentialsDriverLicenceIdentification".
+    /// Encoded/decoded by serializers as "96".
     /// </summary>
     [EnumMember(Value = "96")]
     [IsoId("_upz1C_RYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Credentials Driver Licence Identification")]
-    PayerCredentialsDriverLicenceIdentification,
+    PayerCredentialsDriverLicenceIdentification = ExternalEncryptedElementIdentificationCode.PayerCredentialsDriverLicenceIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Credentials National Identifier
-    /// Encoded/decoded by serializers as "PayerCredentialsNationalIdentifier".
+    /// Encoded/decoded by serializers as "97".
     /// </summary>
     [EnumMember(Value = "97")]
     [IsoId("_up9mAvRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Credentials National Identifier")]
-    PayerCredentialsNationalIdentifier,
+    PayerCredentialsNationalIdentifier = ExternalEncryptedElementIdentificationCode.PayerCredentialsNationalIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Credentials Passport Number
-    /// Encoded/decoded by serializers as "PayerCredentialsPassportNumber".
+    /// Encoded/decoded by serializers as "98".
     /// </summary>
     [EnumMember(Value = "98")]
     [IsoId("_up9mBfRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Credentials Passport Number")]
-    PayerCredentialsPassportNumber,
+    PayerCredentialsPassportNumber = ExternalEncryptedElementIdentificationCode.PayerCredentialsPassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payer Customer Credentials Social Security Number
-    /// Encoded/decoded by serializers as "PayerCredentialsSocialSecurityNumber".
+    /// Encoded/decoded by serializers as "99".
     /// </summary>
     [EnumMember(Value = "99")]
     [IsoId("_up9mCPRYEeuLhpyIdtJzwg")]
     [Description(@"Payer Customer Credentials Social Security Number")]
-    PayerCredentialsSocialSecurityNumber,
+    PayerCredentialsSocialSecurityNumber = ExternalEncryptedElementIdentificationCode.PayerCredentialsSocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Identification 
-    /// Encoded/decoded by serializers as "PayeeIdentification".
+    /// Encoded/decoded by serializers as "9A".
     /// </summary>
     [EnumMember(Value = "9A")]
     [IsoId("_uqGv8vRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Identification ")]
-    PayeeIdentification,
+    PayeeIdentification = ExternalEncryptedElementIdentificationCode.PayeeIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Name
-    /// Encoded/decoded by serializers as "PayeeName".
+    /// Encoded/decoded by serializers as "9B".
     /// </summary>
     [EnumMember(Value = "9B")]
     [IsoId("_uqGv9fRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Name")]
-    PayeeName,
+    PayeeName = ExternalEncryptedElementIdentificationCode.PayeeName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Address
-    /// Encoded/decoded by serializers as "PayeeAddress".
+    /// Encoded/decoded by serializers as "9C".
     /// </summary>
     [EnumMember(Value = "9C")]
     [IsoId("_uqGv-PRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Address")]
-    PayeeAddress,
+    PayeeAddress = ExternalEncryptedElementIdentificationCode.PayeeAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Credentials Alien Registration Number
-    /// Encoded/decoded by serializers as "PayeeCredentialsAlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "9D".
     /// </summary>
     [EnumMember(Value = "9D")]
     [IsoId("_uqGv-_RYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Credentials Alien Registration Number")]
-    PayeeCredentialsAlienRegistrationNumber,
+    PayeeCredentialsAlienRegistrationNumber = ExternalEncryptedElementIdentificationCode.PayeeCredentialsAlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Credentials Driver Licence Identification
-    /// Encoded/decoded by serializers as "PayeeCredentialsDriverLicenceIdentification".
+    /// Encoded/decoded by serializers as "9E".
     /// </summary>
     [EnumMember(Value = "9E")]
     [IsoId("_uqQg8vRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Credentials Driver Licence Identification")]
-    PayeeCredentialsDriverLicenceIdentification,
+    PayeeCredentialsDriverLicenceIdentification = ExternalEncryptedElementIdentificationCode.PayeeCredentialsDriverLicenceIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Credentials National Identifier
-    /// Encoded/decoded by serializers as "PayeeCredentialsNationalIdentifier".
+    /// Encoded/decoded by serializers as "9F1F".
     /// </summary>
     [EnumMember(Value = "9F1F")]
     [IsoId("_uqQg9fRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Credentials National Identifier")]
-    PayeeCredentialsNationalIdentifier,
+    PayeeCredentialsNationalIdentifier = ExternalEncryptedElementIdentificationCode.PayeeCredentialsNationalIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Credentials Passport Number
-    /// Encoded/decoded by serializers as "PayeeCredentialsPassportNumber".
+    /// Encoded/decoded by serializers as "9F20".
     /// </summary>
     [EnumMember(Value = "9F20")]
     [IsoId("_uqQg-PRYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Credentials Passport Number")]
-    PayeeCredentialsPassportNumber,
+    PayeeCredentialsPassportNumber = ExternalEncryptedElementIdentificationCode.PayeeCredentialsPassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payee Customer Credentials Social Security Number
-    /// Encoded/decoded by serializers as "PayeeCredentialsSocialSecurityNumber".
+    /// Encoded/decoded by serializers as "9F21".
     /// </summary>
     [EnumMember(Value = "9F21")]
     [IsoId("_uqQg-_RYEeuLhpyIdtJzwg")]
     [Description(@"Payee Customer Credentials Social Security Number")]
-    PayeeCredentialsSocialSecurityNumber,
+    PayeeCredentialsSocialSecurityNumber = ExternalEncryptedElementIdentificationCode.PayeeCredentialsSocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Device Identification
-    /// Encoded/decoded by serializers as "CustomerDeviceIdentification".
+    /// Encoded/decoded by serializers as "9F22".
     /// </summary>
     [EnumMember(Value = "9F22")]
     [IsoId("_uqZq4vRYEeuLhpyIdtJzwg")]
     [Description(@"Customer Device Identification")]
-    CustomerDeviceIdentification,
+    CustomerDeviceIdentification = ExternalEncryptedElementIdentificationCode.CustomerDeviceIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Device Location
-    /// Encoded/decoded by serializers as "CustomerDeviceLocation".
+    /// Encoded/decoded by serializers as "9F23".
     /// </summary>
     [EnumMember(Value = "9F23")]
     [IsoId("_uqZq5fRYEeuLhpyIdtJzwg")]
     [Description(@"Customer Device Location")]
-    CustomerDeviceLocation,
+    CustomerDeviceLocation = ExternalEncryptedElementIdentificationCode.CustomerDeviceLocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Device Internet Protocol Address
-    /// Encoded/decoded by serializers as "CustomerDeviceIPAddress".
+    /// Encoded/decoded by serializers as "9F24".
     /// </summary>
     [EnumMember(Value = "9F24")]
     [IsoId("_uqZq6PRYEeuLhpyIdtJzwg")]
     [Description(@"Customer Device Internet Protocol Address")]
-    CustomerDeviceIPAddress,
+    CustomerDeviceIPAddress = ExternalEncryptedElementIdentificationCode.CustomerDeviceIPAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Device E-mail
-    /// Encoded/decoded by serializers as "CustomerDeviceEmail".
+    /// Encoded/decoded by serializers as "9F25".
     /// </summary>
     [EnumMember(Value = "9F25")]
     [IsoId("_uqZq6_RYEeuLhpyIdtJzwg")]
     [Description(@"Customer Device E-mail")]
-    CustomerDeviceEmail,
+    CustomerDeviceEmail = ExternalEncryptedElementIdentificationCode.CustomerDeviceEmail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token Payment Token
-    /// Encoded/decoded by serializers as "TokenPaymentToken".
+    /// Encoded/decoded by serializers as "9F26".
     /// </summary>
     [EnumMember(Value = "9F26")]
     [IsoId("_uqjb4vRYEeuLhpyIdtJzwg")]
     [Description(@"Token Payment Token")]
-    TokenPaymentToken,
+    TokenPaymentToken = ExternalEncryptedElementIdentificationCode.TokenPaymentToken, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token Token Requestor Identification
-    /// Encoded/decoded by serializers as "TokenTokenRequestorIdentification".
+    /// Encoded/decoded by serializers as "9F27".
     /// </summary>
     [EnumMember(Value = "9F27")]
     [IsoId("_uqjb5fRYEeuLhpyIdtJzwg")]
     [Description(@"Token Token Requestor Identification")]
-    TokenTokenRequestorIdentification,
+    TokenTokenRequestorIdentification = ExternalEncryptedElementIdentificationCode.TokenTokenRequestorIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Name
-    /// Encoded/decoded by serializers as "CardholderName".
+    /// Encoded/decoded by serializers as "9F28".
     /// </summary>
     [EnumMember(Value = "9F28")]
     [IsoId("_uqjb6PRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Name")]
-    CardholderName,
+    CardholderName = ExternalEncryptedElementIdentificationCode.CardholderName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Customer Identification
-    /// Encoded/decoded by serializers as "CardholderIdentification".
+    /// Encoded/decoded by serializers as "9F29".
     /// </summary>
     [EnumMember(Value = "9F29")]
     [IsoId("_uqjb6_RYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Customer Identification")]
-    CardholderIdentification,
+    CardholderIdentification = ExternalEncryptedElementIdentificationCode.CardholderIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Alien Registration Number
-    /// Encoded/decoded by serializers as "CardholderAlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "9F2A".
     /// </summary>
     [EnumMember(Value = "9F2A")]
     [IsoId("_uqjb7vRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Alien Registration Number")]
-    CardholderAlienRegistrationNumber,
+    CardholderAlienRegistrationNumber = ExternalEncryptedElementIdentificationCode.CardholderAlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Driver Licence Identification
-    /// Encoded/decoded by serializers as "CardholderDriverLicenceIdentification".
+    /// Encoded/decoded by serializers as "9F2B".
     /// </summary>
     [EnumMember(Value = "9F2B")]
     [IsoId("_uqtM4vRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Driver Licence Identification")]
-    CardholderDriverLicenceIdentification,
+    CardholderDriverLicenceIdentification = ExternalEncryptedElementIdentificationCode.CardholderDriverLicenceIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Email
-    /// Encoded/decoded by serializers as "CardholderEmail".
+    /// Encoded/decoded by serializers as "9F2C".
     /// </summary>
     [EnumMember(Value = "9F2C")]
     [IsoId("_uqtM5fRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Email")]
-    CardholderEmail,
+    CardholderEmail = ExternalEncryptedElementIdentificationCode.CardholderEmail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification NatinalIdentifier
-    /// Encoded/decoded by serializers as "CardholderNatinalIdentifier".
+    /// Encoded/decoded by serializers as "9F2D".
     /// </summary>
     [EnumMember(Value = "9F2D")]
     [IsoId("_uqtM6PRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification NatinalIdentifier")]
-    CardholderNatinalIdentifier,
+    CardholderNatinalIdentifier = ExternalEncryptedElementIdentificationCode.CardholderNatinalIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Passport Number
-    /// Encoded/decoded by serializers as "CardholderPassportNumber".
+    /// Encoded/decoded by serializers as "9F2E".
     /// </summary>
     [EnumMember(Value = "9F2E")]
     [IsoId("_uqtM6_RYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Passport Number")]
-    CardholderPassportNumber,
+    CardholderPassportNumber = ExternalEncryptedElementIdentificationCode.CardholderPassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification PhoneNumber
-    /// Encoded/decoded by serializers as "CardholderPhoneNumber".
+    /// Encoded/decoded by serializers as "9F2F".
     /// </summary>
     [EnumMember(Value = "9F2F")]
     [IsoId("_uq2W0vRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification PhoneNumber")]
-    CardholderPhoneNumber,
+    CardholderPhoneNumber = ExternalEncryptedElementIdentificationCode.CardholderPhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Social Security Number
-    /// Encoded/decoded by serializers as "CardholderSocialSecurityNumber".
+    /// Encoded/decoded by serializers as "9F30".
     /// </summary>
     [EnumMember(Value = "9F30")]
     [IsoId("_urAH0vRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Social Security Number")]
-    CardholderSocialSecurityNumber,
+    CardholderSocialSecurityNumber = ExternalEncryptedElementIdentificationCode.CardholderSocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Identification Address
-    /// Encoded/decoded by serializers as "CardholderAddress".
+    /// Encoded/decoded by serializers as "9F31".
     /// </summary>
     [EnumMember(Value = "9F31")]
     [IsoId("_urAH1fRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Identification Address")]
-    CardholderAddress,
+    CardholderAddress = ExternalEncryptedElementIdentificationCode.CardholderAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Name
-    /// Encoded/decoded by serializers as "CardholderContactInformationName".
+    /// Encoded/decoded by serializers as "9F32".
     /// </summary>
     [EnumMember(Value = "9F32")]
     [IsoId("_urJ40vRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Name")]
-    CardholderContactInformationName,
+    CardholderContactInformationName = ExternalEncryptedElementIdentificationCode.CardholderContactInformationName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Home Phone Number
-    /// Encoded/decoded by serializers as "CardholderContactInformationHomePhoneNumber".
+    /// Encoded/decoded by serializers as "9F33".
     /// </summary>
     [EnumMember(Value = "9F33")]
     [IsoId("_urJ41fRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Home Phone Number")]
-    CardholderContactInformationHomePhoneNumber,
+    CardholderContactInformationHomePhoneNumber = ExternalEncryptedElementIdentificationCode.CardholderContactInformationHomePhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Business Phone Number
-    /// Encoded/decoded by serializers as "CardholderContactInformationBusinessPhoneNumber".
+    /// Encoded/decoded by serializers as "9F34".
     /// </summary>
     [EnumMember(Value = "9F34")]
     [IsoId("_urTCwvRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Business Phone Number")]
-    CardholderContactInformationBusinessPhoneNumber,
+    CardholderContactInformationBusinessPhoneNumber = ExternalEncryptedElementIdentificationCode.CardholderContactInformationBusinessPhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Mobile Phone Number
-    /// Encoded/decoded by serializers as "CardholderContactInformationMobilePhoneNumber".
+    /// Encoded/decoded by serializers as "9F35".
     /// </summary>
     [EnumMember(Value = "9F35")]
     [IsoId("_urTCxfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Mobile Phone Number")]
-    CardholderContactInformationMobilePhoneNumber,
+    CardholderContactInformationMobilePhoneNumber = ExternalEncryptedElementIdentificationCode.CardholderContactInformationMobilePhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Other Phone Number
-    /// Encoded/decoded by serializers as "CardholderContactInformationOtherPhoneNumber".
+    /// Encoded/decoded by serializers as "9F36".
     /// </summary>
     [EnumMember(Value = "9F36")]
     [IsoId("_urTCyPRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Other Phone Number")]
-    CardholderContactInformationOtherPhoneNumber,
+    CardholderContactInformationOtherPhoneNumber = ExternalEncryptedElementIdentificationCode.CardholderContactInformationOtherPhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Personal Email Address
-    /// Encoded/decoded by serializers as "CardholderContactInformationPersonalEmailAddress".
+    /// Encoded/decoded by serializers as "9F37".
     /// </summary>
     [EnumMember(Value = "9F37")]
     [IsoId("_urTCy_RYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Personal Email Address")]
-    CardholderContactInformationPersonalEmailAddress,
+    CardholderContactInformationPersonalEmailAddress = ExternalEncryptedElementIdentificationCode.CardholderContactInformationPersonalEmailAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Business Email Address
-    /// Encoded/decoded by serializers as "CardholderContactInformationBusinessEmailAddress".
+    /// Encoded/decoded by serializers as "9F38".
     /// </summary>
     [EnumMember(Value = "9F38")]
     [IsoId("_urczwvRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Business Email Address")]
-    CardholderContactInformationBusinessEmailAddress,
+    CardholderContactInformationBusinessEmailAddress = ExternalEncryptedElementIdentificationCode.CardholderContactInformationBusinessEmailAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Contact Information Other Email Address
-    /// Encoded/decoded by serializers as "CardholderContactInformationOtherEmailAddress".
+    /// Encoded/decoded by serializers as "9F39".
     /// </summary>
     [EnumMember(Value = "9F39")]
     [IsoId("_urczxfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Contact Information Other Email Address")]
-    CardholderContactInformationOtherEmailAddress,
+    CardholderContactInformationOtherEmailAddress = ExternalEncryptedElementIdentificationCode.CardholderContactInformationOtherEmailAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Address Digits
-    /// Encoded/decoded by serializers as "CardholderAddressDigits".
+    /// Encoded/decoded by serializers as "9F3A".
     /// </summary>
     [EnumMember(Value = "9F3A")]
     [IsoId("_url9svRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Address Digits")]
-    CardholderAddressDigits,
+    CardholderAddressDigits = ExternalEncryptedElementIdentificationCode.CardholderAddressDigits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Billing Address
-    /// Encoded/decoded by serializers as "CardholderBillingAddress".
+    /// Encoded/decoded by serializers as "9F3B".
     /// </summary>
     [EnumMember(Value = "9F3B")]
     [IsoId("_url9tfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Billing Address")]
-    CardholderBillingAddress,
+    CardholderBillingAddress = ExternalEncryptedElementIdentificationCode.CardholderBillingAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Birth Date
-    /// Encoded/decoded by serializers as "CardholderBirthDate".
+    /// Encoded/decoded by serializers as "9F3C".
     /// </summary>
     [EnumMember(Value = "9F3C")]
     [IsoId("_url9uPRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Birth Date")]
-    CardholderBirthDate,
+    CardholderBirthDate = ExternalEncryptedElementIdentificationCode.CardholderBirthDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Place Of Birth
-    /// Encoded/decoded by serializers as "CardholderPlaceOfBirth".
+    /// Encoded/decoded by serializers as "9F3D".
     /// </summary>
     [EnumMember(Value = "9F3D")]
     [IsoId("_urvusvRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Place Of Birth")]
-    CardholderPlaceOfBirth,
+    CardholderPlaceOfBirth = ExternalEncryptedElementIdentificationCode.CardholderPlaceOfBirth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Employee Identification Number
-    /// Encoded/decoded by serializers as "CardholderEmployeeIdentificationNumber".
+    /// Encoded/decoded by serializers as "9F3E".
     /// </summary>
     [EnumMember(Value = "9F3E")]
     [IsoId("_urvutfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Employee Identification Number")]
-    CardholderEmployeeIdentificationNumber,
+    CardholderEmployeeIdentificationNumber = ExternalEncryptedElementIdentificationCode.CardholderEmployeeIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Employer Identification Number
-    /// Encoded/decoded by serializers as "CardholderEmployerIdentificationNumber".
+    /// Encoded/decoded by serializers as "9F3F".
     /// </summary>
     [EnumMember(Value = "9F3F")]
     [IsoId("_ur5fsvRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Employer Identification Number")]
-    CardholderEmployerIdentificationNumber,
+    CardholderEmployerIdentificationNumber = ExternalEncryptedElementIdentificationCode.CardholderEmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Password
-    /// Encoded/decoded by serializers as "CardholderPassword".
+    /// Encoded/decoded by serializers as "9F40".
     /// </summary>
     [EnumMember(Value = "9F40")]
     [IsoId("_ur5ftfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Password")]
-    CardholderPassword,
+    CardholderPassword = ExternalEncryptedElementIdentificationCode.CardholderPassword, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Postal Code
-    /// Encoded/decoded by serializers as "CardholderPostalCode".
+    /// Encoded/decoded by serializers as "9F41".
     /// </summary>
     [EnumMember(Value = "9F41")]
     [IsoId("_ur5fuPRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Postal Code")]
-    CardholderPostalCode,
+    CardholderPostalCode = ExternalEncryptedElementIdentificationCode.CardholderPostalCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Shipping Address
-    /// Encoded/decoded by serializers as "CardholderShippingAddress".
+    /// Encoded/decoded by serializers as "9F42".
     /// </summary>
     [EnumMember(Value = "9F42")]
     [IsoId("_ur5fu_RYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Shipping Address")]
-    CardholderShippingAddress,
+    CardholderShippingAddress = ExternalEncryptedElementIdentificationCode.CardholderShippingAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Shipping Address From
-    /// Encoded/decoded by serializers as "CardholderShippingAddressFrom".
+    /// Encoded/decoded by serializers as "9F43".
     /// </summary>
     [EnumMember(Value = "9F43")]
     [IsoId("_usCpovRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Shipping Address From")]
-    CardholderShippingAddressFrom,
+    CardholderShippingAddressFrom = ExternalEncryptedElementIdentificationCode.CardholderShippingAddressFrom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Shipping Address To
-    /// Encoded/decoded by serializers as "CardholderShippingAddressTo".
+    /// Encoded/decoded by serializers as "9F44".
     /// </summary>
     [EnumMember(Value = "9F44")]
     [IsoId("_usCppfRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Shipping Address To")]
-    CardholderShippingAddressTo,
+    CardholderShippingAddressTo = ExternalEncryptedElementIdentificationCode.CardholderShippingAddressTo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder Tax Identification Number
-    /// Encoded/decoded by serializers as "CardholderTaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "9F45".
     /// </summary>
     [EnumMember(Value = "9F45")]
     [IsoId("_usCpqPRYEeuLhpyIdtJzwg")]
     [Description(@"Cardholder Tax Identification Number")]
-    CardholderTaxIdentificationNumber,
+    CardholderTaxIdentificationNumber = ExternalEncryptedElementIdentificationCode.CardholderTaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account From Account Identification
-    /// Encoded/decoded by serializers as "AccountFromAccountIdentification".
+    /// Encoded/decoded by serializers as "9F46".
     /// </summary>
     [EnumMember(Value = "9F46")]
     [IsoId("_usCpq_RYEeuLhpyIdtJzwg")]
     [Description(@"Account From Account Identification")]
-    AccountFromAccountIdentification,
+    AccountFromAccountIdentification = ExternalEncryptedElementIdentificationCode.AccountFromAccountIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account To Account Identification
-    /// Encoded/decoded by serializers as "AccountToAccountIdentification".
+    /// Encoded/decoded by serializers as "9F47".
     /// </summary>
     [EnumMember(Value = "9F47")]
     [IsoId("_usMaovRYEeuLhpyIdtJzwg")]
     [Description(@"Account To Account Identification")]
-    AccountToAccountIdentification,
+    AccountToAccountIdentification = ExternalEncryptedElementIdentificationCode.AccountToAccountIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -589,7 +588,7 @@ public enum ExternalEncryptedElementIdentification1Code
 public static class ExternalEncryptedElementIdentification1CodeMetadataExtensions
 {
     private static readonly ExternalEncryptedElementIdentification1CodeDropdownSource _dropdownSource = new ExternalEncryptedElementIdentification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum POICommunicationType1Code
 {
     /// <summary>
     /// Communication with a host using Bluetooth.
-    /// Encoded/decoded by serializers as "Bluetooth".
+    /// Encoded/decoded by serializers as "BLTH".
     /// </summary>
     [EnumMember(Value = "BLTH")]
     [IsoId("_EUWIYQx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using Bluetooth.")]
-    Bluetooth,
+    Bluetooth = POICommunicationTypeCode.Bluetooth, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ethernet port to communicate.
-    /// Encoded/decoded by serializers as "Ethernet".
+    /// Encoded/decoded by serializers as "ETHR".
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_EaJOYQx2EeKa_56Jbsi1RQ")]
     [Description(@"Ethernet port to communicate.")]
-    Ethernet,
+    Ethernet = POICommunicationTypeCode.Ethernet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using GPRS.
@@ -44,16 +44,16 @@ public enum POICommunicationType1Code
     [EnumMember(Value = "GPRS")]
     [IsoId("_Eixl8Qx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using GPRS.")]
-    GPRS,
+    GPRS = POICommunicationTypeCode.GPRS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using GSM.
-    /// Encoded/decoded by serializers as "GSM".
+    /// Encoded/decoded by serializers as "GSMF".
     /// </summary>
     [EnumMember(Value = "GSMF")]
     [IsoId("_En1FEQx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using GSM.")]
-    GSM,
+    GSM = POICommunicationTypeCode.GSM, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host using Public Switching Telephone Network.
@@ -62,43 +62,43 @@ public enum POICommunicationType1Code
     [EnumMember(Value = "PSTN")]
     [IsoId("_Et7tEQx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using Public Switching Telephone Network.")]
-    PSTN,
+    PSTN = POICommunicationTypeCode.PSTN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Serial port to communicate.
-    /// Encoded/decoded by serializers as "RS232".
+    /// Encoded/decoded by serializers as "RS23".
     /// </summary>
     [EnumMember(Value = "RS23")]
     [IsoId("_EzSuMwx2EeKa_56Jbsi1RQ")]
     [Description(@"Serial port to communicate.")]
-    RS232,
+    RS232 = POICommunicationTypeCode.RS232, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a USB stick or any USB device.
-    /// Encoded/decoded by serializers as "USBDevice".
+    /// Encoded/decoded by serializers as "USBD".
     /// </summary>
     [EnumMember(Value = "USBD")]
     [IsoId("_E76esQx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a USB stick or any USB device.")]
-    USBDevice,
+    USBDevice = POICommunicationTypeCode.USBDevice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Communication with a host from an USB port.
-    /// Encoded/decoded by serializers as "USBHost".
+    /// Encoded/decoded by serializers as "USBH".
     /// </summary>
     [EnumMember(Value = "USBH")]
     [IsoId("_FDWjcQx2EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host from an USB port.")]
-    USBHost,
+    USBHost = POICommunicationTypeCode.USBHost, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wifi communication with another component.
-    /// Encoded/decoded by serializers as "Wifi".
+    /// Encoded/decoded by serializers as "WIFI".
     /// </summary>
     [EnumMember(Value = "WIFI")]
     [IsoId("_FJdLcQx2EeKa_56Jbsi1RQ")]
     [Description(@"Wifi communication with another component.")]
-    Wifi,
+    Wifi = POICommunicationTypeCode.Wifi, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum POICommunicationType1Code
 public static class POICommunicationType1CodeMetadataExtensions
 {
     private static readonly POICommunicationType1CodeDropdownSource _dropdownSource = new POICommunicationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_rJUs5nCcEe2v-4Te0Ownww")]
-[Description(@"Specifies the external undertaking document type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external undertaking document type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalUndertakingDocumentType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalUndertakingDocumentTypeCode_Obsolete
 {
     /// <summary>
@@ -75,7 +74,7 @@ public enum ExternalUndertakingDocumentTypeCode_Obsolete
 public static class ExternalUndertakingDocumentTypeCode_ObsoleteMetadataExtensions
 {
     private static readonly ExternalUndertakingDocumentTypeCode_ObsoleteDropdownSource _dropdownSource = new ExternalUndertakingDocumentTypeCode_ObsoleteDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

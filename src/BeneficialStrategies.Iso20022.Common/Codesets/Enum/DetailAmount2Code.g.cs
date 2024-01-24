@@ -21,30 +21,30 @@ public enum DetailAmount2Code
 {
     /// <summary>
     /// Other type of amount defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_ioqzEVjpEeiTlKUpxxSxEw")]
     [Description(@"Other type of amount defined at national level")]
-    OtherNational,
+    OtherNational = DetailAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_ixNEAVjpEeiTlKUpxxSxEw")]
     [Description(@"Other type of amount defined at private level")]
-    OtherPrivate,
+    OtherPrivate = DetailAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged by the acceptor for the transaction.
-    /// Encoded/decoded by serializers as "Surcharge".
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_i-ZLcVjpEeiTlKUpxxSxEw")]
     [Description(@"Fee charged by the acceptor for the transaction.")]
-    Surcharge,
+    Surcharge = DetailAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DetailAmount2Code
 public static class DetailAmount2CodeMetadataExtensions
 {
     private static readonly DetailAmount2CodeDropdownSource _dropdownSource = new DetailAmount2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

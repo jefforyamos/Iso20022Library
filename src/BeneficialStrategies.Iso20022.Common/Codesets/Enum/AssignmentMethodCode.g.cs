@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bfaAlNp-Ed-ak6NoX_4Aeg_-1937835864")]
 [Description(@"Method under which assignment was conducted.")]
 [Derivations(typeof(AssignmentMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AssignmentMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AssignmentMethodCode
 public static class AssignmentMethodCodeMetadataExtensions
 {
     private static readonly AssignmentMethodCodeDropdownSource _dropdownSource = new AssignmentMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

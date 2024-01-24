@@ -21,21 +21,21 @@ public enum ResolutionStatus1Code
 {
     /// <summary>
     /// Meeting resolution has to be voted for by the participants to a general meeting.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZU0_Ztp-Ed-ak6NoX_4Aeg_268414544")]
     [Description(@"Meeting resolution has to be voted for by the participants to a general meeting.")]
-    Active,
+    Active = ResolutionStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting resolution has been withdrawn.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WDRA".
     /// </summary>
     [EnumMember(Value = "WDRA")]
     [IsoId("_ZU0_Z9p-Ed-ak6NoX_4Aeg_268414545")]
     [Description(@"Meeting resolution has been withdrawn.")]
-    Withdrawn,
+    Withdrawn = ResolutionStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ResolutionStatus1Code
 public static class ResolutionStatus1CodeMetadataExtensions
 {
     private static readonly ResolutionStatus1CodeDropdownSource _dropdownSource = new ResolutionStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

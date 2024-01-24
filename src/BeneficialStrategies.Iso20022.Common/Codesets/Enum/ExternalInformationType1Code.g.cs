@@ -16,63 +16,63 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_TRd1lwEcEeCQm6a_G2yO_w_1586827309")]
-[Description(@"Specifies the information type, as published in an external information type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the information type, as published in an external information type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalInformationTypeCode))]
 public enum ExternalInformationType1Code
 {
     /// <summary>
     /// Instructions used to ease automatic request processing.
-    /// Encoded/decoded by serializers as "ProcessingInstructions".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_uIbmQvRYEeuLhpyIdtJzwg")]
     [Description(@"Instructions used to ease automatic request processing.")]
-    ProcessingInstructions,
+    ProcessingInstructions = ExternalInformationTypeCode.ProcessingInstructions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional information not otherwise specified.
-    /// Encoded/decoded by serializers as "OtherInformation".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uIbmRfRYEeuLhpyIdtJzwg")]
     [Description(@"Additional information not otherwise specified.")]
-    OtherInformation,
+    OtherInformation = ExternalInformationTypeCode.OtherInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructions used to ease automatic request relay.
-    /// Encoded/decoded by serializers as "RelayInstructions".
+    /// Encoded/decoded by serializers as "RELY".
     /// </summary>
     [EnumMember(Value = "RELY")]
     [IsoId("_uIbmSPRYEeuLhpyIdtJzwg")]
     [Description(@"Instructions used to ease automatic request relay.")]
-    RelayInstructions,
+    RelayInstructions = ExternalInformationTypeCode.RelayInstructions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional shipping information not otherwise specified.
-    /// Encoded/decoded by serializers as "ShippingInformation".
+    /// Encoded/decoded by serializers as "SHPG".
     /// </summary>
     [EnumMember(Value = "SHPG")]
     [IsoId("_uIlXQvRYEeuLhpyIdtJzwg")]
     [Description(@"Additional shipping information not otherwise specified.")]
-    ShippingInformation,
+    ShippingInformation = ExternalInformationTypeCode.ShippingInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.
-    /// Encoded/decoded by serializers as "ShippingMarks".
+    /// Encoded/decoded by serializers as "SHPM".
     /// </summary>
     [EnumMember(Value = "SHPM")]
     [IsoId("_uIlXRfRYEeuLhpyIdtJzwg")]
     [Description(@"Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.")]
-    ShippingMarks,
+    ShippingMarks = ExternalInformationTypeCode.ShippingMarks, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information concerning the domicile location of the seller.
-    /// Encoded/decoded by serializers as "SellerDomicileLocation".
+    /// Encoded/decoded by serializers as "SLDC".
     /// </summary>
     [EnumMember(Value = "SLDC")]
     [IsoId("_uIlXSPRYEeuLhpyIdtJzwg")]
     [Description(@"Information concerning the domicile location of the seller.")]
-    SellerDomicileLocation,
+    SellerDomicileLocation = ExternalInformationTypeCode.SellerDomicileLocation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -83,7 +83,7 @@ public enum ExternalInformationType1Code
 public static class ExternalInformationType1CodeMetadataExtensions
 {
     private static readonly ExternalInformationType1CodeDropdownSource _dropdownSource = new ExternalInformationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

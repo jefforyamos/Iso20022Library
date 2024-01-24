@@ -21,120 +21,120 @@ public enum ExternalCreditorAgentInstruction1Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque.
-    /// Encoded/decoded by serializers as "PayCreditorByCheque".
+    /// Encoded/decoded by serializers as "CHQB".
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_uwEOAvRYEeuLhpyIdtJzwg")]
     [Description(@"(Ultimate) creditor must be paid by cheque.")]
-    PayCreditorByCheque,
+    PayCreditorByCheque = ExternalCreditorAgentInstructionCode.PayCreditorByCheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HoldCashForCreditor".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_uwEOBfRYEeuLhpyIdtJzwg")]
     [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.")]
-    HoldCashForCreditor,
+    HoldCashForCreditor = ExternalCreditorAgentInstructionCode.HoldCashForCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_uwEOCPRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = ExternalCreditorAgentInstructionCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a payer token is requested/used.
-    /// Encoded/decoded by serializers as "PayerTokenRequested".
+    /// Encoded/decoded by serializers as "PRTK".
     /// </summary>
     [EnumMember(Value = "PRTK")]
     [IsoId("_uwN_AvRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that a payer token is requested/used.")]
-    PayerTokenRequested,
+    PayerTokenRequested = ExternalCreditorAgentInstructionCode.PayerTokenRequested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Further information regarding the intended recipient. 
-    /// Encoded/decoded by serializers as "ReceiverCustomerInformation".
+    /// Encoded/decoded by serializers as "RECI".
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_uwN_BfRYEeuLhpyIdtJzwg")]
     [Description(@"Further information regarding the intended recipient. ")]
-    ReceiverCustomerInformation,
+    ReceiverCustomerInformation = ExternalCreditorAgentInstructionCode.ReceiverCustomerInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_uwN_CPRYEeuLhpyIdtJzwg")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
-    Telecom,
+    Telecom = ExternalCreditorAgentInstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token found with counterparty mismatch. 
-    /// Encoded/decoded by serializers as "TokenCounterpartyMismatch".
+    /// Encoded/decoded by serializers as "TKCM".
     /// </summary>
     [EnumMember(Value = "TKCM")]
     [IsoId("_uwN_C_RYEeuLhpyIdtJzwg")]
     [Description(@"Token found with counterparty mismatch. ")]
-    TokenCounterpartyMismatch,
+    TokenCounterpartyMismatch = ExternalCreditorAgentInstructionCode.TokenCounterpartyMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Single Use Token already used. 
-    /// Encoded/decoded by serializers as "TokenSingleUse".
+    /// Encoded/decoded by serializers as "TKSG".
     /// </summary>
     [EnumMember(Value = "TKSG")]
     [IsoId("_uwXwAvRYEeuLhpyIdtJzwg")]
     [Description(@"Single Use Token already used. ")]
-    TokenSingleUse,
+    TokenSingleUse = ExternalCreditorAgentInstructionCode.TokenSingleUse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token found with suspended status.
-    /// Encoded/decoded by serializers as "TokenSuspended".
+    /// Encoded/decoded by serializers as "TKSP".
     /// </summary>
     [EnumMember(Value = "TKSP")]
     [IsoId("_uwXwBfRYEeuLhpyIdtJzwg")]
     [Description(@"Token found with suspended status.")]
-    TokenSuspended,
+    TokenSuspended = ExternalCreditorAgentInstructionCode.TokenSuspended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token found with value limit rule violation. 
-    /// Encoded/decoded by serializers as "TokenValueLimitExceeded".
+    /// Encoded/decoded by serializers as "TKVE".
     /// </summary>
     [EnumMember(Value = "TKVE")]
     [IsoId("_uwXwCPRYEeuLhpyIdtJzwg")]
     [Description(@"Token found with value limit rule violation. ")]
-    TokenValueLimitExceeded,
+    TokenValueLimitExceeded = ExternalCreditorAgentInstructionCode.TokenValueLimitExceeded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token expired. 
-    /// Encoded/decoded by serializers as "TokenExpired".
+    /// Encoded/decoded by serializers as "TKXP".
     /// </summary>
     [EnumMember(Value = "TKXP")]
     [IsoId("_uwXwC_RYEeuLhpyIdtJzwg")]
     [Description(@"Token expired. ")]
-    TokenExpired,
+    TokenExpired = ExternalCreditorAgentInstructionCode.TokenExpired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Token information.
-    /// Encoded/decoded by serializers as "Token".
+    /// Encoded/decoded by serializers as "TOKN".
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_uwg58vRYEeuLhpyIdtJzwg")]
     [Description(@"Token information.")]
-    Token,
+    Token = ExternalCreditorAgentInstructionCode.Token, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional validation information to be used in conjunction with the token.
-    /// Encoded/decoded by serializers as "TokenValidation".
+    /// Encoded/decoded by serializers as "VLTK".
     /// </summary>
     [EnumMember(Value = "VLTK")]
     [IsoId("_uwg59fRYEeuLhpyIdtJzwg")]
     [Description(@"Additional validation information to be used in conjunction with the token.")]
-    TokenValidation,
+    TokenValidation = ExternalCreditorAgentInstructionCode.TokenValidation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum ExternalCreditorAgentInstruction1Code
 public static class ExternalCreditorAgentInstruction1CodeMetadataExtensions
 {
     private static readonly ExternalCreditorAgentInstruction1CodeDropdownSource _dropdownSource = new ExternalCreditorAgentInstruction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

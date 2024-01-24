@@ -21,183 +21,183 @@ public enum CardTransactionRiskReason1Code
 {
     /// <summary>
     /// Suspicious approve or decline pattern.
-    /// Encoded/decoded by serializers as "ApproveDeclinePattern".
+    /// Encoded/decoded by serializers as "APDP".
     /// </summary>
     [EnumMember(Value = "APDP")]
     [IsoId("_CN5foXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious approve or decline pattern.")]
-    ApproveDeclinePattern,
+    ApproveDeclinePattern = CardTransactionRiskReasonCode.ApproveDeclinePattern, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious sequence of approve and decline messages.
-    /// Encoded/decoded by serializers as "ApproveDeclineSequence".
+    /// Encoded/decoded by serializers as "APDL".
     /// </summary>
     [EnumMember(Value = "APDL")]
     [IsoId("_CTaRwXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious sequence of approve and decline messages.")]
-    ApproveDeclineSequence,
+    ApproveDeclineSequence = CardTransactionRiskReasonCode.ApproveDeclineSequence, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious authorization activity.
-    /// Encoded/decoded by serializers as "AuthorizationActivity".
+    /// Encoded/decoded by serializers as "ATHA".
     /// </summary>
     [EnumMember(Value = "ATHA")]
     [IsoId("_CYxS4XsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious authorization activity.")]
-    AuthorizationActivity,
+    AuthorizationActivity = CardTransactionRiskReasonCode.AuthorizationActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Compromised card.
-    /// Encoded/decoded by serializers as "CompromisedCard".
+    /// Encoded/decoded by serializers as "CRDC".
     /// </summary>
     [EnumMember(Value = "CRDC")]
     [IsoId("_CfEvMXsNEeSR68OJvMfxJQ")]
     [Description(@"Compromised card.")]
-    CompromisedCard,
+    CompromisedCard = CardTransactionRiskReasonCode.CompromisedCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious electronic commerce activity.
-    /// Encoded/decoded by serializers as "EcommerceActivity".
+    /// Encoded/decoded by serializers as "ECMA".
     /// </summary>
     [EnumMember(Value = "ECMA")]
     [IsoId("_CkcXYXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious electronic commerce activity.")]
-    EcommerceActivity,
+    EcommerceActivity = CardTransactionRiskReasonCode.EcommerceActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Expiry date mismatch.
-    /// Encoded/decoded by serializers as "ExpiryDateMismatch".
+    /// Encoded/decoded by serializers as "EXCD".
     /// </summary>
     [EnumMember(Value = "EXCD")]
     [IsoId("_CsC0MXsNEeSR68OJvMfxJQ")]
     [Description(@"Expiry date mismatch.")]
-    ExpiryDateMismatch,
+    ExpiryDateMismatch = CardTransactionRiskReasonCode.ExpiryDateMismatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious foreign activity.
-    /// Encoded/decoded by serializers as "ForeignActivity".
+    /// Encoded/decoded by serializers as "FGNA".
     /// </summary>
     [EnumMember(Value = "FGNA")]
     [IsoId("_CxZ1UXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious foreign activity.")]
-    ForeignActivity,
+    ForeignActivity = CardTransactionRiskReasonCode.ForeignActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious geographic activity.
-    /// Encoded/decoded by serializers as "GeographicActivity".
+    /// Encoded/decoded by serializers as "GEOA".
     /// </summary>
     [EnumMember(Value = "GEOA")]
     [IsoId("_C2xdgXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious geographic activity.")]
-    GeographicActivity,
+    GeographicActivity = CardTransactionRiskReasonCode.GeographicActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// High Risk MCC (Merchant Category Code).
-    /// Encoded/decoded by serializers as "HighRiskMCC".
+    /// Encoded/decoded by serializers as "MCCH".
     /// </summary>
     [EnumMember(Value = "MCCH")]
     [IsoId("_C84FgXsNEeSR68OJvMfxJQ")]
     [Description(@"High Risk MCC (Merchant Category Code).")]
-    HighRiskMCC,
+    HighRiskMCC = CardTransactionRiskReasonCode.HighRiskMCC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious manual card data entry mode.
-    /// Encoded/decoded by serializers as "ManualEntryActivity".
+    /// Encoded/decoded by serializers as "KEYA".
     /// </summary>
     [EnumMember(Value = "KEYA")]
     [IsoId("_DFhEIXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious manual card data entry mode.")]
-    ManualEntryActivity,
+    ManualEntryActivity = CardTransactionRiskReasonCode.ManualEntryActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious MCC (Merchant Category Code) activity.
-    /// Encoded/decoded by serializers as "MerchantCategoryActivity".
+    /// Encoded/decoded by serializers as "MCCA".
     /// </summary>
     [EnumMember(Value = "MCCA")]
     [IsoId("_DK4sUXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious MCC (Merchant Category Code) activity.")]
-    MerchantCategoryActivity,
+    MerchantCategoryActivity = CardTransactionRiskReasonCode.MerchantCategoryActivity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious amount.
-    /// Encoded/decoded by serializers as "SuspiciousAmount".
+    /// Encoded/decoded by serializers as "AMNT".
     /// </summary>
     [EnumMember(Value = "AMNT")]
     [IsoId("_DQchwXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious amount.")]
-    SuspiciousAmount,
+    SuspiciousAmount = CardTransactionRiskReasonCode.SuspiciousAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious fraudulent cardholder.
-    /// Encoded/decoded by serializers as "SuspiciousFraudulentCardholder".
+    /// Encoded/decoded by serializers as "CRDF".
     /// </summary>
     [EnumMember(Value = "CRDF")]
     [IsoId("_DYylcXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious fraudulent cardholder.")]
-    SuspiciousFraudulentCardholder,
+    SuspiciousFraudulentCardholder = CardTransactionRiskReasonCode.SuspiciousFraudulentCardholder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious fraudulent merchant.
-    /// Encoded/decoded by serializers as "SuspiciousFraudulentMerchant".
+    /// Encoded/decoded by serializers as "MRCF".
     /// </summary>
     [EnumMember(Value = "MRCF")]
     [IsoId("_DeoHsXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious fraudulent merchant.")]
-    SuspiciousFraudulentMerchant,
+    SuspiciousFraudulentMerchant = CardTransactionRiskReasonCode.SuspiciousFraudulentMerchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious transaction cumulated amount at merchant.
-    /// Encoded/decoded by serializers as "TransactionCumulativeAmount".
+    /// Encoded/decoded by serializers as "TXCA".
     /// </summary>
     [EnumMember(Value = "TXCA")]
     [IsoId("_DkI50XsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious transaction cumulated amount at merchant.")]
-    TransactionCumulativeAmount,
+    TransactionCumulativeAmount = CardTransactionRiskReasonCode.TransactionCumulativeAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious transaction number at merchant.
-    /// Encoded/decoded by serializers as "TransactionNumber".
+    /// Encoded/decoded by serializers as "TXNB".
     /// </summary>
     [EnumMember(Value = "TXNB")]
     [IsoId("_DpgiAXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious transaction number at merchant.")]
-    TransactionNumber,
+    TransactionNumber = CardTransactionRiskReasonCode.TransactionNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious transaction time.
-    /// Encoded/decoded by serializers as "TransactionTime".
+    /// Encoded/decoded by serializers as "TXTM".
     /// </summary>
     [EnumMember(Value = "TXTM")]
     [IsoId("_Du3jIXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious transaction time.")]
-    TransactionTime,
+    TransactionTime = CardTransactionRiskReasonCode.TransactionTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious transaction time interval.
-    /// Encoded/decoded by serializers as "TransactionTimeIinterval".
+    /// Encoded/decoded by serializers as "TMIN".
     /// </summary>
     [EnumMember(Value = "TMIN")]
     [IsoId("_D01BMXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious transaction time interval.")]
-    TransactionTimeIinterval,
+    TransactionTimeIinterval = CardTransactionRiskReasonCode.TransactionTimeIinterval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious transaction type.
-    /// Encoded/decoded by serializers as "TransactionType".
+    /// Encoded/decoded by serializers as "TXTP".
     /// </summary>
     [EnumMember(Value = "TXTP")]
     [IsoId("_D9E-QXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious transaction type.")]
-    TransactionType,
+    TransactionType = CardTransactionRiskReasonCode.TransactionType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Suspicious unattended terminal activity.
-    /// Encoded/decoded by serializers as "UnattendedActivity".
+    /// Encoded/decoded by serializers as "UATA".
     /// </summary>
     [EnumMember(Value = "UATA")]
     [IsoId("_ECb_YXsNEeSR68OJvMfxJQ")]
     [Description(@"Suspicious unattended terminal activity.")]
-    UnattendedActivity,
+    UnattendedActivity = CardTransactionRiskReasonCode.UnattendedActivity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum CardTransactionRiskReason1Code
 public static class CardTransactionRiskReason1CodeMetadataExtensions
 {
     private static readonly CardTransactionRiskReason1CodeDropdownSource _dropdownSource = new CardTransactionRiskReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

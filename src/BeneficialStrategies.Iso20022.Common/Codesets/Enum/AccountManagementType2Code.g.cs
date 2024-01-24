@@ -21,30 +21,30 @@ public enum AccountManagementType2Code
 {
     /// <summary>
     /// Refers to an account opening instruction message.
-    /// Encoded/decoded by serializers as "AccountOpening".
+    /// Encoded/decoded by serializers as "ACCO".
     /// </summary>
     [EnumMember(Value = "ACCO")]
     [IsoId("_bqvG09p-Ed-ak6NoX_4Aeg_-845396171")]
     [Description(@"Refers to an account opening instruction message.")]
-    AccountOpening,
+    AccountOpening = AccountManagementTypeCode.AccountOpening, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refers to an account modification instruction message.
-    /// Encoded/decoded by serializers as "AccountModification".
+    /// Encoded/decoded by serializers as "ACCM".
     /// </summary>
     [EnumMember(Value = "ACCM")]
     [IsoId("_bqvG1Np-Ed-ak6NoX_4Aeg_-845395920")]
     [Description(@"Refers to an account modification instruction message.")]
-    AccountModification,
+    AccountModification = AccountManagementTypeCode.AccountModification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Refers to a get account details message.
-    /// Encoded/decoded by serializers as "GetAccountDetails".
+    /// Encoded/decoded by serializers as "GACC".
     /// </summary>
     [EnumMember(Value = "GACC")]
     [IsoId("_bqvG1dp-Ed-ak6NoX_4Aeg_-784440543")]
     [Description(@"Refers to a get account details message.")]
-    GetAccountDetails,
+    GetAccountDetails = AccountManagementTypeCode.GetAccountDetails, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AccountManagementType2Code
 public static class AccountManagementType2CodeMetadataExtensions
 {
     private static readonly AccountManagementType2CodeDropdownSource _dropdownSource = new AccountManagementType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

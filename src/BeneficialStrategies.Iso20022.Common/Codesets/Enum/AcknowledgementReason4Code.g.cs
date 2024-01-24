@@ -21,39 +21,39 @@ public enum AcknowledgementReason4Code
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bpPSAdp-Ed-ak6NoX_4Aeg_-966580559")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = AcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_bpPSAtp-Ed-ak6NoX_4Aeg_-925024563")]
     [Description(@"Instruction was received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = AcknowledgementReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_bpPSA9p-Ed-ak6NoX_4Aeg_-856682877")]
     [Description(@"Instruction was not straight through processing and had to be processed manually.")]
-    NotStraightThroughProcessing,
+    NotStraightThroughProcessing = AcknowledgementReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bpPSBNp-Ed-ak6NoX_4Aeg_1167272842")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AcknowledgementReason4Code
 public static class AcknowledgementReason4CodeMetadataExtensions
 {
     private static readonly AcknowledgementReason4CodeDropdownSource _dropdownSource = new AcknowledgementReason4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

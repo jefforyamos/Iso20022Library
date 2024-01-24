@@ -21,21 +21,21 @@ public enum SecuritiesTransactionType15Code
 {
     /// <summary>
     /// Transaction is a purchase of financial instrument.
-    /// Encoded/decoded by serializers as "Buy".
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_U6o2obu7EeSXxOgurgHGgw")]
     [Description(@"Transaction is a purchase of financial instrument.")]
-    Buy,
+    Buy = SecuritiesTransactionTypeV3Code.Buy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a sale of financial instrument.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_XDPh4bu7EeSXxOgurgHGgw")]
     [Description(@"Transaction is a sale of financial instrument.")]
-    Sell,
+    Sell = SecuritiesTransactionTypeV3Code.Sell, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SecuritiesTransactionType15Code
 public static class SecuritiesTransactionType15CodeMetadataExtensions
 {
     private static readonly SecuritiesTransactionType15CodeDropdownSource _dropdownSource = new SecuritiesTransactionType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

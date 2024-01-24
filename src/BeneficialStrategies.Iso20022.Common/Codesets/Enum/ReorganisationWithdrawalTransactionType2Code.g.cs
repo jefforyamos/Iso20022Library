@@ -21,12 +21,12 @@ public enum ReorganisationWithdrawalTransactionType2Code
 {
     /// <summary>
     /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
-    /// Encoded/decoded by serializers as "WithdrawalProtectOnBehalfOfAnotherParticipant".
+    /// Encoded/decoded by serializers as "PRPW".
     /// </summary>
     [EnumMember(Value = "PRPW")]
     [IsoId("_Nax0kecpEei5aPS232E3Mw")]
     [Description(@"The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.")]
-    WithdrawalProtectOnBehalfOfAnotherParticipant,
+    WithdrawalProtectOnBehalfOfAnotherParticipant = ReorganisationWithdrawalTransactionTypeCode.WithdrawalProtectOnBehalfOfAnotherParticipant, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ReorganisationWithdrawalTransactionType2Code
 public static class ReorganisationWithdrawalTransactionType2CodeMetadataExtensions
 {
     private static readonly ReorganisationWithdrawalTransactionType2CodeDropdownSource _dropdownSource = new ReorganisationWithdrawalTransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum OtherAmountType1Code
 {
     /// <summary>
     /// Interest that was pre-paid.
-    /// Encoded/decoded by serializers as "PrepaidInterest".
+    /// Encoded/decoded by serializers as "PINT".
     /// </summary>
     [EnumMember(Value = "PINT")]
     [IsoId("_19nc0a53Eee6Q7mFsDuJBA")]
     [Description(@"Interest that was pre-paid.")]
-    PrepaidInterest,
+    PrepaidInterest = OtherAmountTypeCode.PrepaidInterest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interest on the interest.
-    /// Encoded/decoded by serializers as "SettlementInterest".
+    /// Encoded/decoded by serializers as "SINT".
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_2CFGEa53Eee6Q7mFsDuJBA")]
     [Description(@"Interest on the interest.")]
-    SettlementInterest,
+    SettlementInterest = OtherAmountTypeCode.SettlementInterest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OtherAmountType1Code
 public static class OtherAmountType1CodeMetadataExtensions
 {
     private static readonly OtherAmountType1CodeDropdownSource _dropdownSource = new OtherAmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

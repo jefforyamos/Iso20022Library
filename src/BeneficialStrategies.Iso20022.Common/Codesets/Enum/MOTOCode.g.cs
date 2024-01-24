@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_CPEMoDHLEeyTT91yHXSlSQ")]
 [Description(@"A code that identifies the type of MOTO transaction.")]
 [Derivations(typeof(MOTO1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MOTOCode
 {
     /// <summary>
@@ -40,12 +39,11 @@ public enum MOTOCode
     
     /// <summary>
     /// Mail order or telephone order.
-    /// 
     /// Encoded/decoded by serializers as "MOTO".
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_gi3iUDHLEeyTT91yHXSlSQ")]
-    [Description(@"Mail order or telephone order. ")]
+    [Description(@"Mail order or telephone order.|")]
     MailOrderOrTelephoneOrder,
     
 }
@@ -57,7 +55,7 @@ public enum MOTOCode
 public static class MOTOCodeMetadataExtensions
 {
     private static readonly MOTOCodeDropdownSource _dropdownSource = new MOTOCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

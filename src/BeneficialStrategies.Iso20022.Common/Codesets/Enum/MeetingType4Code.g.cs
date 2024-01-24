@@ -21,57 +21,57 @@ public enum MeetingType4Code
 {
     /// <summary>
     /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example, approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "Extraordinary".
+    /// Encoded/decoded by serializers as "XMET".
     /// </summary>
     [EnumMember(Value = "XMET")]
     [IsoId("_iaPNIa7DEemG7MmivSuE5g")]
     [Description(@"Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example, approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.")]
-    Extraordinary,
+    Extraordinary = MeetingTypeV2Code.Extraordinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Includes annual and ordinary meetings. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example, approval of dividends and directors. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "General".
+    /// Encoded/decoded by serializers as "GMET".
     /// </summary>
     [EnumMember(Value = "GMET")]
     [IsoId("_izrn4q7DEemG7MmivSuE5g")]
     [Description(@"Includes annual and ordinary meetings. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example, approval of dividends and directors. These meetings are always issuer initiated.")]
-    General,
+    General = MeetingTypeV2Code.General, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting which contains both ordinary and extraordinary resolutions.
-    /// Encoded/decoded by serializers as "Mixed".
+    /// Encoded/decoded by serializers as "MIXD".
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_jAxosq7DEemG7MmivSuE5g")]
     [Description(@"Meeting which contains both ordinary and extraordinary resolutions.")]
-    Mixed,
+    Mixed = MeetingTypeV2Code.Mixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
-    /// Encoded/decoded by serializers as "Special".
+    /// Encoded/decoded by serializers as "SPCL".
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_jYIYwq7DEemG7MmivSuE5g")]
     [Description(@"Meeting that takes place as needed that is neither ordinary nor extraordinary.")]
-    Special,
+    Special = MeetingTypeV2Code.Special, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical meeting of bond holders.
-    /// Encoded/decoded by serializers as "BondHolderMeeting".
+    /// Encoded/decoded by serializers as "BMET".
     /// </summary>
     [EnumMember(Value = "BMET")]
     [IsoId("_j02J8q7DEemG7MmivSuE5g")]
     [Description(@"Physical meeting of bond holders.")]
-    BondHolderMeeting,
+    BondHolderMeeting = MeetingTypeV2Code.BondHolderMeeting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting is the result of a legal proceeding.
-    /// Encoded/decoded by serializers as "CourtMeeting".
+    /// Encoded/decoded by serializers as "CMET".
     /// </summary>
     [EnumMember(Value = "CMET")]
     [IsoId("_kb-bYq7DEemG7MmivSuE5g")]
     [Description(@"Meeting is the result of a legal proceeding.")]
-    CourtMeeting,
+    CourtMeeting = MeetingTypeV2Code.CourtMeeting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum MeetingType4Code
 public static class MeetingType4CodeMetadataExtensions
 {
     private static readonly MeetingType4CodeDropdownSource _dropdownSource = new MeetingType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

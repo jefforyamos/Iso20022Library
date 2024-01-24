@@ -21,30 +21,30 @@ public enum RetailerService5Code
 {
     /// <summary>
     /// The POI System responds to a login request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLoginResponse".
+    /// Encoded/decoded by serializers as "SMIP".
     /// </summary>
     [EnumMember(Value = "SMIP")]
     [IsoId("_fuo54d6LEeiwsev40qZGEQ")]
     [Description(@"The POI System responds to a login request.")]
-    AdministrativeSessionManagementLoginResponse,
+    AdministrativeSessionManagementLoginResponse = RetailerServiceCode.AdministrativeSessionManagementLoginResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a logout request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementLogoutResponse".
+    /// Encoded/decoded by serializers as "SMOP".
     /// </summary>
     [EnumMember(Value = "SMOP")]
     [IsoId("_gFTtcd6LEeiwsev40qZGEQ")]
     [Description(@"The POI System responds to a logout request.")]
-    AdministrativeSessionManagementLogoutResponse,
+    AdministrativeSessionManagementLogoutResponse = RetailerServiceCode.AdministrativeSessionManagementLogoutResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI System responds to a diagnosis request.
-    /// Encoded/decoded by serializers as "AdministrativeSessionManagementDiagnosisResponse".
+    /// Encoded/decoded by serializers as "SMDP".
     /// </summary>
     [EnumMember(Value = "SMDP")]
     [IsoId("_guks4d6LEeiwsev40qZGEQ")]
     [Description(@"The POI System responds to a diagnosis request.")]
-    AdministrativeSessionManagementDiagnosisResponse,
+    AdministrativeSessionManagementDiagnosisResponse = RetailerServiceCode.AdministrativeSessionManagementDiagnosisResponse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RetailerService5Code
 public static class RetailerService5CodeMetadataExtensions
 {
     private static readonly RetailerService5CodeDropdownSource _dropdownSource = new RetailerService5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

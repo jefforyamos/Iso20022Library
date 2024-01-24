@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y8_HINp-Ed-ak6NoX_4Aeg_1401456451")]
 [Description(@"Specifies how the price valuation timing is done based on the timeline defined in the prospectus.")]
 [Derivations(typeof(ValuationTiming1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ValuationTimingCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ValuationTimingCode
 public static class ValuationTimingCodeMetadataExtensions
 {
     private static readonly ValuationTimingCodeDropdownSource _dropdownSource = new ValuationTimingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

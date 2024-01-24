@@ -21,21 +21,21 @@ public enum StatementStructure1Code
 {
     /// <summary>
     /// Statement is sorted by status.
-    /// Encoded/decoded by serializers as "Statuses".
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_ZQD0J9p-Ed-ak6NoX_4Aeg_-1906483117")]
     [Description(@"Statement is sorted by status.")]
-    Statuses,
+    Statuses = StatementStructureCode.Statuses, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement is sorted by transaction.
-    /// Encoded/decoded by serializers as "Transactions".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_ZQD0KNp-Ed-ak6NoX_4Aeg_-1906483092")]
     [Description(@"Statement is sorted by transaction.")]
-    Transactions,
+    Transactions = StatementStructureCode.Transactions, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum StatementStructure1Code
 public static class StatementStructure1CodeMetadataExtensions
 {
     private static readonly StatementStructure1CodeDropdownSource _dropdownSource = new StatementStructure1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

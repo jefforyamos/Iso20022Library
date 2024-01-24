@@ -21,12 +21,12 @@ public enum StatusSubType2Code
 {
     /// <summary>
     /// Same day flag has been set to true for the sub status of the trade notification.
-    /// Encoded/decoded by serializers as "OnlySameDayFlagTrue".
+    /// Encoded/decoded by serializers as "SMDY".
     /// </summary>
     [EnumMember(Value = "SMDY")]
     [IsoId("_EmxXpZU-EeaYkf5FCqYMeA")]
     [Description(@"Same day flag has been set to true for the sub status of the trade notification.")]
-    OnlySameDayFlagTrue,
+    OnlySameDayFlagTrue = StatusSubTypeCode.OnlySameDayFlagTrue, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum StatusSubType2Code
 public static class StatusSubType2CodeMetadataExtensions
 {
     private static readonly StatusSubType2CodeDropdownSource _dropdownSource = new StatusSubType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

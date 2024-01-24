@@ -21,66 +21,66 @@ public enum CommissionType8Code
 {
     /// <summary>
     /// Commission for a step-out trade, charged by the step-out broker.
-    /// Encoded/decoded by serializers as "StepOut".
+    /// Encoded/decoded by serializers as "STEP".
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_bAHcgtp-Ed-ak6NoX_4Aeg_411961030")]
     [Description(@"Commission for a step-out trade, charged by the step-out broker.")]
-    StepOut,
+    StepOut = CommissionTypeV2Code.StepOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission that is regular.
-    /// Encoded/decoded by serializers as "Regular".
+    /// Encoded/decoded by serializers as "REGU".
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_bAHcg9p-Ed-ak6NoX_4Aeg_665931315")]
     [Description(@"Commission that is regular.")]
-    Regular,
+    Regular = CommissionTypeV2Code.Regular, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission for a step-in trade, charged by the step-in broker.
-    /// Encoded/decoded by serializers as "StepIn".
+    /// Encoded/decoded by serializers as "STEI".
     /// </summary>
     [EnumMember(Value = "STEI")]
     [IsoId("_bAHchNp-Ed-ak6NoX_4Aeg_665931567")]
     [Description(@"Commission for a step-in trade, charged by the step-in broker.")]
-    StepIn,
+    StepIn = CommissionTypeV2Code.StepIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission designated by the broker for third party services. The soft dollar arrangement refers to an arrangement wherean investment manager directs transactions to a brokerand, in exchange, the broker provides brokerage and research services to the investment manager. Soft dollar arrangements include proprietary and third party research arrangements, but do not include client-directed brokerage arrangements. The U.S. Securities Exchange Act of 1934, Section 238(e), created a "safe harbor" to protect investment managers from claims that they had breached their fiduciary duties by using their client commissions to pay a higher commission than they might have paid for execution services to acquire investment research. The SEC defines soft dollars as: The Commission has defined soft dollar practices as arrangements under which products or services, other than execution of securities transactions, are obtained through an adviser or a broker-dealer in exchange for the direction by the adviser of client brokerage transactions to the broker-dealer. An individual or firm must exercise "investment discretion" over an account, as defined in Section 3(a)(35) of the Exchange Act, in order to use client commissions to obtain research under Section 28(e) of the Exchange Act ("Section 28(e)").
-    /// Encoded/decoded by serializers as "SoftDollar".
+    /// Encoded/decoded by serializers as "SOFT".
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_bAHchdp-Ed-ak6NoX_4Aeg_665931602")]
     [Description(@"Commission designated by the broker for third party services. The soft dollar arrangement refers to an arrangement wherean investment manager directs transactions to a brokerand, in exchange, the broker provides brokerage and research services to the investment manager. Soft dollar arrangements include proprietary and third party research arrangements, but do not include client-directed brokerage arrangements. The U.S. Securities Exchange Act of 1934, Section 238(e), created a ""safe harbor"" to protect investment managers from claims that they had breached their fiduciary duties by using their client commissions to pay a higher commission than they might have paid for execution services to acquire investment research. The SEC defines soft dollars as: The Commission has defined soft dollar practices as arrangements under which products or services, other than execution of securities transactions, are obtained through an adviser or a broker-dealer in exchange for the direction by the adviser of client brokerage transactions to the broker-dealer. An individual or firm must exercise ""investment discretion"" over an account, as defined in Section 3(a)(35) of the Exchange Act, in order to use client commissions to obtain research under Section 28(e) of the Exchange Act (""Section 28(e)"").")]
-    SoftDollar,
+    SoftDollar = CommissionTypeV2Code.SoftDollar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission that combines soft dollar and step-in commission characteristics.
-    /// Encoded/decoded by serializers as "SoftDollarStepIn".
+    /// Encoded/decoded by serializers as "SOIN".
     /// </summary>
     [EnumMember(Value = "SOIN")]
     [IsoId("_bAHchtp-Ed-ak6NoX_4Aeg_665931644")]
     [Description(@"Commission that combines soft dollar and step-in commission characteristics.")]
-    SoftDollarStepIn,
+    SoftDollarStepIn = CommissionTypeV2Code.SoftDollarStepIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission that combines soft dollar and step-out commission characteristics.
-    /// Encoded/decoded by serializers as "SoftDollarStepOut".
+    /// Encoded/decoded by serializers as "SOUT".
     /// </summary>
     [EnumMember(Value = "SOUT")]
     [IsoId("_bAHch9p-Ed-ak6NoX_4Aeg_666851676")]
     [Description(@"Commission that combines soft dollar and step-out commission characteristics.")]
-    SoftDollarStepOut,
+    SoftDollarStepOut = CommissionTypeV2Code.SoftDollarStepOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commission for a plan sponsor's services.
-    /// Encoded/decoded by serializers as "PlanSponsor".
+    /// Encoded/decoded by serializers as "PLAN".
     /// </summary>
     [EnumMember(Value = "PLAN")]
     [IsoId("_bAHciNp-Ed-ak6NoX_4Aeg_707489684")]
     [Description(@"Commission for a plan sponsor's services.")]
-    PlanSponsor,
+    PlanSponsor = CommissionTypeV2Code.PlanSponsor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CommissionType8Code
 public static class CommissionType8CodeMetadataExtensions
 {
     private static readonly CommissionType8CodeDropdownSource _dropdownSource = new CommissionType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

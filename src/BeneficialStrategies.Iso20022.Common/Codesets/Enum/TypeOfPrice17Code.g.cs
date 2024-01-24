@@ -21,129 +21,129 @@ public enum TypeOfPrice17Code
 {
     /// <summary>
     /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
-    /// Encoded/decoded by serializers as "Bid".
+    /// Encoded/decoded by serializers as "BIDE".
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_lQ9HkddnEeispNOuywCdbA")]
     [Description(@"Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.")]
-    Bid,
+    Bid = TypeOfPriceCode.Bid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
-    /// Encoded/decoded by serializers as "Offer".
+    /// Encoded/decoded by serializers as "OFFR".
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_lQ9Hk9dnEeispNOuywCdbA")]
     [Description(@"Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.")]
-    Offer,
+    Offer = TypeOfPriceCode.Offer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
-    /// Encoded/decoded by serializers as "NetAssetValue".
+    /// Encoded/decoded by serializers as "NAVL".
     /// </summary>
     [EnumMember(Value = "NAVL")]
     [IsoId("_lQ9HlddnEeispNOuywCdbA")]
     [Description(@"Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.")]
-    NetAssetValue,
+    NetAssetValue = TypeOfPriceCode.NetAssetValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.
-    /// Encoded/decoded by serializers as "Creation".
+    /// Encoded/decoded by serializers as "CREA".
     /// </summary>
     [EnumMember(Value = "CREA")]
     [IsoId("_lQ9Hl9dnEeispNOuywCdbA")]
     [Description(@"Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.")]
-    Creation,
+    Creation = TypeOfPriceCode.Creation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.
-    /// Encoded/decoded by serializers as "Cancellation".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_lQ9HmddnEeispNOuywCdbA")]
     [Description(@"Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.")]
-    Cancellation,
+    Cancellation = TypeOfPriceCode.Cancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the non-official interim price given to an investor before the executed price.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_lQ9Hm9dnEeispNOuywCdbA")]
     [Description(@"Price is the non-official interim price given to an investor before the executed price.")]
-    Interim,
+    Interim = TypeOfPriceCode.Interim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.
-    /// Encoded/decoded by serializers as "Swing".
+    /// Encoded/decoded by serializers as "SWNG".
     /// </summary>
     [EnumMember(Value = "SWNG")]
     [IsoId("_lQ9HnddnEeispNOuywCdbA")]
     [Description(@"Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.")]
-    Swing,
+    Swing = TypeOfPriceCode.Swing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the average price between the bid and offer prices.
-    /// Encoded/decoded by serializers as "Mid".
+    /// Encoded/decoded by serializers as "MIDD".
     /// </summary>
     [EnumMember(Value = "MIDD")]
     [IsoId("_lQ9Hn9dnEeispNOuywCdbA")]
     [Description(@"Price is the average price between the bid and offer prices.")]
-    Mid,
+    Mid = TypeOfPriceCode.Mid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the price used when reinvesting units after distribution.
-    /// Encoded/decoded by serializers as "Reinvestment".
+    /// Encoded/decoded by serializers as "RINV".
     /// </summary>
     [EnumMember(Value = "RINV")]
     [IsoId("_lQ9HoddnEeispNOuywCdbA")]
     [Description(@"Price is the price used when reinvesting units after distribution.")]
-    Reinvestment,
+    Reinvestment = TypeOfPriceCode.Reinvestment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the price used when transferring units between products.
-    /// Encoded/decoded by serializers as "Switch".
+    /// Encoded/decoded by serializers as "SWIC".
     /// </summary>
     [EnumMember(Value = "SWIC")]
     [IsoId("_lQ9Ho9dnEeispNOuywCdbA")]
     [Description(@"Price is the price used when transferring units between products.")]
-    Switch,
+    Switch = TypeOfPriceCode.Switch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the current market price.
-    /// Encoded/decoded by serializers as "Market".
+    /// Encoded/decoded by serializers as "MRKT".
     /// </summary>
     [EnumMember(Value = "MRKT")]
     [IsoId("_lQ9HpddnEeispNOuywCdbA")]
     [Description(@"Price is the current market price.")]
-    Market,
+    Market = TypeOfPriceCode.Market, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the estimated indicative price.
-    /// Encoded/decoded by serializers as "Indicative".
+    /// Encoded/decoded by serializers as "INDC".
     /// </summary>
     [EnumMember(Value = "INDC")]
     [IsoId("_lQ9Hp9dnEeispNOuywCdbA")]
     [Description(@"Price is the estimated indicative price.")]
-    Indicative,
+    Indicative = TypeOfPriceCode.Indicative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.
-    /// Encoded/decoded by serializers as "DailyDividendRate".
+    /// Encoded/decoded by serializers as "DDVR".
     /// </summary>
     [EnumMember(Value = "DDVR")]
     [IsoId("_tBj9IddnEeispNOuywCdbA")]
     [Description(@"Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.")]
-    DailyDividendRate,
+    DailyDividendRate = TypeOfPriceCode.DailyDividendRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// True offer price.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_t-s60ddnEeispNOuywCdbA")]
     [Description(@"True offer price.")]
-    Actual,
+    Actual = TypeOfPriceCode.Actual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum TypeOfPrice17Code
 public static class TypeOfPrice17CodeMetadataExtensions
 {
     private static readonly TypeOfPrice17CodeDropdownSource _dropdownSource = new TypeOfPrice17CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

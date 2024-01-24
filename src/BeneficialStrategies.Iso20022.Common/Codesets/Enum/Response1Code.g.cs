@@ -21,39 +21,39 @@ public enum Response1Code
 {
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "Declined".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_TUAMMQEcEeCQm6a_G2yO_w_-710959612")]
     [Description(@"Service is declined.")]
-    Declined,
+    Declined = ResponseCode.Declined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_TUAMMgEcEeCQm6a_G2yO_w_-1594192899")]
     [Description(@"Service has been successfuly provided.")]
-    Approved,
+    Approved = ResponseCode.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PartialApproved".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TUAMMwEcEeCQm6a_G2yO_w_-563960777")]
     [Description(@"Service has been partialy provided.")]
-    PartialApproved,
+    PartialApproved = ResponseCode.PartialApproved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TechnicalError".
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_TUAMNAEcEeCQm6a_G2yO_w_150956011")]
     [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
-    TechnicalError,
+    TechnicalError = ResponseCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Response1Code
 public static class Response1CodeMetadataExtensions
 {
     private static readonly Response1CodeDropdownSource _dropdownSource = new Response1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

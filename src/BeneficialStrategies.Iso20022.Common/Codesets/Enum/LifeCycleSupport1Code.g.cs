@@ -21,21 +21,21 @@ public enum LifeCycleSupport1Code
 {
     /// <summary>
     /// Assigned at authorisation time.
-    /// Encoded/decoded by serializers as "Authorisation".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_bBJH4VJ4EeeHVODnW-1ONQ")]
     [Description(@"Assigned at authorisation time.")]
-    Authorisation,
+    Authorisation = LifeCycleSupportCode.Authorisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Assigned at financial time.
-    /// Encoded/decoded by serializers as "Financial".
+    /// Encoded/decoded by serializers as "FINC".
     /// </summary>
     [EnumMember(Value = "FINC")]
     [IsoId("_bLtZIVJ4EeeHVODnW-1ONQ")]
     [Description(@"Assigned at financial time.")]
-    Financial,
+    Financial = LifeCycleSupportCode.Financial, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum LifeCycleSupport1Code
 public static class LifeCycleSupport1CodeMetadataExtensions
 {
     private static readonly LifeCycleSupport1CodeDropdownSource _dropdownSource = new LifeCycleSupport1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

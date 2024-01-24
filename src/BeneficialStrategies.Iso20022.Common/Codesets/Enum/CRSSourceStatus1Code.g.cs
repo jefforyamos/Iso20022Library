@@ -21,21 +21,21 @@ public enum CRSSourceStatus1Code
 {
     /// <summary>
     /// Source of the Common Reporting Standard (CRS) status is calculated.
-    /// Encoded/decoded by serializers as "Calculated".
+    /// Encoded/decoded by serializers as "CALC".
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_A1tMMUNtEeaS-NnwLNvMPg")]
     [Description(@"Source of the Common Reporting Standard (CRS) status is calculated.")]
-    Calculated,
+    Calculated = CRSSourceStatusCode.Calculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of the Common Reporting Standard (CRS) status is as declared by the investor.
-    /// Encoded/decoded by serializers as "Declared".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_A_-igUNtEeaS-NnwLNvMPg")]
     [Description(@"Source of the Common Reporting Standard (CRS) status is as declared by the investor.")]
-    Declared,
+    Declared = CRSSourceStatusCode.Declared, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CRSSourceStatus1Code
 public static class CRSSourceStatus1CodeMetadataExtensions
 {
     private static readonly CRSSourceStatus1CodeDropdownSource _dropdownSource = new CRSSourceStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

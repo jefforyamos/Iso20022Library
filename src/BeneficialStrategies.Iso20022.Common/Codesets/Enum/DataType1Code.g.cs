@@ -21,21 +21,21 @@ public enum DataType1Code
 {
     /// <summary>
     /// Specified type of data is exercise data.
-    /// Encoded/decoded by serializers as "ExerciseData".
+    /// Encoded/decoded by serializers as "EXDA".
     /// </summary>
     [EnumMember(Value = "EXDA")]
     [IsoId("_cftWAYAwEeSUJZYcWGKkkw")]
     [Description(@"Specified type of data is exercise data.")]
-    ExerciseData,
+    ExerciseData = DataTypeCode.ExerciseData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specified type of data is trading data.
-    /// Encoded/decoded by serializers as "TradingData".
+    /// Encoded/decoded by serializers as "TRDA".
     /// </summary>
     [EnumMember(Value = "TRDA")]
     [IsoId("_clTnsYAwEeSUJZYcWGKkkw")]
     [Description(@"Specified type of data is trading data.")]
-    TradingData,
+    TradingData = DataTypeCode.TradingData, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DataType1Code
 public static class DataType1CodeMetadataExtensions
 {
     private static readonly DataType1CodeDropdownSource _dropdownSource = new DataType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

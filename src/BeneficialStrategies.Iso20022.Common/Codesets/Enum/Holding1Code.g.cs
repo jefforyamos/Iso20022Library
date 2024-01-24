@@ -21,30 +21,30 @@ public enum Holding1Code
 {
     /// <summary>
     /// Certificate.
-    /// Encoded/decoded by serializers as "Certificate".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_HrQ00RKgEeKj15WxqwlXPw")]
     [Description(@"Certificate.")]
-    Certificate,
+    Certificate = HoldingCode.Certificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non partial holding.
-    /// Encoded/decoded by serializers as "NonPartialHolding".
+    /// Encoded/decoded by serializers as "NPRH".
     /// </summary>
     [EnumMember(Value = "NPRH")]
     [IsoId("_H08VQRKgEeKj15WxqwlXPw")]
     [Description(@"Non partial holding.")]
-    NonPartialHolding,
+    NonPartialHolding = HoldingCode.NonPartialHolding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial holding.
-    /// Encoded/decoded by serializers as "PartialHolding".
+    /// Encoded/decoded by serializers as "PRTH".
     /// </summary>
     [EnumMember(Value = "PRTH")]
     [IsoId("_IBT9URKgEeKj15WxqwlXPw")]
     [Description(@"Partial holding.")]
-    PartialHolding,
+    PartialHolding = HoldingCode.PartialHolding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Holding1Code
 public static class Holding1CodeMetadataExtensions
 {
     private static readonly Holding1CodeDropdownSource _dropdownSource = new Holding1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

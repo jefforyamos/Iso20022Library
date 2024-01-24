@@ -21,93 +21,93 @@ public enum CorporateActionEventStage3Code
 {
     /// <summary>
     /// Approved at the relevant meeting, for example, dividend.
-    /// Encoded/decoded by serializers as "Approved".
+    /// Encoded/decoded by serializers as "APPD".
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_JJnNASUfEeOxdNEux54C3Q")]
     [Description(@"Approved at the relevant meeting, for example, dividend.")]
-    Approved,
+    Approved = CorporateActionEventStageV2Code.Approved, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer is closed for acceptance.
-    /// Encoded/decoded by serializers as "Deactivated".
+    /// Encoded/decoded by serializers as "CLDE".
     /// </summary>
     [EnumMember(Value = "CLDE")]
     [IsoId("_KRBhASUfEeOxdNEux54C3Q")]
     [Description(@"Offer is closed for acceptance.")]
-    Deactivated,
+    Deactivated = CorporateActionEventStageV2Code.Deactivated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
-    /// Encoded/decoded by serializers as "CancellationAndReRun".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_LD5vcSUfEeOxdNEux54C3Q")]
     [Description(@"Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.")]
-    CancellationAndReRun,
+    CancellationAndReRun = CorporateActionEventStageV2Code.CancellationAndReRun, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event/offer conditions have not been met and the event/offer is terminated or lapsed.
-    /// Encoded/decoded by serializers as "Lapsed".
+    /// Encoded/decoded by serializers as "LAPS".
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_LiQfYSUfEeOxdNEux54C3Q")]
     [Description(@"Event/offer conditions have not been met and the event/offer is terminated or lapsed.")]
-    Lapsed,
+    Lapsed = CorporateActionEventStageV2Code.Lapsed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
-    /// Encoded/decoded by serializers as "SupplementalCancellationAndReRun".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_MFz4YSUfEeOxdNEux54C3Q")]
     [Description(@"Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.")]
-    SupplementalCancellationAndReRun,
+    SupplementalCancellationAndReRun = CorporateActionEventStageV2Code.SupplementalCancellationAndReRun, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Open for acceptance until the next specified deadline in the announcement (if any).
-    /// Encoded/decoded by serializers as "ActionPeriod".
+    /// Encoded/decoded by serializers as "PWAL".
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_MoCbsSUfEeOxdNEux54C3Q")]
     [Description(@"Open for acceptance until the next specified deadline in the announcement (if any).")]
-    ActionPeriod,
+    ActionPeriod = CorporateActionEventStageV2Code.ActionPeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
-    /// Encoded/decoded by serializers as "SupplementalCancellation".
+    /// Encoded/decoded by serializers as "RESC".
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_N53P8SUfEeOxdNEux54C3Q")]
     [Description(@"A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.")]
-    SupplementalCancellation,
+    SupplementalCancellation = CorporateActionEventStageV2Code.SupplementalCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Subject to approval at the relevant meeting, for example, dividend.
-    /// Encoded/decoded by serializers as "SubjectToApproval".
+    /// Encoded/decoded by serializers as "SUAP".
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_OFeDASUfEeOxdNEux54C3Q")]
     [Description(@"Subject to approval at the relevant meeting, for example, dividend.")]
-    SubjectToApproval,
+    SubjectToApproval = CorporateActionEventStageV2Code.SubjectToApproval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
-    /// Encoded/decoded by serializers as "UnconditionalAsToAcceptance".
+    /// Encoded/decoded by serializers as "UNAC".
     /// </summary>
     [EnumMember(Value = "UNAC")]
     [IsoId("_OokwESUfEeOxdNEux54C3Q")]
     [Description(@"The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.")]
-    UnconditionalAsToAcceptance,
+    UnconditionalAsToAcceptance = CorporateActionEventStageV2Code.UnconditionalAsToAcceptance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
-    /// Encoded/decoded by serializers as "WhollyUnconditional".
+    /// Encoded/decoded by serializers as "WHOU".
     /// </summary>
     [EnumMember(Value = "WHOU")]
     [IsoId("_O8g_wSUfEeOxdNEux54C3Q")]
     [Description(@"Wholly unconditional; all conditions specified in the offer document have been satisfied.")]
-    WhollyUnconditional,
+    WhollyUnconditional = CorporateActionEventStageV2Code.WhollyUnconditional, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum CorporateActionEventStage3Code
 public static class CorporateActionEventStage3CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStage3CodeDropdownSource _dropdownSource = new CorporateActionEventStage3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

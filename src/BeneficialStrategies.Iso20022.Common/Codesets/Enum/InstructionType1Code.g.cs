@@ -21,21 +21,21 @@ public enum InstructionType1Code
 {
     /// <summary>
     /// Instruction to lodge a baseline.
-    /// Encoded/decoded by serializers as "Lodge".
+    /// Encoded/decoded by serializers as "LODG".
     /// </summary>
     [EnumMember(Value = "LODG")]
     [IsoId("_aYn-ttp-Ed-ak6NoX_4Aeg_-8888673")]
     [Description(@"Instruction to lodge a baseline.")]
-    Lodge,
+    Lodge = InstructionTypeCode.Lodge, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction to push full baseline information to the correspondent.
-    /// Encoded/decoded by serializers as "FullPushThrough".
+    /// Encoded/decoded by serializers as "FPTR".
     /// </summary>
     [EnumMember(Value = "FPTR")]
     [IsoId("_aYn-t9p-Ed-ak6NoX_4Aeg_-8888613")]
     [Description(@"Instruction to push full baseline information to the correspondent.")]
-    FullPushThrough,
+    FullPushThrough = InstructionTypeCode.FullPushThrough, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InstructionType1Code
 public static class InstructionType1CodeMetadataExtensions
 {
     private static readonly InstructionType1CodeDropdownSource _dropdownSource = new InstructionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

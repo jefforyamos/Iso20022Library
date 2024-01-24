@@ -26,7 +26,7 @@ public enum EncryptionFormat1Code
     [EnumMember(Value = "TR31")]
     [IsoId("_KUksUGi4EeS87LmvcA55sg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-31 standard.")]
-    TR31,
+    TR31 = EncryptionFormatCode.TR31, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
@@ -35,7 +35,7 @@ public enum EncryptionFormat1Code
     [EnumMember(Value = "TR34")]
     [IsoId("_KfMn8Wi4EeS87LmvcA55sg")]
     [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-34 standard.")]
-    TR34,
+    TR34 = EncryptionFormatCode.TR34, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EncryptionFormat1Code
 public static class EncryptionFormat1CodeMetadataExtensions
 {
     private static readonly EncryptionFormat1CodeDropdownSource _dropdownSource = new EncryptionFormat1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum NoticeType1Code
 {
     /// <summary>
     /// Notice is universal.
-    /// Encoded/decoded by serializers as "Universal".
+    /// Encoded/decoded by serializers as "UNVL".
     /// </summary>
     [EnumMember(Value = "UNVL")]
     [IsoId("_1tTXBTL3EeKU9IrkkToqcw_1909543367")]
     [Description(@"Notice is universal.")]
-    Universal,
+    Universal = NoticeTypeCode.Universal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.
-    /// Encoded/decoded by serializers as "CedeAndCo".
+    /// Encoded/decoded by serializers as "CEDE".
     /// </summary>
     [EnumMember(Value = "CEDE")]
     [IsoId("_1tcg8DL3EeKU9IrkkToqcw_-2060306422")]
     [Description(@"Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.")]
-    CedeAndCo,
+    CedeAndCo = NoticeTypeCode.CedeAndCo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NoticeType1Code
 public static class NoticeType1CodeMetadataExtensions
 {
     private static readonly NoticeType1CodeDropdownSource _dropdownSource = new NoticeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

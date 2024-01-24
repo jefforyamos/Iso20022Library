@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YdGGJtp-Ed-ak6NoX_4Aeg_1195947295")]
 [Description(@"Specifies whether the proposal is an initial or a counter proposal.")]
 [Derivations(typeof(ProposalType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProposalTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ProposalTypeCode
 public static class ProposalTypeCodeMetadataExtensions
 {
     private static readonly ProposalTypeCodeDropdownSource _dropdownSource = new ProposalTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

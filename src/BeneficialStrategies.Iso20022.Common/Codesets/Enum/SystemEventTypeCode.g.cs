@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZR180Np-Ed-ak6NoX_4Aeg_1960691418")]
 [Description(@"Specifies a type of event related to a system's operation.")]
 [Derivations(typeof(SystemEventType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemEventTypeCode
 {
     /// <summary>
@@ -227,7 +226,7 @@ public enum SystemEventTypeCode
 public static class SystemEventTypeCodeMetadataExtensions
 {
     private static readonly SystemEventTypeCodeDropdownSource _dropdownSource = new SystemEventTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

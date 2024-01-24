@@ -21,30 +21,30 @@ public enum NewSecuritiesIssuanceType1Code
 {
     /// <summary>
     /// Securities proceeds are not new issues.
-    /// Encoded/decoded by serializers as "ExistingIssue".
+    /// Encoded/decoded by serializers as "EXIS".
     /// </summary>
     [EnumMember(Value = "EXIS")]
     [IsoId("_hPR4URH1EeKKuerhIbkpig")]
     [Description(@"Securities proceeds are not new issues.")]
-    ExistingIssue,
+    ExistingIssue = NewSecuritiesIssuanceTypeCode.ExistingIssue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities proceeds are newly issued.
-    /// Encoded/decoded by serializers as "NewIssue".
+    /// Encoded/decoded by serializers as "NEIS".
     /// </summary>
     [EnumMember(Value = "NEIS")]
     [IsoId("_hXeLARH1EeKKuerhIbkpig")]
     [Description(@"Securities proceeds are newly issued.")]
-    NewIssue,
+    NewIssue = NewSecuritiesIssuanceTypeCode.NewIssue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not known whether the securities proceeds are newly issued or not.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_hlxswxH1EeKKuerhIbkpig")]
     [Description(@"Not known whether the securities proceeds are newly issued or not.")]
-    Unknown,
+    Unknown = NewSecuritiesIssuanceTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NewSecuritiesIssuanceType1Code
 public static class NewSecuritiesIssuanceType1CodeMetadataExtensions
 {
     private static readonly NewSecuritiesIssuanceType1CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

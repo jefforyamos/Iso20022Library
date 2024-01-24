@@ -21,21 +21,21 @@ public enum VoteChannel1Code
 {
     /// <summary>
     /// Vote is as per described in the processing text for next intermediary information field.
-    /// Encoded/decoded by serializers as "VoteAsPerIntermediaryInformation".
+    /// Encoded/decoded by serializers as "VOPI".
     /// </summary>
     [EnumMember(Value = "VOPI")]
     [IsoId("_k3lkkTT9Ee2tRf29bleifQ")]
     [Description(@"Vote is as per described in the processing text for next intermediary information field.")]
-    VoteAsPerIntermediaryInformation,
+    VoteAsPerIntermediaryInformation = VoteChannelCode.VoteAsPerIntermediaryInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote is via the chain of intermediaries.
-    /// Encoded/decoded by serializers as "VoteThroughChain".
+    /// Encoded/decoded by serializers as "VOCI".
     /// </summary>
     [EnumMember(Value = "VOCI")]
     [IsoId("_k-cagTT9Ee2tRf29bleifQ")]
     [Description(@"Vote is via the chain of intermediaries.")]
-    VoteThroughChain,
+    VoteThroughChain = VoteChannelCode.VoteThroughChain, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum VoteChannel1Code
 public static class VoteChannel1CodeMetadataExtensions
 {
     private static readonly VoteChannel1CodeDropdownSource _dropdownSource = new VoteChannel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

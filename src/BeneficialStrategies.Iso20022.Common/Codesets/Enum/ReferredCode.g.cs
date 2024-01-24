@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZaoseNp-Ed-ak6NoX_4Aeg_-1818846482")]
 [Description(@"Indicates if the investor was referred.")]
 [Derivations(typeof(Referred1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReferredCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReferredCode
 public static class ReferredCodeMetadataExtensions
 {
     private static readonly ReferredCodeDropdownSource _dropdownSource = new ReferredCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

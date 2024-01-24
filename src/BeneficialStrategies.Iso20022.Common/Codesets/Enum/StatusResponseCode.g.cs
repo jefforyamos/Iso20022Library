@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Llp6Iz2yEeGXQ7zxoAIFpQ")]
 [Description(@"Specifies the status of the response.")]
 [Derivations(typeof(StatusResponse1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatusResponseCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum StatusResponseCode
 public static class StatusResponseCodeMetadataExtensions
 {
     private static readonly StatusResponseCodeDropdownSource _dropdownSource = new StatusResponseCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

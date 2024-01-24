@@ -21,66 +21,66 @@ public enum PartyType5Code
 {
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OriginatingPOI".
+    /// Encoded/decoded by serializers as "OPOI".
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_KTB_yH1DEeCF8NjrBemJWQ_1219111491")]
     [Description(@"Point Of Interaction initiating the card payment transaction.")]
-    OriginatingPOI,
+    OriginatingPOI = PartyTypeCode.OriginatingPOI, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_KTB_yX1DEeCF8NjrBemJWQ_990949228")]
     [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
-    Acceptor,
+    Acceptor = PartyTypeCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_KTLwwH1DEeCF8NjrBemJWQ_-6123125")]
     [Description(@"Merchant providing goods and service in the card payment transaction.")]
-    Merchant,
+    Merchant = PartyTypeCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_KTLwwX1DEeCF8NjrBemJWQ_-1003195478")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "ITAG".
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_KTLwwn1DEeCF8NjrBemJWQ_-2000267831")]
     [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MasterTerminalManager".
+    /// Encoded/decoded by serializers as "MTMG".
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_KTLww31DEeCF8NjrBemJWQ_1297627112")]
     [Description(@"Responsible for the maintenance of a card payment acceptance terminal.")]
-    MasterTerminalManager,
+    MasterTerminalManager = PartyTypeCode.MasterTerminalManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TerminalManager".
+    /// Encoded/decoded by serializers as "TMGT".
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_KTLwxH1DEeCF8NjrBemJWQ_8597021")]
     [Description(@"Responsible for one or several maintenance functions of a card payment acceptance terminal.")]
-    TerminalManager,
+    TerminalManager = PartyTypeCode.TerminalManager, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum PartyType5Code
 public static class PartyType5CodeMetadataExtensions
 {
     private static readonly PartyType5CodeDropdownSource _dropdownSource = new PartyType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

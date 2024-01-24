@@ -21,39 +21,39 @@ public enum TerminalManagementActionTrigger1Code
 {
     /// <summary>
     /// Date and time trigger the terminal management action.
-    /// Encoded/decoded by serializers as "DateTime".
+    /// Encoded/decoded by serializers as "DATE".
     /// </summary>
     [EnumMember(Value = "DATE")]
     [IsoId("_KUOSln1DEeCF8NjrBemJWQ_-370493014")]
     [Description(@"Date and time trigger the terminal management action.")]
-    DateTime,
+    DateTime = TerminalManagementActionTriggerCode.DateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer triggers the terminal management action.
-    /// Encoded/decoded by serializers as "HostEvent".
+    /// Encoded/decoded by serializers as "HOST".
     /// </summary>
     [EnumMember(Value = "HOST")]
     [IsoId("_KUOSl31DEeCF8NjrBemJWQ_1411431502")]
     [Description(@"Acquirer triggers the terminal management action.")]
-    HostEvent,
+    HostEvent = TerminalManagementActionTriggerCode.HostEvent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acceptor triggers the terminal management action.
-    /// Encoded/decoded by serializers as "Manual".
+    /// Encoded/decoded by serializers as "MANU".
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_KUYDkH1DEeCF8NjrBemJWQ_-1262025415")]
     [Description(@"Acceptor triggers the terminal management action.")]
-    Manual,
+    Manual = TerminalManagementActionTriggerCode.Manual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sale system triggers the terminal management action.
-    /// Encoded/decoded by serializers as "SaleEvent".
+    /// Encoded/decoded by serializers as "SALE".
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_KUYDkX1DEeCF8NjrBemJWQ_-2047159303")]
     [Description(@"Sale system triggers the terminal management action.")]
-    SaleEvent,
+    SaleEvent = TerminalManagementActionTriggerCode.SaleEvent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum TerminalManagementActionTrigger1Code
 public static class TerminalManagementActionTrigger1CodeMetadataExtensions
 {
     private static readonly TerminalManagementActionTrigger1CodeDropdownSource _dropdownSource = new TerminalManagementActionTrigger1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

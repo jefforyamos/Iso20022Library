@@ -21,84 +21,84 @@ public enum DTCCPayoutType3Code
 {
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as capital gains.
-    /// Encoded/decoded by serializers as "CapitalGains".
+    /// Encoded/decoded by serializers as "CAPG".
     /// </summary>
     [EnumMember(Value = "CAPG")]
     [IsoId("_g8GfIaFpEeSpipW1FBSFVg")]
     [Description(@"Distribution of earnings to shareholders categorised by the company as capital gains.")]
-    CapitalGains,
+    CapitalGains = DTCCPayoutTypeCode.CapitalGains, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payout consisting of cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_hA3DUaFpEeSpipW1FBSFVg")]
     [Description(@"Payout consisting of cash.")]
-    Cash,
+    Cash = DTCCPayoutTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by company as dividend.
-    /// Encoded/decoded by serializers as "Dividend".
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_hIv0AaFpEeSpipW1FBSFVg")]
     [Description(@"Distribution of earnings to shareholders categorised by company as dividend.")]
-    Dividend,
+    Dividend = DTCCPayoutTypeCode.Dividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.
-    /// Encoded/decoded by serializers as "Interest".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_hVsD0aFpEeSpipW1FBSFVg")]
     [Description(@"Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.")]
-    Interest,
+    Interest = DTCCPayoutTypeCode.Interest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as long-term capital gains.
-    /// Encoded/decoded by serializers as "LongTermCapitalGains".
+    /// Encoded/decoded by serializers as "LTCG".
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_hfNzQaFpEeSpipW1FBSFVg")]
     [Description(@"Distribution of earnings to shareholders categorised by the company as long-term capital gains.")]
-    LongTermCapitalGains,
+    LongTermCapitalGains = DTCCPayoutTypeCode.LongTermCapitalGains, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.
-    /// Encoded/decoded by serializers as "Premium".
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_hsv48aFpEeSpipW1FBSFVg")]
     [Description(@"Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.")]
-    Premium,
+    Premium = DTCCPayoutTypeCode.Premium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash payment on a debt instrument that represents a return of principal to the holder.
-    /// Encoded/decoded by serializers as "Principal".
+    /// Encoded/decoded by serializers as "PRPL".
     /// </summary>
     [EnumMember(Value = "PRPL")]
     [IsoId("_h0L9saFpEeSpipW1FBSFVg")]
     [Description(@"Cash payment on a debt instrument that represents a return of principal to the holder.")]
-    Principal,
+    Principal = DTCCPayoutTypeCode.Principal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution that doesn't represent earnings and is categorised by the company as return of capital.
-    /// Encoded/decoded by serializers as "ReturnOfCapital".
+    /// Encoded/decoded by serializers as "ROCA".
     /// </summary>
     [EnumMember(Value = "ROCA")]
     [IsoId("_iA1SkaFpEeSpipW1FBSFVg")]
     [Description(@"Distribution that doesn't represent earnings and is categorised by the company as return of capital.")]
-    ReturnOfCapital,
+    ReturnOfCapital = DTCCPayoutTypeCode.ReturnOfCapital, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as short-term capital gains.
-    /// Encoded/decoded by serializers as "ShortTermCapitalGains".
+    /// Encoded/decoded by serializers as "STCG".
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_idQI0aFpEeSpipW1FBSFVg")]
     [Description(@"Distribution of earnings to shareholders categorised by the company as short-term capital gains.")]
-    ShortTermCapitalGains,
+    ShortTermCapitalGains = DTCCPayoutTypeCode.ShortTermCapitalGains, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum DTCCPayoutType3Code
 public static class DTCCPayoutType3CodeMetadataExtensions
 {
     private static readonly DTCCPayoutType3CodeDropdownSource _dropdownSource = new DTCCPayoutType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

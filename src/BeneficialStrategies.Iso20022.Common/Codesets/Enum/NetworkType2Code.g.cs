@@ -21,21 +21,21 @@ public enum NetworkType2Code
 {
     /// <summary>
     /// Sock5 proxy.
-    /// Encoded/decoded by serializers as "Sock5".
+    /// Encoded/decoded by serializers as "SCK5".
     /// </summary>
     [EnumMember(Value = "SCK5")]
     [IsoId("_BAFFsY3-EeWRwov1g9WL_A")]
     [Description(@"Sock5 proxy.")]
-    Sock5,
+    Sock5 = NetworkTypeCode.Sock5, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sock4 proxy.
-    /// Encoded/decoded by serializers as "Sock4".
+    /// Encoded/decoded by serializers as "SCK4".
     /// </summary>
     [EnumMember(Value = "SCK4")]
     [IsoId("_BLtG4Y3-EeWRwov1g9WL_A")]
     [Description(@"Sock4 proxy.")]
-    Sock4,
+    Sock4 = NetworkTypeCode.Sock4, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// HTTP proxy.
@@ -44,7 +44,7 @@ public enum NetworkType2Code
     [EnumMember(Value = "HTTP")]
     [IsoId("_BYqk0Y3-EeWRwov1g9WL_A")]
     [Description(@"HTTP proxy.")]
-    HTTP,
+    HTTP = NetworkTypeCode.HTTP, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NetworkType2Code
 public static class NetworkType2CodeMetadataExtensions
 {
     private static readonly NetworkType2CodeDropdownSource _dropdownSource = new NetworkType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

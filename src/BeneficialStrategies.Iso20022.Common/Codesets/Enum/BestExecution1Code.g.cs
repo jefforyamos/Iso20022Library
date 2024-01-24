@@ -21,12 +21,12 @@ public enum BestExecution1Code
 {
     /// <summary>
     /// Best execution rules were followed.
-    /// Encoded/decoded by serializers as "Best".
+    /// Encoded/decoded by serializers as "BTEX".
     /// </summary>
     [EnumMember(Value = "BTEX")]
     [IsoId("_beXewdp-Ed-ak6NoX_4Aeg_47375840")]
     [Description(@"Best execution rules were followed.")]
-    Best,
+    Best = BestExecutionCode.Best, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum BestExecution1Code
 public static class BestExecution1CodeMetadataExtensions
 {
     private static readonly BestExecution1CodeDropdownSource _dropdownSource = new BestExecution1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

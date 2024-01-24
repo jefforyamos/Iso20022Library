@@ -21,147 +21,147 @@ public enum TransferRejectedStatusReason1Code
 {
     /// <summary>
     /// Cash settlement date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SettlementDate".
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_VjusU9p-Ed-ak6NoX_4Aeg_456943894")]
     [Description(@"Cash settlement date is not recognised or is invalid.")]
-    SettlementDate,
+    SettlementDate = RejectedStatusReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Place of settlement is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SettlementPlace".
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_VjusVNp-Ed-ak6NoX_4Aeg_456944361")]
     [Description(@"Place of settlement is not recognised or is invalid.")]
-    SettlementPlace,
+    SettlementPlace = RejectedStatusReasonCode.SettlementPlace, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_VjusVdp-Ed-ak6NoX_4Aeg_464330688")]
     [Description(@"Identification of the security is not recognised or is invalid.")]
-    FinancialInstrumentIdentification,
+    FinancialInstrumentIdentification = RejectedStatusReasonCode.FinancialInstrumentIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// There are not enough securities in the account to process the instruction.
-    /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_VjusVtp-Ed-ak6NoX_4Aeg_465253262")]
     [Description(@"There are not enough securities in the account to process the instruction.")]
-    NotEnoughFinancialInstrument,
+    NotEnoughFinancialInstrument = RejectedStatusReasonCode.NotEnoughFinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One or several settlement parties are not recognised or are invalid.
-    /// Encoded/decoded by serializers as "SettlementParties".
+    /// Encoded/decoded by serializers as "ISTP".
     /// </summary>
     [EnumMember(Value = "ISTP")]
     [IsoId("_VjusV9p-Ed-ak6NoX_4Aeg_464331073")]
     [Description(@"One or several settlement parties are not recognised or are invalid.")]
-    SettlementParties,
+    SettlementParties = RejectedStatusReasonCode.SettlementParties, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "CertificateNumber".
+    /// Encoded/decoded by serializers as "ICTN".
     /// </summary>
     [EnumMember(Value = "ICTN")]
     [IsoId("_VjusWNp-Ed-ak6NoX_4Aeg_464331540")]
     [Description(@"Certificate number is not recognised or is invalid.")]
-    CertificateNumber,
+    CertificateNumber = RejectedStatusReasonCode.CertificateNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "InvestmentAccount".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_VjusWdp-Ed-ak6NoX_4Aeg_464331952")]
     [Description(@"Investment account identification is not recognised or is invalid.")]
-    InvestmentAccount,
+    InvestmentAccount = RejectedStatusReasonCode.InvestmentAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquisition date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "AcquisitionDate".
+    /// Encoded/decoded by serializers as "IAQD".
     /// </summary>
     [EnumMember(Value = "IAQD")]
     [IsoId("_Vj32QNp-Ed-ak6NoX_4Aeg_464332479")]
     [Description(@"Acquisition date is not recognised or is invalid.")]
-    AcquisitionDate,
+    AcquisitionDate = RejectedStatusReasonCode.AcquisitionDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account is blocked due to a corporate action.
-    /// Encoded/decoded by serializers as "AccountBlockedForCorporateAction".
+    /// Encoded/decoded by serializers as "BLCA".
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_Vj32Qdp-Ed-ak6NoX_4Aeg_465252718")]
     [Description(@"Investment account is blocked due to a corporate action.")]
-    AccountBlockedForCorporateAction,
+    AccountBlockedForCorporateAction = RejectedStatusReasonCode.AccountBlockedForCorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
-    /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_Vj32Qtp-Ed-ak6NoX_4Aeg_465253150")]
     [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
-    AccountBlockedMissingDocuments,
+    AccountBlockedMissingDocuments = RejectedStatusReasonCode.AccountBlockedMissingDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
+    /// Encoded/decoded by serializers as "IDNA".
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_Vj32Q9p-Ed-ak6NoX_4Aeg_465253768")]
     [Description(@"Identification of the security and the security name are not the same.")]
-    FinancialInstrumentIdentificationAndName,
+    FinancialInstrumentIdentificationAndName = RejectedStatusReasonCode.FinancialInstrumentIdentificationAndName, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order contains physical delivery details but the fund can not be physically delivered.
-    /// Encoded/decoded by serializers as "PhysicalDeliveryImpossible".
+    /// Encoded/decoded by serializers as "DLVY".
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_Vj32RNp-Ed-ak6NoX_4Aeg_465253803")]
     [Description(@"Order contains physical delivery details but the fund can not be physically delivered.")]
-    PhysicalDeliveryImpossible,
+    PhysicalDeliveryImpossible = RejectedStatusReasonCode.PhysicalDeliveryImpossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Legally impossible to cancel.
-    /// Encoded/decoded by serializers as "LegallyImpossible".
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_Vj32Rdp-Ed-ak6NoX_4Aeg_466176266")]
     [Description(@"Legally impossible to cancel.")]
-    LegallyImpossible,
+    LegallyImpossible = RejectedStatusReasonCode.LegallyImpossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NotCompliantWithSLA".
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_Vj32Rtp-Ed-ak6NoX_4Aeg_1361236867")]
     [Description(@"Instruction is not compliant with the service level agreement.")]
-    NotCompliantWithSLA,
+    NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another reason for the status rejected.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vj32R9p-Ed-ak6NoX_4Aeg_4303597")]
     [Description(@"Another reason for the status rejected.")]
-    Other,
+    Other = RejectedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Vj32SNp-Ed-ak6NoX_4Aeg_-902559429")]
     [Description(@"Financial instrument quantity is invalid.")]
-    FinancialInstrumentQuantity,
+    FinancialInstrumentQuantity = RejectedStatusReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum TransferRejectedStatusReason1Code
 public static class TransferRejectedStatusReason1CodeMetadataExtensions
 {
     private static readonly TransferRejectedStatusReason1CodeDropdownSource _dropdownSource = new TransferRejectedStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

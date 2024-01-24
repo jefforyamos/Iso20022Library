@@ -21,57 +21,57 @@ public enum TransportType1Code
 {
     /// <summary>
     /// Air
-    /// Encoded/decoded by serializers as "Air".
+    /// Encoded/decoded by serializers as "AIRR".
     /// </summary>
     [EnumMember(Value = "AIRR")]
     [IsoId("_VCaiATEwEemzCpWiCwK4aQ")]
     [Description(@"Air")]
-    Air,
+    Air = TransportTypeCode.Air, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bus
-    /// Encoded/decoded by serializers as "Bus".
+    /// Encoded/decoded by serializers as "BUSS".
     /// </summary>
     [EnumMember(Value = "BUSS")]
     [IsoId("_VW-cwTEwEemzCpWiCwK4aQ")]
     [Description(@"Bus")]
-    Bus,
+    Bus = TransportTypeCode.Bus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_VX30oTEwEemzCpWiCwK4aQ")]
     [Description(@"Other National")]
-    OtherNational,
+    OtherNational = TransportTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VuhaETEwEemzCpWiCwK4aQ")]
     [Description(@"Other Private")]
-    OtherPrivate,
+    OtherPrivate = TransportTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rail
-    /// Encoded/decoded by serializers as "Rail".
+    /// Encoded/decoded by serializers as "RAIL".
     /// </summary>
     [EnumMember(Value = "RAIL")]
     [IsoId("_Vvki8TEwEemzCpWiCwK4aQ")]
     [Description(@"Rail")]
-    Rail,
+    Rail = TransportTypeCode.Rail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ship
-    /// Encoded/decoded by serializers as "Ship".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_V6JbQTEwEemzCpWiCwK4aQ")]
     [Description(@"Ship")]
-    Ship,
+    Ship = TransportTypeCode.Ship, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum TransportType1Code
 public static class TransportType1CodeMetadataExtensions
 {
     private static readonly TransportType1CodeDropdownSource _dropdownSource = new TransportType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

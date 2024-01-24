@@ -21,21 +21,21 @@ public enum NotificationType2Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_sC4o8a7wEemG7MmivSuE5g")]
     [Description(@"New notification.")]
-    New,
+    New = CorporateActionNotificationTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_sP-pwq7wEemG7MmivSuE5g")]
     [Description(@"Notification replacing a previously sent notification.")]
-    Replacement,
+    Replacement = CorporateActionNotificationTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum NotificationType2Code
 public static class NotificationType2CodeMetadataExtensions
 {
     private static readonly NotificationType2CodeDropdownSource _dropdownSource = new NotificationType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

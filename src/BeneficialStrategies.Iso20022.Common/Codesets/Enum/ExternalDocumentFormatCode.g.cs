@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-M07BG7iEeKo25nLKvGr8w_1805570785")]
-[Description(@"Specifies the external document format code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external document format code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDocumentFormat1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalDocumentFormatCode
 {
     /// <summary>
@@ -75,7 +74,7 @@ public enum ExternalDocumentFormatCode
 public static class ExternalDocumentFormatCodeMetadataExtensions
 {
     private static readonly ExternalDocumentFormatCodeDropdownSource _dropdownSource = new ExternalDocumentFormatCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

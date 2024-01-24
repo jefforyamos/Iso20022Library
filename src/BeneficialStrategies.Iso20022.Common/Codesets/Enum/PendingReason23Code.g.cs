@@ -21,156 +21,156 @@ public enum PendingReason23Code
 {
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_AL0OQBnzEeyroI8qKgB7Mg")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonV2Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_AL0OORnzEeyroI8qKgB7Mg")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending receipt of beneficiary owner details.
-    /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_AL0ONxnzEeyroI8qKgB7Mg")]
     [Description(@"Pending receipt of beneficiary owner details.")]
-    PendingBeneficiaryOwnerDetails,
+    PendingBeneficiaryOwnerDetails = PendingFailingReasonV2Code.PendingBeneficiaryOwnerDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MissingCertification".
+    /// Encoded/decoded by serializers as "MCER".
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_AL0ONhnzEeyroI8qKgB7Mg")]
     [Description(@"Awaiting receipt of adequate certification.")]
-    MissingCertification,
+    MissingCertification = PendingFailingReasonV2Code.MissingCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "InsufficientMoney".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_AL0OOhnzEeyroI8qKgB7Mg")]
     [Description(@"Insufficient money in your account.")]
-    InsufficientMoney,
+    InsufficientMoney = PendingFailingReasonV2Code.InsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LackOfSecurities".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_AL0OPhnzEeyroI8qKgB7Mg")]
     [Description(@"Insufficient financial instruments in your account.")]
-    LackOfSecurities,
+    LackOfSecurities = PendingFailingReasonV2Code.LackOfSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_AL0ONBnzEeyroI8qKgB7Mg")]
     [Description(@"Instruction was received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = PendingFailingReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "QuantityDisagreement".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_AL0OQRnzEeyroI8qKgB7Mg")]
     [Description(@"Quantity of financial instruments does not match.")]
-    QuantityDisagreement,
+    QuantityDisagreement = PendingFailingReasonV2Code.QuantityDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase or loan.
-    /// Encoded/decoded by serializers as "PendingReceipt".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_AL0OMhnzEeyroI8qKgB7Mg")]
     [Description(@"The instruction is pending receipt of securities, for example, from a purchase or loan.")]
-    PendingReceipt,
+    PendingReceipt = PendingFailingReasonV2Code.PendingReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_AL0OPRnzEeyroI8qKgB7Mg")]
     [Description(@"Certificate number error.")]
-    WrongCertificatesNumbers,
+    WrongCertificatesNumbers = PendingFailingReasonV2Code.WrongCertificatesNumbers, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid instructed cash amount.
-    /// Encoded/decoded by serializers as "DisagreementOnCashAmount".
+    /// Encoded/decoded by serializers as "DQCS".
     /// </summary>
     [EnumMember(Value = "DQCS")]
     [IsoId("_AL0OOBnzEeyroI8qKgB7Mg")]
     [Description(@"Unrecognised or invalid instructed cash amount.")]
-    DisagreementOnCashAmount,
+    DisagreementOnCashAmount = PendingFailingReasonV2Code.DisagreementOnCashAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax rate provided is incorrect. It falls outside the acceptable values for that investment country.
-    /// Encoded/decoded by serializers as "IncorrectTaxRate".
+    /// Encoded/decoded by serializers as "ITAX".
     /// </summary>
     [EnumMember(Value = "ITAX")]
     [IsoId("_AL0OOxnzEeyroI8qKgB7Mg")]
     [Description(@"Tax rate provided is incorrect. It falls outside the acceptable values for that investment country.")]
-    IncorrectTaxRate,
+    IncorrectTaxRate = PendingFailingReasonV2Code.IncorrectTaxRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax rate is not consistent with the documentation in place.
-    /// Encoded/decoded by serializers as "InconsistentTaxRate".
+    /// Encoded/decoded by serializers as "NTAX".
     /// </summary>
     [EnumMember(Value = "NTAX")]
     [IsoId("_AL0OMxnzEeyroI8qKgB7Mg")]
     [Description(@"Tax rate is not consistent with the documentation in place.")]
-    InconsistentTaxRate,
+    InconsistentTaxRate = PendingFailingReasonV2Code.InconsistentTaxRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax rate is missing.
-    /// Encoded/decoded by serializers as "MissingTaxRate".
+    /// Encoded/decoded by serializers as "MTAX".
     /// </summary>
     [EnumMember(Value = "MTAX")]
     [IsoId("_AL0OPxnzEeyroI8qKgB7Mg")]
     [Description(@"Tax rate is missing.")]
-    MissingTaxRate,
+    MissingTaxRate = PendingFailingReasonV2Code.MissingTaxRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// System is not available. Instruction is sent outside of business hours.
-    /// Encoded/decoded by serializers as "SystemNotAvailable".
+    /// Encoded/decoded by serializers as "SNAV".
     /// </summary>
     [EnumMember(Value = "SNAV")]
     [IsoId("_AL0ONRnzEeyroI8qKgB7Mg")]
     [Description(@"System is not available. Instruction is sent outside of business hours.")]
-    SystemNotAvailable,
+    SystemNotAvailable = PendingFailingReasonV2Code.SystemNotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is submitted before instruction start date.
-    /// Encoded/decoded by serializers as "BeforeInstructionPeriod".
+    /// Encoded/decoded by serializers as "BSTR".
     /// </summary>
     [EnumMember(Value = "BSTR")]
     [IsoId("_AL0OPBnzEeyroI8qKgB7Mg")]
     [Description(@"Instruction is submitted before instruction start date.")]
-    BeforeInstructionPeriod,
+    BeforeInstructionPeriod = PendingFailingReasonV2Code.BeforeInstructionPeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Required paperwork is invalid, incomplete or missing.
-    /// Encoded/decoded by serializers as "InvalidPaperwork".
+    /// Encoded/decoded by serializers as "IPAW".
     /// </summary>
     [EnumMember(Value = "IPAW")]
     [IsoId("_FtREgRnzEeyroI8qKgB7Mg")]
     [Description(@"Required paperwork is invalid, incomplete or missing.")]
-    InvalidPaperwork,
+    InvalidPaperwork = PendingFailingReasonV2Code.InvalidPaperwork, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum PendingReason23Code
 public static class PendingReason23CodeMetadataExtensions
 {
     private static readonly PendingReason23CodeDropdownSource _dropdownSource = new PendingReason23CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

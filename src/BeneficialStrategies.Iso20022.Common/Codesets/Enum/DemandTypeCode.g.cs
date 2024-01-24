@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_XvpRYHyVEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the type of demand for payment.")]
 [Derivations(typeof(DemandType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DemandTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DemandTypeCode
 public static class DemandTypeCodeMetadataExtensions
 {
     private static readonly DemandTypeCodeDropdownSource _dropdownSource = new DemandTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

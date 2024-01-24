@@ -21,75 +21,75 @@ public enum TelephonyCallType1Code
 {
     /// <summary>
     /// Voice mail
-    /// Encoded/decoded by serializers as "VoiceMail".
+    /// Encoded/decoded by serializers as "VCML".
     /// </summary>
     [EnumMember(Value = "VCML")]
     [IsoId("_caQHsTEvEemzCpWiCwK4aQ")]
     [Description(@"Voice mail")]
-    VoiceMail,
+    VoiceMail = TelephonyCallTypeCode.VoiceMail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Toll free phone call
-    /// Encoded/decoded by serializers as "TollFreeCall".
+    /// Encoded/decoded by serializers as "TFPC".
     /// </summary>
     [EnumMember(Value = "TFPC")]
     [IsoId("_cuX9kTEvEemzCpWiCwK4aQ")]
     [Description(@"Toll free phone call")]
-    TollFreeCall,
+    TollFreeCall = TelephonyCallTypeCode.TollFreeCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Page
-    /// Encoded/decoded by serializers as "Page".
+    /// Encoded/decoded by serializers as "PAGE".
     /// </summary>
     [EnumMember(Value = "PAGE")]
     [IsoId("_c1-aYTEvEemzCpWiCwK4aQ")]
     [Description(@"Page")]
-    Page,
+    Page = TelephonyCallTypeCode.Page, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Outgoing phone call
-    /// Encoded/decoded by serializers as "OutgoingCall".
+    /// Encoded/decoded by serializers as "OGPC".
     /// </summary>
     [EnumMember(Value = "OGPC")]
     [IsoId("_dFeO8TEvEemzCpWiCwK4aQ")]
     [Description(@"Outgoing phone call")]
-    OutgoingCall,
+    OutgoingCall = TelephonyCallTypeCode.OutgoingCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other private
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_dGXm0TEvEemzCpWiCwK4aQ")]
     [Description(@"Other private")]
-    OtherPrivate,
+    OtherPrivate = TelephonyCallTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other national
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_degaATEvEemzCpWiCwK4aQ")]
     [Description(@"Other national")]
-    OtherNational,
+    OtherNational = TelephonyCallTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of call not elsewhere classified. 
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTCL".
     /// </summary>
     [EnumMember(Value = "OTCL")]
     [IsoId("_dhMhoTEvEemzCpWiCwK4aQ")]
     [Description(@"Other type of call not elsewhere classified. ")]
-    Other,
+    Other = TelephonyCallTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Incoming phone call
-    /// Encoded/decoded by serializers as "IncomingCall".
+    /// Encoded/decoded by serializers as "ICPC".
     /// </summary>
     [EnumMember(Value = "ICPC")]
     [IsoId("_d28vMTEvEemzCpWiCwK4aQ")]
     [Description(@"Incoming phone call")]
-    IncomingCall,
+    IncomingCall = TelephonyCallTypeCode.IncomingCall, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum TelephonyCallType1Code
 public static class TelephonyCallType1CodeMetadataExtensions
 {
     private static readonly TelephonyCallType1CodeDropdownSource _dropdownSource = new TelephonyCallType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

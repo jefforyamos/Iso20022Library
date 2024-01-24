@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_AuwW8NomEembTrt_WixjyQ")]
 [Description(@"Specifies the type of advice to provide back in the report.")]
 [Derivations(typeof(AdviceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AdviceTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AdviceTypeCode
 public static class AdviceTypeCodeMetadataExtensions
 {
     private static readonly AdviceTypeCodeDropdownSource _dropdownSource = new AdviceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

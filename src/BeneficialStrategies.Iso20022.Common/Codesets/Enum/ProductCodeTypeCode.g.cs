@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_E_GcYErKEeenp6hmNprBHg")]
 [Description(@"Type of product codification to identify a product uniquely.")]
 [Derivations(typeof(ProductCodeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProductCodeTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum ProductCodeTypeCode
 public static class ProductCodeTypeCodeMetadataExtensions
 {
     private static readonly ProductCodeTypeCodeDropdownSource _dropdownSource = new ProductCodeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CorporateActionNotificationType1Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "New".
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_bK_Pxtp-Ed-ak6NoX_4Aeg_724518620")]
     [Description(@"New notification.")]
-    New,
+    New = CorporateActionNotificationTypeCode.New, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "Replacement".
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_bK_Px9p-Ed-ak6NoX_4Aeg_724518628")]
     [Description(@"Notification replacing a previously sent notification.")]
-    Replacement,
+    Replacement = CorporateActionNotificationTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification sent as a reminder of an event taking place.
-    /// Encoded/decoded by serializers as "Reminder".
+    /// Encoded/decoded by serializers as "RMDR".
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_bK_PyNp-Ed-ak6NoX_4Aeg_724518629")]
     [Description(@"Notification sent as a reminder of an event taking place.")]
-    Reminder,
+    Reminder = CorporateActionNotificationTypeCode.Reminder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CorporateActionNotificationType1Code
 public static class CorporateActionNotificationType1CodeMetadataExtensions
 {
     private static readonly CorporateActionNotificationType1CodeDropdownSource _dropdownSource = new CorporateActionNotificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

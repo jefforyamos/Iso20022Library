@@ -21,30 +21,30 @@ public enum DataSetType1Code
 {
     /// <summary>
     /// Data set is a baseline.
-    /// Encoded/decoded by serializers as "Baseline".
+    /// Encoded/decoded by serializers as "BASE".
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_VrxOBNp-Ed-ak6NoX_4Aeg_2126617722")]
     [Description(@"Data set is a baseline.")]
-    Baseline,
+    Baseline = DataSetTypeCode.Baseline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is a transport data set.
-    /// Encoded/decoded by serializers as "TransportDataSet".
+    /// Encoded/decoded by serializers as "TRDS".
     /// </summary>
     [EnumMember(Value = "TRDS")]
     [IsoId("_VrxOBdp-Ed-ak6NoX_4Aeg_2126617739")]
     [Description(@"Data set is a transport data set.")]
-    TransportDataSet,
+    TransportDataSet = DataSetTypeCode.TransportDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data set is a commercial data set.
-    /// Encoded/decoded by serializers as "CommercialDataSet".
+    /// Encoded/decoded by serializers as "CODS".
     /// </summary>
     [EnumMember(Value = "CODS")]
     [IsoId("_VrxOBtp-Ed-ak6NoX_4Aeg_2126617757")]
     [Description(@"Data set is a commercial data set.")]
-    CommercialDataSet,
+    CommercialDataSet = DataSetTypeCode.CommercialDataSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DataSetType1Code
 public static class DataSetType1CodeMetadataExtensions
 {
     private static readonly DataSetType1CodeDropdownSource _dropdownSource = new DataSetType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

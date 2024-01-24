@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_le2Gw_r4EeCu2Z1WwxJVWA")]
 [Description(@"Specifies the reason for the assets transfer.")]
 [Derivations(typeof(TransferReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TransferReasonCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum TransferReasonCode
 public static class TransferReasonCodeMetadataExtensions
 {
     private static readonly TransferReasonCodeDropdownSource _dropdownSource = new TransferReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

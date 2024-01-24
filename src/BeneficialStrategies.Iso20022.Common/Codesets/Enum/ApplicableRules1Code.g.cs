@@ -21,21 +21,21 @@ public enum ApplicableRules1Code
 {
     /// <summary>
     /// Pre A Day rules do not apply.
-    /// Encoded/decoded by serializers as "NotPreADay".
+    /// Encoded/decoded by serializers as "NPRE".
     /// </summary>
     [EnumMember(Value = "NPRE")]
     [IsoId("_NhLLQVNfEeijdq8ilaxyOA")]
     [Description(@"Pre A Day rules do not apply.")]
-    NotPreADay,
+    NotPreADay = ApplicableRulesCode.NotPreADay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre A Day rules applies.
-    /// Encoded/decoded by serializers as "PreADay".
+    /// Encoded/decoded by serializers as "YPRE".
     /// </summary>
     [EnumMember(Value = "YPRE")]
     [IsoId("_NlylgVNfEeijdq8ilaxyOA")]
     [Description(@"Pre A Day rules applies.")]
-    PreADay,
+    PreADay = ApplicableRulesCode.PreADay, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ApplicableRules1Code
 public static class ApplicableRules1CodeMetadataExtensions
 {
     private static readonly ApplicableRules1CodeDropdownSource _dropdownSource = new ApplicableRules1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

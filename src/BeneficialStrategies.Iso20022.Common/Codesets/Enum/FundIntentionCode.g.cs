@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_xgI4wCDXEeWCLu74WLgP4w")]
 [Description(@"Specifies if the fund is intended for qualified investors.")]
 [Derivations(typeof(FundIntention1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FundIntentionCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FundIntentionCode
 public static class FundIntentionCodeMetadataExtensions
 {
     private static readonly FundIntentionCodeDropdownSource _dropdownSource = new FundIntentionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

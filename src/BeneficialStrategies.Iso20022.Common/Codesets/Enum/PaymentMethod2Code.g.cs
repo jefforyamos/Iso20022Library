@@ -21,12 +21,12 @@ public enum PaymentMethod2Code
 {
     /// <summary>
     /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
-    /// Encoded/decoded by serializers as "DirectDebit".
+    /// Encoded/decoded by serializers as "DD".
     /// </summary>
     [EnumMember(Value = "DD")]
     [IsoId("_Z0aeYdp-Ed-ak6NoX_4Aeg_-15953576")]
     [Description(@"Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.")]
-    DirectDebit,
+    DirectDebit = PaymentMethodCode.DirectDebit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PaymentMethod2Code
 public static class PaymentMethod2CodeMetadataExtensions
 {
     private static readonly PaymentMethod2CodeDropdownSource _dropdownSource = new PaymentMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

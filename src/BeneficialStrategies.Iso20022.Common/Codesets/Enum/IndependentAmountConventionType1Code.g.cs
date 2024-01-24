@@ -21,30 +21,30 @@ public enum IndependentAmountConventionType1Code
 {
     /// <summary>
     /// Independent amount is an add on to exposure.
-    /// Encoded/decoded by serializers as "NettedBeforeThreshold".
+    /// Encoded/decoded by serializers as "NBTR".
     /// </summary>
     [EnumMember(Value = "NBTR")]
     [IsoId("_YczLN9p-Ed-ak6NoX_4Aeg_-1097054396")]
     [Description(@"Independent amount is an add on to exposure.")]
-    NettedBeforeThreshold,
+    NettedBeforeThreshold = IndependentAmountConventionTypeCode.NettedBeforeThreshold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.
-    /// Encoded/decoded by serializers as "NettedAfterThreshold".
+    /// Encoded/decoded by serializers as "NATR".
     /// </summary>
     [EnumMember(Value = "NATR")]
     [IsoId("_Yc8VINp-Ed-ak6NoX_4Aeg_-642967127")]
     [Description(@"Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.")]
-    NettedAfterThreshold,
+    NettedAfterThreshold = IndependentAmountConventionTypeCode.NettedAfterThreshold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Independent amount is treated independently of variation margin for segregation purposes.
-    /// Encoded/decoded by serializers as "Segregated".
+    /// Encoded/decoded by serializers as "SEGR".
     /// </summary>
     [EnumMember(Value = "SEGR")]
     [IsoId("_Yc8VIdp-Ed-ak6NoX_4Aeg_226653514")]
     [Description(@"Independent amount is treated independently of variation margin for segregation purposes.")]
-    Segregated,
+    Segregated = IndependentAmountConventionTypeCode.Segregated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum IndependentAmountConventionType1Code
 public static class IndependentAmountConventionType1CodeMetadataExtensions
 {
     private static readonly IndependentAmountConventionType1CodeDropdownSource _dropdownSource = new IndependentAmountConventionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

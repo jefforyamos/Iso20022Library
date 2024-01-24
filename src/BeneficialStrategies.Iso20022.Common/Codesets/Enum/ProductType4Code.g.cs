@@ -21,57 +21,57 @@ public enum ProductType4Code
 {
     /// <summary>
     /// Identifies categories of instruments that are credits.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_3BXTkebCEeW1iL_FRZt8bg")]
     [Description(@"Identifies categories of instruments that are credits.")]
-    Credit,
+    Credit = ProductTypeV2Code.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "Currency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_3BXTk-bCEeW1iL_FRZt8bg")]
     [Description(@"Identifies categories of currency instruments.")]
-    Currency,
+    Currency = ProductTypeV2Code.Currency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_3BXTlebCEeW1iL_FRZt8bg")]
     [Description(@"Identifies the nature or type of an equity.")]
-    Equity,
+    Equity = ProductTypeV2Code.Equity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are interest rates based.
-    /// Encoded/decoded by serializers as "InterestRate".
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_3BXTl-bCEeW1iL_FRZt8bg")]
     [Description(@"Identifies categories of instruments that are interest rates based.")]
-    InterestRate,
+    InterestRate = ProductTypeV2Code.InterestRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_3BXTmebCEeW1iL_FRZt8bg")]
     [Description(@"Identifies categories of instruments that are commodities.")]
-    Commodity,
+    Commodity = ProductTypeV2Code.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_5Q8wkebCEeW1iL_FRZt8bg")]
     [Description(@"Other asset type.")]
-    Other,
+    Other = ProductTypeV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ProductType4Code
 public static class ProductType4CodeMetadataExtensions
 {
     private static readonly ProductType4CodeDropdownSource _dropdownSource = new ProductType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

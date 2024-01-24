@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZFx2yNp-Ed-ak6NoX_4Aeg_1133514272")]
 [Description(@"Provides the status of settlement of an instruction.")]
 [Derivations(typeof(SecuritiesSettlementStatus1Code),typeof(SecuritiesSettlementStatus2Code),typeof(SecuritiesSettlementStatus3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesSettlementStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SecuritiesSettlementStatusCode
 public static class SecuritiesSettlementStatusCodeMetadataExtensions
 {
     private static readonly SecuritiesSettlementStatusCodeDropdownSource _dropdownSource = new SecuritiesSettlementStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

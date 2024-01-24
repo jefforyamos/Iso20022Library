@@ -21,21 +21,21 @@ public enum MovementResponseType1Code
 {
     /// <summary>
     /// Response will include full details on the movements reported.
-    /// Encoded/decoded by serializers as "Full".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_jQ9WgO5NEeCisYr99QEiWA_-739401767")]
     [Description(@"Response will include full details on the movements reported.")]
-    Full,
+    Full = MovementResponseTypeCode.Full, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Response will include limited details including the status on the movements reported.
-    /// Encoded/decoded by serializers as "Status".
+    /// Encoded/decoded by serializers as "STTS".
     /// </summary>
     [EnumMember(Value = "STTS")]
     [IsoId("_jQ9Wge5NEeCisYr99QEiWA_424690481")]
     [Description(@"Response will include limited details including the status on the movements reported.")]
-    Status,
+    Status = MovementResponseTypeCode.Status, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum MovementResponseType1Code
 public static class MovementResponseType1CodeMetadataExtensions
 {
     private static readonly MovementResponseType1CodeDropdownSource _dropdownSource = new MovementResponseType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

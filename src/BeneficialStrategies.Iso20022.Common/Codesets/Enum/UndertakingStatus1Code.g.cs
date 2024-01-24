@@ -21,39 +21,39 @@ public enum UndertakingStatus1Code
 {
     /// <summary>
     /// Accepted in accordance with technical validation.
-    /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_gYwzlnymEeGWJuGCfvwOsQ")]
     [Description(@"Accepted in accordance with technical validation.")]
-    AcceptedTechnicalValidation,
+    AcceptedTechnicalValidation = UndertakingStatusCode.AcceptedTechnicalValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending further processing.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_i6nFRnymEeGWJuGCfvwOsQ")]
     [Description(@"Pending further processing.")]
-    Pending,
+    Pending = UndertakingStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_kDL25nymEeGWJuGCfvwOsQ")]
     [Description(@"Received.")]
-    Received,
+    Received = UndertakingStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_kTSIZnymEeGWJuGCfvwOsQ")]
     [Description(@"Rejected.")]
-    Rejected,
+    Rejected = UndertakingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum UndertakingStatus1Code
 public static class UndertakingStatus1CodeMetadataExtensions
 {
     private static readonly UndertakingStatus1CodeDropdownSource _dropdownSource = new UndertakingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

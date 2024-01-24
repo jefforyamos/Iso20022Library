@@ -21,12 +21,12 @@ public enum AssetClassSubProductType25Code
 {
     /// <summary>
     /// Commodity of type distillates.
-    /// Encoded/decoded by serializers as "Distillates".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_h7wM2VrKEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type distillates.")]
-    Distillates,
+    Distillates = AssetClassSubProductTypeCode.Distillates, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType25Code
 public static class AssetClassSubProductType25CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType25CodeDropdownSource _dropdownSource = new AssetClassSubProductType25CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

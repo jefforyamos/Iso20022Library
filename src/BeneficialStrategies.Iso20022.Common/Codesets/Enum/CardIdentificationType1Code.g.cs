@@ -21,66 +21,66 @@ public enum CardIdentificationType1Code
 {
     /// <summary>
     /// Account identification.
-    /// Encoded/decoded by serializers as "AccountNumber".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_E-KqodtiEeipuvJHTHIw9A")]
     [Description(@"Account identification.")]
-    AccountNumber,
+    AccountNumber = CardIdentificationTypeCode.AccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bar-code with a specific form of identification.
-    /// Encoded/decoded by serializers as "BarCode".
+    /// Encoded/decoded by serializers as "BARC".
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_FCB28dtiEeipuvJHTHIw9A")]
     [Description(@"Bar-code with a specific form of identification.")]
-    BarCode,
+    BarCode = CardIdentificationTypeCode.BarCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ISO Track 2 including identification.
-    /// Encoded/decoded by serializers as "ISOTrack2".
+    /// Encoded/decoded by serializers as "ISO2".
     /// </summary>
     [EnumMember(Value = "ISO2")]
     [IsoId("_FFv5UdtiEeipuvJHTHIw9A")]
     [Description(@"ISO Track 2 including identification.")]
-    ISOTrack2,
+    ISOTrack2 = CardIdentificationTypeCode.ISOTrack2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A phone number identifies the account on which the phone card is assigned.
-    /// Encoded/decoded by serializers as "PhoneNumber".
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_FKiSsdtiEeipuvJHTHIw9A")]
     [Description(@"A phone number identifies the account on which the phone card is assigned.")]
-    PhoneNumber,
+    PhoneNumber = CardIdentificationTypeCode.PhoneNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard card identification (card number).
-    /// Encoded/decoded by serializers as "PrimaryAccountNumber".
+    /// Encoded/decoded by serializers as "CPAN".
     /// </summary>
     [EnumMember(Value = "CPAN")]
     [IsoId("_FPHQsdtiEeipuvJHTHIw9A")]
     [Description(@"Standard card identification (card number).")]
-    PrimaryAccountNumber,
+    PrimaryAccountNumber = CardIdentificationTypeCode.PrimaryAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An identification set by a privative application.
-    /// Encoded/decoded by serializers as "PrivativeNumbering".
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_FTxHMdtiEeipuvJHTHIw9A")]
     [Description(@"An identification set by a privative application.")]
-    PrivativeNumbering,
+    PrivativeNumbering = CardIdentificationTypeCode.PrivativeNumbering, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A Universal Unique Identification code is set for identification.
-    /// Encoded/decoded by serializers as "UniversalUniqueIdentification".
+    /// Encoded/decoded by serializers as "UUID".
     /// </summary>
     [EnumMember(Value = "UUID")]
     [IsoId("_FYiScdtiEeipuvJHTHIw9A")]
     [Description(@"A Universal Unique Identification code is set for identification.")]
-    UniversalUniqueIdentification,
+    UniversalUniqueIdentification = CardIdentificationTypeCode.UniversalUniqueIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CardIdentificationType1Code
 public static class CardIdentificationType1CodeMetadataExtensions
 {
     private static readonly CardIdentificationType1CodeDropdownSource _dropdownSource = new CardIdentificationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

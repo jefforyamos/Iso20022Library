@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MYPE27iEeKo25nLKvGr8w_-1433191435")]
-[Description(@"Specifies the external relative to code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external relative to code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalRelativeTo1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalRelativeToCode
 {
     /// <summary>
@@ -57,7 +56,7 @@ public enum ExternalRelativeToCode
 public static class ExternalRelativeToCodeMetadataExtensions
 {
     private static readonly ExternalRelativeToCodeDropdownSource _dropdownSource = new ExternalRelativeToCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

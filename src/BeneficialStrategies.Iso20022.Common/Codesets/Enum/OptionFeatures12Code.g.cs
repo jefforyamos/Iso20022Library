@@ -21,12 +21,12 @@ public enum OptionFeatures12Code
 {
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OddLotPreference".
+    /// Encoded/decoded by serializers as "OPLF".
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_m4sssbaSEeiN--kDwanlkA")]
     [Description(@"Tender or exchange with the odd lot preference.")]
-    OddLotPreference,
+    OddLotPreference = OptionFeaturesCode.OddLotPreference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum OptionFeatures12Code
 public static class OptionFeatures12CodeMetadataExtensions
 {
     private static readonly OptionFeatures12CodeDropdownSource _dropdownSource = new OptionFeatures12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

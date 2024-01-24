@@ -21,12 +21,12 @@ public enum PartyRole3Code
 {
     /// <summary>
     /// Legal entity, other than the issuer, who gives a guarantee. The guarantor becomes liable in case of default.
-    /// Encoded/decoded by serializers as "Guarantor".
+    /// Encoded/decoded by serializers as "GATR".
     /// </summary>
     [EnumMember(Value = "GATR")]
     [IsoId("_0BtyYfRCEeqAradXpAelDQ")]
     [Description(@"Legal entity, other than the issuer, who gives a guarantee. The guarantor becomes liable in case of default.")]
-    Guarantor,
+    Guarantor = PartyRoleCode.Guarantor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PartyRole3Code
 public static class PartyRole3CodeMetadataExtensions
 {
     private static readonly PartyRole3CodeDropdownSource _dropdownSource = new PartyRole3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

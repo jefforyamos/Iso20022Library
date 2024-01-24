@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bopcI9p-Ed-ak6NoX_4Aeg_241665691")]
 [Description(@"Specifies the status of an allegement.")]
 [Derivations(typeof(AllegementStatus1Code),typeof(AllegementStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AllegementStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AllegementStatusCode
 public static class AllegementStatusCodeMetadataExtensions
 {
     private static readonly AllegementStatusCodeDropdownSource _dropdownSource = new AllegementStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

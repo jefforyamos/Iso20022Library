@@ -21,57 +21,57 @@ public enum CardSecurityCapability1Code
 {
     /// <summary>
     /// Card contains an integrated circuit card.
-    /// Encoded/decoded by serializers as "ICC".
+    /// Encoded/decoded by serializers as "ICCD".
     /// </summary>
     [EnumMember(Value = "ICCD")]
     [IsoId("_19rGYZiuEeefZKJHxQTztg")]
     [Description(@"Card contains an integrated circuit card.")]
-    ICC,
+    ICC = CardSecurityCapabilityCode.ICC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card does not contain a card security code in the magstripe
-    /// Encoded/decoded by serializers as "MagneticStripeWithoutSecurityCode".
+    /// Encoded/decoded by serializers as "MWOS".
     /// </summary>
     [EnumMember(Value = "MWOS")]
     [IsoId("_2MaF8piuEeefZKJHxQTztg")]
     [Description(@"Card does not contain a card security code in the magstripe")]
-    MagneticStripeWithoutSecurityCode,
+    MagneticStripeWithoutSecurityCode = CardSecurityCapabilityCode.MagneticStripeWithoutSecurityCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card contains a card security code in the magstripe
-    /// Encoded/decoded by serializers as "MagneticStripeWithSecurityCode".
+    /// Encoded/decoded by serializers as "MSWS".
     /// </summary>
     [EnumMember(Value = "MSWS")]
     [IsoId("_2ZZZEpiuEeefZKJHxQTztg")]
     [Description(@"Card contains a card security code in the magstripe")]
-    MagneticStripeWithSecurityCode,
+    MagneticStripeWithSecurityCode = CardSecurityCapabilityCode.MagneticStripeWithSecurityCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of card defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_2mahYpiuEeefZKJHxQTztg")]
     [Description(@"Other type of card defined at national level.")]
-    OtherNational,
+    OtherNational = CardSecurityCapabilityCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of card defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_24fI0piuEeefZKJHxQTztg")]
     [Description(@"Other type of card defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = CardSecurityCapabilityCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Off line PIN card
-    /// Encoded/decoded by serializers as "OffLinePIN".
+    /// Encoded/decoded by serializers as "OLPN".
     /// </summary>
     [EnumMember(Value = "OLPN")]
     [IsoId("_5L7VoZivEeefZKJHxQTztg")]
     [Description(@"Off line PIN card")]
-    OffLinePIN,
+    OffLinePIN = CardSecurityCapabilityCode.OffLinePIN, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum CardSecurityCapability1Code
 public static class CardSecurityCapability1CodeMetadataExtensions
 {
     private static readonly CardSecurityCapability1CodeDropdownSource _dropdownSource = new CardSecurityCapability1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

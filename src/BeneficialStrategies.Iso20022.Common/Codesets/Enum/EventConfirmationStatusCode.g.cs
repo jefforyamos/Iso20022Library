@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ajNeFNp-Ed-ak6NoX_4Aeg_-582418410")]
 [Description(@"Indicates the status of the occurrence of an event.")]
 [Derivations(typeof(EventConfirmationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum EventConfirmationStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum EventConfirmationStatusCode
 public static class EventConfirmationStatusCodeMetadataExtensions
 {
     private static readonly EventConfirmationStatusCodeDropdownSource _dropdownSource = new EventConfirmationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum CollateralAccountType1Code
 {
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries.
-    /// Encoded/decoded by serializers as "House".
+    /// Encoded/decoded by serializers as "HOUS".
     /// </summary>
     [EnumMember(Value = "HOUS")]
     [IsoId("_waeVkaMOEeCojJW5vEuTEQ_-1208405254")]
     [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries.")]
-    House,
+    House = CollateralAccountTypeCode.House, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member's customers.
-    /// Encoded/decoded by serializers as "Client".
+    /// Encoded/decoded by serializers as "CLIE".
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_waeVkqMOEeCojJW5vEuTEQ_-754317985")]
     [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member's customers.")]
-    Client,
+    Client = CollateralAccountTypeCode.Client, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for liquidity providers (also known as market maker) activities.
-    /// Encoded/decoded by serializers as "LiquidityProvider".
+    /// Encoded/decoded by serializers as "LIPR".
     /// </summary>
     [EnumMember(Value = "LIPR")]
     [IsoId("_waeVk6MOEeCojJW5vEuTEQ_712830778")]
     [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for liquidity providers (also known as market maker) activities.")]
-    LiquidityProvider,
+    LiquidityProvider = CollateralAccountTypeCode.LiquidityProvider, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
-    /// Encoded/decoded by serializers as "Margin".
+    /// Encoded/decoded by serializers as "MGIN".
     /// </summary>
     [EnumMember(Value = "MGIN")]
     [IsoId("_waeVlKMOEeCojJW5vEuTEQ_-765416762")]
     [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.")]
-    Margin,
+    Margin = CollateralAccountTypeCode.Margin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers clearing member's default risk.
-    /// Encoded/decoded by serializers as "DefaultFund".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_waeVlaMOEeCojJW5vEuTEQ_701732001")]
     [Description(@"Specifies that the account is used to post collateral that covers clearing member's default risk.")]
-    DefaultFund,
+    DefaultFund = CollateralAccountTypeCode.DefaultFund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CollateralAccountType1Code
 public static class CollateralAccountType1CodeMetadataExtensions
 {
     private static readonly CollateralAccountType1CodeDropdownSource _dropdownSource = new CollateralAccountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

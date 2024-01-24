@@ -21,21 +21,21 @@ public enum DeliveryStatus1Code
 {
     /// <summary>
     /// Delivery failed.
-    /// Encoded/decoded by serializers as "Failure".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("__4RCAQ2pEeWH49U6bkyMaA")]
     [Description(@"Delivery failed.")]
-    Failure,
+    Failure = DeliveryStatusCode.Failure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery succeeded.
-    /// Encoded/decoded by serializers as "Success".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("___tGww2pEeWH49U6bkyMaA")]
     [Description(@"Delivery succeeded.")]
-    Success,
+    Success = DeliveryStatusCode.Success, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DeliveryStatus1Code
 public static class DeliveryStatus1CodeMetadataExtensions
 {
     private static readonly DeliveryStatus1CodeDropdownSource _dropdownSource = new DeliveryStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

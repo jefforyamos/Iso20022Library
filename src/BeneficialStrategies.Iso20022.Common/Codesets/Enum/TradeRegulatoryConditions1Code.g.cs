@@ -21,21 +21,21 @@ public enum TradeRegulatoryConditions1Code
 {
     /// <summary>
     /// Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.
-    /// Encoded/decoded by serializers as "Solicited".
+    /// Encoded/decoded by serializers as "SOLI".
     /// </summary>
     [EnumMember(Value = "SOLI")]
     [IsoId("__yXpINojEeC60axPepSq7g_-382114460")]
     [Description(@"Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.")]
-    Solicited,
+    Solicited = TradeRegulatoryConditionsCode.Solicited, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade was unsolicited. The client acts on its own without advice from the executing broker.
-    /// Encoded/decoded by serializers as "Unsolicited".
+    /// Encoded/decoded by serializers as "USOL".
     /// </summary>
     [EnumMember(Value = "USOL")]
     [IsoId("__yXpIdojEeC60axPepSq7g_-393213237")]
     [Description(@"Trade was unsolicited. The client acts on its own without advice from the executing broker.")]
-    Unsolicited,
+    Unsolicited = TradeRegulatoryConditionsCode.Unsolicited, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradeRegulatoryConditions1Code
 public static class TradeRegulatoryConditions1CodeMetadataExtensions
 {
     private static readonly TradeRegulatoryConditions1CodeDropdownSource _dropdownSource = new TradeRegulatoryConditions1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

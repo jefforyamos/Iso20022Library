@@ -21,48 +21,48 @@ public enum IOISideTypeCode
 {
     /// <summary>
     /// Order is buy driven.
-    /// Encoded/decoded by serializers as "Buy".
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_adZJ89p-Ed-ak6NoX_4Aeg_336256306")]
     [Description(@"Order is buy driven.")]
-    Buy,
+    Buy = SideCode.Buy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_adZJ9Np-Ed-ak6NoX_4Aeg_336256307")]
     [Description(@"Order is sell driven.")]
-    Sell,
+    Sell = SideCode.Sell, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
-    /// Encoded/decoded by serializers as "Undisclosed".
+    /// Encoded/decoded by serializers as "UNDI".
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_adZJ9dp-Ed-ak6NoX_4Aeg_336256308")]
     [Description(@"The side of the indication of interest is not disclosed.")]
-    Undisclosed,
+    Undisclosed = SideCode.Undisclosed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "AsDefined".
+    /// Encoded/decoded by serializers as "DEFI".
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_adZJ9tp-Ed-ak6NoX_4Aeg_336256309")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.")]
-    AsDefined,
+    AsDefined = SideCode.AsDefined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "Opposite".
+    /// Encoded/decoded by serializers as "OPPO".
     /// </summary>
     [EnumMember(Value = "OPPO")]
     [IsoId("_adZJ99p-Ed-ak6NoX_4Aeg_336256310")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.")]
-    Opposite,
+    Opposite = SideCode.Opposite, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum IOISideTypeCode
 public static class IOISideTypeCodeMetadataExtensions
 {
     private static readonly IOISideTypeCodeDropdownSource _dropdownSource = new IOISideTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

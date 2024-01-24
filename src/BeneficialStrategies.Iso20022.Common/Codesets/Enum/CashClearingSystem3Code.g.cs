@@ -21,678 +21,678 @@ public enum CashClearingSystem3Code
 {
     /// <summary>
     /// Scheme code for EBA Euro1/Step1.
-    /// Encoded/decoded by serializers as "EBAEuro1Step1".
+    /// Encoded/decoded by serializers as "ABE".
     /// </summary>
     [EnumMember(Value = "ABE")]
     [IsoId("_a4qwsNp-Ed-ak6NoX_4Aeg_136709300")]
     [Description(@"Scheme code for EBA Euro1/Step1.")]
-    EBAEuro1Step1,
+    EBAEuro1Step1 = CashClearingSystemCode.EBAEuro1Step1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for AT (Austria) - Austrian RTGS (ARTIS).
-    /// Encoded/decoded by serializers as "Austrian".
+    /// Encoded/decoded by serializers as "ART".
     /// </summary>
     [EnumMember(Value = "ART")]
     [IsoId("_a4qwsdp-Ed-ak6NoX_4Aeg_136709324")]
     [Description(@"Scheme code for AT (Austria) - Austrian RTGS (ARTIS).")]
-    Austrian,
+    Austrian = CashClearingSystemCode.Austrian, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for NZ (New Zealand) - New Zealand Assured Value Payments.
-    /// Encoded/decoded by serializers as "NewZealand".
+    /// Encoded/decoded by serializers as "AVP".
     /// </summary>
     [EnumMember(Value = "AVP")]
     [IsoId("_a4qwstp-Ed-ak6NoX_4Aeg_136709341")]
     [Description(@"Scheme code for NZ (New Zealand) - New Zealand Assured Value Payments.")]
-    NewZealand,
+    NewZealand = CashClearingSystemCode.NewZealand, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).
-    /// Encoded/decoded by serializers as "Azerbaijan".
+    /// Encoded/decoded by serializers as "AZM".
     /// </summary>
     [EnumMember(Value = "AZM")]
     [IsoId("_a4qws9p-Ed-ak6NoX_4Aeg_136709359")]
     [Description(@"Scheme code for AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).")]
-    Azerbaijan,
+    Azerbaijan = CashClearingSystemCode.Azerbaijan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BA (Bosnia and Herzegovina).
-    /// Encoded/decoded by serializers as "BosniaHerzegovina".
+    /// Encoded/decoded by serializers as "BAP".
     /// </summary>
     [EnumMember(Value = "BAP")]
     [IsoId("_a4qwtNp-Ed-ak6NoX_4Aeg_136709376")]
     [Description(@"Scheme code for BA (Bosnia and Herzegovina).")]
-    BosniaHerzegovina,
+    BosniaHerzegovina = CashClearingSystemCode.BosniaHerzegovina, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BE (Belgium) - Belgium RTGS (ELLIPS).
-    /// Encoded/decoded by serializers as "Belgium".
+    /// Encoded/decoded by serializers as "BEL".
     /// </summary>
     [EnumMember(Value = "BEL")]
     [IsoId("_a4qwtdp-Ed-ak6NoX_4Aeg_136709394")]
     [Description(@"Scheme code for BE (Belgium) - Belgium RTGS (ELLIPS).")]
-    Belgium,
+    Belgium = CashClearingSystemCode.Belgium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for FI (Finland) - RTGS (BOF).
-    /// Encoded/decoded by serializers as "Finland".
+    /// Encoded/decoded by serializers as "BOF".
     /// </summary>
     [EnumMember(Value = "BOF")]
     [IsoId("_a4qwttp-Ed-ak6NoX_4Aeg_136709636")]
     [Description(@"Scheme code for FI (Finland) - RTGS (BOF).")]
-    Finland,
+    Finland = CashClearingSystemCode.Finland, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for IT (Italy) - Italy RTGS (BIREL).
-    /// Encoded/decoded by serializers as "Italy".
+    /// Encoded/decoded by serializers as "BRL".
     /// </summary>
     [EnumMember(Value = "BRL")]
     [IsoId("_a4qwt9p-Ed-ak6NoX_4Aeg_136709653")]
     [Description(@"Scheme code for IT (Italy) - Italy RTGS (BIREL).")]
-    Italy,
+    Italy = CashClearingSystemCode.Italy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for CA (Canada) - Canadian Large Value Transfer System (LVTS).
-    /// Encoded/decoded by serializers as "Canada".
+    /// Encoded/decoded by serializers as "CAD".
     /// </summary>
     [EnumMember(Value = "CAD")]
     [IsoId("_a4qwuNp-Ed-ak6NoX_4Aeg_136709671")]
     [Description(@"Scheme code for CA (Canada) - Canadian Large Value Transfer System (LVTS).")]
-    Canada,
+    Canada = CashClearingSystemCode.Canada, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ES (Spain).
-    /// Encoded/decoded by serializers as "SpainCAM".
+    /// Encoded/decoded by serializers as "CAM".
     /// </summary>
     [EnumMember(Value = "CAM")]
     [IsoId("_a4qwudp-Ed-ak6NoX_4Aeg_136709696")]
     [Description(@"Scheme code for ES (Spain).")]
-    SpainCAM,
+    SpainCAM = CashClearingSystemCode.SpainCAM, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for IE (Ireland) - Irish RTGS (IRIS).
-    /// Encoded/decoded by serializers as "Ireland".
+    /// Encoded/decoded by serializers as "CBJ".
     /// </summary>
     [EnumMember(Value = "CBJ")]
     [IsoId("_a4z6oNp-Ed-ak6NoX_4Aeg_136709713")]
     [Description(@"Scheme code for IE (Ireland) - Irish RTGS (IRIS).")]
-    Ireland,
+    Ireland = CashClearingSystemCode.Ireland, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for GB (UK) - British Euro RTGS (CHAPS).
-    /// Encoded/decoded by serializers as "UnitedKingdom".
+    /// Encoded/decoded by serializers as "CHP".
     /// </summary>
     [EnumMember(Value = "CHP")]
     [IsoId("_a4z6odp-Ed-ak6NoX_4Aeg_136709731")]
     [Description(@"Scheme code for GB (UK) - British Euro RTGS (CHAPS).")]
-    UnitedKingdom,
+    UnitedKingdom = CashClearingSystemCode.UnitedKingdom, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for DK (Denmark) - Danish Euro RTGS (KRONOS).
-    /// Encoded/decoded by serializers as "Denmark".
+    /// Encoded/decoded by serializers as "DKC".
     /// </summary>
     [EnumMember(Value = "DKC")]
     [IsoId("_a4z6otp-Ed-ak6NoX_4Aeg_136709766")]
     [Description(@"Scheme code for DK (Denmark) - Danish Euro RTGS (KRONOS).")]
-    Denmark,
+    Denmark = CashClearingSystemCode.Denmark, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for DE (Germany).
-    /// Encoded/decoded by serializers as "GermanyRTGSPlus".
+    /// Encoded/decoded by serializers as "RTP".
     /// </summary>
     [EnumMember(Value = "RTP")]
     [IsoId("_a4z6o9p-Ed-ak6NoX_4Aeg_136709774")]
     [Description(@"Scheme code for DE (Germany).")]
-    GermanyRTGSPlus,
+    GermanyRTGSPlus = CashClearingSystemCode.GermanyRTGSPlus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for EBA Euro1.
-    /// Encoded/decoded by serializers as "EBAEuro1".
+    /// Encoded/decoded by serializers as "EBA".
     /// </summary>
     [EnumMember(Value = "EBA")]
     [IsoId("_a4z6pNp-Ed-ak6NoX_4Aeg_136709791")]
     [Description(@"Scheme code for EBA Euro1.")]
-    EBAEuro1,
+    EBAEuro1 = CashClearingSystemCode.EBAEuro1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for DE (Germany).
-    /// Encoded/decoded by serializers as "GermanyELS".
+    /// Encoded/decoded by serializers as "ELS".
     /// </summary>
     [EnumMember(Value = "ELS")]
     [IsoId("_a4z6pdp-Ed-ak6NoX_4Aeg_136709808")]
     [Description(@"Scheme code for DE (Germany).")]
-    GermanyELS,
+    GermanyELS = CashClearingSystemCode.GermanyELS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for EBA step 1 (members).
-    /// Encoded/decoded by serializers as "EBAStep1".
+    /// Encoded/decoded by serializers as "ERP".
     /// </summary>
     [EnumMember(Value = "ERP")]
     [IsoId("_a4z6ptp-Ed-ak6NoX_4Aeg_136710074")]
     [Description(@"Scheme code for EBA step 1 (members).")]
-    EBAStep1,
+    EBAStep1 = CashClearingSystemCode.EBAStep1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for EBA step 2.
-    /// Encoded/decoded by serializers as "EBAStep2".
+    /// Encoded/decoded by serializers as "XCT".
     /// </summary>
     [EnumMember(Value = "XCT")]
     [IsoId("_a4z6p9p-Ed-ak6NoX_4Aeg_136710099")]
     [Description(@"Scheme code for EBA step 2.")]
-    EBAStep2,
+    EBAStep2 = CashClearingSystemCode.EBAStep2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for HR (Croatia) - HSVP.
-    /// Encoded/decoded by serializers as "Croatia".
+    /// Encoded/decoded by serializers as "HRK".
     /// </summary>
     [EnumMember(Value = "HRK")]
     [IsoId("_a4z6qNp-Ed-ak6NoX_4Aeg_136710116")]
     [Description(@"Scheme code for HR (Croatia) - HSVP.")]
-    Croatia,
+    Croatia = CashClearingSystemCode.Croatia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for GR (Greece) - Greek RTGS (HERMES).
-    /// Encoded/decoded by serializers as "Greece".
+    /// Encoded/decoded by serializers as "HRM".
     /// </summary>
     [EnumMember(Value = "HRM")]
     [IsoId("_a4z6qdp-Ed-ak6NoX_4Aeg_136710134")]
     [Description(@"Scheme code for GR (Greece) - Greek RTGS (HERMES).")]
-    Greece,
+    Greece = CashClearingSystemCode.Greece, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for HU (Hungary) - VIBER.
-    /// Encoded/decoded by serializers as "Hungary".
+    /// Encoded/decoded by serializers as "HUF".
     /// </summary>
     [EnumMember(Value = "HUF")]
     [IsoId("_a49roNp-Ed-ak6NoX_4Aeg_136710151")]
     [Description(@"Scheme code for HU (Hungary) - VIBER.")]
-    Hungary,
+    Hungary = CashClearingSystemCode.Hungary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for LU (Luxemburg) - Luxembourg RTGS (LIPS).
-    /// Encoded/decoded by serializers as "Luxemburg".
+    /// Encoded/decoded by serializers as "LGS".
     /// </summary>
     [EnumMember(Value = "LGS")]
     [IsoId("_a49rodp-Ed-ak6NoX_4Aeg_136710169")]
     [Description(@"Scheme code for LU (Luxemburg) - Luxembourg RTGS (LIPS).")]
-    Luxemburg,
+    Luxemburg = CashClearingSystemCode.Luxemburg, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for LV (Latvia).
-    /// Encoded/decoded by serializers as "Latvia".
+    /// Encoded/decoded by serializers as "LVL".
     /// </summary>
     [EnumMember(Value = "LVL")]
     [IsoId("_a49rotp-Ed-ak6NoX_4Aeg_136710194")]
     [Description(@"Scheme code for LV (Latvia).")]
-    Latvia,
+    Latvia = CashClearingSystemCode.Latvia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for MU (Mauritius).
-    /// Encoded/decoded by serializers as "Mauritius".
+    /// Encoded/decoded by serializers as "MUP".
     /// </summary>
     [EnumMember(Value = "MUP")]
     [IsoId("_a49ro9p-Ed-ak6NoX_4Aeg_136710229")]
     [Description(@"Scheme code for MU (Mauritius).")]
-    Mauritius,
+    Mauritius = CashClearingSystemCode.Mauritius, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for NO (Norway).
-    /// Encoded/decoded by serializers as "Norway".
+    /// Encoded/decoded by serializers as "NOC".
     /// </summary>
     [EnumMember(Value = "NOC")]
     [IsoId("_a49rpNp-Ed-ak6NoX_4Aeg_136710254")]
     [Description(@"Scheme code for NO (Norway).")]
-    Norway,
+    Norway = CashClearingSystemCode.Norway, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for CH (Switzerland).
-    /// Encoded/decoded by serializers as "Switzerland".
+    /// Encoded/decoded by serializers as "PCH".
     /// </summary>
     [EnumMember(Value = "PCH")]
     [IsoId("_a49rpdp-Ed-ak6NoX_4Aeg_136710271")]
     [Description(@"Scheme code for CH (Switzerland).")]
-    Switzerland,
+    Switzerland = CashClearingSystemCode.Switzerland, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for AU (Australia).
-    /// Encoded/decoded by serializers as "Australia".
+    /// Encoded/decoded by serializers as "PDS".
     /// </summary>
     [EnumMember(Value = "PDS")]
     [IsoId("_a49rptp-Ed-ak6NoX_4Aeg_136710289")]
     [Description(@"Scheme code for AU (Australia).")]
-    Australia,
+    Australia = CashClearingSystemCode.Australia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for EG (Egypt).
-    /// Encoded/decoded by serializers as "Egypt".
+    /// Encoded/decoded by serializers as "PEG".
     /// </summary>
     [EnumMember(Value = "PEG")]
     [IsoId("_a49rp9p-Ed-ak6NoX_4Aeg_136710306")]
     [Description(@"Scheme code for EG (Egypt).")]
-    Egypt,
+    Egypt = CashClearingSystemCode.Egypt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for FR (France).
-    /// Encoded/decoded by serializers as "FrancePNS".
+    /// Encoded/decoded by serializers as "PNS".
     /// </summary>
     [EnumMember(Value = "PNS")]
     [IsoId("_a49rqNp-Ed-ak6NoX_4Aeg_136710324")]
     [Description(@"Scheme code for FR (France).")]
-    FrancePNS,
+    FrancePNS = CashClearingSystemCode.FrancePNS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for Ve (Venezuela).
-    /// Encoded/decoded by serializers as "Venezuela".
+    /// Encoded/decoded by serializers as "PVE".
     /// </summary>
     [EnumMember(Value = "PVE")]
     [IsoId("_a49rqdp-Ed-ak6NoX_4Aeg_136710349")]
     [Description(@"Scheme code for Ve (Venezuela).")]
-    Venezuela,
+    Venezuela = CashClearingSystemCode.Venezuela, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for SE (Sweden) - Swedish Euro RTGS (SEC).
-    /// Encoded/decoded by serializers as "SwedenSEC".
+    /// Encoded/decoded by serializers as "SEC".
     /// </summary>
     [EnumMember(Value = "SEC")]
     [IsoId("_a49rqtp-Ed-ak6NoX_4Aeg_136710366")]
     [Description(@"Scheme code for SE (Sweden) - Swedish Euro RTGS (SEC).")]
-    SwedenSEC,
+    SwedenSEC = CashClearingSystemCode.SwedenSEC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for SI (Slovenia).
-    /// Encoded/decoded by serializers as "Slovania".
+    /// Encoded/decoded by serializers as "SIT".
     /// </summary>
     [EnumMember(Value = "SIT")]
     [IsoId("_a5G1kNp-Ed-ak6NoX_4Aeg_136710601")]
     [Description(@"Scheme code for SI (Slovenia).")]
-    Slovania,
+    Slovania = CashClearingSystemCode.Slovania, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ES (Spain) - Spanish RTGS (SLBE).
-    /// Encoded/decoded by serializers as "SpainES".
+    /// Encoded/decoded by serializers as "SLB".
     /// </summary>
     [EnumMember(Value = "SLB")]
     [IsoId("_a5G1kdp-Ed-ak6NoX_4Aeg_136710626")]
     [Description(@"Scheme code for ES (Spain) - Spanish RTGS (SLBE).")]
-    SpainES,
+    SpainES = CashClearingSystemCode.SpainES, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for PT (Portugal) - Portuguese RTGS (SPGT).
-    /// Encoded/decoded by serializers as "Portugal".
+    /// Encoded/decoded by serializers as "SPG".
     /// </summary>
     [EnumMember(Value = "SPG")]
     [IsoId("_a5G1ktp-Ed-ak6NoX_4Aeg_136710643")]
     [Description(@"Scheme code for PT (Portugal) - Portuguese RTGS (SPGT).")]
-    Portugal,
+    Portugal = CashClearingSystemCode.Portugal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for SE (Sweden) - SEK RTGS (RIX).
-    /// Encoded/decoded by serializers as "SwedenSSK".
+    /// Encoded/decoded by serializers as "SSK".
     /// </summary>
     [EnumMember(Value = "SSK")]
     [IsoId("_a5G1k9p-Ed-ak6NoX_4Aeg_136710662")]
     [Description(@"Scheme code for SE (Sweden) - SEK RTGS (RIX).")]
-    SwedenSSK,
+    SwedenSSK = CashClearingSystemCode.SwedenSSK, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for FR (France) - French RTGS (TBF).
-    /// Encoded/decoded by serializers as "FranceFR".
+    /// Encoded/decoded by serializers as "TBF".
     /// </summary>
     [EnumMember(Value = "TBF")]
     [IsoId("_a5G1lNp-Ed-ak6NoX_4Aeg_136710687")]
     [Description(@"Scheme code for FR (France) - French RTGS (TBF).")]
-    FranceFR,
+    FranceFR = CashClearingSystemCode.FranceFR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for Target.
-    /// Encoded/decoded by serializers as "Target".
+    /// Encoded/decoded by serializers as "TGT".
     /// </summary>
     [EnumMember(Value = "TGT")]
     [IsoId("_a5G1ldp-Ed-ak6NoX_4Aeg_136710688")]
     [Description(@"Scheme code for Target.")]
-    Target,
+    Target = CashClearingSystemCode.Target, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for NL (Netherlands) - Dutch RTGS (TOP).
-    /// Encoded/decoded by serializers as "Netherlands".
+    /// Encoded/decoded by serializers as "TOP".
     /// </summary>
     [EnumMember(Value = "TOP")]
     [IsoId("_a5G1ltp-Ed-ak6NoX_4Aeg_136710704")]
     [Description(@"Scheme code for NL (Netherlands) - Dutch RTGS (TOP).")]
-    Netherlands,
+    Netherlands = CashClearingSystemCode.Netherlands, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the US national real time gross settlement system.
-    /// Encoded/decoded by serializers as "Fedwire".
+    /// Encoded/decoded by serializers as "FDW".
     /// </summary>
     [EnumMember(Value = "FDW")]
     [IsoId("_a5G1l9p-Ed-ak6NoX_4Aeg_136710722")]
     [Description(@"Scheme code for the US national real time gross settlement system.")]
-    Fedwire,
+    Fedwire = CashClearingSystemCode.Fedwire, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the Bank of Japan clearing system.
-    /// Encoded/decoded by serializers as "BankOfJapanNet".
+    /// Encoded/decoded by serializers as "BOJ".
     /// </summary>
     [EnumMember(Value = "BOJ")]
     [IsoId("_a5G1mNp-Ed-ak6NoX_4Aeg_136710739")]
     [Description(@"Scheme code for the Bank of Japan clearing system.")]
-    BankOfJapanNet,
+    BankOfJapanNet = CashClearingSystemCode.BankOfJapanNet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.
-    /// Encoded/decoded by serializers as "ForeignExchangeYenClearing".
+    /// Encoded/decoded by serializers as "FEY".
     /// </summary>
     [EnumMember(Value = "FEY")]
     [IsoId("_a5G1mdp-Ed-ak6NoX_4Aeg_136710757")]
     [Description(@"Scheme code for the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.")]
-    ForeignExchangeYenClearing,
+    ForeignExchangeYenClearing = CashClearingSystemCode.ForeignExchangeYenClearing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.
-    /// Encoded/decoded by serializers as "Zengin".
+    /// Encoded/decoded by serializers as "ZEN".
     /// </summary>
     [EnumMember(Value = "ZEN")]
     [IsoId("_a5QmkNp-Ed-ak6NoX_4Aeg_136711030")]
     [Description(@"Scheme code for the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.")]
-    Zengin,
+    Zengin = CashClearingSystemCode.Zengin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for DK (Denmark) - Danish Krone RTGS (KRONOS).
-    /// Encoded/decoded by serializers as "DenmarkDDK".
+    /// Encoded/decoded by serializers as "DDK".
     /// </summary>
     [EnumMember(Value = "DDK")]
     [IsoId("_a5Qmkdp-Ed-ak6NoX_4Aeg_-1489579518")]
     [Description(@"Scheme code for DK (Denmark) - Danish Krone RTGS (KRONOS).")]
-    DenmarkDDK,
+    DenmarkDDK = CashClearingSystemCode.DenmarkDDK, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for AL (Albania) - Albania Interbank Payment System.
-    /// Encoded/decoded by serializers as "Albania".
+    /// Encoded/decoded by serializers as "AIP".
     /// </summary>
     [EnumMember(Value = "AIP")]
     [IsoId("_a5Qmktp-Ed-ak6NoX_4Aeg_-1488659469")]
     [Description(@"Scheme code for AL (Albania) - Albania Interbank Payment System.")]
-    Albania,
+    Albania = CashClearingSystemCode.Albania, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for SE (Sweden) - Sweden BGC Clearing CUG.
-    /// Encoded/decoded by serializers as "SwedenBGC".
+    /// Encoded/decoded by serializers as "BCC".
     /// </summary>
     [EnumMember(Value = "BCC")]
     [IsoId("_a5Qmk9p-Ed-ak6NoX_4Aeg_-1488659452")]
     [Description(@"Scheme code for SE (Sweden) - Sweden BGC Clearing CUG.")]
-    SwedenBGC,
+    SwedenBGC = CashClearingSystemCode.SwedenBGC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BB (Barbados) - Barbados RTGS (CBRTGS).
-    /// Encoded/decoded by serializers as "Barbados".
+    /// Encoded/decoded by serializers as "BDS".
     /// </summary>
     [EnumMember(Value = "BDS")]
     [IsoId("_a5QmlNp-Ed-ak6NoX_4Aeg_-1488659434")]
     [Description(@"Scheme code for BB (Barbados) - Barbados RTGS (CBRTGS).")]
-    Barbados,
+    Barbados = CashClearingSystemCode.Barbados, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BG (Bulgaria) - Bulgaria RTGS.
-    /// Encoded/decoded by serializers as "Bulgaria".
+    /// Encoded/decoded by serializers as "BGN".
     /// </summary>
     [EnumMember(Value = "BGN")]
     [IsoId("_a5Qmldp-Ed-ak6NoX_4Aeg_-1488659417")]
     [Description(@"Scheme code for BG (Bulgaria) - Bulgaria RTGS.")]
-    Bulgaria,
+    Bulgaria = CashClearingSystemCode.Bulgaria, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BS (Bahamas) - Bahamas RTGS.
-    /// Encoded/decoded by serializers as "Bahamas".
+    /// Encoded/decoded by serializers as "BHS".
     /// </summary>
     [EnumMember(Value = "BHS")]
     [IsoId("_a5Qmltp-Ed-ak6NoX_4Aeg_-1488659374")]
     [Description(@"Scheme code for BS (Bahamas) - Bahamas RTGS.")]
-    Bahamas,
+    Bahamas = CashClearingSystemCode.Bahamas, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for BW (Botswana) - Botswana Interbank Settlement System.
-    /// Encoded/decoded by serializers as "Botswana".
+    /// Encoded/decoded by serializers as "BIS".
     /// </summary>
     [EnumMember(Value = "BIS")]
     [IsoId("_a5Qml9p-Ed-ak6NoX_4Aeg_-1488659357")]
     [Description(@"Scheme code for BW (Botswana) - Botswana Interbank Settlement System.")]
-    Botswana,
+    Botswana = CashClearingSystemCode.Botswana, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for PH (Philippines) - Philippines Payment System.
-    /// Encoded/decoded by serializers as "Philippines".
+    /// Encoded/decoded by serializers as "BSP".
     /// </summary>
     [EnumMember(Value = "BSP")]
     [IsoId("_a5QmmNp-Ed-ak6NoX_4Aeg_-1488659339")]
     [Description(@"Scheme code for PH (Philippines) - Philippines Payment System.")]
-    Philippines,
+    Philippines = CashClearingSystemCode.Philippines, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ECB (European Central Bank) - ECB Payment Mechanism.
-    /// Encoded/decoded by serializers as "ECB".
+    /// Encoded/decoded by serializers as "EPM".
     /// </summary>
     [EnumMember(Value = "EPM")]
     [IsoId("_a5Qmmdp-Ed-ak6NoX_4Aeg_-1488659314")]
     [Description(@"Scheme code for ECB (European Central Bank) - ECB Payment Mechanism.")]
-    ECB,
+    ECB = CashClearingSystemCode.ECB, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the US CHIPS-ACH.
-    /// Encoded/decoded by serializers as "USChipsACH".
+    /// Encoded/decoded by serializers as "EPN".
     /// </summary>
     [EnumMember(Value = "EPN")]
     [IsoId("_a5aXkNp-Ed-ak6NoX_4Aeg_-1488659297")]
     [Description(@"Scheme code for the US CHIPS-ACH.")]
-    USChipsACH,
+    USChipsACH = CashClearingSystemCode.USChipsACH, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for the US FED-ACH.
-    /// Encoded/decoded by serializers as "USFedACH".
+    /// Encoded/decoded by serializers as "FDA".
     /// </summary>
     [EnumMember(Value = "FDA")]
     [IsoId("_a5aXkdp-Ed-ak6NoX_4Aeg_-1488659262")]
     [Description(@"Scheme code for the US FED-ACH.")]
-    USFedACH,
+    USFedACH = CashClearingSystemCode.USFedACH, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for GH (Ghana) - Ghana Interbank Settlement System (GISS).
-    /// Encoded/decoded by serializers as "Ghana".
+    /// Encoded/decoded by serializers as "GIS".
     /// </summary>
     [EnumMember(Value = "GIS")]
     [IsoId("_a5aXktp-Ed-ak6NoX_4Aeg_-1488659244")]
     [Description(@"Scheme code for GH (Ghana) - Ghana Interbank Settlement System (GISS).")]
-    Ghana,
+    Ghana = CashClearingSystemCode.Ghana, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for NL (Netherlands) - Netherlands Interpay CUG.
-    /// Encoded/decoded by serializers as "NetherlandsIP".
+    /// Encoded/decoded by serializers as "INC".
     /// </summary>
     [EnumMember(Value = "INC")]
     [IsoId("_a5aXk9p-Ed-ak6NoX_4Aeg_-1488659002")]
     [Description(@"Scheme code for NL (Netherlands) - Netherlands Interpay CUG.")]
-    NetherlandsIP,
+    NetherlandsIP = CashClearingSystemCode.NetherlandsIP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for JO (Jordan) - Jordan RTGS.
-    /// Encoded/decoded by serializers as "Jordan".
+    /// Encoded/decoded by serializers as "JOD".
     /// </summary>
     [EnumMember(Value = "JOD")]
     [IsoId("_a5aXlNp-Ed-ak6NoX_4Aeg_-1488658967")]
     [Description(@"Scheme code for JO (Jordan) - Jordan RTGS.")]
-    Jordan,
+    Jordan = CashClearingSystemCode.Jordan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for KE (Kenya) - Kenyan Electronic Payment Settlement System.
-    /// Encoded/decoded by serializers as "Kenya".
+    /// Encoded/decoded by serializers as "KPS".
     /// </summary>
     [EnumMember(Value = "KPS")]
     [IsoId("_a5aXldp-Ed-ak6NoX_4Aeg_-1488658907")]
     [Description(@"Scheme code for KE (Kenya) - Kenyan Electronic Payment Settlement System.")]
-    Kenya,
+    Kenya = CashClearingSystemCode.Kenya, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for LK (Sri Lanka) - Sri Lanka (Lankasettle).
-    /// Encoded/decoded by serializers as "SriLanka".
+    /// Encoded/decoded by serializers as "LKB".
     /// </summary>
     [EnumMember(Value = "LKB")]
     [IsoId("_a5aXltp-Ed-ak6NoX_4Aeg_-1488658890")]
     [Description(@"Scheme code for LK (Sri Lanka) - Sri Lanka (Lankasettle).")]
-    SriLanka,
+    SriLanka = CashClearingSystemCode.SriLanka, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for SG (Singapore) - Singapore RTGS (MEPS+).
-    /// Encoded/decoded by serializers as "Singapore".
+    /// Encoded/decoded by serializers as "MEP".
     /// </summary>
     [EnumMember(Value = "MEP")]
     [IsoId("_a5aXl9p-Ed-ak6NoX_4Aeg_-1488658872")]
     [Description(@"Scheme code for SG (Singapore) - Singapore RTGS (MEPS+).")]
-    Singapore,
+    Singapore = CashClearingSystemCode.Singapore, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for MT (Malta) - Malta Realtime Interbank Settlement System.
-    /// Encoded/decoded by serializers as "Malta".
+    /// Encoded/decoded by serializers as "MRS".
     /// </summary>
     [EnumMember(Value = "MRS")]
     [IsoId("_a5aXmNp-Ed-ak6NoX_4Aeg_-1488658539")]
     [Description(@"Scheme code for MT (Malta) - Malta Realtime Interbank Settlement System.")]
-    Malta,
+    Malta = CashClearingSystemCode.Malta, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for NA (Namibian) - Namibian Interbank Settlement System.
-    /// Encoded/decoded by serializers as "Namibia".
+    /// Encoded/decoded by serializers as "NAM".
     /// </summary>
     [EnumMember(Value = "NAM")]
     [IsoId("_a5aXmdp-Ed-ak6NoX_4Aeg_-1488658522")]
     [Description(@"Scheme code for NA (Namibian) - Namibian Interbank Settlement System.")]
-    Namibia,
+    Namibia = CashClearingSystemCode.Namibia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for AO (Angola) - Angola RTGS.
-    /// Encoded/decoded by serializers as "Angola".
+    /// Encoded/decoded by serializers as "PTR".
     /// </summary>
     [EnumMember(Value = "PTR")]
     [IsoId("_a5aXmtp-Ed-ak6NoX_4Aeg_-1488658487")]
     [Description(@"Scheme code for AO (Angola) - Angola RTGS.")]
-    Angola,
+    Angola = CashClearingSystemCode.Angola, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for RO (Romania) - Romanian Electronic Payment Operations RT.
-    /// Encoded/decoded by serializers as "RomaniaEPO".
+    /// Encoded/decoded by serializers as "ROL".
     /// </summary>
     [EnumMember(Value = "ROL")]
     [IsoId("_a5jhgNp-Ed-ak6NoX_4Aeg_-1488658469")]
     [Description(@"Scheme code for RO (Romania) - Romanian Electronic Payment Operations RT.")]
-    RomaniaEPO,
+    RomaniaEPO = CashClearingSystemCode.RomaniaEPO, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for RO (Romania) - Romanian GSRS.
-    /// Encoded/decoded by serializers as "RomaniaGSRS".
+    /// Encoded/decoded by serializers as "ROS".
     /// </summary>
     [EnumMember(Value = "ROS")]
     [IsoId("_a5jhgdp-Ed-ak6NoX_4Aeg_-1488658384")]
     [Description(@"Scheme code for RO (Romania) - Romanian GSRS.")]
-    RomaniaGSRS,
+    RomaniaGSRS = CashClearingSystemCode.RomaniaGSRS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for CL (Chile) - Chilean Interbank Payment System.
-    /// Encoded/decoded by serializers as "Chili".
+    /// Encoded/decoded by serializers as "SCP".
     /// </summary>
     [EnumMember(Value = "SCP")]
     [IsoId("_a5jhgtp-Ed-ak6NoX_4Aeg_-1488658349")]
     [Description(@"Scheme code for CL (Chile) - Chilean Interbank Payment System.")]
-    Chili,
+    Chili = CashClearingSystemCode.Chili, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for UK (United Kingdom) - CHAPS Sterling RTGS.
-    /// Encoded/decoded by serializers as "UnitedKingdomGBP".
+    /// Encoded/decoded by serializers as "STG".
     /// </summary>
     [EnumMember(Value = "STG")]
     [IsoId("_a5jhg9p-Ed-ak6NoX_4Aeg_-1330056061")]
     [Description(@"Scheme code for UK (United Kingdom) - CHAPS Sterling RTGS.")]
-    UnitedKingdomGBP,
+    UnitedKingdomGBP = CashClearingSystemCode.UnitedKingdomGBP, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for TH (Thailand) - Thailand Payment System (Bahtnet/2).
-    /// Encoded/decoded by serializers as "Thailand".
+    /// Encoded/decoded by serializers as "THB".
     /// </summary>
     [EnumMember(Value = "THB")]
     [IsoId("_a5jhhNp-Ed-ak6NoX_4Aeg_-1330055683")]
     [Description(@"Scheme code for TH (Thailand) - Thailand Payment System (Bahtnet/2).")]
-    Thailand,
+    Thailand = CashClearingSystemCode.Thailand, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).
-    /// Encoded/decoded by serializers as "Tanzania".
+    /// Encoded/decoded by serializers as "TIS".
     /// </summary>
     [EnumMember(Value = "TIS")]
     [IsoId("_a5jhhdp-Ed-ak6NoX_4Aeg_-1330055598")]
     [Description(@"Scheme code for TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).")]
-    Tanzania,
+    Tanzania = CashClearingSystemCode.Tanzania, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.
-    /// Encoded/decoded by serializers as "TrinidadAndTobago".
+    /// Encoded/decoded by serializers as "TTD".
     /// </summary>
     [EnumMember(Value = "TTD")]
     [IsoId("_a5jhhtp-Ed-ak6NoX_4Aeg_-1330055528")]
     [Description(@"Scheme code for TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.")]
-    TrinidadAndTobago,
+    TrinidadAndTobago = CashClearingSystemCode.TrinidadAndTobago, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for UG (Uganda) - Uganda National Interbank Settlement System.
-    /// Encoded/decoded by serializers as "Uganda".
+    /// Encoded/decoded by serializers as "UIS".
     /// </summary>
     [EnumMember(Value = "UIS")]
     [IsoId("_a5jhh9p-Ed-ak6NoX_4Aeg_-1330055486")]
     [Description(@"Scheme code for UG (Uganda) - Uganda National Interbank Settlement System.")]
-    Uganda,
+    Uganda = CashClearingSystemCode.Uganda, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ZA (South Africa) - South-African Multiple Option Settlement.
-    /// Encoded/decoded by serializers as "SouthAfrica".
+    /// Encoded/decoded by serializers as "MOS".
     /// </summary>
     [EnumMember(Value = "MOS")]
     [IsoId("_a5jhiNp-Ed-ak6NoX_4Aeg_-1330055391")]
     [Description(@"Scheme code for ZA (South Africa) - South-African Multiple Option Settlement.")]
-    SouthAfrica,
+    SouthAfrica = CashClearingSystemCode.SouthAfrica, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.
-    /// Encoded/decoded by serializers as "Zimbabwe".
+    /// Encoded/decoded by serializers as "ZET".
     /// </summary>
     [EnumMember(Value = "ZET")]
     [IsoId("_a5jhidp-Ed-ak6NoX_4Aeg_-1330055071")]
     [Description(@"Scheme code for ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.")]
-    Zimbabwe,
+    Zimbabwe = CashClearingSystemCode.Zimbabwe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for ZM (Zambia) - Zambian Interbank Payment &Settlement System.
-    /// Encoded/decoded by serializers as "Zambia".
+    /// Encoded/decoded by serializers as "ZIS".
     /// </summary>
     [EnumMember(Value = "ZIS")]
     [IsoId("_a5tSgNp-Ed-ak6NoX_4Aeg_-1330055054")]
     [Description(@"Scheme code for ZM (Zambia) - Zambian Interbank Payment &Settlement System.")]
-    Zambia,
+    Zambia = CashClearingSystemCode.Zambia, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// CHIPS is the Clearing House Interbank Payment System in the US.
-    /// Encoded/decoded by serializers as "USChips".
+    /// Encoded/decoded by serializers as "CHI".
     /// </summary>
     [EnumMember(Value = "CHI")]
     [IsoId("_a5tSgdp-Ed-ak6NoX_4Aeg_1448951502")]
     [Description(@"CHIPS is the Clearing House Interbank Payment System in the US.")]
-    USChips,
+    USChips = CashClearingSystemCode.USChips, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scheme code for Columbia (CO) - Colombian ACH CENIT Central Bank Payment System.
-    /// Encoded/decoded by serializers as "Columbia".
+    /// Encoded/decoded by serializers as "COP".
     /// </summary>
     [EnumMember(Value = "COP")]
     [IsoId("_a5tSgtp-Ed-ak6NoX_4Aeg_489129340")]
     [Description(@"Scheme code for Columbia (CO) - Colombian ACH CENIT Central Bank Payment System.")]
-    Columbia,
+    Columbia = CashClearingSystemCode.Columbia, // same ordinal as derivation source for type conversions
     
 }
 
@@ -703,7 +703,7 @@ public enum CashClearingSystem3Code
 public static class CashClearingSystem3CodeMetadataExtensions
 {
     private static readonly CashClearingSystem3CodeDropdownSource _dropdownSource = new CashClearingSystem3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

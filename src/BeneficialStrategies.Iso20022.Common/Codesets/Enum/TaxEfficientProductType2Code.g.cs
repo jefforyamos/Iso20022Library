@@ -21,120 +21,120 @@ public enum TaxEfficientProductType2Code
 {
     /// <summary>
     /// Cash individual savings account. In the UK, this is known as a cash ISA.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_sDLPcZy-Eem54rMzia0iag")]
     [Description(@"Cash individual savings account. In the UK, this is known as a cash ISA.")]
-    Cash,
+    Cash = TaxEfficientProductTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash lifetime individual savings account. In the UK, this is known as a cash LISA.
-    /// Encoded/decoded by serializers as "CashLISA".
+    /// Encoded/decoded by serializers as "CLIS".
     /// </summary>
     [EnumMember(Value = "CLIS")]
     [IsoId("_sOMMoZy-Eem54rMzia0iag")]
     [Description(@"Cash lifetime individual savings account. In the UK, this is known as a cash LISA.")]
-    CashLISA,
+    CashLISA = TaxEfficientProductTypeCode.CashLISA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Flexible individual savings account. In the UK, this is known as a FISA.
-    /// Encoded/decoded by serializers as "Flexible".
+    /// Encoded/decoded by serializers as "FISA".
     /// </summary>
     [EnumMember(Value = "FISA")]
     [IsoId("_sUu5gZy-Eem54rMzia0iag")]
     [Description(@"Flexible individual savings account. In the UK, this is known as a FISA.")]
-    Flexible,
+    Flexible = TaxEfficientProductTypeCode.Flexible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General investment savings account. (Known as Investeringssparkonto (ISK) in some markets.)
-    /// Encoded/decoded by serializers as "GeneralInvestmentSavingsAccount".
+    /// Encoded/decoded by serializers as "GISK".
     /// </summary>
     [EnumMember(Value = "GISK")]
     [IsoId("_sa1hgZy-Eem54rMzia0iag")]
     [Description(@"General investment savings account. (Known as Investeringssparkonto (ISK) in some markets.)")]
-    GeneralInvestmentSavingsAccount,
+    GeneralInvestmentSavingsAccount = TaxEfficientProductTypeCode.GeneralInvestmentSavingsAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// General shares or equity savings account. (Known as ASK in some markets.)
-    /// Encoded/decoded by serializers as "GeneralShareSavingsAccount".
+    /// Encoded/decoded by serializers as "GASK".
     /// </summary>
     [EnumMember(Value = "GASK")]
     [IsoId("_skM44Zy-Eem54rMzia0iag")]
     [Description(@"General shares or equity savings account. (Known as ASK in some markets.)")]
-    GeneralShareSavingsAccount,
+    GeneralShareSavingsAccount = TaxEfficientProductTypeCode.GeneralShareSavingsAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Help to buy individual savings account. In the UK, this is known as a HISA.
-    /// Encoded/decoded by serializers as "HelpToBuy".
+    /// Encoded/decoded by serializers as "HISA".
     /// </summary>
     [EnumMember(Value = "HISA")]
     [IsoId("_spaJAZy-Eem54rMzia0iag")]
     [Description(@"Help to buy individual savings account. In the UK, this is known as a HISA.")]
-    HelpToBuy,
+    HelpToBuy = TaxEfficientProductTypeCode.HelpToBuy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Innovative finance individual savings account. In the UK, this is known as an innovative ISA.
-    /// Encoded/decoded by serializers as "InnovativeFinance".
+    /// Encoded/decoded by serializers as "INNF".
     /// </summary>
     [EnumMember(Value = "INNF")]
     [IsoId("_svqiAZy-Eem54rMzia0iag")]
     [Description(@"Innovative finance individual savings account. In the UK, this is known as an innovative ISA.")]
-    InnovativeFinance,
+    InnovativeFinance = TaxEfficientProductTypeCode.InnovativeFinance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Junior cash individual savings account. In the UK, this is known as a cash JISA.
-    /// Encoded/decoded by serializers as "JuniorCash".
+    /// Encoded/decoded by serializers as "JCSH".
     /// </summary>
     [EnumMember(Value = "JCSH")]
     [IsoId("_s4u-cZy-Eem54rMzia0iag")]
     [Description(@"Junior cash individual savings account. In the UK, this is known as a cash JISA.")]
-    JuniorCash,
+    JuniorCash = TaxEfficientProductTypeCode.JuniorCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Junior stocks and shares individual savings account. In the UK, this is known as a stocks and shares  JISA.
-    /// Encoded/decoded by serializers as "JuniorStocksAndSharesISA".
+    /// Encoded/decoded by serializers as "JISA".
     /// </summary>
     [EnumMember(Value = "JISA")]
     [IsoId("_s-irgZy-Eem54rMzia0iag")]
     [Description(@"Junior stocks and shares individual savings account. In the UK, this is known as a stocks and shares  JISA.")]
-    JuniorStocksAndSharesISA,
+    JuniorStocksAndSharesISA = TaxEfficientProductTypeCode.JuniorStocksAndSharesISA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stocks and shares lifetime individual savings account. In the UK, this is known as a stocks and shares LISA.
-    /// Encoded/decoded by serializers as "Lifetime".
+    /// Encoded/decoded by serializers as "LISA".
     /// </summary>
     [EnumMember(Value = "LISA")]
     [IsoId("_tEfigZy-Eem54rMzia0iag")]
     [Description(@"Stocks and shares lifetime individual savings account. In the UK, this is known as a stocks and shares LISA.")]
-    Lifetime,
+    Lifetime = TaxEfficientProductTypeCode.Lifetime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-stakeholder child trust fund individual savings account. In the UK, this is known as a non-stakeholder CTF ISA.
-    /// Encoded/decoded by serializers as "NonStakeholderChildTrustFund".
+    /// Encoded/decoded by serializers as "CCTF".
     /// </summary>
     [EnumMember(Value = "CCTF")]
     [IsoId("_tM-JEZy-Eem54rMzia0iag")]
     [Description(@"Non-stakeholder child trust fund individual savings account. In the UK, this is known as a non-stakeholder CTF ISA.")]
-    NonStakeholderChildTrustFund,
+    NonStakeholderChildTrustFund = TaxEfficientProductTypeCode.NonStakeholderChildTrustFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stakeholder child trust fund individual savings account. In the UK, this is known as a stakeholder CTF ISA.
-    /// Encoded/decoded by serializers as "StakeholderChildTrustFund".
+    /// Encoded/decoded by serializers as "SCTF".
     /// </summary>
     [EnumMember(Value = "SCTF")]
     [IsoId("_tS7AEZy-Eem54rMzia0iag")]
     [Description(@"Stakeholder child trust fund individual savings account. In the UK, this is known as a stakeholder CTF ISA.")]
-    StakeholderChildTrustFund,
+    StakeholderChildTrustFund = TaxEfficientProductTypeCode.StakeholderChildTrustFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stocks and shares individual savings account. In the UK, this is known as a stocks and shares ISA.
-    /// Encoded/decoded by serializers as "StocksAndShares".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_tZ6Y4Zy-Eem54rMzia0iag")]
     [Description(@"Stocks and shares individual savings account. In the UK, this is known as a stocks and shares ISA.")]
-    StocksAndShares,
+    StocksAndShares = TaxEfficientProductTypeCode.StocksAndShares, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum TaxEfficientProductType2Code
 public static class TaxEfficientProductType2CodeMetadataExtensions
 {
     private static readonly TaxEfficientProductType2CodeDropdownSource _dropdownSource = new TaxEfficientProductType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

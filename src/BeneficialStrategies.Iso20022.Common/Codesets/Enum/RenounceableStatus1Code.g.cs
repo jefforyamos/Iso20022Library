@@ -21,21 +21,21 @@ public enum RenounceableStatus1Code
 {
     /// <summary>
     /// Intermediate securities cannot be sold.
-    /// Encoded/decoded by serializers as "NonRenounceable".
+    /// Encoded/decoded by serializers as "NREN".
     /// </summary>
     [EnumMember(Value = "NREN")]
     [IsoId("_Zsq3oNp-Ed-ak6NoX_4Aeg_-603219863")]
     [Description(@"Intermediate securities cannot be sold.")]
-    NonRenounceable,
+    NonRenounceable = RenounceableStatusCode.NonRenounceable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Intermediate securities can be sold.
-    /// Encoded/decoded by serializers as "Renounceable".
+    /// Encoded/decoded by serializers as "RENO".
     /// </summary>
     [EnumMember(Value = "RENO")]
     [IsoId("_Zsq3odp-Ed-ak6NoX_4Aeg_-603219862")]
     [Description(@"Intermediate securities can be sold.")]
-    Renounceable,
+    Renounceable = RenounceableStatusCode.Renounceable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RenounceableStatus1Code
 public static class RenounceableStatus1CodeMetadataExtensions
 {
     private static readonly RenounceableStatus1CodeDropdownSource _dropdownSource = new RenounceableStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

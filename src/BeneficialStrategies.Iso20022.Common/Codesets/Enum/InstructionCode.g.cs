@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aXbr6Np-Ed-ak6NoX_4Aeg_86377106")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction.")]
-[Derivations(typeof(Instruction1Code),typeof(Instruction3Code),typeof(Instruction4Code),typeof(Instruction5Code),typeof(PartialInstruction3Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(Instruction3Code),typeof(PartialInstruction3Code),typeof(Instruction5Code),typeof(Instruction4Code),typeof(Instruction1Code))]
 public enum InstructionCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum InstructionCode
 public static class InstructionCodeMetadataExtensions
 {
     private static readonly InstructionCodeDropdownSource _dropdownSource = new InstructionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

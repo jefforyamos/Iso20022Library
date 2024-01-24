@@ -21,12 +21,12 @@ public enum EventGroup1Code
 {
     /// <summary>
     /// Redemption domain events.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_1tTXAzL3EeKU9IrkkToqcw_-766484011")]
     [Description(@"Redemption domain events.")]
-    Redemption,
+    Redemption = EventGroupCode.Redemption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum EventGroup1Code
 public static class EventGroup1CodeMetadataExtensions
 {
     private static readonly EventGroup1CodeDropdownSource _dropdownSource = new EventGroup1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

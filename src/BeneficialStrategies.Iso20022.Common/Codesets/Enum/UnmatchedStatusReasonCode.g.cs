@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_906Z0J7MEee23OmtkkcE3A")]
-[Description(@"Specifies the reason the transaction/instruction is unmatched, as published in an external cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason the transaction/instruction is unmatched, as published in an external cancellation reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(UnmatchedStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum UnmatchedStatusReasonCode
 {
     /// <summary>
@@ -363,7 +362,7 @@ public enum UnmatchedStatusReasonCode
 public static class UnmatchedStatusReasonCodeMetadataExtensions
 {
     private static readonly UnmatchedStatusReasonCodeDropdownSource _dropdownSource = new UnmatchedStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

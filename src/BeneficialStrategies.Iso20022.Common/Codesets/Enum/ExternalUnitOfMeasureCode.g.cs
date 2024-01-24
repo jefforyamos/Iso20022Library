@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_KGEoLzNmEe2UWZuK9pqFtg")]
-[Description(@"Specifies the external unit of measure by means of a code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external unit of measure by means of a code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalUnitOfMeasure1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalUnitOfMeasureCode
 {
     /// <summary>
@@ -877,7 +876,7 @@ public enum ExternalUnitOfMeasureCode
 public static class ExternalUnitOfMeasureCodeMetadataExtensions
 {
     private static readonly ExternalUnitOfMeasureCodeDropdownSource _dropdownSource = new ExternalUnitOfMeasureCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

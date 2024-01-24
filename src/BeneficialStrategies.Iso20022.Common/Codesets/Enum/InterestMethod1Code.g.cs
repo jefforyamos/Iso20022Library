@@ -21,21 +21,21 @@ public enum InterestMethod1Code
 {
     /// <summary>
     /// Indicates that the interest is intended to be settled in cash.
-    /// Encoded/decoded by serializers as "PhysicalSettlement".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_YbAbdNp-Ed-ak6NoX_4Aeg_-1896247899")]
     [Description(@"Indicates that the interest is intended to be settled in cash.")]
-    PhysicalSettlement,
+    PhysicalSettlement = InterestMethodCode.PhysicalSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the interest is intended to be rolled in to existing collateral balances.
-    /// Encoded/decoded by serializers as "RollIn".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_YbAbddp-Ed-ak6NoX_4Aeg_40977274")]
     [Description(@"Indicates that the interest is intended to be rolled in to existing collateral balances.")]
-    RollIn,
+    RollIn = InterestMethodCode.RollIn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InterestMethod1Code
 public static class InterestMethod1CodeMetadataExtensions
 {
     private static readonly InterestMethod1CodeDropdownSource _dropdownSource = new InterestMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

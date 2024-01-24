@@ -21,21 +21,21 @@ public enum Instruction5Code
 {
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_aW-_9tp-Ed-ak6NoX_4Aeg_1896618964")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = InstructionCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_aW-_99p-Ed-ak6NoX_4Aeg_1896618989")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
-    Telecom,
+    Telecom = InstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Instruction5Code
 public static class Instruction5CodeMetadataExtensions
 {
     private static readonly Instruction5CodeDropdownSource _dropdownSource = new Instruction5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

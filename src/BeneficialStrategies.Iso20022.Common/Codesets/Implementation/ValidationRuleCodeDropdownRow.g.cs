@@ -10,7 +10,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies all codes that are to be used in the formal validation rules.
-/// 
 /// Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.
 /// Provides values to be used in dropdown select lists and validation logic as instanced by <seealso cref="ValidationRuleCodeDropdownSource"/>.
 /// Implements <seealso cref="IValidationRuleCodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
@@ -20,7 +19,6 @@ public partial class ValidationRuleCodeDropdownRow : EnumMetadataItem<Validation
 {
     /// <summary>
     /// Specifies all codes that are to be used in the formal validation rules.
-    /// 
     /// Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.
     /// Constructs row state using the specified enum value and reflected values.
     /// </summary>

@@ -21,21 +21,21 @@ public enum BlockTrade1Code
 {
     /// <summary>
     /// Transaction is a block trade parent.
-    /// Encoded/decoded by serializers as "Parent".
+    /// Encoded/decoded by serializers as "BLPA".
     /// </summary>
     [EnumMember(Value = "BLPA")]
     [IsoId("_begotdp-Ed-ak6NoX_4Aeg_489423628")]
     [Description(@"Transaction is a block trade parent.")]
-    Parent,
+    Parent = BlockTradeCode.Parent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a block trade child.
-    /// Encoded/decoded by serializers as "Child".
+    /// Encoded/decoded by serializers as "BLCH".
     /// </summary>
     [EnumMember(Value = "BLCH")]
     [IsoId("_begottp-Ed-ak6NoX_4Aeg_535598920")]
     [Description(@"Transaction is a block trade child.")]
-    Child,
+    Child = BlockTradeCode.Child, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BlockTrade1Code
 public static class BlockTrade1CodeMetadataExtensions
 {
     private static readonly BlockTrade1CodeDropdownSource _dropdownSource = new BlockTrade1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

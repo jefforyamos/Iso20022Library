@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hbcAoGliEeGaMcKyqKNRfQ_-953519462")]
 [Description(@"Identifies if the security will be issued in New Global Note (NGN) or Classical Global Note (CGN).")]
 [Derivations(typeof(GlobalNote1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GlobalNoteCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum GlobalNoteCode
 public static class GlobalNoteCodeMetadataExtensions
 {
     private static readonly GlobalNoteCodeDropdownSource _dropdownSource = new GlobalNoteCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

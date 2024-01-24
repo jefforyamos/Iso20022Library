@@ -16,72 +16,72 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_gtemoeIwEeqbls7Gk4-ckA")]
-[Description(@"Specifies the  creditor enrolment status reason code, as published in an external  creditor enrolment status reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the  creditor enrolment status reason code, as published in an external  creditor enrolment status reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalCreditorEnrolmentStatusReasonCode))]
 public enum ExternalCreditorEnrolmentStatusReason1Code
 {
     /// <summary>
     /// Already existing creditor.
-    /// Encoded/decoded by serializers as "AlreadyExistingCreditor".
+    /// Encoded/decoded by serializers as "ACRD".
     /// </summary>
     [EnumMember(Value = "ACRD")]
     [IsoId("_uvUnJfRYEeuLhpyIdtJzwg")]
     [Description(@"Already existing creditor.")]
-    AlreadyExistingCreditor,
+    AlreadyExistingCreditor = ExternalCreditorEnrolmentStatusReasonCode.AlreadyExistingCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplication.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uvUnKPRYEeuLhpyIdtJzwg")]
     [Description(@"Duplication.")]
-    Duplication,
+    Duplication = ExternalCreditorEnrolmentStatusReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid file format.
-    /// Encoded/decoded by serializers as "InvalidFileFormat".
+    /// Encoded/decoded by serializers as "FF01".
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_uvUnK_RYEeuLhpyIdtJzwg")]
     [Description(@"Invalid file format.")]
-    InvalidFileFormat,
+    InvalidFileFormat = ExternalCreditorEnrolmentStatusReasonCode.InvalidFileFormat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reference is not unique.
-    /// Encoded/decoded by serializers as "NotUniqueReference".
+    /// Encoded/decoded by serializers as "RF01".
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uveYIvRYEeuLhpyIdtJzwg")]
     [Description(@"Reference is not unique.")]
-    NotUniqueReference,
+    NotUniqueReference = ExternalCreditorEnrolmentStatusReasonCode.NotUniqueReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Regulatory Reason.
-    /// Encoded/decoded by serializers as "RegulatoryReason".
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uveYJfRYEeuLhpyIdtJzwg")]
     [Description(@"Regulatory Reason.")]
-    RegulatoryReason,
+    RegulatoryReason = ExternalCreditorEnrolmentStatusReasonCode.RegulatoryReason, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid character set.
-    /// Encoded/decoded by serializers as "InvalidCharacterSet".
+    /// Encoded/decoded by serializers as "RR10".
     /// </summary>
     [EnumMember(Value = "RR10")]
     [IsoId("_uvoJIvRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid character set.")]
-    InvalidCharacterSet,
+    InvalidCharacterSet = ExternalCreditorEnrolmentStatusReasonCode.InvalidCharacterSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Technical rejection.
-    /// Encoded/decoded by serializers as "TechnicalRejection".
+    /// Encoded/decoded by serializers as "TRJT".
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_uvoJJfRYEeuLhpyIdtJzwg")]
     [Description(@"Technical rejection.")]
-    TechnicalRejection,
+    TechnicalRejection = ExternalCreditorEnrolmentStatusReasonCode.TechnicalRejection, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum ExternalCreditorEnrolmentStatusReason1Code
 public static class ExternalCreditorEnrolmentStatusReason1CodeMetadataExtensions
 {
     private static readonly ExternalCreditorEnrolmentStatusReason1CodeDropdownSource _dropdownSource = new ExternalCreditorEnrolmentStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

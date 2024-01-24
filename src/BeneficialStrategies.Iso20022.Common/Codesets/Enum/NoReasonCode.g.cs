@@ -21,12 +21,12 @@ public enum NoReasonCode
 {
     /// <summary>
     /// No reason to report or no reason available to report.
-    /// Encoded/decoded by serializers as "NoReason".
+    /// Encoded/decoded by serializers as "NORE".
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_aNmaeNp-Ed-ak6NoX_4Aeg_1957291337")]
     [Description(@"No reason to report or no reason available to report.")]
-    NoReason,
+    NoReason = SpecialPurposeCode.NoReason, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum NoReasonCode
 public static class NoReasonCodeMetadataExtensions
 {
     private static readonly NoReasonCodeDropdownSource _dropdownSource = new NoReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

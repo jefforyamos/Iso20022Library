@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_akGO4dp-Ed-ak6NoX_4Aeg_1216168726")]
 [Description(@"Specifies the regularity of an event.")]
-[Derivations(typeof(EventFrequency2Code),typeof(EventFrequency5Code),typeof(EventFrequency1Code),typeof(EventFrequency3Code),typeof(EventFrequency4Code),typeof(EventFrequency7Code),typeof(EventFrequency6Code),typeof(EventFrequency8Code),typeof(EventFrequency10Code),typeof(EventFrequency9Code),typeof(EventFrequency12Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(EventFrequency8Code),typeof(EventFrequency4Code),typeof(EventFrequency7Code),typeof(EventFrequency3Code),typeof(EventFrequency2Code),typeof(EventFrequency9Code),typeof(EventFrequency6Code),typeof(EventFrequency5Code),typeof(EventFrequency12Code),typeof(EventFrequency1Code),typeof(EventFrequency10Code))]
 public enum EventFrequencyCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum EventFrequencyCode
 public static class EventFrequencyCodeMetadataExtensions
 {
     private static readonly EventFrequencyCodeDropdownSource _dropdownSource = new EventFrequencyCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

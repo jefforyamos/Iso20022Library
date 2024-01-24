@@ -21,21 +21,21 @@ public enum RepoTerminationOption1Code
 {
     /// <summary>
     /// Evergreen termination option.
-    /// Encoded/decoded by serializers as "Evergreen".
+    /// Encoded/decoded by serializers as "EGRN".
     /// </summary>
     [EnumMember(Value = "EGRN")]
     [IsoId("_JUfZoSy0Eea35M2x2c9PXw")]
     [Description(@"Evergreen termination option.")]
-    Evergreen,
+    Evergreen = RepoTerminationOptionCode.Evergreen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extendable termination option.
-    /// Encoded/decoded by serializers as "Extendable".
+    /// Encoded/decoded by serializers as "ETSB".
     /// </summary>
     [EnumMember(Value = "ETSB")]
     [IsoId("_JmCcoSy0Eea35M2x2c9PXw")]
     [Description(@"Extendable termination option.")]
-    Extendable,
+    Extendable = RepoTerminationOptionCode.Extendable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RepoTerminationOption1Code
 public static class RepoTerminationOption1CodeMetadataExtensions
 {
     private static readonly RepoTerminationOption1CodeDropdownSource _dropdownSource = new RepoTerminationOption1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

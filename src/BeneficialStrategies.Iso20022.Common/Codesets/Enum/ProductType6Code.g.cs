@@ -21,39 +21,39 @@ public enum ProductType6Code
 {
     /// <summary>
     /// The asset type is bond.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_5QytoTXvEemdWfjs3tykFQ")]
     [Description(@"The asset type is bond.")]
-    Bond,
+    Bond = ProductTypeV2Code.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The asset type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_5YreUTXvEemdWfjs3tykFQ")]
     [Description(@"The asset type is cash.")]
-    Cash,
+    Cash = ProductTypeV2Code.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_6Mv_kTXvEemdWfjs3tykFQ")]
     [Description(@"Other asset type.")]
-    Other,
+    Other = ProductTypeV2Code.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "Equity".
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_8fJgATXvEemdWfjs3tykFQ")]
     [Description(@"Identifies the nature or type of an equity.")]
-    Equity,
+    Equity = ProductTypeV2Code.Equity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ProductType6Code
 public static class ProductType6CodeMetadataExtensions
 {
     private static readonly ProductType6CodeDropdownSource _dropdownSource = new ProductType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

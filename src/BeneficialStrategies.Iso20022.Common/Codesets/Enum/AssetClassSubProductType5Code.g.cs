@@ -21,12 +21,12 @@ public enum AssetClassSubProductType5Code
 {
     /// <summary>
     /// Commodity of type grain.
-    /// Encoded/decoded by serializers as "Grain".
+    /// Encoded/decoded by serializers as "GRIN".
     /// </summary>
     [EnumMember(Value = "GRIN")]
     [IsoId("_5hvpgQnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type grain.")]
-    Grain,
+    Grain = AssetClassSubProductTypeCode.Grain, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType5Code
 public static class AssetClassSubProductType5CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType5CodeDropdownSource _dropdownSource = new AssetClassSubProductType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

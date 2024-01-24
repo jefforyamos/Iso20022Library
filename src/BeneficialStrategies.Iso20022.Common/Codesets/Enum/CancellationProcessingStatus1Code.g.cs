@@ -21,84 +21,84 @@ public enum CancellationProcessingStatus1Code
 {
     /// <summary>
     /// Cancellation has been completed.
-    /// Encoded/decoded by serializers as "CancellationCompleted".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bXgo09p-Ed-ak6NoX_4Aeg_2094579543")]
     [Description(@"Cancellation has been completed.")]
-    CancellationCompleted,
+    CancellationCompleted = CancellationProcessingStatusCode.CancellationCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation is pending. It is not known at this time whether cancellation can be affected.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bXgo1Np-Ed-ak6NoX_4Aeg_2094579544")]
     [Description(@"Cancellation is pending. It is not known at this time whether cancellation can be affected.")]
-    PendingCancellation,
+    PendingCancellation = CancellationProcessingStatusCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation will not be executed.
-    /// Encoded/decoded by serializers as "Denied".
+    /// Encoded/decoded by serializers as "DEND".
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_bXgo1dp-Ed-ak6NoX_4Aeg_2094579564")]
     [Description(@"Cancellation will not be executed.")]
-    Denied,
+    Denied = CancellationProcessingStatusCode.Denied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation has been received at the stock exchange.
-    /// Encoded/decoded by serializers as "ReceivedAtStockExchange".
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_bXgo1tp-Ed-ak6NoX_4Aeg_2094579565")]
     [Description(@"Cancellation has been received at the stock exchange.")]
-    ReceivedAtStockExchange,
+    ReceivedAtStockExchange = CancellationProcessingStatusCode.ReceivedAtStockExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation has been received at the intermediary.
-    /// Encoded/decoded by serializers as "ReceivedAtIntermediary".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_bXgo19p-Ed-ak6NoX_4Aeg_2094579595")]
     [Description(@"Cancellation has been received at the intermediary.")]
-    ReceivedAtIntermediary,
+    ReceivedAtIntermediary = CancellationProcessingStatusCode.ReceivedAtIntermediary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request has been acknowledged for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bXqZ0Np-Ed-ak6NoX_4Aeg_2094579596")]
     [Description(@"Cancellation request has been acknowledged for further processing by the account servicer.")]
-    Accepted,
+    Accepted = CancellationProcessingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is partially filled, cancellation processing accepted for the remainder.
-    /// Encoded/decoded by serializers as "PartiallyFilled".
+    /// Encoded/decoded by serializers as "PARF".
     /// </summary>
     [EnumMember(Value = "PARF")]
     [IsoId("_bXqZ0dp-Ed-ak6NoX_4Aeg_2094579626")]
     [Description(@"Order is partially filled, cancellation processing accepted for the remainder.")]
-    PartiallyFilled,
+    PartiallyFilled = CancellationProcessingStatusCode.PartiallyFilled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation has been rejected for further processing.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bXqZ0tp-Ed-ak6NoX_4Aeg_2094579627")]
     [Description(@"Cancellation has been rejected for further processing.")]
-    Rejected,
+    Rejected = CancellationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request is in repair.
-    /// Encoded/decoded by serializers as "InRepair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_bXqZ09p-Ed-ak6NoX_4Aeg_2094579656")]
     [Description(@"Cancellation request is in repair.")]
-    InRepair,
+    InRepair = CancellationProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum CancellationProcessingStatus1Code
 public static class CancellationProcessingStatus1CodeMetadataExtensions
 {
     private static readonly CancellationProcessingStatus1CodeDropdownSource _dropdownSource = new CancellationProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

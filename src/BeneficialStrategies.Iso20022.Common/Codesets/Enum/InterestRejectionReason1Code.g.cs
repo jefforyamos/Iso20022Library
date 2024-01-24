@@ -21,21 +21,21 @@ public enum InterestRejectionReason1Code
 {
     /// <summary>
     /// Indicates whether the interest request is rejected due a value date difference.
-    /// Encoded/decoded by serializers as "ValueDate".
+    /// Encoded/decoded by serializers as "VADA".
     /// </summary>
     [EnumMember(Value = "VADA")]
     [IsoId("_YbKMctp-Ed-ak6NoX_4Aeg_-74499350")]
     [Description(@"Indicates whether the interest request is rejected due a value date difference.")]
-    ValueDate,
+    ValueDate = InterestRejectionReasonCode.ValueDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates whether the interest request is rejected due an interest amount difference.
-    /// Encoded/decoded by serializers as "DisputeAmount".
+    /// Encoded/decoded by serializers as "DIAM".
     /// </summary>
     [EnumMember(Value = "DIAM")]
     [IsoId("_YbKMc9p-Ed-ak6NoX_4Aeg_1862725823")]
     [Description(@"Indicates whether the interest request is rejected due an interest amount difference.")]
-    DisputeAmount,
+    DisputeAmount = InterestRejectionReasonCode.DisputeAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InterestRejectionReason1Code
 public static class InterestRejectionReason1CodeMetadataExtensions
 {
     private static readonly InterestRejectionReason1CodeDropdownSource _dropdownSource = new InterestRejectionReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

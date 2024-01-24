@@ -21,30 +21,30 @@ public enum SoundFormat1Code
 {
     /// <summary>
     /// Reference of a preloaded text to play.
-    /// Encoded/decoded by serializers as "MessageRef".
+    /// Encoded/decoded by serializers as "MSGR".
     /// </summary>
     [EnumMember(Value = "MSGR")]
     [IsoId("_OeHPod6_Eeiwsev40qZGEQ")]
     [Description(@"Reference of a preloaded text to play.")]
-    MessageRef,
+    MessageRef = SoundFormatCode.MessageRef, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Preloaded sound File.
-    /// Encoded/decoded by serializers as "SoundRef".
+    /// Encoded/decoded by serializers as "SNDR".
     /// </summary>
     [EnumMember(Value = "SNDR")]
     [IsoId("_OhkMQd6_Eeiwsev40qZGEQ")]
     [Description(@"Preloaded sound File.")]
-    SoundRef,
+    SoundRef = SoundFormatCode.SoundRef, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text to play.
-    /// Encoded/decoded by serializers as "Text".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_OlZjYd6_Eeiwsev40qZGEQ")]
     [Description(@"Text to play.")]
-    Text,
+    Text = SoundFormatCode.Text, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SoundFormat1Code
 public static class SoundFormat1CodeMetadataExtensions
 {
     private static readonly SoundFormat1CodeDropdownSource _dropdownSource = new SoundFormat1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

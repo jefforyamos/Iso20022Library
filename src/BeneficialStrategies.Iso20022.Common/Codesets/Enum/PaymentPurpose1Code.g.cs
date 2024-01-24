@@ -21,399 +21,399 @@ public enum PaymentPurpose1Code
 {
     /// <summary>
     /// Transaction is the payment of salaries.
-    /// Encoded/decoded by serializers as "SalaryPayment".
+    /// Encoded/decoded by serializers as "SALA".
     /// </summary>
     [EnumMember(Value = "SALA")]
     [IsoId("_Z5Cfudp-Ed-ak6NoX_4Aeg_1037583707")]
     [Description(@"Transaction is the payment of salaries.")]
-    SalaryPayment,
+    SalaryPayment = PaymentPurposeCode.SalaryPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to treasury operations.
-    /// Encoded/decoded by serializers as "TreasuryPayment".
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_Z5LpoNp-Ed-ak6NoX_4Aeg_1037583732")]
     [Description(@"Transaction is related to treasury operations.")]
-    TreasuryPayment,
+    TreasuryPayment = PaymentPurposeCode.TreasuryPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an advance payment.
-    /// Encoded/decoded by serializers as "AdvancePayment".
+    /// Encoded/decoded by serializers as "ADVA".
     /// </summary>
     [EnumMember(Value = "ADVA")]
     [IsoId("_Z5Lpodp-Ed-ak6NoX_4Aeg_1037583904")]
     [Description(@"Transaction is an advance payment.")]
-    AdvancePayment,
+    AdvancePayment = PaymentPurposeCode.AdvancePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the agricultural domain.
-    /// Encoded/decoded by serializers as "AgriculturalTransfer".
+    /// Encoded/decoded by serializers as "AGRT".
     /// </summary>
     [EnumMember(Value = "AGRT")]
     [IsoId("_Z5Lpotp-Ed-ak6NoX_4Aeg_1037584139")]
     [Description(@"Transaction is related to the agricultural domain.")]
-    AgriculturalTransfer,
+    AgriculturalTransfer = PaymentPurposeCode.AgriculturalTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of alimony.
-    /// Encoded/decoded by serializers as "AlimonyPayment".
+    /// Encoded/decoded by serializers as "ALMY".
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_Z5Lpo9p-Ed-ak6NoX_4Aeg_1037584156")]
     [Description(@"Transaction is the payment of alimony.")]
-    AlimonyPayment,
+    AlimonyPayment = PaymentPurposeCode.AlimonyPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a payment made to assist parent/guardian to maintain child.
-    /// Encoded/decoded by serializers as "ChildBenefit".
+    /// Encoded/decoded by serializers as "BECH".
     /// </summary>
     [EnumMember(Value = "BECH")]
     [IsoId("_Z5LppNp-Ed-ak6NoX_4Aeg_1037584199")]
     [Description(@"Transaction is related to a payment made to assist parent/guardian to maintain child.")]
-    ChildBenefit,
+    ChildBenefit = PaymentPurposeCode.ChildBenefit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a payment to a person who is unemployed/disabled.
-    /// Encoded/decoded by serializers as "UnemploymentDisabilityBenefit".
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_Z5Lppdp-Ed-ak6NoX_4Aeg_1037584216")]
     [Description(@"Transaction is related to a payment to a person who is unemployed/disabled.")]
-    UnemploymentDisabilityBenefit,
+    UnemploymentDisabilityBenefit = PaymentPurposeCode.UnemploymentDisabilityBenefit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payment of a bonus.
-    /// Encoded/decoded by serializers as "BonusPayment.".
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_Z5Lpptp-Ed-ak6NoX_4Aeg_1038504248")]
     [Description(@"Transaction is related to payment of a bonus.")]
-    BonusPayment,
+    BonusPayment = PaymentPurposeCode.BonusPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a general cash management instruction.
-    /// Encoded/decoded by serializers as "CashManagementTransfer".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Z5Lpp9p-Ed-ak6NoX_4Aeg_1038504265")]
     [Description(@"Transaction is a general cash management instruction.")]
-    CashManagementTransfer,
+    CashManagementTransfer = PaymentPurposeCode.CashManagementTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to capital building fringe fortune, ie capital building for retirement.
-    /// Encoded/decoded by serializers as "CapitalBuilding".
+    /// Encoded/decoded by serializers as "CBFF".
     /// </summary>
     [EnumMember(Value = "CBFF")]
     [IsoId("_Z5LpqNp-Ed-ak6NoX_4Aeg_1038504308")]
     [Description(@"Transaction is related to capital building fringe fortune, ie capital building for retirement.")]
-    CapitalBuilding,
+    CapitalBuilding = PaymentPurposeCode.CapitalBuilding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a payment for charity reasons.
-    /// Encoded/decoded by serializers as "CharityPayment".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_Z5Lpqdp-Ed-ak6NoX_4Aeg_1038504481")]
     [Description(@"Transaction is a payment for charity reasons.")]
-    CharityPayment,
+    CharityPayment = PaymentPurposeCode.CharityPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a collection of funds initiated via a credit transfer or direct debit.
-    /// Encoded/decoded by serializers as "CollectionPayment".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_Z5VaoNp-Ed-ak6NoX_4Aeg_-1075476839")]
     [Description(@"Transaction is a collection of funds initiated via a credit transfer or direct debit.")]
-    CollectionPayment,
+    CollectionPayment = PaymentPurposeCode.CollectionPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of commodities.
-    /// Encoded/decoded by serializers as "CommodityTransfer".
+    /// Encoded/decoded by serializers as "CMDT".
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_Z5Vaodp-Ed-ak6NoX_4Aeg_1038504524")]
     [Description(@"Transaction is payment of commodities.")]
-    CommodityTransfer,
+    CommodityTransfer = PaymentPurposeCode.CommodityTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).
-    /// Encoded/decoded by serializers as "CommercialPayment".
+    /// Encoded/decoded by serializers as "COMC".
     /// </summary>
     [EnumMember(Value = "COMC")]
     [IsoId("_Z5Vaotp-Ed-ak6NoX_4Aeg_1038504776")]
     [Description(@"Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).")]
-    CommercialPayment,
+    CommercialPayment = PaymentPurposeCode.CommercialPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of commission.
-    /// Encoded/decoded by serializers as "Commission".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Z5Vao9p-Ed-ak6NoX_4Aeg_1038504793")]
     [Description(@"Transaction is payment of commission.")]
-    Commission,
+    Commission = PaymentPurposeCode.Commission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to payment of costs.
-    /// Encoded/decoded by serializers as "Costs".
+    /// Encoded/decoded by serializers as "COST".
     /// </summary>
     [EnumMember(Value = "COST")]
     [IsoId("_Z5VapNp-Ed-ak6NoX_4Aeg_1038505274")]
     [Description(@"Transaction is related to payment of costs.")]
-    Costs,
+    Costs = PaymentPurposeCode.Costs, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of copyright.
-    /// Encoded/decoded by serializers as "Copyright".
+    /// Encoded/decoded by serializers as "CPYR".
     /// </summary>
     [EnumMember(Value = "CPYR")]
     [IsoId("_Z5Vapdp-Ed-ak6NoX_4Aeg_1038505316")]
     [Description(@"Transaction is payment of copyright.")]
-    Copyright,
+    Copyright = PaymentPurposeCode.Copyright, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of dividends.
-    /// Encoded/decoded by serializers as "Dividend".
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_Z5Vaptp-Ed-ak6NoX_4Aeg_1038505334")]
     [Description(@"Transaction is payment of dividends.")]
-    Dividend,
+    Dividend = PaymentPurposeCode.Dividend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a foreign exchange operation.
-    /// Encoded/decoded by serializers as "ForeignExchange".
+    /// Encoded/decoded by serializers as "FREX".
     /// </summary>
     [EnumMember(Value = "FREX")]
     [IsoId("_Z5Vap9p-Ed-ak6NoX_4Aeg_1038505411")]
     [Description(@"Transaction is related to a foreign exchange operation.")]
-    ForeignExchange,
+    ForeignExchange = PaymentPurposeCode.ForeignExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to purchase and sale of goods.
-    /// Encoded/decoded by serializers as "PurchaseSaleOfGoods".
+    /// Encoded/decoded by serializers as "GDDS".
     /// </summary>
     [EnumMember(Value = "GDDS")]
     [IsoId("_Z5VaqNp-Ed-ak6NoX_4Aeg_1038505471")]
     [Description(@"Transaction is related to purchase and sale of goods.")]
-    PurchaseSaleOfGoods,
+    PurchaseSaleOfGoods = PaymentPurposeCode.PurchaseSaleOfGoods, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a payment to or from a government department.
-    /// Encoded/decoded by serializers as "GovernmentPayment".
+    /// Encoded/decoded by serializers as "GOVT".
     /// </summary>
     [EnumMember(Value = "GOVT")]
     [IsoId("_Z5Vaqdp-Ed-ak6NoX_4Aeg_1038505506")]
     [Description(@"Transaction is a payment to or from a government department.")]
-    GovernmentPayment,
+    GovernmentPayment = PaymentPurposeCode.GovernmentPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment for an installment/hire-purchase agreement.
-    /// Encoded/decoded by serializers as "InstalmentHirePurchaseAgreement".
+    /// Encoded/decoded by serializers as "IHRP".
     /// </summary>
     [EnumMember(Value = "IHRP")]
     [IsoId("_Z5fLoNp-Ed-ak6NoX_4Aeg_1038505801")]
     [Description(@"Transaction is payment for an installment/hire-purchase agreement.")]
-    InstalmentHirePurchaseAgreement,
+    InstalmentHirePurchaseAgreement = PaymentPurposeCode.InstalmentHirePurchaseAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
-    /// Encoded/decoded by serializers as "IntraCompanyPayment".
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Z5fLodp-Ed-ak6NoX_4Aeg_-1450054943")]
     [Description(@"Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.")]
-    IntraCompanyPayment,
+    IntraCompanyPayment = PaymentPurposeCode.IntraCompanyPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of an insurance premium.
-    /// Encoded/decoded by serializers as "InsurancePremium".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_Z5fLotp-Ed-ak6NoX_4Aeg_1038505843")]
     [Description(@"Transaction is payment of an insurance premium.")]
-    InsurancePremium,
+    InsurancePremium = PaymentPurposeCode.InsurancePremium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of interest.
-    /// Encoded/decoded by serializers as "Interest".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_Z5fLo9p-Ed-ak6NoX_4Aeg_1038505878")]
     [Description(@"Transaction is payment of interest.")]
-    Interest,
+    Interest = PaymentPurposeCode.Interest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is payment of a license fee.
-    /// Encoded/decoded by serializers as "LicenseFee".
+    /// Encoded/decoded by serializers as "LICF".
     /// </summary>
     [EnumMember(Value = "LICF")]
     [IsoId("_Z5fLpNp-Ed-ak6NoX_4Aeg_1038506169")]
     [Description(@"Transaction is payment of a license fee.")]
-    LicenseFee,
+    LicenseFee = PaymentPurposeCode.LicenseFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to transfer of loan to borrower.
-    /// Encoded/decoded by serializers as "Loan".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_Z5fLpdp-Ed-ak6NoX_4Aeg_1038506229")]
     [Description(@"Transaction is related to transfer of loan to borrower.")]
-    Loan,
+    Loan = PaymentPurposeCode.Loan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to repayment of loan to lender.
-    /// Encoded/decoded by serializers as "LoanRepayment".
+    /// Encoded/decoded by serializers as "LOAR".
     /// </summary>
     [EnumMember(Value = "LOAR")]
     [IsoId("_Z5fLptp-Ed-ak6NoX_4Aeg_1038506264")]
     [Description(@"Transaction is related to repayment of loan to lender.")]
-    LoanRepayment,
+    LoanRepayment = PaymentPurposeCode.LoanRepayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a netting operation.
-    /// Encoded/decoded by serializers as "Netting".
+    /// Encoded/decoded by serializers as "NETT".
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_Z5fLp9p-Ed-ak6NoX_4Aeg_1038506341")]
     [Description(@"Transaction is related to a netting operation.")]
-    Netting,
+    Netting = PaymentPurposeCode.Netting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to the payment of payroll.
-    /// Encoded/decoded by serializers as "Payroll".
+    /// Encoded/decoded by serializers as "PAYR".
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_Z5fLqNp-Ed-ak6NoX_4Aeg_685678686")]
     [Description(@"Transaction is related to the payment of payroll.")]
-    Payroll,
+    Payroll = PaymentPurposeCode.Payroll, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of pension.
-    /// Encoded/decoded by serializers as "PensionPayment".
+    /// Encoded/decoded by serializers as "PENS".
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_Z5fLqdp-Ed-ak6NoX_4Aeg_1038506384")]
     [Description(@"Transaction is the payment of pension.")]
-    PensionPayment,
+    PensionPayment = PaymentPurposeCode.PensionPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of a refund.
-    /// Encoded/decoded by serializers as "Refund".
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_Z5oVkNp-Ed-ak6NoX_4Aeg_1038506436")]
     [Description(@"Transaction is the payment of a refund.")]
-    Refund,
+    Refund = PaymentPurposeCode.Refund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of rent.
-    /// Encoded/decoded by serializers as "Rent".
+    /// Encoded/decoded by serializers as "RENT".
     /// </summary>
     [EnumMember(Value = "RENT")]
     [IsoId("_Z5oVkdp-Ed-ak6NoX_4Aeg_1038506696")]
     [Description(@"Transaction is the payment of rent.")]
-    Rent,
+    Rent = PaymentPurposeCode.Rent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of royalties.
-    /// Encoded/decoded by serializers as "Royalties".
+    /// Encoded/decoded by serializers as "ROYA".
     /// </summary>
     [EnumMember(Value = "ROYA")]
     [IsoId("_Z5oVktp-Ed-ak6NoX_4Aeg_1038506731")]
     [Description(@"Transaction is the payment of royalties.")]
-    Royalties,
+    Royalties = PaymentPurposeCode.Royalties, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to purchase and sale of services.
-    /// Encoded/decoded by serializers as "PurchaseSaleOfServices".
+    /// Encoded/decoded by serializers as "SCVE".
     /// </summary>
     [EnumMember(Value = "SCVE")]
     [IsoId("_Z5oVk9p-Ed-ak6NoX_4Aeg_1038506791")]
     [Description(@"Transaction is related to purchase and sale of services.")]
-    PurchaseSaleOfServices,
+    PurchaseSaleOfServices = PaymentPurposeCode.PurchaseSaleOfServices, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Z5oVlNp-Ed-ak6NoX_4Aeg_1038507662")]
     [Description(@"Transaction is the payment of securities.")]
-    Securities,
+    Securities = PaymentPurposeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a social security benefit, ie payment made by a government to support individuals.
-    /// Encoded/decoded by serializers as "SocialSecurityBenefit".
+    /// Encoded/decoded by serializers as "SSBE".
     /// </summary>
     [EnumMember(Value = "SSBE")]
     [IsoId("_Z5oVldp-Ed-ak6NoX_4Aeg_1038507757")]
     [Description(@"Transaction is a social security benefit, ie payment made by a government to support individuals.")]
-    SocialSecurityBenefit,
+    SocialSecurityBenefit = PaymentPurposeCode.SocialSecurityBenefit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a payment of information or entertainment services either in printed or electronic form.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_Z5oVltp-Ed-ak6NoX_4Aeg_1039427806")]
     [Description(@"Transaction is related to a payment of information or entertainment services either in printed or electronic form.")]
-    Subscription,
+    Subscription = PaymentPurposeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of taxes.
-    /// Encoded/decoded by serializers as "TaxPayment".
+    /// Encoded/decoded by serializers as "TAXS".
     /// </summary>
     [EnumMember(Value = "TAXS")]
     [IsoId("_Z5oVl9p-Ed-ak6NoX_4Aeg_1039427848")]
     [Description(@"Transaction is the payment of taxes.")]
-    TaxPayment,
+    TaxPayment = PaymentPurposeCode.TaxPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is the payment of value added tax.
-    /// Encoded/decoded by serializers as "ValueAddedTaxPayment".
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_Z5oVmNp-Ed-ak6NoX_4Aeg_1039427943")]
     [Description(@"Transaction is the payment of value added tax.")]
-    ValueAddedTaxPayment,
+    ValueAddedTaxPayment = PaymentPurposeCode.ValueAddedTaxPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
-    /// Encoded/decoded by serializers as "ConsumerThirdPartyConsolidatedPayment".
+    /// Encoded/decoded by serializers as "COMT".
     /// </summary>
     [EnumMember(Value = "COMT")]
     [IsoId("_Z5oVmdp-Ed-ak6NoX_4Aeg_-613715876")]
     [Description(@"Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.")]
-    ConsumerThirdPartyConsolidatedPayment,
+    ConsumerThirdPartyConsolidatedPayment = PaymentPurposeCode.ConsumerThirdPartyConsolidatedPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collection of funds initiated via a debit transfer.
-    /// Encoded/decoded by serializers as "DebitCollectionPayment".
+    /// Encoded/decoded by serializers as "DBTC".
     /// </summary>
     [EnumMember(Value = "DBTC")]
     [IsoId("_Z5oVmtp-Ed-ak6NoX_4Aeg_401232326")]
     [Description(@"Collection of funds initiated via a debit transfer.")]
-    DebitCollectionPayment,
+    DebitCollectionPayment = PaymentPurposeCode.DebitCollectionPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a payment to a supplier.
-    /// Encoded/decoded by serializers as "SupplierPayment".
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_Z5yGkNp-Ed-ak6NoX_4Aeg_755866699")]
     [Description(@"Transaction is related to a payment to a supplier.")]
-    SupplierPayment,
+    SupplierPayment = PaymentPurposeCode.SupplierPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is related to a hedging operation.
-    /// Encoded/decoded by serializers as "Hedging".
+    /// Encoded/decoded by serializers as "HEDG".
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_Z5yGkdp-Ed-ak6NoX_4Aeg_1603098882")]
     [Description(@"Transaction is related to a hedging operation.")]
-    Hedging,
+    Hedging = PaymentPurposeCode.Hedging, // same ordinal as derivation source for type conversions
     
 }
 
@@ -424,7 +424,7 @@ public enum PaymentPurpose1Code
 public static class PaymentPurpose1CodeMetadataExtensions
 {
     private static readonly PaymentPurpose1CodeDropdownSource _dropdownSource = new PaymentPurpose1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

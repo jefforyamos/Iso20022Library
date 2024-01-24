@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_yEJFENtrEeiXqq0XHEoNUA")]
 [Description(@"Hardware capabilities of the Sale Terminal.")]
 [Derivations(typeof(SaleCapabilities2Code),typeof(SaleCapabilities1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SaleCapabilitiesCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum SaleCapabilitiesCode
 public static class SaleCapabilitiesCodeMetadataExtensions
 {
     private static readonly SaleCapabilitiesCodeDropdownSource _dropdownSource = new SaleCapabilitiesCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

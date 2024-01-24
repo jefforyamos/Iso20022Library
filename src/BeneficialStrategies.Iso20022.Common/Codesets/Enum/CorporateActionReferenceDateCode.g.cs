@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bR_2stp-Ed-ak6NoX_4Aeg_-280874700")]
 [Description(@"Specifies the reference date of corporate action, in coded form.")]
 [Derivations(typeof(CorporateActionDeadline1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionReferenceDateCode
 {
     /// <summary>
@@ -461,7 +460,7 @@ public enum CorporateActionReferenceDateCode
 public static class CorporateActionReferenceDateCodeMetadataExtensions
 {
     private static readonly CorporateActionReferenceDateCodeDropdownSource _dropdownSource = new CorporateActionReferenceDateCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

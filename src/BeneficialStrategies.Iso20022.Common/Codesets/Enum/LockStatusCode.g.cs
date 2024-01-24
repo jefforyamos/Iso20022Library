@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cetAIGjMEeiRg5NzP0jkQg")]
 [Description(@"Specifies the lock status of a party.")]
 [Derivations(typeof(LockStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LockStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum LockStatusCode
 public static class LockStatusCodeMetadataExtensions
 {
     private static readonly LockStatusCodeDropdownSource _dropdownSource = new LockStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

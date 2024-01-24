@@ -21,39 +21,39 @@ public enum Modification1Code
 {
     /// <summary>
     /// Specifies that the item is not changed.
-    /// Encoded/decoded by serializers as "NoChange".
+    /// Encoded/decoded by serializers as "NOCH".
     /// </summary>
     [EnumMember(Value = "NOCH")]
     [IsoId("_7OFh0Q4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is not changed.")]
-    NoChange,
+    NoChange = ModificationCode.NoChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the item is modified.
-    /// Encoded/decoded by serializers as "Modification".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_7V-5kQ4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is modified.")]
-    Modification,
+    Modification = ModificationCode.Modification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the item is deleted.
-    /// Encoded/decoded by serializers as "Deletion".
+    /// Encoded/decoded by serializers as "DELE".
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_7eCCUQ4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is deleted.")]
-    Deletion,
+    Deletion = ModificationCode.Deletion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the item is added.
-    /// Encoded/decoded by serializers as "Addition".
+    /// Encoded/decoded by serializers as "ADDD".
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_7gjx4Q4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is added.")]
-    Addition,
+    Addition = ModificationCode.Addition, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Modification1Code
 public static class Modification1CodeMetadataExtensions
 {
     private static readonly Modification1CodeDropdownSource _dropdownSource = new Modification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

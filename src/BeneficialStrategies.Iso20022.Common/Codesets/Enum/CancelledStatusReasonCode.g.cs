@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a1YzMNp-Ed-ak6NoX_4Aeg_890260104")]
 [Description(@"Specifies the underlying reason for the cancellation of the associated transaction.")]
-[Derivations(typeof(CancelledStatusReason1Code),typeof(CancelledStatusReason2Code),typeof(CancellationCompleteStatusReason1Code),typeof(CancelledStatusReason3Code),typeof(CancelledStatusReason8Code),typeof(CancelledStatusReason17Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(CancelledStatusReason17Code),typeof(CancelledStatusReason3Code),typeof(CancellationCompleteStatusReason1Code),typeof(CancelledStatusReason2Code),typeof(CancelledStatusReason8Code),typeof(CancelledStatusReason1Code))]
 public enum CancelledStatusReasonCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum CancelledStatusReasonCode
 public static class CancelledStatusReasonCodeMetadataExtensions
 {
     private static readonly CancelledStatusReasonCodeDropdownSource _dropdownSource = new CancelledStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

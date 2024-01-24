@@ -21,30 +21,30 @@ public enum PaymentsPartyType2Code
 {
     /// <summary>
     /// Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "CreditorAgentOrCreditor".
+    /// Encoded/decoded by serializers as "CACR".
     /// </summary>
     [EnumMember(Value = "CACR")]
     [IsoId("_IKhF4VyZEeewBcMu1EH_Gg")]
     [Description(@"Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    CreditorAgentOrCreditor,
+    CreditorAgentOrCreditor = PaymentsPartyTypeCode.CreditorAgentOrCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "DebtorAgentOrDebtor".
+    /// Encoded/decoded by serializers as "DADE".
     /// </summary>
     [EnumMember(Value = "DADE")]
     [IsoId("_IRPY8VyZEeewBcMu1EH_Gg")]
     [Description(@"Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    DebtorAgentOrDebtor,
+    DebtorAgentOrDebtor = PaymentsPartyTypeCode.DebtorAgentOrDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "INAG".
     /// </summary>
     [EnumMember(Value = "INAG")]
     [IsoId("_IWyAQVyZEeewBcMu1EH_Gg")]
     [Description(@"Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PaymentsPartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentsPartyType2Code
 public static class PaymentsPartyType2CodeMetadataExtensions
 {
     private static readonly PaymentsPartyType2CodeDropdownSource _dropdownSource = new PaymentsPartyType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

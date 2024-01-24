@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aVWBNtp-Ed-ak6NoX_4Aeg_-958051818")]
 [Description(@"Identifies the possible statuses of a meeting date.")]
 [Derivations(typeof(MeetingDateStatus1Code),typeof(MeetingDateStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MeetingDateStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum MeetingDateStatusCode
 public static class MeetingDateStatusCodeMetadataExtensions
 {
     private static readonly MeetingDateStatusCodeDropdownSource _dropdownSource = new MeetingDateStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

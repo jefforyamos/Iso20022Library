@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OR5utiXeEeO8J8_akw9vuw")]
 [Description(@"Frequency of the cash distribution.")]
 [Derivations(typeof(CorporateActionFrequencyType3Code),typeof(CorporateActionFrequencyType4Code),typeof(CorporateActionFrequencyType5Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionFrequencyTypeV2Code
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum CorporateActionFrequencyTypeV2Code
 public static class CorporateActionFrequencyTypeV2CodeMetadataExtensions
 {
     private static readonly CorporateActionFrequencyTypeV2CodeDropdownSource _dropdownSource = new CorporateActionFrequencyTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

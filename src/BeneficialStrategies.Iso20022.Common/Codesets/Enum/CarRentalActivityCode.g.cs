@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_S_0LwFyqEeeve7Je9cXtkQ")]
 [Description(@"Activity type assigned to a car rental company.")]
 [Derivations(typeof(CarRentalActivity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CarRentalActivityCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum CarRentalActivityCode
 public static class CarRentalActivityCodeMetadataExtensions
 {
     private static readonly CarRentalActivityCodeDropdownSource _dropdownSource = new CarRentalActivityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum UserInterface7Code
 {
     /// <summary>
     /// Data dedicated to another interface maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "OtherClearingAgentInterface".
+    /// Encoded/decoded by serializers as "OCAI".
     /// </summary>
     [EnumMember(Value = "OCAI")]
     [IsoId("_cwZIEVBAEeedyPuM0kK2EQ")]
     [Description(@"Data dedicated to another interface maintained by the clearing agent.")]
-    OtherClearingAgentInterface,
+    OtherClearingAgentInterface = UserInterfaceCode.OtherClearingAgentInterface, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data dedicated to a log maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "ClearingAgentLog".
+    /// Encoded/decoded by serializers as "CLRL".
     /// </summary>
     [EnumMember(Value = "CLRL")]
     [IsoId("_dHTzQlBAEeedyPuM0kK2EQ")]
     [Description(@"Data dedicated to a log maintained by the clearing agent.")]
-    ClearingAgentLog,
+    ClearingAgentLog = UserInterfaceCode.ClearingAgentLog, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data dedicated to an application maintained by a clearing agent.
-    /// Encoded/decoded by serializers as "ClearingAgentApplication".
+    /// Encoded/decoded by serializers as "CLRA".
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_dRH2klBAEeedyPuM0kK2EQ")]
     [Description(@"Data dedicated to an application maintained by a clearing agent.")]
-    ClearingAgentApplication,
+    ClearingAgentApplication = UserInterfaceCode.ClearingAgentApplication, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum UserInterface7Code
 public static class UserInterface7CodeMetadataExtensions
 {
     private static readonly UserInterface7CodeDropdownSource _dropdownSource = new UserInterface7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

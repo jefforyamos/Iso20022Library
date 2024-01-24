@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_GP3GkIMmEeeBDNMiErKunw")]
 [Description(@"Specifies the terms used to formally address a person.")]
 [Derivations(typeof(NamePrefix1Code),typeof(NamePrefix2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NamePrefixCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum NamePrefixCode
 public static class NamePrefixCodeMetadataExtensions
 {
     private static readonly NamePrefixCodeDropdownSource _dropdownSource = new NamePrefixCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

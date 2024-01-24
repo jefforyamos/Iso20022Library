@@ -21,30 +21,30 @@ public enum AssetFXSubProductType1Code
 {
     /// <summary>
     /// Commodity attribute of type foreign exchange cross rate.
-    /// Encoded/decoded by serializers as "ForeignExchangeCrossRate".
+    /// Encoded/decoded by serializers as "FXCR".
     /// </summary>
     [EnumMember(Value = "FXCR")]
     [IsoId("_LWWI4dDjEeSv_Pll20DdbA")]
     [Description(@"Commodity attribute of type foreign exchange cross rate.")]
-    ForeignExchangeCrossRate,
+    ForeignExchangeCrossRate = AssetClassDetailedSubProductTypeCode.ForeignExchangeCrossRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type foreign exchange emerging markets.
-    /// Encoded/decoded by serializers as "ForeignExchangeEmergingMarket".
+    /// Encoded/decoded by serializers as "FXEM".
     /// </summary>
     [EnumMember(Value = "FXEM")]
     [IsoId("_LeFIkdDjEeSv_Pll20DdbA")]
     [Description(@"Commodity attribute of type foreign exchange emerging markets.")]
-    ForeignExchangeEmergingMarket,
+    ForeignExchangeEmergingMarket = AssetClassDetailedSubProductTypeCode.ForeignExchangeEmergingMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type foreign exchange majors.
-    /// Encoded/decoded by serializers as "ForeignExchangeMajor".
+    /// Encoded/decoded by serializers as "FXMJ".
     /// </summary>
     [EnumMember(Value = "FXMJ")]
     [IsoId("_Lj4OkdDjEeSv_Pll20DdbA")]
     [Description(@"Commodity attribute of type foreign exchange majors.")]
-    ForeignExchangeMajor,
+    ForeignExchangeMajor = AssetClassDetailedSubProductTypeCode.ForeignExchangeMajor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AssetFXSubProductType1Code
 public static class AssetFXSubProductType1CodeMetadataExtensions
 {
     private static readonly AssetFXSubProductType1CodeDropdownSource _dropdownSource = new AssetFXSubProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

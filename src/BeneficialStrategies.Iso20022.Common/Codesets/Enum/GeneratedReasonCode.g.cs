@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_auFRVdp-Ed-ak6NoX_4Aeg_-239668022")]
 [Description(@"Specifies the reason why the transaction was generated.")]
 [Derivations(typeof(GeneratedReason2Code),typeof(GeneratedReason1Code),typeof(GeneratedReason3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GeneratedReasonCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum GeneratedReasonCode
 public static class GeneratedReasonCodeMetadataExtensions
 {
     private static readonly GeneratedReasonCodeDropdownSource _dropdownSource = new GeneratedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

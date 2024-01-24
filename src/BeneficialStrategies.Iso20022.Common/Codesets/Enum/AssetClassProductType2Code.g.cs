@@ -21,12 +21,12 @@ public enum AssetClassProductType2Code
 {
     /// <summary>
     /// Commodity of type energy.
-    /// Encoded/decoded by serializers as "Energy".
+    /// Encoded/decoded by serializers as "NRGY".
     /// </summary>
     [EnumMember(Value = "NRGY")]
     [IsoId("_fVAFQQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type energy.")]
-    Energy,
+    Energy = AssetClassProductTypeCode.Energy, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType2Code
 public static class AssetClassProductType2CodeMetadataExtensions
 {
     private static readonly AssetClassProductType2CodeDropdownSource _dropdownSource = new AssetClassProductType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

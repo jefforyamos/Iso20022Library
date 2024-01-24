@@ -21,21 +21,21 @@ public enum ChargeType1Code
 {
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BrokerageFee".
+    /// Encoded/decoded by serializers as "BRKF".
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_a9SK8tp-Ed-ak6NoX_4Aeg_1912147156")]
     [Description(@"Fee paid to a broker for services provided.")]
-    BrokerageFee,
+    BrokerageFee = ChargeTypeCode.BrokerageFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee paid for services provided.
-    /// Encoded/decoded by serializers as "Commission".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a9SK89p-Ed-ak6NoX_4Aeg_1922304879")]
     [Description(@"Fee paid for services provided.")]
-    Commission,
+    Commission = ChargeTypeCode.Commission, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ChargeType1Code
 public static class ChargeType1CodeMetadataExtensions
 {
     private static readonly ChargeType1CodeDropdownSource _dropdownSource = new ChargeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum EventSequenceType1Code
 {
     /// <summary>
     /// Final event in a series of successive events.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_OQhPYbXJEeiTob_PrFFUxA")]
     [Description(@"Final event in a series of successive events.")]
-    Final,
+    Final = EventSequenceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interim event in a series of successive events.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_OWxBUbXJEeiTob_PrFFUxA")]
     [Description(@"Interim event in a series of successive events.")]
-    Interim,
+    Interim = EventSequenceTypeCode.Interim, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EventSequenceType1Code
 public static class EventSequenceType1CodeMetadataExtensions
 {
     private static readonly EventSequenceType1CodeDropdownSource _dropdownSource = new EventSequenceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

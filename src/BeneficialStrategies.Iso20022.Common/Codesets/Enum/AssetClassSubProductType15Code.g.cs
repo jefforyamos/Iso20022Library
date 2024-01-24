@@ -21,12 +21,12 @@ public enum AssetClassSubProductType15Code
 {
     /// <summary>
     /// Commodity of type non precious metals.
-    /// Encoded/decoded by serializers as "NonPrecious".
+    /// Encoded/decoded by serializers as "NPRM".
     /// </summary>
     [EnumMember(Value = "NPRM")]
     [IsoId("_lluxkQn0EeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type non precious metals.")]
-    NonPrecious,
+    NonPrecious = AssetClassSubProductTypeCode.NonPrecious, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType15Code
 public static class AssetClassSubProductType15CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType15CodeDropdownSource _dropdownSource = new AssetClassSubProductType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

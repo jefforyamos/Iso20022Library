@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_qRYe4QjLEeS5F6qHcKOrew")]
 [Description(@"Specifies the type of Foreign Account Tax Compliance Act (FATCA) form.")]
 [Derivations(typeof(FATCAFormType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FATCAFormTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum FATCAFormTypeCode
 public static class FATCAFormTypeCodeMetadataExtensions
 {
     private static readonly FATCAFormTypeCodeDropdownSource _dropdownSource = new FATCAFormTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

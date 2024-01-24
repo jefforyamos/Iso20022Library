@@ -21,39 +21,39 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
 {
     /// <summary>
     /// Cancellation request has been completed.
-    /// Encoded/decoded by serializers as "CancellationCompleted".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bKPo4Np-Ed-ak6NoX_4Aeg_-711137955")]
     [Description(@"Cancellation request has been completed.")]
-    CancellationCompleted,
+    CancellationCompleted = CorporateActionInstructionCancellationProcessingStatusCode.CancellationCompleted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request is pending. It is not known at this time whether cancellation can be affected.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bKPo4dp-Ed-ak6NoX_4Aeg_-1054212063")]
     [Description(@"Cancellation request is pending. It is not known at this time whether cancellation can be affected.")]
-    PendingCancellation,
+    PendingCancellation = CorporateActionInstructionCancellationProcessingStatusCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request has been accepted for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bKPo4tp-Ed-ak6NoX_4Aeg_620854078")]
     [Description(@"Cancellation request has been accepted for further processing.")]
-    Accepted,
+    Accepted = CorporateActionInstructionCancellationProcessingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request has been rejected for further processing due to system (data) reasons.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bKPo49p-Ed-ak6NoX_4Aeg_1629502930")]
     [Description(@"Cancellation request has been rejected for further processing due to system (data) reasons.")]
-    Rejected,
+    Rejected = CorporateActionInstructionCancellationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
 public static class CorporateActionInstructionCancellationProcessingStatus1CodeMetadataExtensions
 {
     private static readonly CorporateActionInstructionCancellationProcessingStatus1CodeDropdownSource _dropdownSource = new CorporateActionInstructionCancellationProcessingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

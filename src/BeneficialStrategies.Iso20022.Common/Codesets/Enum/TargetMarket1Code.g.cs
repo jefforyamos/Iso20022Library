@@ -21,30 +21,30 @@ public enum TargetMarket1Code
 {
     /// <summary>
     /// Yes, is applicable.
-    /// Encoded/decoded by serializers as "InScope".
+    /// Encoded/decoded by serializers as "YSCO".
     /// </summary>
     [EnumMember(Value = "YSCO")]
     [IsoId("_9woHAdddEeibyvRfU9vJ7w")]
     [Description(@"Yes, is applicable.")]
-    InScope,
+    InScope = TargetMarketCode.InScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "Neutral".
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_936awdddEeibyvRfU9vJ7w")]
     [Description(@"Neutral or has no impact.")]
-    Neutral,
+    Neutral = TargetMarketCode.Neutral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No, is not applicable.
-    /// Encoded/decoded by serializers as "NotInScope".
+    /// Encoded/decoded by serializers as "NSCO".
     /// </summary>
     [EnumMember(Value = "NSCO")]
     [IsoId("_-SsSQdddEeibyvRfU9vJ7w")]
     [Description(@"No, is not applicable.")]
-    NotInScope,
+    NotInScope = TargetMarketCode.NotInScope, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TargetMarket1Code
 public static class TargetMarket1CodeMetadataExtensions
 {
     private static readonly TargetMarket1CodeDropdownSource _dropdownSource = new TargetMarket1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum TradingFloorOrderHandling1Code
 {
     /// <summary>
     /// Indicates that the order should be executed automatically, private initiative, no broker intervention. Its sales trading desk will not be informed of the order and trade.
-    /// Encoded/decoded by serializers as "AutomatedPrivate".
+    /// Encoded/decoded by serializers as "ATPR".
     /// </summary>
     [EnumMember(Value = "ATPR")]
     [IsoId("_YqzyBtp-Ed-ak6NoX_4Aeg_828654274")]
     [Description(@"Indicates that the order should be executed automatically, private initiative, no broker intervention. Its sales trading desk will not be informed of the order and trade.")]
-    AutomatedPrivate,
+    AutomatedPrivate = TradingFloorOrderHandlingCode.AutomatedPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the order should be executed automatically, public initiative, broker intervention allowed.
-    /// Encoded/decoded by serializers as "AutomatedPublic".
+    /// Encoded/decoded by serializers as "ATPU".
     /// </summary>
     [EnumMember(Value = "ATPU")]
     [IsoId("_YqzyB9p-Ed-ak6NoX_4Aeg_828654317")]
     [Description(@"Indicates that the order should be executed automatically, public initiative, broker intervention allowed.")]
-    AutomatedPublic,
+    AutomatedPublic = TradingFloorOrderHandlingCode.AutomatedPublic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manual order, best execution.
-    /// Encoded/decoded by serializers as "Manual".
+    /// Encoded/decoded by serializers as "MANU".
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_YqzyCNp-Ed-ak6NoX_4Aeg_828654352")]
     [Description(@"Manual order, best execution.")]
-    Manual,
+    Manual = TradingFloorOrderHandlingCode.Manual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TradingFloorOrderHandling1Code
 public static class TradingFloorOrderHandling1CodeMetadataExtensions
 {
     private static readonly TradingFloorOrderHandling1CodeDropdownSource _dropdownSource = new TradingFloorOrderHandling1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

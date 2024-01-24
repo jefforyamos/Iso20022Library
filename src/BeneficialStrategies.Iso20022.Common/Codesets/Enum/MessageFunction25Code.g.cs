@@ -16,18 +16,18 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_gNRF4FWWEeeiG_nL4vgKnQ")]
-[Description(@"Identifies messages related to a key exchange process. ISO 8583 MTI.")]
+[Description(@"Identifies messages related to a key exchange process.|ISO 8583 MTI.")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction25Code
 {
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "Request".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_KsoZoemuEemNVKPwszFC-A")]
     [Description(@"Message function is a request.")]
-    Request,
+    Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
 }
 
@@ -38,7 +38,7 @@ public enum MessageFunction25Code
 public static class MessageFunction25CodeMetadataExtensions
 {
     private static readonly MessageFunction25CodeDropdownSource _dropdownSource = new MessageFunction25CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

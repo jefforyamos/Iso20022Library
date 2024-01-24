@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YwUkIdp-Ed-ak6NoX_4Aeg_-70363813")]
 [Description(@"Defines when the trigger will hit, i.e. the action specified by the trigger instructions will come into effect.")]
 [Derivations(typeof(TriggerType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TriggerTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TriggerTypeCode
 public static class TriggerTypeCodeMetadataExtensions
 {
     private static readonly TriggerTypeCodeDropdownSource _dropdownSource = new TriggerTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

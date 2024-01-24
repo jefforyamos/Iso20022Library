@@ -21,14 +21,12 @@ public enum PortfolioWithdrawalReason1Code
 {
     /// <summary>
     /// Withdrawal is for a first time residential property.
-    /// 
-    /// 
-    /// Encoded/decoded by serializers as "FirstTimeResidentialProperty".
+    /// Encoded/decoded by serializers as "FTRS".
     /// </summary>
     [EnumMember(Value = "FTRS")]
     [IsoId("_sp6loV23EeiFXdiLi_Nf4A")]
-    [Description(@"Withdrawal is for a first time residential property.  ")]
-    FirstTimeResidentialProperty,
+    [Description(@"Withdrawal is for a first time residential property.||")]
+    FirstTimeResidentialProperty = PortfolioWithdrawalReasonCode.FirstTimeResidentialProperty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -39,7 +37,7 @@ public enum PortfolioWithdrawalReason1Code
 public static class PortfolioWithdrawalReason1CodeMetadataExtensions
 {
     private static readonly PortfolioWithdrawalReason1CodeDropdownSource _dropdownSource = new PortfolioWithdrawalReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum RepurchaseType6Code
 {
     /// <summary>
     /// Relates to a Swap/Substitution.
-    /// Encoded/decoded by serializers as "Swap".
+    /// Encoded/decoded by serializers as "CADJ".
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("_q5t_JWtdEeCY4-KZ9JEyUQ_1110886064")]
     [Description(@"Relates to a Swap/Substitution.")]
-    Swap,
+    Swap = RepurchaseTypeCode.Swap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "TopUp".
+    /// Encoded/decoded by serializers as "TOPU".
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("_q53wIGtdEeCY4-KZ9JEyUQ_-1569933634")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    TopUp,
+    TopUp = RepurchaseTypeCode.TopUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "Withdrawal".
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_q53wIWtdEeCY4-KZ9JEyUQ_1727961309")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    Withdrawal,
+    Withdrawal = RepurchaseTypeCode.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RepurchaseType6Code
 public static class RepurchaseType6CodeMetadataExtensions
 {
     private static readonly RepurchaseType6CodeDropdownSource _dropdownSource = new RepurchaseType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

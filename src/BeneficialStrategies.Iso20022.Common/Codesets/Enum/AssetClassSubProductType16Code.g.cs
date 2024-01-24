@@ -21,12 +21,12 @@ public enum AssetClassSubProductType16Code
 {
     /// <summary>
     /// Commodity of type precious metals.
-    /// Encoded/decoded by serializers as "Precious".
+    /// Encoded/decoded by serializers as "PRME".
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_oLnOsQn0EeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type precious metals.")]
-    Precious,
+    Precious = AssetClassSubProductTypeCode.Precious, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType16Code
 public static class AssetClassSubProductType16CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType16CodeDropdownSource _dropdownSource = new AssetClassSubProductType16CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

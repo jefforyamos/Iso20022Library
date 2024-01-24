@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z-QW5dp-Ed-ak6NoX_4Aeg_-2146608608")]
 [Description(@"Specifies the reason the transaction/instruction is pending or failing settlement. Settlement on the instructed settlement date is still possible, status is pending. Settlement on the instructed settlement date is no longer possible, status is failing.")]
-[Derivations(typeof(PendingProcessingReason1Code),typeof(PendingReason6Code),typeof(PendingProcessingReason2Code),typeof(PendingReason1Code),typeof(FailingReason1Code),typeof(PendingReason2Code),typeof(FailingReason2Code),typeof(PendingProcessingReason3Code),typeof(PendingReason9Code),typeof(PendingReason4Code),typeof(PendingReason5Code),typeof(PendingReason7Code),typeof(PendingReason3Code),typeof(PendingReason8Code),typeof(PendingReason10Code),typeof(FailingReason3Code),typeof(PendingCancellationReason1Code),typeof(PendingCancellationReason2Code),typeof(PendingReason11Code),typeof(PendingReason13Code),typeof(PendingReason17Code),typeof(PendingReason19Code),typeof(PendingReason21Code),typeof(PendingProcessingReason4Code),typeof(PendingCancellationReason7Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(PendingReason21Code),typeof(PendingProcessingReason4Code),typeof(PendingProcessingReason2Code),typeof(PendingProcessingReason1Code),typeof(PendingReason13Code),typeof(PendingReason9Code),typeof(PendingCancellationReason7Code),typeof(PendingReason17Code),typeof(FailingReason2Code),typeof(PendingReason6Code),typeof(PendingProcessingReason3Code),typeof(PendingReason2Code),typeof(PendingReason10Code),typeof(PendingReason1Code),typeof(PendingReason5Code),typeof(PendingReason11Code),typeof(PendingReason8Code),typeof(FailingReason3Code),typeof(FailingReason1Code),typeof(PendingCancellationReason2Code),typeof(PendingReason19Code),typeof(PendingCancellationReason1Code),typeof(PendingReason7Code),typeof(PendingReason3Code),typeof(PendingReason4Code))]
 public enum PendingFailingReasonCode
 {
     /// <summary>
@@ -1019,7 +1018,7 @@ public enum PendingFailingReasonCode
 public static class PendingFailingReasonCodeMetadataExtensions
 {
     private static readonly PendingFailingReasonCodeDropdownSource _dropdownSource = new PendingFailingReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

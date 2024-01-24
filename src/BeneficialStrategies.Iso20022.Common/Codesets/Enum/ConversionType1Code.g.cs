@@ -21,21 +21,21 @@ public enum ConversionType1Code
 {
     /// <summary>
     /// This is a final conversion.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_bCNHN9p-Ed-ak6NoX_4Aeg_-371886103")]
     [Description(@"This is a final conversion.")]
-    Final,
+    Final = ConversionTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This is an interim conversion.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_bCNHONp-Ed-ak6NoX_4Aeg_-371886073")]
     [Description(@"This is an interim conversion.")]
-    Interim,
+    Interim = ConversionTypeCode.Interim, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ConversionType1Code
 public static class ConversionType1CodeMetadataExtensions
 {
     private static readonly ConversionType1CodeDropdownSource _dropdownSource = new ConversionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

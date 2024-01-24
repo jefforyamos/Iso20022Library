@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aqzT1tp-Ed-ak6NoX_4Aeg_611309431")]
 [Description(@"Indicates whether the floor limit applies to credit, to debit or to both credit and debit entries.")]
 [Derivations(typeof(FloorLimitType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FloorLimitTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FloorLimitTypeCode
 public static class FloorLimitTypeCodeMetadataExtensions
 {
     private static readonly FloorLimitTypeCodeDropdownSource _dropdownSource = new FloorLimitTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

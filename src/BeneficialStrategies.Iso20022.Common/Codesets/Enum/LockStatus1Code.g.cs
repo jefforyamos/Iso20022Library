@@ -21,21 +21,21 @@ public enum LockStatus1Code
 {
     /// <summary>
     /// Party has been locked for operations.
-    /// Encoded/decoded by serializers as "Locked".
+    /// Encoded/decoded by serializers as "LOCK".
     /// </summary>
     [EnumMember(Value = "LOCK")]
     [IsoId("_oSkPwWjMEeiRg5NzP0jkQg")]
     [Description(@"Party has been locked for operations.")]
-    Locked,
+    Locked = LockStatusCode.Locked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party is ready for operations.
-    /// Encoded/decoded by serializers as "Unlocked".
+    /// Encoded/decoded by serializers as "ULCK".
     /// </summary>
     [EnumMember(Value = "ULCK")]
     [IsoId("_oYLIgWjMEeiRg5NzP0jkQg")]
     [Description(@"Party is ready for operations.")]
-    Unlocked,
+    Unlocked = LockStatusCode.Unlocked, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum LockStatus1Code
 public static class LockStatus1CodeMetadataExtensions
 {
     private static readonly LockStatus1CodeDropdownSource _dropdownSource = new LockStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

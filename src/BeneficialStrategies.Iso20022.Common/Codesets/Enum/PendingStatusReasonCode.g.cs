@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_fBiHsGBjEeaR1OOiVxm3Gg")]
 [Description(@"Specifies the reason for a pending status.")]
 [Derivations(typeof(PendingStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PendingStatusReasonCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum PendingStatusReasonCode
 public static class PendingStatusReasonCodeMetadataExtensions
 {
     private static readonly PendingStatusReasonCodeDropdownSource _dropdownSource = new PendingStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

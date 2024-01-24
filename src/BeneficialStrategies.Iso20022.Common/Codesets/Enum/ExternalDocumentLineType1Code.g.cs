@@ -21,174 +21,174 @@ public enum ExternalDocumentLineType1Code
 {
     /// <summary>
     /// Line item reference is an additional product identification assigned by the manufacturer.
-    /// Encoded/decoded by serializers as "AdditionalProductIdentificationAssignedByTheManufacturer".
+    /// Encoded/decoded by serializers as "ADPI".
     /// </summary>
     [EnumMember(Value = "ADPI")]
     [IsoId("_uSQ3vvRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an additional product identification assigned by the manufacturer.")]
-    AdditionalProductIdentificationAssignedByTheManufacturer,
+    AdditionalProductIdentificationAssignedByTheManufacturer = ExternalDocumentLineTypeCode.AdditionalProductIdentificationAssignedByTheManufacturer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an alternate International Standard Book Number (ISBN).
-    /// Encoded/decoded by serializers as "AlternateISBN".
+    /// Encoded/decoded by serializers as "AISB".
     /// </summary>
     [EnumMember(Value = "AISB")]
     [IsoId("_uSaosvRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an alternate International Standard Book Number (ISBN).")]
-    AlternateISBN,
+    AlternateISBN = ExternalDocumentLineTypeCode.AlternateISBN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an asset number.
-    /// Encoded/decoded by serializers as "AssetNumber".
+    /// Encoded/decoded by serializers as "ASNB".
     /// </summary>
     [EnumMember(Value = "ASNB")]
     [IsoId("_uSaotfRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an asset number.")]
-    AssetNumber,
+    AssetNumber = ExternalDocumentLineTypeCode.AssetNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a catalog number.
-    /// Encoded/decoded by serializers as "CatalogNumber".
+    /// Encoded/decoded by serializers as "CTNB".
     /// </summary>
     [EnumMember(Value = "CTNB")]
     [IsoId("_uSaouPRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a catalog number.")]
-    CatalogNumber,
+    CatalogNumber = ExternalDocumentLineTypeCode.CatalogNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is Dun & Bradstreet Standard Product and Service code.
-    /// Encoded/decoded by serializers as "DunBradstreetStandardProductAndServiceCode".
+    /// Encoded/decoded by serializers as "DBSP".
     /// </summary>
     [EnumMember(Value = "DBSP")]
     [IsoId("_uSjyovRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is Dun & Bradstreet Standard Product and Service code.")]
-    DunBradstreetStandardProductAndServiceCode,
+    DunBradstreetStandardProductAndServiceCode = ExternalDocumentLineTypeCode.DunBradstreetStandardProductAndServiceCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an European Article Number (EAN).
-    /// Encoded/decoded by serializers as "EuropeanArticleNumberEAN2551".
+    /// Encoded/decoded by serializers as "EANN".
     /// </summary>
     [EnumMember(Value = "EANN")]
     [IsoId("_uSjypfRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an European Article Number (EAN).")]
-    EuropeanArticleNumberEAN2551,
+    EuropeanArticleNumberEAN2551 = ExternalDocumentLineTypeCode.EuropeanArticleNumberEAN2551, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an equipment identification number.
-    /// Encoded/decoded by serializers as "EquipmentIdentificationNumber".
+    /// Encoded/decoded by serializers as "EINB".
     /// </summary>
     [EnumMember(Value = "EINB")]
     [IsoId("_uSjyqPRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an equipment identification number.")]
-    EquipmentIdentificationNumber,
+    EquipmentIdentificationNumber = ExternalDocumentLineTypeCode.EquipmentIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a general specification number.
-    /// Encoded/decoded by serializers as "GeneralSpecificationNumber".
+    /// Encoded/decoded by serializers as "GSNB".
     /// </summary>
     [EnumMember(Value = "GSNB")]
     [IsoId("_uStjovRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a general specification number.")]
-    GeneralSpecificationNumber,
+    GeneralSpecificationNumber = ExternalDocumentLineTypeCode.GeneralSpecificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a Health Care Industry Bar Code (HIBC)
-    /// Encoded/decoded by serializers as "HIBCHealthCareIndustryBarCode".
+    /// Encoded/decoded by serializers as "HIBC".
     /// </summary>
     [EnumMember(Value = "HIBC")]
     [IsoId("_uStjpfRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a Health Care Industry Bar Code (HIBC)")]
-    HIBCHealthCareIndustryBarCode,
+    HIBCHealthCareIndustryBarCode = ExternalDocumentLineTypeCode.HIBCHealthCareIndustryBarCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an International Standard Book Number (ISBN).
-    /// Encoded/decoded by serializers as "InternationalStandardBookNumberISBN".
+    /// Encoded/decoded by serializers as "ISBN".
     /// </summary>
     [EnumMember(Value = "ISBN")]
     [IsoId("_uStjqPRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an International Standard Book Number (ISBN).")]
-    InternationalStandardBookNumberISBN,
+    InternationalStandardBookNumberISBN = ExternalDocumentLineTypeCode.InternationalStandardBookNumberISBN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a lot number.
-    /// Encoded/decoded by serializers as "LotNumber".
+    /// Encoded/decoded by serializers as "LTNB".
     /// </summary>
     [EnumMember(Value = "LTNB")]
     [IsoId("_uS3UovRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a lot number.")]
-    LotNumber,
+    LotNumber = ExternalDocumentLineTypeCode.LotNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a model number
-    /// Encoded/decoded by serializers as "ModelNumber".
+    /// Encoded/decoded by serializers as "MDNB".
     /// </summary>
     [EnumMember(Value = "MDNB")]
     [IsoId("_uS3UpfRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a model number")]
-    ModelNumber,
+    ModelNumber = ExternalDocumentLineTypeCode.ModelNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a part reference number.
-    /// Encoded/decoded by serializers as "PartNumber".
+    /// Encoded/decoded by serializers as "PRNB".
     /// </summary>
     [EnumMember(Value = "PRNB")]
     [IsoId("_uS3UqPRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a part reference number.")]
-    PartNumber,
+    PartNumber = ExternalDocumentLineTypeCode.PartNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a product type code.
-    /// Encoded/decoded by serializers as "ProductTypeCode".
+    /// Encoded/decoded by serializers as "PTCD".
     /// </summary>
     [EnumMember(Value = "PTCD")]
     [IsoId("_uS3Uq_RYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a product type code.")]
-    ProductTypeCode,
+    ProductTypeCode = ExternalDocumentLineTypeCode.ProductTypeCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a stock number.
-    /// Encoded/decoded by serializers as "StockNumber".
+    /// Encoded/decoded by serializers as "SKNB".
     /// </summary>
     [EnumMember(Value = "SKNB")]
     [IsoId("_uS3UrvRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a stock number.")]
-    StockNumber,
+    StockNumber = ExternalDocumentLineTypeCode.StockNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a style number.
-    /// Encoded/decoded by serializers as "StyleNumber".
+    /// Encoded/decoded by serializers as "STNB".
     /// </summary>
     [EnumMember(Value = "STNB")]
     [IsoId("_uTAekvRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a style number.")]
-    StyleNumber,
+    StyleNumber = ExternalDocumentLineTypeCode.StyleNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is a technical order number.
-    /// Encoded/decoded by serializers as "TechnicalOrderNumber".
+    /// Encoded/decoded by serializers as "TONB".
     /// </summary>
     [EnumMember(Value = "TONB")]
     [IsoId("_uTAelfRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is a technical order number.")]
-    TechnicalOrderNumber,
+    TechnicalOrderNumber = ExternalDocumentLineTypeCode.TechnicalOrderNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an UPC consumer package code.
-    /// Encoded/decoded by serializers as "UPCConsumerPackageCode".
+    /// Encoded/decoded by serializers as "UPCC".
     /// </summary>
     [EnumMember(Value = "UPCC")]
     [IsoId("_uTAemPRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an UPC consumer package code.")]
-    UPCConsumerPackageCode,
+    UPCConsumerPackageCode = ExternalDocumentLineTypeCode.UPCConsumerPackageCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line item reference is an Universal Product Number.
-    /// Encoded/decoded by serializers as "UniversalProductNumber".
+    /// Encoded/decoded by serializers as "UPNB".
     /// </summary>
     [EnumMember(Value = "UPNB")]
     [IsoId("_uTKPkvRYEeuLhpyIdtJzwg")]
     [Description(@"Line item reference is an Universal Product Number.")]
-    UniversalProductNumber,
+    UniversalProductNumber = ExternalDocumentLineTypeCode.UniversalProductNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum ExternalDocumentLineType1Code
 public static class ExternalDocumentLineType1CodeMetadataExtensions
 {
     private static readonly ExternalDocumentLineType1CodeDropdownSource _dropdownSource = new ExternalDocumentLineType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

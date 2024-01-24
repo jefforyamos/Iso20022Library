@@ -21,30 +21,30 @@ public enum POIComponentAssessment1Code
 {
     /// <summary>
     /// Approval number delivered by an approval centre.
-    /// Encoded/decoded by serializers as "Approval".
+    /// Encoded/decoded by serializers as "APPL".
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_fAoO8bk3EeKg8PSpEMv-Sg")]
     [Description(@"Approval number delivered by an approval centre.")]
-    Approval,
+    Approval = POIComponentAssessmentCode.Approval, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification number delivered by a certification body.
-    /// Encoded/decoded by serializers as "Certification".
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_fLolE7k3EeKg8PSpEMv-Sg")]
     [Description(@"Certification number delivered by a certification body.")]
-    Certification,
+    Certification = POIComponentAssessmentCode.Certification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Evaluation by a lab or a tool.
-    /// Encoded/decoded by serializers as "Evaluation".
+    /// Encoded/decoded by serializers as "EVAL".
     /// </summary>
     [EnumMember(Value = "EVAL")]
     [IsoId("_fUtokbk3EeKg8PSpEMv-Sg")]
     [Description(@"Evaluation by a lab or a tool.")]
-    Evaluation,
+    Evaluation = POIComponentAssessmentCode.Evaluation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum POIComponentAssessment1Code
 public static class POIComponentAssessment1CodeMetadataExtensions
 {
     private static readonly POIComponentAssessment1CodeDropdownSource _dropdownSource = new POIComponentAssessment1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

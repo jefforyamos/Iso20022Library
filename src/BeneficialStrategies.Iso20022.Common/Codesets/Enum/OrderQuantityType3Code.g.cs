@@ -21,30 +21,30 @@ public enum OrderQuantityType3Code
 {
     /// <summary>
     /// Order is placed by unit.
-    /// Encoded/decoded by serializers as "Unit".
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD5Np-Ed-ak6NoX_4Aeg_-122386355")]
     [Description(@"Order is placed by unit.")]
-    Unit,
+    Unit = OrderQuantityTypeCode.Unit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is placed by amount of money.
-    /// Encoded/decoded by serializers as "Amount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aRVD5dp-Ed-ak6NoX_4Aeg_-122386320")]
     [Description(@"Order is placed by amount of money.")]
-    Amount,
+    Amount = OrderQuantityTypeCode.Amount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.
-    /// Encoded/decoded by serializers as "UnitsOfMeasurePerTimeUnit".
+    /// Encoded/decoded by serializers as "UMPU".
     /// </summary>
     [EnumMember(Value = "UMPU")]
     [IsoId("_aRVD5tp-Ed-ak6NoX_4Aeg_-122385935")]
     [Description(@"For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.")]
-    UnitsOfMeasurePerTimeUnit,
+    UnitsOfMeasurePerTimeUnit = OrderQuantityTypeCode.UnitsOfMeasurePerTimeUnit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OrderQuantityType3Code
 public static class OrderQuantityType3CodeMetadataExtensions
 {
     private static readonly OrderQuantityType3CodeDropdownSource _dropdownSource = new OrderQuantityType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

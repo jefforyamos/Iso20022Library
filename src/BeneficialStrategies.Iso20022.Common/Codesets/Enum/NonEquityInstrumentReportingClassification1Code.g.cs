@@ -21,68 +21,66 @@ public enum NonEquityInstrumentReportingClassification1Code
 {
     /// <summary>
     /// Contract is of type structured finance products (SFPs).
-    /// Encoded/decoded by serializers as "StructuredFinanceProduct".
+    /// Encoded/decoded by serializers as "SFPS".
     /// </summary>
     [EnumMember(Value = "SFPS")]
     [IsoId("_eT4oMfVGEeSKpdoott6G4g")]
     [Description(@"Contract is of type structured finance products (SFPs).")]
-    StructuredFinanceProduct,
+    StructuredFinanceProduct = FinancialInstrumentReportingClassificationCode.StructuredFinanceProduct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type securitised derivatives.
-    /// Encoded/decoded by serializers as "SecuritisedDerivative".
+    /// Encoded/decoded by serializers as "SDRV".
     /// </summary>
     [EnumMember(Value = "SDRV")]
     [IsoId("_eZruMfVGEeSKpdoott6G4g")]
     [Description(@"Contract is of type securitised derivatives.")]
-    SecuritisedDerivative,
+    SecuritisedDerivative = FinancialInstrumentReportingClassificationCode.SecuritisedDerivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type derivative.
-    /// 
-    /// Encoded/decoded by serializers as "Derivative".
+    /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_egh9EfVGEeSKpdoott6G4g")]
-    [Description(@"Contract is of type derivative. ")]
-    Derivative,
+    [Description(@"Contract is of type derivative.|")]
+    Derivative = FinancialInstrumentReportingClassificationCode.Derivative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type emission allowances.
-    /// Encoded/decoded by serializers as "EmissionAllowance".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_enhV4fVGEeSKpdoott6G4g")]
     [Description(@"Contract is of type emission allowances.")]
-    EmissionAllowance,
+    EmissionAllowance = FinancialInstrumentReportingClassificationCode.EmissionAllowance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type bonds.
-    /// 
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_e0KqwfVGEeSKpdoott6G4g")]
-    [Description(@"Contract is of type bonds. ")]
-    Bond,
+    [Description(@"Contract is of type bonds.|")]
+    Bond = FinancialInstrumentReportingClassificationCode.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type exchange traded commodities.
-    /// Encoded/decoded by serializers as "ExchangeTradedCommodities".
+    /// Encoded/decoded by serializers as "ETCS".
     /// </summary>
     [EnumMember(Value = "ETCS")]
     [IsoId("_KNPywQnOEeW1sbwBDSZgiA")]
     [Description(@"Contract is of type exchange traded commodities.")]
-    ExchangeTradedCommodities,
+    ExchangeTradedCommodities = FinancialInstrumentReportingClassificationCode.ExchangeTradedCommodities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract is of type exchange traded note.
-    /// Encoded/decoded by serializers as "ExchangeTradedNote".
+    /// Encoded/decoded by serializers as "ETNS".
     /// </summary>
     [EnumMember(Value = "ETNS")]
     [IsoId("_v3ZaIX1tEeW6DpJJTspC5Q")]
     [Description(@"Contract is of type exchange traded note.")]
-    ExchangeTradedNote,
+    ExchangeTradedNote = FinancialInstrumentReportingClassificationCode.ExchangeTradedNote, // same ordinal as derivation source for type conversions
     
 }
 
@@ -93,7 +91,7 @@ public enum NonEquityInstrumentReportingClassification1Code
 public static class NonEquityInstrumentReportingClassification1CodeMetadataExtensions
 {
     private static readonly NonEquityInstrumentReportingClassification1CodeDropdownSource _dropdownSource = new NonEquityInstrumentReportingClassification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

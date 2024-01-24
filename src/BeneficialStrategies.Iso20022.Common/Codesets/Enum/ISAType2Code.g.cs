@@ -21,39 +21,39 @@ public enum ISAType2Code
 {
     /// <summary>
     /// Type of ISA that offers a stocks and shares component only (no cash).
-    /// Encoded/decoded by serializers as "MiniEquity".
+    /// Encoded/decoded by serializers as "MINE".
     /// </summary>
     [EnumMember(Value = "MINE")]
     [IsoId("_adi69Np-Ed-ak6NoX_4Aeg_1019975518")]
     [Description(@"Type of ISA that offers a stocks and shares component only (no cash).")]
-    MiniEquity,
+    MiniEquity = ISATypeCode.MiniEquity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of ISA that must offer a stocks and shares component and, optionally, a cash component.
-    /// Encoded/decoded by serializers as "Maxi".
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_adi69dp-Ed-ak6NoX_4Aeg_1019975553")]
     [Description(@"Type of ISA that must offer a stocks and shares component and, optionally, a cash component.")]
-    Maxi,
+    Maxi = ISATypeCode.Maxi, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of ISA that offers a cash component only (no stock).
-    /// Encoded/decoded by serializers as "MiniCash".
+    /// Encoded/decoded by serializers as "MINC".
     /// </summary>
     [EnumMember(Value = "MINC")]
     [IsoId("_adi69tp-Ed-ak6NoX_4Aeg_1019975613")]
     [Description(@"Type of ISA that offers a cash component only (no stock).")]
-    MiniCash,
+    MiniCash = ISATypeCode.MiniCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any ISA.
-    /// Encoded/decoded by serializers as "Any".
+    /// Encoded/decoded by serializers as "ANYI".
     /// </summary>
     [EnumMember(Value = "ANYI")]
     [IsoId("_adi699p-Ed-ak6NoX_4Aeg_1076307513")]
     [Description(@"Any ISA.")]
-    Any,
+    Any = ISATypeCode.Any, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ISAType2Code
 public static class ISAType2CodeMetadataExtensions
 {
     private static readonly ISAType2CodeDropdownSource _dropdownSource = new ISAType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

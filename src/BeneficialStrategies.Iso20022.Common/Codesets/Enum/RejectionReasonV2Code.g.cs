@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YdP3Kdp-Ed-ak6NoX_4Aeg_-169908687")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
-[Derivations(typeof(RejectionReason25Code),typeof(RejectionReason30Code),typeof(RejectionReason31Code),typeof(RejectionReason21Code),typeof(RejectionReason23Code),typeof(RejectionReason32Code),typeof(RejectionReason27Code),typeof(RejectionReason22Code),typeof(RejectionReason26Code),typeof(RejectionReason16Code),typeof(RejectionReason24Code),typeof(RejectionReasonV021Code),typeof(RejectionReason29Code),typeof(RejectionReason33Code),typeof(RejectionReason34Code),typeof(RejectionReason35Code),typeof(RejectionReason37Code),typeof(RejectionReason38Code),typeof(RejectionReason39Code),typeof(RejectionReason40Code),typeof(RejectionReason42Code),typeof(HoldingRejectionReason41Code),typeof(RejectionReason43Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(RejectionReason32Code),typeof(HoldingRejectionReason41Code),typeof(RejectionReason34Code),typeof(RejectionReason40Code),typeof(RejectionReason43Code),typeof(RejectionReasonV021Code),typeof(RejectionReason24Code),typeof(RejectionReason22Code),typeof(RejectionReason30Code),typeof(RejectionReason31Code),typeof(RejectionReason16Code),typeof(RejectionReason38Code),typeof(RejectionReason23Code),typeof(RejectionReason21Code),typeof(RejectionReason29Code),typeof(RejectionReason25Code),typeof(RejectionReason39Code),typeof(RejectionReason42Code),typeof(RejectionReason27Code),typeof(RejectionReason33Code),typeof(RejectionReason37Code),typeof(RejectionReason26Code),typeof(RejectionReason35Code))]
 public enum RejectionReasonV2Code
 {
     /// <summary>
@@ -1667,7 +1666,7 @@ public enum RejectionReasonV2Code
 public static class RejectionReasonV2CodeMetadataExtensions
 {
     private static readonly RejectionReasonV2CodeDropdownSource _dropdownSource = new RejectionReasonV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

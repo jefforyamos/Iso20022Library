@@ -21,21 +21,21 @@ public enum CollateralSubstitutionConfirmation1Code
 {
     /// <summary>
     /// Notification that the collateral substitution, that is new piece(s) of collateral, have been released.
-    /// Encoded/decoded by serializers as "CollateralSubstitutionReleased".
+    /// Encoded/decoded by serializers as "CREL".
     /// </summary>
     [EnumMember(Value = "CREL")]
     [IsoId("_Yb5zUdp-Ed-ak6NoX_4Aeg_434936971")]
     [Description(@"Notification that the collateral substitution, that is new piece(s) of collateral, have been released.")]
-    CollateralSubstitutionReleased,
+    CollateralSubstitutionReleased = CollateralSubstitutionConfirmationCode.CollateralSubstitutionReleased, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.
-    /// Encoded/decoded by serializers as "CollateralSubstitutionReturned".
+    /// Encoded/decoded by serializers as "CRET".
     /// </summary>
     [EnumMember(Value = "CRET")]
     [IsoId("_Yb5zUtp-Ed-ak6NoX_4Aeg_-1408932018")]
     [Description(@"Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.")]
-    CollateralSubstitutionReturned,
+    CollateralSubstitutionReturned = CollateralSubstitutionConfirmationCode.CollateralSubstitutionReturned, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralSubstitutionConfirmation1Code
 public static class CollateralSubstitutionConfirmation1CodeMetadataExtensions
 {
     private static readonly CollateralSubstitutionConfirmation1CodeDropdownSource _dropdownSource = new CollateralSubstitutionConfirmation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

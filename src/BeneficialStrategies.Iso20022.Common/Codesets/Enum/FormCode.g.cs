@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_VsEwAdp-Ed-ak6NoX_4Aeg_-1720487337")]
 [Description(@"Specifies whether a physical form is required.")]
 [Derivations(typeof(Form1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FormCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum FormCode
 public static class FormCodeMetadataExtensions
 {
     private static readonly FormCodeDropdownSource _dropdownSource = new FormCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

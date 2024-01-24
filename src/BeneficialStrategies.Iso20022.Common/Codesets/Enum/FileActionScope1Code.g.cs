@@ -21,21 +21,21 @@ public enum FileActionScope1Code
 {
     /// <summary>
     /// Action applies to a file
-    /// Encoded/decoded by serializers as "File".
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_SafpETEmEemzCpWiCwK4aQ")]
     [Description(@"Action applies to a file")]
-    File,
+    File = FileActionScopeCode.File, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action applies to a record
-    /// Encoded/decoded by serializers as "Record".
+    /// Encoded/decoded by serializers as "RECD".
     /// </summary>
     [EnumMember(Value = "RECD")]
     [IsoId("_Sv9iwTEmEemzCpWiCwK4aQ")]
     [Description(@"Action applies to a record")]
-    Record,
+    Record = FileActionScopeCode.Record, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FileActionScope1Code
 public static class FileActionScope1CodeMetadataExtensions
 {
     private static readonly FileActionScope1CodeDropdownSource _dropdownSource = new FileActionScope1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

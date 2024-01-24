@@ -26,43 +26,43 @@ public enum EmissionAllowanceProductType1Code
     [EnumMember(Value = "EUAA")]
     [IsoId("_e6j1sQnWEeWa7rBfPECYsw")]
     [Description(@"Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).")]
-    EUAA,
+    EUAA = AssetClassDetailedSubProductTypeCode.EUAA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance EUA (European Union Allowance).
-    /// Encoded/decoded by serializers as "EUA".
+    /// Encoded/decoded by serializers as "EUAE".
     /// </summary>
     [EnumMember(Value = "EUAE")]
     [IsoId("_fBs_gQnWEeWa7rBfPECYsw")]
     [Description(@"Commodity attribute of type emissions allowance EUA (European Union Allowance).")]
-    EUA,
+    EUA = AssetClassDetailedSubProductTypeCode.EUA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance ERU (European Reduction Unit).
-    /// Encoded/decoded by serializers as "ERU".
+    /// Encoded/decoded by serializers as "ERUE".
     /// </summary>
     [EnumMember(Value = "ERUE")]
     [IsoId("_fGweoQnWEeWa7rBfPECYsw")]
     [Description(@"Commodity attribute of type emissions allowance ERU (European Reduction Unit).")]
-    ERU,
+    ERU = AssetClassDetailedSubProductTypeCode.ERU, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance CER (Certified Emission Reduction).
-    /// Encoded/decoded by serializers as "CER".
+    /// Encoded/decoded by serializers as "CERE".
     /// </summary>
     [EnumMember(Value = "CERE")]
     [IsoId("_fL9uwQnWEeWa7rBfPECYsw")]
     [Description(@"Commodity attribute of type emissions allowance CER (Certified Emission Reduction).")]
-    CER,
+    CER = AssetClassDetailedSubProductTypeCode.CER, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YQdvoX1uEeW6DpJJTspC5Q")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum EmissionAllowanceProductType1Code
 public static class EmissionAllowanceProductType1CodeMetadataExtensions
 {
     private static readonly EmissionAllowanceProductType1CodeDropdownSource _dropdownSource = new EmissionAllowanceProductType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

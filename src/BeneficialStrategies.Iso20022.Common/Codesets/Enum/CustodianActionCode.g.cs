@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_14eFMTL3EeKU9IrkkToqcw_2034050184")]
 [Description(@"Specifies custodian activity codes.")]
 [Derivations(typeof(CustodianAction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CustodianActionCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum CustodianActionCode
 public static class CustodianActionCodeMetadataExtensions
 {
     private static readonly CustodianActionCodeDropdownSource _dropdownSource = new CustodianActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

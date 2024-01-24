@@ -21,102 +21,102 @@ public enum FileActionResult1Code
 {
     /// <summary>
     /// Identified record is already present in the file.
-    /// Encoded/decoded by serializers as "DuplicateRecord".
+    /// Encoded/decoded by serializers as "DUPR".
     /// </summary>
     [EnumMember(Value = "DUPR")]
     [IsoId("_1m3kQVECEee94_dUz-hvgw")]
     [Description(@"Identified record is already present in the file.")]
-    DuplicateRecord,
+    DuplicateRecord = FileActionResultCode.DuplicateRecord, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid record field syntax.
-    /// Encoded/decoded by serializers as "FieldEditError".
+    /// Encoded/decoded by serializers as "FERD".
     /// </summary>
     [EnumMember(Value = "FERD")]
     [IsoId("_2AgMQlECEee94_dUz-hvgw")]
     [Description(@"Invalid record field syntax.")]
-    FieldEditError,
+    FieldEditError = FileActionResultCode.FieldEditError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid field value in record.
-    /// Encoded/decoded by serializers as "FieldValueInvalid".
+    /// Encoded/decoded by serializers as "INFD".
     /// </summary>
     [EnumMember(Value = "INFD")]
     [IsoId("_2KX58lECEee94_dUz-hvgw")]
     [Description(@"Invalid field value in record.")]
-    FieldValueInvalid,
+    FieldValueInvalid = FileActionResultCode.FieldValueInvalid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File is locked and cannot be modified.
-    /// Encoded/decoded by serializers as "FileLocked".
+    /// Encoded/decoded by serializers as "FLCK".
     /// </summary>
     [EnumMember(Value = "FLCK")]
     [IsoId("_2YQk8lECEee94_dUz-hvgw")]
     [Description(@"File is locked and cannot be modified.")]
-    FileLocked,
+    FileLocked = FileActionResultCode.FileLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid record format.
-    /// Encoded/decoded by serializers as "FormatError".
+    /// Encoded/decoded by serializers as "FTER".
     /// </summary>
     [EnumMember(Value = "FTER")]
     [IsoId("_2jasElECEee94_dUz-hvgw")]
     [Description(@"Invalid record format.")]
-    FormatError,
+    FormatError = FileActionResultCode.FormatError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested file action not supported.
-    /// Encoded/decoded by serializers as "NotSupported".
+    /// Encoded/decoded by serializers as "NSUP".
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_2tRyslECEee94_dUz-hvgw")]
     [Description(@"Requested file action not supported.")]
-    NotSupported,
+    NotSupported = FileActionResultCode.NotSupported, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of file action result
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_23jJAlECEee94_dUz-hvgw")]
     [Description(@"Other type of file action result")]
-    Other,
+    Other = FileActionResultCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action performed successfully
-    /// Encoded/decoded by serializers as "Successful".
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_3D14klECEee94_dUz-hvgw")]
     [Description(@"Action performed successfully")]
-    Successful,
+    Successful = FileActionResultCode.Successful, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identified record was not found.
-    /// Encoded/decoded by serializers as "UnableToLocateRecord".
+    /// Encoded/decoded by serializers as "UTLR".
     /// </summary>
     [EnumMember(Value = "UTLR")]
     [IsoId("_3NXA8lECEee94_dUz-hvgw")]
     [Description(@"Identified record was not found.")]
-    UnableToLocateRecord,
+    UnableToLocateRecord = FileActionResultCode.UnableToLocateRecord, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File is unknown.
-    /// Encoded/decoded by serializers as "UnknownFile".
+    /// Encoded/decoded by serializers as "UNKF".
     /// </summary>
     [EnumMember(Value = "UNKF")]
     [IsoId("_3b2I4lECEee94_dUz-hvgw")]
     [Description(@"File is unknown.")]
-    UnknownFile,
+    UnknownFile = FileActionResultCode.UnknownFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Action could not be performed.
-    /// Encoded/decoded by serializers as "Unsuccessful".
+    /// Encoded/decoded by serializers as "USUC".
     /// </summary>
     [EnumMember(Value = "USUC")]
     [IsoId("_3nfYMlECEee94_dUz-hvgw")]
     [Description(@"Action could not be performed.")]
-    Unsuccessful,
+    Unsuccessful = FileActionResultCode.Unsuccessful, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum FileActionResult1Code
 public static class FileActionResult1CodeMetadataExtensions
 {
     private static readonly FileActionResult1CodeDropdownSource _dropdownSource = new FileActionResult1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

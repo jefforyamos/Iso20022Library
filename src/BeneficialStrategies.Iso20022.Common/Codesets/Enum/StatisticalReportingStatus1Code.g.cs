@@ -21,84 +21,84 @@ public enum StatisticalReportingStatus1Code
 {
     /// <summary>
     /// Transaction or report has been accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_iNhH8djFEeSD0e0ybx5L5Q")]
     [Description(@"Transaction or report has been accepted.")]
-    Accepted,
+    Accepted = StatisticalReportingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction or report has passed syntactical and semantical validation.
-    /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_iUXW0djFEeSD0e0ybx5L5Q")]
     [Description(@"Transaction or report has passed syntactical and semantical validation.")]
-    AcceptedTechnicalValidation,
+    AcceptedTechnicalValidation = StatisticalReportingStatusCode.AcceptedTechnicalValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
-    /// Encoded/decoded by serializers as "PartiallyAccepted".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_iaw5wdjFEeSD0e0ybx5L5Q")]
     [Description(@"Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.")]
-    PartiallyAccepted,
+    PartiallyAccepted = StatisticalReportingStatusCode.PartiallyAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing of transaction or report is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ijYqQdjFEeSD0e0ybx5L5Q")]
     [Description(@"Processing of transaction or report is pending.")]
-    Pending,
+    Pending = StatisticalReportingStatusCode.Pending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Report has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_ipfSQdjFEeSD0e0ybx5L5Q")]
     [Description(@"Report has been received.")]
-    Received,
+    Received = StatisticalReportingStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_ixYC8djFEeSD0e0ybx5L5Q")]
     [Description(@"Transaction or report has been rejected.")]
-    Rejected,
+    Rejected = StatisticalReportingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reminder of a non received report.
-    /// Encoded/decoded by serializers as "Reminder".
+    /// Encoded/decoded by serializers as "RMDR".
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_2_4jUe2wEeS-SNPe_7uMwA")]
     [Description(@"Reminder of a non received report.")]
-    Reminder,
+    Reminder = StatisticalReportingStatusCode.Reminder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "IncorrectFilename".
+    /// Encoded/decoded by serializers as "INCF".
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_c9R3Ye8AEeSo-uJuUW33Ew")]
     [Description(@"File containing the report has an incorrect filename.")]
-    IncorrectFilename,
+    IncorrectFilename = StatisticalReportingStatusCode.IncorrectFilename, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CorruptedFile".
+    /// Encoded/decoded by serializers as "CRPT".
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_urYQ0e8AEeSo-uJuUW33Ew")]
     [Description(@"File containing the report is corrupted.")]
-    CorruptedFile,
+    CorruptedFile = StatisticalReportingStatusCode.CorruptedFile, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum StatisticalReportingStatus1Code
 public static class StatisticalReportingStatus1CodeMetadataExtensions
 {
     private static readonly StatisticalReportingStatus1CodeDropdownSource _dropdownSource = new StatisticalReportingStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

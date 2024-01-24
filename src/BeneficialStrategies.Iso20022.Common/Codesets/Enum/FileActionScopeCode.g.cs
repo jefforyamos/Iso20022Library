@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_NFe4o90mEeil7LQldntseg")]
 [Description(@"Indicates whether the action applies to a file or a record.")]
 [Derivations(typeof(FileActionScope1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FileActionScopeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum FileActionScopeCode
 public static class FileActionScopeCodeMetadataExtensions
 {
     private static readonly FileActionScopeCodeDropdownSource _dropdownSource = new FileActionScopeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

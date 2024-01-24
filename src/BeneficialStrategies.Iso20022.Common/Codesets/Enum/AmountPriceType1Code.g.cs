@@ -21,39 +21,39 @@ public enum AmountPriceType1Code
 {
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
-    /// Encoded/decoded by serializers as "ActualAmount".
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_begouNp-Ed-ak6NoX_4Aeg_150966940")]
     [Description(@"Price expressed as a currency and amount per unit or per share.")]
-    ActualAmount,
+    ActualAmount = AmountPriceTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price expressed as a discount amount.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_beqZsNp-Ed-ak6NoX_4Aeg_150966971")]
     [Description(@"Price expressed as a discount amount.")]
-    Discount,
+    Discount = AmountPriceTypeCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price expressed as an amount of money per lot.
-    /// Encoded/decoded by serializers as "Lot".
+    /// Encoded/decoded by serializers as "PLOT".
     /// </summary>
     [EnumMember(Value = "PLOT")]
     [IsoId("_beqZsdp-Ed-ak6NoX_4Aeg_150966972")]
     [Description(@"Price expressed as an amount of money per lot.")]
-    Lot,
+    Lot = AmountPriceTypeCode.Lot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Price expressed as a premium.
-    /// Encoded/decoded by serializers as "Premium".
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_beqZstp-Ed-ak6NoX_4Aeg_150966973")]
     [Description(@"Price expressed as a premium.")]
-    Premium,
+    Premium = AmountPriceTypeCode.Premium, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum AmountPriceType1Code
 public static class AmountPriceType1CodeMetadataExtensions
 {
     private static readonly AmountPriceType1CodeDropdownSource _dropdownSource = new AmountPriceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

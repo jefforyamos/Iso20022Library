@@ -21,39 +21,39 @@ public enum MarketType4Code
 {
     /// <summary>
     /// The place is a fund (transfer agent, fund itself, etc.).
-    /// Encoded/decoded by serializers as "Fund".
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aUmaVdp-Ed-ak6NoX_4Aeg_-1841693350")]
     [Description(@"The place is a fund (transfer agent, fund itself, etc.).")]
-    Fund,
+    Fund = MarketTypeCode.Fund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a local market.
-    /// Encoded/decoded by serializers as "LocalMarket".
+    /// Encoded/decoded by serializers as "LMAR".
     /// </summary>
     [EnumMember(Value = "LMAR")]
     [IsoId("_aUmaVtp-Ed-ak6NoX_4Aeg_-790560278")]
     [Description(@"The place is a local market.")]
-    LocalMarket,
+    LocalMarket = MarketTypeCode.LocalMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is theoretical.
-    /// Encoded/decoded by serializers as "Theoretical".
+    /// Encoded/decoded by serializers as "THEO".
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aUmaV9p-Ed-ak6NoX_4Aeg_1996754313")]
     [Description(@"The place is theoretical.")]
-    Theoretical,
+    Theoretical = MarketTypeCode.Theoretical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a vendor.
-    /// Encoded/decoded by serializers as "Vendor".
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aUmaWNp-Ed-ak6NoX_4Aeg_-831064220")]
     [Description(@"The place is a vendor.")]
-    Vendor,
+    Vendor = MarketTypeCode.Vendor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum MarketType4Code
 public static class MarketType4CodeMetadataExtensions
 {
     private static readonly MarketType4CodeDropdownSource _dropdownSource = new MarketType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

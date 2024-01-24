@@ -21,21 +21,21 @@ public enum DTCAutoOfferProgram1Code
 {
     /// <summary>
     /// No automated interface. Hardcopy reporting required.
-    /// Encoded/decoded by serializers as "Offine".
+    /// Encoded/decoded by serializers as "OFFL".
     /// </summary>
     [EnumMember(Value = "OFFL")]
     [IsoId("_1pa8kzL3EeKU9IrkkToqcw_1972857518")]
     [Description(@"No automated interface. Hardcopy reporting required.")]
-    Offine,
+    Offine = DTCAutoOfferProgramCode.Offine, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Automated interface for instruction processing is present.
-    /// Encoded/decoded by serializers as "Online".
+    /// Encoded/decoded by serializers as "ONLN".
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_1pa8lDL3EeKU9IrkkToqcw_-2041250817")]
     [Description(@"Automated interface for instruction processing is present.")]
-    Online,
+    Online = DTCAutoOfferProgramCode.Online, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DTCAutoOfferProgram1Code
 public static class DTCAutoOfferProgram1CodeMetadataExtensions
 {
     private static readonly DTCAutoOfferProgram1CodeDropdownSource _dropdownSource = new DTCAutoOfferProgram1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum ReorganisationWithdrawalTransactionType1Code
 {
     /// <summary>
     /// The reorganisation instruction cancellation is a protect withdrawal transaction.
-    /// Encoded/decoded by serializers as "ProtectWithdrawalTransaction".
+    /// Encoded/decoded by serializers as "PROW".
     /// </summary>
     [EnumMember(Value = "PROW")]
     [IsoId("_lB3O8cY0EeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a protect withdrawal transaction.")]
-    ProtectWithdrawalTransaction,
+    ProtectWithdrawalTransaction = ReorganisationWithdrawalTransactionTypeCode.ProtectWithdrawalTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.
-    /// Encoded/decoded by serializers as "VoluntaryOfferInstructionWithdrawal".
+    /// Encoded/decoded by serializers as "VOIW".
     /// </summary>
     [EnumMember(Value = "VOIW")]
     [IsoId("_lHqU8cY0EeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.")]
-    VoluntaryOfferInstructionWithdrawal,
+    VoluntaryOfferInstructionWithdrawal = ReorganisationWithdrawalTransactionTypeCode.VoluntaryOfferInstructionWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
-    /// Encoded/decoded by serializers as "WithdrawalProtectOnBehalfOfAnotherParticipant".
+    /// Encoded/decoded by serializers as "PRPW".
     /// </summary>
     [EnumMember(Value = "PRPW")]
     [IsoId("_lNURAcY0EeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.")]
-    WithdrawalProtectOnBehalfOfAnotherParticipant,
+    WithdrawalProtectOnBehalfOfAnotherParticipant = ReorganisationWithdrawalTransactionTypeCode.WithdrawalProtectOnBehalfOfAnotherParticipant, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReorganisationWithdrawalTransactionType1Code
 public static class ReorganisationWithdrawalTransactionType1CodeMetadataExtensions
 {
     private static readonly ReorganisationWithdrawalTransactionType1CodeDropdownSource _dropdownSource = new ReorganisationWithdrawalTransactionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

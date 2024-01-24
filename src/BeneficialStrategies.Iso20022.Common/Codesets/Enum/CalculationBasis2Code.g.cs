@@ -21,39 +21,39 @@ public enum CalculationBasis2Code
 {
     /// <summary>
     /// Average basis.
-    /// Encoded/decoded by serializers as "Average".
+    /// Encoded/decoded by serializers as "AVER".
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_bVR0Ndp-Ed-ak6NoX_4Aeg_-1779457837")]
     [Description(@"Average basis.")]
-    Average,
+    Average = CalculationBasisCode.Average, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Daily basis.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_bVR0Ntp-Ed-ak6NoX_4Aeg_-1779457820")]
     [Description(@"Daily basis.")]
-    Daily,
+    Daily = CalculationBasisCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Monthly basis.
-    /// Encoded/decoded by serializers as "Monthly".
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_bVR0N9p-Ed-ak6NoX_4Aeg_1334046994")]
     [Description(@"Monthly basis.")]
-    Monthly,
+    Monthly = CalculationBasisCode.Monthly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Yearly basis.
-    /// Encoded/decoded by serializers as "Annual".
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_bVR0ONp-Ed-ak6NoX_4Aeg_1334047012")]
     [Description(@"Yearly basis.")]
-    Annual,
+    Annual = CalculationBasisCode.Annual, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CalculationBasis2Code
 public static class CalculationBasis2CodeMetadataExtensions
 {
     private static readonly CalculationBasis2CodeDropdownSource _dropdownSource = new CalculationBasis2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

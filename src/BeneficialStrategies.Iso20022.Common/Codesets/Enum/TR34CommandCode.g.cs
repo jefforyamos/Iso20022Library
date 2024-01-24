@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hWYrAF2iEeekzJIz1JxYSQ")]
 [Description(@"Specific TR34 command that the ATM could perform.")]
 [Derivations(typeof(TR34Command1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TR34CommandCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum TR34CommandCode
 public static class TR34CommandCodeMetadataExtensions
 {
     private static readonly TR34CommandCodeDropdownSource _dropdownSource = new TR34CommandCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_k1I4cfNvEeqRfth943bvEA")]
 [Description(@"Specifies the status of an instruction.")]
 [Derivations(typeof(Status9Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatusV2Code
 {
     /// <summary>
@@ -173,7 +172,7 @@ public enum StatusV2Code
 public static class StatusV2CodeMetadataExtensions
 {
     private static readonly StatusV2CodeDropdownSource _dropdownSource = new StatusV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

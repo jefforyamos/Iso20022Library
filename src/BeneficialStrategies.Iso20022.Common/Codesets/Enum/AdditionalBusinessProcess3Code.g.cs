@@ -21,21 +21,21 @@ public enum AdditionalBusinessProcess3Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "ClaimOrCompensation".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_bqbk1Np-Ed-ak6NoX_4Aeg_1334000184")]
     [Description(@"Relates to a claim on the associated corporate action event.")]
-    ClaimOrCompensation,
+    ClaimOrCompensation = AdditionalBusinessProcessCode.ClaimOrCompensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TaxRefund".
+    /// Encoded/decoded by serializers as "TAXR".
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_bqbk1dp-Ed-ak6NoX_4Aeg_1334000217")]
     [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
-    TaxRefund,
+    TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AdditionalBusinessProcess3Code
 public static class AdditionalBusinessProcess3CodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcess3CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

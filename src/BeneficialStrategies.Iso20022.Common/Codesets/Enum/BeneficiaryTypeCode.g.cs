@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8byFsFNgEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of beneficiary.")]
 [Derivations(typeof(BeneficiaryType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BeneficiaryTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BeneficiaryTypeCode
 public static class BeneficiaryTypeCodeMetadataExtensions
 {
     private static readonly BeneficiaryTypeCodeDropdownSource _dropdownSource = new BeneficiaryTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

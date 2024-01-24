@@ -21,23 +21,21 @@ public enum CollateralAppliedExcess1Code
 {
     /// <summary>
     /// Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider.
-    /// 
-    /// Encoded/decoded by serializers as "Applied".
+    /// Encoded/decoded by serializers as "APLD".
     /// </summary>
     [EnumMember(Value = "APLD")]
     [IsoId("_v1E-sQF7EeutW5-TpeYJhA")]
-    [Description(@"Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider. ")]
-    Applied,
+    [Description(@"Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider.|")]
+    Applied = CollateralAppliedExcessCode.Applied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it.
-    /// 
-    /// Encoded/decoded by serializers as "Excess".
+    /// Encoded/decoded by serializers as "EXCS".
     /// </summary>
     [EnumMember(Value = "EXCS")]
     [IsoId("_v-TzMQF7EeutW5-TpeYJhA")]
-    [Description(@"Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it. ")]
-    Excess,
+    [Description(@"Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it.|")]
+    Excess = CollateralAppliedExcessCode.Excess, // same ordinal as derivation source for type conversions
     
 }
 
@@ -48,7 +46,7 @@ public enum CollateralAppliedExcess1Code
 public static class CollateralAppliedExcess1CodeMetadataExtensions
 {
     private static readonly CollateralAppliedExcess1CodeDropdownSource _dropdownSource = new CollateralAppliedExcess1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

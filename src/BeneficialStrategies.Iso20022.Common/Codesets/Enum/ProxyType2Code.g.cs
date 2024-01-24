@@ -21,30 +21,30 @@ public enum ProxyType2Code
 {
     /// <summary>
     /// Chairman of the meeting is the proxy.
-    /// Encoded/decoded by serializers as "Chairman".
+    /// Encoded/decoded by serializers as "CHRM".
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_ZWd-KNp-Ed-ak6NoX_4Aeg_-885468111")]
     [Description(@"Chairman of the meeting is the proxy.")]
-    Chairman,
+    Chairman = ProxyTypeCode.Chairman, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Any type of proxy is allowed.
-    /// Encoded/decoded by serializers as "Discretionary".
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_ZWnIENp-Ed-ak6NoX_4Aeg_-885468041")]
     [Description(@"Any type of proxy is allowed.")]
-    Discretionary,
+    Discretionary = ProxyTypeCode.Discretionary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Proxy can only be a security holder.
-    /// Encoded/decoded by serializers as "SecurityHolder".
+    /// Encoded/decoded by serializers as "HLDR".
     /// </summary>
     [EnumMember(Value = "HLDR")]
     [IsoId("_ZWnIEdp-Ed-ak6NoX_4Aeg_-1812267007")]
     [Description(@"Proxy can only be a security holder.")]
-    SecurityHolder,
+    SecurityHolder = ProxyTypeCode.SecurityHolder, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProxyType2Code
 public static class ProxyType2CodeMetadataExtensions
 {
     private static readonly ProxyType2CodeDropdownSource _dropdownSource = new ProxyType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

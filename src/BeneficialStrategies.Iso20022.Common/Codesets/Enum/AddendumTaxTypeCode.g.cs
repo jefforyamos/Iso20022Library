@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_o7g-JvJ7EeiJn9rM2Znz2w")]
 [Description(@"Specifies the specific type of tax(es) applicable to a transaction.")]
 [Derivations(typeof(AddendumTaxType1Code),typeof(AddendumTaxType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AddendumTaxTypeCode
 {
     /// <summary>
@@ -724,22 +723,20 @@ public enum AddendumTaxTypeCode
     
     /// <summary>
     /// Tax levied for the privelage of occupying space for home or rental for a fixed period of time, as determined by a taxing authority. 
-    /// 
     /// Encoded/decoded by serializers as "OCTX".
     /// </summary>
     [EnumMember(Value = "OCTX")]
     [IsoId("_4jmqQPLBEei1r_AoF1Xfwg")]
-    [Description(@"Tax levied for the privelage of occupying space for home or rental for a fixed period of time, as determined by a taxing authority.  ")]
+    [Description(@"Tax levied for the privelage of occupying space for home or rental for a fixed period of time, as determined by a taxing authority. |")]
     OccupancyTax,
     
     /// <summary>
     /// Type of gross receipts tax imposed for the privilege of carrying on a business, trade or profession.
-    /// 
     /// Encoded/decoded by serializers as "OPTX".
     /// </summary>
     [EnumMember(Value = "OPTX")]
     [IsoId("_5ZtWYPLCEei1r_AoF1Xfwg")]
-    [Description(@"Type of gross receipts tax imposed for the privilege of carrying on a business, trade or profession. ")]
+    [Description(@"Type of gross receipts tax imposed for the privilege of carrying on a business, trade or profession.|")]
     OccupationalTax,
     
     /// <summary>
@@ -1084,7 +1081,7 @@ public enum AddendumTaxTypeCode
 public static class AddendumTaxTypeCodeMetadataExtensions
 {
     private static readonly AddendumTaxTypeCodeDropdownSource _dropdownSource = new AddendumTaxTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

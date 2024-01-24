@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Emn04KH3EeuiuNcvKhXmNQ")]
 [Description(@"Identifies the security characteristic of the PIN entry device.")]
 [Derivations(typeof(PINEntrySecurityCharacteristic1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PINEntrySecurityCharacteristicCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum PINEntrySecurityCharacteristicCode
 public static class PINEntrySecurityCharacteristicCodeMetadataExtensions
 {
     private static readonly PINEntrySecurityCharacteristicCodeDropdownSource _dropdownSource = new PINEntrySecurityCharacteristicCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

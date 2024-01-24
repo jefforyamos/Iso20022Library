@@ -21,21 +21,21 @@ public enum FundOwnership1Code
 {
     /// <summary>
     /// All shares owned.
-    /// Encoded/decoded by serializers as "AllOwned".
+    /// Encoded/decoded by serializers as "YALL".
     /// </summary>
     [EnumMember(Value = "YALL")]
     [IsoId("_cYpsMSDYEeWCLu74WLgP4w")]
     [Description(@"All shares owned.")]
-    AllOwned,
+    AllOwned = FundOwnershipCode.AllOwned, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not all shares owned.
-    /// Encoded/decoded by serializers as "NotAllOwned".
+    /// Encoded/decoded by serializers as "NALL".
     /// </summary>
     [EnumMember(Value = "NALL")]
     [IsoId("_cfy2ASDYEeWCLu74WLgP4w")]
     [Description(@"Not all shares owned.")]
-    NotAllOwned,
+    NotAllOwned = FundOwnershipCode.NotAllOwned, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FundOwnership1Code
 public static class FundOwnership1CodeMetadataExtensions
 {
     private static readonly FundOwnership1CodeDropdownSource _dropdownSource = new FundOwnership1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

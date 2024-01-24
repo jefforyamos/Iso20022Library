@@ -21,21 +21,21 @@ public enum RefreshTime1Code
 {
     /// <summary>
     /// After each fill.
-    /// Encoded/decoded by serializers as "Immediate".
+    /// Encoded/decoded by serializers as "IMME".
     /// </summary>
     [EnumMember(Value = "IMME")]
     [IsoId("_Zayddtp-Ed-ak6NoX_4Aeg_820053979")]
     [Description(@"After each fill.")]
-    Immediate,
+    Immediate = RefreshTimeCode.Immediate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// When quantity to be displayed equals 0.
-    /// Encoded/decoded by serializers as "Exhaust".
+    /// Encoded/decoded by serializers as "EXHA".
     /// </summary>
     [EnumMember(Value = "EXHA")]
     [IsoId("_Zaydd9p-Ed-ak6NoX_4Aeg_820054304")]
     [Description(@"When quantity to be displayed equals 0.")]
-    Exhaust,
+    Exhaust = RefreshTimeCode.Exhaust, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RefreshTime1Code
 public static class RefreshTime1CodeMetadataExtensions
 {
     private static readonly RefreshTime1CodeDropdownSource _dropdownSource = new RefreshTime1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

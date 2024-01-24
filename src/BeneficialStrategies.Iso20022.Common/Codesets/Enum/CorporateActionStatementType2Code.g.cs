@@ -21,39 +21,39 @@ public enum CorporateActionStatementType2Code
 {
     /// <summary>
     /// Statement contains missing instructions.
-    /// Encoded/decoded by serializers as "Missing".
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_03aEEbtEEeilsanBGAzy4A")]
     [Description(@"Statement contains missing instructions.")]
-    Missing,
+    Missing = CorporateActionStatementTypeCode.Missing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement contains all instructions.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_03aEE7tEEeilsanBGAzy4A")]
     [Description(@"Statement contains all instructions.")]
-    All,
+    All = CorporateActionStatementTypeCode.All, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance information with no instruction details provided.
-    /// Encoded/decoded by serializers as "BalanceOnlyNotification".
+    /// Encoded/decoded by serializers as "BALO".
     /// </summary>
     [EnumMember(Value = "BALO")]
     [IsoId("_WIwwAbtFEeilsanBGAzy4A")]
     [Description(@"Balance information with no instruction details provided.")]
-    BalanceOnlyNotification,
+    BalanceOnlyNotification = CorporateActionStatementTypeCode.BalanceOnlyNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance information with instruction details.
-    /// Encoded/decoded by serializers as "BalanceInformation".
+    /// Encoded/decoded by serializers as "BALI".
     /// </summary>
     [EnumMember(Value = "BALI")]
     [IsoId("_WSKjortFEeilsanBGAzy4A")]
     [Description(@"Balance information with instruction details.")]
-    BalanceInformation,
+    BalanceInformation = CorporateActionStatementTypeCode.BalanceInformation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CorporateActionStatementType2Code
 public static class CorporateActionStatementType2CodeMetadataExtensions
 {
     private static readonly CorporateActionStatementType2CodeDropdownSource _dropdownSource = new CorporateActionStatementType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

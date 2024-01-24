@@ -21,48 +21,48 @@ public enum RepoCallAcknowledgementReason1Code
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZwscAdp-Ed-ak6NoX_4Aeg_1866536563")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RepoCallAcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repurchase agreement call is in process.
-    /// Encoded/decoded by serializers as "InProcess".
+    /// Encoded/decoded by serializers as "CALD".
     /// </summary>
     [EnumMember(Value = "CALD")]
     [IsoId("_ZwscAtp-Ed-ak6NoX_4Aeg_1866536564")]
     [Description(@"Repurchase agreement call is in process.")]
-    InProcess,
+    InProcess = RepoCallAcknowledgementReasonCode.InProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repurchase agreement call is issued.
-    /// Encoded/decoded by serializers as "Issued".
+    /// Encoded/decoded by serializers as "CALI".
     /// </summary>
     [EnumMember(Value = "CALI")]
     [IsoId("_ZwscA9p-Ed-ak6NoX_4Aeg_1866536594")]
     [Description(@"Repurchase agreement call is issued.")]
-    Issued,
+    Issued = RepoCallAcknowledgementReasonCode.Issued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repurchase agreement call is processed.
-    /// Encoded/decoded by serializers as "Processed".
+    /// Encoded/decoded by serializers as "CALP".
     /// </summary>
     [EnumMember(Value = "CALP")]
     [IsoId("_ZwscBNp-Ed-ak6NoX_4Aeg_1866536595")]
     [Description(@"Repurchase agreement call is processed.")]
-    Processed,
+    Processed = RepoCallAcknowledgementReasonCode.Processed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repurchase agreement call request is being processed.
-    /// Encoded/decoded by serializers as "BeingProcessed".
+    /// Encoded/decoded by serializers as "CALR".
     /// </summary>
     [EnumMember(Value = "CALR")]
     [IsoId("_ZwscBdp-Ed-ak6NoX_4Aeg_1866536873")]
     [Description(@"Repurchase agreement call request is being processed.")]
-    BeingProcessed,
+    BeingProcessed = RepoCallAcknowledgementReasonCode.BeingProcessed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RepoCallAcknowledgementReason1Code
 public static class RepoCallAcknowledgementReason1CodeMetadataExtensions
 {
     private static readonly RepoCallAcknowledgementReason1CodeDropdownSource _dropdownSource = new RepoCallAcknowledgementReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

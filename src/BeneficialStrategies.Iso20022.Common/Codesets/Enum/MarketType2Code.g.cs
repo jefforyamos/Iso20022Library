@@ -21,48 +21,48 @@ public enum MarketType2Code
 {
     /// <summary>
     /// The place is a primary market.
-    /// Encoded/decoded by serializers as "PrimaryMarket".
+    /// Encoded/decoded by serializers as "PRIM".
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_aUdQYtp-Ed-ak6NoX_4Aeg_-922054296")]
     [Description(@"The place is a primary market.")]
-    PrimaryMarket,
+    PrimaryMarket = MarketTypeCode.PrimaryMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a secondary market.
-    /// Encoded/decoded by serializers as "SecondaryMarket".
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_aUdQY9p-Ed-ak6NoX_4Aeg_-922054280")]
     [Description(@"The place is a secondary market.")]
-    SecondaryMarket,
+    SecondaryMarket = MarketTypeCode.SecondaryMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OverTheCounter".
+    /// Encoded/decoded by serializers as "OTCO".
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUdQZNp-Ed-ak6NoX_4Aeg_-922054262")]
     [Description(@"The place is over the counter.")]
-    OverTheCounter,
+    OverTheCounter = MarketTypeCode.OverTheCounter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "Various".
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_aUdQZdp-Ed-ak6NoX_4Aeg_-922054261")]
     [Description(@"Various places.")]
-    Various,
+    Various = MarketTypeCode.Various, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "StockExchange".
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aUdQZtp-Ed-ak6NoX_4Aeg_127744806")]
     [Description(@"The place is a stock exchange.")]
-    StockExchange,
+    StockExchange = MarketTypeCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum MarketType2Code
 public static class MarketType2CodeMetadataExtensions
 {
     private static readonly MarketType2CodeDropdownSource _dropdownSource = new MarketType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

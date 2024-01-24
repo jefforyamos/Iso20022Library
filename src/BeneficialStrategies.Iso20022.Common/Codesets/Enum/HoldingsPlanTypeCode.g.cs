@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1TJzwwnwEeGRcv5_yGDZOA")]
 [Description(@"Specifies the holdings plan of the assets to transfer.")]
 [Derivations(typeof(HoldingsPlanType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum HoldingsPlanTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum HoldingsPlanTypeCode
 public static class HoldingsPlanTypeCodeMetadataExtensions
 {
     private static readonly HoldingsPlanTypeCodeDropdownSource _dropdownSource = new HoldingsPlanTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

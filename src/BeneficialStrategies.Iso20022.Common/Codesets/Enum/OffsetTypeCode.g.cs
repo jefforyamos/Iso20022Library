@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aOo8RNp-Ed-ak6NoX_4Aeg_1061425595")]
 [Description(@"Type of peg offset or type of discretion offset (e.g. price offset, tick offset etc).")]
 [Derivations(typeof(OffsetType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OffsetTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum OffsetTypeCode
 public static class OffsetTypeCodeMetadataExtensions
 {
     private static readonly OffsetTypeCodeDropdownSource _dropdownSource = new OffsetTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

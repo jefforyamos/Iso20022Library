@@ -21,48 +21,48 @@ public enum CardPaymentServiceType10Code
 {
     /// <summary>
     /// Creation of an X.509 certificate with the public key and the information of the owner of the asymmetric key provided by the requestor.
-    /// Encoded/decoded by serializers as "CreateCertificate".
+    /// Encoded/decoded by serializers as "CRTC".
     /// </summary>
     [EnumMember(Value = "CRTC")]
     [IsoId("_wguZgY4MEeW6h7rGyYlyTg")]
     [Description(@"Creation of an X.509 certificate with the public key and the information of the owner of the asymmetric key provided by the requestor.")]
-    CreateCertificate,
+    CreateCertificate = CardPaymentServiceTypeCode.CreateCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Renewal of an X.509 certificate, protected by the certificate to renew.
-    /// Encoded/decoded by serializers as "RenewCerificate".
+    /// Encoded/decoded by serializers as "CRTR".
     /// </summary>
     [EnumMember(Value = "CRTR")]
     [IsoId("_xQaKA44MEeW6h7rGyYlyTg")]
     [Description(@"Renewal of an X.509 certificate, protected by the certificate to renew.")]
-    RenewCerificate,
+    RenewCerificate = CardPaymentServiceTypeCode.RenewCerificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Revocation of an active X.509 certificate.
-    /// Encoded/decoded by serializers as "RevokeCertificate".
+    /// Encoded/decoded by serializers as "CRTK".
     /// </summary>
     [EnumMember(Value = "CRTK")]
     [IsoId("_yQQdc44MEeW6h7rGyYlyTg")]
     [Description(@"Revocation of an active X.509 certificate.")]
-    RevokeCertificate,
+    RevokeCertificate = CardPaymentServiceTypeCode.RevokeCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remove a POI from the white list of the terminal manager.
-    /// Encoded/decoded by serializers as "RemoveWhiteList".
+    /// Encoded/decoded by serializers as "WLSR".
     /// </summary>
     [EnumMember(Value = "WLSR")]
     [IsoId("_zIS4s44MEeW6h7rGyYlyTg")]
     [Description(@"Remove a POI from the white list of the terminal manager.")]
-    RemoveWhiteList,
+    RemoveWhiteList = CardPaymentServiceTypeCode.RemoveWhiteList, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Add a POI in the white list of the terminal manager.
-    /// Encoded/decoded by serializers as "AddWhiteList".
+    /// Encoded/decoded by serializers as "WLSA".
     /// </summary>
     [EnumMember(Value = "WLSA")]
     [IsoId("_znLNE44MEeW6h7rGyYlyTg")]
     [Description(@"Add a POI in the white list of the terminal manager.")]
-    AddWhiteList,
+    AddWhiteList = CardPaymentServiceTypeCode.AddWhiteList, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CardPaymentServiceType10Code
 public static class CardPaymentServiceType10CodeMetadataExtensions
 {
     private static readonly CardPaymentServiceType10CodeDropdownSource _dropdownSource = new CardPaymentServiceType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

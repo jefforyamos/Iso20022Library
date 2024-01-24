@@ -21,48 +21,48 @@ public enum Status1Code
 {
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_Vp1UUdp-Ed-ak6NoX_4Aeg_-1876044207")]
     [Description(@"Instruction has been accepted and is validated for further processing.")]
-    Accepted,
+    Accepted = StatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_Vp1UUtp-Ed-ak6NoX_4Aeg_-1876043852")]
     [Description(@"Processing has been completed.")]
-    Completed,
+    Completed = StatusCode.Completed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No instruction has been received (to be used in a reminder).
-    /// Encoded/decoded by serializers as "NotReceived".
+    /// Encoded/decoded by serializers as "NOIN".
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_Vp1UU9p-Ed-ak6NoX_4Aeg_-1876043722")]
     [Description(@"No instruction has been received (to be used in a reminder).")]
-    NotReceived,
+    NotReceived = StatusCode.NotReceived, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_Vp1UVNp-Ed-ak6NoX_4Aeg_-1876043379")]
     [Description(@"Instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = StatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been received by Issuer.
-    /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_Vp1UVdp-Ed-ak6NoX_4Aeg_-1566097325")]
     [Description(@"Instruction has been received by Issuer.")]
-    ReceivedByIssuerOrRegistrar,
+    ReceivedByIssuerOrRegistrar = StatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum Status1Code
 public static class Status1CodeMetadataExtensions
 {
     private static readonly Status1CodeDropdownSource _dropdownSource = new Status1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

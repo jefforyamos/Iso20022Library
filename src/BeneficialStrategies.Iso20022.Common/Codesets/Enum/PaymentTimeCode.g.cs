@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Z73xQ9p-Ed-ak6NoX_4Aeg_-2012418215")]
 [Description(@"Specifies the payment conditions.")]
 [Derivations(typeof(PaymentTime1Code),typeof(PaymentTime2Code),typeof(PaymentTime3Code),typeof(PaymentTime4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentTimeCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum PaymentTimeCode
 public static class PaymentTimeCodeMetadataExtensions
 {
     private static readonly PaymentTimeCodeDropdownSource _dropdownSource = new PaymentTimeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

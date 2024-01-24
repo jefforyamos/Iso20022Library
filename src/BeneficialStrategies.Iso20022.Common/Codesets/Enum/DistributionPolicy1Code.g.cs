@@ -21,21 +21,21 @@ public enum DistributionPolicy1Code
 {
     /// <summary>
     /// Income is distributed to the investors in the fund.
-    /// Encoded/decoded by serializers as "Distribution".
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_awwx49p-Ed-ak6NoX_4Aeg_-433302196")]
     [Description(@"Income is distributed to the investors in the fund.")]
-    Distribution,
+    Distribution = DistributionPolicyCode.Distribution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income is added to the capital of the fund.
-    /// Encoded/decoded by serializers as "Accumulation".
+    /// Encoded/decoded by serializers as "ACCU".
     /// </summary>
     [EnumMember(Value = "ACCU")]
     [IsoId("_awwx5Np-Ed-ak6NoX_4Aeg_-433302187")]
     [Description(@"Income is added to the capital of the fund.")]
-    Accumulation,
+    Accumulation = DistributionPolicyCode.Accumulation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DistributionPolicy1Code
 public static class DistributionPolicy1CodeMetadataExtensions
 {
     private static readonly DistributionPolicy1CodeDropdownSource _dropdownSource = new DistributionPolicy1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

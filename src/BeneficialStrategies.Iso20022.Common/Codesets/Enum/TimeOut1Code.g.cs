@@ -21,21 +21,21 @@ public enum TimeOut1Code
 {
     /// <summary>
     /// Reason for time-out is the reaching of latest shipment date.
-    /// Encoded/decoded by serializers as "LatestShipmentDateDue".
+    /// Encoded/decoded by serializers as "LSDD".
     /// </summary>
     [EnumMember(Value = "LSDD")]
     [IsoId("_VrxOCNp-Ed-ak6NoX_4Aeg_1511821876")]
     [Description(@"Reason for time-out is the reaching of latest shipment date.")]
-    LatestShipmentDateDue,
+    LatestShipmentDateDue = TimeOutCode.LatestShipmentDateDue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason for time-out is the lack of action from the user side.
-    /// Encoded/decoded by serializers as "NoAction".
+    /// Encoded/decoded by serializers as "NACT".
     /// </summary>
     [EnumMember(Value = "NACT")]
     [IsoId("_Vr6_ANp-Ed-ak6NoX_4Aeg_1511821877")]
     [Description(@"Reason for time-out is the lack of action from the user side.")]
-    NoAction,
+    NoAction = TimeOutCode.NoAction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TimeOut1Code
 public static class TimeOut1CodeMetadataExtensions
 {
     private static readonly TimeOut1CodeDropdownSource _dropdownSource = new TimeOut1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Bb8GsQjcEeS5F6qHcKOrew")]
 [Description(@"Specifies the status of a plan.")]
 [Derivations(typeof(PlanStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PlanStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PlanStatusCode
 public static class PlanStatusCodeMetadataExtensions
 {
     private static readonly PlanStatusCodeDropdownSource _dropdownSource = new PlanStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

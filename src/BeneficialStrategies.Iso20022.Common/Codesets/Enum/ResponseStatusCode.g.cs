@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y94fANp-Ed-ak6NoX_4Aeg_1785427389")]
 [Description(@"Specifies the status of the received collateral message (collateral claim, a collateral proposal or a proposal/request for collateral substitution) from a collateral management perspective.")]
 [Derivations(typeof(ResponseStatus1Code),typeof(ResponseStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResponseStatusCode
 {
     /// <summary>
@@ -67,12 +66,11 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Collateral giver instruction details are not recognised.
-    /// 
     /// Encoded/decoded by serializers as "DKNY".
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_euTmgcf0EemlRYW9CHJ8_Q")]
-    [Description(@"Collateral giver instruction details are not recognised. ")]
+    [Description(@"Collateral giver instruction details are not recognised.|")]
     NotRecognised,
     
 }
@@ -84,7 +82,7 @@ public enum ResponseStatusCode
 public static class ResponseStatusCodeMetadataExtensions
 {
     private static readonly ResponseStatusCodeDropdownSource _dropdownSource = new ResponseStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

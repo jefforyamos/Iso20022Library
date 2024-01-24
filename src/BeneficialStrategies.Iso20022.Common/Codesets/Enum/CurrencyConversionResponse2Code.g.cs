@@ -21,66 +21,66 @@ public enum CurrencyConversionResponse2Code
 {
     /// <summary>
     /// Dynamic currency conversion may be offered to the cardholder.
-    /// Encoded/decoded by serializers as "Allowed".
+    /// Encoded/decoded by serializers as "ODCC".
     /// </summary>
     [EnumMember(Value = "ODCC")]
     [IsoId("_QZPRUa4ZEeW_TaP-ygI0SQ")]
     [Description(@"Dynamic currency conversion may be offered to the cardholder.")]
-    Allowed,
+    Allowed = CurrencyConversionResponseCode.Allowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The card is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "InvalidCard".
+    /// Encoded/decoded by serializers as "ICRD".
     /// </summary>
     [EnumMember(Value = "ICRD")]
     [IsoId("_QZPRVa4ZEeW_TaP-ygI0SQ")]
     [Description(@"The card is not valid for dynamic currency conversion.")]
-    InvalidCard,
+    InvalidCard = CurrencyConversionResponseCode.InvalidCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion service cannot be offered for this card product.
-    /// Encoded/decoded by serializers as "InvalidProduct".
+    /// Encoded/decoded by serializers as "IPRD".
     /// </summary>
     [EnumMember(Value = "IPRD")]
     [IsoId("_QZPRWa4ZEeW_TaP-ygI0SQ")]
     [Description(@"Dynamic currency conversion service cannot be offered for this card product.")]
-    InvalidProduct,
+    InvalidProduct = CurrencyConversionResponseCode.InvalidProduct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange rates are not available.
-    /// Encoded/decoded by serializers as "NoRate".
+    /// Encoded/decoded by serializers as "IRAT".
     /// </summary>
     [EnumMember(Value = "IRAT")]
     [IsoId("_QZPRW64ZEeW_TaP-ygI0SQ")]
     [Description(@"Exchange rates are not available.")]
-    NoRate,
+    NoRate = CurrencyConversionResponseCode.NoRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion is not available for other reason.
-    /// Encoded/decoded by serializers as "NotAvailable".
+    /// Encoded/decoded by serializers as "NDCC".
     /// </summary>
     [EnumMember(Value = "NDCC")]
     [IsoId("_QZPRXa4ZEeW_TaP-ygI0SQ")]
     [Description(@"Dynamic currency conversion is not available for other reason.")]
-    NotAvailable,
+    NotAvailable = CurrencyConversionResponseCode.NotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The ATM manager is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "InvalidATMManager".
+    /// Encoded/decoded by serializers as "IAMG".
     /// </summary>
     [EnumMember(Value = "IAMG")]
     [IsoId("_Ulf2Ya4ZEeW_TaP-ygI0SQ")]
     [Description(@"The ATM manager is not valid for dynamic currency conversion.")]
-    InvalidATMManager,
+    InvalidATMManager = CurrencyConversionResponseCode.InvalidATMManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The ATM is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "InvalidATM".
+    /// Encoded/decoded by serializers as "IATM".
     /// </summary>
     [EnumMember(Value = "IATM")]
     [IsoId("_UsWsUa4ZEeW_TaP-ygI0SQ")]
     [Description(@"The ATM is not valid for dynamic currency conversion.")]
-    InvalidATM,
+    InvalidATM = CurrencyConversionResponseCode.InvalidATM, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CurrencyConversionResponse2Code
 public static class CurrencyConversionResponse2CodeMetadataExtensions
 {
     private static readonly CurrencyConversionResponse2CodeDropdownSource _dropdownSource = new CurrencyConversionResponse2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

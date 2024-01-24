@@ -21,30 +21,30 @@ public enum NotificationStatus1Code
 {
     /// <summary>
     /// The notification contains all the details.
-    /// Encoded/decoded by serializers as "Complete".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_Vp_FVNp-Ed-ak6NoX_4Aeg_218831864")]
     [Description(@"The notification contains all the details.")]
-    Complete,
+    Complete = NotificationStatusCode.Complete, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "PreliminaryEventConfirmed".
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_Vp_FVdp-Ed-ak6NoX_4Aeg_232685128")]
     [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
-    PreliminaryEventConfirmed,
+    PreliminaryEventConfirmed = NotificationStatusCode.PreliminaryEventConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "PreliminaryEventUnconfirmed".
+    /// Encoded/decoded by serializers as "PREU".
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_Vp_FVtp-Ed-ak6NoX_4Aeg_288094847")]
     [Description(@"Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
-    PreliminaryEventUnconfirmed,
+    PreliminaryEventUnconfirmed = NotificationStatusCode.PreliminaryEventUnconfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NotificationStatus1Code
 public static class NotificationStatus1CodeMetadataExtensions
 {
     private static readonly NotificationStatus1CodeDropdownSource _dropdownSource = new NotificationStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

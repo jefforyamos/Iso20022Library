@@ -21,111 +21,111 @@ public enum AdditionalBusinessProcess7Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "ClaimOrCompensation".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_enxrsWH-EeWNUe-5HV3A_g")]
     [Description(@"Relates to a claim on the associated corporate action event.")]
-    ClaimOrCompensation,
+    ClaimOrCompensation = AdditionalBusinessProcessCode.ClaimOrCompensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TaxRefund".
+    /// Encoded/decoded by serializers as "TAXR".
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_enxrs2H-EeWNUe-5HV3A_g")]
     [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
-    TaxRefund,
+    TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "AutomaticMarketClaim".
+    /// Encoded/decoded by serializers as "ACLA".
     /// </summary>
     [EnumMember(Value = "ACLA")]
     [IsoId("_enxrtWH-EeWNUe-5HV3A_g")]
     [Description(@"Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).")]
-    AutomaticMarketClaim,
+    AutomaticMarketClaim = AdditionalBusinessProcessCode.AutomaticMarketClaim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
-    /// Encoded/decoded by serializers as "SubjectToTransformation".
+    /// Encoded/decoded by serializers as "ATXF".
     /// </summary>
     [EnumMember(Value = "ATXF")]
     [IsoId("_enxrt2H-EeWNUe-5HV3A_g")]
     [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).")]
-    SubjectToTransformation,
+    SubjectToTransformation = AdditionalBusinessProcessCode.SubjectToTransformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
-    /// Encoded/decoded by serializers as "CancelUnderlyingTrades".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_enxruWH-EeWNUe-5HV3A_g")]
     [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.")]
-    CancelUnderlyingTrades,
+    CancelUnderlyingTrades = AdditionalBusinessProcessCode.CancelUnderlyingTrades, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
-    /// Encoded/decoded by serializers as "Consent".
+    /// Encoded/decoded by serializers as "CONS".
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_enxru2H-EeWNUe-5HV3A_g")]
     [Description(@"Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).")]
-    Consent,
+    Consent = AdditionalBusinessProcessCode.Consent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "NoAutomaticMarketClaimsAndTransformations".
+    /// Encoded/decoded by serializers as "NAMC".
     /// </summary>
     [EnumMember(Value = "NAMC")]
     [IsoId("_enxrvWH-EeWNUe-5HV3A_g")]
     [Description(@"Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).")]
-    NoAutomaticMarketClaimsAndTransformations,
+    NoAutomaticMarketClaimsAndTransformations = AdditionalBusinessProcessCode.NoAutomaticMarketClaimsAndTransformations, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer only allows a single option to be selected per designated holding.
-    /// Encoded/decoded by serializers as "NoSplitElection".
+    /// Encoded/decoded by serializers as "NPLE".
     /// </summary>
     [EnumMember(Value = "NPLE")]
     [IsoId("_enxrv2H-EeWNUe-5HV3A_g")]
     [Description(@"Issuer only allows a single option to be selected per designated holding.")]
-    NoSplitElection,
+    NoSplitElection = AdditionalBusinessProcessCode.NoSplitElection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
-    /// Encoded/decoded by serializers as "SchemeOrPlanOfArrangement".
+    /// Encoded/decoded by serializers as "SCHM".
     /// </summary>
     [EnumMember(Value = "SCHM")]
     [IsoId("_enxrwWH-EeWNUe-5HV3A_g")]
     [Description(@"Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.")]
-    SchemeOrPlanOfArrangement,
+    SchemeOrPlanOfArrangement = AdditionalBusinessProcessCode.SchemeOrPlanOfArrangement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.
-    /// Encoded/decoded by serializers as "PartialMandatoryPutRedemption".
+    /// Encoded/decoded by serializers as "PPUT".
     /// </summary>
     [EnumMember(Value = "PPUT")]
     [IsoId("_iWagoWH-EeWNUe-5HV3A_g")]
     [Description(@"Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.")]
-    PartialMandatoryPutRedemption,
+    PartialMandatoryPutRedemption = AdditionalBusinessProcessCode.PartialMandatoryPutRedemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "PartialPreFunding".
+    /// Encoded/decoded by serializers as "PPRE".
     /// </summary>
     [EnumMember(Value = "PPRE")]
     [IsoId("_ngd4wWIAEeWNUe-5HV3A_g")]
     [Description(@"Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.")]
-    PartialPreFunding,
+    PartialPreFunding = AdditionalBusinessProcessCode.PartialPreFunding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "FullPrefunding".
+    /// Encoded/decoded by serializers as "FPRE".
     /// </summary>
     [EnumMember(Value = "FPRE")]
     [IsoId("_nlrI4WIAEeWNUe-5HV3A_g")]
     [Description(@"Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.")]
-    FullPrefunding,
+    FullPrefunding = AdditionalBusinessProcessCode.FullPrefunding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum AdditionalBusinessProcess7Code
 public static class AdditionalBusinessProcess7CodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcess7CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

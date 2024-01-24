@@ -21,30 +21,30 @@ public enum DataModification1Code
 {
     /// <summary>
     /// Insert a new set of data.
-    /// Encoded/decoded by serializers as "InsertNewDataSet".
+    /// Encoded/decoded by serializers as "INSE".
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_ax9Esdp-Ed-ak6NoX_4Aeg_-1785750283")]
     [Description(@"Insert a new set of data.")]
-    InsertNewDataSet,
+    InsertNewDataSet = DataModificationCode.InsertNewDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update the details of an existing set of data.
-    /// Encoded/decoded by serializers as "UpdateDataSetDetails".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_ax9Estp-Ed-ak6NoX_4Aeg_-1785750265")]
     [Description(@"Update the details of an existing set of data.")]
-    UpdateDataSetDetails,
+    UpdateDataSetDetails = DataModificationCode.UpdateDataSetDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delete an existing set of data.
-    /// Encoded/decoded by serializers as "DeleteDataSet".
+    /// Encoded/decoded by serializers as "DELT".
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ax9Es9p-Ed-ak6NoX_4Aeg_-1785749975")]
     [Description(@"Delete an existing set of data.")]
-    DeleteDataSet,
+    DeleteDataSet = DataModificationCode.DeleteDataSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DataModification1Code
 public static class DataModification1CodeMetadataExtensions
 {
     private static readonly DataModification1CodeDropdownSource _dropdownSource = new DataModification1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum AssetClassDetailedSubProductType8Code
 {
     /// <summary>
     /// Commodity attribute of type emissions allowance CER (Certified Emission Reduction).
-    /// Encoded/decoded by serializers as "CER".
+    /// Encoded/decoded by serializers as "CERE".
     /// </summary>
     [EnumMember(Value = "CERE")]
     [IsoId("_1e-MkQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type emissions allowance CER (Certified Emission Reduction).")]
-    CER,
+    CER = AssetClassDetailedSubProductTypeCode.CER, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance ERU (European Reduction Unit).
-    /// Encoded/decoded by serializers as "ERU".
+    /// Encoded/decoded by serializers as "ERUE".
     /// </summary>
     [EnumMember(Value = "ERUE")]
     [IsoId("_1lg5cQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type emissions allowance ERU (European Reduction Unit).")]
-    ERU,
+    ERU = AssetClassDetailedSubProductTypeCode.ERU, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance EUA (European Union Allowance).
-    /// Encoded/decoded by serializers as "EUA".
+    /// Encoded/decoded by serializers as "EUAE".
     /// </summary>
     [EnumMember(Value = "EUAE")]
     [IsoId("_1tslEQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type emissions allowance EUA (European Union Allowance).")]
-    EUA,
+    EUA = AssetClassDetailedSubProductTypeCode.EUA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).
@@ -53,16 +53,16 @@ public enum AssetClassDetailedSubProductType8Code
     [EnumMember(Value = "EUAA")]
     [IsoId("_12U8oQ2hEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).")]
-    EUAA,
+    EUAA = AssetClassDetailedSubProductTypeCode.EUAA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YVQEcfwfEeW4Wthd0Ze_kA")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AssetClassDetailedSubProductType8Code
 public static class AssetClassDetailedSubProductType8CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType8CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

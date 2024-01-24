@@ -21,93 +21,93 @@ public enum DataSetCategory10Code
 {
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AcquirerParameters".
+    /// Encoded/decoded by serializers as "AQPR".
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_UpxbYY35EeWRwov1g9WL_A")]
     [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
-    AcquirerParameters,
+    AcquirerParameters = DataSetCategoryCode.AcquirerParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "ApplicationParameters".
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_UpxbY435EeWRwov1g9WL_A")]
     [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
-    ApplicationParameters,
+    ApplicationParameters = DataSetCategoryCode.ApplicationParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The terminal manager is the master.
-    /// Encoded/decoded by serializers as "MasterTerminalManager".
+    /// Encoded/decoded by serializers as "MTMG".
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_UpxbZY35EeWRwov1g9WL_A")]
     [Description(@"The terminal manager is the master.")]
-    MasterTerminalManager,
+    MasterTerminalManager = DataSetCategoryCode.MasterTerminalManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MerchantParameters".
+    /// Encoded/decoded by serializers as "MRPR".
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_UpxbZ435EeWRwov1g9WL_A")]
     [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
-    MerchantParameters,
+    MerchantParameters = DataSetCategoryCode.MerchantParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Monitoring of the terminal estate.
-    /// Encoded/decoded by serializers as "Monitoring".
+    /// Encoded/decoded by serializers as "MTOR".
     /// </summary>
     [EnumMember(Value = "MTOR")]
     [IsoId("_UpxbaY35EeWRwov1g9WL_A")]
     [Description(@"Monitoring of the terminal estate.")]
-    Monitoring,
+    Monitoring = DataSetCategoryCode.Monitoring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
-    /// Encoded/decoded by serializers as "SecurityParameters".
+    /// Encoded/decoded by serializers as "SCPR".
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_Upxba435EeWRwov1g9WL_A")]
     [Description(@"Point of interaction parameters related to the security of software application and application protocol.")]
-    SecurityParameters,
+    SecurityParameters = DataSetCategoryCode.SecurityParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SoftwareModule".
+    /// Encoded/decoded by serializers as "SWPK".
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_UpxbbY35EeWRwov1g9WL_A")]
     [Description(@"Software module.")]
-    SoftwareModule,
+    SoftwareModule = DataSetCategoryCode.SoftwareModule, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TerminalParameters".
+    /// Encoded/decoded by serializers as "TRPR".
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_Upxbb435EeWRwov1g9WL_A")]
     [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
-    TerminalParameters,
+    TerminalParameters = DataSetCategoryCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CertificateParameters".
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_YHlmEY35EeWRwov1g9WL_A")]
     [Description(@"Certificate provided by a terminal manager.")]
-    CertificateParameters,
+    CertificateParameters = DataSetCategoryCode.CertificateParameters, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSProtocolParameters".
+    /// Encoded/decoded by serializers as "TMSP".
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_Yhq6AY35EeWRwov1g9WL_A")]
     [Description(@"Configuration parameters for the TMS protocol.")]
-    TMSProtocolParameters,
+    TMSProtocolParameters = DataSetCategoryCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum DataSetCategory10Code
 public static class DataSetCategory10CodeMetadataExtensions
 {
     private static readonly DataSetCategory10CodeDropdownSource _dropdownSource = new DataSetCategory10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

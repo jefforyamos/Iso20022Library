@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZX9L5Np-Ed-ak6NoX_4Aeg_336258243")]
 [Description(@"Indicates the type of quote request (e.g. manual vs. automatic) being generated.")]
 [Derivations(typeof(QuoteRequestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QuoteRequestTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum QuoteRequestTypeCode
 public static class QuoteRequestTypeCodeMetadataExtensions
 {
     private static readonly QuoteRequestTypeCodeDropdownSource _dropdownSource = new QuoteRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

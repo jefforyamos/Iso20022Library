@@ -21,21 +21,21 @@ public enum ConfirmationType1Code
 {
     /// <summary>
     /// Specifies that the message is an actual confirmation of the execution of a transfer request.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_Vi1UcNp-Ed-ak6NoX_4Aeg_1120574018")]
     [Description(@"Specifies that the message is an actual confirmation of the execution of a transfer request.")]
-    Actual,
+    Actual = ConfirmationTypeCode.Actual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.
-    /// Encoded/decoded by serializers as "Intent".
+    /// Encoded/decoded by serializers as "INTT".
     /// </summary>
     [EnumMember(Value = "INTT")]
     [IsoId("_Vi1Ucdp-Ed-ak6NoX_4Aeg_1120574036")]
     [Description(@"Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.")]
-    Intent,
+    Intent = ConfirmationTypeCode.Intent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ConfirmationType1Code
 public static class ConfirmationType1CodeMetadataExtensions
 {
     private static readonly ConfirmationType1CodeDropdownSource _dropdownSource = new ConfirmationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

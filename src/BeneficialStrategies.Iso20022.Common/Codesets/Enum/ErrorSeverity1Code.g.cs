@@ -21,21 +21,21 @@ public enum ErrorSeverity1Code
 {
     /// <summary>
     /// The error is considered fatal.
-    /// Encoded/decoded by serializers as "Fatal".
+    /// Encoded/decoded by serializers as "FATL".
     /// </summary>
     [EnumMember(Value = "FATL")]
     [IsoId("_sXHiUQ3EEeWH49U6bkyMaA")]
     [Description(@"The error is considered fatal.")]
-    Fatal,
+    Fatal = ErrorSeverityCode.Fatal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The error is considered transient.
-    /// Encoded/decoded by serializers as "Transient".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_sdgeMw3EEeWH49U6bkyMaA")]
     [Description(@"The error is considered transient.")]
-    Transient,
+    Transient = ErrorSeverityCode.Transient, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ErrorSeverity1Code
 public static class ErrorSeverity1CodeMetadataExtensions
 {
     private static readonly ErrorSeverity1CodeDropdownSource _dropdownSource = new ErrorSeverity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

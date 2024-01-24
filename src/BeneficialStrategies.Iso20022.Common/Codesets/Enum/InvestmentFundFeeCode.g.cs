@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_GX-V4DiAEeaH-93K5JKmzw")]
 [Description(@"Specifies the type of service for which a fee is asked or paid.")]
 [Derivations(typeof(InvestmentFundFee1Code),typeof(InvestmentFundFee2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestmentFundFeeCode
 {
     /// <summary>
@@ -245,7 +244,7 @@ public enum InvestmentFundFeeCode
 public static class InvestmentFundFeeCodeMetadataExtensions
 {
     private static readonly InvestmentFundFeeCodeDropdownSource _dropdownSource = new InvestmentFundFeeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

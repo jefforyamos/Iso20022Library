@@ -21,66 +21,66 @@ public enum OfferType2Code
 {
     /// <summary>
     /// Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.
-    /// Encoded/decoded by serializers as "DissenterRights".
+    /// Encoded/decoded by serializers as "DISS".
     /// </summary>
     [EnumMember(Value = "DISS")]
     [IsoId("_y2wbcS84EeKNZpaVtgp8Wg")]
     [Description(@"Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.")]
-    DissenterRights,
+    DissenterRights = OfferTypeV2Code.DissenterRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.
-    /// Encoded/decoded by serializers as "FinalOffer".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_zAvd4S84EeKNZpaVtgp8Wg")]
     [Description(@"Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.")]
-    FinalOffer,
+    FinalOffer = OfferTypeV2Code.FinalOffer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.
-    /// Encoded/decoded by serializers as "FirstComeFirstServed".
+    /// Encoded/decoded by serializers as "FCFS".
     /// </summary>
     [EnumMember(Value = "FCFS")]
     [IsoId("_zKR0YS84EeKNZpaVtgp8Wg")]
     [Description(@"Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.")]
-    FirstComeFirstServed,
+    FirstComeFirstServed = OfferTypeV2Code.FirstComeFirstServed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sale or purchase of odd lots to/from a third party other than the issuing company.
-    /// Encoded/decoded by serializers as "MiniOddLotOffer".
+    /// Encoded/decoded by serializers as "MINI".
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_zNaA4S84EeKNZpaVtgp8Wg")]
     [Description(@"Sale or purchase of odd lots to/from a third party other than the issuing company.")]
-    MiniOddLotOffer,
+    MiniOddLotOffer = OfferTypeV2Code.MiniOddLotOffer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.
-    /// Encoded/decoded by serializers as "PartialOffer".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_zWzNcS84EeKNZpaVtgp8Wg")]
     [Description(@"Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.")]
-    PartialOffer,
+    PartialOffer = OfferTypeV2Code.PartialOffer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exchange of Restricted to Unrestricted (or vice versa).
-    /// Encoded/decoded by serializers as "RestrictionExchange".
+    /// Encoded/decoded by serializers as "ERUN".
     /// </summary>
     [EnumMember(Value = "ERUN")]
     [IsoId("_zZxo8S84EeKNZpaVtgp8Wg")]
     [Description(@"Exchange of Restricted to Unrestricted (or vice versa).")]
-    RestrictionExchange,
+    RestrictionExchange = OfferTypeV2Code.RestrictionExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.
-    /// Encoded/decoded by serializers as "SqueezeOutBid".
+    /// Encoded/decoded by serializers as "SQUE".
     /// </summary>
     [EnumMember(Value = "SQUE")]
     [IsoId("_zjT_cS84EeKNZpaVtgp8Wg")]
     [Description(@"Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.")]
-    SqueezeOutBid,
+    SqueezeOutBid = OfferTypeV2Code.SqueezeOutBid, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum OfferType2Code
 public static class OfferType2CodeMetadataExtensions
 {
     private static readonly OfferType2CodeDropdownSource _dropdownSource = new OfferType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

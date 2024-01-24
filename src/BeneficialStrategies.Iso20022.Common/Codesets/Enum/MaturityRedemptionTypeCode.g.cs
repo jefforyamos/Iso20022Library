@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YghNmdp-Ed-ak6NoX_4Aeg_1836542162")]
 [Description(@"Indicates the type of redemption at maturity.")]
 [Derivations(typeof(MaturityRedemptionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MaturityRedemptionTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum MaturityRedemptionTypeCode
 public static class MaturityRedemptionTypeCodeMetadataExtensions
 {
     private static readonly MaturityRedemptionTypeCodeDropdownSource _dropdownSource = new MaturityRedemptionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

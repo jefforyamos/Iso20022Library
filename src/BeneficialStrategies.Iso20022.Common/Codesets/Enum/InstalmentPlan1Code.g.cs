@@ -21,30 +21,30 @@ public enum InstalmentPlan1Code
 {
     /// <summary>
     /// The payment is split in several instalments of equal amounts.
-    /// Encoded/decoded by serializers as "EqualPayment".
+    /// Encoded/decoded by serializers as "EQPM".
     /// </summary>
     [EnumMember(Value = "EQPM")]
     [IsoId("_VzJcoTDhEeO9waS4ina8CA")]
     [Description(@"The payment is split in several instalments of equal amounts.")]
-    EqualPayment,
+    EqualPayment = InstalmentPlanCode.EqualPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The payment is split in several instalments of different amounts.
-    /// Encoded/decoded by serializers as "InequalPayment".
+    /// Encoded/decoded by serializers as "NQPM".
     /// </summary>
     [EnumMember(Value = "NQPM")]
     [IsoId("_V4pnsTDhEeO9waS4ina8CA")]
     [Description(@"The payment is split in several instalments of different amounts.")]
-    InequalPayment,
+    InequalPayment = InstalmentPlanCode.InequalPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The first instalment is deferred.
-    /// Encoded/decoded by serializers as "DeferredInstalment".
+    /// Encoded/decoded by serializers as "DFRI".
     /// </summary>
     [EnumMember(Value = "DFRI")]
     [IsoId("_31iVITGrEeOVuYdyXoFwuA")]
     [Description(@"The first instalment is deferred.")]
-    DeferredInstalment,
+    DeferredInstalment = InstalmentPlanCode.DeferredInstalment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InstalmentPlan1Code
 public static class InstalmentPlan1CodeMetadataExtensions
 {
     private static readonly InstalmentPlan1CodeDropdownSource _dropdownSource = new InstalmentPlan1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

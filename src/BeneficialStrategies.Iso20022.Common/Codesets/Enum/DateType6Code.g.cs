@@ -21,30 +21,30 @@ public enum DateType6Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhotp-Ed-ak6NoX_4Aeg_988349228")]
     [Description(@"Open-dated, which indicates that the date has not been established.")]
-    Open,
+    Open = DateTypeCode.Open, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ayjho9p-Ed-ak6NoX_4Aeg_988349289")]
     [Description(@"Date is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "Ongoing".
+    /// Encoded/decoded by serializers as "ONGO".
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhpNp-Ed-ak6NoX_4Aeg_988349381")]
     [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
-    Ongoing,
+    Ongoing = DateTypeCode.Ongoing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DateType6Code
 public static class DateType6CodeMetadataExtensions
 {
     private static readonly DateType6CodeDropdownSource _dropdownSource = new DateType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

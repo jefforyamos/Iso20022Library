@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YcMuRdp-Ed-ak6NoX_4Aeg_-662678761")]
 [Description(@"Specifies if the collateral is to be delivered or returned.")]
 [Derivations(typeof(DeliverReturn1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeliverReturnCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DeliverReturnCode
 public static class DeliverReturnCodeMetadataExtensions
 {
     private static readonly DeliverReturnCodeDropdownSource _dropdownSource = new DeliverReturnCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

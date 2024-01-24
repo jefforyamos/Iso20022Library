@@ -21,30 +21,30 @@ public enum TransactionIndividualStatus5Code
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Cj0s50JIEeinU6Cqu8f2Ow")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    Rejected,
+    Rejected = PaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_Cj0s5kJIEeinU6Cqu8f2Ow")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = PaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement on the creditor's account has been completed. 
-    /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_rIE6kYXnEeizLI4uNYSjtg")]
     [Description(@"Settlement on the creditor's account has been completed. ")]
-    AcceptedCreditSettlementCompleted,
+    AcceptedCreditSettlementCompleted = PaymentStatusCode.AcceptedCreditSettlementCompleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TransactionIndividualStatus5Code
 public static class TransactionIndividualStatus5CodeMetadataExtensions
 {
     private static readonly TransactionIndividualStatus5CodeDropdownSource _dropdownSource = new TransactionIndividualStatus5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,318 +21,318 @@ public enum UnitOfMeasure1Code
 {
     /// <summary>
     /// Standard length of cloth, wallpaper, as an item for sale or amount of a substance.
-    /// Encoded/decoded by serializers as "Piece".
+    /// Encoded/decoded by serializers as "PIEC".
     /// </summary>
     [EnumMember(Value = "PIEC")]
     [IsoId("_TUTHJAEcEeCQm6a_G2yO_w_1207210081")]
     [Description(@"Standard length of cloth, wallpaper, as an item for sale or amount of a substance.")]
-    Piece,
+    Piece = UnitOfMeasureCode.Piece, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).
-    /// Encoded/decoded by serializers as "Ton".
+    /// Encoded/decoded by serializers as "TONS".
     /// </summary>
     [EnumMember(Value = "TONS")]
     [IsoId("_TUTHJQEcEeCQm6a_G2yO_w_50869229")]
     [Description(@"Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).")]
-    Ton,
+    Ton = UnitOfMeasureCode.Ton, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 1/3 yard.
-    /// Encoded/decoded by serializers as "Foot".
+    /// Encoded/decoded by serializers as "FOOT".
     /// </summary>
     [EnumMember(Value = "FOOT")]
     [IsoId("_TUTHJgEcEeCQm6a_G2yO_w_375986736")]
     [Description(@"Unit of length equal to 1/3 yard.")]
-    Foot,
+    Foot = UnitOfMeasureCode.Foot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "GBGallon".
+    /// Encoded/decoded by serializers as "GBGA".
     /// </summary>
     [EnumMember(Value = "GBGA")]
     [IsoId("_TUTHJwEcEeCQm6a_G2yO_w_-1981755387")]
     [Description(@"Unit of volume that is equal to 8 pints.")]
-    GBGallon,
+    GBGallon = UnitOfMeasureCode.GBGallon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "USGallon".
+    /// Encoded/decoded by serializers as "USGA".
     /// </summary>
     [EnumMember(Value = "USGA")]
     [IsoId("_TUTHKAEcEeCQm6a_G2yO_w_-998938276")]
     [Description(@"Unit of volume that is equal to 8 pints.")]
-    USGallon,
+    USGallon = UnitOfMeasureCode.USGallon, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to a 1, 000th of a kilo.
-    /// Encoded/decoded by serializers as "Gram".
+    /// Encoded/decoded by serializers as "GRAM".
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_TUTHKQEcEeCQm6a_G2yO_w_-1633970122")]
     [Description(@"Unit of measure that is equal to a 1, 000th of a kilo.")]
-    Gram,
+    Gram = UnitOfMeasureCode.Gram, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of length equal to 2.54 cm.
-    /// Encoded/decoded by serializers as "Inch".
+    /// Encoded/decoded by serializers as "INCH".
     /// </summary>
     [EnumMember(Value = "INCH")]
     [IsoId("_TUTHKgEcEeCQm6a_G2yO_w_303255051")]
     [Description(@"Measure of length equal to 2.54 cm.")]
-    Inch,
+    Inch = UnitOfMeasureCode.Inch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basic unit of mass in the SI system, 1000 grams.
-    /// Encoded/decoded by serializers as "Kilogram".
+    /// Encoded/decoded by serializers as "KILO".
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_TUTHKwEcEeCQm6a_G2yO_w_-555949784")]
     [Description(@"Basic unit of mass in the SI system, 1000 grams.")]
-    Kilogram,
+    Kilogram = UnitOfMeasureCode.Kilogram, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to 0.454 kilograms.
-    /// Encoded/decoded by serializers as "Pound".
+    /// Encoded/decoded by serializers as "PUND".
     /// </summary>
     [EnumMember(Value = "PUND")]
     [IsoId("_TUTHLAEcEeCQm6a_G2yO_w_1381275389")]
     [Description(@"Unit of weight equal to 0.454 kilograms.")]
-    Pound,
+    Pound = UnitOfMeasureCode.Pound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length in the metric system, equal to 39.37 inches.
-    /// Encoded/decoded by serializers as "Metre".
+    /// Encoded/decoded by serializers as "METR".
     /// </summary>
     [EnumMember(Value = "METR")]
     [IsoId("_TUTHLQEcEeCQm6a_G2yO_w_495183288")]
     [Description(@"Unit of length in the metric system, equal to 39.37 inches.")]
-    Metre,
+    Metre = UnitOfMeasureCode.Metre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to one hundredth of a metre.
-    /// Encoded/decoded by serializers as "Centimetre".
+    /// Encoded/decoded by serializers as "CMET".
     /// </summary>
     [EnumMember(Value = "CMET")]
     [IsoId("_TUTHLgEcEeCQm6a_G2yO_w_-1348685701")]
     [Description(@"Unit of measure that is equal to one hundredth of a metre.")]
-    Centimetre,
+    Centimetre = UnitOfMeasureCode.Centimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is a thousandth of one metre.
-    /// Encoded/decoded by serializers as "Millimetre".
+    /// Encoded/decoded by serializers as "MMET".
     /// </summary>
     [EnumMember(Value = "MMET")]
     [IsoId("_TUTHLwEcEeCQm6a_G2yO_w_588539472")]
     [Description(@"Unit of measure that is a thousandth of one metre.")]
-    Millimetre,
+    Millimetre = UnitOfMeasureCode.Millimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to a thousand cubic centimetres.
-    /// Encoded/decoded by serializers as "Litre".
+    /// Encoded/decoded by serializers as "LITR".
     /// </summary>
     [EnumMember(Value = "LITR")]
     [IsoId("_TUTHMAEcEeCQm6a_G2yO_w_-587920548")]
     [Description(@"Unit of volume that is equal to a thousand cubic centimetres.")]
-    Litre,
+    Litre = UnitOfMeasureCode.Litre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one hundredth of a litre.
-    /// Encoded/decoded by serializers as "Centilitre".
+    /// Encoded/decoded by serializers as "CELI".
     /// </summary>
     [EnumMember(Value = "CELI")]
     [IsoId("_TUTHMQEcEeCQm6a_G2yO_w_-905697209")]
     [Description(@"Unit of volume that is equal to one hundredth of a litre.")]
-    Centilitre,
+    Centilitre = UnitOfMeasureCode.Centilitre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to one thousandth of a litre.
-    /// Encoded/decoded by serializers as "MilliLitre".
+    /// Encoded/decoded by serializers as "MILI".
     /// </summary>
     [EnumMember(Value = "MILI")]
     [IsoId("_TUTHMgEcEeCQm6a_G2yO_w_1697089890")]
     [Description(@"Unit of volume that is equal to one thousandth of a litre.")]
-    MilliLitre,
+    MilliLitre = UnitOfMeasureCode.MilliLitre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "GBOunce".
+    /// Encoded/decoded by serializers as "GBOU".
     /// </summary>
     [EnumMember(Value = "GBOU")]
     [IsoId("_TUTHMwEcEeCQm6a_G2yO_w_-660652233")]
     [Description(@"Unit of weight equal to a sixteenth of a pound.")]
-    GBOunce,
+    GBOunce = UnitOfMeasureCode.GBOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "USOunce".
+    /// Encoded/decoded by serializers as "USOU".
     /// </summary>
     [EnumMember(Value = "USOU")]
     [IsoId("_TUTHNAEcEeCQm6a_G2yO_w_1685991113")]
     [Description(@"Unit of weight equal to a sixteenth of a pound.")]
-    USOunce,
+    USOunce = UnitOfMeasureCode.USOunce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "GBQuart".
+    /// Encoded/decoded by serializers as "GBQA".
     /// </summary>
     [EnumMember(Value = "GBQA")]
     [IsoId("_TUc4IAEcEeCQm6a_G2yO_w_-1557843111")]
     [Description(@"Unit of volume that is equal to 2 pints.")]
-    GBQuart,
+    GBQuart = UnitOfMeasureCode.GBQuart, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "USQuart".
+    /// Encoded/decoded by serializers as "USQA".
     /// </summary>
     [EnumMember(Value = "USQA")]
     [IsoId("_TUc4IQEcEeCQm6a_G2yO_w_379382062")]
     [Description(@"Unit of volume that is equal to 2 pints.")]
-    USQuart,
+    USQuart = UnitOfMeasureCode.USQuart, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 568 cubic centimetres.
-    /// Encoded/decoded by serializers as "GBPint".
+    /// Encoded/decoded by serializers as "GBPI".
     /// </summary>
     [EnumMember(Value = "GBPI")]
     [IsoId("_TUc4IgEcEeCQm6a_G2yO_w_1229471480")]
     [Description(@"Unit of volume that is equal to 568 cubic centimetres.")]
-    GBPint,
+    GBPint = UnitOfMeasureCode.GBPint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of volume that is equal to 473 cubic centimetres.
-    /// Encoded/decoded by serializers as "USPint".
+    /// Encoded/decoded by serializers as "USPI".
     /// </summary>
     [EnumMember(Value = "USPI")]
     [IsoId("_TUc4IwEcEeCQm6a_G2yO_w_1347342465")]
     [Description(@"Unit of volume that is equal to 473 cubic centimetres.")]
-    USPint,
+    USPint = UnitOfMeasureCode.USPint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "Mile".
+    /// Encoded/decoded by serializers as "MILE".
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_TUc4JAEcEeCQm6a_G2yO_w_-1010399658")]
     [Description(@"Unit of length equal to 1, 760 yards.")]
-    Mile,
+    Mile = UnitOfMeasureCode.Mile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to 1, 000 meters.
-    /// Encoded/decoded by serializers as "Kilometre".
+    /// Encoded/decoded by serializers as "KMET".
     /// </summary>
     [EnumMember(Value = "KMET")]
     [IsoId("_TUc4JQEcEeCQm6a_G2yO_w_1672459972")]
     [Description(@"Unit of measure that is equal to 1, 000 meters.")]
-    Kilometre,
+    Kilometre = UnitOfMeasureCode.Kilometre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of length equal to 3 feet or 0.9144 metre.
-    /// Encoded/decoded by serializers as "Yard".
+    /// Encoded/decoded by serializers as "YARD".
     /// </summary>
     [EnumMember(Value = "YARD")]
     [IsoId("_TUc4JgEcEeCQm6a_G2yO_w_297534960")]
     [Description(@"Unit of length equal to 3 feet or 0.9144 metre.")]
-    Yard,
+    Yard = UnitOfMeasureCode.Yard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one kilometre by one kilometre.
-    /// Encoded/decoded by serializers as "SquareKilometre".
+    /// Encoded/decoded by serializers as "SQKI".
     /// </summary>
     [EnumMember(Value = "SQKI")]
     [IsoId("_TUc4JwEcEeCQm6a_G2yO_w_751622229")]
     [Description(@"Measure of a surface, one kilometre by one kilometre.")]
-    SquareKilometre,
+    SquareKilometre = UnitOfMeasureCode.SquareKilometre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure that is equal to 10, 000 square meters.
-    /// Encoded/decoded by serializers as "Hectare".
+    /// Encoded/decoded by serializers as "HECT".
     /// </summary>
     [EnumMember(Value = "HECT")]
     [IsoId("_TUc4KAEcEeCQm6a_G2yO_w_-1606119894")]
     [Description(@"Unit of measure that is equal to 10, 000 square meters.")]
-    Hectare,
+    Hectare = UnitOfMeasureCode.Hectare, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure equal to a 100 square meters.
-    /// Encoded/decoded by serializers as "Are".
+    /// Encoded/decoded by serializers as "ARES".
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_TUc4KQEcEeCQm6a_G2yO_w_740523452")]
     [Description(@"Unit of measure equal to a 100 square meters.")]
-    Are,
+    Are = UnitOfMeasureCode.Are, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one metre by one metre.
-    /// Encoded/decoded by serializers as "SquareMetre".
+    /// Encoded/decoded by serializers as "SMET".
     /// </summary>
     [EnumMember(Value = "SMET")]
     [IsoId("_TUc4KgEcEeCQm6a_G2yO_w_2098334408")]
     [Description(@"Measure of a surface, one metre by one metre.")]
-    SquareMetre,
+    SquareMetre = UnitOfMeasureCode.SquareMetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one centimetre by one centimetre.
-    /// Encoded/decoded by serializers as "SquareCentimetre".
+    /// Encoded/decoded by serializers as "SCMT".
     /// </summary>
     [EnumMember(Value = "SCMT")]
     [IsoId("_TUc4KwEcEeCQm6a_G2yO_w_1482653875")]
     [Description(@"Measure of a surface, one centimetre by one centimetre.")]
-    SquareCentimetre,
+    SquareCentimetre = UnitOfMeasureCode.SquareCentimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one millimetre by one millimetre.
-    /// Encoded/decoded by serializers as "SquareMillimetre".
+    /// Encoded/decoded by serializers as "SMIL".
     /// </summary>
     [EnumMember(Value = "SMIL")]
     [IsoId("_TUc4LAEcEeCQm6a_G2yO_w_-875088248")]
     [Description(@"Measure of a surface, one millimetre by one millimetre.")]
-    SquareMillimetre,
+    SquareMillimetre = UnitOfMeasureCode.SquareMillimetre, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one mile by one mile.
-    /// Encoded/decoded by serializers as "SquareMile".
+    /// Encoded/decoded by serializers as "SQMI".
     /// </summary>
     [EnumMember(Value = "SQMI")]
     [IsoId("_TUc4LQEcEeCQm6a_G2yO_w_-2051548268")]
     [Description(@"Measure of a surface, one mile by one mile.")]
-    SquareMile,
+    SquareMile = UnitOfMeasureCode.SquareMile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one yard by one yard.
-    /// Encoded/decoded by serializers as "SquareYard".
+    /// Encoded/decoded by serializers as "SQYA".
     /// </summary>
     [EnumMember(Value = "SQYA")]
     [IsoId("_TUc4LgEcEeCQm6a_G2yO_w_-1597460999")]
     [Description(@"Measure of a surface, one yard by one yard.")]
-    SquareYard,
+    SquareYard = UnitOfMeasureCode.SquareYard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one foot by one foot.
-    /// Encoded/decoded by serializers as "SquareFoot".
+    /// Encoded/decoded by serializers as "SQFO".
     /// </summary>
     [EnumMember(Value = "SQFO")]
     [IsoId("_TUc4LwEcEeCQm6a_G2yO_w_339764174")]
     [Description(@"Measure of a surface, one foot by one foot.")]
-    SquareFoot,
+    SquareFoot = UnitOfMeasureCode.SquareFoot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Measure of a surface, one inch by one inch.
-    /// Encoded/decoded by serializers as "SquareInch".
+    /// Encoded/decoded by serializers as "SQIN".
     /// </summary>
     [EnumMember(Value = "SQIN")]
     [IsoId("_TUc4MAEcEeCQm6a_G2yO_w_233462170")]
     [Description(@"Measure of a surface, one inch by one inch.")]
-    SquareInch,
+    SquareInch = UnitOfMeasureCode.SquareInch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unit of measure equal to 4, 840 square yards.
-    /// Encoded/decoded by serializers as "Acre".
+    /// Encoded/decoded by serializers as "ACRE".
     /// </summary>
     [EnumMember(Value = "ACRE")]
     [IsoId("_TUc4MQEcEeCQm6a_G2yO_w_558579677")]
     [Description(@"Unit of measure equal to 4, 840 square yards.")]
-    Acre,
+    Acre = UnitOfMeasureCode.Acre, // same ordinal as derivation source for type conversions
     
 }
 
@@ -343,7 +343,7 @@ public enum UnitOfMeasure1Code
 public static class UnitOfMeasure1CodeMetadataExtensions
 {
     private static readonly UnitOfMeasure1CodeDropdownSource _dropdownSource = new UnitOfMeasure1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

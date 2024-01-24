@@ -21,21 +21,21 @@ public enum SaleTokenScope1Code
 {
     /// <summary>
     /// The token is generated to recognise a customer for a longer period.
-    /// Encoded/decoded by serializers as "MultipleUse".
+    /// Encoded/decoded by serializers as "MULT".
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_1z1xQdwsEeioifFt1dhnJA")]
     [Description(@"The token is generated to recognise a customer for a longer period.")]
-    MultipleUse,
+    MultipleUse = SaleTokenScopeCode.MultipleUse, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The token is generated to recognise  a customer during the lifetime of a transaction.
-    /// Encoded/decoded by serializers as "SingleUse".
+    /// Encoded/decoded by serializers as "SNGL".
     /// </summary>
     [EnumMember(Value = "SNGL")]
     [IsoId("_147FkdwsEeioifFt1dhnJA")]
     [Description(@"The token is generated to recognise  a customer during the lifetime of a transaction.")]
-    SingleUse,
+    SingleUse = SaleTokenScopeCode.SingleUse, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SaleTokenScope1Code
 public static class SaleTokenScope1CodeMetadataExtensions
 {
     private static readonly SaleTokenScope1CodeDropdownSource _dropdownSource = new SaleTokenScope1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

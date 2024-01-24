@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8UfE0F0fEeWErPfQ7BYx8A")]
 [Description(@"Specifies the type of a trading venue.")]
 [Derivations(typeof(TradingVenue2Code),typeof(TradingVenue1Code),typeof(MICEntityType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingVenueCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum TradingVenueCode
 public static class TradingVenueCodeMetadataExtensions
 {
     private static readonly TradingVenueCodeDropdownSource _dropdownSource = new TradingVenueCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

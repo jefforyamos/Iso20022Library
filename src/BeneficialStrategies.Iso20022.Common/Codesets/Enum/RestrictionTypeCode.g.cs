@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y94fBdp-Ed-ak6NoX_4Aeg_-1122710739")]
 [Description(@"Specifies the type of restriction.")]
 [Derivations(typeof(RestrictionType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RestrictionTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum RestrictionTypeCode
 public static class RestrictionTypeCodeMetadataExtensions
 {
     private static readonly RestrictionTypeCodeDropdownSource _dropdownSource = new RestrictionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

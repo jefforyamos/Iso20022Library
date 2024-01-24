@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KUh0kn1DEeCF8NjrBemJWQ_-888899515")]
 [Description(@"Additional process to perform before starting or after completing a terminal management action.")]
 [Derivations(typeof(TerminalManagementAdditionalProcess1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementAdditionalProcessCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TerminalManagementAdditionalProcessCode
 public static class TerminalManagementAdditionalProcessCodeMetadataExtensions
 {
     private static readonly TerminalManagementAdditionalProcessCodeDropdownSource _dropdownSource = new TerminalManagementAdditionalProcessCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

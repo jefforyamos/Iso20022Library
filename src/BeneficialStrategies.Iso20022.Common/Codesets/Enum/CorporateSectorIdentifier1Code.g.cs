@@ -21,75 +21,75 @@ public enum CorporateSectorIdentifier1Code
 {
     /// <summary>
     /// Alternative investment fund managed by an Alternative Investment Fund Manager (AIFM) authorised or registered in accordance with European Securities and Markets Authority (ESMA) Directive 2011/61/EU.
-    /// Encoded/decoded by serializers as "AlternativeInvestmentFund".
+    /// Encoded/decoded by serializers as "L".
     /// </summary>
     [EnumMember(Value = "L")]
     [IsoId("_h9rJUVBdEeOenoknK_-H2g")]
     [Description(@"Alternative investment fund managed by an Alternative Investment Fund Manager (AIFM) authorised or registered in accordance with European Securities and Markets Authority (ESMA) Directive 2011/61/EU.")]
-    AlternativeInvestmentFund,
+    AlternativeInvestmentFund = CorporateSectorIdentifierCode.AlternativeInvestmentFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Assurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2002/83/EC.
-    /// Encoded/decoded by serializers as "Assurance".
+    /// Encoded/decoded by serializers as "A".
     /// </summary>
     [EnumMember(Value = "A")]
     [IsoId("_iEFTUVBdEeOenoknK_-H2g")]
     [Description(@"Assurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2002/83/EC.")]
-    Assurance,
+    Assurance = CorporateSectorIdentifierCode.Assurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.
-    /// Encoded/decoded by serializers as "CreditInstitution".
+    /// Encoded/decoded by serializers as "C".
     /// </summary>
     [EnumMember(Value = "C")]
     [IsoId("_iKonQVBdEeOenoknK_-H2g")]
     [Description(@"Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.")]
-    CreditInstitution,
+    CreditInstitution = CorporateSectorIdentifierCode.CreditInstitution, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "I".
     /// </summary>
     [EnumMember(Value = "I")]
     [IsoId("_iQJZYVBdEeOenoknK_-H2g")]
     [Description(@"Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.")]
-    Insurance,
+    Insurance = CorporateSectorIdentifierCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.
-    /// Encoded/decoded by serializers as "InvestmentFirm".
+    /// Encoded/decoded by serializers as "F".
     /// </summary>
     [EnumMember(Value = "F")]
     [IsoId("_iXc7QVBdEeOenoknK_-H2g")]
     [Description(@"Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.")]
-    InvestmentFirm,
+    InvestmentFirm = CorporateSectorIdentifierCode.InvestmentFirm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.
-    /// Encoded/decoded by serializers as "OccupationalRetirementProvision".
+    /// Encoded/decoded by serializers as "O".
     /// </summary>
     [EnumMember(Value = "O")]
     [IsoId("_ihSMsVBdEeOenoknK_-H2g")]
     [Description(@"Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.")]
-    OccupationalRetirementProvision,
+    OccupationalRetirementProvision = CorporateSectorIdentifierCode.OccupationalRetirementProvision, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.
-    /// Encoded/decoded by serializers as "Reinsurance".
+    /// Encoded/decoded by serializers as "R".
     /// </summary>
     [EnumMember(Value = "R")]
     [IsoId("_inGg0VBdEeOenoknK_-H2g")]
     [Description(@"Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.")]
-    Reinsurance,
+    Reinsurance = CorporateSectorIdentifierCode.Reinsurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.
-    /// Encoded/decoded by serializers as "UCITS".
+    /// Encoded/decoded by serializers as "U".
     /// </summary>
     [EnumMember(Value = "U")]
     [IsoId("_itD-4VBdEeOenoknK_-H2g")]
     [Description(@"Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.")]
-    UCITS,
+    UCITS = CorporateSectorIdentifierCode.UCITS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum CorporateSectorIdentifier1Code
 public static class CorporateSectorIdentifier1CodeMetadataExtensions
 {
     private static readonly CorporateSectorIdentifier1CodeDropdownSource _dropdownSource = new CorporateSectorIdentifier1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

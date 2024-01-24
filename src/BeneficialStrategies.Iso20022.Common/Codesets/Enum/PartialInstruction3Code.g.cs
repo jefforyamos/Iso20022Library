@@ -21,30 +21,30 @@ public enum PartialInstruction3Code
 {
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HoldCashForCreditor".
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_ZxSR5Np-Ed-ak6NoX_4Aeg_528226787")]
     [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.")]
-    HoldCashForCreditor,
+    HoldCashForCreditor = InstructionCode.HoldCashForCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PhoneBeneficiary".
+    /// Encoded/decoded by serializers as "PHOB".
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_ZxSR5dp-Ed-ak6NoX_4Aeg_528226788")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
-    PhoneBeneficiary,
+    PhoneBeneficiary = InstructionCode.PhoneBeneficiary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "Telecom".
+    /// Encoded/decoded by serializers as "TELB".
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_ZxSR5tp-Ed-ak6NoX_4Aeg_528226818")]
     [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
-    Telecom,
+    Telecom = InstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PartialInstruction3Code
 public static class PartialInstruction3CodeMetadataExtensions
 {
     private static readonly PartialInstruction3CodeDropdownSource _dropdownSource = new PartialInstruction3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bdLL-dp-Ed-ak6NoX_4Aeg_335335188")]
 [Description(@"Basis price type in a bid order. Used for list trading.")]
 [Derivations(typeof(BasisPriceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BasisPriceTypeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum BasisPriceTypeCode
 public static class BasisPriceTypeCodeMetadataExtensions
 {
     private static readonly BasisPriceTypeCodeDropdownSource _dropdownSource = new BasisPriceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

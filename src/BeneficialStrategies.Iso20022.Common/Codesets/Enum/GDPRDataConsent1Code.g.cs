@@ -21,39 +21,39 @@ public enum GDPRDataConsent1Code
 {
     /// <summary>
     /// Consent to authorise the controller of personal data processing to process personal data for marketing purposes.
-    /// Encoded/decoded by serializers as "ConsentMarketing".
+    /// Encoded/decoded by serializers as "DP00".
     /// </summary>
     [EnumMember(Value = "DP00")]
     [IsoId("_0hh6cZUsEemIb43KZS2tHA")]
     [Description(@"Consent to authorise the controller of personal data processing to process personal data for marketing purposes.")]
-    ConsentMarketing,
+    ConsentMarketing = GDPRDataConsentCode.ConsentMarketing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.
-    /// Encoded/decoded by serializers as "ConsentProfilingTargeted".
+    /// Encoded/decoded by serializers as "DP03".
     /// </summary>
     [EnumMember(Value = "DP03")]
     [IsoId("_0wQ6AZUsEemIb43KZS2tHA")]
     [Description(@"Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.")]
-    ConsentProfilingTargeted,
+    ConsentProfilingTargeted = GDPRDataConsentCode.ConsentProfilingTargeted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.
-    /// Encoded/decoded by serializers as "ConsentTransferSameMarketing".
+    /// Encoded/decoded by serializers as "DP01".
     /// </summary>
     [EnumMember(Value = "DP01")]
     [IsoId("_01KoIZUsEemIb43KZS2tHA")]
     [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.")]
-    ConsentTransferSameMarketing,
+    ConsentTransferSameMarketing = GDPRDataConsentCode.ConsentTransferSameMarketing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.
-    /// Encoded/decoded by serializers as "ConsentTransferThirdPartyMarketing".
+    /// Encoded/decoded by serializers as "DP02".
     /// </summary>
     [EnumMember(Value = "DP02")]
     [IsoId("_1E8JgZUsEemIb43KZS2tHA")]
     [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.")]
-    ConsentTransferThirdPartyMarketing,
+    ConsentTransferThirdPartyMarketing = GDPRDataConsentCode.ConsentTransferThirdPartyMarketing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum GDPRDataConsent1Code
 public static class GDPRDataConsent1CodeMetadataExtensions
 {
     private static readonly GDPRDataConsent1CodeDropdownSource _dropdownSource = new GDPRDataConsent1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

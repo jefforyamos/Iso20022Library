@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_SbbakLKdEeiXL6Ccd-oU8g")]
 [Description(@"Specifies a type of lump sum.")]
 [Derivations(typeof(LumpSumType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LumpSumTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum LumpSumTypeCode
 public static class LumpSumTypeCodeMetadataExtensions
 {
     private static readonly LumpSumTypeCodeDropdownSource _dropdownSource = new LumpSumTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

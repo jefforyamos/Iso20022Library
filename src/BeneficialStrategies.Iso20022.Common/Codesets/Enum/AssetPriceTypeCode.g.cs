@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EnANEBsTEeWhp-Wous5jzA")]
 [Description(@"Specifies the type of price for an asset.")]
 [Derivations(typeof(AssetPriceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AssetPriceTypeCode
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum AssetPriceTypeCode
 public static class AssetPriceTypeCodeMetadataExtensions
 {
     private static readonly AssetPriceTypeCodeDropdownSource _dropdownSource = new AssetPriceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

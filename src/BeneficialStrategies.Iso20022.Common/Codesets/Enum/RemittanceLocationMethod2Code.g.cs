@@ -21,57 +21,57 @@ public enum RemittanceLocationMethod2Code
 {
     /// <summary>
     /// Remittance advice information must be faxed.
-    /// Encoded/decoded by serializers as "Fax".
+    /// Encoded/decoded by serializers as "FAXI".
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_ZsX8tdp-Ed-ak6NoX_4Aeg_-517543060")]
     [Description(@"Remittance advice information must be faxed.")]
-    Fax,
+    Fax = RemittanceLocationMethodCode.Fax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remittance advice information must be sent through Electronic Data Interchange (EDI).
-    /// Encoded/decoded by serializers as "ElectronicDataInterchange".
+    /// Encoded/decoded by serializers as "EDIC".
     /// </summary>
     [EnumMember(Value = "EDIC")]
     [IsoId("_ZsX8ttp-Ed-ak6NoX_4Aeg_-517543029")]
     [Description(@"Remittance advice information must be sent through Electronic Data Interchange (EDI).")]
-    ElectronicDataInterchange,
+    ElectronicDataInterchange = RemittanceLocationMethodCode.ElectronicDataInterchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.
-    /// Encoded/decoded by serializers as "UniformResourceIdentifier".
+    /// Encoded/decoded by serializers as "URID".
     /// </summary>
     [EnumMember(Value = "URID")]
     [IsoId("_ZsX8t9p-Ed-ak6NoX_4Aeg_-517543028")]
     [Description(@"Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.")]
-    UniformResourceIdentifier,
+    UniformResourceIdentifier = RemittanceLocationMethodCode.UniformResourceIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remittance advice information must be sent through e-mail.
-    /// Encoded/decoded by serializers as "EMail".
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_ZsX8uNp-Ed-ak6NoX_4Aeg_-517542998")]
     [Description(@"Remittance advice information must be sent through e-mail.")]
-    EMail,
+    EMail = RemittanceLocationMethodCode.EMail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remittance advice information must be sent through postal services.
-    /// Encoded/decoded by serializers as "Post".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_ZsX8udp-Ed-ak6NoX_4Aeg_-517542968")]
     [Description(@"Remittance advice information must be sent through postal services.")]
-    Post,
+    Post = RemittanceLocationMethodCode.Post, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Remittance advice information must be sent through by phone as a short message service (SMS).
-    /// Encoded/decoded by serializers as "SMS".
+    /// Encoded/decoded by serializers as "SMSM".
     /// </summary>
     [EnumMember(Value = "SMSM")]
     [IsoId("_ZshGoNp-Ed-ak6NoX_4Aeg_-333762381")]
     [Description(@"Remittance advice information must be sent through by phone as a short message service (SMS).")]
-    SMS,
+    SMS = RemittanceLocationMethodCode.SMS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum RemittanceLocationMethod2Code
 public static class RemittanceLocationMethod2CodeMetadataExtensions
 {
     private static readonly RemittanceLocationMethod2CodeDropdownSource _dropdownSource = new RemittanceLocationMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

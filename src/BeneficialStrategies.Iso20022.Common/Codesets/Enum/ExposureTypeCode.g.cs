@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_alvNodp-Ed-ak6NoX_4Aeg_1976296742")]
 [Description(@"Short sale exposure.")]
-[Derivations(typeof(ExposureType1Code),typeof(ExposureType2Code),typeof(ExposureType4Code),typeof(ExposureType5Code),typeof(ExposureType6Code),typeof(ExposureType8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(ExposureType5Code),typeof(ExposureType6Code),typeof(ExposureType2Code),typeof(ExposureType4Code),typeof(ExposureType1Code),typeof(ExposureType8Code))]
 public enum ExposureTypeCode
 {
     /// <summary>
@@ -337,14 +336,11 @@ public enum ExposureTypeCode
     
     /// <summary>
     /// Total open market credit operations.
-    /// 
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "EOMO".
     /// </summary>
     [EnumMember(Value = "EOMO")]
     [IsoId("_jq-3sALsEeutW5-TpeYJhA")]
-    [Description(@"Total open market credit operations.   ")]
+    [Description(@"Total open market credit operations.|||")]
     TotalOpenMarketCreditOperations,
     
     /// <summary>
@@ -394,12 +390,11 @@ public enum ExposureTypeCode
     
     /// <summary>
     /// Total credit.
-    /// 
     /// Encoded/decoded by serializers as "ECRT".
     /// </summary>
     [EnumMember(Value = "ECRT")]
     [IsoId("_pQzbQALtEeutW5-TpeYJhA")]
-    [Description(@"Total credit. ")]
+    [Description(@"Total credit.|")]
     TotalCredit,
     
     /// <summary>
@@ -420,7 +415,7 @@ public enum ExposureTypeCode
 public static class ExposureTypeCodeMetadataExtensions
 {
     private static readonly ExposureTypeCodeDropdownSource _dropdownSource = new ExposureTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

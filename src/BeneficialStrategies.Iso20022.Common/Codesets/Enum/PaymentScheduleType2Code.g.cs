@@ -21,30 +21,30 @@ public enum PaymentScheduleType2Code
 {
     /// <summary>
     /// Payment schedule is defined as per contract.
-    /// Encoded/decoded by serializers as "Contract".
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_k51YEbb0Eeu9Cp6InX88Vw")]
     [Description(@"Payment schedule is defined as per contract.")]
-    Contract,
+    Contract = PaymentScheduleTypeCode.Contract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment schedule is estimated.
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_k-B7kbb0Eeu9Cp6InX88Vw")]
     [Description(@"Payment schedule is estimated.")]
-    Estimated,
+    Estimated = PaymentScheduleTypeCode.Estimated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract Payment schedule is both defined as per Contract and estimated.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_pFQPobb0Eeu9Cp6InX88Vw")]
     [Description(@"Contract Payment schedule is both defined as per Contract and estimated.")]
-    Both,
+    Both = PaymentScheduleTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentScheduleType2Code
 public static class PaymentScheduleType2CodeMetadataExtensions
 {
     private static readonly PaymentScheduleType2CodeDropdownSource _dropdownSource = new PaymentScheduleType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum ATMTransactionStatus2Code
 {
     /// <summary>
     /// Total presented amount is equal to the amount to dispense.
-    /// Encoded/decoded by serializers as "Full".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_-SIj4YqSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is equal to the amount to dispense.")]
-    Full,
+    Full = ATMTransactionStatusCode.Full, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total presented amount is lower than the amount to dispense.
-    /// Encoded/decoded by serializers as "Partial".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_-fsew4qSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is lower than the amount to dispense.")]
-    Partial,
+    Partial = ATMTransactionStatusCode.Partial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total presented amount is equal to zero.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_-szts4qSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is equal to zero.")]
-    None,
+    None = ATMTransactionStatusCode.None, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ATMTransactionStatus2Code
 public static class ATMTransactionStatus2CodeMetadataExtensions
 {
     private static readonly ATMTransactionStatus2CodeDropdownSource _dropdownSource = new ATMTransactionStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

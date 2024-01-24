@@ -21,39 +21,39 @@ public enum CorporateActionCalculationMethod1Code
 {
     /// <summary>
     /// Pro-rata for drawings.
-    /// Encoded/decoded by serializers as "ProRata".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bCgCI9p-Ed-ak6NoX_4Aeg_-666370477")]
     [Description(@"Pro-rata for drawings.")]
-    ProRata,
+    ProRata = CorporateActionCalculationMethodCode.ProRata, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lottery for drawings.
-    /// Encoded/decoded by serializers as "Lottery".
+    /// Encoded/decoded by serializers as "LOTT".
     /// </summary>
     [EnumMember(Value = "LOTT")]
     [IsoId("_bCgCJNp-Ed-ak6NoX_4Aeg_-666370476")]
     [Description(@"Lottery for drawings.")]
-    Lottery,
+    Lottery = CorporateActionCalculationMethodCode.Lottery, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reduction of nominal for partial redemption.
-    /// Encoded/decoded by serializers as "NominalReduction".
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_bCgCJdp-Ed-ak6NoX_4Aeg_-666370467")]
     [Description(@"Reduction of nominal for partial redemption.")]
-    NominalReduction,
+    NominalReduction = CorporateActionCalculationMethodCode.NominalReduction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Without reduction of nominal (via pool factor) for partial redemption.
-    /// Encoded/decoded by serializers as "NoNominalReduction".
+    /// Encoded/decoded by serializers as "NNOM".
     /// </summary>
     [EnumMember(Value = "NNOM")]
     [IsoId("_bCgCJtp-Ed-ak6NoX_4Aeg_-666370446")]
     [Description(@"Without reduction of nominal (via pool factor) for partial redemption.")]
-    NoNominalReduction,
+    NoNominalReduction = CorporateActionCalculationMethodCode.NoNominalReduction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CorporateActionCalculationMethod1Code
 public static class CorporateActionCalculationMethod1CodeMetadataExtensions
 {
     private static readonly CorporateActionCalculationMethod1CodeDropdownSource _dropdownSource = new CorporateActionCalculationMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

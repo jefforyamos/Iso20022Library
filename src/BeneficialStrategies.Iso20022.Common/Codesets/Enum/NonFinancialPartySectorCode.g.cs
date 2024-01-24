@@ -17,57 +17,51 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_H2VH0BQYEeWSI-Fz8Zwg6g")]
 [Description(@"Specifies the sector of a party with non financial activities.")]
 [Derivations(typeof(NonFinancialPartySector1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NonFinancialPartySectorCode
 {
     /// <summary>
     /// Agriculture, forestry and fishing activities.
-    /// 
     /// Encoded/decoded by serializers as "AGRI".
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_KwGxUBQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Agriculture, forestry and fishing activities. ")]
+    [Description(@"Agriculture, forestry and fishing activities.|")]
     AgricultureForestryAndFishing,
     
     /// <summary>
     /// Mining and quarrying activities.
-    /// 
     /// Encoded/decoded by serializers as "MING".
     /// </summary>
     [EnumMember(Value = "MING")]
     [IsoId("_K9peEBQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Mining and quarrying activities. ")]
+    [Description(@"Mining and quarrying activities.|")]
     MiningAndQuarrying,
     
     /// <summary>
     /// Manufacturing activities.
-    /// 
     /// Encoded/decoded by serializers as "MAFG".
     /// </summary>
     [EnumMember(Value = "MAFG")]
     [IsoId("_K_db8BQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Manufacturing activities. ")]
+    [Description(@"Manufacturing activities.|")]
     Manufacturing,
     
     /// <summary>
     /// Electricity, gas, steam and air conditioning supply activities.
-    /// 
     /// Encoded/decoded by serializers as "SPLY".
     /// </summary>
     [EnumMember(Value = "SPLY")]
     [IsoId("_LA_F8BQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Electricity, gas, steam and air conditioning supply activities. ")]
+    [Description(@"Electricity, gas, steam and air conditioning supply activities.|")]
     ElectricityGasSteamAndAirConditioningSupply,
     
     /// <summary>
     /// Water supply, sewerage, waste management and remediation activities.
-    /// 
     /// Encoded/decoded by serializers as "WTER".
     /// </summary>
     [EnumMember(Value = "WTER")]
     [IsoId("_LCzD0BQYEeWSI-Fz8Zwg6g")]
-    [Description(@"Water supply, sewerage, waste management and remediation activities. ")]
+    [Description(@"Water supply, sewerage, waste management and remediation activities.|")]
     WaterSupplySewerageWasteManagementAndRemediation,
     
     /// <summary>
@@ -135,32 +129,29 @@ public enum NonFinancialPartySectorCode
     
     /// <summary>
     /// Professional, scientific and technical activities.
-    /// 
     /// Encoded/decoded by serializers as "PSTA".
     /// </summary>
     [EnumMember(Value = "PSTA")]
     [IsoId("_WRLf8BVZEeWLrt6TQWUeiw")]
-    [Description(@"Professional, scientific and technical activities. ")]
+    [Description(@"Professional, scientific and technical activities.|")]
     ProfessionalScientificAndTechnicalActivity,
     
     /// <summary>
     /// Administrative and support service activities.
-    /// 
     /// Encoded/decoded by serializers as "ASSA".
     /// </summary>
     [EnumMember(Value = "ASSA")]
     [IsoId("_WRea4BVZEeWLrt6TQWUeiw")]
-    [Description(@"Administrative and support service activities. ")]
+    [Description(@"Administrative and support service activities.|")]
     AdministrativeAndSupportServiceActivity,
     
     /// <summary>
     /// Public administration and defence, compulsory social security.
-    /// 
     /// Encoded/decoded by serializers as "PADS".
     /// </summary>
     [EnumMember(Value = "PADS")]
     [IsoId("_WZqGgBVZEeWLrt6TQWUeiw")]
-    [Description(@"Public administration and defence, compulsory social security. ")]
+    [Description(@"Public administration and defence, compulsory social security.|")]
     PublicAdministrationAndDefence,
     
     /// <summary>
@@ -183,12 +174,11 @@ public enum NonFinancialPartySectorCode
     
     /// <summary>
     /// Arts, entertainment and recreation activities.
-    /// 
     /// Encoded/decoded by serializers as "AEAR".
     /// </summary>
     [EnumMember(Value = "AEAR")]
     [IsoId("_WqUYsBVZEeWLrt6TQWUeiw")]
-    [Description(@"Arts, entertainment and recreation activities. ")]
+    [Description(@"Arts, entertainment and recreation activities.|")]
     ArtsEntertainmentAndRecreation,
     
     /// <summary>
@@ -211,12 +201,11 @@ public enum NonFinancialPartySectorCode
     
     /// <summary>
     /// Activities of extraterritorial organisations and bodies.
-    /// 
     /// Encoded/decoded by serializers as "AEOB".
     /// </summary>
     [EnumMember(Value = "AEOB")]
     [IsoId("_W6054BVZEeWLrt6TQWUeiw")]
-    [Description(@"Activities of extraterritorial organisations and bodies. ")]
+    [Description(@"Activities of extraterritorial organisations and bodies.|")]
     ActivityOfExtraterritorialOrganisationAndBody,
     
 }
@@ -228,7 +217,7 @@ public enum NonFinancialPartySectorCode
 public static class NonFinancialPartySectorCodeMetadataExtensions
 {
     private static readonly NonFinancialPartySectorCodeDropdownSource _dropdownSource = new NonFinancialPartySectorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum Operation3Code
 {
     /// <summary>
     /// Indicates that only when all if all of its elements are valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "And".
+    /// Encoded/decoded by serializers as "ANDD".
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_zxpM0dGyEeaokquJJ-K6uA")]
     [Description(@"Indicates that only when all if all of its elements are valid, the whole expression is valid.")]
-    And,
+    And = OperationV2Code.And, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that when at least one of its elements is valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "Or".
+    /// Encoded/decoded by serializers as "ORRR".
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_0EAIItGyEeaokquJJ-K6uA")]
     [Description(@"Indicates that when at least one of its elements is valid, the whole expression is valid.")]
-    Or,
+    Or = OperationV2Code.Or, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Operation3Code
 public static class Operation3CodeMetadataExtensions
 {
     private static readonly Operation3CodeDropdownSource _dropdownSource = new Operation3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

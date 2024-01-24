@@ -21,48 +21,48 @@ public enum RejectionReason20Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FailedValidation".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zi-wKNp-Ed-ak6NoX_4Aeg_-482612999")]
     [Description(@"The validation of the advice/instruction/request failed.")]
-    FailedValidation,
+    FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to identify cash account.
-    /// Encoded/decoded by serializers as "NotIdentifiedCashAccount".
+    /// Encoded/decoded by serializers as "CASA".
     /// </summary>
     [EnumMember(Value = "CASA")]
     [IsoId("_ZjIhINp-Ed-ak6NoX_4Aeg_-482612969")]
     [Description(@"Unable to identify cash account.")]
-    NotIdentifiedCashAccount,
+    NotIdentifiedCashAccount = RejectionReasonCode.NotIdentifiedCashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unable to identify correspondent bank.
-    /// Encoded/decoded by serializers as "NotIdentifiedCorrespondentBank".
+    /// Encoded/decoded by serializers as "CORR".
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_ZjIhIdp-Ed-ak6NoX_4Aeg_-482612938")]
     [Description(@"Unable to identify correspondent bank.")]
-    NotIdentifiedCorrespondentBank,
+    NotIdentifiedCorrespondentBank = RejectionReasonCode.NotIdentifiedCorrespondentBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid standing instruction type for the specified underlying security.
-    /// Encoded/decoded by serializers as "InvalidStandingInstructionType".
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_ZjIhItp-Ed-ak6NoX_4Aeg_-482612937")]
     [Description(@"Invalid standing instruction type for the specified underlying security.")]
-    InvalidStandingInstructionType,
+    InvalidStandingInstructionType = RejectionReasonCode.InvalidStandingInstructionType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No holding for the specified underlying security.
-    /// Encoded/decoded by serializers as "NoHolding".
+    /// Encoded/decoded by serializers as "NOHO".
     /// </summary>
     [EnumMember(Value = "NOHO")]
     [IsoId("_ZjIhI9p-Ed-ak6NoX_4Aeg_-482612907")]
     [Description(@"No holding for the specified underlying security.")]
-    NoHolding,
+    NoHolding = RejectionReasonCode.NoHolding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RejectionReason20Code
 public static class RejectionReason20CodeMetadataExtensions
 {
     private static readonly RejectionReason20CodeDropdownSource _dropdownSource = new RejectionReason20CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

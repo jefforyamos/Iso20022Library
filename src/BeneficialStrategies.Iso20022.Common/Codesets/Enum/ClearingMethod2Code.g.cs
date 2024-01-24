@@ -21,57 +21,57 @@ public enum ClearingMethod2Code
 {
     /// <summary>
     /// Day clearing.
-    /// Encoded/decoded by serializers as "Day".
+    /// Encoded/decoded by serializers as "DAYC".
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_CO0dUX0lEemfrNOe0zHQyg")]
     [Description(@"Day clearing.")]
-    Day,
+    Day = ClearingMethodCode.Day, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing to be deferred in time.
-    /// Encoded/decoded by serializers as "Deferred".
+    /// Encoded/decoded by serializers as "DFRD".
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_CO0dU30lEemfrNOe0zHQyg")]
     [Description(@"Clearing to be deferred in time.")]
-    Deferred,
+    Deferred = ClearingMethodCode.Deferred, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing for instant payments and transfers.
-    /// Encoded/decoded by serializers as "Instant".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_CO0dVX0lEemfrNOe0zHQyg")]
     [Description(@"Clearing for instant payments and transfers.")]
-    Instant,
+    Instant = ClearingMethodCode.Instant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of clearing method defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_CO0dV30lEemfrNOe0zHQyg")]
     [Description(@"Other type of clearing method defined at national level.")]
-    OtherNational,
+    OtherNational = ClearingMethodCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of clearing method defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_CO0dWX0lEemfrNOe0zHQyg")]
     [Description(@"Other type of clearing method defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = ClearingMethodCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing done in real time.
-    /// Encoded/decoded by serializers as "RealTime".
+    /// Encoded/decoded by serializers as "RLTM".
     /// </summary>
     [EnumMember(Value = "RLTM")]
     [IsoId("_CO0dW30lEemfrNOe0zHQyg")]
     [Description(@"Clearing done in real time.")]
-    RealTime,
+    RealTime = ClearingMethodCode.RealTime, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ClearingMethod2Code
 public static class ClearingMethod2CodeMetadataExtensions
 {
     private static readonly ClearingMethod2CodeDropdownSource _dropdownSource = new ClearingMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

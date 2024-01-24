@@ -16,54 +16,54 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_GvpZEHr4EeSZrs_hiwNOWA")]
-[Description(@"Card writing capabilities of the terminal performing the transaction.  It correspond to the ISO 8583, field number 22-10 for the version 93, and 27-8_9 for the version 2003.")]
+[Description(@"Card writing capabilities of the terminal performing the transaction. |It correspond to the ISO 8583, field number 22-10 for the version 93, and 27-8_9 for the version 2003.")]
 [DerivedFrom(typeof(CardDataReadingCode))]
 public enum CardDataReading3Code
 {
     /// <summary>
     /// Card information are stored on a file.
-    /// Encoded/decoded by serializers as "CardOnFile".
+    /// Encoded/decoded by serializers as "CDFL".
     /// </summary>
     [EnumMember(Value = "CDFL")]
     [IsoId("_Sd-ocXr4EeSZrs_hiwNOWA")]
     [Description(@"Card information are stored on a file.")]
-    CardOnFile,
+    CardOnFile = CardDataReadingCode.CardOnFile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVProximityReader".
+    /// Encoded/decoded by serializers as "ECTL".
     /// </summary>
     [EnumMember(Value = "ECTL")]
     [IsoId("_Slb7UXr4EeSZrs_hiwNOWA")]
     [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
-    EMVProximityReader,
+    EMVProximityReader = CardDataReadingCode.EMVProximityReader, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
-    /// Encoded/decoded by serializers as "ICC".
+    /// Encoded/decoded by serializers as "CICC".
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_SxD8gXr4EeSZrs_hiwNOWA")]
     [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
-    ICC,
+    ICC = CardDataReadingCode.ICC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MagneticStripe".
+    /// Encoded/decoded by serializers as "MGST".
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_Thq6EXr4EeSZrs_hiwNOWA")]
     [Description(@"Magnetic stripe.")]
-    MagneticStripe,
+    MagneticStripe = CardDataReadingCode.MagneticStripe, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contactless proximity reader.
-    /// Encoded/decoded by serializers as "ProximityReader".
+    /// Encoded/decoded by serializers as "CTLS".
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_T1l7oXr4EeSZrs_hiwNOWA")]
     [Description(@"Contactless proximity reader.")]
-    ProximityReader,
+    ProximityReader = CardDataReadingCode.ProximityReader, // same ordinal as derivation source for type conversions
     
 }
 
@@ -74,7 +74,7 @@ public enum CardDataReading3Code
 public static class CardDataReading3CodeMetadataExtensions
 {
     private static readonly CardDataReading3CodeDropdownSource _dropdownSource = new CardDataReading3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

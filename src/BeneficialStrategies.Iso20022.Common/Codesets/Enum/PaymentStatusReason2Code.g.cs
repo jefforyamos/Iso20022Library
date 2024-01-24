@@ -21,48 +21,48 @@ public enum PaymentStatusReason2Code
 {
     /// <summary>
     /// The transaction processing cannot be completed the same day.
-    /// Encoded/decoded by serializers as "CreditDebitNotConfirmed".
+    /// Encoded/decoded by serializers as "G002".
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_m3wxgaXaEeaBtJ1HvhzRtg")]
     [Description(@"The transaction processing cannot be completed the same day.")]
-    CreditDebitNotConfirmed,
+    CreditDebitNotConfirmed = ExternalPaymentStatusReasonCode.CreditDebitNotConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
-    /// Encoded/decoded by serializers as "CreditPendingFunds".
+    /// Encoded/decoded by serializers as "G004".
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_m8ReEaXaEeaBtJ1HvhzRtg")]
     [Description(@"Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.")]
-    CreditPendingFunds,
+    CreditPendingFunds = ExternalPaymentStatusReasonCode.CreditPendingFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.
-    /// Encoded/decoded by serializers as "PaymentTransferredAndSLAMaintained".
+    /// Encoded/decoded by serializers as "G000".
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_nGkpkaXaEeaBtJ1HvhzRtg")]
     [Description(@"The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.")]
-    PaymentTransferredAndSLAMaintained,
+    PaymentTransferredAndSLAMaintained = ExternalPaymentStatusReasonCode.PaymentTransferredAndSLAMaintained, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "PaymentTransferredAndSLANoLongerMaintained".
+    /// Encoded/decoded by serializers as "G001".
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_nLJnkaXaEeaBtJ1HvhzRtg")]
     [Description(@"The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.")]
-    PaymentTransferredAndSLANoLongerMaintained,
+    PaymentTransferredAndSLANoLongerMaintained = ExternalPaymentStatusReasonCode.PaymentTransferredAndSLANoLongerMaintained, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
-    /// Encoded/decoded by serializers as "CreditPendingDocuments".
+    /// Encoded/decoded by serializers as "G003".
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_eqFg0aZbEeatnf2letP_og")]
     [Description(@"In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.")]
-    CreditPendingDocuments,
+    CreditPendingDocuments = ExternalPaymentStatusReasonCode.CreditPendingDocuments, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum PaymentStatusReason2Code
 public static class PaymentStatusReason2CodeMetadataExtensions
 {
     private static readonly PaymentStatusReason2CodeDropdownSource _dropdownSource = new PaymentStatusReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

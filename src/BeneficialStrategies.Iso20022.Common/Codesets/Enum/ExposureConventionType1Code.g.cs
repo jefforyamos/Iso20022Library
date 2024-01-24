@@ -21,21 +21,21 @@ public enum ExposureConventionType1Code
 {
     /// <summary>
     /// Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation, and then two separate variation margin requirements will be determined.
-    /// Encoded/decoded by serializers as "Gross".
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_YczLMdp-Ed-ak6NoX_4Aeg_-886123604")]
     [Description(@"Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation, and then two separate variation margin requirements will be determined.")]
-    Gross,
+    Gross = ExposureConventionTypeCode.Gross, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation.
-    /// Encoded/decoded by serializers as "Net".
+    /// Encoded/decoded by serializers as "NET1".
     /// </summary>
     [EnumMember(Value = "NET1")]
     [IsoId("_YczLMtp-Ed-ak6NoX_4Aeg_528113018")]
     [Description(@"Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation.")]
-    Net,
+    Net = ExposureConventionTypeCode.Net, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ExposureConventionType1Code
 public static class ExposureConventionType1CodeMetadataExtensions
 {
     private static readonly ExposureConventionType1CodeDropdownSource _dropdownSource = new ExposureConventionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

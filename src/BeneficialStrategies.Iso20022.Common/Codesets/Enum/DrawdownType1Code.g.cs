@@ -21,21 +21,21 @@ public enum DrawdownType1Code
 {
     /// <summary>
     /// Drawdown type is capped.
-    /// Encoded/decoded by serializers as "CappedIncomeDrawdown".
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_uQaTgVNdEeijdq8ilaxyOA")]
     [Description(@"Drawdown type is capped.")]
-    CappedIncomeDrawdown,
+    CappedIncomeDrawdown = DrawdownTypeCode.CappedIncomeDrawdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Drawdown type is flexi-access.
-    /// Encoded/decoded by serializers as "FlexibleAccessDrawdown".
+    /// Encoded/decoded by serializers as "FLEX".
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_uVnjoVNdEeijdq8ilaxyOA")]
     [Description(@"Drawdown type is flexi-access.")]
-    FlexibleAccessDrawdown,
+    FlexibleAccessDrawdown = DrawdownTypeCode.FlexibleAccessDrawdown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DrawdownType1Code
 public static class DrawdownType1CodeMetadataExtensions
 {
     private static readonly DrawdownType1CodeDropdownSource _dropdownSource = new DrawdownType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

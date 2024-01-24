@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_8KMm4qMgEeCJ6YNENx4h-w_-228547867")]
 [Description(@"Specifies the nature of the system balance.")]
 [Derivations(typeof(SystemBalanceType1Code),typeof(SystemBalanceType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemBalanceTypeCode
 {
     /// <summary>
@@ -301,13 +300,12 @@ public enum SystemBalanceTypeCode
     
     /// <summary>
     /// Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between a central securities depository and the user.
-    /// 
     /// Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.
     /// Encoded/decoded by serializers as "PIPO".
     /// </summary>
     [EnumMember(Value = "PIPO")]
     [IsoId("_8KzD0aMgEeCJ6YNENx4h-w_-1728574893")]
-    [Description(@"Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between a central securities depository and the user.  Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
+    [Description(@"Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between a central securities depository and the user.||Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
     PayInPayOut,
     
     /// <summary>
@@ -985,7 +983,7 @@ public enum SystemBalanceTypeCode
 public static class SystemBalanceTypeCodeMetadataExtensions
 {
     private static readonly SystemBalanceTypeCodeDropdownSource _dropdownSource = new SystemBalanceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

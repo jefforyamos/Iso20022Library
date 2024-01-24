@@ -21,66 +21,66 @@ public enum FundOrderType4Code
 {
     /// <summary>
     /// Investment fund order is part of a bed and breakfast transaction.
-    /// Encoded/decoded by serializers as "BedAndBreakfast".
+    /// Encoded/decoded by serializers as "BEDB".
     /// </summary>
     [EnumMember(Value = "BEDB")]
     [IsoId("_atL5dNp-Ed-ak6NoX_4Aeg_-88838356")]
     [Description(@"Investment fund order is part of a bed and breakfast transaction.")]
-    BedAndBreakfast,
+    BedAndBreakfast = FundOrderTypeCode.BedAndBreakfast, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is related to an investment plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "InvestmentPlan".
+    /// Encoded/decoded by serializers as "INVP".
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_atL5ddp-Ed-ak6NoX_4Aeg_-88838340")]
     [Description(@"Investment fund order is related to an investment plan (only applicable to a subscription).")]
-    InvestmentPlan,
+    InvestmentPlan = FundOrderTypeCode.InvestmentPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is executed with specific pre-advice conditions.
-    /// Encoded/decoded by serializers as "PreAdvice".
+    /// Encoded/decoded by serializers as "PREA".
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_atL5dtp-Ed-ak6NoX_4Aeg_-88838321")]
     [Description(@"Investment fund order is executed with specific pre-advice conditions.")]
-    PreAdvice,
+    PreAdvice = FundOrderTypeCode.PreAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a staff order.
-    /// Encoded/decoded by serializers as "StaffOrder".
+    /// Encoded/decoded by serializers as "STAF".
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_atL5d9p-Ed-ak6NoX_4Aeg_-88837953")]
     [Description(@"Investment fund order is a staff order.")]
-    StaffOrder,
+    StaffOrder = FundOrderTypeCode.StaffOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RegularSavingsPlan".
+    /// Encoded/decoded by serializers as "RGSV".
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_atL5eNp-Ed-ak6NoX_4Aeg_-88837936")]
     [Description(@"Investment fund order is a regular savings plan (only applicable to a subscription).")]
-    RegularSavingsPlan,
+    RegularSavingsPlan = FundOrderTypeCode.RegularSavingsPlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RegularSavingsPlanUpdate".
+    /// Encoded/decoded by serializers as "RGSU".
     /// </summary>
     [EnumMember(Value = "RGSU")]
     [IsoId("_atL5edp-Ed-ak6NoX_4Aeg_-21423674")]
     [Description(@"Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).")]
-    RegularSavingsPlanUpdate,
+    RegularSavingsPlanUpdate = FundOrderTypeCode.RegularSavingsPlanUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
+    /// Encoded/decoded by serializers as "RDIV".
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_atVqcNp-Ed-ak6NoX_4Aeg_-88837893")]
     [Description(@"Investment fund order is a dividend reinvestment (only applicable to a subscription).")]
-    ReinvestmentOfDividend,
+    ReinvestmentOfDividend = FundOrderTypeCode.ReinvestmentOfDividend, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum FundOrderType4Code
 public static class FundOrderType4CodeMetadataExtensions
 {
     private static readonly FundOrderType4CodeDropdownSource _dropdownSource = new FundOrderType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

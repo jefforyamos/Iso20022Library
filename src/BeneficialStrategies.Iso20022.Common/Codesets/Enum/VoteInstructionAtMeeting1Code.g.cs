@@ -21,75 +21,75 @@ public enum VoteInstructionAtMeeting1Code
 {
     /// <summary>
     /// Specifies that the rights holder gives authority to the chairman to vote on his behalf.
-    /// Encoded/decoded by serializers as "Chairman".
+    /// Encoded/decoded by serializers as "CHRM".
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_Y9SCE9p-Ed-ak6NoX_4Aeg_1321663953")]
     [Description(@"Specifies that the rights holder gives authority to the chairman to vote on his behalf.")]
-    Chairman,
+    Chairman = VoteInstructionCode.Chairman, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "Against".
+    /// Encoded/decoded by serializers as "CAGS".
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_Y9SCFNp-Ed-ak6NoX_4Aeg_1335514985")]
     [Description(@"Vote against a meeting resolution.")]
-    Against,
+    Against = VoteInstructionCode.Against, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "For".
+    /// Encoded/decoded by serializers as "CFOR".
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_Y9SCFdp-Ed-ak6NoX_4Aeg_-763128771")]
     [Description(@"Vote in favour of a meeting resolution.")]
-    For,
+    For = VoteInstructionCode.For, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "Abstain".
+    /// Encoded/decoded by serializers as "ABST".
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_Y9SCFtp-Ed-ak6NoX_4Aeg_-757587664")]
     [Description(@"Active vote expressed as abstain (no opinion).")]
-    Abstain,
+    Abstain = VoteInstructionCode.Abstain, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "Withhold".
+    /// Encoded/decoded by serializers as "WTHH".
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_Y9SCF9p-Ed-ak6NoX_4Aeg_-491614947")]
     [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
-    Withhold,
+    Withhold = VoteInstructionCode.Withhold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote instruction is in line with the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "WithManagement".
+    /// Encoded/decoded by serializers as "WMGT".
     /// </summary>
     [EnumMember(Value = "WMGT")]
     [IsoId("_Y9SCGNp-Ed-ak6NoX_4Aeg_-488842589")]
     [Description(@"Vote instruction is in line with the voting recommendations of the management.")]
-    WithManagement,
+    WithManagement = VoteInstructionCode.WithManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Vote instruction is in against the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "AgainstManagement".
+    /// Encoded/decoded by serializers as "AMGT".
     /// </summary>
     [EnumMember(Value = "AMGT")]
     [IsoId("_Y9SCGdp-Ed-ak6NoX_4Aeg_-477763253")]
     [Description(@"Vote instruction is in against the voting recommendations of the management.")]
-    AgainstManagement,
+    AgainstManagement = VoteInstructionCode.AgainstManagement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a recommendation to take no action.
-    /// Encoded/decoded by serializers as "NoAction".
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_Y9bzENp-Ed-ak6NoX_4Aeg_-473145659")]
     [Description(@"Indicates a recommendation to take no action.")]
-    NoAction,
+    NoAction = VoteInstructionCode.NoAction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum VoteInstructionAtMeeting1Code
 public static class VoteInstructionAtMeeting1CodeMetadataExtensions
 {
     private static readonly VoteInstructionAtMeeting1CodeDropdownSource _dropdownSource = new VoteInstructionAtMeeting1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

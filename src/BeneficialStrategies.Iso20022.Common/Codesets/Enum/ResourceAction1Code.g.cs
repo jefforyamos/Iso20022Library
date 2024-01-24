@@ -21,57 +21,57 @@ public enum ResourceAction1Code
 {
     /// <summary>
     /// Pause the media resource in progress as specified in the message.
-    /// Encoded/decoded by serializers as "Pause".
+    /// Encoded/decoded by serializers as "PAUS".
     /// </summary>
     [EnumMember(Value = "PAUS")]
     [IsoId("_Zlf9AS8AEeu125Ip9zFcsQ")]
     [Description(@"Pause the media resource in progress as specified in the message.")]
-    Pause,
+    Pause = ResourceActionCode.Pause, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Start the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "Play".
+    /// Encoded/decoded by serializers as "STAS".
     /// </summary>
     [EnumMember(Value = "STAS")]
     [IsoId("_ZpxZAS8AEeu125Ip9zFcsQ")]
     [Description(@"Start the media resource as specified in the message.")]
-    Play,
+    Play = ResourceActionCode.Play, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Play in a loop the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "PlayInLoop".
+    /// Encoded/decoded by serializers as "LOOP".
     /// </summary>
     [EnumMember(Value = "LOOP")]
     [IsoId("_Zu6XsS8AEeu125Ip9zFcsQ")]
     [Description(@"Play in a loop the media resource as specified in the message.")]
-    PlayInLoop,
+    PlayInLoop = ResourceActionCode.PlayInLoop, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Resume the progress of the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "Resume".
+    /// Encoded/decoded by serializers as "RESU".
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_ZzjAES8AEeu125Ip9zFcsQ")]
     [Description(@"Resume the progress of the media resource as specified in the message.")]
-    Resume,
+    Resume = ResourceActionCode.Resume, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Set the default volume of sounds.
-    /// Encoded/decoded by serializers as "SetDefaultVolume".
+    /// Encoded/decoded by serializers as "DVOL".
     /// </summary>
     [EnumMember(Value = "DVOL")]
     [IsoId("_Z4VZcS8AEeu125Ip9zFcsQ")]
     [Description(@"Set the default volume of sounds.")]
-    SetDefaultVolume,
+    SetDefaultVolume = ResourceActionCode.SetDefaultVolume, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stop the media resource in progress.
-    /// Encoded/decoded by serializers as "Stop".
+    /// Encoded/decoded by serializers as "STOS".
     /// </summary>
     [EnumMember(Value = "STOS")]
     [IsoId("_Z9HLwS8AEeu125Ip9zFcsQ")]
     [Description(@"Stop the media resource in progress.")]
-    Stop,
+    Stop = ResourceActionCode.Stop, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ResourceAction1Code
 public static class ResourceAction1CodeMetadataExtensions
 {
     private static readonly ResourceAction1CodeDropdownSource _dropdownSource = new ResourceAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

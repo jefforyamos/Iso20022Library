@@ -21,111 +21,111 @@ public enum TransactionRejectReason5Code
 {
     /// <summary>
     /// Format of the account number specified is not correct.
-    /// Encoded/decoded by serializers as "IncorrectAccountNumber".
+    /// Encoded/decoded by serializers as "AC01".
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_Yt7-g9p-Ed-ak6NoX_4Aeg_-68063242")]
     [Description(@"Format of the account number specified is not correct.")]
-    IncorrectAccountNumber,
+    IncorrectAccountNumber = TransactionReasonCode.IncorrectAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "ClosedAccountNumber".
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_Yt7-hNp-Ed-ak6NoX_4Aeg_-68063199")]
     [Description(@"Account number specified has been closed on the Receiver's books.")]
-    ClosedAccountNumber,
+    ClosedAccountNumber = TransactionReasonCode.ClosedAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "BlockedAccount".
+    /// Encoded/decoded by serializers as "AC06".
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_Yt7-hdp-Ed-ak6NoX_4Aeg_-68063139")]
     [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
-    BlockedAccount,
+    BlockedAccount = TransactionReasonCode.BlockedAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement).
-    /// Encoded/decoded by serializers as "TransactionForbidden".
+    /// Encoded/decoded by serializers as "AG01".
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_Yt7-htp-Ed-ak6NoX_4Aeg_-68063069")]
     [Description(@"Transaction forbidden on this type of account (formerly NoAgreement).")]
-    TransactionForbidden,
+    TransactionForbidden = TransactionReasonCode.TransactionForbidden, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "InsufficientFunds".
+    /// Encoded/decoded by serializers as "AM04".
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_Yt7-h9p-Ed-ak6NoX_4Aeg_-68063009")]
     [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
-    InsufficientFunds,
+    InsufficientFunds = TransactionReasonCode.InsufficientFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_Yt7-iNp-Ed-ak6NoX_4Aeg_-68062967")]
     [Description(@"This message appears to have been duplicated.")]
-    Duplication,
+    Duplication = TransactionReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "MissingCreditorAddress".
+    /// Encoded/decoded by serializers as "BE04".
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_YuFIcNp-Ed-ak6NoX_4Aeg_-68063104")]
     [Description(@"Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).")]
-    MissingCreditorAddress,
+    MissingCreditorAddress = TransactionReasonCode.MissingCreditorAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "NoMandate".
+    /// Encoded/decoded by serializers as "MD01".
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_YuFIcdp-Ed-ak6NoX_4Aeg_-68062672")]
     [Description(@"Mandate is cancelled or invalid.")]
-    NoMandate,
+    NoMandate = TransactionReasonCode.NoMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Return of funds requested by end customer.
-    /// Encoded/decoded by serializers as "RefundRequestByEndCustomer".
+    /// Encoded/decoded by serializers as "MD06".
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_YuFIctp-Ed-ak6NoX_4Aeg_-68062595")]
     [Description(@"Return of funds requested by end customer.")]
-    RefundRequestByEndCustomer,
+    RefundRequestByEndCustomer = TransactionReasonCode.RefundRequestByEndCustomer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "EndCustomerDeceased".
+    /// Encoded/decoded by serializers as "MD07".
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_YuFIc9p-Ed-ak6NoX_4Aeg_-68062252")]
     [Description(@"End customer is deceased.")]
-    EndCustomerDeceased,
+    EndCustomerDeceased = TransactionReasonCode.EndCustomerDeceased, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason has not been specified by end customer.
-    /// Encoded/decoded by serializers as "NotSpecifiedReasonCustomerGenerated".
+    /// Encoded/decoded by serializers as "MS02".
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_YuFIdNp-Ed-ak6NoX_4Aeg_-68062637")]
     [Description(@"Reason has not been specified by end customer.")]
-    NotSpecifiedReasonCustomerGenerated,
+    NotSpecifiedReasonCustomerGenerated = TransactionReasonCode.NotSpecifiedReasonCustomerGenerated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
+    /// Encoded/decoded by serializers as "MS03".
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_YuFIddp-Ed-ak6NoX_4Aeg_-68062209")]
     [Description(@"Reason has not been specified by agent.")]
-    NotSpecifiedReasonAgentGenerated,
+    NotSpecifiedReasonAgentGenerated = TransactionReasonCode.NotSpecifiedReasonAgentGenerated, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum TransactionRejectReason5Code
 public static class TransactionRejectReason5CodeMetadataExtensions
 {
     private static readonly TransactionRejectReason5CodeDropdownSource _dropdownSource = new TransactionRejectReason5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

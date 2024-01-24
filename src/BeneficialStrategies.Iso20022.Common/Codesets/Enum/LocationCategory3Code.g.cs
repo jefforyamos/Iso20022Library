@@ -21,66 +21,66 @@ public enum LocationCategory3Code
 {
     /// <summary>
     /// Indoor terminal.
-    /// Encoded/decoded by serializers as "Indoor".
+    /// Encoded/decoded by serializers as "INDR".
     /// </summary>
     [EnumMember(Value = "INDR")]
     [IsoId("_3wtnUZX5EeWMQt4mOczoDw")]
     [Description(@"Indoor terminal.")]
-    Indoor,
+    Indoor = LocationCategoryCode.Indoor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal incorporated in the pump dispensing petrol.
-    /// Encoded/decoded by serializers as "InsidePump".
+    /// Encoded/decoded by serializers as "IPMP".
     /// </summary>
     [EnumMember(Value = "IPMP")]
     [IsoId("_34m_EZX5EeWMQt4mOczoDw")]
     [Description(@"Terminal incorporated in the pump dispensing petrol.")]
-    InsidePump,
+    InsidePump = LocationCategoryCode.InsidePump, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "MultiplePOITerminal".
+    /// Encoded/decoded by serializers as "MPOI".
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_4HaQEZX5EeWMQt4mOczoDw")]
     [Description(@"Multiple terminals linked to a unique sale terminal.")]
-    MultiplePOITerminal,
+    MultiplePOITerminal = LocationCategoryCode.MultiplePOITerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Outdoor terminal serving several petrol pumps.
-    /// Encoded/decoded by serializers as "MultiplePump".
+    /// Encoded/decoded by serializers as "MPMP".
     /// </summary>
     [EnumMember(Value = "MPMP")]
     [IsoId("_4QWwsZX5EeWMQt4mOczoDw")]
     [Description(@"Outdoor terminal serving several petrol pumps.")]
-    MultiplePump,
+    MultiplePump = LocationCategoryCode.MultiplePump, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
-    /// Encoded/decoded by serializers as "MultipleSaleTerminal".
+    /// Encoded/decoded by serializers as "MSLE".
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_4ZllMZX5EeWMQt4mOczoDw")]
     [Description(@"Terminal serving multiple sale terminals.")]
-    MultipleSaleTerminal,
+    MultipleSaleTerminal = LocationCategoryCode.MultipleSaleTerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "SingleSaleTerminal".
+    /// Encoded/decoded by serializers as "SSLE".
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_4oC38ZX5EeWMQt4mOczoDw")]
     [Description(@"Terminal linked to a unique sale terminal.")]
-    SingleSaleTerminal,
+    SingleSaleTerminal = LocationCategoryCode.SingleSaleTerminal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal integrated in a vending machine.
-    /// Encoded/decoded by serializers as "VendingMachine".
+    /// Encoded/decoded by serializers as "VNDG".
     /// </summary>
     [EnumMember(Value = "VNDG")]
     [IsoId("_4up2QZX5EeWMQt4mOczoDw")]
     [Description(@"Terminal integrated in a vending machine.")]
-    VendingMachine,
+    VendingMachine = LocationCategoryCode.VendingMachine, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum LocationCategory3Code
 public static class LocationCategory3CodeMetadataExtensions
 {
     private static readonly LocationCategory3CodeDropdownSource _dropdownSource = new LocationCategory3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

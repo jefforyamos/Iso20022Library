@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aPPZMNp-Ed-ak6NoX_4Aeg_336257296")]
 [Description(@"Code containing the operator used to indicate the relationship between a variable and a fixed value.")]
 [Derivations(typeof(Operator1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum OperatorCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum OperatorCode
 public static class OperatorCodeMetadataExtensions
 {
     private static readonly OperatorCodeDropdownSource _dropdownSource = new OperatorCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

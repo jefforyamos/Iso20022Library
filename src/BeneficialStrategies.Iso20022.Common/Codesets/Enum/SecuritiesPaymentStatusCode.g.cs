@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZFx2wdp-Ed-ak6NoX_4Aeg_274626372")]
 [Description(@"Specifies the state of payment of a security at a particular time.")]
 [Derivations(typeof(SecuritiesPaymentStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesPaymentStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum SecuritiesPaymentStatusCode
 public static class SecuritiesPaymentStatusCodeMetadataExtensions
 {
     private static readonly SecuritiesPaymentStatusCodeDropdownSource _dropdownSource = new SecuritiesPaymentStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

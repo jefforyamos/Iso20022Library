@@ -21,66 +21,66 @@ public enum CivilStatus1Code
 {
     /// <summary>
     /// Person is divorced.
-    /// Encoded/decoded by serializers as "Divorced".
+    /// Encoded/decoded by serializers as "DIVO".
     /// </summary>
     [EnumMember(Value = "DIVO")]
     [IsoId("_xZ1E8SChEeWJd9HF2tO7BA")]
     [Description(@"Person is divorced.")]
-    Divorced,
+    Divorced = CivilStatusCode.Divorced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is legally divorced.
-    /// Encoded/decoded by serializers as "LegallyDivorced".
+    /// Encoded/decoded by serializers as "LDIV".
     /// </summary>
     [EnumMember(Value = "LDIV")]
     [IsoId("_xhkEoSChEeWJd9HF2tO7BA")]
     [Description(@"Person is legally divorced.")]
-    LegallyDivorced,
+    LegallyDivorced = CivilStatusCode.LegallyDivorced, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is married.
-    /// Encoded/decoded by serializers as "Married".
+    /// Encoded/decoded by serializers as "MARR".
     /// </summary>
     [EnumMember(Value = "MARR")]
     [IsoId("_xpAJYSChEeWJd9HF2tO7BA")]
     [Description(@"Person is married.")]
-    Married,
+    Married = CivilStatusCode.Married, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is separated.
-    /// Encoded/decoded by serializers as "Separated".
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_xwl_ISChEeWJd9HF2tO7BA")]
     [Description(@"Person is separated.")]
-    Separated,
+    Separated = CivilStatusCode.Separated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is single.
-    /// Encoded/decoded by serializers as "Single".
+    /// Encoded/decoded by serializers as "SING".
     /// </summary>
     [EnumMember(Value = "SING")]
     [IsoId("_x34S4SChEeWJd9HF2tO7BA")]
     [Description(@"Person is single.")]
-    Single,
+    Single = CivilStatusCode.Single, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is in a stable union.
-    /// Encoded/decoded by serializers as "StableUnion".
+    /// Encoded/decoded by serializers as "UNIO".
     /// </summary>
     [EnumMember(Value = "UNIO")]
     [IsoId("_x6tkcSChEeWJd9HF2tO7BA")]
     [Description(@"Person is in a stable union.")]
-    StableUnion,
+    StableUnion = CivilStatusCode.StableUnion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Person is a widower.
-    /// Encoded/decoded by serializers as "Widow".
+    /// Encoded/decoded by serializers as "WIDO".
     /// </summary>
     [EnumMember(Value = "WIDO")]
     [IsoId("_yBjMQSChEeWJd9HF2tO7BA")]
     [Description(@"Person is a widower.")]
-    Widow,
+    Widow = CivilStatusCode.Widow, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CivilStatus1Code
 public static class CivilStatus1CodeMetadataExtensions
 {
     private static readonly CivilStatus1CodeDropdownSource _dropdownSource = new CivilStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

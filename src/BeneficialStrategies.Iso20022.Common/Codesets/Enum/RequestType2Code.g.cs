@@ -21,48 +21,48 @@ public enum RequestType2Code
 {
     /// <summary>
     /// Type is an enquiry on the bank's position.
-    /// Encoded/decoded by serializers as "BankPositionEnquiry".
+    /// Encoded/decoded by serializers as "RT11".
     /// </summary>
     [EnumMember(Value = "RT11")]
     [IsoId("_ZUOid9p-Ed-ak6NoX_4Aeg_-957935410")]
     [Description(@"Type is an enquiry on the bank's position.")]
-    BankPositionEnquiry,
+    BankPositionEnquiry = RequestTypeCode.BankPositionEnquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type is an enquiry on a specific transaction.
-    /// Encoded/decoded by serializers as "SpecificTransactionEnquiry".
+    /// Encoded/decoded by serializers as "RT12".
     /// </summary>
     [EnumMember(Value = "RT12")]
     [IsoId("_ZUOieNp-Ed-ak6NoX_4Aeg_-957935409")]
     [Description(@"Type is an enquiry on a specific transaction.")]
-    SpecificTransactionEnquiry,
+    SpecificTransactionEnquiry = RequestTypeCode.SpecificTransactionEnquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type is an enquiry on a queued transaction.
-    /// Encoded/decoded by serializers as "QueuedTransactionEnquiry".
+    /// Encoded/decoded by serializers as "RT13".
     /// </summary>
     [EnumMember(Value = "RT13")]
     [IsoId("_ZUYTcNp-Ed-ak6NoX_4Aeg_-957935132")]
     [Description(@"Type is an enquiry on a queued transaction.")]
-    QueuedTransactionEnquiry,
+    QueuedTransactionEnquiry = RequestTypeCode.QueuedTransactionEnquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type is an enquiry on a suspicious transaction.
-    /// Encoded/decoded by serializers as "SuspiciousTransactionEnquiry".
+    /// Encoded/decoded by serializers as "RT14".
     /// </summary>
     [EnumMember(Value = "RT14")]
     [IsoId("_ZUYTcdp-Ed-ak6NoX_4Aeg_-957935131")]
     [Description(@"Type is an enquiry on a suspicious transaction.")]
-    SuspiciousTransactionEnquiry,
+    SuspiciousTransactionEnquiry = RequestTypeCode.SuspiciousTransactionEnquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type is an enquiry on pending inward credits.
-    /// Encoded/decoded by serializers as "PendingInwardCreditsEnquiry".
+    /// Encoded/decoded by serializers as "RT15".
     /// </summary>
     [EnumMember(Value = "RT15")]
     [IsoId("_ZUYTctp-Ed-ak6NoX_4Aeg_-957935101")]
     [Description(@"Type is an enquiry on pending inward credits.")]
-    PendingInwardCreditsEnquiry,
+    PendingInwardCreditsEnquiry = RequestTypeCode.PendingInwardCreditsEnquiry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum RequestType2Code
 public static class RequestType2CodeMetadataExtensions
 {
     private static readonly RequestType2CodeDropdownSource _dropdownSource = new RequestType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__9ywuol5EeavwKddCbm3hg")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
-[Derivations(typeof(PendingCancellationReason5Code),typeof(RejectionReason46Code),typeof(RejectionReason49Code),typeof(RejectionReason48Code),typeof(RejectionReason50Code),typeof(RejectionReason51Code),typeof(PendingCancellationReason6Code),typeof(RejectionReason52Code),typeof(RejectionReason54Code),typeof(RejectionReason55Code),typeof(RejectionReason56Code),typeof(RejectionReason58Code),typeof(RejectionReason57Code),typeof(RejectionReason59Code),typeof(RejectionReason61Code),typeof(RejectionReason62Code),typeof(RejectionReason63Code),typeof(RejectionReason64Code),typeof(RejectionReason66Code),typeof(RejectionReason67Code),typeof(RejectionReason65Code),typeof(RejectionReason69Code),typeof(RejectionReason70Code),typeof(RejectionReason73Code),typeof(RejectionReason76Code),typeof(RejectionReason74Code),typeof(RejectionReason72Code),typeof(RejectionReason75Code),typeof(RejectionReason77Code),typeof(RejectionReason68Code),typeof(RejectionReason71Code),typeof(RejectionReason78Code),typeof(RejectionReason79Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(RejectionReason51Code),typeof(RejectionReason50Code),typeof(RejectionReason56Code),typeof(RejectionReason54Code),typeof(RejectionReason75Code),typeof(RejectionReason69Code),typeof(RejectionReason78Code),typeof(RejectionReason77Code),typeof(RejectionReason73Code),typeof(RejectionReason64Code),typeof(RejectionReason52Code),typeof(RejectionReason76Code),typeof(RejectionReason58Code),typeof(RejectionReason57Code),typeof(RejectionReason63Code),typeof(RejectionReason74Code),typeof(RejectionReason49Code),typeof(PendingCancellationReason5Code),typeof(RejectionReason72Code),typeof(PendingCancellationReason6Code),typeof(RejectionReason71Code),typeof(RejectionReason65Code),typeof(RejectionReason62Code),typeof(RejectionReason68Code),typeof(RejectionReason59Code),typeof(RejectionReason66Code),typeof(RejectionReason48Code),typeof(RejectionReason55Code),typeof(RejectionReason79Code),typeof(RejectionReason46Code),typeof(RejectionReason61Code),typeof(RejectionReason67Code),typeof(RejectionReason70Code))]
 public enum RejectionReasonV3Code
 {
     /// <summary>
@@ -1957,23 +1956,20 @@ public enum RejectionReasonV3Code
     
     /// <summary>
     /// Compound simple accrual calculation is not supported.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "CSAC".
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_YenVIcnaEeuaR5rC-LtxeA")]
-    [Description(@"Compound simple accrual calculation is not supported.  ")]
+    [Description(@"Compound simple accrual calculation is not supported.||")]
     CompoundSimpleAccrualCalculationRejection,
     
     /// <summary>
     /// Day count basis not supported.
-    /// 
     /// Encoded/decoded by serializers as "DCBR".
     /// </summary>
     [EnumMember(Value = "DCBR")]
     [IsoId("_YenVIsnaEeuaR5rC-LtxeA")]
-    [Description(@"Day count basis not supported. ")]
+    [Description(@"Day count basis not supported.|")]
     DayCountBasis,
     
     /// <summary>
@@ -2059,12 +2055,11 @@ public enum RejectionReasonV3Code
     
     /// <summary>
     /// Number of lookback days not supported.
-    /// 
     /// Encoded/decoded by serializers as "LBDR".
     /// </summary>
     [EnumMember(Value = "LBDR")]
     [IsoId("_NnIG0cndEeuaR5rC-LtxeA")]
-    [Description(@"Number of lookback days not supported. ")]
+    [Description(@"Number of lookback days not supported.|")]
     LookbackDaysRejection,
     
     /// <summary>
@@ -2132,12 +2127,11 @@ public enum RejectionReasonV3Code
     
     /// <summary>
     /// Unrecognised or invalid settlement process instructed.
-    /// 
     /// Encoded/decoded by serializers as "SEPR".
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_eMAjgsnfEeuaR5rC-LtxeA")]
-    [Description(@"Unrecognised or invalid settlement process instructed. ")]
+    [Description(@"Unrecognised or invalid settlement process instructed.|")]
     SettlementProcessRejection,
     
     /// <summary>
@@ -2212,7 +2206,7 @@ public enum RejectionReasonV3Code
 public static class RejectionReasonV3CodeMetadataExtensions
 {
     private static readonly RejectionReasonV3CodeDropdownSource _dropdownSource = new RejectionReasonV3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

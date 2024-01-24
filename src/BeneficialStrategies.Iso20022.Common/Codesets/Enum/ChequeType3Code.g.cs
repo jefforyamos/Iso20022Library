@@ -21,21 +21,21 @@ public enum ChequeType3Code
 {
     /// <summary>
     /// A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
-    /// Encoded/decoded by serializers as "Draft".
+    /// Encoded/decoded by serializers as "DRFT".
     /// </summary>
     [EnumMember(Value = "DRFT")]
     [IsoId("_a-7Jttp-Ed-ak6NoX_4Aeg_1310151272")]
     [Description(@"A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
-    Draft,
+    Draft = ChequeTypeCode.Draft, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
-    /// Encoded/decoded by serializers as "ElectronicDraft".
+    /// Encoded/decoded by serializers as "ELDR".
     /// </summary>
     [EnumMember(Value = "ELDR")]
     [IsoId("_a-7Jt9p-Ed-ak6NoX_4Aeg_1310151519")]
     [Description(@"An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
-    ElectronicDraft,
+    ElectronicDraft = ChequeTypeCode.ElectronicDraft, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ChequeType3Code
 public static class ChequeType3CodeMetadataExtensions
 {
     private static readonly ChequeType3CodeDropdownSource _dropdownSource = new ChequeType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

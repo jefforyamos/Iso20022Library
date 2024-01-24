@@ -21,30 +21,30 @@ public enum OnLineCapability2Code
 {
     /// <summary>
     /// Off-line only capable.
-    /// Encoded/decoded by serializers as "OffLine".
+    /// Encoded/decoded by serializers as "OFLN".
     /// </summary>
     [EnumMember(Value = "OFLN")]
     [IsoId("_umTwMX0lEemfrNOe0zHQyg")]
     [Description(@"Off-line only capable.")]
-    OffLine,
+    OffLine = OnLineCapabilityCode.OffLine, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On-line only capable.
-    /// Encoded/decoded by serializers as "OnLine".
+    /// Encoded/decoded by serializers as "ONLN".
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_umTwM30lEemfrNOe0zHQyg")]
     [Description(@"On-line only capable.")]
-    OnLine,
+    OnLine = OnLineCapabilityCode.OnLine, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Both online and offline
-    /// Encoded/decoded by serializers as "BothOnLineAndOffLine".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_umTwNX0lEemfrNOe0zHQyg")]
     [Description(@"Both online and offline")]
-    BothOnLineAndOffLine,
+    BothOnLineAndOffLine = OnLineCapabilityCode.BothOnLineAndOffLine, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum OnLineCapability2Code
 public static class OnLineCapability2CodeMetadataExtensions
 {
     private static readonly OnLineCapability2CodeDropdownSource _dropdownSource = new OnLineCapability2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_14xnMDL3EeKU9IrkkToqcw_393105217")]
 [Description(@"Indicates the type of DTC (The Depository Trust Company) service, for example Cash In Lieu/ Round Up, Foreign Tax Relief, etc.")]
 [Derivations(typeof(DTCServiceType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCServiceType
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DTCServiceType
 public static class DTCServiceTypeMetadataExtensions
 {
     private static readonly DTCServiceTypeDropdownSource _dropdownSource = new DTCServiceTypeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

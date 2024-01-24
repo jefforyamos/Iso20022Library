@@ -21,39 +21,39 @@ public enum BankRole1Code
 {
     /// <summary>
     /// Bank of the buyer.
-    /// Encoded/decoded by serializers as "BuyersBank".
+    /// Encoded/decoded by serializers as "BUYB".
     /// </summary>
     [EnumMember(Value = "BUYB")]
     [IsoId("_ReWlMdmCEeKjKfTom1JlPQ")]
     [Description(@"Bank of the buyer.")]
-    BuyersBank,
+    BuyersBank = BankRoleCode.BuyersBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Obligor bank.
-    /// Encoded/decoded by serializers as "ObligorBank".
+    /// Encoded/decoded by serializers as "OBLB".
     /// </summary>
     [EnumMember(Value = "OBLB")]
     [IsoId("_RnCnIdmCEeKjKfTom1JlPQ")]
     [Description(@"Obligor bank.")]
-    ObligorBank,
+    ObligorBank = BankRoleCode.ObligorBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recipient bank.
-    /// Encoded/decoded by serializers as "RecipientBank".
+    /// Encoded/decoded by serializers as "RECB".
     /// </summary>
     [EnumMember(Value = "RECB")]
     [IsoId("_RvpwkdmCEeKjKfTom1JlPQ")]
     [Description(@"Recipient bank.")]
-    RecipientBank,
+    RecipientBank = BankRoleCode.RecipientBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank of the seller.
-    /// Encoded/decoded by serializers as "SellersBank".
+    /// Encoded/decoded by serializers as "SELB".
     /// </summary>
     [EnumMember(Value = "SELB")]
     [IsoId("_R4wCMdmCEeKjKfTom1JlPQ")]
     [Description(@"Bank of the seller.")]
-    SellersBank,
+    SellersBank = BankRoleCode.SellersBank, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum BankRole1Code
 public static class BankRole1CodeMetadataExtensions
 {
     private static readonly BankRole1CodeDropdownSource _dropdownSource = new BankRole1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

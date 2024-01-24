@@ -21,30 +21,30 @@ public enum WithholdingTaxRateType1Code
 {
     /// <summary>
     /// Withholding tax related to payments subject to back up withholding.
-    /// Encoded/decoded by serializers as "BackUpWithholding".
+    /// Encoded/decoded by serializers as "BWIT".
     /// </summary>
     [EnumMember(Value = "BWIT")]
     [IsoId("_dtVUQSeGEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to payments subject to back up withholding.")]
-    BackUpWithholding,
+    BackUpWithholding = WithholdingTaxRateTypeCode.BackUpWithholding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withholding tax related to income subject to FATCA (Foreign Account Tax Compliance Act).
-    /// Encoded/decoded by serializers as "FATCATax".
+    /// Encoded/decoded by serializers as "FTCA".
     /// </summary>
     [EnumMember(Value = "FTCA")]
     [IsoId("_d4CvcSeGEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to income subject to FATCA (Foreign Account Tax Compliance Act).")]
-    FATCATax,
+    FATCATax = WithholdingTaxRateTypeCode.FATCATax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withholding tax related to income subject to NRA (Non Resident Alien).
-    /// Encoded/decoded by serializers as "NRATax".
+    /// Encoded/decoded by serializers as "NRAT".
     /// </summary>
     [EnumMember(Value = "NRAT")]
     [IsoId("_d8qJsSeGEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to income subject to NRA (Non Resident Alien).")]
-    NRATax,
+    NRATax = WithholdingTaxRateTypeCode.NRATax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum WithholdingTaxRateType1Code
 public static class WithholdingTaxRateType1CodeMetadataExtensions
 {
     private static readonly WithholdingTaxRateType1CodeDropdownSource _dropdownSource = new WithholdingTaxRateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

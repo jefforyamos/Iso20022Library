@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_40EQcJF2EeeMPMycDdDCGw")]
-[Description(@"Specifies the type of billing rate or factor, as published in an external billing rate identification code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the type of billing rate or factor, as published in an external billing rate identification code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBillingRateIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalBillingRateIdentificationCode
 {
     /// <summary>
@@ -201,7 +200,7 @@ public enum ExternalBillingRateIdentificationCode
 public static class ExternalBillingRateIdentificationCodeMetadataExtensions
 {
     private static readonly ExternalBillingRateIdentificationCodeDropdownSource _dropdownSource = new ExternalBillingRateIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

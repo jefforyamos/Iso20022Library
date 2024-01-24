@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_4xqg8KstEeayv9XxdmMwKQ")]
 [Description(@"Scenario type based on the type of portfolio the scenario is designed to stress.")]
 [Derivations(typeof(StrategyStressType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StrategyStressTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum StrategyStressTypeCode
 public static class StrategyStressTypeCodeMetadataExtensions
 {
     private static readonly StrategyStressTypeCodeDropdownSource _dropdownSource = new StrategyStressTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

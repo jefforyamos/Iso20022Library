@@ -21,75 +21,75 @@ public enum RejectionReasonV021Code
 {
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "InvalidSecurity".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_YdP3Idp-Ed-ak6NoX_4Aeg_1999872429")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    InvalidSecurity,
+    InvalidSecurity = RejectionReasonV2Code.InvalidSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised event number.
-    /// Encoded/decoded by serializers as "UnrecognisedIdentification".
+    /// Encoded/decoded by serializers as "EVNM".
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_YdP3Itp-Ed-ak6NoX_4Aeg_-350016373")]
     [Description(@"Unrecognised event number.")]
-    UnrecognisedIdentification,
+    UnrecognisedIdentification = RejectionReasonV2Code.UnrecognisedIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument's symbol has not been recognized.
-    /// Encoded/decoded by serializers as "UnknownSymbol".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_YdP3I9p-Ed-ak6NoX_4Aeg_-247276084")]
     [Description(@"Financial instrument's symbol has not been recognized.")]
-    UnknownSymbol,
+    UnknownSymbol = RejectionReasonV2Code.UnknownSymbol, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient collateral proposed.
-    /// Encoded/decoded by serializers as "InsufficientCollateral".
+    /// Encoded/decoded by serializers as "ICOL".
     /// </summary>
     [EnumMember(Value = "ICOL")]
     [IsoId("_YdP3JNp-Ed-ak6NoX_4Aeg_1055915474")]
     [Description(@"Insufficient collateral proposed.")]
-    InsufficientCollateral,
+    InsufficientCollateral = RejectionReasonV2Code.InsufficientCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Concentration limit was exceeded.
-    /// Encoded/decoded by serializers as "ConcentrationLimitExceeded".
+    /// Encoded/decoded by serializers as "CONL".
     /// </summary>
     [EnumMember(Value = "CONL")]
     [IsoId("_YdP3Jdp-Ed-ak6NoX_4Aeg_-2079163182")]
     [Description(@"Concentration limit was exceeded.")]
-    ConcentrationLimitExceeded,
+    ConcentrationLimitExceeded = RejectionReasonV2Code.ConcentrationLimitExceeded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Security is not eligible.
-    /// Encoded/decoded by serializers as "NonEligibleSecurity".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_YdP3Jtp-Ed-ak6NoX_4Aeg_1675525382")]
     [Description(@"Security is not eligible.")]
-    NonEligibleSecurity,
+    NonEligibleSecurity = RejectionReasonV2Code.NonEligibleSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction contains an invalid message identification, identification is unknown.
-    /// Encoded/decoded by serializers as "InvalidIdentification".
+    /// Encoded/decoded by serializers as "INID".
     /// </summary>
     [EnumMember(Value = "INID")]
     [IsoId("_YdP3J9p-Ed-ak6NoX_4Aeg_701669872")]
     [Description(@"Instruction contains an invalid message identification, identification is unknown.")]
-    InvalidIdentification,
+    InvalidIdentification = RejectionReasonV2Code.InvalidIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YdP3KNp-Ed-ak6NoX_4Aeg_-249155275")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum RejectionReasonV021Code
 public static class RejectionReasonV021CodeMetadataExtensions
 {
     private static readonly RejectionReasonV021CodeDropdownSource _dropdownSource = new RejectionReasonV021CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

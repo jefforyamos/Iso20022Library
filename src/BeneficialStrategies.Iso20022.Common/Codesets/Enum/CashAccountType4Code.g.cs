@@ -21,147 +21,147 @@ public enum CashAccountType4Code
 {
     /// <summary>
     /// Account used for the payment of cash.
-    /// Encoded/decoded by serializers as "CashPayment".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_a3Us4Np-Ed-ak6NoX_4Aeg_-1444721331")]
     [Description(@"Account used for the payment of cash.")]
-    CashPayment,
+    CashPayment = CashAccountTypeCode.CashPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for charges if different from the account for payment.
-    /// Encoded/decoded by serializers as "Charges".
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a3Us4dp-Ed-ak6NoX_4Aeg_-1444721313")]
     [Description(@"Account used for charges if different from the account for payment.")]
-    Charges,
+    Charges = CashAccountTypeCode.Charges, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for commission if different from the account for payment.
-    /// Encoded/decoded by serializers as "Commission".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a3Us4tp-Ed-ak6NoX_4Aeg_-1444721288")]
     [Description(@"Account used for commission if different from the account for payment.")]
-    Commission,
+    Commission = CashAccountTypeCode.Commission, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for taxes if different from the account for payment.
-    /// Encoded/decoded by serializers as "Tax".
+    /// Encoded/decoded by serializers as "TAXE".
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_a3Us49p-Ed-ak6NoX_4Aeg_-1444721271")]
     [Description(@"Account used for taxes if different from the account for payment.")]
-    Tax,
+    Tax = CashAccountTypeCode.Tax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for payment of income if different from the current cash account.
-    /// Encoded/decoded by serializers as "CashIncome".
+    /// Encoded/decoded by serializers as "CISH".
     /// </summary>
     [EnumMember(Value = "CISH")]
     [IsoId("_a3Us5Np-Ed-ak6NoX_4Aeg_-1444721036")]
     [Description(@"Account used for payment of income if different from the current cash account.")]
-    CashIncome,
+    CashIncome = CashAccountTypeCode.CashIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for trading if different from the current cash account.
-    /// Encoded/decoded by serializers as "CashTrading".
+    /// Encoded/decoded by serializers as "TRAS".
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_a3Us5dp-Ed-ak6NoX_4Aeg_-1444721019")]
     [Description(@"Account used for trading if different from the current cash account.")]
-    CashTrading,
+    CashTrading = CashAccountTypeCode.CashTrading, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
-    /// Encoded/decoded by serializers as "Settlement".
+    /// Encoded/decoded by serializers as "SACC".
     /// </summary>
     [EnumMember(Value = "SACC")]
     [IsoId("_a3Us5tp-Ed-ak6NoX_4Aeg_-1444721018")]
     [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
-    Settlement,
+    Settlement = CashAccountTypeCode.Settlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used to post debits and credits when no specific account has been nominated.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CACC".
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_a3Us59p-Ed-ak6NoX_4Aeg_-1444721001")]
     [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
-    Current,
+    Current = CashAccountTypeCode.Current, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for savings.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVGS".
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_a3Us6Np-Ed-ak6NoX_4Aeg_-1444720976")]
     [Description(@"Account used for savings.")]
-    Savings,
+    Savings = CashAccountTypeCode.Savings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for overnight deposits.
-    /// Encoded/decoded by serializers as "OverNightDeposit".
+    /// Encoded/decoded by serializers as "ONDP".
     /// </summary>
     [EnumMember(Value = "ONDP")]
     [IsoId("_a3Us6dp-Ed-ak6NoX_4Aeg_-1444720959")]
     [Description(@"Account used for overnight deposits.")]
-    OverNightDeposit,
+    OverNightDeposit = CashAccountTypeCode.OverNightDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for a marginal lending facility.
-    /// Encoded/decoded by serializers as "MarginalLending".
+    /// Encoded/decoded by serializers as "MGLD".
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_a3ed4Np-Ed-ak6NoX_4Aeg_-1444720940")]
     [Description(@"Account used for a marginal lending facility.")]
-    MarginalLending,
+    MarginalLending = CashAccountTypeCode.MarginalLending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for non-resident external.
-    /// Encoded/decoded by serializers as "NonResidentExternal".
+    /// Encoded/decoded by serializers as "NREX".
     /// </summary>
     [EnumMember(Value = "NREX")]
     [IsoId("_a3ed4dp-Ed-ak6NoX_4Aeg_-1385617969")]
     [Description(@"Account used for non-resident external.")]
-    NonResidentExternal,
+    NonResidentExternal = CashAccountTypeCode.NonResidentExternal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for money markets if different from the cash account.
-    /// Encoded/decoded by serializers as "MoneyMarket".
+    /// Encoded/decoded by serializers as "MOMA".
     /// </summary>
     [EnumMember(Value = "MOMA")]
     [IsoId("_a3ed4tp-Ed-ak6NoX_4Aeg_-1385617950")]
     [Description(@"Account used for money markets if different from the cash account.")]
-    MoneyMarket,
+    MoneyMarket = CashAccountTypeCode.MoneyMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account used for loans.
-    /// Encoded/decoded by serializers as "Loan".
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_a3ed49p-Ed-ak6NoX_4Aeg_-1385617925")]
     [Description(@"Account used for loans.")]
-    Loan,
+    Loan = CashAccountTypeCode.Loan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Accounts used for salary payments.
-    /// Encoded/decoded by serializers as "Salary".
+    /// Encoded/decoded by serializers as "SLRY".
     /// </summary>
     [EnumMember(Value = "SLRY")]
     [IsoId("_a3ed5Np-Ed-ak6NoX_4Aeg_-1385617908")]
     [Description(@"Accounts used for salary payments.")]
-    Salary,
+    Salary = CashAccountTypeCode.Salary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account is used for overdrafts.
-    /// Encoded/decoded by serializers as "Overdraft".
+    /// Encoded/decoded by serializers as "ODFT".
     /// </summary>
     [EnumMember(Value = "ODFT")]
     [IsoId("_a3ed5dp-Ed-ak6NoX_4Aeg_-1385617890")]
     [Description(@"Account is used for overdrafts.")]
-    Overdraft,
+    Overdraft = CashAccountTypeCode.Overdraft, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum CashAccountType4Code
 public static class CashAccountType4CodeMetadataExtensions
 {
     private static readonly CashAccountType4CodeDropdownSource _dropdownSource = new CashAccountType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

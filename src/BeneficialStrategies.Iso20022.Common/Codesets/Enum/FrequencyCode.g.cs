@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_asTIqdp-Ed-ak6NoX_4Aeg_-2101415313")]
 [Description(@"Specifies the regularity of an event.")]
-[Derivations(typeof(Frequency1Code),typeof(Frequency2Code),typeof(Frequency3Code),typeof(Frequency7Code),typeof(Frequency6Code),typeof(Frequency4Code),typeof(Frequency5Code),typeof(Frequency8Code),typeof(Frequency10Code),typeof(Frequency11Code),typeof(Frequency12Code),typeof(Frequency13Code),typeof(Frequency14Code),typeof(Frequency17Code),typeof(Frequency18Code),typeof(Frequency19Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(Frequency19Code),typeof(Frequency13Code),typeof(Frequency11Code),typeof(Frequency4Code),typeof(Frequency7Code),typeof(Frequency18Code),typeof(Frequency1Code),typeof(Frequency12Code),typeof(Frequency5Code),typeof(Frequency6Code),typeof(Frequency2Code),typeof(Frequency17Code),typeof(Frequency10Code),typeof(Frequency14Code),typeof(Frequency3Code),typeof(Frequency8Code))]
 public enum FrequencyCode
 {
     /// <summary>
@@ -236,7 +235,7 @@ public enum FrequencyCode
 public static class FrequencyCodeMetadataExtensions
 {
     private static readonly FrequencyCodeDropdownSource _dropdownSource = new FrequencyCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

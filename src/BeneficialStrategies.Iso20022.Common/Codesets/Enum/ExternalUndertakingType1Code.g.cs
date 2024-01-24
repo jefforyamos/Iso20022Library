@@ -16,135 +16,135 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MrKBW7iEeKo25nLKvGr8w_48789685")]
-[Description(@"Specifies the external undertaking type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external undertaking type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUndertakingTypeCode))]
 public enum ExternalUndertakingType1Code
 {
     /// <summary>
     /// Undertaking in support of an advance payment obligation.
-    /// Encoded/decoded by serializers as "AdvancePayment".
+    /// Encoded/decoded by serializers as "APAY".
     /// </summary>
     [EnumMember(Value = "APAY")]
     [IsoId("_uR0Ly_RYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of an advance payment obligation.")]
-    AdvancePayment,
+    AdvancePayment = ExternalUndertakingTypeCode.AdvancePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a commercial obligation.
-    /// Encoded/decoded by serializers as "Commercial".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uR98wvRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a commercial obligation.")]
-    Commercial,
+    Commercial = ExternalUndertakingTypeCode.Commercial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a customs duty obligation.
-    /// Encoded/decoded by serializers as "Customs".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_uR98xfRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a customs duty obligation.")]
-    Customs,
+    Customs = ExternalUndertakingTypeCode.Customs, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking representing the primary means of payment.
-    /// Encoded/decoded by serializers as "DirectPay".
+    /// Encoded/decoded by serializers as "DPAY".
     /// </summary>
     [EnumMember(Value = "DPAY")]
     [IsoId("_uR98yPRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking representing the primary means of payment.")]
-    DirectPay,
+    DirectPay = ExternalUndertakingTypeCode.DirectPay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a financial obligation.
-    /// Encoded/decoded by serializers as "Financial".
+    /// Encoded/decoded by serializers as "FINC".
     /// </summary>
     [EnumMember(Value = "FINC")]
     [IsoId("_uR98y_RYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a financial obligation.")]
-    Financial,
+    Financial = ExternalUndertakingTypeCode.Financial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a insurance obligation.
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_uR98zvRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a insurance obligation.")]
-    Insurance,
+    Insurance = ExternalUndertakingTypeCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of an Industrial Revenue Board (IRB) obligation.
-    /// Encoded/decoded by serializers as "IndustrialRevenueBoard".
+    /// Encoded/decoded by serializers as "IRBO".
     /// </summary>
     [EnumMember(Value = "IRBO")]
     [IsoId("_uSHtwvRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of an Industrial Revenue Board (IRB) obligation.")]
-    IndustrialRevenueBoard,
+    IndustrialRevenueBoard = ExternalUndertakingTypeCode.IndustrialRevenueBoard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a maintenance obligation.
-    /// Encoded/decoded by serializers as "Maintenance".
+    /// Encoded/decoded by serializers as "MAIN".
     /// </summary>
     [EnumMember(Value = "MAIN")]
     [IsoId("_uSHtxfRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a maintenance obligation.")]
-    Maintenance,
+    Maintenance = ExternalUndertakingTypeCode.Maintenance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a payment obligation.
-    /// Encoded/decoded by serializers as "Payment".
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_uSHtyPRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a payment obligation.")]
-    Payment,
+    Payment = ExternalUndertakingTypeCode.Payment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a performance obligation.
-    /// Encoded/decoded by serializers as "Performance".
+    /// Encoded/decoded by serializers as "PERF".
     /// </summary>
     [EnumMember(Value = "PERF")]
     [IsoId("_uSHty_RYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a performance obligation.")]
-    Performance,
+    Performance = ExternalUndertakingTypeCode.Performance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a monetary retention obligation.
-    /// Encoded/decoded by serializers as "Retention".
+    /// Encoded/decoded by serializers as "RETN".
     /// </summary>
     [EnumMember(Value = "RETN")]
     [IsoId("_uSQ3svRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a monetary retention obligation.")]
-    Retention,
+    Retention = ExternalUndertakingTypeCode.Retention, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a sea transportation obligation.
-    /// Encoded/decoded by serializers as "Shipping".
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_uSQ3tfRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a sea transportation obligation.")]
-    Shipping,
+    Shipping = ExternalUndertakingTypeCode.Shipping, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a tender or bid obligation.
-    /// Encoded/decoded by serializers as "TenderOrBid".
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_uSQ3uPRYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a tender or bid obligation.")]
-    TenderOrBid,
+    TenderOrBid = ExternalUndertakingTypeCode.TenderOrBid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Undertaking in support of a warranty obligation.
-    /// Encoded/decoded by serializers as "Warranty".
+    /// Encoded/decoded by serializers as "WARR".
     /// </summary>
     [EnumMember(Value = "WARR")]
     [IsoId("_uSQ3u_RYEeuLhpyIdtJzwg")]
     [Description(@"Undertaking in support of a warranty obligation.")]
-    Warranty,
+    Warranty = ExternalUndertakingTypeCode.Warranty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -155,7 +155,7 @@ public enum ExternalUndertakingType1Code
 public static class ExternalUndertakingType1CodeMetadataExtensions
 {
     private static readonly ExternalUndertakingType1CodeDropdownSource _dropdownSource = new ExternalUndertakingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

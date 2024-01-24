@@ -21,48 +21,48 @@ public enum LoyaltyValueType1Code
 {
     /// <summary>
     /// Value expressed in miles.
-    /// Encoded/decoded by serializers as "Miles".
+    /// Encoded/decoded by serializers as "MILE".
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_NAqL0V_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in miles.")]
-    Miles,
+    Miles = LoyaltyValueTypeCode.Miles, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value expressed in monetary units.
-    /// Encoded/decoded by serializers as "Monetary".
+    /// Encoded/decoded by serializers as "MONE".
     /// </summary>
     [EnumMember(Value = "MONE")]
     [IsoId("_NUmbgV_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in monetary units.")]
-    Monetary,
+    Monetary = LoyaltyValueTypeCode.Monetary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value expressed in any other type of loyalty value.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Nk0BwV_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in any other type of loyalty value.")]
-    Other,
+    Other = LoyaltyValueTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value expressed in points.
-    /// Encoded/decoded by serializers as "Points".
+    /// Encoded/decoded by serializers as "POIN".
     /// </summary>
     [EnumMember(Value = "POIN")]
     [IsoId("_NzPfUV_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in points.")]
-    Points,
+    Points = LoyaltyValueTypeCode.Points, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Value expressed in a private currency.
-    /// Encoded/decoded by serializers as "PrivateCurrency".
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_OBhy8V_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in a private currency.")]
-    PrivateCurrency,
+    PrivateCurrency = LoyaltyValueTypeCode.PrivateCurrency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum LoyaltyValueType1Code
 public static class LoyaltyValueType1CodeMetadataExtensions
 {
     private static readonly LoyaltyValueType1CodeDropdownSource _dropdownSource = new LoyaltyValueType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

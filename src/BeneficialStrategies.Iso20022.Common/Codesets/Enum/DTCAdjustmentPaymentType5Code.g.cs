@@ -21,75 +21,75 @@ public enum DTCAdjustmentPaymentType5Code
 {
     /// <summary>
     /// Custody reorganisation deposit related adjustment.
-    /// Encoded/decoded by serializers as "CustodyReorganisationDeposit".
+    /// Encoded/decoded by serializers as "RRCD".
     /// </summary>
     [EnumMember(Value = "RRCD")]
     [IsoId("_TORTwcMOEee-Vv_OVx0uAQ")]
     [Description(@"Custody reorganisation deposit related adjustment.")]
-    CustodyReorganisationDeposit,
+    CustodyReorganisationDeposit = DTCAdjustmentPaymentTypeV3Code.CustodyReorganisationDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic rate change related adjustment.
-    /// Encoded/decoded by serializers as "DynamicRateChange".
+    /// Encoded/decoded by serializers as "RRDR".
     /// </summary>
     [EnumMember(Value = "RRDR")]
     [IsoId("_TToU4cMOEee-Vv_OVx0uAQ")]
     [Description(@"Dynamic rate change related adjustment.")]
-    DynamicRateChange,
+    DynamicRateChange = DTCAdjustmentPaymentTypeV3Code.DynamicRateChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FailSettlement".
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_TZRp4cMOEee-Vv_OVx0uAQ")]
     [Description(@"FAIL (undelivered securities) transaction.")]
-    FailSettlement,
+    FailSettlement = DTCAdjustmentPaymentTypeV3Code.FailSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MiscellaneousSettlement".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_UoufkcMOEee-Vv_OVx0uAQ")]
     [Description(@"Miscellaneous (adjustment) transaction.")]
-    MiscellaneousSettlement,
+    MiscellaneousSettlement = DTCAdjustmentPaymentTypeV3Code.MiscellaneousSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant deposited a security within 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "ReorganisationDepositPhaseOne".
+    /// Encoded/decoded by serializers as "RRD1".
     /// </summary>
     [EnumMember(Value = "RRD1")]
     [IsoId("_VArFgcMOEee-Vv_OVx0uAQ")]
     [Description(@"Participant deposited a security within 10 days after a corporate action event has occurred.")]
-    ReorganisationDepositPhaseOne,
+    ReorganisationDepositPhaseOne = DTCAdjustmentPaymentTypeV3Code.ReorganisationDepositPhaseOne, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Participant deposited a security 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "ReorganisationDepositPhaseTwo".
+    /// Encoded/decoded by serializers as "RRD2".
     /// </summary>
     [EnumMember(Value = "RRD2")]
     [IsoId("_W_lCMcMOEee-Vv_OVx0uAQ")]
     [Description(@"Participant deposited a security 10 days after a corporate action event has occurred.")]
-    ReorganisationDepositPhaseTwo,
+    ReorganisationDepositPhaseTwo = DTCAdjustmentPaymentTypeV3Code.ReorganisationDepositPhaseTwo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "RepoSettlement".
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_XGIWIcMOEee-Vv_OVx0uAQ")]
     [Description(@"REPO (repurchase agreement) transaction.")]
-    RepoSettlement,
+    RepoSettlement = DTCAdjustmentPaymentTypeV3Code.RepoSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "StockLoanSettlement".
+    /// Encoded/decoded by serializers as "STOK".
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_ckyXMcMOEee-Vv_OVx0uAQ")]
     [Description(@"Stock loan transaction.")]
-    StockLoanSettlement,
+    StockLoanSettlement = DTCAdjustmentPaymentTypeV3Code.StockLoanSettlement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum DTCAdjustmentPaymentType5Code
 public static class DTCAdjustmentPaymentType5CodeMetadataExtensions
 {
     private static readonly DTCAdjustmentPaymentType5CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

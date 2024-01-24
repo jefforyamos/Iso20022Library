@@ -21,30 +21,30 @@ public enum SettlementDate1Code
 {
     /// <summary>
     /// Transfer is to be effected as soon as possible.
-    /// Encoded/decoded by serializers as "AsSoonAsPossible".
+    /// Encoded/decoded by serializers as "ASAP".
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_ZK_t99p-Ed-ak6NoX_4Aeg_581713029")]
     [Description(@"Transfer is to be effected as soon as possible.")]
-    AsSoonAsPossible,
+    AsSoonAsPossible = SettlementDateCode.AsSoonAsPossible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer is to be effected at the end of the contract.
-    /// Encoded/decoded by serializers as "AtEndOfContract".
+    /// Encoded/decoded by serializers as "ENDC".
     /// </summary>
     [EnumMember(Value = "ENDC")]
     [IsoId("_ZK_t-Np-Ed-ak6NoX_4Aeg_581713038")]
     [Description(@"Transfer is to be effected at the end of the contract.")]
-    AtEndOfContract,
+    AtEndOfContract = SettlementDateCode.AtEndOfContract, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement takes place when the financial instrument is issued by the issuer.
-    /// Encoded/decoded by serializers as "WhenAndIfIssued".
+    /// Encoded/decoded by serializers as "WHIF".
     /// </summary>
     [EnumMember(Value = "WHIF")]
     [IsoId("_ZLI34Np-Ed-ak6NoX_4Aeg_-732074064")]
     [Description(@"Settlement takes place when the financial instrument is issued by the issuer.")]
-    WhenAndIfIssued,
+    WhenAndIfIssued = SettlementDateCode.WhenAndIfIssued, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SettlementDate1Code
 public static class SettlementDate1CodeMetadataExtensions
 {
     private static readonly SettlementDate1CodeDropdownSource _dropdownSource = new SettlementDate1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

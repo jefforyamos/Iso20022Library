@@ -21,30 +21,30 @@ public enum CancelledStatusReason3Code
 {
     /// <summary>
     /// Transaction is cancelled by the transfer agent.
-    /// Encoded/decoded by serializers as "CancelledByTransferAgent".
+    /// Encoded/decoded by serializers as "CNTA".
     /// </summary>
     [EnumMember(Value = "CNTA")]
     [IsoId("_a0yWQ9p-Ed-ak6NoX_4Aeg_2105332427")]
     [Description(@"Transaction is cancelled by the transfer agent.")]
-    CancelledByTransferAgent,
+    CancelledByTransferAgent = CancelledStatusReasonCode.CancelledByTransferAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the client.
-    /// Encoded/decoded by serializers as "CancelledByClient".
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_a0yWRNp-Ed-ak6NoX_4Aeg_2105332450")]
     [Description(@"Transaction is cancelled by the client.")]
-    CancelledByClient,
+    CancelledByClient = CancelledStatusReasonCode.CancelledByClient, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is cancelled by the intermediary.
-    /// Encoded/decoded by serializers as "CancelledByIntermediary".
+    /// Encoded/decoded by serializers as "CNIN".
     /// </summary>
     [EnumMember(Value = "CNIN")]
     [IsoId("_a0yWRdp-Ed-ak6NoX_4Aeg_2105332467")]
     [Description(@"Transaction is cancelled by the intermediary.")]
-    CancelledByIntermediary,
+    CancelledByIntermediary = CancelledStatusReasonCode.CancelledByIntermediary, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CancelledStatusReason3Code
 public static class CancelledStatusReason3CodeMetadataExtensions
 {
     private static readonly CancelledStatusReason3CodeDropdownSource _dropdownSource = new CancelledStatusReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

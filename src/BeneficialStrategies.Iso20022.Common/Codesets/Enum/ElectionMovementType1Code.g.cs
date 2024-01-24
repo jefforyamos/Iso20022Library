@@ -21,21 +21,21 @@ public enum ElectionMovementType1Code
 {
     /// <summary>
     /// Election results in a change of balance type that transfers control of the securities rather than the securities themselves.
-    /// Encoded/decoded by serializers as "Restricted".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ag04d9p-Ed-ak6NoX_4Aeg_1964804967")]
     [Description(@"Election results in a change of balance type that transfers control of the securities rather than the securities themselves.")]
-    Restricted,
+    Restricted = ElectionMovementTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.
-    /// Encoded/decoded by serializers as "Direct".
+    /// Encoded/decoded by serializers as "DRCT".
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_ag04eNp-Ed-ak6NoX_4Aeg_1964804975")]
     [Description(@"Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.")]
-    Direct,
+    Direct = ElectionMovementTypeCode.Direct, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ElectionMovementType1Code
 public static class ElectionMovementType1CodeMetadataExtensions
 {
     private static readonly ElectionMovementType1CodeDropdownSource _dropdownSource = new ElectionMovementType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

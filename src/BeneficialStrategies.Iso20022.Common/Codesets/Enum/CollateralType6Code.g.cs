@@ -21,93 +21,93 @@ public enum CollateralType6Code
 {
     /// <summary>
     /// Collateral type is a bank guarantee.
-    /// Encoded/decoded by serializers as "BankGuarantee".
+    /// Encoded/decoded by serializers as "GBBK".
     /// </summary>
     [EnumMember(Value = "GBBK")]
     [IsoId("_tMy3kfJUEei775R97f5g5A")]
     [Description(@"Collateral type is a bank guarantee.")]
-    BankGuarantee,
+    BankGuarantee = CollateralTypeCode.BankGuarantee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is bonds.
-    /// Encoded/decoded by serializers as "Bond".
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_tRaR0PJUEei775R97f5g5A")]
     [Description(@"Collateral type is bonds.")]
-    Bond,
+    Bond = CollateralTypeCode.Bond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_tWUnAfJUEei775R97f5g5A")]
     [Description(@"Collateral type is cash.")]
-    Cash,
+    Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is commodities.
-    /// Encoded/decoded by serializers as "Commodity".
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_tbOVIfJUEei775R97f5g5A")]
     [Description(@"Collateral type is commodities.")]
-    Commodity,
+    Commodity = CollateralTypeCode.Commodity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is an insurance contract.
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_th0FUfJUEei775R97f5g5A")]
     [Description(@"Collateral type is an insurance contract.")]
-    Insurance,
+    Insurance = CollateralTypeCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
-    /// Encoded/decoded by serializers as "LetterOfCredit".
+    /// Encoded/decoded by serializers as "LCRE".
     /// </summary>
     [EnumMember(Value = "LCRE")]
     [IsoId("_tnt5AfJUEei775R97f5g5A")]
     [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
-    LetterOfCredit,
+    LetterOfCredit = CollateralTypeCode.LetterOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other assets that could be used as collateral.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tuSbEfJUEei775R97f5g5A")]
     [Description(@"Other assets that could be used as collateral.")]
-    Other,
+    Other = CollateralTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.
-    /// Encoded/decoded by serializers as "PhysicalEntities".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_t0UKkfJUEei775R97f5g5A")]
     [Description(@"Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.")]
-    PhysicalEntities,
+    PhysicalEntities = CollateralTypeCode.PhysicalEntities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_t551MfJUEei775R97f5g5A")]
     [Description(@"Collateral type is securities.")]
-    Securities,
+    Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Collateral type is stock certificates.
-    /// Encoded/decoded by serializers as "StockCertificate".
+    /// Encoded/decoded by serializers as "STCF".
     /// </summary>
     [EnumMember(Value = "STCF")]
     [IsoId("_t-GYsfJUEei775R97f5g5A")]
     [Description(@"Collateral type is stock certificates.")]
-    StockCertificate,
+    StockCertificate = CollateralTypeCode.StockCertificate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum CollateralType6Code
 public static class CollateralType6CodeMetadataExtensions
 {
     private static readonly CollateralType6CodeDropdownSource _dropdownSource = new CollateralType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

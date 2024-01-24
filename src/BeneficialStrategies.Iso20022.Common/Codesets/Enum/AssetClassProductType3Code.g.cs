@@ -21,12 +21,12 @@ public enum AssetClassProductType3Code
 {
     /// <summary>
     /// Commodity of type environmental.
-    /// Encoded/decoded by serializers as "Environmental".
+    /// Encoded/decoded by serializers as "ENVR".
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_hLbbYQnyEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type environmental.")]
-    Environmental,
+    Environmental = AssetClassProductTypeCode.Environmental, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType3Code
 public static class AssetClassProductType3CodeMetadataExtensions
 {
     private static readonly AssetClassProductType3CodeDropdownSource _dropdownSource = new AssetClassProductType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

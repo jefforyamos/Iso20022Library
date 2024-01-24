@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_QVZ8gIoZEeSirOZJBRz_nA")]
 [Description(@"Describes the main way customer information was collected to build up the customer menu and the withdrawal request.")]
 [Derivations(typeof(ATMCustomerProfile1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMCustomerProfileCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ATMCustomerProfileCode
 public static class ATMCustomerProfileCodeMetadataExtensions
 {
     private static readonly ATMCustomerProfileCodeDropdownSource _dropdownSource = new ATMCustomerProfileCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

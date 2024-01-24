@@ -21,39 +21,39 @@ public enum CardServiceType4Code
 {
     /// <summary>
     /// Partial reconciliation of the day.
-    /// Encoded/decoded by serializers as "CheckPoint".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_GQgWgU-DEeePXdaAO32Uew")]
     [Description(@"Partial reconciliation of the day.")]
-    CheckPoint,
+    CheckPoint = CardServiceTypeCode.CheckPoint, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Final reconciliation.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_HStaYk-DEeePXdaAO32Uew")]
     [Description(@"Final reconciliation.")]
-    Final,
+    Final = CardServiceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// National defined code.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_H7LIkk-DEeePXdaAO32Uew")]
     [Description(@"National defined code.")]
-    OtherNational,
+    OtherNational = CardServiceTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Private defined code.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_IH-Ock-DEeePXdaAO32Uew")]
     [Description(@"Private defined code.")]
-    OtherPrivate,
+    OtherPrivate = CardServiceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum CardServiceType4Code
 public static class CardServiceType4CodeMetadataExtensions
 {
     private static readonly CardServiceType4CodeDropdownSource _dropdownSource = new CardServiceType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

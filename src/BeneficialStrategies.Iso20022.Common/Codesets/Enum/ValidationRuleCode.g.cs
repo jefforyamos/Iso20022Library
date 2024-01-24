@@ -11,15 +11,13 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Specifies all codes that are to be used in the formal validation rules.
-/// 
 /// Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.
 /// </summary>
 [DataContract]
 [Serializable]
 [IsoId("_pQycwB8_EeuaqdhZaJ3GHw")]
-[Description(@"Specifies all codes that are to be used in the formal validation rules.  Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.")]
-[Derivations(typeof(ValidationRuleStatus1Code),typeof(ValidationRuleInstruction1Code),typeof(ValidationRulePayCreditorByCheque1Code),typeof(ValidationRuleStatus3Code),typeof(ValidationRuleReceived1Code),typeof(ValidationRuleRejected1Code),typeof(ValidationRuleNarrative1Code),typeof(ValidationRuleStatus2Code),typeof(ValidationRulePending1Code),typeof(ValidationRuleConfirmation1Code),typeof(ValidationRuleAnyBank1Code),typeof(ValidationRuleSpecifiedAddress1Code),typeof(ValidationRuleIssuanceType1Code),typeof(ValidationRuleCreditSettlement1Code),typeof(ValidationRuleSettlementInProcess1Code),typeof(ValidationRulePendingAndRejected1Code))]
-// External derivations that should be provided by the proper interface are: 
+[Description(@"Specifies all codes that are to be used in the formal validation rules.||Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.")]
+[Derivations(typeof(ValidationRuleIssuanceType1Code),typeof(ValidationRulePending1Code),typeof(ValidationRulePendingAndRejected1Code),typeof(ValidationRuleRejected1Code),typeof(ValidationRuleNarrative1Code),typeof(ValidationRuleCreditSettlement1Code),typeof(ValidationRuleConfirmation1Code),typeof(ValidationRuleStatus3Code),typeof(ValidationRuleStatus1Code),typeof(ValidationRuleSpecifiedAddress1Code),typeof(ValidationRuleSettlementInProcess1Code),typeof(ValidationRuleAnyBank1Code),typeof(ValidationRuleInstruction1Code),typeof(ValidationRuleReceived1Code),typeof(ValidationRuleStatus2Code),typeof(ValidationRulePayCreditorByCheque1Code))]
 public enum ValidationRuleCode
 {
     /// <summary>
@@ -238,7 +236,7 @@ public enum ValidationRuleCode
 public static class ValidationRuleCodeMetadataExtensions
 {
     private static readonly ValidationRuleCodeDropdownSource _dropdownSource = new ValidationRuleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

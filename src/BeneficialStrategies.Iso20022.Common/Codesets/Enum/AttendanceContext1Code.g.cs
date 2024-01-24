@@ -21,30 +21,30 @@ public enum AttendanceContext1Code
 {
     /// <summary>
     /// Attended payment, with an attendant.
-    /// Encoded/decoded by serializers as "Attended".
+    /// Encoded/decoded by serializers as "ATTD".
     /// </summary>
     [EnumMember(Value = "ATTD")]
     [IsoId("_TSEShAEcEeCQm6a_G2yO_w_940571351")]
     [Description(@"Attended payment, with an attendant.")]
-    Attended,
+    Attended = AttendanceContextCode.Attended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.
-    /// Encoded/decoded by serializers as "SemiAttended".
+    /// Encoded/decoded by serializers as "SATT".
     /// </summary>
     [EnumMember(Value = "SATT")]
     [IsoId("_TSEShQEcEeCQm6a_G2yO_w_57338064")]
     [Description(@"Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.")]
-    SemiAttended,
+    SemiAttended = AttendanceContextCode.SemiAttended, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unattended payment, no attendant present.
-    /// Encoded/decoded by serializers as "Unattended".
+    /// Encoded/decoded by serializers as "UATT".
     /// </summary>
     [EnumMember(Value = "UATT")]
     [IsoId("_TSEShgEcEeCQm6a_G2yO_w_1087570186")]
     [Description(@"Unattended payment, no attendant present.")]
-    Unattended,
+    Unattended = AttendanceContextCode.Unattended, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AttendanceContext1Code
 public static class AttendanceContext1CodeMetadataExtensions
 {
     private static readonly AttendanceContext1CodeDropdownSource _dropdownSource = new AttendanceContext1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

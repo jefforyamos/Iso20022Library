@@ -21,93 +21,93 @@ public enum TransactionOperationType6Code
 {
     /// <summary>
     /// Update in the reuse of collateral, the reinvestment of cash or the margin lending funding sources.
-    /// Encoded/decoded by serializers as "CollateralReuseUpdate".
+    /// Encoded/decoded by serializers as "REUU".
     /// </summary>
     [EnumMember(Value = "REUU")]
     [IsoId("_tfgO8__kEemm3skPVSMJQg")]
     [Description(@"Update in the reuse of collateral, the reinvestment of cash or the margin lending funding sources.")]
-    CollateralReuseUpdate,
+    CollateralReuseUpdate = TransactionOperationTypeCode.CollateralReuseUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update of a contract collateral.
-    /// Encoded/decoded by serializers as "CollateralUpdate".
+    /// Encoded/decoded by serializers as "COLU".
     /// </summary>
     [EnumMember(Value = "COLU")]
     [IsoId("_t1HSkf_kEemm3skPVSMJQg")]
     [Description(@"Update of a contract collateral.")]
-    CollateralUpdate,
+    CollateralUpdate = TransactionOperationTypeCode.CollateralUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction corrects errors in a previously sent transaction.
-    /// Encoded/decoded by serializers as "Correction".
+    /// Encoded/decoded by serializers as "CORR".
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_uLd9E__kEemm3skPVSMJQg")]
     [Description(@"Transaction corrects errors in a previously sent transaction.")]
-    Correction,
+    Correction = TransactionOperationTypeCode.Correction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an early termination.
-    /// Encoded/decoded by serializers as "EarlyTermination".
+    /// Encoded/decoded by serializers as "ETRM".
     /// </summary>
     [EnumMember(Value = "ETRM")]
     [IsoId("_uLd9Ff_kEemm3skPVSMJQg")]
     [Description(@"Transaction is an early termination.")]
-    EarlyTermination,
+    EarlyTermination = TransactionOperationTypeCode.EarlyTermination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update of a contract valuation or collateral.
-    /// Encoded/decoded by serializers as "ValuationUpdate".
+    /// Encoded/decoded by serializers as "VALU".
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_ul2L8f_kEemm3skPVSMJQg")]
     [Description(@"Update of a contract valuation or collateral.")]
-    ValuationUpdate,
+    ValuationUpdate = TransactionOperationTypeCode.ValuationUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contract to be reported as a new trade and included in a separate position report on the same day.
-    /// Encoded/decoded by serializers as "PositionComponent".
+    /// Encoded/decoded by serializers as "POSC".
     /// </summary>
     [EnumMember(Value = "POSC")]
     [IsoId("_vBRjsf_kEemm3skPVSMJQg")]
     [Description(@"Contract to be reported as a new trade and included in a separate position report on the same day.")]
-    PositionComponent,
+    PositionComponent = TransactionOperationTypeCode.PositionComponent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NewTransaction".
+    /// Encoded/decoded by serializers as "NEWT".
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_vBato__kEemm3skPVSMJQg")]
     [Description(@"Transaction is a new transaction.")]
-    NewTransaction,
+    NewTransaction = TransactionOperationTypeCode.NewTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction modifies in a previously sent transaction.
-    /// Encoded/decoded by serializers as "Modification".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_vBkeof_kEemm3skPVSMJQg")]
     [Description(@"Transaction modifies in a previously sent transaction.")]
-    Modification,
+    Modification = TransactionOperationTypeCode.Modification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies a dedicated report to provide changes in initial and variation margin that a reporting counterparty posts with regards to CCP-cleared SFTs.
-    /// Encoded/decoded by serializers as "MarginUpdate".
+    /// Encoded/decoded by serializers as "MARU".
     /// </summary>
     [EnumMember(Value = "MARU")]
     [IsoId("_vEjhMf_kEemm3skPVSMJQg")]
     [Description(@"Specifies a dedicated report to provide changes in initial and variation margin that a reporting counterparty posts with regards to CCP-cleared SFTs.")]
-    MarginUpdate,
+    MarginUpdate = TransactionOperationTypeCode.MarginUpdate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.
-    /// Encoded/decoded by serializers as "Error".
+    /// Encoded/decoded by serializers as "EROR".
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_vIRjkf_kEemm3skPVSMJQg")]
     [Description(@"Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.")]
-    Error,
+    Error = TransactionOperationTypeCode.Error, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum TransactionOperationType6Code
 public static class TransactionOperationType6CodeMetadataExtensions
 {
     private static readonly TransactionOperationType6CodeDropdownSource _dropdownSource = new TransactionOperationType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

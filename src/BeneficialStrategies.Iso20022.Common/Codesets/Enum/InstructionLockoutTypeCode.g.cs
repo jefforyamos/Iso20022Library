@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_-EhqAA7vEeuZI5Sr_GAcuA")]
 [Description(@"Specify the type of blocking when instructions are temporarily blocked for an event.")]
 [Derivations(typeof(InstructionLockoutType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstructionLockoutTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InstructionLockoutTypeCode
 public static class InstructionLockoutTypeCodeMetadataExtensions
 {
     private static readonly InstructionLockoutTypeCodeDropdownSource _dropdownSource = new InstructionLockoutTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

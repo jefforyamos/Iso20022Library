@@ -21,39 +21,39 @@ public enum DeliveryType1Code
 {
     /// <summary>
     /// Indicates that the delivery is against payment.
-    /// Encoded/decoded by serializers as "AgainstPayment".
+    /// Encoded/decoded by serializers as "AGPM".
     /// </summary>
     [EnumMember(Value = "AGPM")]
     [IsoId("_azmDddp-Ed-ak6NoX_4Aeg_202824033")]
     [Description(@"Indicates that the delivery is against payment.")]
-    AgainstPayment,
+    AgainstPayment = DeliveryTypeCode.AgainstPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the delivery is free of payment.
-    /// Encoded/decoded by serializers as "Free".
+    /// Encoded/decoded by serializers as "FREE".
     /// </summary>
     [EnumMember(Value = "FREE")]
     [IsoId("_azv0cNp-Ed-ak6NoX_4Aeg_202824093")]
     [Description(@"Indicates the delivery is free of payment.")]
-    Free,
+    Free = DeliveryTypeCode.Free, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a custodian bank or international clearing organization acts as an intermediary between the two parties to the repo.
-    /// Encoded/decoded by serializers as "Triparty".
+    /// Encoded/decoded by serializers as "TRIP".
     /// </summary>
     [EnumMember(Value = "TRIP")]
     [IsoId("_azv0cdp-Ed-ak6NoX_4Aeg_203744107")]
     [Description(@"Indicates that a custodian bank or international clearing organization acts as an intermediary between the two parties to the repo.")]
-    Triparty,
+    Triparty = DeliveryTypeCode.Triparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the collateral pledged by the (cash) borrower is not actually delivered to the cash lender. Rather, it is placed in an internal account ("held in custody") by the borrower, for the lender, throughout the duration of the trade.
-    /// Encoded/decoded by serializers as "HoldInCustody".
+    /// Encoded/decoded by serializers as "HOIC".
     /// </summary>
     [EnumMember(Value = "HOIC")]
     [IsoId("_azv0ctp-Ed-ak6NoX_4Aeg_203744124")]
     [Description(@"Indicates that the collateral pledged by the (cash) borrower is not actually delivered to the cash lender. Rather, it is placed in an internal account (""held in custody"") by the borrower, for the lender, throughout the duration of the trade.")]
-    HoldInCustody,
+    HoldInCustody = DeliveryTypeCode.HoldInCustody, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DeliveryType1Code
 public static class DeliveryType1CodeMetadataExtensions
 {
     private static readonly DeliveryType1CodeDropdownSource _dropdownSource = new DeliveryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

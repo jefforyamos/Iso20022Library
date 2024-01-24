@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_7UYaUIqHEeSRT5rEzcAHEw")]
 [Description(@"ATM devices.")]
 [Derivations(typeof(ATMDevice2Code),typeof(ATMDevice1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMDeviceCode
 {
     /// <summary>
@@ -227,7 +226,7 @@ public enum ATMDeviceCode
 public static class ATMDeviceCodeMetadataExtensions
 {
     private static readonly ATMDeviceCodeDropdownSource _dropdownSource = new ATMDeviceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

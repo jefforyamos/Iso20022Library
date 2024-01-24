@@ -54,7 +54,7 @@ public enum FundLegalFormCode
 public static class FundLegalFormCodeMetadataExtensions
 {
     private static readonly FundLegalFormCodeDropdownSource _dropdownSource = new FundLegalFormCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

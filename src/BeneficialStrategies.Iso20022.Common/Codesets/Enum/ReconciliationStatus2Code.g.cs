@@ -21,30 +21,30 @@ public enum ReconciliationStatus2Code
 {
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.
-    /// Encoded/decoded by serializers as "NonReconciled".
+    /// Encoded/decoded by serializers as "NREC".
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_y9E1AT5zEe2Z1_pdMHu4SA")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.")]
-    NonReconciled,
+    NonReconciled = ReconciliationStatusCode.NonReconciled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
-    /// Encoded/decoded by serializers as "Reconciled".
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_y9E1Az5zEe2Z1_pdMHu4SA")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.")]
-    Reconciled,
+    Reconciled = ReconciliationStatusCode.Reconciled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Not applicable.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_zxy2gT5zEe2Z1_pdMHu4SA")]
     [Description(@"Not applicable.")]
-    NotApplicable,
+    NotApplicable = ReconciliationStatusCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReconciliationStatus2Code
 public static class ReconciliationStatus2CodeMetadataExtensions
 {
     private static readonly ReconciliationStatus2CodeDropdownSource _dropdownSource = new ReconciliationStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

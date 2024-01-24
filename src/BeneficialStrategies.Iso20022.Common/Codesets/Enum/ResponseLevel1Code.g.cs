@@ -21,30 +21,30 @@ public enum ResponseLevel1Code
 {
     /// <summary>
     /// No acknowledgement is requested.
-    /// Encoded/decoded by serializers as "NoAcknowledgement".
+    /// Encoded/decoded by serializers as "NACK".
     /// </summary>
     [EnumMember(Value = "NACK")]
     [IsoId("_ZVH6Utp-Ed-ak6NoX_4Aeg_-1557115638")]
     [Description(@"No acknowledgement is requested.")]
-    NoAcknowledgement,
+    NoAcknowledgement = ResponseLevelCode.NoAcknowledgement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of only negative or erroneous messages is requested.
-    /// Encoded/decoded by serializers as "AcknowledgementNegativeError".
+    /// Encoded/decoded by serializers as "ACNE".
     /// </summary>
     [EnumMember(Value = "ACNE")]
     [IsoId("_ZVH6U9p-Ed-ak6NoX_4Aeg_-1557115330")]
     [Description(@"Acknowledgement of only negative or erroneous messages is requested.")]
-    AcknowledgementNegativeError,
+    AcknowledgementNegativeError = ResponseLevelCode.AcknowledgementNegativeError, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acknowledgement of each message is requested.
-    /// Encoded/decoded by serializers as "AcknowledgementEach".
+    /// Encoded/decoded by serializers as "ACEA".
     /// </summary>
     [EnumMember(Value = "ACEA")]
     [IsoId("_ZVH6VNp-Ed-ak6NoX_4Aeg_-1557115288")]
     [Description(@"Acknowledgement of each message is requested.")]
-    AcknowledgementEach,
+    AcknowledgementEach = ResponseLevelCode.AcknowledgementEach, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ResponseLevel1Code
 public static class ResponseLevel1CodeMetadataExtensions
 {
     private static readonly ResponseLevel1CodeDropdownSource _dropdownSource = new ResponseLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

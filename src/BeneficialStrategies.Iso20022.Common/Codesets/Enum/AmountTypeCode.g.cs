@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_be0KtNp-Ed-ak6NoX_4Aeg_-1456928482")]
 [Description(@"Specifies the reason why an amount is not specified.")]
 [Derivations(typeof(AmountType2Code),typeof(AmountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AmountTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AmountTypeCode
 public static class AmountTypeCodeMetadataExtensions
 {
     private static readonly AmountTypeCodeDropdownSource _dropdownSource = new AmountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

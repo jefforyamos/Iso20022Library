@@ -21,30 +21,30 @@ public enum ErrorHandling1Code
 {
     /// <summary>
     /// Specifies the error code when the data requested are not yet available.
-    /// Encoded/decoded by serializers as "DataNotYetAvailable".
+    /// Encoded/decoded by serializers as "X020".
     /// </summary>
     [EnumMember(Value = "X020")]
     [IsoId("_ah3aRdp-Ed-ak6NoX_4Aeg_-1106717261")]
     [Description(@"Specifies the error code when the data requested are not yet available.")]
-    DataNotYetAvailable,
+    DataNotYetAvailable = ErrorHandlingCode.DataNotYetAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the error code when the data requested generates a message size that exceed the processing capacity.
-    /// Encoded/decoded by serializers as "MessageSizeLimitExceeded".
+    /// Encoded/decoded by serializers as "X030".
     /// </summary>
     [EnumMember(Value = "X030")]
     [IsoId("_ah3aRtp-Ed-ak6NoX_4Aeg_-1106717021")]
     [Description(@"Specifies the error code when the data requested generates a message size that exceed the processing capacity.")]
-    MessageSizeLimitExceeded,
+    MessageSizeLimitExceeded = ErrorHandlingCode.MessageSizeLimitExceeded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the error code when the data requested have not been found.
-    /// Encoded/decoded by serializers as "DataNotAvailable".
+    /// Encoded/decoded by serializers as "X050".
     /// </summary>
     [EnumMember(Value = "X050")]
     [IsoId("_ah3aR9p-Ed-ak6NoX_4Aeg_-1106717013")]
     [Description(@"Specifies the error code when the data requested have not been found.")]
-    DataNotAvailable,
+    DataNotAvailable = ErrorHandlingCode.DataNotAvailable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ErrorHandling1Code
 public static class ErrorHandling1CodeMetadataExtensions
 {
     private static readonly ErrorHandling1CodeDropdownSource _dropdownSource = new ErrorHandling1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

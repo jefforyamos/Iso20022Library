@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_W1_04IqLEeSRT5rEzcAHEw")]
 [Description(@"Required status of the ATM, parameters of the status update command.")]
 [Derivations(typeof(ATMStatus1Code),typeof(ATMStatus2Code),typeof(ATMStatus3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ATMStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ATMStatusCode
 public static class ATMStatusCodeMetadataExtensions
 {
     private static readonly ATMStatusCodeDropdownSource _dropdownSource = new ATMStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

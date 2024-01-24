@@ -21,30 +21,30 @@ public enum InputSource1Code
 {
     /// <summary>
     /// File has been encoded.
-    /// Encoded/decoded by serializers as "Encoded".
+    /// Encoded/decoded by serializers as "NCOD".
     /// </summary>
     [EnumMember(Value = "NCOD")]
     [IsoId("_uWkrscmMEeWAGphE2LvqeA")]
     [Description(@"File has been encoded.")]
-    Encoded,
+    Encoded = InputSourceCode.Encoded, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File has been uploaded manually.
-    /// Encoded/decoded by serializers as "UploadedManually".
+    /// Encoded/decoded by serializers as "UMNL".
     /// </summary>
     [EnumMember(Value = "UMNL")]
     [IsoId("_uiBGssmMEeWAGphE2LvqeA")]
     [Description(@"File has been uploaded manually.")]
-    UploadedManually,
+    UploadedManually = InputSourceCode.UploadedManually, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// File has been uploaded through the CIS (Customer Identification System) system.
-    /// Encoded/decoded by serializers as "UploadedViaCIS".
+    /// Encoded/decoded by serializers as "UCIS".
     /// </summary>
     [EnumMember(Value = "UCIS")]
     [IsoId("_utUXwsmMEeWAGphE2LvqeA")]
     [Description(@"File has been uploaded through the CIS (Customer Identification System) system.")]
-    UploadedViaCIS,
+    UploadedViaCIS = InputSourceCode.UploadedViaCIS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InputSource1Code
 public static class InputSource1CodeMetadataExtensions
 {
     private static readonly InputSource1CodeDropdownSource _dropdownSource = new InputSource1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

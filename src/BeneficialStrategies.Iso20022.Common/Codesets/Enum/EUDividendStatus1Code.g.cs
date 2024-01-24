@@ -21,30 +21,30 @@ public enum EUDividendStatus1Code
 {
     /// <summary>
     /// Dividend is in the scope of the directive.
-    /// Encoded/decoded by serializers as "DividendInScope".
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_aiKVNdp-Ed-ak6NoX_4Aeg_1079111436")]
     [Description(@"Dividend is in the scope of the directive.")]
-    DividendInScope,
+    DividendInScope = EUDividendStatusCode.DividendInScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dividend is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "DividendOutScope".
+    /// Encoded/decoded by serializers as "DIVO".
     /// </summary>
     [EnumMember(Value = "DIVO")]
     [IsoId("_aiKVNtp-Ed-ak6NoX_4Aeg_1080036251")]
     [Description(@"Dividend is out of the scope of the directive.")]
-    DividendOutScope,
+    DividendOutScope = EUDividendStatusCode.DividendOutScope, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unknown whether the dividend is in or out of the scope of the directive.
-    /// Encoded/decoded by serializers as "DividendUnknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aiKVN9p-Ed-ak6NoX_4Aeg_1080960307")]
     [Description(@"Unknown whether the dividend is in or out of the scope of the directive.")]
-    DividendUnknown,
+    DividendUnknown = EUDividendStatusCode.DividendUnknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum EUDividendStatus1Code
 public static class EUDividendStatus1CodeMetadataExtensions
 {
     private static readonly EUDividendStatus1CodeDropdownSource _dropdownSource = new EUDividendStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum AmountType2Code
 {
     /// <summary>
     /// The amount represents a fixed value.
-    /// Encoded/decoded by serializers as "FixedAmount".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_aISmtn04EeGlwNeVP9egyg")]
     [Description(@"The amount represents a fixed value.")]
-    FixedAmount,
+    FixedAmount = AmountTypeCode.FixedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The amount represents the maximum value.
-    /// Encoded/decoded by serializers as "MaximumAmount".
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_aXoqRn04EeGlwNeVP9egyg")]
     [Description(@"The amount represents the maximum value.")]
-    MaximumAmount,
+    MaximumAmount = AmountTypeCode.MaximumAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The amount represents the minimum value.
-    /// Encoded/decoded by serializers as "MinimumAmount".
+    /// Encoded/decoded by serializers as "MINI".
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_ahLAxn04EeGlwNeVP9egyg")]
     [Description(@"The amount represents the minimum value.")]
-    MinimumAmount,
+    MinimumAmount = AmountTypeCode.MinimumAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AmountType2Code
 public static class AmountType2CodeMetadataExtensions
 {
     private static readonly AmountType2CodeDropdownSource _dropdownSource = new AmountType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

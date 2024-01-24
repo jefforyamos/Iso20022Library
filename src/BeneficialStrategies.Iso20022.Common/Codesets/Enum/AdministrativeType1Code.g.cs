@@ -21,30 +21,30 @@ public enum AdministrativeType1Code
 {
     /// <summary>
     /// Other administrative type defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6oeIMTNKEeylu6lH-gut-A")]
     [Description(@"Other administrative type defined at national level.")]
-    OtherNational,
+    OtherNational = AdministrativeTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other administrative type defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6tdV4TNKEeylu6lH-gut-A")]
     [Description(@"Other administrative type defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = AdministrativeTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text message.
-    /// Encoded/decoded by serializers as "TextMessage".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_6zMxgTNKEeylu6lH-gut-A")]
     [Description(@"Text message.")]
-    TextMessage,
+    TextMessage = AdministrativeTypeCode.TextMessage, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AdministrativeType1Code
 public static class AdministrativeType1CodeMetadataExtensions
 {
     private static readonly AdministrativeType1CodeDropdownSource _dropdownSource = new AdministrativeType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

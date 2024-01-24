@@ -21,66 +21,66 @@ public enum TaxType14Code
 {
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NationalTax".
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_WOfgk9p-Ed-ak6NoX_4Aeg_1871984484")]
     [Description(@"Tax is a national tax.")]
-    NationalTax,
+    NationalTax = TaxTypeCode.NationalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WithholdingTax".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_WOfglNp-Ed-ak6NoX_4Aeg_1871984731")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WithholdingTax,
+    WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "StampDuty".
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_WOfgldp-Ed-ak6NoX_4Aeg_1871984763")]
     [Description(@"Tax is on certain documents and transactions.")]
-    StampDuty,
+    StampDuty = TaxTypeCode.StampDuty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "ConsumptionTax".
+    /// Encoded/decoded by serializers as "COAX".
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_WOfgltp-Ed-ak6NoX_4Aeg_1871984825")]
     [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
-    ConsumptionTax,
+    ConsumptionTax = TaxTypeCode.ConsumptionTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTaxRetention".
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_WOfgl9p-Ed-ak6NoX_4Aeg_1871984854")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTaxRetention,
+    EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "Aktiengewinn2".
+    /// Encoded/decoded by serializers as "AKT2".
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_WOfgmNp-Ed-ak6NoX_4Aeg_1871984885")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
-    Aktiengewinn2,
+    Aktiengewinn2 = TaxTypeCode.Aktiengewinn2, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "Zwischengewinn".
+    /// Encoded/decoded by serializers as "ZWIS".
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_WOfgmdp-Ed-ak6NoX_4Aeg_1871984886")]
     [Description(@"Zwischengewinn.")]
-    Zwischengewinn,
+    Zwischengewinn = TaxTypeCode.Zwischengewinn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TaxType14Code
 public static class TaxType14CodeMetadataExtensions
 {
     private static readonly TaxType14CodeDropdownSource _dropdownSource = new TaxType14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

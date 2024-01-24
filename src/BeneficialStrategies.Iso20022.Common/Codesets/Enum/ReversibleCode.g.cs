@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__v_Dg9ojEeC60axPepSq7g_-2080569702")]
 [Description(@"Indicates the possibility to terminate the securities lending contract either by the borrower or lender before the expiration date.")]
 [Derivations(typeof(Reversible1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReversibleCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReversibleCode
 public static class ReversibleCodeMetadataExtensions
 {
     private static readonly ReversibleCodeDropdownSource _dropdownSource = new ReversibleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

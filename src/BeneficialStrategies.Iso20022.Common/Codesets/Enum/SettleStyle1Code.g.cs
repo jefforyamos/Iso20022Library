@@ -21,21 +21,21 @@ public enum SettleStyle1Code
 {
     /// <summary>
     /// Settlement is only allowed on the closing of the future contract.
-    /// Encoded/decoded by serializers as "SettleOnClose".
+    /// Encoded/decoded by serializers as "SETC".
     /// </summary>
     [EnumMember(Value = "SETC")]
     [IsoId("_ZOa1YNp-Ed-ak6NoX_4Aeg_-1439531144")]
     [Description(@"Settlement is only allowed on the closing of the future contract.")]
-    SettleOnClose,
+    SettleOnClose = SettleStyleCode.SettleOnClose, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is only allowed on the opening of the future contract.
-    /// Encoded/decoded by serializers as "SettleOnOpen".
+    /// Encoded/decoded by serializers as "SETO".
     /// </summary>
     [EnumMember(Value = "SETO")]
     [IsoId("_ZOa1Ydp-Ed-ak6NoX_4Aeg_-1439531109")]
     [Description(@"Settlement is only allowed on the opening of the future contract.")]
-    SettleOnOpen,
+    SettleOnOpen = SettleStyleCode.SettleOnOpen, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SettleStyle1Code
 public static class SettleStyle1CodeMetadataExtensions
 {
     private static readonly SettleStyle1CodeDropdownSource _dropdownSource = new SettleStyle1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

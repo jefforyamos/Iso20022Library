@@ -16,45 +16,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_QRBPYFAWEeedyPuM0kK2EQ")]
-[Description(@"Identifies the type of process related to a batch management. ISO 8583 MTI")]
+[Description(@"Identifies the type of process related to a batch management.|ISO 8583 MTI")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction18Code
 {
     /// <summary>
     /// Request to initiate the transfer of a batch (response expected).
-    /// Encoded/decoded by serializers as "BatchRequest".
+    /// Encoded/decoded by serializers as "BTRQ".
     /// </summary>
     [EnumMember(Value = "BTRQ")]
     [IsoId("_cAK-IVAWEeedyPuM0kK2EQ")]
     [Description(@"Request to initiate the transfer of a batch (response expected).")]
-    BatchRequest,
+    BatchRequest = MessageFunctionCode.BatchRequest, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification to initiate the transfer of a batch (no response expected).
-    /// Encoded/decoded by serializers as "BatchNotification".
+    /// Encoded/decoded by serializers as "BTNF".
     /// </summary>
     [EnumMember(Value = "BTNF")]
     [IsoId("_cOdRwlAWEeedyPuM0kK2EQ")]
     [Description(@"Notification to initiate the transfer of a batch (no response expected).")]
-    BatchNotification,
+    BatchNotification = MessageFunctionCode.BatchNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Notification to initiate the transfer of a collection (no response expected).
-    /// Encoded/decoded by serializers as "CollectionNotification".
+    /// Encoded/decoded by serializers as "CLNF".
     /// </summary>
     [EnumMember(Value = "CLNF")]
     [IsoId("_cgdAslAWEeedyPuM0kK2EQ")]
     [Description(@"Notification to initiate the transfer of a collection (no response expected).")]
-    CollectionNotification,
+    CollectionNotification = MessageFunctionCode.CollectionNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request to initiate the transfer of a collection (response expected).
-    /// Encoded/decoded by serializers as "CollectionRequest".
+    /// Encoded/decoded by serializers as "CLRQ".
     /// </summary>
     [EnumMember(Value = "CLRQ")]
     [IsoId("_cyAqwlAWEeedyPuM0kK2EQ")]
     [Description(@"Request to initiate the transfer of a collection (response expected).")]
-    CollectionRequest,
+    CollectionRequest = MessageFunctionCode.CollectionRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -65,7 +65,7 @@ public enum MessageFunction18Code
 public static class MessageFunction18CodeMetadataExtensions
 {
     private static readonly MessageFunction18CodeDropdownSource _dropdownSource = new MessageFunction18CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

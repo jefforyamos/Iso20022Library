@@ -21,156 +21,156 @@ public enum CardholderVerificationCapability5Code
 {
     /// <summary>
     /// Account based digital signature.
-    /// Encoded/decoded by serializers as "AccountDigitalSignature".
+    /// Encoded/decoded by serializers as "APKI".
     /// </summary>
     [EnumMember(Value = "APKI")]
     [IsoId("_3CLlwX0kEemfrNOe0zHQyg")]
     [Description(@"Account based digital signature.")]
-    AccountDigitalSignature,
+    AccountDigitalSignature = CardholderVerificationCapabilityCode.AccountDigitalSignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No cardholder verification capability.
-    /// Encoded/decoded by serializers as "NoCapabilities".
+    /// Encoded/decoded by serializers as "NOVF".
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_3CLlw30kEemfrNOe0zHQyg")]
     [Description(@"No cardholder verification capability.")]
-    NoCapabilities,
+    NoCapabilities = CardholderVerificationCapabilityCode.NoCapabilities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline biographics.
-    /// Encoded/decoded by serializers as "OfflineBiographics".
+    /// Encoded/decoded by serializers as "FBIG".
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_3CLlxX0kEemfrNOe0zHQyg")]
     [Description(@"Offline biographics.")]
-    OfflineBiographics,
+    OfflineBiographics = CardholderVerificationCapabilityCode.OfflineBiographics, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline biometrics.
-    /// Encoded/decoded by serializers as "OfflineBiometrics".
+    /// Encoded/decoded by serializers as "FBIO".
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_3CLlx30kEemfrNOe0zHQyg")]
     [Description(@"Offline biometrics.")]
-    OfflineBiometrics,
+    OfflineBiometrics = CardholderVerificationCapabilityCode.OfflineBiometrics, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline digital signature analysis.
-    /// Encoded/decoded by serializers as "OfflineDigitalSignature".
+    /// Encoded/decoded by serializers as "FDSG".
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_3CLlyX0kEemfrNOe0zHQyg")]
     [Description(@"Offline digital signature analysis.")]
-    OfflineDigitalSignature,
+    OfflineDigitalSignature = CardholderVerificationCapabilityCode.OfflineDigitalSignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePINClear".
+    /// Encoded/decoded by serializers as "FCPN".
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_3CLly30kEemfrNOe0zHQyg")]
     [Description(@"Offline PIN in clear (Personal Identification Number).")]
-    OfflinePINClear,
+    OfflinePINClear = CardholderVerificationCapabilityCode.OfflinePINClear, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePINEncrypted".
+    /// Encoded/decoded by serializers as "FEPN".
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_3CLlzX0kEemfrNOe0zHQyg")]
     [Description(@"Offline PIN encrypted (Personal Identification Number).")]
-    OfflinePINEncrypted,
+    OfflinePINEncrypted = CardholderVerificationCapabilityCode.OfflinePINEncrypted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Online biometrics.
-    /// Encoded/decoded by serializers as "OnLineBiometrics".
+    /// Encoded/decoded by serializers as "NBIO".
     /// </summary>
     [EnumMember(Value = "NBIO")]
     [IsoId("_3CLlz30kEemfrNOe0zHQyg")]
     [Description(@"Online biometrics.")]
-    OnLineBiometrics,
+    OnLineBiometrics = CardholderVerificationCapabilityCode.OnLineBiometrics, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Online PIN (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OnLinePIN".
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_3CLl0X0kEemfrNOe0zHQyg")]
     [Description(@"Online PIN (Personal Identification Number).")]
-    OnLinePIN,
+    OnLinePIN = CardholderVerificationCapabilityCode.OnLinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of cardholder verification defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_3CLl030kEemfrNOe0zHQyg")]
     [Description(@"Other type of cardholder verification defined at national level")]
-    OtherNational,
+    OtherNational = CardholderVerificationCapabilityCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of cardholder verification defined in a private manner.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_3CLl1X0kEemfrNOe0zHQyg")]
     [Description(@"Other type of cardholder verification defined in a private manner.")]
-    OtherPrivate,
+    OtherPrivate = CardholderVerificationCapabilityCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Handwritten signature verification
-    /// Encoded/decoded by serializers as "Signature".
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_3CLl130kEemfrNOe0zHQyg")]
     [Description(@"Handwritten signature verification")]
-    Signature,
+    Signature = CardholderVerificationCapabilityCode.Signature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cardholder verification capability unspecified.
-    /// Encoded/decoded by serializers as "Unspecified".
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_3CLl2X0kEemfrNOe0zHQyg")]
     [Description(@"Cardholder verification capability unspecified.")]
-    Unspecified,
+    Unspecified = CardholderVerificationCapabilityCode.Unspecified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recognition by voice.
-    /// Encoded/decoded by serializers as "VoiceRecognition".
+    /// Encoded/decoded by serializers as "VORN".
     /// </summary>
     [EnumMember(Value = "VORN")]
     [IsoId("_3CLl230kEemfrNOe0zHQyg")]
     [Description(@"Recognition by voice.")]
-    VoiceRecognition,
+    VoiceRecognition = CardholderVerificationCapabilityCode.VoiceRecognition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
-    /// Encoded/decoded by serializers as "PKISignature".
+    /// Encoded/decoded by serializers as "PKIS".
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_3CLl3X0kEemfrNOe0zHQyg")]
     [Description(@"PKI (Public Key Infrastructure) based digital signature.")]
-    PKISignature,
+    PKISignature = CardholderVerificationCapabilityCode.PKISignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device has no pin entry capability.
-    /// Encoded/decoded by serializers as "NoPINEntry".
+    /// Encoded/decoded by serializers as "NOPN".
     /// </summary>
     [EnumMember(Value = "NOPN")]
     [IsoId("_9pG7EZKcEempjNUC7bi_Ng")]
     [Description(@"Device has no pin entry capability.")]
-    NoPINEntry,
+    NoPINEntry = CardholderVerificationCapabilityCode.NoPINEntry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Device has no online pin entry capability.
-    /// Encoded/decoded by serializers as "NoOnLinePINEntry".
+    /// Encoded/decoded by serializers as "NOOP".
     /// </summary>
     [EnumMember(Value = "NOOP")]
     [IsoId("_ZEDeQRqaEeqH1IQNpbVpEw")]
     [Description(@"Device has no online pin entry capability.")]
-    NoOnLinePINEntry,
+    NoOnLinePINEntry = CardholderVerificationCapabilityCode.NoOnLinePINEntry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -181,7 +181,7 @@ public enum CardholderVerificationCapability5Code
 public static class CardholderVerificationCapability5CodeMetadataExtensions
 {
     private static readonly CardholderVerificationCapability5CodeDropdownSource _dropdownSource = new CardholderVerificationCapability5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

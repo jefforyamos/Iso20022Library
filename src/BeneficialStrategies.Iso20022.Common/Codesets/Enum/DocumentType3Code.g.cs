@@ -21,57 +21,57 @@ public enum DocumentType3Code
 {
     /// <summary>
     /// Document is a remittance advice sent separately from the current transaction.
-    /// Encoded/decoded by serializers as "RemittanceAdviceMessage".
+    /// Encoded/decoded by serializers as "RADM".
     /// </summary>
     [EnumMember(Value = "RADM")]
     [IsoId("_agObgNp-Ed-ak6NoX_4Aeg_665911923")]
     [Description(@"Document is a remittance advice sent separately from the current transaction.")]
-    RemittanceAdviceMessage,
+    RemittanceAdviceMessage = DocumentTypeCode.RemittanceAdviceMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
-    /// Encoded/decoded by serializers as "RelatedPaymentInstruction".
+    /// Encoded/decoded by serializers as "RPIN".
     /// </summary>
     [EnumMember(Value = "RPIN")]
     [IsoId("_agObgdp-Ed-ak6NoX_4Aeg_665911940")]
     [Description(@"Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.")]
-    RelatedPaymentInstruction,
+    RelatedPaymentInstruction = DocumentTypeCode.RelatedPaymentInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.
-    /// Encoded/decoded by serializers as "ForeignExchangeDealReference".
+    /// Encoded/decoded by serializers as "FXDR".
     /// </summary>
     [EnumMember(Value = "FXDR")]
     [IsoId("_agObgtp-Ed-ak6NoX_4Aeg_665912235")]
     [Description(@"Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.")]
-    ForeignExchangeDealReference,
+    ForeignExchangeDealReference = DocumentTypeCode.ForeignExchangeDealReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a dispatch advice.
-    /// Encoded/decoded by serializers as "DispatchAdvice".
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_agObg9p-Ed-ak6NoX_4Aeg_665912698")]
     [Description(@"Document is a dispatch advice.")]
-    DispatchAdvice,
+    DispatchAdvice = DocumentTypeCode.DispatchAdvice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a purchase order.
-    /// Encoded/decoded by serializers as "PurchaseOrder".
+    /// Encoded/decoded by serializers as "PUOR".
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_agObhNp-Ed-ak6NoX_4Aeg_906952902")]
     [Description(@"Document is a purchase order.")]
-    PurchaseOrder,
+    PurchaseOrder = DocumentTypeCode.PurchaseOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a structured communication reference provided by the creditor to identify the referred transaction.
-    /// Encoded/decoded by serializers as "StructuredCommunicationReference".
+    /// Encoded/decoded by serializers as "SCOR".
     /// </summary>
     [EnumMember(Value = "SCOR")]
     [IsoId("_agObhdp-Ed-ak6NoX_4Aeg_922649765")]
     [Description(@"Document is a structured communication reference provided by the creditor to identify the referred transaction.")]
-    StructuredCommunicationReference,
+    StructuredCommunicationReference = DocumentTypeCode.StructuredCommunicationReference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum DocumentType3Code
 public static class DocumentType3CodeMetadataExtensions
 {
     private static readonly DocumentType3CodeDropdownSource _dropdownSource = new DocumentType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

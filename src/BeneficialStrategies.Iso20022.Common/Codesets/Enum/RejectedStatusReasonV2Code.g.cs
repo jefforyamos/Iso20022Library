@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_SOEqKkpIEe2Kv_AXFg3f7A")]
 [Description(@"Cash settlement date is not recognised or is invalid.")]
 [Derivations(typeof(MessageRejectedReason2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RejectedStatusReasonV2Code
 {
     /// <summary>
@@ -776,7 +775,7 @@ public enum RejectedStatusReasonV2Code
 public static class RejectedStatusReasonV2CodeMetadataExtensions
 {
     private static readonly RejectedStatusReasonV2CodeDropdownSource _dropdownSource = new RejectedStatusReasonV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

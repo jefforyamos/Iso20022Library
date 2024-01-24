@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Bd4VEKssEeayv9XxdmMwKQ")]
 [Description(@"Type of scenario based on how the risk factors moves for that scenario were conceived.")]
 [Derivations(typeof(ScenarioType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ScenarioTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum ScenarioTypeCode
 public static class ScenarioTypeCodeMetadataExtensions
 {
     private static readonly ScenarioTypeCodeDropdownSource _dropdownSource = new ScenarioTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

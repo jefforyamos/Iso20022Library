@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_z_dukFyoEeeve7Je9cXtkQ")]
 [Description(@"Party in charge of assigning an identification to a company.")]
 [Derivations(typeof(CompanyAssigner2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CompanyAssignerCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum CompanyAssignerCode
 public static class CompanyAssignerCodeMetadataExtensions
 {
     private static readonly CompanyAssignerCodeDropdownSource _dropdownSource = new CompanyAssignerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

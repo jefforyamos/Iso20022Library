@@ -108,7 +108,7 @@ public enum TradeExecutionSessionCode
 public static class TradeExecutionSessionCodeMetadataExtensions
 {
     private static readonly TradeExecutionSessionCodeDropdownSource _dropdownSource = new TradeExecutionSessionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

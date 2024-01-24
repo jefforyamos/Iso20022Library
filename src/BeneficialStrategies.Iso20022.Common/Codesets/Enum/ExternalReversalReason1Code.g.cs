@@ -16,108 +16,108 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_amolhNp-Ed-ak6NoX_4Aeg_1644342151")]
-[Description(@"Specifies the reversal reason, as published in an external reversal reason code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reversal reason, as published in an external reversal reason code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalReversalReasonCode))]
 public enum ExternalReversalReason1Code
 {
     /// <summary>
     /// Wrong IBAN in  SCT
-    /// Encoded/decoded by serializers as "InvalidCreditorAccountNumber".
+    /// Encoded/decoded by serializers as "AC03".
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_t8gqIvRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong IBAN in  SCT")]
-    InvalidCreditorAccountNumber,
+    InvalidCreditorAccountNumber = ExternalReversalReasonCode.InvalidCreditorAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account number specified has been closed on the Receiver's books
-    /// Encoded/decoded by serializers as "ClosedAccountNumber".
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t8gqJfRYEeuLhpyIdtJzwg")]
     [Description(@"Account number specified has been closed on the Receiver's books")]
-    ClosedAccountNumber,
+    ClosedAccountNumber = ExternalReversalReasonCode.ClosedAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver
-    /// Encoded/decoded by serializers as "InvalidBankOperationCode".
+    /// Encoded/decoded by serializers as "AG02".
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_t8gqKPRYEeuLhpyIdtJzwg")]
     [Description(@"Bank Operation code specified in the message is not valid for receiver")]
-    InvalidBankOperationCode,
+    InvalidBankOperationCode = ExternalReversalReasonCode.InvalidBankOperationCode, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Duplication
-    /// Encoded/decoded by serializers as "Duplication".
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_t8gqK_RYEeuLhpyIdtJzwg")]
     [Description(@"Duplication")]
-    Duplication,
+    Duplication = ExternalReversalReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wrong amount in SCT
-    /// Encoded/decoded by serializers as "WrongAmount".
+    /// Encoded/decoded by serializers as "AM09".
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_t8qbIvRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong amount in SCT")]
-    WrongAmount,
+    WrongAmount = ExternalReversalReasonCode.WrongAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No Mandate
-    /// Encoded/decoded by serializers as "NoMandate".
+    /// Encoded/decoded by serializers as "MD01".
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_t8qbJfRYEeuLhpyIdtJzwg")]
     [Description(@"No Mandate")]
-    NoMandate,
+    NoMandate = ExternalReversalReasonCode.NoMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Creditor or creditor's agent should not have collected the direct debit
-    /// Encoded/decoded by serializers as "CollectionNotDue".
+    /// Encoded/decoded by serializers as "MD05".
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_t8qbKPRYEeuLhpyIdtJzwg")]
     [Description(@"Creditor or creditor's agent should not have collected the direct debit")]
-    CollectionNotDue,
+    CollectionNotDue = ExternalReversalReasonCode.CollectionNotDue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason has not been specified by end customer
-    /// Encoded/decoded by serializers as "NotSpecifiedReasonCustomerGenerated".
+    /// Encoded/decoded by serializers as "MS02".
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_t8qbK_RYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by end customer")]
-    NotSpecifiedReasonCustomerGenerated,
+    NotSpecifiedReasonCustomerGenerated = ExternalReversalReasonCode.NotSpecifiedReasonCustomerGenerated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
+    /// Encoded/decoded by serializers as "MS03".
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_t8qbLvRYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by agent.")]
-    NotSpecifiedReasonAgentGenerated,
+    NotSpecifiedReasonAgentGenerated = ExternalReversalReasonCode.NotSpecifiedReasonAgentGenerated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Wrong BIC in SCT
-    /// Encoded/decoded by serializers as "InvalidCreditorBICIdentifier".
+    /// Encoded/decoded by serializers as "RC07".
     /// </summary>
     [EnumMember(Value = "RC07")]
     [IsoId("_t8zlEvRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong BIC in SCT")]
-    InvalidCreditorBICIdentifier,
+    InvalidCreditorBICIdentifier = ExternalReversalReasonCode.InvalidCreditorBICIdentifier, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Associated message was received after agreed processing cut-off time.
-    /// Encoded/decoded by serializers as "CutOffTime".
+    /// Encoded/decoded by serializers as "TM01".
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_t8zlFfRYEeuLhpyIdtJzwg")]
     [Description(@"Associated message was received after agreed processing cut-off time.")]
-    CutOffTime,
+    CutOffTime = ExternalReversalReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
 }
 
@@ -128,7 +128,7 @@ public enum ExternalReversalReason1Code
 public static class ExternalReversalReason1CodeMetadataExtensions
 {
     private static readonly ExternalReversalReason1CodeDropdownSource _dropdownSource = new ExternalReversalReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

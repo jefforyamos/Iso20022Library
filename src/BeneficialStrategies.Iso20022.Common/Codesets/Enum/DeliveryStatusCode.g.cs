@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_MKgsMQ2pEeWH49U6bkyMaA")]
 [Description(@"Provides an explicit indication whether the delivery attempt resulted in success or failure.")]
 [Derivations(typeof(DeliveryStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DeliveryStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DeliveryStatusCode
 public static class DeliveryStatusCodeMetadataExtensions
 {
     private static readonly DeliveryStatusCodeDropdownSource _dropdownSource = new DeliveryStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

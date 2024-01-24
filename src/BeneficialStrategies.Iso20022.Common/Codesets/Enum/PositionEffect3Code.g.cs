@@ -21,21 +21,21 @@ public enum PositionEffect3Code
 {
     /// <summary>
     /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "Fifo".
+    /// Encoded/decoded by serializers as "FIFO".
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("_yHm-4SDLEeWPMvNwVtiMsA")]
     [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
-    Fifo,
+    Fifo = PositionEffectCode.Fifo, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Last in, last out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "Lifo".
+    /// Encoded/decoded by serializers as "LIFO".
     /// </summary>
     [EnumMember(Value = "LIFO")]
     [IsoId("_-qssASDLEeWPMvNwVtiMsA")]
     [Description(@"Last in, last out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
-    Lifo,
+    Lifo = PositionEffectCode.Lifo, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PositionEffect3Code
 public static class PositionEffect3CodeMetadataExtensions
 {
     private static readonly PositionEffect3CodeDropdownSource _dropdownSource = new PositionEffect3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

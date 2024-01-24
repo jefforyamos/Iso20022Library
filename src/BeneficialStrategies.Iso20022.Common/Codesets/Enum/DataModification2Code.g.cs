@@ -21,21 +21,21 @@ public enum DataModification2Code
 {
     /// <summary>
     /// Insert a new set of data.
-    /// Encoded/decoded by serializers as "InsertNewDataSet".
+    /// Encoded/decoded by serializers as "INSE".
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_ax9Etdp-Ed-ak6NoX_4Aeg_-1011150674")]
     [Description(@"Insert a new set of data.")]
-    InsertNewDataSet,
+    InsertNewDataSet = DataModificationCode.InsertNewDataSet, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delete an existing set of data.
-    /// Encoded/decoded by serializers as "DeleteDataSet".
+    /// Encoded/decoded by serializers as "DELT".
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ax9Ettp-Ed-ak6NoX_4Aeg_-1011150656")]
     [Description(@"Delete an existing set of data.")]
-    DeleteDataSet,
+    DeleteDataSet = DataModificationCode.DeleteDataSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DataModification2Code
 public static class DataModification2CodeMetadataExtensions
 {
     private static readonly DataModification2CodeDropdownSource _dropdownSource = new DataModification2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_KdDVkE4SEeiQHa-q1Uephw")]
 [Description(@"Specifies a type of holder.")]
 [Derivations(typeof(HolderType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum HolderTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum HolderTypeCode
 public static class HolderTypeCodeMetadataExtensions
 {
     private static readonly HolderTypeCodeDropdownSource _dropdownSource = new HolderTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,93 +21,93 @@ public enum PartyType10Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "Acceptor".
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_dnNTkXrgEeSlsoBd7x4P6A")]
     [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
-    Acceptor,
+    Acceptor = PartyTypeCode.Acceptor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_dtndkXrgEeSlsoBd7x4P6A")]
     [Description(@"Entity acquiring card transactions.")]
-    Acquirer,
+    Acquirer = PartyTypeCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMManager".
+    /// Encoded/decoded by serializers as "ATMG".
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_e5urYXrgEeSlsoBd7x4P6A")]
     [Description(@"Entity managing the ATM.")]
-    ATMManager,
+    ATMManager = PartyTypeCode.ATMManager, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CardIssuer".
+    /// Encoded/decoded by serializers as "CISS".
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_ftit8XrgEeSlsoBd7x4P6A")]
     [Description(@"Party that issues cards.")]
-    CardIssuer,
+    CardIssuer = PartyTypeCode.CardIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DelegateIssuer".
+    /// Encoded/decoded by serializers as "DLIS".
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_f-YmUXrgEeSlsoBd7x4P6A")]
     [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
-    DelegateIssuer,
+    DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Entity hosting the ATM.
-    /// Encoded/decoded by serializers as "HostingEntity".
+    /// Encoded/decoded by serializers as "HSTG".
     /// </summary>
     [EnumMember(Value = "HSTG")]
     [IsoId("_hm2Y8XrgEeSlsoBd7x4P6A")]
     [Description(@"Entity hosting the ATM.")]
-    HostingEntity,
+    HostingEntity = PartyTypeCode.HostingEntity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "IntermediaryAgent".
+    /// Encoded/decoded by serializers as "ITAG".
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_h05cAXrgEeSlsoBd7x4P6A")]
     [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
-    IntermediaryAgent,
+    IntermediaryAgent = PartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_i5CZkXrgEeSlsoBd7x4P6A")]
     [Description(@"Merchant providing goods and service in the card payment transaction.")]
-    Merchant,
+    Merchant = PartyTypeCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// ATM initiating the transaction.
-    /// Encoded/decoded by serializers as "OriginatingATM".
+    /// Encoded/decoded by serializers as "OATM".
     /// </summary>
     [EnumMember(Value = "OATM")]
     [IsoId("_jRkOUXrgEeSlsoBd7x4P6A")]
     [Description(@"ATM initiating the transaction.")]
-    OriginatingATM,
+    OriginatingATM = PartyTypeCode.OriginatingATM, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OriginatingPOI".
+    /// Encoded/decoded by serializers as "OPOI".
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_jYxCgXrgEeSlsoBd7x4P6A")]
     [Description(@"Point Of Interaction initiating the card payment transaction.")]
-    OriginatingPOI,
+    OriginatingPOI = PartyTypeCode.OriginatingPOI, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum PartyType10Code
 public static class PartyType10CodeMetadataExtensions
 {
     private static readonly PartyType10CodeDropdownSource _dropdownSource = new PartyType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

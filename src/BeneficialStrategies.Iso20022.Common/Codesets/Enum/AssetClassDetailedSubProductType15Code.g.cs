@@ -21,12 +21,12 @@ public enum AssetClassDetailedSubProductType15Code
 {
     /// <summary>
     /// Commodity attribute of type milled wheat.
-    /// Encoded/decoded by serializers as "MillingWheat".
+    /// Encoded/decoded by serializers as "MWHT".
     /// </summary>
     [EnumMember(Value = "MWHT")]
     [IsoId("_2a6FYWX-EeWIGZvepIG8Mg")]
     [Description(@"Commodity attribute of type milled wheat.")]
-    MillingWheat,
+    MillingWheat = AssetClassDetailedSubProductTypeCode.MillingWheat, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassDetailedSubProductType15Code
 public static class AssetClassDetailedSubProductType15CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType15CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

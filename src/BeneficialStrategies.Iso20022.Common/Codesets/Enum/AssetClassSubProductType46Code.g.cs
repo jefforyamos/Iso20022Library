@@ -21,12 +21,12 @@ public enum AssetClassSubProductType46Code
 {
     /// <summary>
     /// Commodity of type container ships.
-    /// Encoded/decoded by serializers as "ContainerShip".
+    /// Encoded/decoded by serializers as "CSHP".
     /// </summary>
     [EnumMember(Value = "CSHP")]
     [IsoId("_9F9MIfwfEeW4Wthd0Ze_kA")]
     [Description(@"Commodity of type container ships.")]
-    ContainerShip,
+    ContainerShip = AssetClassSubProductTypeCode.ContainerShip, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType46Code
 public static class AssetClassSubProductType46CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType46CodeDropdownSource _dropdownSource = new AssetClassSubProductType46CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

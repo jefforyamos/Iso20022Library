@@ -21,21 +21,21 @@ public enum FATCASourceStatus1Code
 {
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status calculated.
-    /// Encoded/decoded by serializers as "Calculated".
+    /// Encoded/decoded by serializers as "CALC".
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_QakGUQjVEeS5F6qHcKOrew")]
     [Description(@"Source of the Foreign Account Tax Compliance Act (FATCA) status calculated.")]
-    Calculated,
+    Calculated = FATCASourceStatusCode.Calculated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status is as declared by the investor.
-    /// Encoded/decoded by serializers as "Declared".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_QjVn0QjVEeS5F6qHcKOrew")]
     [Description(@"Source of the Foreign Account Tax Compliance Act (FATCA) status is as declared by the investor.")]
-    Declared,
+    Declared = FATCASourceStatusCode.Declared, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FATCASourceStatus1Code
 public static class FATCASourceStatus1CodeMetadataExtensions
 {
     private static readonly FATCASourceStatus1CodeDropdownSource _dropdownSource = new FATCASourceStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

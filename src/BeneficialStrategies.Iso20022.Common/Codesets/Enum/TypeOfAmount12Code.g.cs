@@ -21,120 +21,120 @@ public enum TypeOfAmount12Code
 {
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AuthorisedAmount".
+    /// Encoded/decoded by serializers as "AMTH".
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_z_oWAVT6EeetiruPyDPo0Q")]
     [Description(@"Transaction amount that has been authorised.")]
-    AuthorisedAmount,
+    AuthorisedAmount = TypeOfAmountCode.AuthorisedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "Discount".
+    /// Encoded/decoded by serializers as "DCNT".
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_4CMzkVT6EeetiruPyDPo0Q")]
     [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
-    Discount,
+    Discount = TypeOfAmountCode.Discount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee applied by the card issuer to the cardholder.
-    /// Encoded/decoded by serializers as "IssuerCardholderFee".
+    /// Encoded/decoded by serializers as "ISCF".
     /// </summary>
     [EnumMember(Value = "ISCF")]
     [IsoId("_5p5KIVT6EeetiruPyDPo0Q")]
     [Description(@"Fee applied by the card issuer to the cardholder.")]
-    IssuerCardholderFee,
+    IssuerCardholderFee = TypeOfAmountCode.IssuerCardholderFee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.
-    /// Encoded/decoded by serializers as "Cumulative".
+    /// Encoded/decoded by serializers as "CUAT".
     /// </summary>
     [EnumMember(Value = "CUAT")]
     [IsoId("_IFzkoVT8EeetiruPyDPo0Q")]
     [Description(@"Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.")]
-    Cumulative,
+    Cumulative = TypeOfAmountCode.Cumulative, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "Maximum".
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_NlW9kVT8EeetiruPyDPo0Q")]
     [Description(@"Maximum amount (the final amount must be less or equal).")]
-    Maximum,
+    Maximum = TypeOfAmountCode.Maximum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "MaximumAllowedAmount".
+    /// Encoded/decoded by serializers as "AMTX".
     /// </summary>
     [EnumMember(Value = "AMTX")]
     [IsoId("_OU91kVT8EeetiruPyDPo0Q")]
     [Description(@"Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.")]
-    MaximumAllowedAmount,
+    MaximumAllowedAmount = TypeOfAmountCode.MaximumAllowedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "MinimumAllowedAmount".
+    /// Encoded/decoded by serializers as "AMTN".
     /// </summary>
     [EnumMember(Value = "AMTN")]
     [IsoId("_OdmNIVT8EeetiruPyDPo0Q")]
     [Description(@"Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.")]
-    MinimumAllowedAmount,
+    MinimumAllowedAmount = TypeOfAmountCode.MinimumAllowedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount that has been requested to be authorised.
-    /// Encoded/decoded by serializers as "RequestedAmount".
+    /// Encoded/decoded by serializers as "AMTQ".
     /// </summary>
     [EnumMember(Value = "AMTQ")]
     [IsoId("_PRg9YVT8EeetiruPyDPo0Q")]
     [Description(@"Transaction amount that has been requested to be authorised.")]
-    RequestedAmount,
+    RequestedAmount = TypeOfAmountCode.RequestedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_PxWUAVT8EeetiruPyDPo0Q")]
     [Description(@"Other type of amount defined at national level.")]
-    OtherNational,
+    OtherNational = TypeOfAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_P_e2oVT8EeetiruPyDPo0Q")]
     [Description(@"Other type of amount defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = TypeOfAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested cashback amount
-    /// Encoded/decoded by serializers as "RequestedCashback".
+    /// Encoded/decoded by serializers as "RQCH".
     /// </summary>
     [EnumMember(Value = "RQCH")]
     [IsoId("_2t9sYRcJEeit0dtP9bTmEg")]
     [Description(@"Requested cashback amount")]
-    RequestedCashback,
+    RequestedCashback = TypeOfAmountCode.RequestedCashback, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount anticipated for the transaction
-    /// Encoded/decoded by serializers as "Anticipated".
+    /// Encoded/decoded by serializers as "ANTA".
     /// </summary>
     [EnumMember(Value = "ANTA")]
     [IsoId("_27WoIRcJEeit0dtP9bTmEg")]
     [Description(@"Amount anticipated for the transaction")]
-    Anticipated,
+    Anticipated = TypeOfAmountCode.Anticipated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Local amount before DCC (Dynamic Currency Conversion) was applied.
-    /// Encoded/decoded by serializers as "PreDCC".
+    /// Encoded/decoded by serializers as "PDCC".
     /// </summary>
     [EnumMember(Value = "PDCC")]
     [IsoId("_qD6MgekUEemeDPHh-U9b6w")]
     [Description(@"Local amount before DCC (Dynamic Currency Conversion) was applied.")]
-    PreDCC,
+    PreDCC = TypeOfAmountCode.PreDCC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum TypeOfAmount12Code
 public static class TypeOfAmount12CodeMetadataExtensions
 {
     private static readonly TypeOfAmount12CodeDropdownSource _dropdownSource = new TypeOfAmount12CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

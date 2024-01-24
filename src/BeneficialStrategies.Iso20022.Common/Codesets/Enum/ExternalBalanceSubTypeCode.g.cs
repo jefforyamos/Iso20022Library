@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_vBuz4I8qEeeBmcwCTnMfBg")]
-[Description(@"Specifies the balance sub-type, as published in an external balance sub-type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the balance sub-type, as published in an external balance sub-type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBalanceSubType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalBalanceSubTypeCode
 {
     /// <summary>
@@ -219,7 +218,7 @@ public enum ExternalBalanceSubTypeCode
 public static class ExternalBalanceSubTypeCodeMetadataExtensions
 {
     private static readonly ExternalBalanceSubTypeCodeDropdownSource _dropdownSource = new ExternalBalanceSubTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

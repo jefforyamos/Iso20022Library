@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZxcC49p-Ed-ak6NoX_4Aeg_-609114754")]
 [Description(@"Specifies the reason for a partially settled status.")]
 [Derivations(typeof(PartiallySettledStatusReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PartiallySettledStatusReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PartiallySettledStatusReasonCode
 public static class PartiallySettledStatusReasonCodeMetadataExtensions
 {
     private static readonly PartiallySettledStatusReasonCodeDropdownSource _dropdownSource = new PartiallySettledStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

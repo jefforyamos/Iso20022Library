@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZmQtp9p-Ed-ak6NoX_4Aeg_1726381602")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
-[Derivations(typeof(RejectionReason17Code),typeof(PendingCancellationReason4Code),typeof(RejectionReason28Code),typeof(RejectionReason1Code),typeof(RejectionReason2Code),typeof(RejectionReason11Code),typeof(RejectionReason6Code),typeof(RejectionReason18Code),typeof(RejectionReason9Code),typeof(RejectionReason8Code),typeof(RejectionReason19Code),typeof(RejectionReason13Code),typeof(RejectionReason14Code),typeof(RejectionReason15Code),typeof(RejectionReason20Code),typeof(RejectionReason10Code),typeof(RejectionReason12Code),typeof(RejectionReason7Code),typeof(RejectionReason3Code),typeof(RejectionReason5Code),typeof(RejectionReason4Code),typeof(RejectionReason45Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(RejectionReason19Code),typeof(PendingCancellationReason4Code),typeof(RejectionReason2Code),typeof(RejectionReason10Code),typeof(RejectionReason13Code),typeof(RejectionReason45Code),typeof(RejectionReason9Code),typeof(RejectionReason11Code),typeof(RejectionReason1Code),typeof(RejectionReason6Code),typeof(RejectionReason20Code),typeof(RejectionReason17Code),typeof(RejectionReason8Code),typeof(RejectionReason28Code),typeof(RejectionReason14Code),typeof(RejectionReason5Code),typeof(RejectionReason12Code),typeof(RejectionReason18Code),typeof(RejectionReason4Code),typeof(RejectionReason7Code),typeof(RejectionReason15Code),typeof(RejectionReason3Code))]
 public enum RejectionReasonCode
 {
     /// <summary>
@@ -1705,43 +1704,38 @@ public enum RejectionReasonCode
     
     /// <summary>
     /// Unrecognised or invalid settlement process instructed.
-    /// 
     /// Encoded/decoded by serializers as "SEPR".
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_76z8gOiEEeqspItL-MF5VQ")]
-    [Description(@"Unrecognised or invalid settlement process instructed. ")]
+    [Description(@"Unrecognised or invalid settlement process instructed.|")]
     SettlementProcessRejection,
     
     /// <summary>
     /// Number of lookback days not supported.
-    /// 
     /// Encoded/decoded by serializers as "LBDR".
     /// </summary>
     [EnumMember(Value = "LBDR")]
     [IsoId("_QX99MOiFEeqspItL-MF5VQ")]
-    [Description(@"Number of lookback days not supported. ")]
+    [Description(@"Number of lookback days not supported.|")]
     LookbackDaysRejection,
     
     /// <summary>
     /// Day count basis not supported.
-    /// 
     /// Encoded/decoded by serializers as "DCBR".
     /// </summary>
     [EnumMember(Value = "DCBR")]
     [IsoId("_XVP4YOiFEeqspItL-MF5VQ")]
-    [Description(@"Day count basis not supported. ")]
+    [Description(@"Day count basis not supported.|")]
     DayCountBasis,
     
     /// <summary>
     /// Compound simple accrual calculation is not supported.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "CSAC".
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_fYTI0OiFEeqspItL-MF5VQ")]
-    [Description(@"Compound simple accrual calculation is not supported.  ")]
+    [Description(@"Compound simple accrual calculation is not supported.||")]
     CompoundSimpleAccrualCalculationRejection,
     
     /// <summary>
@@ -1760,7 +1754,7 @@ public enum RejectionReasonCode
     /// </summary>
     [EnumMember(Value = "RREP")]
     [IsoId("_pDn5QP5rEeqzyss40vrJTg")]
-    [Description(@"Cancellation request was rejected because the repo was cancelled. ***check definition see DCAN...***")]
+    [Description(@"Cancellation request was rejected because the repo was cancelled.|***check definition see DCAN...***")]
     RejectedSinceRepoEnded,
     
     /// <summary>
@@ -1799,7 +1793,7 @@ public enum RejectionReasonCode
 public static class RejectionReasonCodeMetadataExtensions
 {
     private static readonly RejectionReasonCodeDropdownSource _dropdownSource = new RejectionReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

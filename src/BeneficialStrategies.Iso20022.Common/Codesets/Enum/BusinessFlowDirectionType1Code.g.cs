@@ -21,21 +21,21 @@ public enum BusinessFlowDirectionType1Code
 {
     /// <summary>
     /// Assets to be delivered.
-    /// Encoded/decoded by serializers as "AssetstoBeDelivered".
+    /// Encoded/decoded by serializers as "ADLV".
     /// </summary>
     [EnumMember(Value = "ADLV")]
     [IsoId("_ShZ7tv8yEeC-e_lDNJKWcg")]
     [Description(@"Assets to be delivered.")]
-    AssetstoBeDelivered,
+    AssetstoBeDelivered = BusinessFlowDirectionTypeCode.AssetstoBeDelivered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Assets to be received.
-    /// Encoded/decoded by serializers as "AssetsToBeReceived".
+    /// Encoded/decoded by serializers as "ARCV".
     /// </summary>
     [EnumMember(Value = "ARCV")]
     [IsoId("_SlRvHv8yEeC-e_lDNJKWcg")]
     [Description(@"Assets to be received.")]
-    AssetsToBeReceived,
+    AssetsToBeReceived = BusinessFlowDirectionTypeCode.AssetsToBeReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BusinessFlowDirectionType1Code
 public static class BusinessFlowDirectionType1CodeMetadataExtensions
 {
     private static readonly BusinessFlowDirectionType1CodeDropdownSource _dropdownSource = new BusinessFlowDirectionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

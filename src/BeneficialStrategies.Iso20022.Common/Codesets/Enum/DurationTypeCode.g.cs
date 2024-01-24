@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_SuhYsA3eEeW9YKj3GUmIEw")]
 [Description(@"Specifies the duration of the delivery period.")]
 [Derivations(typeof(DurationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DurationTypeCode
 {
     /// <summary>
@@ -110,7 +109,7 @@ public enum DurationTypeCode
 public static class DurationTypeCodeMetadataExtensions
 {
     private static readonly DurationTypeCodeDropdownSource _dropdownSource = new DurationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

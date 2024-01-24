@@ -21,21 +21,21 @@ public enum Algorithm6Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES128CBC".
+    /// Encoded/decoded by serializers as "EA2C".
     /// </summary>
     [EnumMember(Value = "EA2C")]
     [IsoId("_1z-joQiuEeKn9O5oyej_zw")]
     [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    AES128CBC,
+    AES128CBC = AlgorithmCode.AES128CBC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "DES112CBC".
+    /// Encoded/decoded by serializers as "E3DC".
     /// </summary>
     [EnumMember(Value = "E3DC")]
     [IsoId("_2AxCcwiuEeKn9O5oyej_zw")]
     [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
-    DES112CBC,
+    DES112CBC = AlgorithmCode.DES112CBC, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Algorithm6Code
 public static class Algorithm6CodeMetadataExtensions
 {
     private static readonly Algorithm6CodeDropdownSource _dropdownSource = new Algorithm6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,48 +21,48 @@ public enum TR34Command1Code
 {
     /// <summary>
     /// TR34 bind operation.
-    /// Encoded/decoded by serializers as "Bind".
+    /// Encoded/decoded by serializers as "BIND".
     /// </summary>
     [EnumMember(Value = "BIND")]
     [IsoId("_KalWQV2lEeekzJIz1JxYSQ")]
     [Description(@"TR34 bind operation.")]
-    Bind,
+    Bind = TR34CommandCode.Bind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// TR34 Higher Level rebind operation.
-    /// Encoded/decoded by serializers as "HigherLevelRebind".
+    /// Encoded/decoded by serializers as "HILR".
     /// </summary>
     [EnumMember(Value = "HILR")]
     [IsoId("_KfcoIV2lEeekzJIz1JxYSQ")]
     [Description(@"TR34 Higher Level rebind operation.")]
-    HigherLevelRebind,
+    HigherLevelRebind = TR34CommandCode.HigherLevelRebind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// TR34 Higher Level unbind operation.
-    /// Encoded/decoded by serializers as "HigherLevelUnbind".
+    /// Encoded/decoded by serializers as "HILU".
     /// </summary>
     [EnumMember(Value = "HILU")]
     [IsoId("_KiyQAV2lEeekzJIz1JxYSQ")]
     [Description(@"TR34 Higher Level unbind operation.")]
-    HigherLevelUnbind,
+    HigherLevelUnbind = TR34CommandCode.HigherLevelUnbind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// TR34 rebind operation.
-    /// Encoded/decoded by serializers as "Rebind".
+    /// Encoded/decoded by serializers as "RBND".
     /// </summary>
     [EnumMember(Value = "RBND")]
     [IsoId("_KndUoV2lEeekzJIz1JxYSQ")]
     [Description(@"TR34 rebind operation.")]
-    Rebind,
+    Rebind = TR34CommandCode.Rebind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// TR34 unbind operation.
-    /// Encoded/decoded by serializers as "Unbind".
+    /// Encoded/decoded by serializers as "UBND".
     /// </summary>
     [EnumMember(Value = "UBND")]
     [IsoId("_KsIZQV2lEeekzJIz1JxYSQ")]
     [Description(@"TR34 unbind operation.")]
-    Unbind,
+    Unbind = TR34CommandCode.Unbind, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TR34Command1Code
 public static class TR34Command1CodeMetadataExtensions
 {
     private static readonly TR34Command1CodeDropdownSource _dropdownSource = new TR34Command1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

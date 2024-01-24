@@ -21,102 +21,102 @@ public enum CardPaymentServiceType2Code
 {
     /// <summary>
     /// Aggregation of low payments.
-    /// Encoded/decoded by serializers as "Aggregation".
+    /// Encoded/decoded by serializers as "AGGR".
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_TSqIcAEcEeCQm6a_G2yO_w_-607130617")]
     [Description(@"Aggregation of low payments.")]
-    Aggregation,
+    Aggregation = CardPaymentServiceTypeCode.Aggregation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Dynamic currency conversion (DCC).
-    /// Encoded/decoded by serializers as "DCC".
+    /// Encoded/decoded by serializers as "DCCV".
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_TSqIcQEcEeCQm6a_G2yO_w_1045496891")]
     [Description(@"Dynamic currency conversion (DCC).")]
-    DCC,
+    DCC = CardPaymentServiceTypeCode.DCC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card payment with gratuity.
-    /// Encoded/decoded by serializers as "Gratuity".
+    /// Encoded/decoded by serializers as "GRTT".
     /// </summary>
     [EnumMember(Value = "GRTT")]
     [IsoId("_TSqIcgEcEeCQm6a_G2yO_w_1223615563")]
     [Description(@"Card payment with gratuity.")]
-    Gratuity,
+    Gratuity = CardPaymentServiceTypeCode.Gratuity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instalment payment.
-    /// Encoded/decoded by serializers as "Instalment".
+    /// Encoded/decoded by serializers as "INSP".
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_TSqIcwEcEeCQm6a_G2yO_w_931657825")]
     [Description(@"Instalment payment.")]
-    Instalment,
+    Instalment = CardPaymentServiceTypeCode.Instalment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Loyalty services.
-    /// Encoded/decoded by serializers as "Loyalty".
+    /// Encoded/decoded by serializers as "LOYT".
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_TSqIdAEcEeCQm6a_G2yO_w_-1604202970")]
     [Description(@"Loyalty services.")]
-    Loyalty,
+    Loyalty = CardPaymentServiceTypeCode.Loyalty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// No show after reservation.
-    /// Encoded/decoded by serializers as "NoShow".
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_TSz5YAEcEeCQm6a_G2yO_w_48424538")]
     [Description(@"No show after reservation.")]
-    NoShow,
+    NoShow = CardPaymentServiceTypeCode.NoShow, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Purchase and corporate data.
-    /// Encoded/decoded by serializers as "PurchaseCorporate".
+    /// Encoded/decoded by serializers as "PUCO".
     /// </summary>
     [EnumMember(Value = "PUCO")]
     [IsoId("_TSz5YQEcEeCQm6a_G2yO_w_226543210")]
     [Description(@"Purchase and corporate data.")]
-    PurchaseCorporate,
+    PurchaseCorporate = CardPaymentServiceTypeCode.PurchaseCorporate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RecurringPayment".
+    /// Encoded/decoded by serializers as "RECP".
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_TSz5YgEcEeCQm6a_G2yO_w_-65414528")]
     [Description(@"Recurring payment.")]
-    RecurringPayment,
+    RecurringPayment = CardPaymentServiceTypeCode.RecurringPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Solicited available funds.
-    /// Encoded/decoded by serializers as "SolicitedAvailableFunds".
+    /// Encoded/decoded by serializers as "SOAF".
     /// </summary>
     [EnumMember(Value = "SOAF")]
     [IsoId("_TSz5YwEcEeCQm6a_G2yO_w_1693691973")]
     [Description(@"Solicited available funds.")]
-    SolicitedAvailableFunds,
+    SolicitedAvailableFunds = CardPaymentServiceTypeCode.SolicitedAvailableFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unsolicited available funds.
-    /// Encoded/decoded by serializers as "UnsolicitedAvailableFunds".
+    /// Encoded/decoded by serializers as "UNAF".
     /// </summary>
     [EnumMember(Value = "UNAF")]
     [IsoId("_TSz5ZAEcEeCQm6a_G2yO_w_-948647815")]
     [Description(@"Unsolicited available funds.")]
-    UnsolicitedAvailableFunds,
+    UnsolicitedAvailableFunds = CardPaymentServiceTypeCode.UnsolicitedAvailableFunds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VoiceAuthorisation".
+    /// Encoded/decoded by serializers as "VCAU".
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_TSz5ZQEcEeCQm6a_G2yO_w_-770529143")]
     [Description(@"Voice authorisation.")]
-    VoiceAuthorisation,
+    VoiceAuthorisation = CardPaymentServiceTypeCode.VoiceAuthorisation, // same ordinal as derivation source for type conversions
     
 }
 
@@ -127,7 +127,7 @@ public enum CardPaymentServiceType2Code
 public static class CardPaymentServiceType2CodeMetadataExtensions
 {
     private static readonly CardPaymentServiceType2CodeDropdownSource _dropdownSource = new CardPaymentServiceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

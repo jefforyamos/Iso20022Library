@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_90jEyPGAEemQ7oqCO5NTQw")]
-[Description(@"Specifies the debtor activation amendment reason code, as published in an external debtor activation amendment reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the debtor activation amendment reason code, as published in an external debtor activation amendment reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDebtorActivationAmendmentReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalDebtorActivationAmendmentReasonCode
 {
     /// <summary>
@@ -75,7 +74,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
 public static class ExternalDebtorActivationAmendmentReasonCodeMetadataExtensions
 {
     private static readonly ExternalDebtorActivationAmendmentReasonCodeDropdownSource _dropdownSource = new ExternalDebtorActivationAmendmentReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

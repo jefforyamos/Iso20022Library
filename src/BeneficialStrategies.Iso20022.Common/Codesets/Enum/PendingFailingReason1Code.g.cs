@@ -21,12 +21,12 @@ public enum PendingFailingReason1Code
 {
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jpvb4ekIEemm4qhb2yFPOw")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PendingFailingReason1Code
 public static class PendingFailingReason1CodeMetadataExtensions
 {
     private static readonly PendingFailingReason1CodeDropdownSource _dropdownSource = new PendingFailingReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

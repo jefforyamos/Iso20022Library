@@ -16,45 +16,45 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_H30HwHsIEeSR68OJvMfxJQ")]
-[Description(@"Location category of the place where the transaction is actually performed.  It correspond partially to the ISO 8583: 1993, field number 22-4.")]
+[Description(@"Location category of the place where the transaction is actually performed. |It correspond partially to the ISO 8583: 1993, field number 22-4.")]
 [DerivedFrom(typeof(LocationCategoryCode))]
 public enum LocationCategory2Code
 {
     /// <summary>
     /// Customer home.
-    /// Encoded/decoded by serializers as "Home".
+    /// Encoded/decoded by serializers as "HOME".
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_KdgXoXsIEeSR68OJvMfxJQ")]
     [Description(@"Customer home.")]
-    Home,
+    Home = LocationCategoryCode.Home, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Aboard a bus, train, ship, airplane, taxi, etc.
-    /// Encoded/decoded by serializers as "Aboard".
+    /// Encoded/decoded by serializers as "ABRD".
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_w3820VDhEeuJG-g6zrGRtg")]
     [Description(@"Aboard a bus, train, ship, airplane, taxi, etc.")]
-    Aboard,
+    Aboard = LocationCategoryCode.Aboard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed location, for example in a shop.
-    /// Encoded/decoded by serializers as "Fixed".
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_w-zswVDhEeuJG-g6zrGRtg")]
     [Description(@"Fixed location, for example in a shop.")]
-    Fixed,
+    Fixed = LocationCategoryCode.Fixed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Nomadic location.
-    /// Encoded/decoded by serializers as "Nomadic".
+    /// Encoded/decoded by serializers as "NMDC".
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_0crh0VDhEeuJG-g6zrGRtg")]
     [Description(@"Nomadic location.")]
-    Nomadic,
+    Nomadic = LocationCategoryCode.Nomadic, // same ordinal as derivation source for type conversions
     
 }
 
@@ -65,7 +65,7 @@ public enum LocationCategory2Code
 public static class LocationCategory2CodeMetadataExtensions
 {
     private static readonly LocationCategory2CodeDropdownSource _dropdownSource = new LocationCategory2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

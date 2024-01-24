@@ -21,48 +21,48 @@ public enum CheckType1Code
 {
     /// <summary>
     /// The check is guaranteed by a bank.
-    /// Encoded/decoded by serializers as "BankCheck".
+    /// Encoded/decoded by serializers as "BANK".
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_ipUJEdtbEeipuvJHTHIw9A")]
     [Description(@"The check is guaranteed by a bank.")]
-    BankCheck,
+    BankCheck = CheckTypeCode.BankCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The check belongs to a Company or a professional entity.
-    /// Encoded/decoded by serializers as "BusinessCheck".
+    /// Encoded/decoded by serializers as "BUSI".
     /// </summary>
     [EnumMember(Value = "BUSI")]
     [IsoId("_itISEdtbEeipuvJHTHIw9A")]
     [Description(@"The check belongs to a Company or a professional entity.")]
-    BusinessCheck,
+    BusinessCheck = CheckTypeCode.BusinessCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Check issued by Government.
-    /// Encoded/decoded by serializers as "GovernmentCheck".
+    /// Encoded/decoded by serializers as "GOVC".
     /// </summary>
     [EnumMember(Value = "GOVC")]
     [IsoId("_ixdYcdtbEeipuvJHTHIw9A")]
     [Description(@"Check issued by Government.")]
-    GovernmentCheck,
+    GovernmentCheck = CheckTypeCode.GovernmentCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Check issued by a company for the employees.
-    /// Encoded/decoded by serializers as "PayrollCheck".
+    /// Encoded/decoded by serializers as "PAYR".
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_i2vhEdtbEeipuvJHTHIw9A")]
     [Description(@"Check issued by a company for the employees.")]
-    PayrollCheck,
+    PayrollCheck = CheckTypeCode.PayrollCheck, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The check belongs to an individual.
-    /// Encoded/decoded by serializers as "PersonalCheck".
+    /// Encoded/decoded by serializers as "PERS".
     /// </summary>
     [EnumMember(Value = "PERS")]
     [IsoId("_i6bHMdtbEeipuvJHTHIw9A")]
     [Description(@"The check belongs to an individual.")]
-    PersonalCheck,
+    PersonalCheck = CheckTypeCode.PersonalCheck, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CheckType1Code
 public static class CheckType1CodeMetadataExtensions
 {
     private static readonly CheckType1CodeDropdownSource _dropdownSource = new CheckType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ad_m49p-Ed-ak6NoX_4Aeg_-636020179")]
 [Description(@"Specifies the regulatory restrictions applicable to a security.")]
 [Derivations(typeof(LegalRestrictions2Code),typeof(LegalRestrictions1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LegalRestrictionsCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum LegalRestrictionsCode
 public static class LegalRestrictionsCodeMetadataExtensions
 {
     private static readonly LegalRestrictionsCodeDropdownSource _dropdownSource = new LegalRestrictionsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

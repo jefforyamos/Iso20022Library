@@ -21,165 +21,165 @@ public enum PartyIdentificationType7Code
 {
     /// <summary>
     /// Temporary tax processing number (used in the domestic adoption of a child).
-    /// Encoded/decoded by serializers as "AdoptionTaxpayerIdentificationNumber".
+    /// Encoded/decoded by serializers as "ATIN".
     /// </summary>
     [EnumMember(Value = "ATIN")]
     [IsoId("_VAo8cSCOEeWJd9HF2tO7BA")]
     [Description(@"Temporary tax processing number (used in the domestic adoption of a child).")]
-    AdoptionTaxpayerIdentificationNumber,
+    AdoptionTaxpayerIdentificationNumber = PersonIdentificationTypeCode.AdoptionTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IdentityCardNumber".
+    /// Encoded/decoded by serializers as "IDCD".
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_VzhK4SCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned by a national authority to an identity card.")]
-    IdentityCardNumber,
+    IdentityCardNumber = PersonIdentificationTypeCode.IdentityCardNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NationalRegistrationIdentificationNumber".
+    /// Encoded/decoded by serializers as "NRIN".
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_Xuj7QSCOEeWJd9HF2tO7BA")]
     [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
-    NationalRegistrationIdentificationNumber,
+    NationalRegistrationIdentificationNumber = PersonIdentificationTypeCode.NationalRegistrationIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of identification type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YWvVkSCOEeWJd9HF2tO7BA")]
     [Description(@"Another type of identification type.")]
-    Other,
+    Other = PersonIdentificationTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_ZAZWkSCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned by a passport authority to a passport.")]
-    PassportNumber,
+    PassportNumber = PersonIdentificationTypeCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Post office card number as assigned by a national post office.
-    /// Encoded/decoded by serializers as "PostOfficeCardNumber".
+    /// Encoded/decoded by serializers as "POCD".
     /// </summary>
     [EnumMember(Value = "POCD")]
     [IsoId("_ZQBG8SCOEeWJd9HF2tO7BA")]
     [Description(@"Post office card number as assigned by a national post office.")]
-    PostOfficeCardNumber,
+    PostOfficeCardNumber = PersonIdentificationTypeCode.PostOfficeCardNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SocialSecurityNumber".
+    /// Encoded/decoded by serializers as "SOCS".
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_ZrsWUSCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned by a social security agency.")]
-    SocialSecurityNumber,
+    SocialSecurityNumber = PersonIdentificationTypeCode.SocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplementary retirement scheme account number.
-    /// Encoded/decoded by serializers as "SRSAccountNumber".
+    /// Encoded/decoded by serializers as "SRSA".
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_Z06jwSCOEeWJd9HF2tO7BA")]
     [Description(@"Supplementary retirement scheme account number.")]
-    SRSAccountNumber,
+    SRSAccountNumber = PersonIdentificationTypeCode.SRSAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Gun license number as assigned by a gun licensing authority.
-    /// Encoded/decoded by serializers as "GunLicenseNumber".
+    /// Encoded/decoded by serializers as "GUNL".
     /// </summary>
     [EnumMember(Value = "GUNL")]
     [IsoId("_aYxewSCOEeWJd9HF2tO7BA")]
     [Description(@"Gun license number as assigned by a gun licensing authority.")]
-    GunLicenseNumber,
+    GunLicenseNumber = PersonIdentificationTypeCode.GunLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Generic tax identification number.
-    /// Encoded/decoded by serializers as "GenericTaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "GTIN".
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_dlWIcSCOEeWJd9HF2tO7BA")]
     [Description(@"Generic tax identification number.")]
-    GenericTaxIdentificationNumber,
+    GenericTaxIdentificationNumber = PersonIdentificationTypeCode.GenericTaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax processing number.
-    /// Encoded/decoded by serializers as "IndividualTaxpayerIdentificationNumber".
+    /// Encoded/decoded by serializers as "ITIN".
     /// </summary>
     [EnumMember(Value = "ITIN")]
     [IsoId("_fCyW0SCOEeWJd9HF2tO7BA")]
     [Description(@"Tax processing number.")]
-    IndividualTaxpayerIdentificationNumber,
+    IndividualTaxpayerIdentificationNumber = PersonIdentificationTypeCode.IndividualTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account issued by the Central Provident Fund Board (Singapore).
-    /// Encoded/decoded by serializers as "CPFAccountNumber".
+    /// Encoded/decoded by serializers as "CPFA".
     /// </summary>
     [EnumMember(Value = "CPFA")]
     [IsoId("_mharkSCOEeWJd9HF2tO7BA")]
     [Description(@"Account issued by the Central Provident Fund Board (Singapore).")]
-    CPFAccountNumber,
+    CPFAccountNumber = PersonIdentificationTypeCode.CPFAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "AREG".
     /// </summary>
     [EnumMember(Value = "AREG")]
     [IsoId("_sbdoISCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = PersonIdentificationTypeCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DriversLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_tIiJgSCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned by a license authority to a driver's license.")]
-    DriversLicenseNumber,
+    DriversLicenseNumber = PersonIdentificationTypeCode.DriversLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
+    /// Encoded/decoded by serializers as "EMID".
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_uDANsSCOEeWJd9HF2tO7BA")]
     [Description(@"Number assigned to an employer by a registration authority.")]
-    EmployerIdentificationNumber,
+    EmployerIdentificationNumber = PersonIdentificationTypeCode.EmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number that identifies the type of investor registered at a securities and exchange commission.
-    /// Encoded/decoded by serializers as "NonResidentInvestor".
+    /// Encoded/decoded by serializers as "NINV".
     /// </summary>
     [EnumMember(Value = "NINV")]
     [IsoId("_hklJESDZEeWCLu74WLgP4w")]
     [Description(@"Number that identifies the type of investor registered at a securities and exchange commission.")]
-    NonResidentInvestor,
+    NonResidentInvestor = PersonIdentificationTypeCode.NonResidentInvestor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number, typically assigned by a government to describe ownership, administrative and authoritative relations.
-    /// Encoded/decoded by serializers as "IndustryClassification".
+    /// Encoded/decoded by serializers as "INCL".
     /// </summary>
     [EnumMember(Value = "INCL")]
     [IsoId("_tBp6ESMuEeWw25nezi_B1g")]
     [Description(@"Number, typically assigned by a government to describe ownership, administrative and authoritative relations.")]
-    IndustryClassification,
+    IndustryClassification = PersonIdentificationTypeCode.IndustryClassification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Global intermediary tax identification number.
-    /// Encoded/decoded by serializers as "GlobalIntermediaryIdentificationNumber".
+    /// Encoded/decoded by serializers as "GIIN".
     /// </summary>
     [EnumMember(Value = "GIIN")]
     [IsoId("_bodkMTa3EeWxoIK_IhudJg")]
     [Description(@"Global intermediary tax identification number.")]
-    GlobalIntermediaryIdentificationNumber,
+    GlobalIntermediaryIdentificationNumber = PersonIdentificationTypeCode.GlobalIntermediaryIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -190,7 +190,7 @@ public enum PartyIdentificationType7Code
 public static class PartyIdentificationType7CodeMetadataExtensions
 {
     private static readonly PartyIdentificationType7CodeDropdownSource _dropdownSource = new PartyIdentificationType7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

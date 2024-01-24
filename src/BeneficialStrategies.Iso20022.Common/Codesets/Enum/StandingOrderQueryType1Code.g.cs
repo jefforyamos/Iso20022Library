@@ -21,48 +21,48 @@ public enum StandingOrderQueryType1Code
 {
     /// <summary>
     /// Used to query the list of liquidity transfer standing orders defined in the system.
-    /// Encoded/decoded by serializers as "StandingOrderList".
+    /// Encoded/decoded by serializers as "SLST".
     /// </summary>
     [EnumMember(Value = "SLST")]
     [IsoId("_8N7QV6MgEeCJ6YNENx4h-w_-544859245")]
     [Description(@"Used to query the list of liquidity transfer standing orders defined in the system.")]
-    StandingOrderList,
+    StandingOrderList = StandingOrderQueryTypeCode.StandingOrderList, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used to query a specific liquidity transfer standing order based on a set of search criteria.
-    /// Encoded/decoded by serializers as "StandingOrderDetails".
+    /// Encoded/decoded by serializers as "SDTL".
     /// </summary>
     [EnumMember(Value = "SDTL")]
     [IsoId("_8N7QWKMgEeCJ6YNENx4h-w_1890972049")]
     [Description(@"Used to query a specific liquidity transfer standing order based on a set of search criteria.")]
-    StandingOrderDetails,
+    StandingOrderDetails = StandingOrderQueryTypeCode.StandingOrderDetails, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used to query the total amounts of predefined and user defined liquidity transfer standing orders for both defined and not yet executed orders.
-    /// Encoded/decoded by serializers as "TotalAmountPerStandingOrder".
+    /// Encoded/decoded by serializers as "TAPS".
     /// </summary>
     [EnumMember(Value = "TAPS")]
     [IsoId("_8OFBUKMgEeCJ6YNENx4h-w_501190329")]
     [Description(@"Used to query the total amounts of predefined and user defined liquidity transfer standing orders for both defined and not yet executed orders.")]
-    TotalAmountPerStandingOrder,
+    TotalAmountPerStandingOrder = StandingOrderQueryTypeCode.TotalAmountPerStandingOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used to query the list of liquidity transfer standing orders defined in a specific link set of sequenced standing orders. The link set is a collection of standing order defined in a specific sequence.
-    /// Encoded/decoded by serializers as "StandingOrderLinkSetList".
+    /// Encoded/decoded by serializers as "SLSL".
     /// </summary>
     [EnumMember(Value = "SLSL")]
     [IsoId("_8OFBUaMgEeCJ6YNENx4h-w_-1508766529")]
     [Description(@"Used to query the list of liquidity transfer standing orders defined in a specific link set of sequenced standing orders. The link set is a collection of standing order defined in a specific sequence.")]
-    StandingOrderLinkSetList,
+    StandingOrderLinkSetList = StandingOrderQueryTypeCode.StandingOrderLinkSetList, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Used to query a specific standing order within a link set of sequenced liquidity transfer standing orders. The link set is a collection of standing order defined in a specific sequence.
-    /// Encoded/decoded by serializers as "StandingOrderDetailsWithinLinkSet".
+    /// Encoded/decoded by serializers as "SWLS".
     /// </summary>
     [EnumMember(Value = "SWLS")]
     [IsoId("_8OFBUqMgEeCJ6YNENx4h-w_-105628684")]
     [Description(@"Used to query a specific standing order within a link set of sequenced liquidity transfer standing orders. The link set is a collection of standing order defined in a specific sequence.")]
-    StandingOrderDetailsWithinLinkSet,
+    StandingOrderDetailsWithinLinkSet = StandingOrderQueryTypeCode.StandingOrderDetailsWithinLinkSet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum StandingOrderQueryType1Code
 public static class StandingOrderQueryType1CodeMetadataExtensions
 {
     private static readonly StandingOrderQueryType1CodeDropdownSource _dropdownSource = new StandingOrderQueryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

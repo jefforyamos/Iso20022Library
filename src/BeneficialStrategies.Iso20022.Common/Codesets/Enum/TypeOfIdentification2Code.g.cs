@@ -21,48 +21,48 @@ public enum TypeOfIdentification2Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("__ztF5NojEeC60axPepSq7g_1743002948")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = TypeOfIdentificationCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a tax exempt entity.
-    /// Encoded/decoded by serializers as "TaxExemptIdentificationNumber".
+    /// Encoded/decoded by serializers as "CHTY".
     /// </summary>
     [EnumMember(Value = "CHTY")]
     [IsoId("__ztF5dojEeC60axPepSq7g_-721218168")]
     [Description(@"Number assigned to a tax exempt entity.")]
-    TaxExemptIdentificationNumber,
+    TaxExemptIdentificationNumber = TypeOfIdentificationCode.TaxExemptIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CorporateIdentification".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("__z224NojEeC60axPepSq7g_-1013175906")]
     [Description(@"Number assigned to a corporate entity.")]
-    CorporateIdentification,
+    CorporateIdentification = TypeOfIdentificationCode.CorporateIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "ForeignInvestmentIdentityNumber".
+    /// Encoded/decoded by serializers as "FIIN".
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("__z224dojEeC60axPepSq7g_-1896409193")]
     [Description(@"Number assigned to a foreign investor (other than the alien number).")]
-    ForeignInvestmentIdentityNumber,
+    ForeignInvestmentIdentityNumber = TypeOfIdentificationCode.ForeignInvestmentIdentityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("__z224tojEeC60axPepSq7g_-1718290521")]
     [Description(@"Number assigned by a tax authority to an entity.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = TypeOfIdentificationCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TypeOfIdentification2Code
 public static class TypeOfIdentification2CodeMetadataExtensions
 {
     private static readonly TypeOfIdentification2CodeDropdownSource _dropdownSource = new TypeOfIdentification2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

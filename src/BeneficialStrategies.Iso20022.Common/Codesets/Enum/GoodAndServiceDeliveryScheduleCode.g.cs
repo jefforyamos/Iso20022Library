@@ -17,17 +17,15 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gRwkkD5KEeyHI64WSlzTlg")]
 [Description(@"Code that specifies the good or service delivery schedule.")]
 [Derivations(typeof(GoodAndServiceDeliverySchedule1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GoodAndServiceDeliveryScheduleCode
 {
     /// <summary>
     /// Same day delivery.
-    /// 
     /// Encoded/decoded by serializers as "SDDL".
     /// </summary>
     [EnumMember(Value = "SDDL")]
     [IsoId("_qfb5gD5KEeyHI64WSlzTlg")]
-    [Description(@"Same day delivery. ")]
+    [Description(@"Same day delivery.|")]
     SameDayDelivery,
     
     /// <summary>
@@ -59,12 +57,11 @@ public enum GoodAndServiceDeliveryScheduleCode
     
     /// <summary>
     /// Other delivery schedule defined at national level.
-    /// 
     /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_rMSYcD5KEeyHI64WSlzTlg")]
-    [Description(@"Other delivery schedule defined at national level. ")]
+    [Description(@"Other delivery schedule defined at national level.|")]
     OtherNational,
     
 }
@@ -76,7 +73,7 @@ public enum GoodAndServiceDeliveryScheduleCode
 public static class GoodAndServiceDeliveryScheduleCodeMetadataExtensions
 {
     private static readonly GoodAndServiceDeliveryScheduleCodeDropdownSource _dropdownSource = new GoodAndServiceDeliveryScheduleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum ChargeType10Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BackEndLoad".
+    /// Encoded/decoded by serializers as "BEND".
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a8YzFdp-Ed-ak6NoX_4Aeg_1180340741")]
     [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
-    BackEndLoad,
+    BackEndLoad = ChargeTypeCode.BackEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FrontEndLoad".
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a8YzFtp-Ed-ak6NoX_4Aeg_1180341007")]
     [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
-    FrontEndLoad,
+    FrontEndLoad = ChargeTypeCode.FrontEndLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee charged to the investor for early redemption of the fund.
-    /// Encoded/decoded by serializers as "Penalty".
+    /// Encoded/decoded by serializers as "PENA".
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_a8YzF9p-Ed-ak6NoX_4Aeg_-434933629")]
     [Description(@"Fee charged to the investor for early redemption of the fund.")]
-    Penalty,
+    Penalty = ChargeTypeCode.Penalty, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ChargeType10Code
 public static class ChargeType10CodeMetadataExtensions
 {
     private static readonly ChargeType10CodeDropdownSource _dropdownSource = new ChargeType10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_B-g18MkeEeeiAIB1i4AlQw")]
 [Description(@"Details related to the master agreement.")]
 [Derivations(typeof(ExternalAgreementType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalAgreementTypeCode
 {
     /// <summary>
@@ -335,7 +334,7 @@ public enum ExternalAgreementTypeCode
 public static class ExternalAgreementTypeCodeMetadataExtensions
 {
     private static readonly ExternalAgreementTypeCodeDropdownSource _dropdownSource = new ExternalAgreementTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YyKVAQqPEeWqX7rjSIiMuQ")]
 [Description(@"Specifies a payment schedule type.")]
 [Derivations(typeof(PaymentScheduleType1Code),typeof(PaymentScheduleType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentScheduleTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PaymentScheduleTypeCode
 public static class PaymentScheduleTypeCodeMetadataExtensions
 {
     private static readonly PaymentScheduleTypeCodeDropdownSource _dropdownSource = new PaymentScheduleTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

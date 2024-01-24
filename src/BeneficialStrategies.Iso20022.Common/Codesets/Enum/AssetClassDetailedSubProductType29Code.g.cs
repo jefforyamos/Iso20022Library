@@ -21,21 +21,21 @@ public enum AssetClassDetailedSubProductType29Code
 {
     /// <summary>
     /// Commodity attribute of type lampante.
-    /// Encoded/decoded by serializers as "Lampante".
+    /// Encoded/decoded by serializers as "LAMP".
     /// </summary>
     [EnumMember(Value = "LAMP")]
     [IsoId("_9fHl4bv2EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type lampante.")]
-    Lampante,
+    Lampante = AssetClassDetailedSubProductTypeCode.Lampante, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("__qqQYbv2EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssetClassDetailedSubProductType29Code
 public static class AssetClassDetailedSubProductType29CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType29CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType29CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

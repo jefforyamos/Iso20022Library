@@ -21,48 +21,48 @@ public enum AssetClassDetailedSubProductType2Code
 {
     /// <summary>
     /// Commodity attribute of type robusta coffee.
-    /// Encoded/decoded by serializers as "RobustaCoffee".
+    /// Encoded/decoded by serializers as "ROBU".
     /// </summary>
     [EnumMember(Value = "ROBU")]
     [IsoId("_PV51sQ2fEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type robusta coffee.")]
-    RobustaCoffee,
+    RobustaCoffee = AssetClassDetailedSubProductTypeCode.RobustaCoffee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type cocoa.
-    /// Encoded/decoded by serializers as "Cocoa".
+    /// Encoded/decoded by serializers as "CCOA".
     /// </summary>
     [EnumMember(Value = "CCOA")]
     [IsoId("_P_aswQ2fEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type cocoa.")]
-    Cocoa,
+    Cocoa = AssetClassDetailedSubProductTypeCode.Cocoa, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type raw sugar.
-    /// Encoded/decoded by serializers as "RawSugar".
+    /// Encoded/decoded by serializers as "BRWN".
     /// </summary>
     [EnumMember(Value = "BRWN")]
     [IsoId("_RqOowQ2fEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type raw sugar.")]
-    RawSugar,
+    RawSugar = AssetClassDetailedSubProductTypeCode.RawSugar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type white sugar.
-    /// Encoded/decoded by serializers as "WhiteSugar".
+    /// Encoded/decoded by serializers as "WHSG".
     /// </summary>
     [EnumMember(Value = "WHSG")]
     [IsoId("_S_xfYQ2fEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type white sugar.")]
-    WhiteSugar,
+    WhiteSugar = AssetClassDetailedSubProductTypeCode.WhiteSugar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_iQv5oQ2gEeW72qLtWESimw")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AssetClassDetailedSubProductType2Code
 public static class AssetClassDetailedSubProductType2CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType2CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

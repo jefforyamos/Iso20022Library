@@ -21,30 +21,30 @@ public enum ProtectTransactionType2Code
 {
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "ProtectTransaction".
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_KQ81YbpREeilsanBGAzy4A")]
     [Description(@"Reorganisation is a protect transaction type.")]
-    ProtectTransaction,
+    ProtectTransaction = ReorganisationTransactionTypeCode.ProtectTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a cover on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "CoverOnBehalfOfAnotherParticipantTransaction".
+    /// Encoded/decoded by serializers as "COVP".
     /// </summary>
     [EnumMember(Value = "COVP")]
     [IsoId("_OAUqIrpREeilsanBGAzy4A")]
     [Description(@"Reorganisation is a cover on behalf of another participant transaction type.")]
-    CoverOnBehalfOfAnotherParticipantTransaction,
+    CoverOnBehalfOfAnotherParticipantTransaction = ReorganisationTransactionTypeCode.CoverOnBehalfOfAnotherParticipantTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reorganisation is a cover protect transaction type.
-    /// Encoded/decoded by serializers as "CoverProtectTransaction".
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_ZfkUobpREeilsanBGAzy4A")]
     [Description(@"Reorganisation is a cover protect transaction type.")]
-    CoverProtectTransaction,
+    CoverProtectTransaction = ReorganisationTransactionTypeCode.CoverProtectTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProtectTransactionType2Code
 public static class ProtectTransactionType2CodeMetadataExtensions
 {
     private static readonly ProtectTransactionType2CodeDropdownSource _dropdownSource = new ProtectTransactionType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

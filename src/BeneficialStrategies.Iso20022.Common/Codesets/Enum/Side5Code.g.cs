@@ -21,39 +21,39 @@ public enum Side5Code
 {
     /// <summary>
     /// An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.
-    /// Encoded/decoded by serializers as "SellShort".
+    /// Encoded/decoded by serializers as "SESH".
     /// </summary>
     [EnumMember(Value = "SESH")]
     [IsoId("_J93mcezkEeSBf_ghFpb9rQ")]
     [Description(@"An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.")]
-    SellShort,
+    SellShort = SideCode.SellShort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_KGQtcezkEeSBf_ghFpb9rQ")]
     [Description(@"Order is sell driven.")]
-    Sell,
+    Sell = SideCode.Sell, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Short sale exempt from short-sale rules.
-    /// Encoded/decoded by serializers as "SellShortExempt".
+    /// Encoded/decoded by serializers as "SSEX".
     /// </summary>
     [EnumMember(Value = "SSEX")]
     [IsoId("_Kaep8ezkEeSBf_ghFpb9rQ")]
     [Description(@"Short sale exempt from short-sale rules.")]
-    SellShortExempt,
+    SellShortExempt = SideCode.SellShortExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
-    /// Encoded/decoded by serializers as "Undisclosed".
+    /// Encoded/decoded by serializers as "UNDI".
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_KA-CwaiqEeWRLJcxVQAwmw")]
     [Description(@"The side of the indication of interest is not disclosed.")]
-    Undisclosed,
+    Undisclosed = SideCode.Undisclosed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum Side5Code
 public static class Side5CodeMetadataExtensions
 {
     private static readonly Side5CodeDropdownSource _dropdownSource = new Side5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

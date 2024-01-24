@@ -21,30 +21,30 @@ public enum TriggerAction1Code
 {
     /// <summary>
     /// Trigger action is activate.
-    /// Encoded/decoded by serializers as "Activate".
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_YvuHN9p-Ed-ak6NoX_4Aeg_353594698")]
     [Description(@"Trigger action is activate.")]
-    Activate,
+    Activate = TriggerActionCode.Activate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trigger action is modify.
-    /// Encoded/decoded by serializers as "Modify".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_Yv34MNp-Ed-ak6NoX_4Aeg_353594733")]
     [Description(@"Trigger action is modify.")]
-    Modify,
+    Modify = TriggerActionCode.Modify, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trigger action is cancel.
-    /// Encoded/decoded by serializers as "Cancel".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Yv34Mdp-Ed-ak6NoX_4Aeg_353594985")]
     [Description(@"Trigger action is cancel.")]
-    Cancel,
+    Cancel = TriggerActionCode.Cancel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TriggerAction1Code
 public static class TriggerAction1CodeMetadataExtensions
 {
     private static readonly TriggerAction1CodeDropdownSource _dropdownSource = new TriggerAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

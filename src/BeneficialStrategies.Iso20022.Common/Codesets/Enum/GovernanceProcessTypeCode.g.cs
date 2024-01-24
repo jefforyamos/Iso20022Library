@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_EFRD0ID5Eeiw-daIkkmMqQ")]
 [Description(@"Specifies a type of governance process.")]
 [Derivations(typeof(GovernanceProcessType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GovernanceProcessTypeCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum GovernanceProcessTypeCode
 public static class GovernanceProcessTypeCodeMetadataExtensions
 {
     private static readonly GovernanceProcessTypeCodeDropdownSource _dropdownSource = new GovernanceProcessTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y65ccNp-Ed-ak6NoX_4Aeg_-1178673663")]
 [Description(@"Specifies the reason the transaction, transfer or settlement instruction is unmatched.")]
-[Derivations(typeof(UnmatchedReason2Code),typeof(UnmatchedReason5Code),typeof(UnmatchedReason4Code),typeof(UnmatchedReason1Code),typeof(UnmatchedReason3Code),typeof(UnmatchedReason7Code),typeof(UnmatchedReason6Code),typeof(UnmatchedReason8Code),typeof(UnmatchedReason9Code),typeof(UnmatchedReason10Code),typeof(UnmatchedReason12Code),typeof(UnmatchedReason11Code),typeof(UnmatchedReason13Code),typeof(UnmatchedReason14Code),typeof(UnmatchedReason15Code),typeof(UnmatchedReason16Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(UnmatchedReason8Code),typeof(UnmatchedReason3Code),typeof(UnmatchedReason12Code),typeof(UnmatchedReason13Code),typeof(UnmatchedReason14Code),typeof(UnmatchedReason2Code),typeof(UnmatchedReason16Code),typeof(UnmatchedReason7Code),typeof(UnmatchedReason1Code),typeof(UnmatchedReason6Code),typeof(UnmatchedReason5Code),typeof(UnmatchedReason15Code),typeof(UnmatchedReason4Code),typeof(UnmatchedReason11Code),typeof(UnmatchedReason9Code),typeof(UnmatchedReason10Code))]
 public enum UnmatchedReasonCode
 {
     /// <summary>
@@ -787,12 +786,11 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Transaction amount does not  match.
-    /// 
     /// Encoded/decoded by serializers as "TXAM".
     /// </summary>
     [EnumMember(Value = "TXAM")]
     [IsoId("_agTuoNCpEeqVwOG0fcjVKA")]
-    [Description(@"Transaction amount does not  match. ")]
+    [Description(@"Transaction amount does not  match.|")]
     TransactionAmount,
     
     /// <summary>
@@ -975,7 +973,7 @@ public enum UnmatchedReasonCode
 public static class UnmatchedReasonCodeMetadataExtensions
 {
     private static readonly UnmatchedReasonCodeDropdownSource _dropdownSource = new UnmatchedReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

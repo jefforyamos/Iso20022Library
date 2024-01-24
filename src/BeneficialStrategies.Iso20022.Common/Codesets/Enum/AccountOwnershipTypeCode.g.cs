@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_brLLsNp-Ed-ak6NoX_4Aeg_1487774282")]
 [Description(@"Specifies the type of account ownership.")]
-[Derivations(typeof(AccountOwnershipType2Code),typeof(AccountOwnershipType3Code),typeof(AccountOwnershipType4Code),typeof(AccountOwnershipType5Code),typeof(AccountOwnershipType6Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(AccountOwnershipType5Code),typeof(AccountOwnershipType6Code),typeof(AccountOwnershipType3Code),typeof(AccountOwnershipType2Code),typeof(AccountOwnershipType4Code))]
 public enum AccountOwnershipTypeCode
 {
     /// <summary>
@@ -218,7 +217,7 @@ public enum AccountOwnershipTypeCode
 public static class AccountOwnershipTypeCodeMetadataExtensions
 {
     private static readonly AccountOwnershipTypeCodeDropdownSource _dropdownSource = new AccountOwnershipTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_HqDnMezYEeSBf_ghFpb9rQ")]
 [Description(@"Status of the price of a financial instrument.")]
 [Derivations(typeof(PriceStatus1Code),typeof(PriceStatus2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PriceStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PriceStatusCode
 public static class PriceStatusCodeMetadataExtensions
 {
     private static readonly PriceStatusCodeDropdownSource _dropdownSource = new PriceStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

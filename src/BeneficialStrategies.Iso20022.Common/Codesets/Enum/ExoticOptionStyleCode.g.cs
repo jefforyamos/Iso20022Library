@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_WkTlYcRxEeOg-a7zWL_U0A")]
 [Description(@"Specifies the option style.")]
 [Derivations(typeof(ExoticOptionStyle1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExoticOptionStyleCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ExoticOptionStyleCode
 public static class ExoticOptionStyleCodeMetadataExtensions
 {
     private static readonly ExoticOptionStyleCodeDropdownSource _dropdownSource = new ExoticOptionStyleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

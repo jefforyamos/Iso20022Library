@@ -21,30 +21,30 @@ public enum InstructionLockout1Code
 {
     /// <summary>
     /// System suspended elections processing based on business rules.
-    /// Encoded/decoded by serializers as "SystemicLocked".
+    /// Encoded/decoded by serializers as "SYLK".
     /// </summary>
     [EnumMember(Value = "SYLK")]
     [IsoId("_1tJmBDL3EeKU9IrkkToqcw_-1287259278")]
     [Description(@"System suspended elections processing based on business rules.")]
-    SystemicLocked,
+    SystemicLocked = InstructionLockoutCode.SystemicLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DTC (the Depository Trust Company) personnel suspended elections processing.
-    /// Encoded/decoded by serializers as "ManualLocked".
+    /// Encoded/decoded by serializers as "MALK".
     /// </summary>
     [EnumMember(Value = "MALK")]
     [IsoId("_1tTXADL3EeKU9IrkkToqcw_964591391")]
     [Description(@"DTC (the Depository Trust Company) personnel suspended elections processing.")]
-    ManualLocked,
+    ManualLocked = InstructionLockoutCode.ManualLocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Eligible for elections processing.
-    /// Encoded/decoded by serializers as "NotLocked".
+    /// Encoded/decoded by serializers as "NOLO".
     /// </summary>
     [EnumMember(Value = "NOLO")]
     [IsoId("_1tTXATL3EeKU9IrkkToqcw_1289708898")]
     [Description(@"Eligible for elections processing.")]
-    NotLocked,
+    NotLocked = InstructionLockoutCode.NotLocked, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum InstructionLockout1Code
 public static class InstructionLockout1CodeMetadataExtensions
 {
     private static readonly InstructionLockout1CodeDropdownSource _dropdownSource = new InstructionLockout1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

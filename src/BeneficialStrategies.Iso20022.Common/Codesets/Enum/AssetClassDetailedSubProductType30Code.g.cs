@@ -21,21 +21,21 @@ public enum AssetClassDetailedSubProductType30Code
 {
     /// <summary>
     /// Commodity attribute of type milled wheat.
-    /// Encoded/decoded by serializers as "MillingWheat".
+    /// Encoded/decoded by serializers as "MWHT".
     /// </summary>
     [EnumMember(Value = "MWHT")]
     [IsoId("_Tlws4bv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of type milled wheat.")]
-    MillingWheat,
+    MillingWheat = AssetClassDetailedSubProductTypeCode.MillingWheat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VhCGwbv3EeiLRYqS-r-R-A")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AssetClassDetailedSubProductType30Code
 public static class AssetClassDetailedSubProductType30CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType30CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType30CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

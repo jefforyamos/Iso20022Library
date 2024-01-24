@@ -21,30 +21,30 @@ public enum ResolutionStatus2Code
 {
     /// <summary>
     /// Meeting resolution has been accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_S5RIgV64EeSjaerr_EM7AQ")]
     [Description(@"Meeting resolution has been accepted.")]
-    Accepted,
+    Accepted = ResolutionStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting resolution has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_TCMbAV64EeSjaerr_EM7AQ")]
     [Description(@"Meeting resolution has been rejected.")]
-    Rejected,
+    Rejected = ResolutionStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting resolution has been withdrawn.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WDRA".
     /// </summary>
     [EnumMember(Value = "WDRA")]
     [IsoId("_TK-jkV64EeSjaerr_EM7AQ")]
     [Description(@"Meeting resolution has been withdrawn.")]
-    Withdrawn,
+    Withdrawn = ResolutionStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ResolutionStatus2Code
 public static class ResolutionStatus2CodeMetadataExtensions
 {
     private static readonly ResolutionStatus2CodeDropdownSource _dropdownSource = new ResolutionStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YZhNstp-Ed-ak6NoX_4Aeg_-735267908")]
 [Description(@"Specifies the clearing account type.")]
 [Derivations(typeof(ClearingAccountType1Code),typeof(ClearingAccountType3Code),typeof(ClearingAccountType4Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ClearingAccountTypeCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ClearingAccountTypeCode
 public static class ClearingAccountTypeCodeMetadataExtensions
 {
     private static readonly ClearingAccountTypeCodeDropdownSource _dropdownSource = new ClearingAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aKBiBNp-Ed-ak6NoX_4Aeg_-62106922")]
 [Description(@"Indicates if one side or the other of a cross order should be prioritized.")]
 [Derivations(typeof(Prioritisation1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PrioritisationCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PrioritisationCode
 public static class PrioritisationCodeMetadataExtensions
 {
     private static readonly PrioritisationCodeDropdownSource _dropdownSource = new PrioritisationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

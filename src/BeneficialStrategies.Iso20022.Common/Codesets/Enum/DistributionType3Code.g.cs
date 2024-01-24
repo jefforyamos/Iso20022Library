@@ -21,39 +21,39 @@ public enum DistributionType3Code
 {
     /// <summary>
     /// Final payment.
-    /// Encoded/decoded by serializers as "Final".
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_5ixRYSXWEeOL3KXg7zAfKA")]
     [Description(@"Final payment.")]
-    Final,
+    Final = DistributionTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Interim payment.
-    /// Encoded/decoded by serializers as "Interim".
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_5nYEkSXWEeOL3KXg7zAfKA")]
     [Description(@"Interim payment.")]
-    Interim,
+    Interim = DistributionTypeCode.Interim, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is ongoing for acceptance on an unsolicited basis.
-    /// Encoded/decoded by serializers as "Ongoing".
+    /// Encoded/decoded by serializers as "ONGO".
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_5uOTcSXWEeOL3KXg7zAfKA")]
     [Description(@"Event is ongoing for acceptance on an unsolicited basis.")]
-    Ongoing,
+    Ongoing = DistributionTypeCode.Ongoing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
-    /// Encoded/decoded by serializers as "RollingBasis".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_5y1GoSXWEeOL3KXg7zAfKA")]
     [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
-    RollingBasis,
+    RollingBasis = DistributionTypeCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DistributionType3Code
 public static class DistributionType3CodeMetadataExtensions
 {
     private static readonly DistributionType3CodeDropdownSource _dropdownSource = new DistributionType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

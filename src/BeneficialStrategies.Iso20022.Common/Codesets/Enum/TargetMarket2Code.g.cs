@@ -21,21 +21,21 @@ public enum TargetMarket2Code
 {
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "Neutral".
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_w63t0ddjEeibyvRfU9vJ7w")]
     [Description(@"Neutral or has no impact.")]
-    Neutral,
+    Neutral = TargetMarketCode.Neutral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Yes, is applicable.
-    /// Encoded/decoded by serializers as "InScope".
+    /// Encoded/decoded by serializers as "YSCO".
     /// </summary>
     [EnumMember(Value = "YSCO")]
     [IsoId("_xEinMddjEeibyvRfU9vJ7w")]
     [Description(@"Yes, is applicable.")]
-    InScope,
+    InScope = TargetMarketCode.InScope, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TargetMarket2Code
 public static class TargetMarket2CodeMetadataExtensions
 {
     private static readonly TargetMarket2CodeDropdownSource _dropdownSource = new TargetMarket2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

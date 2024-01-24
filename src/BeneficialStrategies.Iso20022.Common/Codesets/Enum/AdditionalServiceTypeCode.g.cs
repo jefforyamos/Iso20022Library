@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_vnuScBZZEeiwvuY-sPnsNg")]
 [Description(@"Type of additional service")]
 [Derivations(typeof(AdditionalServiceType1Code),typeof(AdditionalServiceType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AdditionalServiceTypeCode
 {
     /// <summary>
@@ -128,7 +127,7 @@ public enum AdditionalServiceTypeCode
 public static class AdditionalServiceTypeCodeMetadataExtensions
 {
     private static readonly AdditionalServiceTypeCodeDropdownSource _dropdownSource = new AdditionalServiceTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

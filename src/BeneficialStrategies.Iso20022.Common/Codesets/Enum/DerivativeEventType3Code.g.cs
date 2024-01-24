@@ -21,120 +21,120 @@ public enum DerivativeEventType3Code
 {
     /// <summary>
     /// Allocation event, where an existing derivative is allocated to different counterparties and reported as new derivatives.
-    /// Encoded/decoded by serializers as "Allocation".
+    /// Encoded/decoded by serializers as "ALOC".
     /// </summary>
     [EnumMember(Value = "ALOC")]
     [IsoId("_hMEJsU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Allocation event, where an existing derivative is allocated to different counterparties and reported as new derivatives.")]
-    Allocation,
+    Allocation = DerivativeEventTypeV2Code.Allocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Process in which a CCP interposes itself between the counterparties to the contract becoming the buyer to the counterparty that was a seller and the seller to the counterparty that was a buyer.
-    /// Encoded/decoded by serializers as "Clearing".
+    /// Encoded/decoded by serializers as "CLRG".
     /// </summary>
     [EnumMember(Value = "CLRG")]
     [IsoId("_hPOycU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Process in which a CCP interposes itself between the counterparties to the contract becoming the buyer to the counterparty that was a seller and the seller to the counterparty that was a buyer.")]
-    Clearing,
+    Clearing = DerivativeEventTypeV2Code.Clearing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Simultaneous clearing and allocation event in a derivatives clearing organisation.
-    /// Encoded/decoded by serializers as "ClearingAndAllocation".
+    /// Encoded/decoded by serializers as "CLAL".
     /// </summary>
     [EnumMember(Value = "CLAL")]
     [IsoId("_hSjMMU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Simultaneous clearing and allocation event in a derivatives clearing organisation.")]
-    ClearingAndAllocation,
+    ClearingAndAllocation = DerivativeEventTypeV2Code.ClearingAndAllocation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Compression or post-trade risk reduction exercise.
-    /// Encoded/decoded by serializers as "Compression".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_hVekYU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Compression or post-trade risk reduction exercise.")]
-    Compression,
+    Compression = DerivativeEventTypeV2Code.Compression, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Result of a corporate action.
-    /// Encoded/decoded by serializers as "CorporateAction".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_hYeOAU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Result of a corporate action.")]
-    CorporateAction,
+    CorporateAction = DerivativeEventTypeV2Code.CorporateAction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Applies only to credit derivatives. A credit event that results in a termination or modification of a derivative, at a trade or position level.
-    /// Encoded/decoded by serializers as "CreditEvent".
+    /// Encoded/decoded by serializers as "CREV".
     /// </summary>
     [EnumMember(Value = "CREV")]
     [IsoId("_hb1rEU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Applies only to credit derivatives. A credit event that results in a termination or modification of a derivative, at a trade or position level.")]
-    CreditEvent,
+    CreditEvent = DerivativeEventTypeV2Code.CreditEvent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Termination of an existing derivative transaction prior to scheduled termination or maturity date.
-    /// Encoded/decoded by serializers as "EarlyTermination".
+    /// Encoded/decoded by serializers as "ETRM".
     /// </summary>
     [EnumMember(Value = "ETRM")]
     [IsoId("_hfNvMU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Termination of an existing derivative transaction prior to scheduled termination or maturity date.")]
-    EarlyTermination,
+    EarlyTermination = DerivativeEventTypeV2Code.EarlyTermination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The exercise of an option or a swaption by one counterparty of the transaction, fully or partially. 
-    /// Encoded/decoded by serializers as "Exercise".
+    /// Encoded/decoded by serializers as "EXER".
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("_hiPOAU2WEe2bQ-Ksk8mwQg")]
     [Description(@"The exercise of an option or a swaption by one counterparty of the transaction, fully or partially. ")]
-    Exercise,
+    Exercise = DerivativeEventTypeV2Code.Exercise, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inclusion of an ETD or CFD into a position, where an existing derivative is terminated and either a new position is created or the notional of an existing position is modified.
-    /// Encoded/decoded by serializers as "InclusionInPosition".
+    /// Encoded/decoded by serializers as "INCP".
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_hlQFwU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Inclusion of an ETD or CFD into a position, where an existing derivative is terminated and either a new position is created or the notional of an existing position is modified.")]
-    InclusionInPosition,
+    InclusionInPosition = DerivativeEventTypeV2Code.InclusionInPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The replacement of a party to a derivative contract with another party giving rise to a new derivative contract.
-    /// Encoded/decoded by serializers as "Novation".
+    /// Encoded/decoded by serializers as "NOVA".
     /// </summary>
     [EnumMember(Value = "NOVA")]
     [IsoId("_hoeY4U2WEe2bQ-Ksk8mwQg")]
     [Description(@"The replacement of a party to a derivative contract with another party giving rise to a new derivative contract.")]
-    Novation,
+    Novation = DerivativeEventTypeV2Code.Novation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The process by which a derivative transaction is transferred to another trade repository using the same UTI.
-    /// Encoded/decoded by serializers as "Porting".
+    /// Encoded/decoded by serializers as "PTNG".
     /// </summary>
     [EnumMember(Value = "PTNG")]
     [IsoId("_hrposU2WEe2bQ-Ksk8mwQg")]
     [Description(@"The process by which a derivative transaction is transferred to another trade repository using the same UTI.")]
-    Porting,
+    Porting = DerivativeEventTypeV2Code.Porting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Conclusion of a derivative or renegotiation of its terms that does not result in change of a counterparty.
-    /// Encoded/decoded by serializers as "Trade".
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_hx1wQU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Conclusion of a derivative or renegotiation of its terms that does not result in change of a counterparty.")]
-    Trade,
+    Trade = DerivativeEventTypeV2Code.Trade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Outstanding derivative is updated to comply with the revised requirements on reporting.
-    /// Encoded/decoded by serializers as "Update".
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_h1EqcU2WEe2bQ-Ksk8mwQg")]
     [Description(@"Outstanding derivative is updated to comply with the revised requirements on reporting.")]
-    Update,
+    Update = DerivativeEventTypeV2Code.Update, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum DerivativeEventType3Code
 public static class DerivativeEventType3CodeMetadataExtensions
 {
     private static readonly DerivativeEventType3CodeDropdownSource _dropdownSource = new DerivativeEventType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

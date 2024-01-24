@@ -21,39 +21,39 @@ public enum RelativeSize1Code
 {
     /// <summary>
     /// Indicates that the relative size is small.
-    /// Encoded/decoded by serializers as "Small".
+    /// Encoded/decoded by serializers as "SMAL".
     /// </summary>
     [EnumMember(Value = "SMAL")]
     [IsoId("_ZsEauNp-Ed-ak6NoX_4Aeg_-1702072394")]
     [Description(@"Indicates that the relative size is small.")]
-    Small,
+    Small = RelativeSizeCode.Small, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the relative size is medium.
-    /// Encoded/decoded by serializers as "Medium".
+    /// Encoded/decoded by serializers as "MEDI".
     /// </summary>
     [EnumMember(Value = "MEDI")]
     [IsoId("_ZsEaudp-Ed-ak6NoX_4Aeg_-1702072377")]
     [Description(@"Indicates that the relative size is medium.")]
-    Medium,
+    Medium = RelativeSizeCode.Medium, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the relative size is large.
-    /// Encoded/decoded by serializers as "Large".
+    /// Encoded/decoded by serializers as "LARG".
     /// </summary>
     [EnumMember(Value = "LARG")]
     [IsoId("_ZsOLsNp-Ed-ak6NoX_4Aeg_-1702072334")]
     [Description(@"Indicates that the relative size is large.")]
-    Large,
+    Large = RelativeSizeCode.Large, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the quantity is undisclosed.
-    /// Encoded/decoded by serializers as "Undisclosed".
+    /// Encoded/decoded by serializers as "UNDI".
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_ZsOLsdp-Ed-ak6NoX_4Aeg_-1702072317")]
     [Description(@"Indicates that the quantity is undisclosed.")]
-    Undisclosed,
+    Undisclosed = RelativeSizeCode.Undisclosed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RelativeSize1Code
 public static class RelativeSize1CodeMetadataExtensions
 {
     private static readonly RelativeSize1CodeDropdownSource _dropdownSource = new RelativeSize1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

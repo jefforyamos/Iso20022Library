@@ -17,36 +17,36 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_t7boglkyEeGeoaLUQk__nA_611729510")]
-[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalDiscountAmountTypeCode))]
 public enum ExternalDiscountAmountType1Code
 {
     /// <summary>
     /// Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)
-    /// Encoded/decoded by serializers as "AdditionalPromotionalDiscount".
+    /// Encoded/decoded by serializers as "APDS".
     /// </summary>
     [EnumMember(Value = "APDS")]
     [IsoId("_uMAesvRYEeuLhpyIdtJzwg")]
     [Description(@"Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)")]
-    AdditionalPromotionalDiscount,
+    AdditionalPromotionalDiscount = ExternalDiscountAmountTypeCode.AdditionalPromotionalDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Discount based on volume purchased.
-    /// Encoded/decoded by serializers as "StandingDiscount".
+    /// Encoded/decoded by serializers as "STDS".
     /// </summary>
     [EnumMember(Value = "STDS")]
     [IsoId("_uMAetfRYEeuLhpyIdtJzwg")]
     [Description(@"Discount based on volume purchased.")]
-    StandingDiscount,
+    StandingDiscount = ExternalDiscountAmountTypeCode.StandingDiscount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).
-    /// Encoded/decoded by serializers as "TermsDiscount".
+    /// Encoded/decoded by serializers as "TMDS".
     /// </summary>
     [EnumMember(Value = "TMDS")]
     [IsoId("_uMAeuPRYEeuLhpyIdtJzwg")]
     [Description(@"Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).")]
-    TermsDiscount,
+    TermsDiscount = ExternalDiscountAmountTypeCode.TermsDiscount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -57,7 +57,7 @@ public enum ExternalDiscountAmountType1Code
 public static class ExternalDiscountAmountType1CodeMetadataExtensions
 {
     private static readonly ExternalDiscountAmountType1CodeDropdownSource _dropdownSource = new ExternalDiscountAmountType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

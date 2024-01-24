@@ -21,21 +21,21 @@ public enum BusinessDayConvention1Code
 {
     /// <summary>
     /// The date will be the first following day that is a business day.
-    /// Encoded/decoded by serializers as "Following".
+    /// Encoded/decoded by serializers as "FWNG".
     /// </summary>
     [EnumMember(Value = "FWNG")]
     [IsoId("_bVIDNtp-Ed-ak6NoX_4Aeg_1252936265")]
     [Description(@"The date will be the first following day that is a business day.")]
-    Following,
+    Following = BusinessDayConventionCode.Following, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The date will be the first preceding day that is a business day.
-    /// Encoded/decoded by serializers as "Preceding".
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_bVIDN9p-Ed-ak6NoX_4Aeg_-522159377")]
     [Description(@"The date will be the first preceding day that is a business day.")]
-    Preceding,
+    Preceding = BusinessDayConventionCode.Preceding, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum BusinessDayConvention1Code
 public static class BusinessDayConvention1CodeMetadataExtensions
 {
     private static readonly BusinessDayConvention1CodeDropdownSource _dropdownSource = new BusinessDayConvention1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

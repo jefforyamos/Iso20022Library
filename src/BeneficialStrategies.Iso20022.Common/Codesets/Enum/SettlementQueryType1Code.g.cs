@@ -21,30 +21,30 @@ public enum SettlementQueryType1Code
 {
     /// <summary>
     /// Queries settlement instructions based on criteria excluding statuses.
-    /// Encoded/decoded by serializers as "Instruction".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_j4AIYe5NEeCisYr99QEiWA_-1731179192")]
     [Description(@"Queries settlement instructions based on criteria excluding statuses.")]
-    Instruction,
+    Instruction = SettlementQueryTypeCode.Instruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Queries settlement instructions based on criteria that includes statuses.
-    /// Encoded/decoded by serializers as "Status".
+    /// Encoded/decoded by serializers as "STTS".
     /// </summary>
     [EnumMember(Value = "STTS")]
     [IsoId("_j4AIYu5NEeCisYr99QEiWA_-1742277969")]
     [Description(@"Queries settlement instructions based on criteria that includes statuses.")]
-    Status,
+    Status = SettlementQueryTypeCode.Status, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Queries settlement instructions based on criteria that includes statuses during a period.
-    /// Encoded/decoded by serializers as "StatusPeriod".
+    /// Encoded/decoded by serializers as "STPD".
     /// </summary>
     [EnumMember(Value = "STPD")]
     [IsoId("_j4AIY-5NEeCisYr99QEiWA_-820114659")]
     [Description(@"Queries settlement instructions based on criteria that includes statuses during a period.")]
-    StatusPeriod,
+    StatusPeriod = SettlementQueryTypeCode.StatusPeriod, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SettlementQueryType1Code
 public static class SettlementQueryType1CodeMetadataExtensions
 {
     private static readonly SettlementQueryType1CodeDropdownSource _dropdownSource = new SettlementQueryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_iwUTAGKIEeiw8ufheDd6MA")]
-[Description(@"Specifies the external validation rule identification scheme name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external validation rule identification scheme name code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalValidationRuleIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalValidationRuleIdentificationCode
 {
     /// <summary>
@@ -67,7 +66,7 @@ public enum ExternalValidationRuleIdentificationCode
 public static class ExternalValidationRuleIdentificationCodeMetadataExtensions
 {
     private static readonly ExternalValidationRuleIdentificationCodeDropdownSource _dropdownSource = new ExternalValidationRuleIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

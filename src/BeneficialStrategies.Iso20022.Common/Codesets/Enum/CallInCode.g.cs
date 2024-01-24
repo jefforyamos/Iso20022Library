@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bXW30tp-Ed-ak6NoX_4Aeg_-343201614")]
 [Description(@"Specifies the type of pay-in call report.")]
 [Derivations(typeof(CallIn1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CallInCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CallInCode
 public static class CallInCodeMetadataExtensions
 {
     private static readonly CallInCodeDropdownSource _dropdownSource = new CallInCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum AssetClassProductType4Code
 {
     /// <summary>
     /// Commodity of type freight.
-    /// Encoded/decoded by serializers as "Freight".
+    /// Encoded/decoded by serializers as "FRGT".
     /// </summary>
     [EnumMember(Value = "FRGT")]
     [IsoId("_w4AMgQnzEeWnS-yHF1QhNQ")]
     [Description(@"Commodity of type freight.")]
-    Freight,
+    Freight = AssetClassProductTypeCode.Freight, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassProductType4Code
 public static class AssetClassProductType4CodeMetadataExtensions
 {
     private static readonly AssetClassProductType4CodeDropdownSource _dropdownSource = new AssetClassProductType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,93 +21,93 @@ public enum OptionFeatures7Code
 {
     /// <summary>
     /// Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.
-    /// Encoded/decoded by serializers as "OptionApplicability".
+    /// Encoded/decoded by serializers as "CAOS".
     /// </summary>
     [EnumMember(Value = "CAOS")]
     [IsoId("_38a0EWOQEeW4z96Yfj3Wng")]
     [Description(@"Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.")]
-    OptionApplicability,
+    OptionApplicability = OptionFeaturesCode.OptionApplicability, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
-    /// Encoded/decoded by serializers as "Conditional".
+    /// Encoded/decoded by serializers as "COND".
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_38a0E2OQEeW4z96Yfj3Wng")]
     [Description(@"Feature whereby the holder can elect to place a condition on the acceptance of the option.")]
-    Conditional,
+    Conditional = OptionFeaturesCode.Conditional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
-    /// Encoded/decoded by serializers as "MaximumCash".
+    /// Encoded/decoded by serializers as "MAXC".
     /// </summary>
     [EnumMember(Value = "MAXC")]
     [IsoId("_38a0FWOQEeW4z96Yfj3Wng")]
     [Description(@"Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.")]
-    MaximumCash,
+    MaximumCash = OptionFeaturesCode.MaximumCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
-    /// Encoded/decoded by serializers as "MaximumSecurities".
+    /// Encoded/decoded by serializers as "MAXS".
     /// </summary>
     [EnumMember(Value = "MAXS")]
     [IsoId("_38a0F2OQEeW4z96Yfj3Wng")]
     [Description(@"Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.")]
-    MaximumSecurities,
+    MaximumSecurities = OptionFeaturesCode.MaximumSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OddLotPreference".
+    /// Encoded/decoded by serializers as "OPLF".
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_38a0GWOQEeW4z96Yfj3Wng")]
     [Description(@"Tender or exchange with the odd lot preference.")]
-    OddLotPreference,
+    OddLotPreference = OptionFeaturesCode.OddLotPreference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
-    /// Encoded/decoded by serializers as "Proration".
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_38a0G2OQEeW4z96Yfj3Wng")]
     [Description(@"Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.")]
-    Proration,
+    Proration = OptionFeaturesCode.Proration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reduced withholding tax rate applies to the option.
-    /// Encoded/decoded by serializers as "ReducedWithholdingTax".
+    /// Encoded/decoded by serializers as "VVPR".
     /// </summary>
     [EnumMember(Value = "VVPR")]
     [IsoId("_38a0IWOQEeW4z96Yfj3Wng")]
     [Description(@"Reduced withholding tax rate applies to the option.")]
-    ReducedWithholdingTax,
+    ReducedWithholdingTax = OptionFeaturesCode.ReducedWithholdingTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).
-    /// Encoded/decoded by serializers as "NoServiceOffered".
+    /// Encoded/decoded by serializers as "NOSE".
     /// </summary>
     [EnumMember(Value = "NOSE")]
     [IsoId("_38a0I2OQEeW4z96Yfj3Wng")]
     [Description(@"Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).")]
-    NoServiceOffered,
+    NoServiceOffered = OptionFeaturesCode.NoServiceOffered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.
-    /// Encoded/decoded by serializers as "PreviousInstructionInvalidity".
+    /// Encoded/decoded by serializers as "PINS".
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_38a0JWOQEeW4z96Yfj3Wng")]
     [Description(@"Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.")]
-    PreviousInstructionInvalidity,
+    PreviousInstructionInvalidity = OptionFeaturesCode.PreviousInstructionInvalidity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option is offered by the account servicer only.
-    /// Encoded/decoded by serializers as "AccountServicerOption".
+    /// Encoded/decoded by serializers as "ASVO".
     /// </summary>
     [EnumMember(Value = "ASVO")]
     [IsoId("_38a0J2OQEeW4z96Yfj3Wng")]
     [Description(@"Option is offered by the account servicer only.")]
-    AccountServicerOption,
+    AccountServicerOption = OptionFeaturesCode.AccountServicerOption, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum OptionFeatures7Code
 public static class OptionFeatures7CodeMetadataExtensions
 {
     private static readonly OptionFeatures7CodeDropdownSource _dropdownSource = new OptionFeatures7CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

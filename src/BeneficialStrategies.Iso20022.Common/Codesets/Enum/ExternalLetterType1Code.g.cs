@@ -16,36 +16,36 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_REvvQLTLEeuzjuBeu7kFjQ")]
-[Description(@"Specifies the letter type as published in an external letter type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the letter type as published in an external letter type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalLetterTypeCode))]
 public enum ExternalLetterType1Code
 {
     /// <summary>
     /// Document is a letter from the bank.
-    /// Encoded/decoded by serializers as "LetterFromBank".
+    /// Encoded/decoded by serializers as "LFBK".
     /// </summary>
     [EnumMember(Value = "LFBK")]
     [IsoId("_T0320SqmEeyXnMF3dld6dw")]
     [Description(@"Document is a letter from the bank.")]
-    LetterFromBank,
+    LetterFromBank = ExternalLetterTypeCode.LetterFromBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a letter to the bank.
-    /// Encoded/decoded by serializers as "LetterToBank".
+    /// Encoded/decoded by serializers as "LTBK".
     /// </summary>
     [EnumMember(Value = "LTBK")]
     [IsoId("_T63xISqmEeyXnMF3dld6dw")]
     [Description(@"Document is a letter to the bank.")]
-    LetterToBank,
+    LetterToBank = ExternalLetterTypeCode.LetterToBank, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a supporting document.
-    /// Encoded/decoded by serializers as "SupportingDocument".
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_UDEq4SqmEeyXnMF3dld6dw")]
     [Description(@"Document is a supporting document.")]
-    SupportingDocument,
+    SupportingDocument = ExternalLetterTypeCode.SupportingDocument, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +56,7 @@ public enum ExternalLetterType1Code
 public static class ExternalLetterType1CodeMetadataExtensions
 {
     private static readonly ExternalLetterType1CodeDropdownSource _dropdownSource = new ExternalLetterType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

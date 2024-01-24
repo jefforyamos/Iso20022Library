@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Yq878Np-Ed-ak6NoX_4Aeg_337179655")]
 [Description(@"Description of the parameters under which an order must be handled on the floor.")]
 [Derivations(typeof(TradingFloorOrderHandling1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradingFloorOrderHandlingCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum TradingFloorOrderHandlingCode
 public static class TradingFloorOrderHandlingCodeMetadataExtensions
 {
     private static readonly TradingFloorOrderHandlingCodeDropdownSource _dropdownSource = new TradingFloorOrderHandlingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

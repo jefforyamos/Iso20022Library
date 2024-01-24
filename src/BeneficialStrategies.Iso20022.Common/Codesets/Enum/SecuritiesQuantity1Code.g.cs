@@ -26,7 +26,7 @@ public enum SecuritiesQuantity1Code
     [EnumMember(Value = "SQNO")]
     [IsoId("_V_Is5jFxEeGKkIZzgd38VA")]
     [Description(@"No Maximum / Minimum number provided.")]
-    No,
+    No = SecuritiesQuantityTypeCode.No, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum / Minimum number is unknown or not decided.
@@ -35,7 +35,7 @@ public enum SecuritiesQuantity1Code
     [EnumMember(Value = "UKWN")]
     [IsoId("_WDAgRjFxEeGKkIZzgd38VA")]
     [Description(@"Maximum / Minimum number is unknown or not decided.")]
-    Unknown,
+    Unknown = SecuritiesQuantityTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum / Minimum number provided.
@@ -44,7 +44,7 @@ public enum SecuritiesQuantity1Code
     [EnumMember(Value = "SQYS")]
     [IsoId("_WJ3WNjFxEeGKkIZzgd38VA")]
     [Description(@"Maximum / Minimum number provided.")]
-    Yes,
+    Yes = SecuritiesQuantityTypeCode.Yes, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum SecuritiesQuantity1Code
 public static class SecuritiesQuantity1CodeMetadataExtensions
 {
     private static readonly SecuritiesQuantity1CodeDropdownSource _dropdownSource = new SecuritiesQuantity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

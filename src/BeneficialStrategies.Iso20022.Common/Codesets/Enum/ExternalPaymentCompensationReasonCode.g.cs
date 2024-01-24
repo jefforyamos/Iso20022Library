@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_WyP5wYjXEeeDW7_wB-eK_g")]
-[Description(@"Specifies the reason for compensation for the processing of a payment, as published in an external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for compensation for the processing of a payment, as published in an external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentCompensationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentCompensationReasonCode
 {
     /// <summary>
@@ -39,7 +38,7 @@ public enum ExternalPaymentCompensationReasonCode
 public static class ExternalPaymentCompensationReasonCodeMetadataExtensions
 {
     private static readonly ExternalPaymentCompensationReasonCodeDropdownSource _dropdownSource = new ExternalPaymentCompensationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

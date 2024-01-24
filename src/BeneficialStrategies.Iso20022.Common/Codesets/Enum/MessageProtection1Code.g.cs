@@ -21,39 +21,39 @@ public enum MessageProtection1Code
 {
     /// <summary>
     /// Messages contain an encrypted body and a MAC or a digital signature computed on the complete message (header plus body after encryption).
-    /// Encoded/decoded by serializers as "EnvelopedMessage".
+    /// Encoded/decoded by serializers as "EVLP".
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_L8IuwYrgEeSvuOJS0mmL0g")]
     [Description(@"Messages contain an encrypted body and a MAC or a digital signature computed on the complete message (header plus body after encryption).")]
-    EnvelopedMessage,
+    EnvelopedMessage = MessageProtectionCode.EnvelopedMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Messages contain a MAC or a digital signature computed on the body only.
-    /// Encoded/decoded by serializers as "MACBody".
+    /// Encoded/decoded by serializers as "MACB".
     /// </summary>
     [EnumMember(Value = "MACB")]
     [IsoId("_MBfv4YrgEeSvuOJS0mmL0g")]
     [Description(@"Messages contain a MAC or a digital signature computed on the body only.")]
-    MACBody,
+    MACBody = MessageProtectionCode.MACBody, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Messages contain a MAC or a digital signature computed on the complete message (header plus body).
-    /// Encoded/decoded by serializers as "MACMessage".
+    /// Encoded/decoded by serializers as "MACM".
     /// </summary>
     [EnumMember(Value = "MACM")]
     [IsoId("_MHUEA4rgEeSvuOJS0mmL0g")]
     [Description(@"Messages contain a MAC or a digital signature computed on the complete message (header plus body).")]
-    MACMessage,
+    MACMessage = MessageProtectionCode.MACMessage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Messages are not protected, no encryption and no MAC or digital signature.
-    /// Encoded/decoded by serializers as "NoProtection".
+    /// Encoded/decoded by serializers as "UNPR".
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_MLxtQYrgEeSvuOJS0mmL0g")]
     [Description(@"Messages are not protected, no encryption and no MAC or digital signature.")]
-    NoProtection,
+    NoProtection = MessageProtectionCode.NoProtection, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum MessageProtection1Code
 public static class MessageProtection1CodeMetadataExtensions
 {
     private static readonly MessageProtection1CodeDropdownSource _dropdownSource = new MessageProtection1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum EventGroup3Code
 {
     /// <summary>
     /// Distribution domain events.
-    /// Encoded/decoded by serializers as "Distribution".
+    /// Encoded/decoded by serializers as "DISN".
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_y02d8egcEei5aPS232E3Mw")]
     [Description(@"Distribution domain events.")]
-    Distribution,
+    Distribution = EventGroupCode.Distribution, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum EventGroup3Code
 public static class EventGroup3CodeMetadataExtensions
 {
     private static readonly EventGroup3CodeDropdownSource _dropdownSource = new EventGroup3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

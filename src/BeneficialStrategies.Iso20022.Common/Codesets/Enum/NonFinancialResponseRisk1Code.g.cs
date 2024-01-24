@@ -21,30 +21,30 @@ public enum NonFinancialResponseRisk1Code
 {
     /// <summary>
     /// A decline of the transaction is expected by the POI to manage risk.
-    /// Encoded/decoded by serializers as "Decline".
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_8f_F4S_wEeugIJ3Gvoevmg")]
     [Description(@"A decline of the transaction is expected by the POI to manage risk.")]
-    Decline,
+    Decline = NonFinancialResponseRiskCode.Decline, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The POI is able to assess the risk by himself.
-    /// Encoded/decoded by serializers as "LocallyManaged".
+    /// Encoded/decoded by serializers as "NCHG".
     /// </summary>
     [EnumMember(Value = "NCHG")]
     [IsoId("_8ja0YS_wEeugIJ3Gvoevmg")]
     [Description(@"The POI is able to assess the risk by himself.")]
-    LocallyManaged,
+    LocallyManaged = NonFinancialResponseRiskCode.LocallyManaged, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An authorisation is expected from the POI to manage risk.
-    /// Encoded/decoded by serializers as "RequestOnline".
+    /// Encoded/decoded by serializers as "ONLN".
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_8oNNwS_wEeugIJ3Gvoevmg")]
     [Description(@"An authorisation is expected from the POI to manage risk.")]
-    RequestOnline,
+    RequestOnline = NonFinancialResponseRiskCode.RequestOnline, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum NonFinancialResponseRisk1Code
 public static class NonFinancialResponseRisk1CodeMetadataExtensions
 {
     private static readonly NonFinancialResponseRisk1CodeDropdownSource _dropdownSource = new NonFinancialResponseRisk1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

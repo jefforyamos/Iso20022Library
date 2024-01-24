@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YgFIsNp-Ed-ak6NoX_4Aeg_757152502")]
 [Description(@"Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.")]
 [Derivations(typeof(RoundingMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RoundingMethodCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum RoundingMethodCode
 public static class RoundingMethodCodeMetadataExtensions
 {
     private static readonly RoundingMethodCodeDropdownSource _dropdownSource = new RoundingMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

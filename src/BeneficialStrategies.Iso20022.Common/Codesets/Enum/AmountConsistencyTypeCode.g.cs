@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_O4iB4ASsEeusZ4O-nsxv_w")]
 [Description(@"Specifies a type of amount inconsistencies, that the amount type provided matches the reference amount or not.")]
 [Derivations(typeof(AmountConsistencyType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AmountConsistencyTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum AmountConsistencyTypeCode
 public static class AmountConsistencyTypeCodeMetadataExtensions
 {
     private static readonly AmountConsistencyTypeCodeDropdownSource _dropdownSource = new AmountConsistencyTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

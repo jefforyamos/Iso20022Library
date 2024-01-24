@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_jo7HwIMlEeeBDNMiErKunw")]
-[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature, or use, of the amount in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalServiceLevel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalServiceLevelCode
 {
     /// <summary>
@@ -177,13 +176,11 @@ public enum ExternalServiceLevelCode
     
     /// <summary>
     /// Tracked Instant Customer Credit Transfer.
-    /// 
-    /// 
     /// Encoded/decoded by serializers as "G005".
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_adonkOAhEey0k8vo1GQhqQ")]
-    [Description(@"Tracked Instant Customer Credit Transfer.  ")]
+    [Description(@"Tracked Instant Customer Credit Transfer.||")]
     TrackedInstantCustomerCreditTransfer,
     
     /// <summary>
@@ -240,7 +237,7 @@ public enum ExternalServiceLevelCode
 public static class ExternalServiceLevelCodeMetadataExtensions
 {
     private static readonly ExternalServiceLevelCodeDropdownSource _dropdownSource = new ExternalServiceLevelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

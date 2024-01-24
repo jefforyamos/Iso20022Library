@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_s14uMKHnEeagRbKvRt3LnA")]
 [Description(@"Specifies a location.")]
 [Derivations(typeof(Location1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LocationCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum LocationCode
 public static class LocationCodeMetadataExtensions
 {
     private static readonly LocationCodeDropdownSource _dropdownSource = new LocationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

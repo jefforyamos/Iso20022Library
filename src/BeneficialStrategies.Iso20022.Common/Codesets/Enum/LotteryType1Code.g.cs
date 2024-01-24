@@ -21,21 +21,21 @@ public enum LotteryType1Code
 {
     /// <summary>
     /// Original lottery that has been announced for a specific amount and date.
-    /// Encoded/decoded by serializers as "OriginalLotteryNotification".
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_afolotp-Ed-ak6NoX_4Aeg_-1740647868")]
     [Description(@"Original lottery that has been announced for a specific amount and date.")]
-    OriginalLotteryNotification,
+    OriginalLotteryNotification = LotteryTypeCode.OriginalLotteryNotification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplemental or additional quantity called on a previously announced original lottery.
-    /// Encoded/decoded by serializers as "SupplementalLotteryNotification".
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_afolo9p-Ed-ak6NoX_4Aeg_-1740647840")]
     [Description(@"Supplemental or additional quantity called on a previously announced original lottery.")]
-    SupplementalLotteryNotification,
+    SupplementalLotteryNotification = LotteryTypeCode.SupplementalLotteryNotification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum LotteryType1Code
 public static class LotteryType1CodeMetadataExtensions
 {
     private static readonly LotteryType1CodeDropdownSource _dropdownSource = new LotteryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

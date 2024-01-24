@@ -21,12 +21,12 @@ public enum LegalFramework1Code
 {
     /// <summary>
     /// Relates to the French legal framework for repos, that is, relates to a "Pension Livrée".
-    /// Encoded/decoded by serializers as "PensionLivree".
+    /// Encoded/decoded by serializers as "FRAN".
     /// </summary>
     [EnumMember(Value = "FRAN")]
     [IsoId("_ad115Np-Ed-ak6NoX_4Aeg_-1247950171")]
     [Description(@"Relates to the French legal framework for repos, that is, relates to a ""Pension Livrée"".")]
-    PensionLivree,
+    PensionLivree = LegalFrameworkCode.PensionLivree, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum LegalFramework1Code
 public static class LegalFramework1CodeMetadataExtensions
 {
     private static readonly LegalFramework1CodeDropdownSource _dropdownSource = new LegalFramework1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

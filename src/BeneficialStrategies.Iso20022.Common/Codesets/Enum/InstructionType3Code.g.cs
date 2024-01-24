@@ -21,21 +21,21 @@ public enum InstructionType3Code
 {
     /// <summary>
     /// Instruction to match a data set.
-    /// Encoded/decoded by serializers as "Match".
+    /// Encoded/decoded by serializers as "MTCH".
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_aYxvsNp-Ed-ak6NoX_4Aeg_-1294968773")]
     [Description(@"Instruction to match a data set.")]
-    Match,
+    Match = InstructionTypeCode.Match, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction to pre-match a data set.
-    /// Encoded/decoded by serializers as "PreMatch".
+    /// Encoded/decoded by serializers as "PMTC".
     /// </summary>
     [EnumMember(Value = "PMTC")]
     [IsoId("_aYxvsdp-Ed-ak6NoX_4Aeg_-1294968370")]
     [Description(@"Instruction to pre-match a data set.")]
-    PreMatch,
+    PreMatch = InstructionTypeCode.PreMatch, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum InstructionType3Code
 public static class InstructionType3CodeMetadataExtensions
 {
     private static readonly InstructionType3CodeDropdownSource _dropdownSource = new InstructionType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

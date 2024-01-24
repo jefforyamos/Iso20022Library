@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_FkyZgMYzEeesocHIuVGr7g")]
 [Description(@"Specifies the type of withdrawal reorganisation transaction.")]
 [Derivations(typeof(ReorganisationWithdrawalTransactionType1Code),typeof(ReorganisationWithdrawalTransactionType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReorganisationWithdrawalTransactionTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ReorganisationWithdrawalTransactionTypeCode
 public static class ReorganisationWithdrawalTransactionTypeCodeMetadataExtensions
 {
     private static readonly ReorganisationWithdrawalTransactionTypeCodeDropdownSource _dropdownSource = new ReorganisationWithdrawalTransactionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

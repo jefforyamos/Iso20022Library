@@ -21,30 +21,30 @@ public enum PaymentReceipt1Code
 {
     /// <summary>
     /// Operation is a payment.
-    /// Encoded/decoded by serializers as "Payment".
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("__uhuoQ5EEeenr-7g_0TYag")]
     [Description(@"Operation is a payment.")]
-    Payment,
+    Payment = PaymentReceiptCode.Payment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Operation is a receipt.
-    /// Encoded/decoded by serializers as "Receipt".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("__0B5sQ5EEeenr-7g_0TYag")]
     [Description(@"Operation is a receipt.")]
-    Receipt,
+    Receipt = PaymentReceiptCode.Receipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Operation is null.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("__51mwQ5EEeenr-7g_0TYag")]
     [Description(@"Operation is null.")]
-    None,
+    None = PaymentReceiptCode.None, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentReceipt1Code
 public static class PaymentReceipt1CodeMetadataExtensions
 {
     private static readonly PaymentReceipt1CodeDropdownSource _dropdownSource = new PaymentReceipt1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

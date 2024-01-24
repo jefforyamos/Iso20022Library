@@ -21,30 +21,30 @@ public enum CustomerOrderRequest1Code
 {
     /// <summary>
     /// All types of CustomerOrder should be listed, some are open others closed.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_TzXFkd6JEeiwsev40qZGEQ")]
     [Description(@"All types of CustomerOrder should be listed, some are open others closed.")]
-    Both,
+    Both = CustomerOrderRequestCode.Both, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Completed customer orders.
-    /// Encoded/decoded by serializers as "Closed".
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_T3Kngd6JEeiwsev40qZGEQ")]
     [Description(@"Completed customer orders.")]
-    Closed,
+    Closed = CustomerOrderRequestCode.Closed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer order not completed.
-    /// Encoded/decoded by serializers as "Open".
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_T64C0d6JEeiwsev40qZGEQ")]
     [Description(@"Customer order not completed.")]
-    Open,
+    Open = CustomerOrderRequestCode.Open, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CustomerOrderRequest1Code
 public static class CustomerOrderRequest1CodeMetadataExtensions
 {
     private static readonly CustomerOrderRequest1CodeDropdownSource _dropdownSource = new CustomerOrderRequest1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum PaymentCancellationStatusReason3Code
 {
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
-    /// Encoded/decoded by serializers as "ForwardedToAgent".
+    /// Encoded/decoded by serializers as "S003".
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_tomosYEoEei51tn2YGQhvg")]
     [Description(@"Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.")]
-    ForwardedToAgent,
+    ForwardedToAgent = PaymentCancellationStatusReasonCode.ForwardedToAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
-    /// Encoded/decoded by serializers as "DeliveryAcknowledgementReceived".
+    /// Encoded/decoded by serializers as "S004".
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_txPAQYEoEei51tn2YGQhvg")]
     [Description(@"Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.")]
-    DeliveryAcknowledgementReceived,
+    DeliveryAcknowledgementReceived = PaymentCancellationStatusReasonCode.DeliveryAcknowledgementReceived, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum PaymentCancellationStatusReason3Code
 public static class PaymentCancellationStatusReason3CodeMetadataExtensions
 {
     private static readonly PaymentCancellationStatusReason3CodeDropdownSource _dropdownSource = new PaymentCancellationStatusReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

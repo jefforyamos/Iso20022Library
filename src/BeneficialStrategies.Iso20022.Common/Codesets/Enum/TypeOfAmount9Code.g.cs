@@ -21,22 +21,22 @@ public enum TypeOfAmount9Code
 {
     /// <summary>
     /// Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
-    /// Encoded/decoded by serializers as "ConfirmedAmount".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_hQXZYaHjEeagRbKvRt3LnA")]
     [Description(@"Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.")]
-    ConfirmedAmount,
+    ConfirmedAmount = TypeOfAmountCode.ConfirmedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
-    /// Encoded/decoded by serializers as "InstructedAmount".
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_jbtPkqHjEeagRbKvRt3LnA")]
-    [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")]
-    InstructedAmount,
+    [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.|Usage: This amount has to be transported unchanged through the transaction chain.")]
+    InstructedAmount = TypeOfAmountCode.InstructedAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -47,7 +47,7 @@ public enum TypeOfAmount9Code
 public static class TypeOfAmount9CodeMetadataExtensions
 {
     private static readonly TypeOfAmount9CodeDropdownSource _dropdownSource = new TypeOfAmount9CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OLoUAK-uEemJ1NnLPsTFaw")]
 [Description(@"Modality through which the votes that have been recorded and counted.")]
 [Derivations(typeof(ModalityOfCounting1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ModalityOfCountingCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ModalityOfCountingCode
 public static class ModalityOfCountingCodeMetadataExtensions
 {
     private static readonly ModalityOfCountingCodeDropdownSource _dropdownSource = new ModalityOfCountingCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

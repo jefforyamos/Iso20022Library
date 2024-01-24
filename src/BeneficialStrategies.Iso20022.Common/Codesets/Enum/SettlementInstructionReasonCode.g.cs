@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hNwd8CCsEeWJd9HF2tO7BA")]
 [Description(@"Specifies the type of transaction.")]
 [Derivations(typeof(SettlementInstructionReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SettlementInstructionReasonCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum SettlementInstructionReasonCode
 public static class SettlementInstructionReasonCodeMetadataExtensions
 {
     private static readonly SettlementInstructionReasonCodeDropdownSource _dropdownSource = new SettlementInstructionReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

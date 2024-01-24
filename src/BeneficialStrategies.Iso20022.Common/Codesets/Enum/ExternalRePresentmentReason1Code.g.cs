@@ -21,48 +21,48 @@ public enum ExternalRePresentmentReason1Code
 {
     /// <summary>
     /// Amount corrected due to proof of transaction
-    /// Encoded/decoded by serializers as "AmountCorrected".
+    /// Encoded/decoded by serializers as "AMCR".
     /// </summary>
     [EnumMember(Value = "AMCR")]
     [IsoId("_uOP6a_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount corrected due to proof of transaction")]
-    AmountCorrected,
+    AmountCorrected = ExternalRePresentmentReasonCode.AmountCorrected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Liability Shift to acquirer due to missing card authentication method denied
-    /// Encoded/decoded by serializers as "CardAuthenticationLiabilityShiftDenied".
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_uOZEUvRYEeuLhpyIdtJzwg")]
     [Description(@"Liability Shift to acquirer due to missing card authentication method denied")]
-    CardAuthenticationLiabilityShiftDenied,
+    CardAuthenticationLiabilityShiftDenied = ExternalRePresentmentReasonCode.CardAuthenticationLiabilityShiftDenied, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit previously issued
-    /// Encoded/decoded by serializers as "CreditPreviouslyIssued".
+    /// Encoded/decoded by serializers as "CRPI".
     /// </summary>
     [EnumMember(Value = "CRPI")]
     [IsoId("_uOZEVfRYEeuLhpyIdtJzwg")]
     [Description(@"Credit previously issued")]
-    CreditPreviouslyIssued,
+    CreditPreviouslyIssued = ExternalRePresentmentReasonCode.CreditPreviouslyIssued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Original transaction was valid
-    /// Encoded/decoded by serializers as "OriginalTransactionValid".
+    /// Encoded/decoded by serializers as "OTVA".
     /// </summary>
     [EnumMember(Value = "OTVA")]
     [IsoId("_uOZEWPRYEeuLhpyIdtJzwg")]
     [Description(@"Original transaction was valid")]
-    OriginalTransactionValid,
+    OriginalTransactionValid = ExternalRePresentmentReasonCode.OriginalTransactionValid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Liability Shift to acquirer due to missing cardholder verification method denied
-    /// Encoded/decoded by serializers as "VerificationLiabilityShiftDenied".
+    /// Encoded/decoded by serializers as "VLSD".
     /// </summary>
     [EnumMember(Value = "VLSD")]
     [IsoId("_uOZEW_RYEeuLhpyIdtJzwg")]
     [Description(@"Liability Shift to acquirer due to missing cardholder verification method denied")]
-    VerificationLiabilityShiftDenied,
+    VerificationLiabilityShiftDenied = ExternalRePresentmentReasonCode.VerificationLiabilityShiftDenied, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ExternalRePresentmentReason1Code
 public static class ExternalRePresentmentReason1CodeMetadataExtensions
 {
     private static readonly ExternalRePresentmentReason1CodeDropdownSource _dropdownSource = new ExternalRePresentmentReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

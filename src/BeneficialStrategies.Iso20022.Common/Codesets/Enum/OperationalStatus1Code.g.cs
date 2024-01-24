@@ -21,21 +21,21 @@ public enum OperationalStatus1Code
 {
     /// <summary>
     /// Enabled.
-    /// Encoded/decoded by serializers as "Enabled".
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_G4T6wSDZEeWCLu74WLgP4w")]
     [Description(@"Enabled.")]
-    Enabled,
+    Enabled = OperationalStatusCode.Enabled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Special circumstances.
-    /// Encoded/decoded by serializers as "SpecialCircumstances".
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_G_dEkSDZEeWCLu74WLgP4w")]
     [Description(@"Special circumstances.")]
-    SpecialCircumstances,
+    SpecialCircumstances = OperationalStatusCode.SpecialCircumstances, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OperationalStatus1Code
 public static class OperationalStatus1CodeMetadataExtensions
 {
     private static readonly OperationalStatus1CodeDropdownSource _dropdownSource = new OperationalStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

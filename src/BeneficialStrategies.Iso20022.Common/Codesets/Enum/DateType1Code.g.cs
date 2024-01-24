@@ -21,12 +21,12 @@ public enum DateType1Code
 {
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ayQmuNp-Ed-ak6NoX_4Aeg_-6438361")]
     [Description(@"Date is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DateType1Code
 public static class DateType1CodeMetadataExtensions
 {
     private static readonly DateType1CodeDropdownSource _dropdownSource = new DateType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

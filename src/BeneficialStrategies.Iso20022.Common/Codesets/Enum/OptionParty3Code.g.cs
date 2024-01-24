@@ -21,21 +21,21 @@ public enum OptionParty3Code
 {
     /// <summary>
     /// Indicates the receiver of the trade.
-    /// Encoded/decoded by serializers as "Maker".
+    /// Encoded/decoded by serializers as "MAKE".
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_g2qdMTzzEeWLuazO9XdCTg")]
     [Description(@"Indicates the receiver of the trade.")]
-    Maker,
+    Maker = OptionPartyCode.Maker, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates the initiator of the trade.
-    /// Encoded/decoded by serializers as "Taker".
+    /// Encoded/decoded by serializers as "TAKE".
     /// </summary>
     [EnumMember(Value = "TAKE")]
     [IsoId("_g9k9gTzzEeWLuazO9XdCTg")]
     [Description(@"Indicates the initiator of the trade.")]
-    Taker,
+    Taker = OptionPartyCode.Taker, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OptionParty3Code
 public static class OptionParty3CodeMetadataExtensions
 {
     private static readonly OptionParty3CodeDropdownSource _dropdownSource = new OptionParty3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

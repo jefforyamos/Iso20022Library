@@ -21,30 +21,30 @@ public enum ReportSortedType1Code
 {
     /// <summary>
     /// Type of criterion is a nation.
-    /// Encoded/decoded by serializers as "Country".
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_VeXEKdp-Ed-ak6NoX_4Aeg_-2144991903")]
     [Description(@"Type of criterion is a nation.")]
-    Country,
+    Country = ReportSortedTypeCode.Country, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of criterion is an entity, eg, a financial institution.
-    /// Encoded/decoded by serializers as "Party".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Veg1INp-Ed-ak6NoX_4Aeg_-2144991902")]
     [Description(@"Type of criterion is an entity, eg, a financial institution.")]
-    Party,
+    Party = ReportSortedTypeCode.Party, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Type of criterion is a currency, eg, the euro.
-    /// Encoded/decoded by serializers as "Currency".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_Veg1Idp-Ed-ak6NoX_4Aeg_-2144991901")]
     [Description(@"Type of criterion is a currency, eg, the euro.")]
-    Currency,
+    Currency = ReportSortedTypeCode.Currency, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ReportSortedType1Code
 public static class ReportSortedType1CodeMetadataExtensions
 {
     private static readonly ReportSortedType1CodeDropdownSource _dropdownSource = new ReportSortedType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

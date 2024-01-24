@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hbIeoGliEeGaMcKyqKNRfQ_1900611305")]
 [Description(@"Indicates the type of deal for structured finance.")]
 [Derivations(typeof(InstrumentSubStructureType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InstrumentSubStructureTypeCode
 {
     /// <summary>
@@ -209,7 +208,7 @@ public enum InstrumentSubStructureTypeCode
 public static class InstrumentSubStructureTypeCodeMetadataExtensions
 {
     private static readonly InstrumentSubStructureTypeCodeDropdownSource _dropdownSource = new InstrumentSubStructureTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

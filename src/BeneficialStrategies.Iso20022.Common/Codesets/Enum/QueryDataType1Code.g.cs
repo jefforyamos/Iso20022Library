@@ -21,21 +21,21 @@ public enum QueryDataType1Code
 {
     /// <summary>
     /// Query for tading data of foreign exchange.
-    /// Encoded/decoded by serializers as "QueryForeignExchangeTradingData".
+    /// Encoded/decoded by serializers as "QFXT".
     /// </summary>
     [EnumMember(Value = "QFXT")]
     [IsoId("__WMRUaa_EeSxuMLA5o46jQ")]
     [Description(@"Query for tading data of foreign exchange.")]
-    QueryForeignExchangeTradingData,
+    QueryForeignExchangeTradingData = QueryDataTypeCode.QueryForeignExchangeTradingData, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Query for tading data of option.
-    /// Encoded/decoded by serializers as "QueryOptionTradingData".
+    /// Encoded/decoded by serializers as "QOTD".
     /// </summary>
     [EnumMember(Value = "QOTD")]
     [IsoId("__bscYaa_EeSxuMLA5o46jQ")]
     [Description(@"Query for tading data of option.")]
-    QueryOptionTradingData,
+    QueryOptionTradingData = QueryDataTypeCode.QueryOptionTradingData, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum QueryDataType1Code
 public static class QueryDataType1CodeMetadataExtensions
 {
     private static readonly QueryDataType1CodeDropdownSource _dropdownSource = new QueryDataType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

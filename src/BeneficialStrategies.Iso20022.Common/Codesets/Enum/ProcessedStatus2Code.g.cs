@@ -21,21 +21,21 @@ public enum ProcessedStatus2Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKeN9tp-Ed-ak6NoX_4Aeg_1837333616")]
     [Description(@"The instruction/request has been received.")]
-    Received,
+    Received = CorporateActionProcessedStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aKeN99p-Ed-ak6NoX_4Aeg_1837333617")]
     [Description(@"The request has been completed.")]
-    Completed,
+    Completed = CorporateActionProcessedStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ProcessedStatus2Code
 public static class ProcessedStatus2CodeMetadataExtensions
 {
     private static readonly ProcessedStatus2CodeDropdownSource _dropdownSource = new ProcessedStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

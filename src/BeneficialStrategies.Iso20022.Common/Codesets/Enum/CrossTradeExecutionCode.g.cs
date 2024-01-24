@@ -63,7 +63,7 @@ public enum CrossTradeExecutionCode
 public static class CrossTradeExecutionCodeMetadataExtensions
 {
     private static readonly CrossTradeExecutionCodeDropdownSource _dropdownSource = new CrossTradeExecutionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum PlaceType1Code
 {
     /// <summary>
     /// The type of place is unknown.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aHWBctp-Ed-ak6NoX_4Aeg_-1566893880")]
     [Description(@"The type of place is unknown.")]
-    Unknown,
+    Unknown = PlaceTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum PlaceType1Code
 public static class PlaceType1CodeMetadataExtensions
 {
     private static readonly PlaceType1CodeDropdownSource _dropdownSource = new PlaceType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

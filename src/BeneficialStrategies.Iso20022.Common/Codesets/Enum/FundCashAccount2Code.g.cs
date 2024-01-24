@@ -21,39 +21,39 @@ public enum FundCashAccount2Code
 {
     /// <summary>
     /// Cash account.
-    /// Encoded/decoded by serializers as "CashAccount".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_asmDkdp-Ed-ak6NoX_4Aeg_-1052927881")]
     [Description(@"Cash account.")]
-    CashAccount,
+    CashAccount = FundCashAccountCode.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central Provident Fund (CPF) ordinary account.
-    /// Encoded/decoded by serializers as "PensionFundOrdinary".
+    /// Encoded/decoded by serializers as "CPFO".
     /// </summary>
     [EnumMember(Value = "CPFO")]
     [IsoId("_asmDktp-Ed-ak6NoX_4Aeg_-1052926597")]
     [Description(@"Central Provident Fund (CPF) ordinary account.")]
-    PensionFundOrdinary,
+    PensionFundOrdinary = FundCashAccountCode.PensionFundOrdinary, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central Provident Fund (CPF) special account.
-    /// Encoded/decoded by serializers as "PensionFundSpecial".
+    /// Encoded/decoded by serializers as "CPFS".
     /// </summary>
     [EnumMember(Value = "CPFS")]
     [IsoId("_asmDk9p-Ed-ak6NoX_4Aeg_-1052926493")]
     [Description(@"Central Provident Fund (CPF) special account.")]
-    PensionFundSpecial,
+    PensionFundSpecial = FundCashAccountCode.PensionFundSpecial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplementary Retirement Scheme (SRS) account.
-    /// Encoded/decoded by serializers as "RetirementScheme".
+    /// Encoded/decoded by serializers as "SRSA".
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_asmDlNp-Ed-ak6NoX_4Aeg_-1052926150")]
     [Description(@"Supplementary Retirement Scheme (SRS) account.")]
-    RetirementScheme,
+    RetirementScheme = FundCashAccountCode.RetirementScheme, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum FundCashAccount2Code
 public static class FundCashAccount2CodeMetadataExtensions
 {
     private static readonly FundCashAccount2CodeDropdownSource _dropdownSource = new FundCashAccount2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

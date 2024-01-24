@@ -21,12 +21,12 @@ public enum AssetClassSubProductType43Code
 {
     /// <summary>
     /// Commodity of type urea.
-    /// Encoded/decoded by serializers as "Urea".
+    /// Encoded/decoded by serializers as "UREA".
     /// </summary>
     [EnumMember(Value = "UREA")]
     [IsoId("_pK4MiVr3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type urea.")]
-    Urea,
+    Urea = AssetClassSubProductTypeCode.Urea, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType43Code
 public static class AssetClassSubProductType43CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType43CodeDropdownSource _dropdownSource = new AssetClassSubProductType43CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,99 +16,99 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_wpcVgFj1EeOnqqBHs8Gasw")]
-[Description(@"Specifies the reason for pending status. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reason for pending status.|The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalPendingProcessingReasonCode))]
 public enum ExternalPendingProcessingReason1Code
 {
     /// <summary>
     /// Received after the servicer's deadline. Processed on best effort basis
-    /// Encoded/decoded by serializers as "ServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_uVP6SPRYEeuLhpyIdtJzwg")]
     [Description(@"Received after the servicer's deadline. Processed on best effort basis")]
-    ServicerDeadlineMissed,
+    ServicerDeadlineMissed = ExternalPendingProcessingReasonCode.ServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exceptional closing of all financial institutions due to natural disaster, for example, earthquake
-    /// Encoded/decoded by serializers as "NaturalDisaster".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_uVZEMvRYEeuLhpyIdtJzwg")]
     [Description(@"Exceptional closing of all financial institutions due to natural disaster, for example, earthquake")]
-    NaturalDisaster,
+    NaturalDisaster = ExternalPendingProcessingReasonCode.NaturalDisaster, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Special follow-up is taking place
-    /// Encoded/decoded by serializers as "Escalation".
+    /// Encoded/decoded by serializers as "ESCA".
     /// </summary>
     [EnumMember(Value = "ESCA")]
     [IsoId("_uVZENfRYEeuLhpyIdtJzwg")]
     [Description(@"Special follow-up is taking place")]
-    Escalation,
+    Escalation = ExternalPendingProcessingReasonCode.Escalation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending reason being investigated
-    /// Encoded/decoded by serializers as "StatusReasonInvestigation".
+    /// Encoded/decoded by serializers as "IAAD".
     /// </summary>
     [EnumMember(Value = "IAAD")]
     [IsoId("_uVZEOPRYEeuLhpyIdtJzwg")]
     [Description(@"Pending reason being investigated")]
-    StatusReasonInvestigation,
+    StatusReasonInvestigation = ExternalPendingProcessingReasonCode.StatusReasonInvestigation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Longer processing timeframe for this type of SSI
-    /// Encoded/decoded by serializers as "LongerProcessing".
+    /// Encoded/decoded by serializers as "LPRO".
     /// </summary>
     [EnumMember(Value = "LPRO")]
     [IsoId("_uVZEO_RYEeuLhpyIdtJzwg")]
     [Description(@"Longer processing timeframe for this type of SSI")]
-    LongerProcessing,
+    LongerProcessing = ExternalPendingProcessingReasonCode.LongerProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Information, for example, currency is missing
-    /// Encoded/decoded by serializers as "MissingInformation".
+    /// Encoded/decoded by serializers as "MINF".
     /// </summary>
     [EnumMember(Value = "MINF")]
     [IsoId("_uVi1MvRYEeuLhpyIdtJzwg")]
     [Description(@"Information, for example, currency is missing")]
-    MissingInformation,
+    MissingInformation = ExternalPendingProcessingReasonCode.MissingInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument is a new issue and not yet available/tradable
-    /// Encoded/decoded by serializers as "NewIssues".
+    /// Encoded/decoded by serializers as "NEWI".
     /// </summary>
     [EnumMember(Value = "NEWI")]
     [IsoId("_uVi1NfRYEeuLhpyIdtJzwg")]
     [Description(@"Financial instrument is a new issue and not yet available/tradable")]
-    NewIssues,
+    NewIssues = ExternalPendingProcessingReasonCode.NewIssues, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Next process is launched. No processing pending problems to be reported
-    /// Encoded/decoded by serializers as "NextProcess".
+    /// Encoded/decoded by serializers as "NEXT".
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_uVi1OPRYEeuLhpyIdtJzwg")]
     [Description(@"Next process is launched. No processing pending problems to be reported")]
-    NextProcess,
+    NextProcess = ExternalPendingProcessingReasonCode.NextProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
-    /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVi1O_RYEeuLhpyIdtJzwg")]
     [Description(@"Instruction was not straight through processing and had to be processed manually")]
-    NotStraightThroughProcessing,
+    NotStraightThroughProcessing = ExternalPendingProcessingReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was put on hold/frozen by the system
-    /// Encoded/decoded by serializers as "SystemOnHold".
+    /// Encoded/decoded by serializers as "PRSY".
     /// </summary>
     [EnumMember(Value = "PRSY")]
     [IsoId("_uVsmMvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction was put on hold/frozen by the system")]
-    SystemOnHold,
+    SystemOnHold = ExternalPendingProcessingReasonCode.SystemOnHold, // same ordinal as derivation source for type conversions
     
 }
 
@@ -119,7 +119,7 @@ public enum ExternalPendingProcessingReason1Code
 public static class ExternalPendingProcessingReason1CodeMetadataExtensions
 {
     private static readonly ExternalPendingProcessingReason1CodeDropdownSource _dropdownSource = new ExternalPendingProcessingReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum TradeConfirmationType1Code
 {
     /// <summary>
     /// Electronically confirmed.
-    /// Encoded/decoded by serializers as "ElectronicallyConfirmed".
+    /// Encoded/decoded by serializers as "ECNF".
     /// </summary>
     [EnumMember(Value = "ECNF")]
     [IsoId("_5vcZ4Q26EeWmAKKPnqYEVQ")]
     [Description(@"Electronically confirmed.")]
-    ElectronicallyConfirmed,
+    ElectronicallyConfirmed = TradeConfirmationTypeCode.ElectronicallyConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Non-electronically confirmed.
-    /// Encoded/decoded by serializers as "NonElectronicallyConfirmed".
+    /// Encoded/decoded by serializers as "YCNF".
     /// </summary>
     [EnumMember(Value = "YCNF")]
     [IsoId("_5-dtUQ26EeWmAKKPnqYEVQ")]
     [Description(@"Non-electronically confirmed.")]
-    NonElectronicallyConfirmed,
+    NonElectronicallyConfirmed = TradeConfirmationTypeCode.NonElectronicallyConfirmed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TradeConfirmationType1Code
 public static class TradeConfirmationType1CodeMetadataExtensions
 {
     private static readonly TradeConfirmationType1CodeDropdownSource _dropdownSource = new TradeConfirmationType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

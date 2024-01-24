@@ -21,30 +21,30 @@ public enum Algorithm5Code
 {
     /// <summary>
     /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
-    /// Encoded/decoded by serializers as "SHA256".
+    /// Encoded/decoded by serializers as "HS25".
     /// </summary>
     [EnumMember(Value = "HS25")]
     [IsoId("_yzqpwQitEeKn9O5oyej_zw")]
     [Description(@"Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).")]
-    SHA256,
+    SHA256 = AlgorithmCode.SHA256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
-    /// Encoded/decoded by serializers as "SHA384".
+    /// Encoded/decoded by serializers as "HS38".
     /// </summary>
     [EnumMember(Value = "HS38")]
     [IsoId("_zti4EQitEeKn9O5oyej_zw")]
     [Description(@"Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).")]
-    SHA384,
+    SHA384 = AlgorithmCode.SHA384, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
-    /// Encoded/decoded by serializers as "SHA512".
+    /// Encoded/decoded by serializers as "HS51".
     /// </summary>
     [EnumMember(Value = "HS51")]
     [IsoId("_z4_6IQitEeKn9O5oyej_zw")]
     [Description(@"Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).")]
-    SHA512,
+    SHA512 = AlgorithmCode.SHA512, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Algorithm5Code
 public static class Algorithm5CodeMetadataExtensions
 {
     private static readonly Algorithm5CodeDropdownSource _dropdownSource = new Algorithm5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_QF-sEMETEea7jLfvGi1PDw")]
 [Description(@"Specifies the status of the novation.")]
 [Derivations(typeof(NovationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum NovationStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum NovationStatusCode
 public static class NovationStatusCodeMetadataExtensions
 {
     private static readonly NovationStatusCodeDropdownSource _dropdownSource = new NovationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

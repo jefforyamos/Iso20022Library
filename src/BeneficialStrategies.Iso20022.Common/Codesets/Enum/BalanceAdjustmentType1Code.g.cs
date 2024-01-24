@@ -21,30 +21,30 @@ public enum BalanceAdjustmentType1Code
 {
     /// <summary>
     /// Adjustment applies to the average ledger (book) balance.
-    /// Encoded/decoded by serializers as "Ledger".
+    /// Encoded/decoded by serializers as "LDGR".
     /// </summary>
     [EnumMember(Value = "LDGR")]
     [IsoId("_6URjBZqlEeGSON8vddiWzQ_-1813350112")]
     [Description(@"Adjustment applies to the average ledger (book) balance.")]
-    Ledger,
+    Ledger = BalanceAdjustmentTypeCode.Ledger, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment applies to the average float (unavailable) balance.
-    /// Encoded/decoded by serializers as "Float".
+    /// Encoded/decoded by serializers as "FLOT".
     /// </summary>
     [EnumMember(Value = "FLOT")]
     [IsoId("_6URjBpqlEeGSON8vddiWzQ_-1052584959")]
     [Description(@"Adjustment applies to the average float (unavailable) balance.")]
-    Float,
+    Float = BalanceAdjustmentTypeCode.Float, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment applies to the average collected (book less float) balance.
-    /// Encoded/decoded by serializers as "Collected".
+    /// Encoded/decoded by serializers as "CLLD".
     /// </summary>
     [EnumMember(Value = "CLLD")]
     [IsoId("_6URjB5qlEeGSON8vddiWzQ_414563804")]
     [Description(@"Adjustment applies to the average collected (book less float) balance.")]
-    Collected,
+    Collected = BalanceAdjustmentTypeCode.Collected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum BalanceAdjustmentType1Code
 public static class BalanceAdjustmentType1CodeMetadataExtensions
 {
     private static readonly BalanceAdjustmentType1CodeDropdownSource _dropdownSource = new BalanceAdjustmentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

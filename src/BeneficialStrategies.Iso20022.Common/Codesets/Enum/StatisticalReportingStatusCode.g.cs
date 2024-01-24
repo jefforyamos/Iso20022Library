@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_WxrMP9jEEeSdIOSPwTkydQ")]
 [Description(@"Specifies the status of a single statistical reporting transaction or of a group of statistical reporting transactions.")]
 [Derivations(typeof(StatisticalReportingStatus2Code),typeof(StatisticalReportingStatus1Code),typeof(TaxReportingStatus2Code),typeof(TaxReportingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StatisticalReportingStatusCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum StatisticalReportingStatusCode
 public static class StatisticalReportingStatusCodeMetadataExtensions
 {
     private static readonly StatisticalReportingStatusCodeDropdownSource _dropdownSource = new StatisticalReportingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

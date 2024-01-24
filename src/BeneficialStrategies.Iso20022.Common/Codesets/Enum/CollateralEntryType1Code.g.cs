@@ -21,23 +21,21 @@ public enum CollateralEntryType1Code
 {
     /// <summary>
     /// Financial Instruments or amount are to be delivered out of Party A's account.
-    /// 
-    /// Encoded/decoded by serializers as "Delivered".
+    /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_Qe13kXvLEemW9qhOy0scyg")]
-    [Description(@"Financial Instruments or amount are to be delivered out of Party A's account. ")]
-    Delivered,
+    [Description(@"Financial Instruments or amount are to be delivered out of Party A's account.|")]
+    Delivered = EntryTypeCode.Delivered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial Instruments  or amount are to be received in Party A's account.
-    /// 
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_QjH6oXvLEemW9qhOy0scyg")]
-    [Description(@"Financial Instruments  or amount are to be received in Party A's account. ")]
-    Received,
+    [Description(@"Financial Instruments  or amount are to be received in Party A's account.|")]
+    Received = EntryTypeCode.Received, // same ordinal as derivation source for type conversions
     
 }
 
@@ -48,7 +46,7 @@ public enum CollateralEntryType1Code
 public static class CollateralEntryType1CodeMetadataExtensions
 {
     private static readonly CollateralEntryType1CodeDropdownSource _dropdownSource = new CollateralEntryType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

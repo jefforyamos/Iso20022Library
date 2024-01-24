@@ -21,174 +21,174 @@ public enum PurchaseIdentifierType1Code
 {
     /// <summary>
     /// Contract Number
-    /// Encoded/decoded by serializers as "ContractNumber".
+    /// Encoded/decoded by serializers as "CONU".
     /// </summary>
     [EnumMember(Value = "CONU")]
     [IsoId("_gqOrsfJQEeiJn9rM2Znz2w")]
     [Description(@"Contract Number")]
-    ContractNumber,
+    ContractNumber = PurchaseIdentifierTypeCode.ContractNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Order
-    /// Encoded/decoded by serializers as "CustomerOrder".
+    /// Encoded/decoded by serializers as "CUOR".
     /// </summary>
     [EnumMember(Value = "CUOR")]
     [IsoId("_gwj9MfJQEeiJn9rM2Znz2w")]
     [Description(@"Customer Order")]
-    CustomerOrder,
+    CustomerOrder = PurchaseIdentifierTypeCode.CustomerOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Customer Purchase Order
-    /// Encoded/decoded by serializers as "CustomerPurchaseOrder".
+    /// Encoded/decoded by serializers as "CUPO".
     /// </summary>
     [EnumMember(Value = "CUPO")]
     [IsoId("_g0ZUUfJQEeiJn9rM2Znz2w")]
     [Description(@"Customer Purchase Order")]
-    CustomerPurchaseOrder,
+    CustomerPurchaseOrder = PurchaseIdentifierTypeCode.CustomerPurchaseOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Folio Number
-    /// Encoded/decoded by serializers as "FolioNumber".
+    /// Encoded/decoded by serializers as "FONU".
     /// </summary>
     [EnumMember(Value = "FONU")]
     [IsoId("_g4ApAfJQEeiJn9rM2Znz2w")]
     [Description(@"Folio Number")]
-    FolioNumber,
+    FolioNumber = PurchaseIdentifierTypeCode.FolioNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invoice Number
-    /// Encoded/decoded by serializers as "InvoiceNumber".
+    /// Encoded/decoded by serializers as "INNU".
     /// </summary>
     [EnumMember(Value = "INNU")]
     [IsoId("_g7xHofJQEeiJn9rM2Znz2w")]
     [Description(@"Invoice Number")]
-    InvoiceNumber,
+    InvoiceNumber = PurchaseIdentifierTypeCode.InvoiceNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order Number
-    /// Encoded/decoded by serializers as "OrderNumber".
+    /// Encoded/decoded by serializers as "ORNU".
     /// </summary>
     [EnumMember(Value = "ORNU")]
     [IsoId("_hAyKgfJQEeiJn9rM2Znz2w")]
     [Description(@"Order Number")]
-    OrderNumber,
+    OrderNumber = PurchaseIdentifierTypeCode.OrderNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Purchase Identifier defined at a national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_hSflkfJQEeiJn9rM2Znz2w")]
     [Description(@"Other Purchase Identifier defined at a national level.")]
-    OtherNational,
+    OtherNational = PurchaseIdentifierTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other Purchase Identifier defined at a private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_hYff4fJQEeiJn9rM2Znz2w")]
     [Description(@"Other Purchase Identifier defined at a private level.")]
-    OtherPrivate,
+    OtherPrivate = PurchaseIdentifierTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment Reference Number
-    /// Encoded/decoded by serializers as "PaymentReferenceNumber".
+    /// Encoded/decoded by serializers as "PRNU".
     /// </summary>
     [EnumMember(Value = "PRNU")]
     [IsoId("_hb288fJQEeiJn9rM2Znz2w")]
     [Description(@"Payment Reference Number")]
-    PaymentReferenceNumber,
+    PaymentReferenceNumber = PurchaseIdentifierTypeCode.PaymentReferenceNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Purchase Identification
-    /// Encoded/decoded by serializers as "PurchaseIdentification".
+    /// Encoded/decoded by serializers as "PUID".
     /// </summary>
     [EnumMember(Value = "PUID")]
     [IsoId("_hfKvofJQEeiJn9rM2Znz2w")]
     [Description(@"Purchase Identification")]
-    PurchaseIdentification,
+    PurchaseIdentification = PurchaseIdentifierTypeCode.PurchaseIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Record Locator
-    /// Encoded/decoded by serializers as "RecordLocator".
+    /// Encoded/decoded by serializers as "RELO".
     /// </summary>
     [EnumMember(Value = "RELO")]
     [IsoId("_hioTUfJQEeiJn9rM2Znz2w")]
     [Description(@"Record Locator")]
-    RecordLocator,
+    RecordLocator = PurchaseIdentifierTypeCode.RecordLocator, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rental Agreement
-    /// Encoded/decoded by serializers as "RentalAgreement".
+    /// Encoded/decoded by serializers as "REAG".
     /// </summary>
     [EnumMember(Value = "REAG")]
     [IsoId("_hmAXcfJQEeiJn9rM2Znz2w")]
     [Description(@"Rental Agreement")]
-    RentalAgreement,
+    RentalAgreement = PurchaseIdentifierTypeCode.RentalAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rental Number
-    /// Encoded/decoded by serializers as "RentalNumber".
+    /// Encoded/decoded by serializers as "RENU".
     /// </summary>
     [EnumMember(Value = "RENU")]
     [IsoId("_hpS8AfJQEeiJn9rM2Znz2w")]
     [Description(@"Rental Number")]
-    RentalNumber,
+    RentalNumber = PurchaseIdentifierTypeCode.RentalNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reservation Number
-    /// Encoded/decoded by serializers as "ReservationNumber".
+    /// Encoded/decoded by serializers as "RSNU".
     /// </summary>
     [EnumMember(Value = "RSNU")]
     [IsoId("_hs1_QfJQEeiJn9rM2Znz2w")]
     [Description(@"Reservation Number")]
-    ReservationNumber,
+    ReservationNumber = PurchaseIdentifierTypeCode.ReservationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplier Order
-    /// Encoded/decoded by serializers as "SupplierOrder".
+    /// Encoded/decoded by serializers as "SUOR".
     /// </summary>
     [EnumMember(Value = "SUOR")]
     [IsoId("_hxaWMfJQEeiJn9rM2Znz2w")]
     [Description(@"Supplier Order")]
-    SupplierOrder,
+    SupplierOrder = PurchaseIdentifierTypeCode.SupplierOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ticket Number 
-    /// Encoded/decoded by serializers as "TicketNumber".
+    /// Encoded/decoded by serializers as "TINU".
     /// </summary>
     [EnumMember(Value = "TINU")]
     [IsoId("_h0zBYfJQEeiJn9rM2Znz2w")]
     [Description(@"Ticket Number ")]
-    TicketNumber,
+    TicketNumber = PurchaseIdentifierTypeCode.TicketNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tracking Number
-    /// Encoded/decoded by serializers as "TrackingNumber".
+    /// Encoded/decoded by serializers as "TRNU".
     /// </summary>
     [EnumMember(Value = "TRNU")]
     [IsoId("_h4l8QfJQEeiJn9rM2Znz2w")]
     [Description(@"Tracking Number")]
-    TrackingNumber,
+    TrackingNumber = PurchaseIdentifierTypeCode.TrackingNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Supplier Invoice
-    /// Encoded/decoded by serializers as "SupplierInvoice".
+    /// Encoded/decoded by serializers as "SUIN".
     /// </summary>
     [EnumMember(Value = "SUIN")]
     [IsoId("_iJh7QfJQEeiJn9rM2Znz2w")]
     [Description(@"Supplier Invoice")]
-    SupplierInvoice,
+    SupplierInvoice = PurchaseIdentifierTypeCode.SupplierInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction Identification is a proprietary value provided by the card acceptor or acquirer to uniquely identify a given transaction. 
-    /// Encoded/decoded by serializers as "TransactionIdentification".
+    /// Encoded/decoded by serializers as "TNID".
     /// </summary>
     [EnumMember(Value = "TNID")]
     [IsoId("_iPBfQfJQEeiJn9rM2Znz2w")]
     [Description(@"Transaction Identification is a proprietary value provided by the card acceptor or acquirer to uniquely identify a given transaction. ")]
-    TransactionIdentification,
+    TransactionIdentification = PurchaseIdentifierTypeCode.TransactionIdentification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -199,7 +199,7 @@ public enum PurchaseIdentifierType1Code
 public static class PurchaseIdentifierType1CodeMetadataExtensions
 {
     private static readonly PurchaseIdentifierType1CodeDropdownSource _dropdownSource = new PurchaseIdentifierType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

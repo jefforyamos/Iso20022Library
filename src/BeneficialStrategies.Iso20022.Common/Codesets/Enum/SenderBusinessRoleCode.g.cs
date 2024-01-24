@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_XOtxgFV0Eea1MPROA61PoQ")]
 [Description(@"Specifies whether account owner or account servicer sends the message.")]
 [Derivations(typeof(SenderBusinessRole1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SenderBusinessRoleCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SenderBusinessRoleCode
 public static class SenderBusinessRoleCodeMetadataExtensions
 {
     private static readonly SenderBusinessRoleCodeDropdownSource _dropdownSource = new SenderBusinessRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

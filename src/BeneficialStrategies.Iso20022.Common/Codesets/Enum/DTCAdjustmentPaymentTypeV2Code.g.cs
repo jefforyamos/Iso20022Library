@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_cmC3IHxsEeOCOoRiuJeDeg")]
 [Description(@"Specifies the type of the payment adjustment.")]
 [Derivations(typeof(DTCAdjustmentPaymentType2Code),typeof(DTCAdjustmentPaymentType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCAdjustmentPaymentTypeV2Code
 {
     /// <summary>
@@ -362,7 +361,7 @@ public enum DTCAdjustmentPaymentTypeV2Code
 public static class DTCAdjustmentPaymentTypeV2CodeMetadataExtensions
 {
     private static readonly DTCAdjustmentPaymentTypeV2CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

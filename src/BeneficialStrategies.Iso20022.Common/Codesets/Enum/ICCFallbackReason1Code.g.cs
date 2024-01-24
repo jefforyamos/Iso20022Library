@@ -21,50 +21,48 @@ public enum ICCFallbackReason1Code
 {
     /// <summary>
     /// Choosing incorrect IC application.
-    /// Encoded/decoded by serializers as "ChoosingIncorrectICApplication".
+    /// Encoded/decoded by serializers as "CIIA".
     /// </summary>
     [EnumMember(Value = "CIIA")]
     [IsoId("_P4yAATxSEeyuG4d2lhAp-w")]
     [Description(@"Choosing incorrect IC application.")]
-    ChoosingIncorrectICApplication,
+    ChoosingIncorrectICApplication = ICCFallbackReasonCode.ChoosingIncorrectICApplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Error during IC app processing.
-    /// 
-    /// Encoded/decoded by serializers as "ErrorDuringICAppProcessing.".
+    /// Encoded/decoded by serializers as "EDIP".
     /// </summary>
     [EnumMember(Value = "EDIP")]
     [IsoId("_P96-sTxSEeyuG4d2lhAp-w")]
-    [Description(@"Error during IC app processing. ")]
-    ErrorDuringICAppProcessing,
+    [Description(@"Error during IC app processing.|")]
+    ErrorDuringICAppProcessing = ICCFallbackReasonCode.ErrorDuringICAppProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other ICC fallback reason defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_QCJXYTxSEeyuG4d2lhAp-w")]
     [Description(@"Other ICC fallback reason defined at national level.")]
-    OtherNational,
+    OtherNational = ICCFallbackReasonCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other ICC fallback reason defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_QJDQoTxSEeyuG4d2lhAp-w")]
     [Description(@"Other ICC fallback reason defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = ICCFallbackReasonCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Terminal error reading IC data.
-    /// 
-    /// Encoded/decoded by serializers as "TerminalErrorReadingICData".
+    /// Encoded/decoded by serializers as "TERI".
     /// </summary>
     [EnumMember(Value = "TERI")]
     [IsoId("_QPGOQTxSEeyuG4d2lhAp-w")]
-    [Description(@"Terminal error reading IC data. ")]
-    TerminalErrorReadingICData,
+    [Description(@"Terminal error reading IC data.|")]
+    TerminalErrorReadingICData = ICCFallbackReasonCode.TerminalErrorReadingICData, // same ordinal as derivation source for type conversions
     
 }
 
@@ -75,7 +73,7 @@ public enum ICCFallbackReason1Code
 public static class ICCFallbackReason1CodeMetadataExtensions
 {
     private static readonly ICCFallbackReason1CodeDropdownSource _dropdownSource = new ICCFallbackReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

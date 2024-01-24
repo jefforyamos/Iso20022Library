@@ -16,18 +16,18 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_qIPhcFW7EeeiG_nL4vgKnQ")]
-[Description(@"Information related to the protocol management. ISO 8583 MTI.")]
+[Description(@"Information related to the protocol management.|ISO 8583 MTI.")]
 [DerivedFrom(typeof(MessageFunctionCode))]
 public enum MessageFunction27Code
 {
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "Notification".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_oPgJAemrEemNVKPwszFC-A")]
     [Description(@"Information about the transaction.")]
-    Notification,
+    Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
 }
 
@@ -38,7 +38,7 @@ public enum MessageFunction27Code
 public static class MessageFunction27CodeMetadataExtensions
 {
     private static readonly MessageFunction27CodeDropdownSource _dropdownSource = new MessageFunction27CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

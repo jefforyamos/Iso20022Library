@@ -21,21 +21,21 @@ public enum CancellationRejectedReason1Code
 {
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CutOffTime".
+    /// Encoded/decoded by serializers as "CUTO".
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_bYjKo9p-Ed-ak6NoX_4Aeg_-1041848")]
     [Description(@"Instruction has been received after the cut-off time.")]
-    CutOffTime,
+    CutOffTime = RejectedStatusReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order or transfer has already been executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "AlreadyExecuted".
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_bYjKpNp-Ed-ak6NoX_4Aeg_-2116683787")]
     [Description(@"Order or transfer has already been executed and confirmation has been sent.")]
-    AlreadyExecuted,
+    AlreadyExecuted = RejectedStatusReasonCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CancellationRejectedReason1Code
 public static class CancellationRejectedReason1CodeMetadataExtensions
 {
     private static readonly CancellationRejectedReason1CodeDropdownSource _dropdownSource = new CancellationRejectedReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

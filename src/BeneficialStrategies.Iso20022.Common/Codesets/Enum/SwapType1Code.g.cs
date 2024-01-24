@@ -21,93 +21,93 @@ public enum SwapType1Code
 {
     /// <summary>
     /// Overnight Index Single Currency Swap.
-    /// Encoded/decoded by serializers as "OvernightIndexSingleCurrencySwap".
+    /// Encoded/decoded by serializers as "OSSC".
     /// </summary>
     [EnumMember(Value = "OSSC")]
     [IsoId("_jZap0SS1EeWsI5Sp3-B3zg")]
     [Description(@"Overnight Index Single Currency Swap.")]
-    OvernightIndexSingleCurrencySwap,
+    OvernightIndexSingleCurrencySwap = SwapTypeCode.OvernightIndexSingleCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed to Float Single Currency Swap.
-    /// Encoded/decoded by serializers as "FixedToFloatSingleCurrencySwap".
+    /// Encoded/decoded by serializers as "XFSC".
     /// </summary>
     [EnumMember(Value = "XFSC")]
     [IsoId("_j4gZkSS1EeWsI5Sp3-B3zg")]
     [Description(@"Fixed to Float Single Currency Swap.")]
-    FixedToFloatSingleCurrencySwap,
+    FixedToFloatSingleCurrencySwap = SwapTypeCode.FixedToFloatSingleCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed to Float Multi Currency Swap.
-    /// Encoded/decoded by serializers as "FixedToFloatMultiCurrencySwap".
+    /// Encoded/decoded by serializers as "XFMC".
     /// </summary>
     [EnumMember(Value = "XFMC")]
     [IsoId("_j-IgcSS1EeWsI5Sp3-B3zg")]
     [Description(@"Fixed to Float Multi Currency Swap.")]
-    FixedToFloatMultiCurrencySwap,
+    FixedToFloatMultiCurrencySwap = SwapTypeCode.FixedToFloatMultiCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed to Fixed Single Currency Swap.
-    /// Encoded/decoded by serializers as "FixedToFixedSingleCurrencySwap".
+    /// Encoded/decoded by serializers as "XXSC".
     /// </summary>
     [EnumMember(Value = "XXSC")]
     [IsoId("_kC_yUSS1EeWsI5Sp3-B3zg")]
     [Description(@"Fixed to Fixed Single Currency Swap.")]
-    FixedToFixedSingleCurrencySwap,
+    FixedToFixedSingleCurrencySwap = SwapTypeCode.FixedToFixedSingleCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fixed to Fixed Multi Currency Swap.
-    /// Encoded/decoded by serializers as "FixedToFixedMultiCurrencySwap".
+    /// Encoded/decoded by serializers as "XXMC".
     /// </summary>
     [EnumMember(Value = "XXMC")]
     [IsoId("_kSQWUSS1EeWsI5Sp3-B3zg")]
     [Description(@"Fixed to Fixed Multi Currency Swap.")]
-    FixedToFixedMultiCurrencySwap,
+    FixedToFixedMultiCurrencySwap = SwapTypeCode.FixedToFixedMultiCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inflation Multi Currency Swap.
-    /// Encoded/decoded by serializers as "InflationMultiCurrencySwap".
+    /// Encoded/decoded by serializers as "IFMC".
     /// </summary>
     [EnumMember(Value = "IFMC")]
     [IsoId("_k1EIcSS1EeWsI5Sp3-B3zg")]
     [Description(@"Inflation Multi Currency Swap.")]
-    InflationMultiCurrencySwap,
+    InflationMultiCurrencySwap = SwapTypeCode.InflationMultiCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Float to Float Single Currency Swap.
-    /// Encoded/decoded by serializers as "FloatToFloatSingleCurrencySwap".
+    /// Encoded/decoded by serializers as "FFSC".
     /// </summary>
     [EnumMember(Value = "FFSC")]
     [IsoId("_lOVkESS1EeWsI5Sp3-B3zg")]
     [Description(@"Float to Float Single Currency Swap.")]
-    FloatToFloatSingleCurrencySwap,
+    FloatToFloatSingleCurrencySwap = SwapTypeCode.FloatToFloatSingleCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Float to Float Multi Currency Swap.
-    /// Encoded/decoded by serializers as "FloatToFloatMultiCurrencySwap".
+    /// Encoded/decoded by serializers as "FFMC".
     /// </summary>
     [EnumMember(Value = "FFMC")]
     [IsoId("_lTAosSS1EeWsI5Sp3-B3zg")]
     [Description(@"Float to Float Multi Currency Swap.")]
-    FloatToFloatMultiCurrencySwap,
+    FloatToFloatMultiCurrencySwap = SwapTypeCode.FloatToFloatMultiCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Inflation Single Currency Swap.
-    /// Encoded/decoded by serializers as "InflationSingleCurrencySwap".
+    /// Encoded/decoded by serializers as "IFSC".
     /// </summary>
     [EnumMember(Value = "IFSC")]
     [IsoId("_l9cs0SS1EeWsI5Sp3-B3zg")]
     [Description(@"Inflation Single Currency Swap.")]
-    InflationSingleCurrencySwap,
+    InflationSingleCurrencySwap = SwapTypeCode.InflationSingleCurrencySwap, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Overnight Index Multi Currency Swap.
-    /// Encoded/decoded by serializers as "OvernightIndexMultiCurrencySwap".
+    /// Encoded/decoded by serializers as "OSMC".
     /// </summary>
     [EnumMember(Value = "OSMC")]
     [IsoId("_mCT-sSS1EeWsI5Sp3-B3zg")]
     [Description(@"Overnight Index Multi Currency Swap.")]
-    OvernightIndexMultiCurrencySwap,
+    OvernightIndexMultiCurrencySwap = SwapTypeCode.OvernightIndexMultiCurrencySwap, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum SwapType1Code
 public static class SwapType1CodeMetadataExtensions
 {
     private static readonly SwapType1CodeDropdownSource _dropdownSource = new SwapType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

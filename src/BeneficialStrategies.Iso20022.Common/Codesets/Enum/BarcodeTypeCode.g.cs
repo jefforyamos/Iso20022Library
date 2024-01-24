@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1dJHwNuYEeiB5uLfkg9ZJA")]
 [Description(@"Type of Barcode coding.")]
 [Derivations(typeof(BarcodeType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BarcodeTypeCode
 {
     /// <summary>
@@ -101,7 +100,7 @@ public enum BarcodeTypeCode
 public static class BarcodeTypeCodeMetadataExtensions
 {
     private static readonly BarcodeTypeCodeDropdownSource _dropdownSource = new BarcodeTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

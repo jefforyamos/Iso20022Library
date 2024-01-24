@@ -21,57 +21,57 @@ public enum ATMDevice1Code
 {
     /// <summary>
     /// Customer display and keyboard.
-    /// Encoded/decoded by serializers as "CustomerConsole".
+    /// Encoded/decoded by serializers as "CDIS".
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("_dJrg0YqIEeSRT5rEzcAHEw")]
     [Description(@"Customer display and keyboard.")]
-    CustomerConsole,
+    CustomerConsole = ATMDeviceCode.CustomerConsole, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Printer for full-size forms documents and supporting the printing of text and graphic.
-    /// Encoded/decoded by serializers as "DocumentPrinter".
+    /// Encoded/decoded by serializers as "DPRN".
     /// </summary>
     [EnumMember(Value = "DPRN")]
     [IsoId("_dOmdEYqIEeSRT5rEzcAHEw")]
     [Description(@"Printer for full-size forms documents and supporting the printing of text and graphic.")]
-    DocumentPrinter,
+    DocumentPrinter = ATMDeviceCode.DocumentPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event log.
-    /// Encoded/decoded by serializers as "Journal".
+    /// Encoded/decoded by serializers as "JRNL".
     /// </summary>
     [EnumMember(Value = "JRNL")]
     [IsoId("_dTqjQYqIEeSRT5rEzcAHEw")]
     [Description(@"Event log.")]
-    Journal,
+    Journal = ATMDeviceCode.Journal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
-    /// Encoded/decoded by serializers as "JournalPrinter".
+    /// Encoded/decoded by serializers as "JPRN".
     /// </summary>
     [EnumMember(Value = "JPRN")]
     [IsoId("_dY4acYqIEeSRT5rEzcAHEw")]
     [Description(@"Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.")]
-    JournalPrinter,
+    JournalPrinter = ATMDeviceCode.JournalPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt printer used to print cut sheet documents.
-    /// Encoded/decoded by serializers as "ReceiptPrinter".
+    /// Encoded/decoded by serializers as "RPRN".
     /// </summary>
     [EnumMember(Value = "RPRN")]
     [IsoId("_desukYqIEeSRT5rEzcAHEw")]
     [Description(@"Receipt printer used to print cut sheet documents.")]
-    ReceiptPrinter,
+    ReceiptPrinter = ATMDeviceCode.ReceiptPrinter, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Receipt of the withdrawal transactions.
-    /// Encoded/decoded by serializers as "WithdrawalReceipt".
+    /// Encoded/decoded by serializers as "RWDR".
     /// </summary>
     [EnumMember(Value = "RWDR")]
     [IsoId("_djnDwYqIEeSRT5rEzcAHEw")]
     [Description(@"Receipt of the withdrawal transactions.")]
-    WithdrawalReceipt,
+    WithdrawalReceipt = ATMDeviceCode.WithdrawalReceipt, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum ATMDevice1Code
 public static class ATMDevice1CodeMetadataExtensions
 {
     private static readonly ATMDevice1CodeDropdownSource _dropdownSource = new ATMDevice1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

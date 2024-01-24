@@ -21,12 +21,12 @@ public enum VotingParticipationMethod2Code
 {
     /// <summary>
     /// Participation to the meeting is in person but the person is not voting.
-    /// Encoded/decoded by serializers as "NotVoting".
+    /// Encoded/decoded by serializers as "PHNV".
     /// </summary>
     [EnumMember(Value = "PHNV")]
     [IsoId("_F2nkAfNqEeqRfth943bvEA")]
     [Description(@"Participation to the meeting is in person but the person is not voting.")]
-    NotVoting,
+    NotVoting = VotingParticipationMethodCode.NotVoting, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum VotingParticipationMethod2Code
 public static class VotingParticipationMethod2CodeMetadataExtensions
 {
     private static readonly VotingParticipationMethod2CodeDropdownSource _dropdownSource = new VotingParticipationMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_9C-cIPeYEee0h5ZXun0VTA")]
-[Description(@"Specifies the incoterms, as published in an external incoterms code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the incoterms, as published in an external incoterms code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalIncoterms1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalIncotermsCode
 {
     /// <summary>
@@ -129,7 +128,7 @@ public enum ExternalIncotermsCode
 public static class ExternalIncotermsCodeMetadataExtensions
 {
     private static readonly ExternalIncotermsCodeDropdownSource _dropdownSource = new ExternalIncotermsCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

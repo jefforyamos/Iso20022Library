@@ -21,39 +21,39 @@ public enum DeliveryPlace1Code
 {
     /// <summary>
     /// Card needs to be mailed to employers address.
-    /// Encoded/decoded by serializers as "Employer".
+    /// Encoded/decoded by serializers as "EMPL".
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_azANkdp-Ed-ak6NoX_4Aeg_-743931467")]
     [Description(@"Card needs to be mailed to employers address.")]
-    Employer,
+    Employer = DeliveryPlaceCode.Employer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card needs to be mailed to individual specified in PersonDetail.
-    /// Encoded/decoded by serializers as "Individual".
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_azANktp-Ed-ak6NoX_4Aeg_-743931451")]
     [Description(@"Card needs to be mailed to individual specified in PersonDetail.")]
-    Individual,
+    Individual = DeliveryPlaceCode.Individual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card needs to be available at the entrance of the meeting.
-    /// Encoded/decoded by serializers as "EntranceOfMeeting".
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_azANk9p-Ed-ak6NoX_4Aeg_-743931450")]
     [Description(@"Card needs to be available at the entrance of the meeting.")]
-    EntranceOfMeeting,
+    EntranceOfMeeting = DeliveryPlaceCode.EntranceOfMeeting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cards needs to be send to other specified address.
-    /// Encoded/decoded by serializers as "OtherAddress".
+    /// Encoded/decoded by serializers as "OADR".
     /// </summary>
     [EnumMember(Value = "OADR")]
     [IsoId("_azANlNp-Ed-ak6NoX_4Aeg_1639092662")]
     [Description(@"Cards needs to be send to other specified address.")]
-    OtherAddress,
+    OtherAddress = DeliveryPlaceCode.OtherAddress, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum DeliveryPlace1Code
 public static class DeliveryPlace1CodeMetadataExtensions
 {
     private static readonly DeliveryPlace1CodeDropdownSource _dropdownSource = new DeliveryPlace1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_FJ4ewPrxEemIKt9hrQ9pJw")]
 [Description(@"Indicates the status of the tracker alert notification.")]
 [Derivations(typeof(TrackerAlertStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TrackerAlertStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TrackerAlertStatusCode
 public static class TrackerAlertStatusCodeMetadataExtensions
 {
     private static readonly TrackerAlertStatusCodeDropdownSource _dropdownSource = new TrackerAlertStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum RoundingDirection2Code
 {
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundUp".
+    /// Encoded/decoded by serializers as "RDUP".
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_Y-LZ8tp-Ed-ak6NoX_4Aeg_498412566")]
     [Description(@"Round up to the nearest whole number.")]
-    RoundUp,
+    RoundUp = RoundingDirectionCode.RoundUp, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RoundDown".
+    /// Encoded/decoded by serializers as "RDWN".
     /// </summary>
     [EnumMember(Value = "RDWN")]
     [IsoId("_Y-LZ89p-Ed-ak6NoX_4Aeg_498413939")]
     [Description(@"Round down to the nearest whole number.")]
-    RoundDown,
+    RoundDown = RoundingDirectionCode.RoundDown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RoundingDirection2Code
 public static class RoundingDirection2CodeMetadataExtensions
 {
     private static readonly RoundingDirection2CodeDropdownSource _dropdownSource = new RoundingDirection2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

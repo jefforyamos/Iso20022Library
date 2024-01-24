@@ -16,54 +16,54 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_7geSZnhfEeidzqjNEfehPg")]
-[Description(@"Specifies the nature of the membership of a party in a system, as published in an external system member type code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the nature of the membership of a party in a system, as published in an external system member type code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalSystemMemberTypeCode))]
 public enum ExternalSystemMemberType1Code
 {
     /// <summary>
     /// Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.
-    /// Encoded/decoded by serializers as "Direct".
+    /// Encoded/decoded by serializers as "DRCT".
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_uiDnNfRYEeuLhpyIdtJzwg")]
     [Description(@"Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.")]
-    Direct,
+    Direct = ExternalSystemMemberTypeCode.Direct, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.
-    /// Encoded/decoded by serializers as "Indirect".
+    /// Encoded/decoded by serializers as "IDRT".
     /// </summary>
     [EnumMember(Value = "IDRT")]
     [IsoId("_uiDnOPRYEeuLhpyIdtJzwg")]
     [Description(@"Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.")]
-    Indirect,
+    Indirect = ExternalSystemMemberTypeCode.Indirect, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member has access to the system from a remote location or through remote technical means.
-    /// Encoded/decoded by serializers as "Remote".
+    /// Encoded/decoded by serializers as "RMTE".
     /// </summary>
     [EnumMember(Value = "RMTE")]
     [IsoId("_uiDnO_RYEeuLhpyIdtJzwg")]
     [Description(@"Member has access to the system from a remote location or through remote technical means.")]
-    Remote,
+    Remote = ExternalSystemMemberTypeCode.Remote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "EURO1".
+    /// Encoded/decoded by serializers as "EURO".
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_uiNYMvRYEeuLhpyIdtJzwg")]
     [Description(@"Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).")]
-    EURO1,
+    EURO1 = ExternalSystemMemberTypeCode.EURO1, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Member is entitled to access the Step1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "STEP1".
+    /// Encoded/decoded by serializers as "STEP".
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_uiNYNfRYEeuLhpyIdtJzwg")]
     [Description(@"Member is entitled to access the Step1 system of the Euro Banking Association (EBA).")]
-    STEP1,
+    STEP1 = ExternalSystemMemberTypeCode.STEP1, // same ordinal as derivation source for type conversions
     
 }
 
@@ -74,7 +74,7 @@ public enum ExternalSystemMemberType1Code
 public static class ExternalSystemMemberType1CodeMetadataExtensions
 {
     private static readonly ExternalSystemMemberType1CodeDropdownSource _dropdownSource = new ExternalSystemMemberType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

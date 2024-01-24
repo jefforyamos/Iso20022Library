@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_I-AAkN7AEeiwsev40qZGEQ")]
 [Description(@"Type of PIN Service.")]
 [Derivations(typeof(PINRequestType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PINRequestTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PINRequestTypeCode
 public static class PINRequestTypeCodeMetadataExtensions
 {
     private static readonly PINRequestTypeCodeDropdownSource _dropdownSource = new PINRequestTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

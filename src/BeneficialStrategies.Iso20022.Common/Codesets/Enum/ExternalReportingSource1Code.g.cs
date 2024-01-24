@@ -16,108 +16,108 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_amolgtp-Ed-ak6NoX_4Aeg_-418115557")]
-[Description(@"Specifies the reporting source, as published in an external reporting source code list. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the reporting source, as published in an external reporting source code list.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalReportingSourceCode))]
 public enum ExternalReportingSource1Code
 {
     /// <summary>
     /// Statement or Report is based on accounting data.
-    /// Encoded/decoded by serializers as "Accounting".
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_t4fFyPRYEeuLhpyIdtJzwg")]
     [Description(@"Statement or Report is based on accounting data.")]
-    Accounting,
+    Accounting = ExternalReportingSourceCode.Accounting, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An account reconciliation system that provides full reconciliation that usually addresses checks
-    /// Encoded/decoded by serializers as "AccountReconciliationSystemFull".
+    /// Encoded/decoded by serializers as "ARPF".
     /// </summary>
     [EnumMember(Value = "ARPF")]
     [IsoId("_t4o2wvRYEeuLhpyIdtJzwg")]
     [Description(@"An account reconciliation system that provides full reconciliation that usually addresses checks")]
-    AccountReconciliationSystemFull,
+    AccountReconciliationSystemFull = ExternalReportingSourceCode.AccountReconciliationSystemFull, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An account reconciliation system that provides partial reconciliation that usually addresses checks
-    /// Encoded/decoded by serializers as "AccountReconciliationSystemPartial".
+    /// Encoded/decoded by serializers as "ARPP".
     /// </summary>
     [EnumMember(Value = "ARPP")]
     [IsoId("_t4o2xfRYEeuLhpyIdtJzwg")]
     [Description(@"An account reconciliation system that provides partial reconciliation that usually addresses checks")]
-    AccountReconciliationSystemPartial,
+    AccountReconciliationSystemPartial = ExternalReportingSourceCode.AccountReconciliationSystemPartial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A sub-application that reports presentment totals
-    /// Encoded/decoded by serializers as "ControlledDisbursementSystem".
+    /// Encoded/decoded by serializers as "CTDB".
     /// </summary>
     [EnumMember(Value = "CTDB")]
     [IsoId("_t4o2yPRYEeuLhpyIdtJzwg")]
     [Description(@"A sub-application that reports presentment totals")]
-    ControlledDisbursementSystem,
+    ControlledDisbursementSystem = ExternalReportingSourceCode.ControlledDisbursementSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Statement or Report is based on custody data.
-    /// Encoded/decoded by serializers as "Custody".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_t4o2y_RYEeuLhpyIdtJzwg")]
     [Description(@"Statement or Report is based on custody data.")]
-    Custody,
+    Custody = ExternalReportingSourceCode.Custody, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash or deposit accounting system
-    /// Encoded/decoded by serializers as "DepositSystem".
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_t4o2zvRYEeuLhpyIdtJzwg")]
     [Description(@"Cash or deposit accounting system")]
-    DepositSystem,
+    DepositSystem = ExternalReportingSourceCode.DepositSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit system that reports what has been collected from various financial institutions
-    /// Encoded/decoded by serializers as "DepositConcentrationSystem".
+    /// Encoded/decoded by serializers as "DPCS".
     /// </summary>
     [EnumMember(Value = "DPCS")]
     [IsoId("_t4yAsvRYEeuLhpyIdtJzwg")]
     [Description(@"Deposit system that reports what has been collected from various financial institutions")]
-    DepositConcentrationSystem,
+    DepositConcentrationSystem = ExternalReportingSourceCode.DepositConcentrationSystem, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing system that captures and reports check data in a lockbox environment.
-    /// Encoded/decoded by serializers as "Lockbox".
+    /// Encoded/decoded by serializers as "LKBX".
     /// </summary>
     [EnumMember(Value = "LKBX")]
     [IsoId("_t4yAtfRYEeuLhpyIdtJzwg")]
     [Description(@"Processing system that captures and reports check data in a lockbox environment.")]
-    Lockbox,
+    Lockbox = ExternalReportingSourceCode.Lockbox, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A system that reports consolidated remittance information obtained from various , i.e., ACH, wires, lockbox, etc.
-    /// Encoded/decoded by serializers as "Receipts".
+    /// Encoded/decoded by serializers as "RCPT".
     /// </summary>
     [EnumMember(Value = "RCPT")]
     [IsoId("_t4yAuPRYEeuLhpyIdtJzwg")]
     [Description(@"A system that reports consolidated remittance information obtained from various , i.e., ACH, wires, lockbox, etc.")]
-    Receipts,
+    Receipts = ExternalReportingSourceCode.Receipts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction submitted directly from PMI (Payment Market Infrastructure back-office system.
-    /// Encoded/decoded by serializers as "MIBackOffice".
+    /// Encoded/decoded by serializers as "MIBO".
     /// </summary>
     [EnumMember(Value = "MIBO")]
     [IsoId("_LyWdMY5DEeyANo-d7JlQ1A")]
     [Description(@"Transaction submitted directly from PMI (Payment Market Infrastructure back-office system.")]
-    MIBackOffice,
+    MIBackOffice = ExternalReportingSourceCode.MIBackOffice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transactions submitted directly from participant / PSO (Payment System Operator) applications.
-    /// Encoded/decoded by serializers as "ParticipantFrontEnd".
+    /// Encoded/decoded by serializers as "PFRE".
     /// </summary>
     [EnumMember(Value = "PFRE")]
     [IsoId("_L8xkgY5DEeyANo-d7JlQ1A")]
     [Description(@"Transactions submitted directly from participant / PSO (Payment System Operator) applications.")]
-    ParticipantFrontEnd,
+    ParticipantFrontEnd = ExternalReportingSourceCode.ParticipantFrontEnd, // same ordinal as derivation source for type conversions
     
 }
 
@@ -128,7 +128,7 @@ public enum ExternalReportingSource1Code
 public static class ExternalReportingSource1CodeMetadataExtensions
 {
     private static readonly ExternalReportingSource1CodeDropdownSource _dropdownSource = new ExternalReportingSource1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

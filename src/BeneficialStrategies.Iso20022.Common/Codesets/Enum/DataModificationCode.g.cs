@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ax9Et9p-Ed-ak6NoX_4Aeg_1251381702")]
 [Description(@"Specified the type of modification to be applied on a data set.")]
 [Derivations(typeof(DataModification1Code),typeof(DataModification2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DataModificationCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DataModificationCode
 public static class DataModificationCodeMetadataExtensions
 {
     private static readonly DataModificationCodeDropdownSource _dropdownSource = new DataModificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

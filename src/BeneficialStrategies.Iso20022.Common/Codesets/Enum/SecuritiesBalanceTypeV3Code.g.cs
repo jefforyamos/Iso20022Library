@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_kKPfmIhAEeOxVLCZ_vEz5w")]
 [Description(@"Specifies the nature of the securities or investment fund balance.")]
 [Derivations(typeof(SecuritiesBalanceType14Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesBalanceTypeV3Code
 {
     /// <summary>
@@ -391,12 +390,11 @@ public enum SecuritiesBalanceTypeV3Code
     
     /// <summary>
     /// Purchased investment fund units that were purchased prior to the last ex-div date.
-    /// 
     /// Encoded/decoded by serializers as "GRP1".
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_RdQMEGK3EeWaPYQgYu-nxQ")]
-    [Description(@"Purchased investment fund units that were purchased prior to the last ex-div date. ")]
+    [Description(@"Purchased investment fund units that were purchased prior to the last ex-div date.|")]
     PurchasedInvestmentFundTaxGroupUnit1,
     
     /// <summary>
@@ -417,7 +415,7 @@ public enum SecuritiesBalanceTypeV3Code
 public static class SecuritiesBalanceTypeV3CodeMetadataExtensions
 {
     private static readonly SecuritiesBalanceTypeV3CodeDropdownSource _dropdownSource = new SecuritiesBalanceTypeV3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

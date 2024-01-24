@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZSJe2Np-Ed-ak6NoX_4Aeg_-2111038385")]
 [Description(@"Specifies the status of a system.")]
 [Derivations(typeof(SystemStatus2Code),typeof(SystemStatus3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemStatusCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SystemStatusCode
 public static class SystemStatusCodeMetadataExtensions
 {
     private static readonly SystemStatusCodeDropdownSource _dropdownSource = new SystemStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

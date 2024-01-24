@@ -21,66 +21,66 @@ public enum CardPaymentServiceType14Code
 {
     /// <summary>
     /// Initial reservation.
-    /// Encoded/decoded by serializers as "InitialReservation".
+    /// Encoded/decoded by serializers as "IRES".
     /// </summary>
     [EnumMember(Value = "IRES")]
     [IsoId("_dSuycU7DEeyGi9JAv6wq7Q")]
     [Description(@"Initial reservation.")]
-    InitialReservation,
+    InitialReservation = CardPaymentServiceTypeCode.InitialReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Update reservation.
-    /// Encoded/decoded by serializers as "UpdateReservation".
+    /// Encoded/decoded by serializers as "URES".
     /// </summary>
     [EnumMember(Value = "URES")]
     [IsoId("_dSuyc07DEeyGi9JAv6wq7Q")]
     [Description(@"Update reservation.")]
-    UpdateReservation,
+    UpdateReservation = CardPaymentServiceTypeCode.UpdateReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment after reservation.
-    /// Encoded/decoded by serializers as "PaymentReservation".
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_dSuydU7DEeyGi9JAv6wq7Q")]
     [Description(@"Payment after reservation.")]
-    PaymentReservation,
+    PaymentReservation = CardPaymentServiceTypeCode.PaymentReservation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Additional payment after reservation.
-    /// Encoded/decoded by serializers as "AdditionalPayment".
+    /// Encoded/decoded by serializers as "ARES".
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_dSuyd07DEeyGi9JAv6wq7Q")]
     [Description(@"Additional payment after reservation.")]
-    AdditionalPayment,
+    AdditionalPayment = CardPaymentServiceTypeCode.AdditionalPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Initial recurring payment.
-    /// Encoded/decoded by serializers as "FirstRecurring".
+    /// Encoded/decoded by serializers as "FREC".
     /// </summary>
     [EnumMember(Value = "FREC")]
     [IsoId("_dSuyeU7DEeyGi9JAv6wq7Q")]
     [Description(@"Initial recurring payment.")]
-    FirstRecurring,
+    FirstRecurring = CardPaymentServiceTypeCode.FirstRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Repeat recurring payment.
-    /// Encoded/decoded by serializers as "FollowingRecurring".
+    /// Encoded/decoded by serializers as "RREC".
     /// </summary>
     [EnumMember(Value = "RREC")]
     [IsoId("_dSuye07DEeyGi9JAv6wq7Q")]
     [Description(@"Repeat recurring payment.")]
-    FollowingRecurring,
+    FollowingRecurring = CardPaymentServiceTypeCode.FollowingRecurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acceptor claims for guarantee of payment.
-    /// Encoded/decoded by serializers as "GuaranteeOfPayment".
+    /// Encoded/decoded by serializers as "GOPT".
     /// </summary>
     [EnumMember(Value = "GOPT")]
     [IsoId("_r4DdEU7DEeyGi9JAv6wq7Q")]
     [Description(@"Acceptor claims for guarantee of payment.")]
-    GuaranteeOfPayment,
+    GuaranteeOfPayment = CardPaymentServiceTypeCode.GuaranteeOfPayment, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum CardPaymentServiceType14Code
 public static class CardPaymentServiceType14CodeMetadataExtensions
 {
     private static readonly CardPaymentServiceType14CodeDropdownSource _dropdownSource = new CardPaymentServiceType14CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

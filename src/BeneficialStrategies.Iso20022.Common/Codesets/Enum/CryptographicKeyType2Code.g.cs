@@ -21,30 +21,30 @@ public enum CryptographicKeyType2Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES128".
+    /// Encoded/decoded by serializers as "AES2".
     /// </summary>
     [EnumMember(Value = "AES2")]
     [IsoId("_yZyTMSm0EeKIjpr--01h3Q")]
     [Description(@"AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    AES128,
+    AES128 = CryptographicKeyTypeCode.AES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data encryption standard key of 112 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "DES112".
+    /// Encoded/decoded by serializers as "EDE3".
     /// </summary>
     [EnumMember(Value = "EDE3")]
     [IsoId("_zIyuQym0EeKIjpr--01h3Q")]
     [Description(@"Data encryption standard key of 112 bits (without the parity bits).")]
-    DES112,
+    DES112 = CryptographicKeyTypeCode.DES112, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DUKPT2009".
+    /// Encoded/decoded by serializers as "DKP9".
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_zYRUsym0EeKIjpr--01h3Q")]
     [Description(@"DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.")]
-    DUKPT2009,
+    DUKPT2009 = CryptographicKeyTypeCode.DUKPT2009, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CryptographicKeyType2Code
 public static class CryptographicKeyType2CodeMetadataExtensions
 {
     private static readonly CryptographicKeyType2CodeDropdownSource _dropdownSource = new CryptographicKeyType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

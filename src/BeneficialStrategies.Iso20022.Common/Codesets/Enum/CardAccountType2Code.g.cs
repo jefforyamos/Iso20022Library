@@ -21,183 +21,183 @@ public enum CardAccountType2Code
 {
     /// <summary>
     /// Certificate of deposit saving account.
-    /// Encoded/decoded by serializers as "CertificateOfDeposit".
+    /// Encoded/decoded by serializers as "CTDP".
     /// </summary>
     [EnumMember(Value = "CTDP")]
     [IsoId("_4Q354WkFEeS7zPBpvm732w")]
     [Description(@"Certificate of deposit saving account.")]
-    CertificateOfDeposit,
+    CertificateOfDeposit = CardAccountTypeCode.CertificateOfDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Checking account.
-    /// Encoded/decoded by serializers as "Checking".
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_4WziwWkFEeS7zPBpvm732w")]
     [Description(@"Checking account.")]
-    Checking,
+    Checking = CardAccountTypeCode.Checking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CreditCard".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_4dNswWkFEeS7zPBpvm732w")]
     [Description(@"Credit card account.")]
-    CreditCard,
+    CreditCard = CardAccountTypeCode.CreditCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Current account.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_4kKpUWkFEeS7zPBpvm732w")]
     [Description(@"Current account.")]
-    Current,
+    Current = CardAccountTypeCode.Current, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit card account.
-    /// Encoded/decoded by serializers as "DebitCard".
+    /// Encoded/decoded by serializers as "CDBT".
     /// </summary>
     [EnumMember(Value = "CDBT")]
     [IsoId("_4uAh0WkFEeS7zPBpvm732w")]
     [Description(@"Debit card account.")]
-    DebitCard,
+    DebitCard = CardAccountTypeCode.DebitCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Default account.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_41VR0WkFEeS7zPBpvm732w")]
     [Description(@"Default account.")]
-    Default,
+    Default = CardAccountTypeCode.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EpurseCard".
+    /// Encoded/decoded by serializers as "EPRS".
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("_48Mu0WkFEeS7zPBpvm732w")]
     [Description(@"Electronic purse card account.")]
-    EpurseCard,
+    EpurseCard = CardAccountTypeCode.EpurseCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Home equity loan credit account.
-    /// Encoded/decoded by serializers as "HomeEquityLoan".
+    /// Encoded/decoded by serializers as "HEQL".
     /// </summary>
     [EnumMember(Value = "HEQL")]
     [IsoId("_6KsiQWkFEeS7zPBpvm732w")]
     [Description(@"Home equity loan credit account.")]
-    HomeEquityLoan,
+    HomeEquityLoan = CardAccountTypeCode.HomeEquityLoan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instalment loan credit account.
-    /// Encoded/decoded by serializers as "InstalmentLoan".
+    /// Encoded/decoded by serializers as "ISTL".
     /// </summary>
     [EnumMember(Value = "ISTL")]
     [IsoId("_6QpZQWkFEeS7zPBpvm732w")]
     [Description(@"Instalment loan credit account.")]
-    InstalmentLoan,
+    InstalmentLoan = CardAccountTypeCode.InstalmentLoan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investment account.
-    /// Encoded/decoded by serializers as "Investment".
+    /// Encoded/decoded by serializers as "INVS".
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_6X0_UWkFEeS7zPBpvm732w")]
     [Description(@"Investment account.")]
-    Investment,
+    Investment = CardAccountTypeCode.Investment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line of credit account.
-    /// Encoded/decoded by serializers as "LineOfCredit".
+    /// Encoded/decoded by serializers as "LCDT".
     /// </summary>
     [EnumMember(Value = "LCDT")]
     [IsoId("_6hvJQWkFEeS7zPBpvm732w")]
     [Description(@"Line of credit account.")]
-    LineOfCredit,
+    LineOfCredit = CardAccountTypeCode.LineOfCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mobile Station Integrated Services Digital Network Number (MSISDN).
-    /// Encoded/decoded by serializers as "MobilePhoneAccount".
+    /// Encoded/decoded by serializers as "MBNW".
     /// </summary>
     [EnumMember(Value = "MBNW")]
     [IsoId("_6tftUWkFEeS7zPBpvm732w")]
     [Description(@"Mobile Station Integrated Services Digital Network Number (MSISDN).")]
-    MobilePhoneAccount,
+    MobilePhoneAccount = CardAccountTypeCode.MobilePhoneAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Money market saving account.
-    /// Encoded/decoded by serializers as "MoneyMarket".
+    /// Encoded/decoded by serializers as "MNMK".
     /// </summary>
     [EnumMember(Value = "MNMK")]
     [IsoId("_70cHQWkFEeS7zPBpvm732w")]
     [Description(@"Money market saving account.")]
-    MoneyMarket,
+    MoneyMarket = CardAccountTypeCode.MoneyMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Money market checking account.
-    /// Encoded/decoded by serializers as "MoneyMarketChecking".
+    /// Encoded/decoded by serializers as "MNMC".
     /// </summary>
     [EnumMember(Value = "MNMC")]
     [IsoId("_77nGQWkFEeS7zPBpvm732w")]
     [Description(@"Money market checking account.")]
-    MoneyMarketChecking,
+    MoneyMarketChecking = CardAccountTypeCode.MoneyMarketChecking, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Mortgage loan credit account.
-    /// Encoded/decoded by serializers as "MortgageLoan".
+    /// Encoded/decoded by serializers as "MTGL".
     /// </summary>
     [EnumMember(Value = "MTGL")]
     [IsoId("_8DeBwWkFEeS7zPBpvm732w")]
     [Description(@"Mortgage loan credit account.")]
-    MortgageLoan,
+    MortgageLoan = CardAccountTypeCode.MortgageLoan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retirement account.
-    /// Encoded/decoded by serializers as "RetirementAccount".
+    /// Encoded/decoded by serializers as "RTRM".
     /// </summary>
     [EnumMember(Value = "RTRM")]
     [IsoId("_8LU9QWkFEeS7zPBpvm732w")]
     [Description(@"Retirement account.")]
-    RetirementAccount,
+    RetirementAccount = CardAccountTypeCode.RetirementAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Revolving loan account.
-    /// Encoded/decoded by serializers as "RevolvingLoanAccount".
+    /// Encoded/decoded by serializers as "RVLV".
     /// </summary>
     [EnumMember(Value = "RVLV")]
     [IsoId("_8VPuQWkFEeS7zPBpvm732w")]
     [Description(@"Revolving loan account.")]
-    RevolvingLoanAccount,
+    RevolvingLoanAccount = CardAccountTypeCode.RevolvingLoanAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVNG".
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_89JbwWkFEeS7zPBpvm732w")]
     [Description(@"Savings account.")]
-    Savings,
+    Savings = CardAccountTypeCode.Savings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stock or bond investment account.
-    /// Encoded/decoded by serializers as "StockOrBond".
+    /// Encoded/decoded by serializers as "STBD".
     /// </summary>
     [EnumMember(Value = "STBD")]
     [IsoId("_9CVdwWkFEeS7zPBpvm732w")]
     [Description(@"Stock or bond investment account.")]
-    StockOrBond,
+    StockOrBond = CardAccountTypeCode.StockOrBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "Universal".
+    /// Encoded/decoded by serializers as "UVRL".
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_9IXNQWkFEeS7zPBpvm732w")]
     [Description(@"Universal account.")]
-    Universal,
+    Universal = CardAccountTypeCode.Universal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum CardAccountType2Code
 public static class CardAccountType2CodeMetadataExtensions
 {
     private static readonly CardAccountType2CodeDropdownSource _dropdownSource = new CardAccountType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

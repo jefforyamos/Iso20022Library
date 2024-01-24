@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_U7-5MGMbEeexSYCBvAp_qA")]
 [Description(@"Type of lodging activity.")]
 [Derivations(typeof(LodgingActivity1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum LodgingActivityCode
 {
     /// <summary>
@@ -155,7 +154,7 @@ public enum LodgingActivityCode
 public static class LodgingActivityCodeMetadataExtensions
 {
     private static readonly LodgingActivityCodeDropdownSource _dropdownSource = new LodgingActivityCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

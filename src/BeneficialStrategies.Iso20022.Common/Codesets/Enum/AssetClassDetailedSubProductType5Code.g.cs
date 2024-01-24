@@ -21,48 +21,48 @@ public enum AssetClassDetailedSubProductType5Code
 {
     /// <summary>
     /// Commodity attribute of type base load.
-    /// Encoded/decoded by serializers as "BaseLoad".
+    /// Encoded/decoded by serializers as "BSLD".
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_q8_4EQ2gEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type base load.")]
-    BaseLoad,
+    BaseLoad = AssetClassDetailedSubProductTypeCode.BaseLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type financial transmission rights.
-    /// Encoded/decoded by serializers as "FinancialTransmissionRights".
+    /// Encoded/decoded by serializers as "FITR".
     /// </summary>
     [EnumMember(Value = "FITR")]
     [IsoId("_sAsJsQ2gEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type financial transmission rights.")]
-    FinancialTransmissionRights,
+    FinancialTransmissionRights = AssetClassDetailedSubProductTypeCode.FinancialTransmissionRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type peak load.
-    /// Encoded/decoded by serializers as "PeakLoad".
+    /// Encoded/decoded by serializers as "PKLD".
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_ueY7MQ2gEeW72qLtWESimw")]
     [Description(@"Commodity attribute of type peak load.")]
-    PeakLoad,
+    PeakLoad = AssetClassDetailedSubProductTypeCode.PeakLoad, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of type off-peak.
-    /// Encoded/decoded by serializers as "OffPeak".
+    /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_Vb9FgWs3EeW9oI9ZdgWHPQ")]
     [Description(@"Commodity attribute of type off-peak.")]
-    OffPeak,
+    OffPeak = AssetClassDetailedSubProductTypeCode.OffPeak, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_WDhb0ms3EeW9oI9ZdgWHPQ")]
     [Description(@"Commodity attribute of other type.")]
-    Other,
+    Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum AssetClassDetailedSubProductType5Code
 public static class AssetClassDetailedSubProductType5CodeMetadataExtensions
 {
     private static readonly AssetClassDetailedSubProductType5CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

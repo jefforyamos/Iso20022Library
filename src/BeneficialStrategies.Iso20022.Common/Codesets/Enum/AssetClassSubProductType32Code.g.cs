@@ -21,12 +21,12 @@ public enum AssetClassSubProductType32Code
 {
     /// <summary>
     /// Commodity of type wet freight.
-    /// Encoded/decoded by serializers as "Wet".
+    /// Encoded/decoded by serializers as "WETF".
     /// </summary>
     [EnumMember(Value = "WETF")]
     [IsoId("_RB1uw1rdEeWN79Bl6BUd3g")]
     [Description(@"Commodity of type wet freight.")]
-    Wet,
+    Wet = AssetClassSubProductTypeCode.Wet, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType32Code
 public static class AssetClassSubProductType32CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType32CodeDropdownSource _dropdownSource = new AssetClassSubProductType32CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

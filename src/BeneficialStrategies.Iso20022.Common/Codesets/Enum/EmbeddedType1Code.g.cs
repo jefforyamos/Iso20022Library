@@ -21,48 +21,48 @@ public enum EmbeddedType1Code
 {
     /// <summary>
     /// Option can be cancelled.
-    /// Encoded/decoded by serializers as "Cancellable".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_LgjXkYcQEeu4rpsqTt37Pg")]
     [Description(@"Option can be cancelled.")]
-    Cancellable,
+    Cancellable = EmbeddedTypeCode.Cancellable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option can be extended.
-    /// Encoded/decoded by serializers as "Extendible".
+    /// Encoded/decoded by serializers as "EXTD".
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_Ll808YcQEeu4rpsqTt37Pg")]
     [Description(@"Option can be extended.")]
-    Extendible,
+    Extendible = EmbeddedTypeCode.Extendible, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option can be early terminated.
-    /// Encoded/decoded by serializers as "OptionalEarlyTermination".
+    /// Encoded/decoded by serializers as "OPET".
     /// </summary>
     [EnumMember(Value = "OPET")]
     [IsoId("_LzfhsYcQEeu4rpsqTt37Pg")]
     [Description(@"Option can be early terminated.")]
-    OptionalEarlyTermination,
+    OptionalEarlyTermination = EmbeddedTypeCode.OptionalEarlyTermination, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option type is other.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_L5WSEYcQEeu4rpsqTt37Pg")]
     [Description(@"Option type is other.")]
-    Other,
+    Other = EmbeddedTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option must be early terminated.
-    /// Encoded/decoded by serializers as "MandatoryEarlyTermination".
+    /// Encoded/decoded by serializers as "MDET".
     /// </summary>
     [EnumMember(Value = "MDET")]
     [IsoId("_r1K6MZibEeyBPr8ozNGJLg")]
     [Description(@"Option must be early terminated.")]
-    MandatoryEarlyTermination,
+    MandatoryEarlyTermination = EmbeddedTypeCode.MandatoryEarlyTermination, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum EmbeddedType1Code
 public static class EmbeddedType1CodeMetadataExtensions
 {
     private static readonly EmbeddedType1CodeDropdownSource _dropdownSource = new EmbeddedType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

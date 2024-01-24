@@ -21,21 +21,21 @@ public enum DeliveryReceiptType2Code
 {
     /// <summary>
     /// Settlement of the financial instrument and cash is separate.
-    /// Encoded/decoded by serializers as "SeparateSettlement".
+    /// Encoded/decoded by serializers as "FREE".
     /// </summary>
     [EnumMember(Value = "FREE")]
     [IsoId("_azJXhtp-Ed-ak6NoX_4Aeg_-2033362077")]
     [Description(@"Settlement of the financial instrument and cash is separate.")]
-    SeparateSettlement,
+    SeparateSettlement = DeliveryReceiptTypeCode.SeparateSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement of the financial instrument and cash takes place in a delivery versus payment (DVP) environment, that is, through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "AgainstPaymentSettlement".
+    /// Encoded/decoded by serializers as "APMT".
     /// </summary>
     [EnumMember(Value = "APMT")]
     [IsoId("_azJXh9p-Ed-ak6NoX_4Aeg_-2033361692")]
     [Description(@"Settlement of the financial instrument and cash takes place in a delivery versus payment (DVP) environment, that is, through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).")]
-    AgainstPaymentSettlement,
+    AgainstPaymentSettlement = DeliveryReceiptTypeCode.AgainstPaymentSettlement, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DeliveryReceiptType2Code
 public static class DeliveryReceiptType2CodeMetadataExtensions
 {
     private static readonly DeliveryReceiptType2CodeDropdownSource _dropdownSource = new DeliveryReceiptType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

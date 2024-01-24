@@ -21,21 +21,21 @@ public enum Quantity4Code
 {
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UnknownQuantity".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_mxyqZQCgEeGqP72A5EmwKQ")]
     [Description(@"Quantity is unknown by the sender or has not been established.")]
-    UnknownQuantity,
+    UnknownQuantity = QuantityCode.UnknownQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "AnyAndAll".
+    /// Encoded/decoded by serializers as "ANYA".
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_n0ZW7gCgEeGqP72A5EmwKQ")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    AnyAndAll,
+    AnyAndAll = QuantityCode.AnyAndAll, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Quantity4Code
 public static class Quantity4CodeMetadataExtensions
 {
     private static readonly Quantity4CodeDropdownSource _dropdownSource = new Quantity4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

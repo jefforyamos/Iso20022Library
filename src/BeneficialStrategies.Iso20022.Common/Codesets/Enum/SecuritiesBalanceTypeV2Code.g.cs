@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZDsMEdp-Ed-ak6NoX_4Aeg_29532225")]
 [Description(@"Specifies the nature of the securities or investment fund balance.")]
-[Derivations(typeof(SecuritiesBalanceType11Code),typeof(SecuritiesBalanceType5Code),typeof(SecuritiesBalanceType12Code),typeof(SecuritiesBalanceType7Code),typeof(SecuritiesBalanceType13Code),typeof(SecuritiesBalanceType8Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(SecuritiesBalanceType5Code),typeof(SecuritiesBalanceType7Code),typeof(SecuritiesBalanceType12Code),typeof(SecuritiesBalanceType13Code),typeof(SecuritiesBalanceType11Code),typeof(SecuritiesBalanceType8Code))]
 public enum SecuritiesBalanceTypeV2Code
 {
     /// <summary>
@@ -380,7 +379,7 @@ public enum SecuritiesBalanceTypeV2Code
 public static class SecuritiesBalanceTypeV2CodeMetadataExtensions
 {
     private static readonly SecuritiesBalanceTypeV2CodeDropdownSource _dropdownSource = new SecuritiesBalanceTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

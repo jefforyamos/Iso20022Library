@@ -21,39 +21,39 @@ public enum ExposureType6Code
 {
     /// <summary>
     /// Securities buy sell back.
-    /// Encoded/decoded by serializers as "SecuritiesBuySellSellBuyBack".
+    /// Encoded/decoded by serializers as "SBSC".
     /// </summary>
     [EnumMember(Value = "SBSC")]
     [IsoId("_cpr9YXaaEeavseMKyTsJEA")]
     [Description(@"Securities buy sell back.")]
-    SecuritiesBuySellSellBuyBack,
+    SecuritiesBuySellSellBuyBack = ExposureTypeCode.SecuritiesBuySellSellBuyBack, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Margin lending transaction. 
-    /// Encoded/decoded by serializers as "MarginLending".
+    /// Encoded/decoded by serializers as "MGLD".
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_eIA8kXaaEeavseMKyTsJEA")]
     [Description(@"Margin lending transaction. ")]
-    MarginLending,
+    MarginLending = ExposureTypeCode.MarginLending, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to repurchase agreement trading.
-    /// Encoded/decoded by serializers as "RepurchaseAgreement".
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_fyWXcXaaEeavseMKyTsJEA")]
     [Description(@"Relates to repurchase agreement trading.")]
-    RepurchaseAgreement,
+    RepurchaseAgreement = ExposureTypeCode.RepurchaseAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exposure is linked to a securities lending or borrowing activity.
-    /// Encoded/decoded by serializers as "SecuritiesLendingAndBorrowing".
+    /// Encoded/decoded by serializers as "SLEB".
     /// </summary>
     [EnumMember(Value = "SLEB")]
     [IsoId("_kB3r4XaaEeavseMKyTsJEA")]
     [Description(@"Exposure is linked to a securities lending or borrowing activity.")]
-    SecuritiesLendingAndBorrowing,
+    SecuritiesLendingAndBorrowing = ExposureTypeCode.SecuritiesLendingAndBorrowing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ExposureType6Code
 public static class ExposureType6CodeMetadataExtensions
 {
     private static readonly ExposureType6CodeDropdownSource _dropdownSource = new ExposureType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

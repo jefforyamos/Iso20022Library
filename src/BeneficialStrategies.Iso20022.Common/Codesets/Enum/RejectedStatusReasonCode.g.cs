@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZfQtyNp-Ed-ak6NoX_4Aeg_99789863")]
 [Description(@"Cash settlement date is not recognised or is invalid.")]
-[Derivations(typeof(RejectedStatusReason6Code),typeof(RejectedStatusReason4Code),typeof(RejectedStatusReason8Code),typeof(RejectedStatusReason5Code),typeof(RejectedStatusReason7Code),typeof(MessageRejectedReason1Code),typeof(CancellationRejectedReason1Code),typeof(TransferRejectedStatusReason1Code),typeof(TransferRejectedStatusReason2Code),typeof(RejectedStatusReason9Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason10Code),typeof(RejectedStatusReason11Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason13Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(RejectedStatusReason11Code),typeof(TransferRejectedStatusReason2Code),typeof(CancellationRejectedReason1Code),typeof(RejectedStatusReason10Code),typeof(RejectedStatusReason9Code),typeof(RejectedStatusReason13Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason4Code),typeof(RejectedStatusReason6Code),typeof(RejectedStatusReason5Code),typeof(TransferRejectedStatusReason1Code),typeof(RejectedStatusReason7Code),typeof(RejectedStatusReason8Code),typeof(MessageRejectedReason1Code))]
 public enum RejectedStatusReasonCode
 {
     /// <summary>
@@ -776,7 +775,7 @@ public enum RejectedStatusReasonCode
 public static class RejectedStatusReasonCodeMetadataExtensions
 {
     private static readonly RejectedStatusReasonCodeDropdownSource _dropdownSource = new RejectedStatusReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

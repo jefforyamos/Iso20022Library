@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZbPJYtp-Ed-ak6NoX_4Aeg_44026870")]
 [Description(@"Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.")]
 [Derivations(typeof(RegulatoryReportingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RegulatoryReportingTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum RegulatoryReportingTypeCode
 public static class RegulatoryReportingTypeCodeMetadataExtensions
 {
     private static readonly RegulatoryReportingTypeCodeDropdownSource _dropdownSource = new RegulatoryReportingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

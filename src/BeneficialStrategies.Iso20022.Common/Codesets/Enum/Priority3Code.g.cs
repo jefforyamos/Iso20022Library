@@ -21,30 +21,30 @@ public enum Priority3Code
 {
     /// <summary>
     /// Priority level is urgent (highest priority possible).
-    /// Encoded/decoded by serializers as "Urgent".
+    /// Encoded/decoded by serializers as "URGT".
     /// </summary>
     [EnumMember(Value = "URGT")]
     [IsoId("_aKUc8dp-Ed-ak6NoX_4Aeg_1584820280")]
     [Description(@"Priority level is urgent (highest priority possible).")]
-    Urgent,
+    Urgent = PriorityCode.Urgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is high.
-    /// Encoded/decoded by serializers as "High".
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_aKUc8tp-Ed-ak6NoX_4Aeg_1584820309")]
     [Description(@"Priority level is high.")]
-    High,
+    High = PriorityCode.High, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Priority level is normal.
-    /// Encoded/decoded by serializers as "Normal".
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_aKUc89p-Ed-ak6NoX_4Aeg_1584820310")]
     [Description(@"Priority level is normal.")]
-    Normal,
+    Normal = PriorityCode.Normal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Priority3Code
 public static class Priority3CodeMetadataExtensions
 {
     private static readonly Priority3CodeDropdownSource _dropdownSource = new Priority3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

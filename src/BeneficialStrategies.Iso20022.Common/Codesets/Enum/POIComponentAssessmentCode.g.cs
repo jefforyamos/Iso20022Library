@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_boLEIAyKEeKa_56Jbsi1RQ")]
 [Description(@"Type of assessment of a POI component (Point of Interaction).")]
 [Derivations(typeof(POIComponentAssessment1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum POIComponentAssessmentCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum POIComponentAssessmentCode
 public static class POIComponentAssessmentCodeMetadataExtensions
 {
     private static readonly POIComponentAssessmentCodeDropdownSource _dropdownSource = new POIComponentAssessmentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

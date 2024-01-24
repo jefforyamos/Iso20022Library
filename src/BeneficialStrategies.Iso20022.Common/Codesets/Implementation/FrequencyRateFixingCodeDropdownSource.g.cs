@@ -8,9 +8,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
 /// Frequencies for a floating rate transaction.
-/// 
 /// *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****
-/// 
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IFrequencyRateFixingCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>

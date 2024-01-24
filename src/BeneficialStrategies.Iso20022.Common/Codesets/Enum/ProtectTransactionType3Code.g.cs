@@ -21,12 +21,12 @@ public enum ProtectTransactionType3Code
 {
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "ProtectTransaction".
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_Kp2HcbpaEeilsanBGAzy4A")]
     [Description(@"Reorganisation is a protect transaction type.")]
-    ProtectTransaction,
+    ProtectTransaction = ReorganisationTransactionTypeCode.ProtectTransaction, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ProtectTransactionType3Code
 public static class ProtectTransactionType3CodeMetadataExtensions
 {
     private static readonly ProtectTransactionType3CodeDropdownSource _dropdownSource = new ProtectTransactionType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

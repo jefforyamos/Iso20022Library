@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_luIM4C1hEeGp2Zpvgj9Dtw_108025912")]
 [Description(@"Specifies the rank of an element (party, market) in a specific environment.")]
 [Derivations(typeof(Rank1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RankCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum RankCode
 public static class RankCodeMetadataExtensions
 {
     private static readonly RankCodeDropdownSource _dropdownSource = new RankCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

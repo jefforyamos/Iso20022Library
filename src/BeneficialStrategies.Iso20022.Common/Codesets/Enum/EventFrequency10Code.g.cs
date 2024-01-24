@@ -21,21 +21,21 @@ public enum EventFrequency10Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "Daily".
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ASy8ISDVEeWCLu74WLgP4w")]
     [Description(@"Event takes place every day.")]
-    Daily,
+    Daily = EventFrequencyCode.Daily, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event takes place as necessary.
-    /// Encoded/decoded by serializers as "Adhoc".
+    /// Encoded/decoded by serializers as "ADHO".
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_Aryq8SDVEeWCLu74WLgP4w")]
     [Description(@"Event takes place as necessary.")]
-    Adhoc,
+    Adhoc = EventFrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum EventFrequency10Code
 public static class EventFrequency10CodeMetadataExtensions
 {
     private static readonly EventFrequency10CodeDropdownSource _dropdownSource = new EventFrequency10CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

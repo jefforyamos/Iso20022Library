@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bqlV09p-Ed-ak6NoX_4Aeg_176271984")]
 [Description(@"Specifies the status of an account management instruction.")]
 [Derivations(typeof(AccountManagementStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountManagementStatusCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum AccountManagementStatusCode
 public static class AccountManagementStatusCodeMetadataExtensions
 {
     private static readonly AccountManagementStatusCodeDropdownSource _dropdownSource = new AccountManagementStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

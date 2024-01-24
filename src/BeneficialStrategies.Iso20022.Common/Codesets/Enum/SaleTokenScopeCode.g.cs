@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_lucbANwsEeioifFt1dhnJA")]
 [Description(@"Scope of the token that identifies  the payment mean of the customer.")]
 [Derivations(typeof(SaleTokenScope1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SaleTokenScopeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum SaleTokenScopeCode
 public static class SaleTokenScopeCodeMetadataExtensions
 {
     private static readonly SaleTokenScopeCodeDropdownSource _dropdownSource = new SaleTokenScopeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

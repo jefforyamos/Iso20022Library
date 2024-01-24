@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_799uQNuJEei2qvU6FBLZYA")]
 [Description(@"Contains list of plan owners")]
 [Derivations(typeof(PlanOwner1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PlanOwnerCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum PlanOwnerCode
 public static class PlanOwnerCodeMetadataExtensions
 {
     private static readonly PlanOwnerCodeDropdownSource _dropdownSource = new PlanOwnerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

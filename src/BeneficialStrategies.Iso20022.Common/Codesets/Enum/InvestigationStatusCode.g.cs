@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("__-fWcz_lEeGQnbmlZjr_fQ")]
 [Description(@"Provides the status of the investigation response related to a previously sent request.")]
 [Derivations(typeof(InvestigationStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InvestigationStatusCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum InvestigationStatusCode
 public static class InvestigationStatusCodeMetadataExtensions
 {
     private static readonly InvestigationStatusCodeDropdownSource _dropdownSource = new InvestigationStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Vr6_Adp-Ed-ak6NoX_4Aeg_1010349399")]
 [Description(@"Specifies the reason for time-out.")]
 [Derivations(typeof(TimeOut1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TimeOutCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum TimeOutCode
 public static class TimeOutCodeMetadataExtensions
 {
     private static readonly TimeOutCodeDropdownSource _dropdownSource = new TimeOutCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

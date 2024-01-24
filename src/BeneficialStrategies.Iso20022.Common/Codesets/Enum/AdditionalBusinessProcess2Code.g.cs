@@ -21,30 +21,30 @@ public enum AdditionalBusinessProcess2Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "ClaimOrCompensation".
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_bqbk0Np-Ed-ak6NoX_4Aeg_-230763075")]
     [Description(@"Relates to a claim on the associated corporate action event.")]
-    ClaimOrCompensation,
+    ClaimOrCompensation = AdditionalBusinessProcessCode.ClaimOrCompensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates a preadvice of movement reversal.
-    /// Encoded/decoded by serializers as "NotificationOfReversal".
+    /// Encoded/decoded by serializers as "REVR".
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_bqbk0dp-Ed-ak6NoX_4Aeg_-1899985982")]
     [Description(@"Indicates a preadvice of movement reversal.")]
-    NotificationOfReversal,
+    NotificationOfReversal = AdditionalBusinessProcessCode.NotificationOfReversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TaxRefund".
+    /// Encoded/decoded by serializers as "TAXR".
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_bqbk0tp-Ed-ak6NoX_4Aeg_-215987823")]
     [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
-    TaxRefund,
+    TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum AdditionalBusinessProcess2Code
 public static class AdditionalBusinessProcess2CodeMetadataExtensions
 {
     private static readonly AdditionalBusinessProcess2CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

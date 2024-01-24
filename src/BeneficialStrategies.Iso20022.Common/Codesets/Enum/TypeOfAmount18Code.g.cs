@@ -21,147 +21,147 @@ public enum TypeOfAmount18Code
 {
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AuthorisedAmount".
+    /// Encoded/decoded by serializers as "AMTH".
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_8FG_cfPwEeihCvvpsmGI2w")]
     [Description(@"Transaction amount that has been authorised.")]
-    AuthorisedAmount,
+    AuthorisedAmount = TypeOfAmountCode.AuthorisedAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Baggage related fees
-    /// Encoded/decoded by serializers as "Baggage".
+    /// Encoded/decoded by serializers as "BAGG".
     /// </summary>
     [EnumMember(Value = "BAGG")]
     [IsoId("_8RmjUfPwEeihCvvpsmGI2w")]
     [Description(@"Baggage related fees")]
-    Baggage,
+    Baggage = TypeOfAmountCode.Baggage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount that has been charged to card account
-    /// Encoded/decoded by serializers as "ChargedToCard".
+    /// Encoded/decoded by serializers as "CHTC".
     /// </summary>
     [EnumMember(Value = "CHTC")]
     [IsoId("_8oTzIfPwEeihCvvpsmGI2w")]
     [Description(@"Amount that has been charged to card account")]
-    ChargedToCard,
+    ChargedToCard = TypeOfAmountCode.ChargedToCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data communication related charges
-    /// Encoded/decoded by serializers as "Data".
+    /// Encoded/decoded by serializers as "DATA".
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_9OOjofPwEeihCvvpsmGI2w")]
     [Description(@"Data communication related charges")]
-    Data,
+    Data = TypeOfAmountCode.Data, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
-    /// Encoded/decoded by serializers as "ExchangeTicket".
+    /// Encoded/decoded by serializers as "EXTK".
     /// </summary>
     [EnumMember(Value = "EXTK")]
     [IsoId("__EVwsfPwEeihCvvpsmGI2w")]
     [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
-    ExchangeTicket,
+    ExchangeTicket = TypeOfAmountCode.ExchangeTicket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Extra charges (for example,  minibar, etc.)
-    /// Encoded/decoded by serializers as "Extra".
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("__Oi1kfPwEeihCvvpsmGI2w")]
     [Description(@"Extra charges (for example,  minibar, etc.)")]
-    Extra,
+    Extra = TypeOfAmountCode.Extra, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of fare
-    /// Encoded/decoded by serializers as "Fare".
+    /// Encoded/decoded by serializers as "FARE".
     /// </summary>
     [EnumMember(Value = "FARE")]
     [IsoId("__Wt6IfPwEeihCvvpsmGI2w")]
     [Description(@"Amount of fare")]
-    Fare,
+    Fare = TypeOfAmountCode.Fare, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insurance charges 
-    /// Encoded/decoded by serializers as "Insurance".
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_AQ64kfPxEeihCvvpsmGI2w")]
     [Description(@"Insurance charges ")]
-    Insurance,
+    Insurance = TypeOfAmountCode.Insurance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of food and beverages
-    /// Encoded/decoded by serializers as "FoodBeverage".
+    /// Encoded/decoded by serializers as "FDBV".
     /// </summary>
     [EnumMember(Value = "FDBV")]
     [IsoId("_BhvnQfPxEeihCvvpsmGI2w")]
     [Description(@"Amount of food and beverages")]
-    FoodBeverage,
+    FoodBeverage = TypeOfAmountCode.FoodBeverage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Miscellaneous charges not elsewhere defined
-    /// Encoded/decoded by serializers as "Miscellaneous".
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_CUJUkfPxEeihCvvpsmGI2w")]
     [Description(@"Miscellaneous charges not elsewhere defined")]
-    Miscellaneous,
+    Miscellaneous = TypeOfAmountCode.Miscellaneous, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_CbM-0fPxEeihCvvpsmGI2w")]
     [Description(@"Other type of amount defined at national level.")]
-    OtherNational,
+    OtherNational = TypeOfAmountCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_CgfugfPxEeihCvvpsmGI2w")]
     [Description(@"Other type of amount defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = TypeOfAmountCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Phone charges
-    /// Encoded/decoded by serializers as "Phone".
+    /// Encoded/decoded by serializers as "PHNE".
     /// </summary>
     [EnumMember(Value = "PHNE")]
     [IsoId("_C5LUQfPxEeihCvvpsmGI2w")]
     [Description(@"Phone charges")]
-    Phone,
+    Phone = TypeOfAmountCode.Phone, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount of prepayment
-    /// Encoded/decoded by serializers as "Prepayment".
+    /// Encoded/decoded by serializers as "PRPY".
     /// </summary>
     [EnumMember(Value = "PRPY")]
     [IsoId("_DBx2ofPxEeihCvvpsmGI2w")]
     [Description(@"Amount of prepayment")]
-    Prepayment,
+    Prepayment = TypeOfAmountCode.Prepayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Total amount of charges
-    /// Encoded/decoded by serializers as "Total".
+    /// Encoded/decoded by serializers as "TOTL".
     /// </summary>
     [EnumMember(Value = "TOTL")]
     [IsoId("_Eu6t4fPxEeihCvvpsmGI2w")]
     [Description(@"Total amount of charges")]
-    Total,
+    Total = TypeOfAmountCode.Total, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
-    /// Encoded/decoded by serializers as "ExchangeTicketFee".
+    /// Encoded/decoded by serializers as "EXTF".
     /// </summary>
     [EnumMember(Value = "EXTF")]
     [IsoId("_ep3jof4bEei1HdXMz5f0FQ")]
     [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
-    ExchangeTicketFee,
+    ExchangeTicketFee = TypeOfAmountCode.ExchangeTicketFee, // same ordinal as derivation source for type conversions
     
 }
 
@@ -172,7 +172,7 @@ public enum TypeOfAmount18Code
 public static class TypeOfAmount18CodeMetadataExtensions
 {
     private static readonly TypeOfAmount18CodeDropdownSource _dropdownSource = new TypeOfAmount18CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

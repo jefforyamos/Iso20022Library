@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_A9WDQD5GEeyHI64WSlzTlg")]
 [Description(@"Code that specifies the good or service delivery channel.")]
 [Derivations(typeof(GoodAndServiceDeliveryChannel1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum GoodAndServiceDeliveryChannelCode
 {
     /// <summary>
@@ -49,12 +48,11 @@ public enum GoodAndServiceDeliveryChannelCode
     
     /// <summary>
     /// Other delivery channel defined at national level.
-    /// 
     /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_AlgDoD5JEeyHI64WSlzTlg")]
-    [Description(@"Other delivery channel defined at national level. ")]
+    [Description(@"Other delivery channel defined at national level.|")]
     OtherNational,
     
     /// <summary>
@@ -68,12 +66,11 @@ public enum GoodAndServiceDeliveryChannelCode
     
     /// <summary>
     /// No delivery.
-    /// 
     /// Encoded/decoded by serializers as "NDEL".
     /// </summary>
     [EnumMember(Value = "NDEL")]
     [IsoId("_A6LTID5JEeyHI64WSlzTlg")]
-    [Description(@"No delivery. ")]
+    [Description(@"No delivery.|")]
     NoDelivery,
     
     /// <summary>
@@ -94,7 +91,7 @@ public enum GoodAndServiceDeliveryChannelCode
 public static class GoodAndServiceDeliveryChannelCodeMetadataExtensions
 {
     private static readonly GoodAndServiceDeliveryChannelCodeDropdownSource _dropdownSource = new GoodAndServiceDeliveryChannelCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum CollateralSubstitutionType1Code
 {
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the variation margin.
-    /// Encoded/decoded by serializers as "AgainstVariationMargin".
+    /// Encoded/decoded by serializers as "AVMG".
     /// </summary>
     [EnumMember(Value = "AVMG")]
     [IsoId("_YcDkVdp-Ed-ak6NoX_4Aeg_168648303")]
     [Description(@"Specifies if the collateral that is substituted was posted against the variation margin.")]
-    AgainstVariationMargin,
+    AgainstVariationMargin = CollateralSubstitutionTypeCode.AgainstVariationMargin, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the independent amount.
-    /// Encoded/decoded by serializers as "AgainstSegregatedIndependentAmount".
+    /// Encoded/decoded by serializers as "ASIA".
     /// </summary>
     [EnumMember(Value = "ASIA")]
     [IsoId("_YcDkVtp-Ed-ak6NoX_4Aeg_-914318971")]
     [Description(@"Specifies if the collateral that is substituted was posted against the independent amount.")]
-    AgainstSegregatedIndependentAmount,
+    AgainstSegregatedIndependentAmount = CollateralSubstitutionTypeCode.AgainstSegregatedIndependentAmount, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CollateralSubstitutionType1Code
 public static class CollateralSubstitutionType1CodeMetadataExtensions
 {
     private static readonly CollateralSubstitutionType1CodeDropdownSource _dropdownSource = new CollateralSubstitutionType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

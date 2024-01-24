@@ -21,12 +21,12 @@ public enum SettlementTransactionCondition11Code
 {
     /// <summary>
     /// No market claim should be automatically generated.
-    /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
+    /// Encoded/decoded by serializers as "NOMC".
     /// </summary>
     [EnumMember(Value = "NOMC")]
     [IsoId("_87Lz4Uc8EeaBWtcfqEyXyw")]
     [Description(@"No market claim should be automatically generated.")]
-    NoAutomaticMarketClaim,
+    NoAutomaticMarketClaim = SettlementTransactionConditionCode.NoAutomaticMarketClaim, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum SettlementTransactionCondition11Code
 public static class SettlementTransactionCondition11CodeMetadataExtensions
 {
     private static readonly SettlementTransactionCondition11CodeDropdownSource _dropdownSource = new SettlementTransactionCondition11CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

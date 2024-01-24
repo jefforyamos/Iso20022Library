@@ -21,30 +21,30 @@ public enum ServiceTaxDesignation1Code
 {
     /// <summary>
     /// No taxes are due.
-    /// Encoded/decoded by serializers as "Exempt".
+    /// Encoded/decoded by serializers as "XMPT".
     /// </summary>
     [EnumMember(Value = "XMPT")]
     [IsoId("_6WNcs5qlEeGSON8vddiWzQ_476426734")]
     [Description(@"No taxes are due.")]
-    Exempt,
+    Exempt = ServiceTaxDesignationCode.Exempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax is due but at zero percent and a zero charge.
-    /// Encoded/decoded by serializers as "ZeroRate".
+    /// Encoded/decoded by serializers as "ZERO".
     /// </summary>
     [EnumMember(Value = "ZERO")]
     [IsoId("_6WNctJqlEeGSON8vddiWzQ_-303620587")]
     [Description(@"Tax is due but at zero percent and a zero charge.")]
-    ZeroRate,
+    ZeroRate = ServiceTaxDesignationCode.ZeroRate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// One or more taxes are due on this service.
-    /// Encoded/decoded by serializers as "Taxable".
+    /// Encoded/decoded by serializers as "TAXE".
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_6WNctZqlEeGSON8vddiWzQ_-314719364")]
     [Description(@"One or more taxes are due on this service.")]
-    Taxable,
+    Taxable = ServiceTaxDesignationCode.Taxable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ServiceTaxDesignation1Code
 public static class ServiceTaxDesignation1CodeMetadataExtensions
 {
     private static readonly ServiceTaxDesignation1CodeDropdownSource _dropdownSource = new ServiceTaxDesignation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

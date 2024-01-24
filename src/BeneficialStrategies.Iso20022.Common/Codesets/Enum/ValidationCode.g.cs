@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_tUnxYMmKEeWAGphE2LvqeA")]
 [Description(@"Specifies the validation of a signature used to sign the file.")]
 [Derivations(typeof(Validation1Code),typeof(Validation2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ValidationCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum ValidationCode
 public static class ValidationCodeMetadataExtensions
 {
     private static readonly ValidationCodeDropdownSource _dropdownSource = new ValidationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

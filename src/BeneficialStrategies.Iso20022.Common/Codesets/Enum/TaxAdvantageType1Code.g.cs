@@ -21,48 +21,48 @@ public enum TaxAdvantageType1Code
 {
     /// <summary>
     /// Tax advantage type is: Concessional Goods and Services Tax.
-    /// Encoded/decoded by serializers as "ConcessionalGST".
+    /// Encoded/decoded by serializers as "CGST".
     /// </summary>
     [EnumMember(Value = "CGST")]
     [IsoId("_PeElYVf7EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is: Concessional Goods and Services Tax.")]
-    ConcessionalGST,
+    ConcessionalGST = TaxAdvantageTypeCode.ConcessionalGST, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax advantage type is not applicable.
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_PlNvMVf7EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is not applicable.")]
-    NotApplicable,
+    NotApplicable = TaxAdvantageTypeCode.NotApplicable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax advantage type is not available.
-    /// Encoded/decoded by serializers as "NotAvailable".
+    /// Encoded/decoded by serializers as "NOAV".
     /// </summary>
     [EnumMember(Value = "NOAV")]
     [IsoId("_PqROUVf7EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is not available.")]
-    NotAvailable,
+    NotAvailable = TaxAdvantageTypeCode.NotAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of tax advantage type.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_PyJ_AVf7EeOuDtoQo1qilA")]
     [Description(@"Other type of tax advantage type.")]
-    Other,
+    Other = TaxAdvantageTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax advantage type is: pooled development fund Rebta.
-    /// Encoded/decoded by serializers as "PooledDevelopmentFundRebta".
+    /// Encoded/decoded by serializers as "PDFR".
     /// </summary>
     [EnumMember(Value = "PDFR")]
     [IsoId("_P3qKEVf7EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is: pooled development fund Rebta.")]
-    PooledDevelopmentFundRebta,
+    PooledDevelopmentFundRebta = TaxAdvantageTypeCode.PooledDevelopmentFundRebta, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum TaxAdvantageType1Code
 public static class TaxAdvantageType1CodeMetadataExtensions
 {
     private static readonly TaxAdvantageType1CodeDropdownSource _dropdownSource = new TaxAdvantageType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

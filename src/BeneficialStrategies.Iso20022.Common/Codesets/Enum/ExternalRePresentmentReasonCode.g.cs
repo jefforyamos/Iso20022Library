@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_BypvwLf9Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the external representment reason code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.")]
 [Derivations(typeof(ExternalRePresentmentReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalRePresentmentReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ExternalRePresentmentReasonCode
 public static class ExternalRePresentmentReasonCodeMetadataExtensions
 {
     private static readonly ExternalRePresentmentReasonCodeDropdownSource _dropdownSource = new ExternalRePresentmentReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum DrawdownStatus1Code
 {
     /// <summary>
     /// Pension is fully in drawdown.
-    /// Encoded/decoded by serializers as "Full".
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_KDEMEVKjEeiSDqv62fL07g")]
     [Description(@"Pension is fully in drawdown.")]
-    Full,
+    Full = DrawdownStatusCode.Full, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pension is not in drawdown.
-    /// Encoded/decoded by serializers as "None".
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_KIthEVKjEeiSDqv62fL07g")]
     [Description(@"Pension is not in drawdown.")]
-    None,
+    None = DrawdownStatusCode.None, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pension is in partial drawdown.
-    /// Encoded/decoded by serializers as "Partial".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_KNesUVKjEeiSDqv62fL07g")]
     [Description(@"Pension is in partial drawdown.")]
-    Partial,
+    Partial = DrawdownStatusCode.Partial, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum DrawdownStatus1Code
 public static class DrawdownStatus1CodeMetadataExtensions
 {
     private static readonly DrawdownStatus1CodeDropdownSource _dropdownSource = new DrawdownStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

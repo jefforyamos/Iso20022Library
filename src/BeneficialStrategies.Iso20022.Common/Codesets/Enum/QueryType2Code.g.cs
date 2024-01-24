@@ -21,39 +21,39 @@ public enum QueryType2Code
 {
     /// <summary>
     /// Specifies that the query requests that all matching items be returned.
-    /// Encoded/decoded by serializers as "All".
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ8tp-Ed-ak6NoX_4Aeg_-1313851984")]
     [Description(@"Specifies that the query requests that all matching items be returned.")]
-    All,
+    All = QueryTypeCode.All, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the query requests that only new matching items since the last similar query be returned.
-    /// Encoded/decoded by serializers as "Changed".
+    /// Encoded/decoded by serializers as "CHNG".
     /// </summary>
     [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ89p-Ed-ak6NoX_4Aeg_-1313851983")]
     [Description(@"Specifies that the query requests that only new matching items since the last similar query be returned.")]
-    Changed,
+    Changed = QueryTypeCode.Changed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the query requests that only items that have changed since the last query be returned.
-    /// Encoded/decoded by serializers as "Modified".
+    /// Encoded/decoded by serializers as "MODF".
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_ZXqQ9Np-Ed-ak6NoX_4Aeg_-1313851982")]
     [Description(@"Specifies that the query requests that only items that have changed since the last query be returned.")]
-    Modified,
+    Modified = QueryTypeCode.Modified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies that the query requests that items that have been deleted since the last query be returned.
-    /// Encoded/decoded by serializers as "Deleted".
+    /// Encoded/decoded by serializers as "DELD".
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_ZXqQ9dp-Ed-ak6NoX_4Aeg_-1313851954")]
     [Description(@"Specifies that the query requests that items that have been deleted since the last query be returned.")]
-    Deleted,
+    Deleted = QueryTypeCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum QueryType2Code
 public static class QueryType2CodeMetadataExtensions
 {
     private static readonly QueryType2CodeDropdownSource _dropdownSource = new QueryType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,66 +21,66 @@ public enum DeviceOperatingSystemType1Code
 {
     /// <summary>
     /// Android operating system.
-    /// Encoded/decoded by serializers as "Android".
+    /// Encoded/decoded by serializers as "DROI".
     /// </summary>
     [EnumMember(Value = "DROI")]
     [IsoId("_6BpRUZfREeuqNYk2TG3bTg")]
     [Description(@"Android operating system.")]
-    Android,
+    Android = DeviceOperatingSystemTypeCode.Android, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Blackberry operating system.
-    /// Encoded/decoded by serializers as "Blackberry".
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_6JoIoZfREeuqNYk2TG3bTg")]
     [Description(@"Blackberry operating system.")]
-    Blackberry,
+    Blackberry = DeviceOperatingSystemTypeCode.Blackberry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// iOS operating system.
-    /// Encoded/decoded by serializers as "iOS".
+    /// Encoded/decoded by serializers as "IOSS".
     /// </summary>
     [EnumMember(Value = "IOSS")]
     [IsoId("_6sbTsZfREeuqNYk2TG3bTg")]
     [Description(@"iOS operating system.")]
-    iOS,
+    iOS = DeviceOperatingSystemTypeCode.iOS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other nationally defined code.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6tJscZfREeuqNYk2TG3bTg")]
     [Description(@"Other nationally defined code.")]
-    OtherNational,
+    OtherNational = DeviceOperatingSystemTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other privately defined code.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6t2QAZfREeuqNYk2TG3bTg")]
     [Description(@"Other privately defined code.")]
-    OtherPrivate,
+    OtherPrivate = DeviceOperatingSystemTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tizen operating system.
-    /// Encoded/decoded by serializers as "Tizen".
+    /// Encoded/decoded by serializers as "TIZN".
     /// </summary>
     [EnumMember(Value = "TIZN")]
     [IsoId("_6uizkZfREeuqNYk2TG3bTg")]
     [Description(@"Tizen operating system.")]
-    Tizen,
+    Tizen = DeviceOperatingSystemTypeCode.Tizen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Windows operating system.
-    /// Encoded/decoded by serializers as "Windows".
+    /// Encoded/decoded by serializers as "WIND".
     /// </summary>
     [EnumMember(Value = "WIND")]
     [IsoId("_6vU2sZfREeuqNYk2TG3bTg")]
     [Description(@"Windows operating system.")]
-    Windows,
+    Windows = DeviceOperatingSystemTypeCode.Windows, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum DeviceOperatingSystemType1Code
 public static class DeviceOperatingSystemType1CodeMetadataExtensions
 {
     private static readonly DeviceOperatingSystemType1CodeDropdownSource _dropdownSource = new DeviceOperatingSystemType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_gSYcUFDpEee94_dUz-hvgw")]
-[Description(@"Determines the type of file action service. ISO 8583:87 bit 91; ISO 8583:93/2003 bit 24")]
+[Description(@"Determines the type of file action service.|ISO 8583:87 bit 91; ISO 8583:93/2003 bit 24")]
 [Derivations(typeof(FileActionType1Code),typeof(FileActionType2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum FileActionTypeCode
 {
     /// <summary>
@@ -120,7 +119,7 @@ public enum FileActionTypeCode
 public static class FileActionTypeCodeMetadataExtensions
 {
     private static readonly FileActionTypeCodeDropdownSource _dropdownSource = new FileActionTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

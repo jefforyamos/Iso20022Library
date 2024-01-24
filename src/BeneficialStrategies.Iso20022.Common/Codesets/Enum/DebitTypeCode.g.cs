@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_JtKwwMmKEeWAGphE2LvqeA")]
 [Description(@"Specifies the type of debit to be applied to the payment.")]
 [Derivations(typeof(DebitType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DebitTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DebitTypeCode
 public static class DebitTypeCodeMetadataExtensions
 {
     private static readonly DebitTypeCodeDropdownSource _dropdownSource = new DebitTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

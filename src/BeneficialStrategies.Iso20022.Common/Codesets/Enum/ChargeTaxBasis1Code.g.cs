@@ -21,21 +21,21 @@ public enum ChargeTaxBasis1Code
 {
     /// <summary>
     /// Charges/tax basis is flat or absolute for the trade being allocated.
-    /// Encoded/decoded by serializers as "FlatOrAbsolute".
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("__05YttojEeC60axPepSq7g_2090853964")]
     [Description(@"Charges/tax basis is flat or absolute for the trade being allocated.")]
-    FlatOrAbsolute,
+    FlatOrAbsolute = ChargeTaxBasisCode.FlatOrAbsolute, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Charge/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PerUnit".
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("__1DJsNojEeC60axPepSq7g_203767408")]
     [Description(@"Charge/tax basis is per unit of financial instrument.")]
-    PerUnit,
+    PerUnit = ChargeTaxBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ChargeTaxBasis1Code
 public static class ChargeTaxBasis1CodeMetadataExtensions
 {
     private static readonly ChargeTaxBasis1CodeDropdownSource _dropdownSource = new ChargeTaxBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

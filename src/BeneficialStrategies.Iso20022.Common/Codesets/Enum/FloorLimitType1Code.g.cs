@@ -21,30 +21,30 @@ public enum FloorLimitType1Code
 {
     /// <summary>
     /// Floor limit applies to credit entries.
-    /// Encoded/decoded by serializers as "Credit".
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_aqzT09p-Ed-ak6NoX_4Aeg_-430226238")]
     [Description(@"Floor limit applies to credit entries.")]
-    Credit,
+    Credit = FloorLimitTypeCode.Credit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Floor limit applies to debit entries.
-    /// Encoded/decoded by serializers as "Debit".
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_aqzT1Np-Ed-ak6NoX_4Aeg_-371121394")]
     [Description(@"Floor limit applies to debit entries.")]
-    Debit,
+    Debit = FloorLimitTypeCode.Debit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Floor limit applies to both credit and debit entries.
-    /// Encoded/decoded by serializers as "Both".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_aqzT1dp-Ed-ak6NoX_4Aeg_-344337748")]
     [Description(@"Floor limit applies to both credit and debit entries.")]
-    Both,
+    Both = FloorLimitTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum FloorLimitType1Code
 public static class FloorLimitType1CodeMetadataExtensions
 {
     private static readonly FloorLimitType1CodeDropdownSource _dropdownSource = new FloorLimitType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

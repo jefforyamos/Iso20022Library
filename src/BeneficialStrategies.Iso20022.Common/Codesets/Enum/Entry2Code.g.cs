@@ -21,30 +21,30 @@ public enum Entry2Code
 {
     /// <summary>
     /// Trial pay-in schedule.
-    /// Encoded/decoded by serializers as "Trial".
+    /// Encoded/decoded by serializers as "TRIA".
     /// </summary>
     [EnumMember(Value = "TRIA")]
     [IsoId("_ahQ9Vdp-Ed-ak6NoX_4Aeg_-218020347")]
     [Description(@"Trial pay-in schedule.")]
-    Trial,
+    Trial = EntryCode.Trial, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Official pay-in schedule.
-    /// Encoded/decoded by serializers as "Official".
+    /// Encoded/decoded by serializers as "OFFI".
     /// </summary>
     [EnumMember(Value = "OFFI")]
     [IsoId("_ahQ9Vtp-Ed-ak6NoX_4Aeg_-214324853")]
     [Description(@"Official pay-in schedule.")]
-    Official,
+    Official = EntryCode.Official, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pay-in schedule on request.
-    /// Encoded/decoded by serializers as "Requested".
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_ahQ9V9p-Ed-ak6NoX_4Aeg_-203241624")]
     [Description(@"Pay-in schedule on request.")]
-    Requested,
+    Requested = EntryCode.Requested, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Entry2Code
 public static class Entry2CodeMetadataExtensions
 {
     private static readonly Entry2CodeDropdownSource _dropdownSource = new Entry2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

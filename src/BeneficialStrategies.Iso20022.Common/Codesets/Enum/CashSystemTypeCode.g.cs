@@ -54,7 +54,7 @@ public enum CashSystemTypeCode
 public static class CashSystemTypeCodeMetadataExtensions
 {
     private static readonly CashSystemTypeCodeDropdownSource _dropdownSource = new CashSystemTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

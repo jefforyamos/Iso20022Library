@@ -21,21 +21,21 @@ public enum HolderType1Code
 {
     /// <summary>
     /// Holder is the transferee party. The transferee party may also be known as the acquiring party.
-    /// Encoded/decoded by serializers as "Transferee".
+    /// Encoded/decoded by serializers as "TFEE".
     /// </summary>
     [EnumMember(Value = "TFEE")]
     [IsoId("_nUYtQU4SEeiQHa-q1Uephw")]
     [Description(@"Holder is the transferee party. The transferee party may also be known as the acquiring party.")]
-    Transferee,
+    Transferee = HolderTypeCode.Transferee, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Holder is the transferor party. The transferee party may also be known as the ceding party.
-    /// Encoded/decoded by serializers as "Transferor".
+    /// Encoded/decoded by serializers as "TFOR".
     /// </summary>
     [EnumMember(Value = "TFOR")]
     [IsoId("_naLzQU4SEeiQHa-q1Uephw")]
     [Description(@"Holder is the transferor party. The transferee party may also be known as the ceding party.")]
-    Transferor,
+    Transferor = HolderTypeCode.Transferor, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum HolderType1Code
 public static class HolderType1CodeMetadataExtensions
 {
     private static readonly HolderType1CodeDropdownSource _dropdownSource = new HolderType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

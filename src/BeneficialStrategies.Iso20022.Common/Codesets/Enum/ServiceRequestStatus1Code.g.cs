@@ -21,21 +21,21 @@ public enum ServiceRequestStatus1Code
 {
     /// <summary>
     /// Service request is accepted.
-    /// Encoded/decoded by serializers as "Accepted".
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_PZY4sfF6EemQ7oqCO5NTQw")]
     [Description(@"Service request is accepted.")]
-    Accepted,
+    Accepted = ServiceRequestStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Service request has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_PtECofF6EemQ7oqCO5NTQw")]
     [Description(@"Service request has been rejected.")]
-    Rejected,
+    Rejected = ServiceRequestStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ServiceRequestStatus1Code
 public static class ServiceRequestStatus1CodeMetadataExtensions
 {
     private static readonly ServiceRequestStatus1CodeDropdownSource _dropdownSource = new ServiceRequestStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

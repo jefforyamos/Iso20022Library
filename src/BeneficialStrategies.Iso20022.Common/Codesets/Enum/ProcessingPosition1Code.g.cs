@@ -54,7 +54,7 @@ public enum ProcessingPosition1Code
 public static class ProcessingPosition1CodeMetadataExtensions
 {
     private static readonly ProcessingPosition1CodeDropdownSource _dropdownSource = new ProcessingPosition1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

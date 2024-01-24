@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Y-eU5dp-Ed-ak6NoX_4Aeg_1234577798")]
 [Description(@"Specifies the account identification via a code.")]
 [Derivations(typeof(SafekeepingAccountIdentification1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SafekeepingAccountIdentificationCode
 {
     /// <summary>
@@ -38,7 +37,7 @@ public enum SafekeepingAccountIdentificationCode
 public static class SafekeepingAccountIdentificationCodeMetadataExtensions
 {
     private static readonly SafekeepingAccountIdentificationCodeDropdownSource _dropdownSource = new SafekeepingAccountIdentificationCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum OptionNumber1Code
 {
     /// <summary>
     /// The corporate action instruction is unsolicited, that is, the instruction has not been preceded by a corporate action notification.
-    /// Encoded/decoded by serializers as "Unsolicited".
+    /// Encoded/decoded by serializers as "UNSO".
     /// </summary>
     [EnumMember(Value = "UNSO")]
     [IsoId("_aP1PGdp-Ed-ak6NoX_4Aeg_6858494")]
     [Description(@"The corporate action instruction is unsolicited, that is, the instruction has not been preceded by a corporate action notification.")]
-    Unsolicited,
+    Unsolicited = OptionNumberCode.Unsolicited, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum OptionNumber1Code
 public static class OptionNumber1CodeMetadataExtensions
 {
     private static readonly OptionNumber1CodeDropdownSource _dropdownSource = new OptionNumber1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

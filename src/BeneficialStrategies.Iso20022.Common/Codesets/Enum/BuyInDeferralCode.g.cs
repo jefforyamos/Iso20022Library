@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_zwlJQJwVEeqtp-LOti013g")]
 [Description(@"Specifies that the buy-in transaction was deferred or not.")]
 [Derivations(typeof(BuyInDeferral1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BuyInDeferralCode
 {
     /// <summary>
@@ -31,12 +30,11 @@ public enum BuyInDeferralCode
     
     /// <summary>
     /// Buy-in is deferred.
-    /// 
     /// Encoded/decoded by serializers as "DEFY".
     /// </summary>
     [EnumMember(Value = "DEFY")]
     [IsoId("_4llwYJwVEeqtp-LOti013g")]
-    [Description(@"Buy-in is deferred. ")]
+    [Description(@"Buy-in is deferred.|")]
     BuyInDeferred,
     
 }
@@ -48,7 +46,7 @@ public enum BuyInDeferralCode
 public static class BuyInDeferralCodeMetadataExtensions
 {
     private static readonly BuyInDeferralCodeDropdownSource _dropdownSource = new BuyInDeferralCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

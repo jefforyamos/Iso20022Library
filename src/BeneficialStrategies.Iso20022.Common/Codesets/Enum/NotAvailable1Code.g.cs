@@ -21,12 +21,12 @@ public enum NotAvailable1Code
 {
     /// <summary>
     /// Not available (N/A).
-    /// Encoded/decoded by serializers as "NotAvailable".
+    /// Encoded/decoded by serializers as "NTAV".
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_n4ZWsRvaEeWeg9zOuV6DZQ")]
     [Description(@"Not available (N/A).")]
-    NotAvailable,
+    NotAvailable = SpecialPurposeCode.NotAvailable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum NotAvailable1Code
 public static class NotAvailable1CodeMetadataExtensions
 {
     private static readonly NotAvailable1CodeDropdownSource _dropdownSource = new NotAvailable1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

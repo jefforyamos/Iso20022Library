@@ -21,48 +21,48 @@ public enum ReconciliationActivityType1Code
 {
     /// <summary>
     /// Acquiring activity.
-    /// Encoded/decoded by serializers as "Acquiring".
+    /// Encoded/decoded by serializers as "ACQG".
     /// </summary>
     [EnumMember(Value = "ACQG")]
     [IsoId("_6rj8USYAEeym0KcvJF9aDQ")]
     [Description(@"Acquiring activity.")]
-    Acquiring,
+    Acquiring = ReconciliationActivityTypeCode.Acquiring, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All types of activity.
-    /// Encoded/decoded by serializers as "Consolidated".
+    /// Encoded/decoded by serializers as "CNSD".
     /// </summary>
     [EnumMember(Value = "CNSD")]
     [IsoId("_6yCXwSYAEeym0KcvJF9aDQ")]
     [Description(@"All types of activity.")]
-    Consolidated,
+    Consolidated = ReconciliationActivityTypeCode.Consolidated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuing activity
-    /// Encoded/decoded by serializers as "Issuing".
+    /// Encoded/decoded by serializers as "ISSG".
     /// </summary>
     [EnumMember(Value = "ISSG")]
     [IsoId("_62jEUSYAEeym0KcvJF9aDQ")]
     [Description(@"Issuing activity")]
-    Issuing,
+    Issuing = ReconciliationActivityTypeCode.Issuing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other reconciliation activity type defined at national level
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6-gGcSYAEeym0KcvJF9aDQ")]
     [Description(@"Other reconciliation activity type defined at national level")]
-    OtherNational,
+    OtherNational = ReconciliationActivityTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other reconciliation activity type defined at private level 
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_7DqTQSYAEeym0KcvJF9aDQ")]
     [Description(@"Other reconciliation activity type defined at private level ")]
-    OtherPrivate,
+    OtherPrivate = ReconciliationActivityTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum ReconciliationActivityType1Code
 public static class ReconciliationActivityType1CodeMetadataExtensions
 {
     private static readonly ReconciliationActivityType1CodeDropdownSource _dropdownSource = new ReconciliationActivityType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

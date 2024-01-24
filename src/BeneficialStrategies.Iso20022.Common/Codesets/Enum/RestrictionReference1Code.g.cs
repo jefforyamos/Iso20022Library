@@ -21,39 +21,39 @@ public enum RestrictionReference1Code
 {
     /// <summary>
     /// Addition of a cash restriction reference representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.
-    /// Encoded/decoded by serializers as "AddCashRestrictionReference".
+    /// Encoded/decoded by serializers as "ADDC".
     /// </summary>
     [EnumMember(Value = "ADDC")]
     [IsoId("_jGoHcdj7EeiHnvcp3FV_5w")]
     [Description(@"Addition of a cash restriction reference representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.")]
-    AddCashRestrictionReference,
+    AddCashRestrictionReference = RestrictionReferenceCode.AddCashRestrictionReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Addition of a securities restriction reference representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities.
-    /// Encoded/decoded by serializers as "AddSecuritiesRestrictionReference".
+    /// Encoded/decoded by serializers as "ADDS".
     /// </summary>
     [EnumMember(Value = "ADDS")]
     [IsoId("_jNngQdj7EeiHnvcp3FV_5w")]
     [Description(@"Addition of a securities restriction reference representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities.")]
-    AddSecuritiesRestrictionReference,
+    AddSecuritiesRestrictionReference = RestrictionReferenceCode.AddSecuritiesRestrictionReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Removal of a cash restriction reference, already present within the settlement instruction, representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.
-    /// Encoded/decoded by serializers as "RemoveCashRestrictionReference".
+    /// Encoded/decoded by serializers as "REMC".
     /// </summary>
     [EnumMember(Value = "REMC")]
     [IsoId("_jTuIQdj7EeiHnvcp3FV_5w")]
     [Description(@"Removal of a cash restriction reference, already present within the settlement instruction, representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.")]
-    RemoveCashRestrictionReference,
+    RemoveCashRestrictionReference = RestrictionReferenceCode.RemoveCashRestrictionReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Removal of a securities restriction reference, already present within the settlement instruction, representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities. 
-    /// Encoded/decoded by serializers as "RemoveSecuritiesRestrictionReference".
+    /// Encoded/decoded by serializers as "REMS".
     /// </summary>
     [EnumMember(Value = "REMS")]
     [IsoId("_jdPQodj7EeiHnvcp3FV_5w")]
     [Description(@"Removal of a securities restriction reference, already present within the settlement instruction, representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities. ")]
-    RemoveSecuritiesRestrictionReference,
+    RemoveSecuritiesRestrictionReference = RestrictionReferenceCode.RemoveSecuritiesRestrictionReference, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum RestrictionReference1Code
 public static class RestrictionReference1CodeMetadataExtensions
 {
     private static readonly RestrictionReference1CodeDropdownSource _dropdownSource = new RestrictionReference1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

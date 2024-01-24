@@ -21,21 +21,21 @@ public enum TransactionGroupStatus2Code
 {
     /// <summary>
     /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
-    /// Encoded/decoded by serializers as "PartiallyAccepted".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_YrjY5tp-Ed-ak6NoX_4Aeg_14174990")]
     [Description(@"A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.")]
-    PartiallyAccepted,
+    PartiallyAccepted = PaymentStatusCode.PartiallyAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "Rejected".
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_YrjY59p-Ed-ak6NoX_4Aeg_14175042")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    Rejected,
+    Rejected = PaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TransactionGroupStatus2Code
 public static class TransactionGroupStatus2CodeMetadataExtensions
 {
     private static readonly TransactionGroupStatus2CodeDropdownSource _dropdownSource = new TransactionGroupStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

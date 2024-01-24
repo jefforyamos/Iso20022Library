@@ -21,21 +21,21 @@ public enum RoutingType1Code
 {
     /// <summary>
     /// Indicates that routing is allowed.
-    /// Encoded/decoded by serializers as "Allowed".
+    /// Encoded/decoded by serializers as "ALLO".
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_Y-Uj6Np-Ed-ak6NoX_4Aeg_1903962381")]
     [Description(@"Indicates that routing is allowed.")]
-    Allowed,
+    Allowed = RoutingTypeCode.Allowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that routing is blocked.
-    /// Encoded/decoded by serializers as "Blocked".
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_Y-Uj6dp-Ed-ak6NoX_4Aeg_1903962382")]
     [Description(@"Indicates that routing is blocked.")]
-    Blocked,
+    Blocked = RoutingTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum RoutingType1Code
 public static class RoutingType1CodeMetadataExtensions
 {
     private static readonly RoutingType1CodeDropdownSource _dropdownSource = new RoutingType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

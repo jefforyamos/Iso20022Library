@@ -21,93 +21,93 @@ public enum CustomerHandlingInstructions1Code
 {
     /// <summary>
     /// Market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.
-    /// Encoded/decoded by serializers as "FillOrKill".
+    /// Encoded/decoded by serializers as "FIKI".
     /// </summary>
     [EnumMember(Value = "FIKI")]
     [IsoId("_bUrXQNp-Ed-ak6NoX_4Aeg_-981242480")]
     [Description(@"Market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.")]
-    FillOrKill,
+    FillOrKill = CustomerHandlingInstructionsCode.FillOrKill, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.
-    /// Encoded/decoded by serializers as "ImmediateOrCancel".
+    /// Encoded/decoded by serializers as "IOCA".
     /// </summary>
     [EnumMember(Value = "IOCA")]
     [IsoId("_bUrXQdp-Ed-ak6NoX_4Aeg_-981241376")]
     [Description(@"Market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.")]
-    ImmediateOrCancel,
+    ImmediateOrCancel = CustomerHandlingInstructionsCode.ImmediateOrCancel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, All Or None orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.
-    /// Encoded/decoded by serializers as "AllOrNone".
+    /// Encoded/decoded by serializers as "ALON".
     /// </summary>
     [EnumMember(Value = "ALON")]
     [IsoId("_bUrXQtp-Ed-ak6NoX_4Aeg_-980320723")]
     [Description(@"Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, All Or None orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.")]
-    AllOrNone,
+    AllOrNone = CustomerHandlingInstructionsCode.AllOrNone, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.
-    /// Encoded/decoded by serializers as "Scale".
+    /// Encoded/decoded by serializers as "SCAL".
     /// </summary>
     [EnumMember(Value = "SCAL")]
     [IsoId("_bUrXQ9p-Ed-ak6NoX_4Aeg_-980319827")]
     [Description(@"Order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.")]
-    Scale,
+    Scale = CustomerHandlingInstructionsCode.Scale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Make the order active until notified.
-    /// Encoded/decoded by serializers as "Work".
+    /// Encoded/decoded by serializers as "WORK".
     /// </summary>
     [EnumMember(Value = "WORK")]
     [IsoId("_bUrXRNp-Ed-ak6NoX_4Aeg_-980318802")]
     [Description(@"Make the order active until notified.")]
-    Work,
+    Work = CustomerHandlingInstructionsCode.Work, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Add on another order.
-    /// Encoded/decoded by serializers as "AddOnOrder".
+    /// Encoded/decoded by serializers as "ADOO".
     /// </summary>
     [EnumMember(Value = "ADOO")]
     [IsoId("_bUrXRdp-Ed-ak6NoX_4Aeg_-980318742")]
     [Description(@"Add on another order.")]
-    AddOnOrder,
+    AddOnOrder = CustomerHandlingInstructionsCode.AddOnOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that a position in the underlying is traded for a futures position in the physical commodity markets.
-    /// Encoded/decoded by serializers as "ExchangeForPhysicalTransaction".
+    /// Encoded/decoded by serializers as "EFPH".
     /// </summary>
     [EnumMember(Value = "EFPH")]
     [IsoId("_bUrXRtp-Ed-ak6NoX_4Aeg_-979397175")]
     [Description(@"Indicates that a position in the underlying is traded for a futures position in the physical commodity markets.")]
-    ExchangeForPhysicalTransaction,
+    ExchangeForPhysicalTransaction = CustomerHandlingInstructionsCode.ExchangeForPhysicalTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.
-    /// Encoded/decoded by serializers as "ImbalanceOnly".
+    /// Encoded/decoded by serializers as "IMBO".
     /// </summary>
     [EnumMember(Value = "IMBO")]
     [IsoId("_bUrXR9p-Ed-ak6NoX_4Aeg_-979396227")]
     [Description(@"Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.")]
-    ImbalanceOnly,
+    ImbalanceOnly = CustomerHandlingInstructionsCode.ImbalanceOnly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Limit order, where the limit price fluctuates relative to another quantity, such as the last sale, midpoint, opening price, bid, offer, or VWAP (Volume Weighted Average Price).
-    /// Encoded/decoded by serializers as "Pegged".
+    /// Encoded/decoded by serializers as "PGGD".
     /// </summary>
     [EnumMember(Value = "PGGD")]
     [IsoId("_bU1IQNp-Ed-ak6NoX_4Aeg_-979394349")]
     [Description(@"Limit order, where the limit price fluctuates relative to another quantity, such as the last sale, midpoint, opening price, bid, offer, or VWAP (Volume Weighted Average Price).")]
-    Pegged,
+    Pegged = CustomerHandlingInstructionsCode.Pegged, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates an order which may be executed in partials or outside the hours of the exchange or other exchange rules.
-    /// Encoded/decoded by serializers as "NotHeld".
+    /// Encoded/decoded by serializers as "NOHE".
     /// </summary>
     [EnumMember(Value = "NOHE")]
     [IsoId("_bU1IQdp-Ed-ak6NoX_4Aeg_-1216084428")]
     [Description(@"Indicates an order which may be executed in partials or outside the hours of the exchange or other exchange rules.")]
-    NotHeld,
+    NotHeld = CustomerHandlingInstructionsCode.NotHeld, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum CustomerHandlingInstructions1Code
 public static class CustomerHandlingInstructions1CodeMetadataExtensions
 {
     private static readonly CustomerHandlingInstructions1CodeDropdownSource _dropdownSource = new CustomerHandlingInstructions1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

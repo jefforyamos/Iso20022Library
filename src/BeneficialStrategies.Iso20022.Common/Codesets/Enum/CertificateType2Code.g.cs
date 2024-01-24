@@ -21,93 +21,93 @@ public enum CertificateType2Code
 {
     /// <summary>
     /// Anti-money laundering certification form.
-    /// Encoded/decoded by serializers as "AntiMoneyLaundering".
+    /// Encoded/decoded by serializers as "AMLC".
     /// </summary>
     [EnumMember(Value = "AMLC")]
     [IsoId("_MX05cRODEeKjmvxNCObNeQ")]
     [Description(@"Anti-money laundering certification form.")]
-    AntiMoneyLaundering,
+    AntiMoneyLaundering = CertificateTypeCode.AntiMoneyLaundering, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government issued form of picture identification - driving license.
-    /// Encoded/decoded by serializers as "DrivingLicense".
+    /// Encoded/decoded by serializers as "DVLC".
     /// </summary>
     [EnumMember(Value = "DVLC")]
     [IsoId("_MkCwgRODEeKjmvxNCObNeQ")]
     [Description(@"Government issued form of picture identification - driving license.")]
-    DrivingLicense,
+    DrivingLicense = CertificateTypeCode.DrivingLicense, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification of due formation and organisation.
-    /// Encoded/decoded by serializers as "DueFormationAndOrganisation".
+    /// Encoded/decoded by serializers as "DFOR".
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_MvhAsRODEeKjmvxNCObNeQ")]
     [Description(@"Certification of due formation and organisation.")]
-    DueFormationAndOrganisation,
+    DueFormationAndOrganisation = CertificateTypeCode.DueFormationAndOrganisation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificate of good standing.
-    /// Encoded/decoded by serializers as "GoodStanding".
+    /// Encoded/decoded by serializers as "GOST".
     /// </summary>
     [EnumMember(Value = "GOST")]
     [IsoId("_M6jMARODEeKjmvxNCObNeQ")]
     [Description(@"Certificate of good standing.")]
-    GoodStanding,
+    GoodStanding = CertificateTypeCode.GoodStanding, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government issued form of picture identification - identity card.
-    /// Encoded/decoded by serializers as "IdentityCard".
+    /// Encoded/decoded by serializers as "IDEN".
     /// </summary>
     [EnumMember(Value = "IDEN")]
     [IsoId("_NHqa8RODEeKjmvxNCObNeQ")]
     [Description(@"Government issued form of picture identification - identity card.")]
-    IdentityCard,
+    IdentityCard = CertificateTypeCode.IdentityCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification of incumbency.
-    /// Encoded/decoded by serializers as "Incumbency".
+    /// Encoded/decoded by serializers as "INCU".
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_NacNARODEeKjmvxNCObNeQ")]
     [Description(@"Certification of incumbency.")]
-    Incumbency,
+    Incumbency = CertificateTypeCode.Incumbency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Letter of reference.
-    /// Encoded/decoded by serializers as "LetterOfReference".
+    /// Encoded/decoded by serializers as "LREF".
     /// </summary>
     [EnumMember(Value = "LREF")]
     [IsoId("_NpCpsRODEeKjmvxNCObNeQ")]
     [Description(@"Letter of reference.")]
-    LetterOfReference,
+    LetterOfReference = CertificateTypeCode.LetterOfReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Government issued form of picture identification - passport.
-    /// Encoded/decoded by serializers as "Passport".
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_N1HW0RODEeKjmvxNCObNeQ")]
     [Description(@"Government issued form of picture identification - passport.")]
-    Passport,
+    Passport = CertificateTypeCode.Passport, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Proof of the address, such as a utility bill.
-    /// Encoded/decoded by serializers as "ProofOfAddress".
+    /// Encoded/decoded by serializers as "PRAD".
     /// </summary>
     [EnumMember(Value = "PRAD")]
     [IsoId("_OE6GURODEeKjmvxNCObNeQ")]
     [Description(@"Proof of the address, such as a utility bill.")]
-    ProofOfAddress,
+    ProofOfAddress = CertificateTypeCode.ProofOfAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Public key infrastructure certificate.
-    /// Encoded/decoded by serializers as "PublicKeyInfrastructureCertificate".
+    /// Encoded/decoded by serializers as "PKIC".
     /// </summary>
     [EnumMember(Value = "PKIC")]
     [IsoId("_OPV0sRODEeKjmvxNCObNeQ")]
     [Description(@"Public key infrastructure certificate.")]
-    PublicKeyInfrastructureCertificate,
+    PublicKeyInfrastructureCertificate = CertificateTypeCode.PublicKeyInfrastructureCertificate, // same ordinal as derivation source for type conversions
     
 }
 
@@ -118,7 +118,7 @@ public enum CertificateType2Code
 public static class CertificateType2CodeMetadataExtensions
 {
     private static readonly CertificateType2CodeDropdownSource _dropdownSource = new CertificateType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,30 +21,30 @@ public enum CashMarginOrder1Code
 {
     /// <summary>
     /// The principal owns the cash in case of a purchase, or the securities in case of a sale so the execution, if it occurs, will not generate any margin account opening or margin call.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_a65lVtp-Ed-ak6NoX_4Aeg_-964112479")]
     [Description(@"The principal owns the cash in case of a purchase, or the securities in case of a sale so the execution, if it occurs, will not generate any margin account opening or margin call.")]
-    Cash,
+    Cash = CashMarginOrderCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The principal order, if executed, will generate a margin account opening or margin call because the principal does not have the cash in case of a purchase or the securities in case of a sale.
-    /// Encoded/decoded by serializers as "MarginOpen".
+    /// Encoded/decoded by serializers as "MRGO".
     /// </summary>
     [EnumMember(Value = "MRGO")]
     [IsoId("_a65lV9p-Ed-ak6NoX_4Aeg_-964112454")]
     [Description(@"The principal order, if executed, will generate a margin account opening or margin call because the principal does not have the cash in case of a purchase or the securities in case of a sale.")]
-    MarginOpen,
+    MarginOpen = CashMarginOrderCode.MarginOpen, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The principal order, if executed, will enable the margin position to be closed and the positions to be covered (for example: purchase of securities that have previously been short-sold, or sale of securities that have been bought on margin).
-    /// Encoded/decoded by serializers as "MarginClose".
+    /// Encoded/decoded by serializers as "MRGC".
     /// </summary>
     [EnumMember(Value = "MRGC")]
     [IsoId("_a65lWNp-Ed-ak6NoX_4Aeg_-964112453")]
     [Description(@"The principal order, if executed, will enable the margin position to be closed and the positions to be covered (for example: purchase of securities that have previously been short-sold, or sale of securities that have been bought on margin).")]
-    MarginClose,
+    MarginClose = CashMarginOrderCode.MarginClose, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum CashMarginOrder1Code
 public static class CashMarginOrder1CodeMetadataExtensions
 {
     private static readonly CashMarginOrder1CodeDropdownSource _dropdownSource = new CashMarginOrder1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

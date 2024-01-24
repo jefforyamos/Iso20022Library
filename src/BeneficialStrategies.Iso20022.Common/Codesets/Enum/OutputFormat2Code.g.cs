@@ -21,39 +21,39 @@ public enum OutputFormat2Code
 {
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MessageReference".
+    /// Encoded/decoded by serializers as "MREF".
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_lPN6AYqHEeSRT5rEzcAHEw")]
     [Description(@"Predefined configured messages, identified by a reference.")]
-    MessageReference,
+    MessageReference = OutputFormatCode.MessageReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Screen to display identified by a reference.
-    /// Encoded/decoded by serializers as "ScreenReference".
+    /// Encoded/decoded by serializers as "SREF".
     /// </summary>
     [EnumMember(Value = "SREF")]
     [IsoId("_lUIPMYqHEeSRT5rEzcAHEw")]
     [Description(@"Screen to display identified by a reference.")]
-    ScreenReference,
+    ScreenReference = OutputFormatCode.ScreenReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "SimpleText".
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_lY5acYqHEeSRT5rEzcAHEw")]
     [Description(@"Text without format attributes.")]
-    SimpleText,
+    SimpleText = OutputFormatCode.SimpleText, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "XHTML".
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_ld0WsYqHEeSRT5rEzcAHEw")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    XHTML,
+    XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum OutputFormat2Code
 public static class OutputFormat2CodeMetadataExtensions
 {
     private static readonly OutputFormat2CodeDropdownSource _dropdownSource = new OutputFormat2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

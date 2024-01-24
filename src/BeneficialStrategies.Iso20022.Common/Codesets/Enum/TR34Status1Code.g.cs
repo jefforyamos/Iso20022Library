@@ -21,21 +21,21 @@ public enum TR34Status1Code
 {
     /// <summary>
     /// The device is bound.
-    /// Encoded/decoded by serializers as "Bound".
+    /// Encoded/decoded by serializers as "BUND".
     /// </summary>
     [EnumMember(Value = "BUND")]
     [IsoId("_MpMAQbTjEeeQy4o2AayYHg")]
     [Description(@"The device is bound.")]
-    Bound,
+    Bound = TR34StatusCode.Bound, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The device is unbound.
-    /// Encoded/decoded by serializers as "Unbound".
+    /// Encoded/decoded by serializers as "UBND".
     /// </summary>
     [EnumMember(Value = "UBND")]
     [IsoId("_MtU5YbTjEeeQy4o2AayYHg")]
     [Description(@"The device is unbound.")]
-    Unbound,
+    Unbound = TR34StatusCode.Unbound, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum TR34Status1Code
 public static class TR34Status1CodeMetadataExtensions
 {
     private static readonly TR34Status1CodeDropdownSource _dropdownSource = new TR34Status1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

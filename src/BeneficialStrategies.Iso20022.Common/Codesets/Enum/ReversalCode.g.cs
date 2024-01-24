@@ -21,21 +21,21 @@ public enum ReversalCode
 {
     /// <summary>
     /// Debit entry used to reverse a previously booked credit entry.
-    /// Encoded/decoded by serializers as "ReversalCredit".
+    /// Encoded/decoded by serializers as "RVCD".
     /// </summary>
     [EnumMember(Value = "RVCD")]
     [IsoId("_Y-Bo89p-Ed-ak6NoX_4Aeg_499553797")]
     [Description(@"Debit entry used to reverse a previously booked credit entry.")]
-    ReversalCredit,
+    ReversalCredit = AmountDirectionCode.ReversalCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit entry used to reverse a previously booked debit entry.
-    /// Encoded/decoded by serializers as "ReversalDebit".
+    /// Encoded/decoded by serializers as "RVDB".
     /// </summary>
     [EnumMember(Value = "RVDB")]
     [IsoId("_Y-Bo9Np-Ed-ak6NoX_4Aeg_499553857")]
     [Description(@"Credit entry used to reverse a previously booked debit entry.")]
-    ReversalDebit,
+    ReversalDebit = AmountDirectionCode.ReversalDebit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ReversalCode
 public static class ReversalCodeMetadataExtensions
 {
     private static readonly ReversalCodeDropdownSource _dropdownSource = new ReversalCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

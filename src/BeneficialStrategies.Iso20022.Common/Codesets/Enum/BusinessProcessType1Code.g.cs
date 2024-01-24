@@ -21,78 +21,78 @@ public enum BusinessProcessType1Code
 {
     /// <summary>
     /// Specifies the processing of a transaction in a central matching utility model.
-    /// Encoded/decoded by serializers as "TripartiteCentralMatching".
+    /// Encoded/decoded by serializers as "ISUP".
     /// </summary>
     [EnumMember(Value = "ISUP")]
     [IsoId("__0mdwdojEeC60axPepSq7g_1532057379")]
     [Description(@"Specifies the processing of a transaction in a central matching utility model.")]
-    TripartiteCentralMatching,
+    TripartiteCentralMatching = BusinessProcessTypeCode.TripartiteCentralMatching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the processing of a transaction in a local matching model.
-    /// Encoded/decoded by serializers as "NotCoveredByInvestmentInstructions".
+    /// Encoded/decoded by serializers as "NISP".
     /// </summary>
     [EnumMember(Value = "NISP")]
     [IsoId("__0mdwtojEeC60axPepSq7g_1520958602")]
     [Description(@"Specifies the processing of a transaction in a local matching model.")]
-    NotCoveredByInvestmentInstructions,
+    NotCoveredByInvestmentInstructions = BusinessProcessTypeCode.NotCoveredByInvestmentInstructions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.
-    /// Encoded/decoded by serializers as "PreAccepted".
+    /// Encoded/decoded by serializers as "PRAC".
     /// </summary>
     [EnumMember(Value = "PRAC")]
     [IsoId("__0mdw9ojEeC60axPepSq7g_394185007")]
     [Description(@"Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.")]
-    PreAccepted,
+    PreAccepted = BusinessProcessTypeCode.PreAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice:
     /// o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’;
     /// o The broker will have to specify the original transaction notice reference;
     /// o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.
-    /// Encoded/decoded by serializers as "Reversal".
+    /// Encoded/decoded by serializers as "RSAL".
     /// </summary>
     [EnumMember(Value = "RSAL")]
     [IsoId("__0mdxNojEeC60axPepSq7g_-1697522113")]
-    [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice: o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’; o The broker will have to specify the original transaction notice reference; o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
-    Reversal,
+    [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice:|o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’;|o The broker will have to specify the original transaction notice reference;|o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
+    Reversal = BusinessProcessTypeCode.Reversal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the processing of a transaction in a own account trade type model.
-    /// Encoded/decoded by serializers as "OwnAccountTradeType".
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("__0mdxdojEeC60axPepSq7g_-73630408")]
     [Description(@"Specifies the processing of a transaction in a own account trade type model.")]
-    OwnAccountTradeType,
+    OwnAccountTradeType = BusinessProcessTypeCode.OwnAccountTradeType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the processing of a transaction in a through type model.
-    /// Encoded/decoded by serializers as "ThroughType".
+    /// Encoded/decoded by serializers as "THRU".
     /// </summary>
     [EnumMember(Value = "THRU")]
     [IsoId("__0wOwNojEeC60axPepSq7g_1409712494")]
     [Description(@"Specifies the processing of a transaction in a through type model.")]
-    ThroughType,
+    ThroughType = BusinessProcessTypeCode.ThroughType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the processing of a transaction in a billateral central matching model.
-    /// Encoded/decoded by serializers as "BillateralCentralMatching".
+    /// Encoded/decoded by serializers as "IDEL".
     /// </summary>
     [EnumMember(Value = "IDEL")]
     [IsoId("__0wOwdojEeC60axPepSq7g_-1661996260")]
     [Description(@"Specifies the processing of a transaction in a billateral central matching model.")]
-    BillateralCentralMatching,
+    BillateralCentralMatching = BusinessProcessTypeCode.BillateralCentralMatching, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Specifies the processing of a transaction in a duplex type model.
-    /// Encoded/decoded by serializers as "DuplexType".
+    /// Encoded/decoded by serializers as "DPLX".
     /// </summary>
     [EnumMember(Value = "DPLX")]
     [IsoId("__0wOwtojEeC60axPepSq7g_1051589305")]
     [Description(@"Specifies the processing of a transaction in a duplex type model.")]
-    DuplexType,
+    DuplexType = BusinessProcessTypeCode.DuplexType, // same ordinal as derivation source for type conversions
     
 }
 
@@ -103,7 +103,7 @@ public enum BusinessProcessType1Code
 public static class BusinessProcessType1CodeMetadataExtensions
 {
     private static readonly BusinessProcessType1CodeDropdownSource _dropdownSource = new BusinessProcessType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

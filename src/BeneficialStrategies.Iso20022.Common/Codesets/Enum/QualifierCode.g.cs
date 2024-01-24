@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZW6qF9p-Ed-ak6NoX_4Aeg_336256227")]
 [Description(@"Qualifies the use of the quote or the indication of interest.")]
 [Derivations(typeof(Qualifier1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum QualifierCode
 {
     /// <summary>
@@ -191,7 +190,7 @@ public enum QualifierCode
 public static class QualifierCodeMetadataExtensions
 {
     private static readonly QualifierCodeDropdownSource _dropdownSource = new QualifierCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

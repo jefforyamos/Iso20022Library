@@ -21,111 +21,111 @@ public enum AuthenticationMethod2Code
 {
     /// <summary>
     /// Authentication bypassed by the merchant.
-    /// Encoded/decoded by serializers as "Bypass".
+    /// Encoded/decoded by serializers as "BYPS".
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_iNkFARz3EeK5OKMB21JFBg")]
     [Description(@"Authentication bypassed by the merchant.")]
-    Bypass,
+    Bypass = AuthenticationMethodCode.Bypass, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "ManualVerification".
+    /// Encoded/decoded by serializers as "MANU".
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_iU2_0xz3EeK5OKMB21JFBg")]
     [Description(@"Manual verification, for example passport or drivers license.")]
-    ManualVerification,
+    ManualVerification = AuthenticationMethodCode.ManualVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant-related authentication.
-    /// Encoded/decoded by serializers as "MerchantAuthentication".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_igBG8Rz3EeK5OKMB21JFBg")]
     [Description(@"Merchant-related authentication.")]
-    MerchantAuthentication,
+    MerchantAuthentication = AuthenticationMethodCode.MerchantAuthentication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePIN".
+    /// Encoded/decoded by serializers as "FPIN".
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_ilEmExz3EeK5OKMB21JFBg")]
     [Description(@"Off-line PIN authentication (Personal Identification Number).")]
-    OfflinePIN,
+    OfflinePIN = AuthenticationMethodCode.OfflinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OnLinePIN".
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_iq4TIxz3EeK5OKMB21JFBg")]
     [Description(@"On-line PIN authentication (Personal Identification Number).")]
-    OnLinePIN,
+    OnLinePIN = AuthenticationMethodCode.OnLinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Handwritten paper signature.
-    /// Encoded/decoded by serializers as "PaperSignature".
+    /// Encoded/decoded by serializers as "PPSG".
     /// </summary>
     [EnumMember(Value = "PPSG")]
     [IsoId("_iw1KIRz3EeK5OKMB21JFBg")]
     [Description(@"Handwritten paper signature.")]
-    PaperSignature,
+    PaperSignature = AuthenticationMethodCode.PaperSignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "Password".
+    /// Encoded/decoded by serializers as "PSWD".
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_i1u4QRz3EeK5OKMB21JFBg")]
     [Description(@"Authentication by a password.")]
-    Password,
+    Password = AuthenticationMethodCode.Password, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SecureCertificate".
+    /// Encoded/decoded by serializers as "SCRT".
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_i6y-cRz3EeK5OKMB21JFBg")]
     [Description(@"Electronic commerce transaction secured with the X.509 certificate of a customer.")]
-    SecureCertificate,
+    SecureCertificate = AuthenticationMethodCode.SecureCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SecuredChannel".
+    /// Encoded/decoded by serializers as "SCNL".
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_jAmEcRz3EeK5OKMB21JFBg")]
     [Description(@"Channel-encrypted transaction.")]
-    SecuredChannel,
+    SecuredChannel = AuthenticationMethodCode.SecuredChannel, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure electronic transaction without cardholder certificate.
-    /// Encoded/decoded by serializers as "SecureNoCertificate".
+    /// Encoded/decoded by serializers as "SNCT".
     /// </summary>
     [EnumMember(Value = "SNCT")]
     [IsoId("_jG12YRz3EeK5OKMB21JFBg")]
     [Description(@"Secure electronic transaction without cardholder certificate.")]
-    SecureNoCertificate,
+    SecureNoCertificate = AuthenticationMethodCode.SecureNoCertificate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic signature capture (handwritten signature).
-    /// Encoded/decoded by serializers as "SignatureCapture".
+    /// Encoded/decoded by serializers as "CPSG".
     /// </summary>
     [EnumMember(Value = "CPSG")]
     [IsoId("_jL58kxz3EeK5OKMB21JFBg")]
     [Description(@"Electronic signature capture (handwritten signature).")]
-    SignatureCapture,
+    SignatureCapture = AuthenticationMethodCode.SignatureCapture, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authentication method is performed unknown.
-    /// Encoded/decoded by serializers as "UnknownMethod".
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_jSTfgxz3EeK5OKMB21JFBg")]
     [Description(@"Authentication method is performed unknown.")]
-    UnknownMethod,
+    UnknownMethod = AuthenticationMethodCode.UnknownMethod, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum AuthenticationMethod2Code
 public static class AuthenticationMethod2CodeMetadataExtensions
 {
     private static readonly AuthenticationMethod2CodeDropdownSource _dropdownSource = new AuthenticationMethod2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

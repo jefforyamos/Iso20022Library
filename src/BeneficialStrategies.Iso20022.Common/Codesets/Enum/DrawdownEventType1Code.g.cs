@@ -21,21 +21,21 @@ public enum DrawdownEventType1Code
 {
     /// <summary>
     /// Event is a drawdown.
-    /// Encoded/decoded by serializers as "Drawdown".
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_eBVDgVNiEeijdq8ilaxyOA")]
     [Description(@"Event is a drawdown.")]
-    Drawdown,
+    Drawdown = DrawdownEventTypeCode.Drawdown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Event is an uncrystallised funds pension lump sum (UFPLS).
-    /// Encoded/decoded by serializers as "UncrystallisedFundsPensionLumpSum".
+    /// Encoded/decoded by serializers as "UFPL".
     /// </summary>
     [EnumMember(Value = "UFPL")]
     [IsoId("_eGiToVNiEeijdq8ilaxyOA")]
     [Description(@"Event is an uncrystallised funds pension lump sum (UFPLS).")]
-    UncrystallisedFundsPensionLumpSum,
+    UncrystallisedFundsPensionLumpSum = DrawdownEventTypeCode.UncrystallisedFundsPensionLumpSum, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DrawdownEventType1Code
 public static class DrawdownEventType1CodeMetadataExtensions
 {
     private static readonly DrawdownEventType1CodeDropdownSource _dropdownSource = new DrawdownEventType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

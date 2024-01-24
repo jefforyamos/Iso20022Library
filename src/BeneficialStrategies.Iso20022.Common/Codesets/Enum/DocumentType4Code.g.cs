@@ -21,12 +21,12 @@ public enum DocumentType4Code
 {
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CommercialInvoice".
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_agObh9p-Ed-ak6NoX_4Aeg_1538718054")]
     [Description(@"Document is an invoice.")]
-    CommercialInvoice,
+    CommercialInvoice = DocumentTypeCode.CommercialInvoice, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum DocumentType4Code
 public static class DocumentType4CodeMetadataExtensions
 {
     private static readonly DocumentType4CodeDropdownSource _dropdownSource = new DocumentType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

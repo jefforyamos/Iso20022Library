@@ -21,48 +21,48 @@ public enum CorporateActionEventStatus1Code
 {
     /// <summary>
     /// The CA event is active.
-    /// Encoded/decoded by serializers as "Active".
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_bEJA4tp-Ed-ak6NoX_4Aeg_2009797756")]
     [Description(@"The CA event is active.")]
-    Active,
+    Active = CorporateActionEventStatusCode.Active, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The CA event is deactivated. The clients cannot send instruction anymore.
-    /// Encoded/decoded by serializers as "Deactivated".
+    /// Encoded/decoded by serializers as "DEAC".
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_bEJA49p-Ed-ak6NoX_4Aeg_2009797785")]
     [Description(@"The CA event is deactivated. The clients cannot send instruction anymore.")]
-    Deactivated,
+    Deactivated = CorporateActionEventStatusCode.Deactivated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The CA event is expired, no more processing, claims, transformations take place.
-    /// Encoded/decoded by serializers as "Expired".
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_bEJA5Np-Ed-ak6NoX_4Aeg_2009797786")]
     [Description(@"The CA event is expired, no more processing, claims, transformations take place.")]
-    Expired,
+    Expired = CorporateActionEventStatusCode.Expired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The CA event is cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bEJA5dp-Ed-ak6NoX_4Aeg_2009797815")]
     [Description(@"The CA event is cancelled.")]
-    Cancelled,
+    Cancelled = CorporateActionEventStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The CA event is withrawn, ie, cancelled by the market.
-    /// Encoded/decoded by serializers as "Withdrawn".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bEJA5tp-Ed-ak6NoX_4Aeg_2009797846")]
     [Description(@"The CA event is withrawn, ie, cancelled by the market.")]
-    Withdrawn,
+    Withdrawn = CorporateActionEventStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CorporateActionEventStatus1Code
 public static class CorporateActionEventStatus1CodeMetadataExtensions
 {
     private static readonly CorporateActionEventStatus1CodeDropdownSource _dropdownSource = new CorporateActionEventStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

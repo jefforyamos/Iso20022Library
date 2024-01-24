@@ -21,12 +21,12 @@ public enum ValidationRulePending1Code
 {
     /// <summary>
     /// Pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_JSdbUR-1EeuxStysDTgLiw")]
     [Description(@"Pending.")]
-    Pending,
+    Pending = ValidationRuleCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRulePending1Code
 public static class ValidationRulePending1CodeMetadataExtensions
 {
     private static readonly ValidationRulePending1CodeDropdownSource _dropdownSource = new ValidationRulePending1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

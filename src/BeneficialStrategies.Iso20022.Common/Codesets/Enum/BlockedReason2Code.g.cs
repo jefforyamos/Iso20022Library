@@ -21,84 +21,84 @@ public enum BlockedReason2Code
 {
     /// <summary>
     /// Bankruptcy.
-    /// Encoded/decoded by serializers as "Bankruptcy".
+    /// Encoded/decoded by serializers as "BKRP".
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_pAggcFsMEeaY86V9afpFqA")]
     [Description(@"Bankruptcy.")]
-    Bankruptcy,
+    Bankruptcy = BlockedReasonCode.Bankruptcy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Commitment.
-    /// Encoded/decoded by serializers as "Commitment".
+    /// Encoded/decoded by serializers as "CMMT".
     /// </summary>
     [EnumMember(Value = "CMMT")]
     [IsoId("_pFkmoVsMEeaY86V9afpFqA")]
     [Description(@"Commitment.")]
-    Commitment,
+    Commitment = BlockedReasonCode.Commitment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Confiscation.
-    /// Encoded/decoded by serializers as "Confiscation".
+    /// Encoded/decoded by serializers as "CNFS".
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_pMHTgVsMEeaY86V9afpFqA")]
     [Description(@"Confiscation.")]
-    Confiscation,
+    Confiscation = BlockedReasonCode.Confiscation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserved in contemplation of death.
-    /// Encoded/decoded by serializers as "MortisCausa".
+    /// Encoded/decoded by serializers as "MORT".
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_pSXFcVsMEeaY86V9afpFqA")]
     [Description(@"Reserved in contemplation of death.")]
-    MortisCausa,
+    MortisCausa = BlockedReasonCode.MortisCausa, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending compliance verification.
-    /// Encoded/decoded by serializers as "PendingComplianceVerification".
+    /// Encoded/decoded by serializers as "PCOM".
     /// </summary>
     [EnumMember(Value = "PCOM")]
     [IsoId("_pZNUUVsMEeaY86V9afpFqA")]
     [Description(@"Pending compliance verification.")]
-    PendingComplianceVerification,
+    PendingComplianceVerification = BlockedReasonCode.PendingComplianceVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pledged.
-    /// Encoded/decoded by serializers as "Pledged".
+    /// Encoded/decoded by serializers as "PLDG".
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_pfdGQVsMEeaY86V9afpFqA")]
     [Description(@"Pledged.")]
-    Pledged,
+    Pledged = BlockedReasonCode.Pledged, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reregistration.
-    /// Encoded/decoded by serializers as "Reregistration".
+    /// Encoded/decoded by serializers as "TRPE".
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_pjxlkVsMEeaY86V9afpFqA")]
     [Description(@"Reregistration.")]
-    Reregistration,
+    Reregistration = BlockedReasonCode.Reregistration, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sanctions are in place.
-    /// Encoded/decoded by serializers as "Sanctions".
+    /// Encoded/decoded by serializers as "SANC".
     /// </summary>
     [EnumMember(Value = "SANC")]
     [IsoId("_poiJwVsMEeaY86V9afpFqA")]
     [Description(@"Sanctions are in place.")]
-    Sanctions,
+    Sanctions = BlockedReasonCode.Sanctions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer.
-    /// Encoded/decoded by serializers as "Transfer".
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_pvhikVsMEeaY86V9afpFqA")]
     [Description(@"Transfer.")]
-    Transfer,
+    Transfer = BlockedReasonCode.Transfer, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum BlockedReason2Code
 public static class BlockedReason2CodeMetadataExtensions
 {
     private static readonly BlockedReason2CodeDropdownSource _dropdownSource = new BlockedReason2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

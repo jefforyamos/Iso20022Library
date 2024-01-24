@@ -21,30 +21,30 @@ public enum TradingCapacity5Code
 {
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "Principal".
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_Yaall9p-Ed-ak6NoX_4Aeg_524208854")]
     [Description(@"Trading as Principal.")]
-    Principal,
+    Principal = TradingCapacityCode.Principal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
-    /// Encoded/decoded by serializers as "RisklessPrincipal".
+    /// Encoded/decoded by serializers as "RISP".
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_YaalmNp-Ed-ak6NoX_4Aeg_789078674")]
     [Description(@"Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.")]
-    RisklessPrincipal,
+    RisklessPrincipal = TradingCapacityCode.RisklessPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "Agent".
+    /// Encoded/decoded by serializers as "AGEN".
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YajvgNp-Ed-ak6NoX_4Aeg_1711241984")]
     [Description(@"Trading as Agent on behalf of a customer.")]
-    Agent,
+    Agent = TradingCapacityCode.Agent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum TradingCapacity5Code
 public static class TradingCapacity5CodeMetadataExtensions
 {
     private static readonly TradingCapacity5CodeDropdownSource _dropdownSource = new TradingCapacity5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

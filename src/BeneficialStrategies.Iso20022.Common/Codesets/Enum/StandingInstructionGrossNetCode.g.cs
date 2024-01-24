@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZPw5Mdp-Ed-ak6NoX_4Aeg_1122595996")]
 [Description(@"Specifies the type of standing instruction.")]
 [Derivations(typeof(StandingInstructionGrossNet1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StandingInstructionGrossNetCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum StandingInstructionGrossNetCode
 public static class StandingInstructionGrossNetCodeMetadataExtensions
 {
     private static readonly StandingInstructionGrossNetCodeDropdownSource _dropdownSource = new StandingInstructionGrossNetCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum NotApplicable1Code
 {
     /// <summary>
     /// Not applicable (N/A).
-    /// Encoded/decoded by serializers as "NotApplicable".
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_eTsTgYCCEeqdQubSe21TTw")]
     [Description(@"Not applicable (N/A).")]
-    NotApplicable,
+    NotApplicable = SpecialPurposeCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum NotApplicable1Code
 public static class NotApplicable1CodeMetadataExtensions
 {
     private static readonly NotApplicable1CodeDropdownSource _dropdownSource = new NotApplicable1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

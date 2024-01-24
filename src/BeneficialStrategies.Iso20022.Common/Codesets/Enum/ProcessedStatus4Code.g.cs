@@ -21,30 +21,30 @@ public enum ProcessedStatus4Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "Received".
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKnX5Np-Ed-ak6NoX_4Aeg_-879600124")]
     [Description(@"The instruction/request has been received.")]
-    Received,
+    Received = CorporateActionProcessedStatusCode.Received, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "Completed".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aKnX5dp-Ed-ak6NoX_4Aeg_-879600094")]
     [Description(@"The request has been completed.")]
-    Completed,
+    Completed = CorporateActionProcessedStatusCode.Completed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The processing of the request is pending.
-    /// Encoded/decoded by serializers as "Pending".
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_aKnX5tp-Ed-ak6NoX_4Aeg_-879600093")]
     [Description(@"The processing of the request is pending.")]
-    Pending,
+    Pending = CorporateActionProcessedStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ProcessedStatus4Code
 public static class ProcessedStatus4CodeMetadataExtensions
 {
     private static readonly ProcessedStatus4CodeDropdownSource _dropdownSource = new ProcessedStatus4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

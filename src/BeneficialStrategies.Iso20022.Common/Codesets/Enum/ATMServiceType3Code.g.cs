@@ -21,75 +21,75 @@ public enum ATMServiceType3Code
 {
     /// <summary>
     /// Ask for account statement information to a related custumer account.
-    /// Encoded/decoded by serializers as "AccountStatements".
+    /// Encoded/decoded by serializers as "ASTS".
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_NzZooYqvEeSIDtZ76p6McQ")]
     [Description(@"Ask for account statement information to a related custumer account.")]
-    AccountStatements,
+    AccountStatements = ATMServiceTypeCode.AccountStatements, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verification of the card.
-    /// Encoded/decoded by serializers as "CardVerification".
+    /// Encoded/decoded by serializers as "CDVF".
     /// </summary>
     [EnumMember(Value = "CDVF")]
     [IsoId("_OGUko4qvEeSIDtZ76p6McQ")]
     [Description(@"Verification of the card.")]
-    CardVerification,
+    CardVerification = ATMServiceTypeCode.CardVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ask to a DCC service provider to qualify the currency conversion for the card.
-    /// Encoded/decoded by serializers as "DynamicCurrencyConversion".
+    /// Encoded/decoded by serializers as "DCCS".
     /// </summary>
     [EnumMember(Value = "DCCS")]
     [IsoId("_OZjCo4qvEeSIDtZ76p6McQ")]
     [Description(@"Ask to a DCC service provider to qualify the currency conversion for the card.")]
-    DynamicCurrencyConversion,
+    DynamicCurrencyConversion = ATMServiceTypeCode.DynamicCurrencyConversion, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ask for exchange rate for the ongoing deposit transaction.
-    /// Encoded/decoded by serializers as "ExchangeRateDeposit".
+    /// Encoded/decoded by serializers as "XRTD".
     /// </summary>
     [EnumMember(Value = "XRTD")]
     [IsoId("_PZLTo4qvEeSIDtZ76p6McQ")]
     [Description(@"Ask for exchange rate for the ongoing deposit transaction.")]
-    ExchangeRateDeposit,
+    ExchangeRateDeposit = ATMServiceTypeCode.ExchangeRateDeposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ask for exchange rate for the ongoing withdrawal transaction.
-    /// Encoded/decoded by serializers as "ExchangeRateWithdrawal".
+    /// Encoded/decoded by serializers as "XRTW".
     /// </summary>
     [EnumMember(Value = "XRTW")]
     [IsoId("_Ph0SQ4qvEeSIDtZ76p6McQ")]
     [Description(@"Ask for exchange rate for the ongoing withdrawal transaction.")]
-    ExchangeRateWithdrawal,
+    ExchangeRateWithdrawal = ATMServiceTypeCode.ExchangeRateWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Select the EMV applications allowed by the acquirer.
-    /// Encoded/decoded by serializers as "SelectEMVApplication".
+    /// Encoded/decoded by serializers as "EMVS".
     /// </summary>
     [EnumMember(Value = "EMVS")]
     [IsoId("_QYW4s4qvEeSIDtZ76p6McQ")]
     [Description(@"Select the EMV applications allowed by the acquirer.")]
-    SelectEMVApplication,
+    SelectEMVApplication = ATMServiceTypeCode.SelectEMVApplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ask for customer profile with eventualy related account information.
-    /// Encoded/decoded by serializers as "CustomerProfile".
+    /// Encoded/decoded by serializers as "CMPF".
     /// </summary>
     [EnumMember(Value = "CMPF")]
     [IsoId("_Ix3Kkec3EeSW7vQF-KSwOA")]
     [Description(@"Ask for customer profile with eventualy related account information.")]
-    CustomerProfile,
+    CustomerProfile = ATMServiceTypeCode.CustomerProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance inquiry.
-    /// Encoded/decoded by serializers as "BalanceInquiry".
+    /// Encoded/decoded by serializers as "BLCQ".
     /// </summary>
     [EnumMember(Value = "BLCQ")]
     [IsoId("_wiCi8egaEeSbJsoAnSuiCQ")]
     [Description(@"Balance inquiry.")]
-    BalanceInquiry,
+    BalanceInquiry = ATMServiceTypeCode.BalanceInquiry, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum ATMServiceType3Code
 public static class ATMServiceType3CodeMetadataExtensions
 {
     private static readonly ATMServiceType3CodeDropdownSource _dropdownSource = new ATMServiceType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

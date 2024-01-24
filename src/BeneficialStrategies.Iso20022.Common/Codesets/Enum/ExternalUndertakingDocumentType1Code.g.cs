@@ -16,54 +16,54 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-MrKAW7iEeKo25nLKvGr8w_11518920")]
-[Description(@"Specifies the external undertaking document type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external undertaking document type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalUndertakingDocumentTypeCode))]
 public enum ExternalUndertakingDocumentType1Code
 {
     /// <summary>
     /// Document is a beneficiary statement.
-    /// Encoded/decoded by serializers as "BeneficiaryStatement".
+    /// Encoded/decoded by serializers as "BENS".
     /// </summary>
     [EnumMember(Value = "BENS")]
     [IsoId("_uRYG4vRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a beneficiary statement.")]
-    BeneficiaryStatement,
+    BeneficiaryStatement = ExternalUndertakingDocumentTypeCode.BeneficiaryStatement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CommercialInvoice".
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_uRYG5fRYEeuLhpyIdtJzwg")]
     [Description(@"Document is an invoice.")]
-    CommercialInvoice,
+    CommercialInvoice = ExternalUndertakingDocumentTypeCode.CommercialInvoice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a claim form.
-    /// Encoded/decoded by serializers as "ClaimForm".
+    /// Encoded/decoded by serializers as "CLAF".
     /// </summary>
     [EnumMember(Value = "CLAF")]
     [IsoId("_uRYG6PRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a claim form.")]
-    ClaimForm,
+    ClaimForm = ExternalUndertakingDocumentTypeCode.ClaimForm, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is an undertaking demand.
-    /// Encoded/decoded by serializers as "Demand".
+    /// Encoded/decoded by serializers as "DEMD".
     /// </summary>
     [EnumMember(Value = "DEMD")]
     [IsoId("_uRYG6_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is an undertaking demand.")]
-    Demand,
+    Demand = ExternalUndertakingDocumentTypeCode.Demand, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Document is a transfer form.
-    /// Encoded/decoded by serializers as "TransferForm".
+    /// Encoded/decoded by serializers as "TRAF".
     /// </summary>
     [EnumMember(Value = "TRAF")]
     [IsoId("_uRYG7vRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a transfer form.")]
-    TransferForm,
+    TransferForm = ExternalUndertakingDocumentTypeCode.TransferForm, // same ordinal as derivation source for type conversions
     
 }
 
@@ -74,7 +74,7 @@ public enum ExternalUndertakingDocumentType1Code
 public static class ExternalUndertakingDocumentType1CodeMetadataExtensions
 {
     private static readonly ExternalUndertakingDocumentType1CodeDropdownSource _dropdownSource = new ExternalUndertakingDocumentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

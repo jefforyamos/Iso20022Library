@@ -21,21 +21,21 @@ public enum SafekeepingPlace2Code
 {
     /// <summary>
     /// Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.
-    /// Encoded/decoded by serializers as "SharesHeldElsewhere".
+    /// Encoded/decoded by serializers as "SHHE".
     /// </summary>
     [EnumMember(Value = "SHHE")]
     [IsoId("_Y-oF5dp-Ed-ak6NoX_4Aeg_1256685256")]
     [Description(@"Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.")]
-    SharesHeldElsewhere,
+    SharesHeldElsewhere = SafekeepingPlaceCode.SharesHeldElsewhere, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// All places of safekeeping where the financial instrument is held.
-    /// Encoded/decoded by serializers as "AllPlaces".
+    /// Encoded/decoded by serializers as "ALLP".
     /// </summary>
     [EnumMember(Value = "ALLP")]
     [IsoId("_Y-oF5tp-Ed-ak6NoX_4Aeg_1256685274")]
     [Description(@"All places of safekeeping where the financial instrument is held.")]
-    AllPlaces,
+    AllPlaces = SafekeepingPlaceCode.AllPlaces, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SafekeepingPlace2Code
 public static class SafekeepingPlace2CodeMetadataExtensions
 {
     private static readonly SafekeepingPlace2CodeDropdownSource _dropdownSource = new SafekeepingPlace2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

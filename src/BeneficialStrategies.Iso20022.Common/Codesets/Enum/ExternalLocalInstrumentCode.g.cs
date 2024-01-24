@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_69ANUIKYEeeCI5iKR7LsYQ")]
-[Description(@"Specifies the external local instrument code in the format of character string with a maximum length of 35 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external local instrument code in the format of character string with a maximum length of 35 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalLocalInstrument1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalLocalInstrumentCode
 {
     /// <summary>
@@ -78,7 +77,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
-    /// Encoded/decoded by serializers as "_82".
+    /// Encoded/decoded by serializers as "82".
     /// </summary>
     [EnumMember(Value = "82")]
     [IsoId("_tmTwoPRYEeuLhpyIdtJzwg")]
@@ -87,7 +86,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
-    /// Encoded/decoded by serializers as "_83".
+    /// Encoded/decoded by serializers as "83".
     /// </summary>
     [EnumMember(Value = "83")]
     [IsoId("_tmTwo_RYEeuLhpyIdtJzwg")]
@@ -213,7 +212,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
-    /// Encoded/decoded by serializers as "_05".
+    /// Encoded/decoded by serializers as "05".
     /// </summary>
     [EnumMember(Value = "05")]
     [IsoId("_tm5mgPRYEeuLhpyIdtJzwg")]
@@ -222,7 +221,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
-    /// Encoded/decoded by serializers as "_04".
+    /// Encoded/decoded by serializers as "04".
     /// </summary>
     [EnumMember(Value = "04")]
     [IsoId("_tm5mg_RYEeuLhpyIdtJzwg")]
@@ -249,7 +248,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a business-to-business direct debit (CSB58).
-    /// Encoded/decoded by serializers as "_58".
+    /// Encoded/decoded by serializers as "58".
     /// </summary>
     [EnumMember(Value = "58")]
     [IsoId("_tm5mjPRYEeuLhpyIdtJzwg")]
@@ -258,7 +257,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a business-to-customer direct debit (CSB19).
-    /// Encoded/decoded by serializers as "_19".
+    /// Encoded/decoded by serializers as "19".
     /// </summary>
     [EnumMember(Value = "19")]
     [IsoId("_tnDXgPRYEeuLhpyIdtJzwg")]
@@ -303,7 +302,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement accéléré).
-    /// Encoded/decoded by serializers as "_85".
+    /// Encoded/decoded by serializers as "85".
     /// </summary>
     [EnumMember(Value = "85")]
     [IsoId("_tnNIg_RYEeuLhpyIdtJzwg")]
@@ -312,7 +311,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Avis de Prélèvement).
-    /// Encoded/decoded by serializers as "_08".
+    /// Encoded/decoded by serializers as "08".
     /// </summary>
     [EnumMember(Value = "08")]
     [IsoId("_tnNIhvRYEeuLhpyIdtJzwg")]
@@ -321,7 +320,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement vérifié).
-    /// Encoded/decoded by serializers as "_89".
+    /// Encoded/decoded by serializers as "89".
     /// </summary>
     [EnumMember(Value = "89")]
     [IsoId("_tnNIifRYEeuLhpyIdtJzwg")]
@@ -330,7 +329,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// LCR - Lettre de Change Relevé (Recovered Bill of Exchange) and BOR - Billet à Orde Relevé (Promissory Note)
-    /// Encoded/decoded by serializers as "_60".
+    /// Encoded/decoded by serializers as "60".
     /// </summary>
     [EnumMember(Value = "60")]
     [IsoId("_tnNIjPRYEeuLhpyIdtJzwg")]
@@ -474,7 +473,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to mass payment beneficiary.|
-    /// Encoded/decoded by serializers as "_0090".
+    /// Encoded/decoded by serializers as "0090".
     /// </summary>
     [EnumMember(Value = "0090")]
     [IsoId("_tn8vafRYEeuLhpyIdtJzwg")]
@@ -483,7 +482,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to mass payment ours.|
-    /// Encoded/decoded by serializers as "_0091".
+    /// Encoded/decoded by serializers as "0091".
     /// </summary>
     [EnumMember(Value = "0091")]
     [IsoId("_tn8vbPRYEeuLhpyIdtJzwg")]
@@ -492,7 +491,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to mass payment shared.|
-    /// Encoded/decoded by serializers as "_0092".
+    /// Encoded/decoded by serializers as "0092".
     /// </summary>
     [EnumMember(Value = "0092")]
     [IsoId("_toF5UPRYEeuLhpyIdtJzwg")]
@@ -501,7 +500,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to standing order.
-    /// Encoded/decoded by serializers as "_0002".
+    /// Encoded/decoded by serializers as "0002".
     /// </summary>
     [EnumMember(Value = "0002")]
     [IsoId("_toF5U_RYEeuLhpyIdtJzwg")]
@@ -510,7 +509,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to one-off authorisation.
-    /// Encoded/decoded by serializers as "_0221".
+    /// Encoded/decoded by serializers as "0221".
     /// </summary>
     [EnumMember(Value = "0221")]
     [IsoId("_toF5VvRYEeuLhpyIdtJzwg")]
@@ -519,7 +518,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to one-off authorisation charities.
-    /// Encoded/decoded by serializers as "_0224".
+    /// Encoded/decoded by serializers as "0224".
     /// </summary>
     [EnumMember(Value = "0224")]
     [IsoId("_toF5WfRYEeuLhpyIdtJzwg")]
@@ -528,7 +527,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to one-off authorisation construction industry.
-    /// Encoded/decoded by serializers as "_0226".
+    /// Encoded/decoded by serializers as "0226".
     /// </summary>
     [EnumMember(Value = "0226")]
     [IsoId("_toPqUPRYEeuLhpyIdtJzwg")]
@@ -537,7 +536,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to one-off authorisation tuition fees.
-    /// Encoded/decoded by serializers as "_0225".
+    /// Encoded/decoded by serializers as "0225".
     /// </summary>
     [EnumMember(Value = "0225")]
     [IsoId("_toPqU_RYEeuLhpyIdtJzwg")]
@@ -546,7 +545,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to standing authorisation companies.
-    /// Encoded/decoded by serializers as "_0222".
+    /// Encoded/decoded by serializers as "0222".
     /// </summary>
     [EnumMember(Value = "0222")]
     [IsoId("_toPqVvRYEeuLhpyIdtJzwg")]
@@ -555,7 +554,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to standing authorisation companies without debtor revocation right.
-    /// Encoded/decoded by serializers as "_0227".
+    /// Encoded/decoded by serializers as "0227".
     /// </summary>
     [EnumMember(Value = "0227")]
     [IsoId("_toZbUPRYEeuLhpyIdtJzwg")]
@@ -564,7 +563,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to standing authorisation general.|
-    /// Encoded/decoded by serializers as "_0220".
+    /// Encoded/decoded by serializers as "0220".
     /// </summary>
     [EnumMember(Value = "0220")]
     [IsoId("_toZbU_RYEeuLhpyIdtJzwg")]
@@ -573,7 +572,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to standing authorisation lotteries.
-    /// Encoded/decoded by serializers as "_0223".
+    /// Encoded/decoded by serializers as "0223".
     /// </summary>
     [EnumMember(Value = "0223")]
     [IsoId("_toilQPRYEeuLhpyIdtJzwg")]
@@ -582,7 +581,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to converted (bank) payment.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process.The instrument rules change upon conversion.
-    /// Encoded/decoded by serializers as "_0001".
+    /// Encoded/decoded by serializers as "0001".
     /// </summary>
     [EnumMember(Value = "0001")]
     [IsoId("_toilQ_RYEeuLhpyIdtJzwg")]
@@ -591,7 +590,7 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Transaction is related to business payment
-    /// Encoded/decoded by serializers as "_0000".
+    /// Encoded/decoded by serializers as "0000".
     /// </summary>
     [EnumMember(Value = "0000")]
     [IsoId("_toilRvRYEeuLhpyIdtJzwg")]
@@ -969,10 +968,9 @@ public enum ExternalLocalInstrumentCode
     
     /// <summary>
     /// Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.
-    /// ATTENTION: Name was changed from "CTP" to "CTP2" due to a name clash in the published ISO specification.
-    /// During deserialization, you may see some ambiguity between this and <seealso cref="CTP"/>
+    /// Encoded/decoded by serializers as "CTP".
     /// </summary>
-    [EnumMember(Value = "CTP")] // Beware deserialization issues here because of ambiguity
+    [EnumMember(Value = "CTP")]
     [IsoId("_o0mT8FEEEey6cYDbEubNXg")]
     [Description(@"Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.")]
     CreditTransferPreferred,
@@ -1004,7 +1002,7 @@ public enum ExternalLocalInstrumentCode
 public static class ExternalLocalInstrumentCodeMetadataExtensions
 {
     private static readonly ExternalLocalInstrumentCodeDropdownSource _dropdownSource = new ExternalLocalInstrumentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

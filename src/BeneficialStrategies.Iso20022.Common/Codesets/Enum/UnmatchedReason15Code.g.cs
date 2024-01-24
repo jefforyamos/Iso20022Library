@@ -21,238 +21,237 @@ public enum UnmatchedReason15Code
 {
     /// <summary>
     /// Counterparty cancelled their instruction.
-    /// Encoded/decoded by serializers as "CounterpartyCancelled".
+    /// Encoded/decoded by serializers as "CPCA".
     /// </summary>
     [EnumMember(Value = "CPCA")]
     [IsoId("_M2HBMeCaEei2UYJ62ws-Fw")]
     [Description(@"Counterparty cancelled their instruction.")]
-    CounterpartyCancelled,
+    CounterpartyCancelled = UnmatchedReasonCode.CounterpartyCancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Day Count Basis does  not match.
-    /// Encoded/decoded by serializers as "DayCountBasis".
+    /// Encoded/decoded by serializers as "DCBS".
     /// </summary>
     [EnumMember(Value = "DCBS")]
     [IsoId("_pXnPMdCrEeqVwOG0fcjVKA")]
     [Description(@"Day Count Basis does  not match.")]
-    DayCountBasis,
+    DayCountBasis = UnmatchedReasonCode.DayCountBasis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Termination Option does not match.
-    /// Encoded/decoded by serializers as "TerminationOption".
+    /// Encoded/decoded by serializers as "TMOP".
     /// </summary>
     [EnumMember(Value = "TMOP")]
     [IsoId("_ppwvIdCrEeqVwOG0fcjVKA")]
     [Description(@"Termination Option does not match.")]
-    TerminationOption,
+    TerminationOption = UnmatchedReasonCode.TerminationOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option Type does not match.
-    /// Encoded/decoded by serializers as "OptionType".
+    /// Encoded/decoded by serializers as "OPTP".
     /// </summary>
     [EnumMember(Value = "OPTP")]
     [IsoId("_p1NxMdCrEeqVwOG0fcjVKA")]
     [Description(@"Option Type does not match.")]
-    OptionType,
+    OptionType = UnmatchedReasonCode.OptionType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Overnight Frequency Rate Fixing does not match.
-    /// Encoded/decoded by serializers as "OvernightFrequencyRateFixing".
+    /// Encoded/decoded by serializers as "OFRF".
     /// </summary>
     [EnumMember(Value = "OFRF")]
     [IsoId("_p8p18dCrEeqVwOG0fcjVKA")]
     [Description(@"Overnight Frequency Rate Fixing does not match.")]
-    OvernightFrequencyRateFixing,
+    OvernightFrequencyRateFixing = UnmatchedReasonCode.OvernightFrequencyRateFixing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Spread does not match.
-    /// Encoded/decoded by serializers as "Spread".
+    /// Encoded/decoded by serializers as "SPRD".
     /// </summary>
     [EnumMember(Value = "SPRD")]
     [IsoId("_qDpOwdCrEeqVwOG0fcjVKA")]
     [Description(@"Spread does not match.")]
-    Spread,
+    Spread = UnmatchedReasonCode.Spread, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate Index Type does not match.
-    /// Encoded/decoded by serializers as "RateIndexType".
+    /// Encoded/decoded by serializers as "RITP".
     /// </summary>
     [EnumMember(Value = "RITP")]
     [IsoId("_qXIygdCrEeqVwOG0fcjVKA")]
     [Description(@"Rate Index Type does not match.")]
-    RateIndexType,
+    RateIndexType = UnmatchedReasonCode.RateIndexType, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate does not match.
-    /// Encoded/decoded by serializers as "Rate".
+    /// Encoded/decoded by serializers as "RATE".
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_qe3yMdCrEeqVwOG0fcjVKA")]
     [Description(@"Rate does not match.")]
-    Rate,
+    Rate = UnmatchedReasonCode.Rate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Termination Currency does not match
-    /// Encoded/decoded by serializers as "TerminationCurrency".
+    /// Encoded/decoded by serializers as "TMCY".
     /// </summary>
     [EnumMember(Value = "TMCY")]
     [IsoId("_xBE68dCrEeqVwOG0fcjVKA")]
     [Description(@"Termination Currency does not match")]
-    TerminationCurrency,
+    TerminationCurrency = UnmatchedReasonCode.TerminationCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction Currency does not match.
-    /// Encoded/decoded by serializers as "TransactionCurrency".
+    /// Encoded/decoded by serializers as "TXCY".
     /// </summary>
     [EnumMember(Value = "TXCY")]
     [IsoId("_xQGOYdCrEeqVwOG0fcjVKA")]
     [Description(@"Transaction Currency does not match.")]
-    TransactionCurrency,
+    TransactionCurrency = UnmatchedReasonCode.TransactionCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction amount does not  match.
-    /// 
-    /// Encoded/decoded by serializers as "TransactionAmount".
+    /// Encoded/decoded by serializers as "TXAM".
     /// </summary>
     [EnumMember(Value = "TXAM")]
     [IsoId("_145lgdCrEeqVwOG0fcjVKA")]
-    [Description(@"Transaction amount does not  match. ")]
-    TransactionAmount,
+    [Description(@"Transaction amount does not  match.|")]
+    TransactionAmount = UnmatchedReasonCode.TransactionAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Minimum Notice Period does not match
-    /// Encoded/decoded by serializers as "MinimumNoticePeriod".
+    /// Encoded/decoded by serializers as "MNTP".
     /// </summary>
     [EnumMember(Value = "MNTP")]
     [IsoId("_2AyWMdCrEeqVwOG0fcjVKA")]
     [Description(@"Minimum Notice Period does not match")]
-    MinimumNoticePeriod,
+    MinimumNoticePeriod = UnmatchedReasonCode.MinimumNoticePeriod, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The Eligibility Set Profile does not match.
-    /// Encoded/decoded by serializers as "EligibilitySetProfile".
+    /// Encoded/decoded by serializers as "EGSP".
     /// </summary>
     [EnumMember(Value = "EGSP")]
     [IsoId("_2unFgdCrEeqVwOG0fcjVKA")]
     [Description(@"The Eligibility Set Profile does not match.")]
-    EligibilitySetProfile,
+    EligibilitySetProfile = UnmatchedReasonCode.EligibilitySetProfile, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The exposure type does not match.
-    /// Encoded/decoded by serializers as "Exposure".
+    /// Encoded/decoded by serializers as "EXPO".
     /// </summary>
     [EnumMember(Value = "EXPO")]
     [IsoId("_3Een0dCrEeqVwOG0fcjVKA")]
     [Description(@"The exposure type does not match.")]
-    Exposure,
+    Exposure = UnmatchedReasonCode.Exposure, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade date does not match.
-    /// Encoded/decoded by serializers as "TradeDate".
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_5gGVsdCrEeqVwOG0fcjVKA")]
     [Description(@"Trade date does not match.")]
-    TradeDate,
+    TradeDate = UnmatchedReasonCode.TradeDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Requested Execution Date Time does not match.
-    /// Encoded/decoded by serializers as "RequestedExecutionDateTime".
+    /// Encoded/decoded by serializers as "REDT".
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_QmAhUdCsEeqVwOG0fcjVKA")]
     [Description(@"Requested Execution Date Time does not match.")]
-    RequestedExecutionDateTime,
+    RequestedExecutionDateTime = UnmatchedReasonCode.RequestedExecutionDateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A matching instruction from your counterparty could not be found.
-    /// Encoded/decoded by serializers as "NoMatch".
+    /// Encoded/decoded by serializers as "CMIS".
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_W6FHcdCsEeqVwOG0fcjVKA")]
     [Description(@"A matching instruction from your counterparty could not be found.")]
-    NoMatch,
+    NoMatch = UnmatchedReasonCode.NoMatch, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transfer Title Indicator does not match.
-    /// Encoded/decoded by serializers as "TransferTitle".
+    /// Encoded/decoded by serializers as "TFRT".
     /// </summary>
     [EnumMember(Value = "TFRT")]
     [IsoId("_euv_cf7UEeqzyss40vrJTg")]
     [Description(@"Transfer Title Indicator does not match.")]
-    TransferTitle,
+    TransferTitle = UnmatchedReasonCode.TransferTitle, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Closing date/time does not match.
-    /// Encoded/decoded by serializers as "ClosingDateTime".
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_frTuUf7UEeqzyss40vrJTg")]
     [Description(@"Closing date/time does not match.")]
-    ClosingDateTime,
+    ClosingDateTime = UnmatchedReasonCode.ClosingDateTime, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number of days after the accrual payment is due does not match.
-    /// Encoded/decoded by serializers as "InterestPaymentDelay".
+    /// Encoded/decoded by serializers as "INPD".
     /// </summary>
     [EnumMember(Value = "INPD")]
     [IsoId("_ou1H0f7VEeqzyss40vrJTg")]
     [Description(@"Number of days after the accrual payment is due does not match.")]
-    InterestPaymentDelay,
+    InterestPaymentDelay = UnmatchedReasonCode.InterestPaymentDelay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The computation method of (accrued) interest does not match.
-    /// Encoded/decoded by serializers as "PaymentFrequency".
+    /// Encoded/decoded by serializers as "PYFQ".
     /// </summary>
     [EnumMember(Value = "PYFQ")]
     [IsoId("_t5ZvQf7VEeqzyss40vrJTg")]
     [Description(@"The computation method of (accrued) interest does not match.")]
-    PaymentFrequency,
+    PaymentFrequency = UnmatchedReasonCode.PaymentFrequency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Compound simple accrual calculation indicator doe not match.
-    /// Encoded/decoded by serializers as "CompoundSimpleAccrualCalculation".
+    /// Encoded/decoded by serializers as "CSAC".
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_w9yGQf7VEeqzyss40vrJTg")]
     [Description(@"Compound simple accrual calculation indicator doe not match.")]
-    CompoundSimpleAccrualCalculation,
+    CompoundSimpleAccrualCalculation = UnmatchedReasonCode.CompoundSimpleAccrualCalculation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lookback days does not match.
-    /// Encoded/decoded by serializers as "LookbackDays".
+    /// Encoded/decoded by serializers as "LBKD".
     /// </summary>
     [EnumMember(Value = "LBKD")]
     [IsoId("_BRlr8f7WEeqzyss40vrJTg")]
     [Description(@"Lookback days does not match.")]
-    LookbackDays,
+    LookbackDays = UnmatchedReasonCode.LookbackDays, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Crystallisation date does not match.
-    /// Encoded/decoded by serializers as "CrystallisationDate".
+    /// Encoded/decoded by serializers as "CRYD".
     /// </summary>
     [EnumMember(Value = "CRYD")]
     [IsoId("_0QDS0f7WEeqzyss40vrJTg")]
     [Description(@"Crystallisation date does not match.")]
-    CrystallisationDate,
+    CrystallisationDate = UnmatchedReasonCode.CrystallisationDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tenor of the interest rate index does not match.
-    /// Encoded/decoded by serializers as "Tenor".
+    /// Encoded/decoded by serializers as "TENO".
     /// </summary>
     [EnumMember(Value = "TENO")]
     [IsoId("_FKFyEf7XEeqzyss40vrJTg")]
     [Description(@"Tenor of the interest rate index does not match.")]
-    Tenor,
+    Tenor = UnmatchedReasonCode.Tenor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement process in which the collateral will be settled does not match.
-    /// Encoded/decoded by serializers as "SettlementProcess".
+    /// Encoded/decoded by serializers as "SEPR".
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_ngdTEQ7iEeujzI3ezCGI7A")]
     [Description(@"Settlement process in which the collateral will be settled does not match.")]
-    SettlementProcess,
+    SettlementProcess = UnmatchedReasonCode.SettlementProcess, // same ordinal as derivation source for type conversions
     
 }
 
@@ -263,7 +262,7 @@ public enum UnmatchedReason15Code
 public static class UnmatchedReason15CodeMetadataExtensions
 {
     private static readonly UnmatchedReason15CodeDropdownSource _dropdownSource = new UnmatchedReason15CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,129 +21,129 @@ public enum FundingSourceType2Code
 {
     /// <summary>
     /// Loyalty points converted into cash
-    /// Encoded/decoded by serializers as "Loyaly".
+    /// Encoded/decoded by serializers as "LOYL".
     /// </summary>
     [EnumMember(Value = "LOYL")]
     [IsoId("_4MzzIdwoEeeiWo5KG3eipw")]
     [Description(@"Loyalty points converted into cash")]
-    Loyaly,
+    Loyaly = FundingSourceTypeCode.Loyaly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of account defined at national level.
-    /// Encoded/decoded by serializers as "OtherNational".
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_46oicdwoEeeiWo5KG3eipw")]
     [Description(@"Other type of account defined at national level.")]
-    OtherNational,
+    OtherNational = FundingSourceTypeCode.OtherNational, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other type of account defined at private level.
-    /// Encoded/decoded by serializers as "OtherPrivate".
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_5EAg4dwoEeeiWo5KG3eipw")]
     [Description(@"Other type of account defined at private level.")]
-    OtherPrivate,
+    OtherPrivate = FundingSourceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVNG".
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_6QVKEdwoEeeiWo5KG3eipw")]
     [Description(@"Savings account.")]
-    Savings,
+    Savings = FundingSourceTypeCode.Savings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "Universal".
+    /// Encoded/decoded by serializers as "UVRL".
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_7OOVsdwoEeeiWo5KG3eipw")]
     [Description(@"Universal account.")]
-    Universal,
+    Universal = FundingSourceTypeCode.Universal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash as a source type  to perform the transaction.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_9LyOkdwoEeeiWo5KG3eipw")]
     [Description(@"Cash as a source type  to perform the transaction.")]
-    Cash,
+    Cash = FundingSourceTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CreditCard".
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_-ayYUdwoEeeiWo5KG3eipw")]
     [Description(@"Credit card account.")]
-    CreditCard,
+    CreditCard = FundingSourceTypeCode.CreditCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Debit card account.
-    /// Encoded/decoded by serializers as "DebitCard".
+    /// Encoded/decoded by serializers as "CDBT".
     /// </summary>
     [EnumMember(Value = "CDBT")]
     [IsoId("__Y0t4dwoEeeiWo5KG3eipw")]
     [Description(@"Debit card account.")]
-    DebitCard,
+    DebitCard = FundingSourceTypeCode.DebitCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EpurseCard".
+    /// Encoded/decoded by serializers as "EPRS".
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("__r3lsdwoEeeiWo5KG3eipw")]
     [Description(@"Electronic purse card account.")]
-    EpurseCard,
+    EpurseCard = FundingSourceTypeCode.EpurseCard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account for debiting funds.
-    /// Encoded/decoded by serializers as "DebitAccount".
+    /// Encoded/decoded by serializers as "DBAC".
     /// </summary>
     [EnumMember(Value = "DBAC")]
     [IsoId("_Av_8MdwpEeeiWo5KG3eipw")]
     [Description(@"Account for debiting funds.")]
-    DebitAccount,
+    DebitAccount = FundingSourceTypeCode.DebitAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Current account.
-    /// Encoded/decoded by serializers as "Current".
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_BI_rAdwpEeeiWo5KG3eipw")]
     [Description(@"Current account.")]
-    Current,
+    Current = FundingSourceTypeCode.Current, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque
-    /// Encoded/decoded by serializers as "Cheque".
+    /// Encoded/decoded by serializers as "CHQE".
     /// </summary>
     [EnumMember(Value = "CHQE")]
     [IsoId("_BviGkdwpEeeiWo5KG3eipw")]
     [Description(@"Cheque")]
-    Cheque,
+    Cheque = FundingSourceTypeCode.Cheque, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pre-paid account.
-    /// Encoded/decoded by serializers as "PrePaid".
+    /// Encoded/decoded by serializers as "PRPD".
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_DMhB8dwpEeeiWo5KG3eipw")]
     [Description(@"Pre-paid account.")]
-    PrePaid,
+    PrePaid = FundingSourceTypeCode.PrePaid, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Line of credit account.
-    /// Encoded/decoded by serializers as "LineOfCredit".
+    /// Encoded/decoded by serializers as "LCDT".
     /// </summary>
     [EnumMember(Value = "LCDT")]
     [IsoId("_7u4G4eFmEeeA0cKTZTRL5g")]
     [Description(@"Line of credit account.")]
-    LineOfCredit,
+    LineOfCredit = FundingSourceTypeCode.LineOfCredit, // same ordinal as derivation source for type conversions
     
 }
 
@@ -154,7 +154,7 @@ public enum FundingSourceType2Code
 public static class FundingSourceType2CodeMetadataExtensions
 {
     private static readonly FundingSourceType2CodeDropdownSource _dropdownSource = new FundingSourceType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,183 +21,183 @@ public enum InstrumentSubStructureType1Code
 {
     /// <summary>
     /// Sub structured type of the financial instrument is an asset backed security.
-    /// Encoded/decoded by serializers as "AssetBackedSecurity".
+    /// Encoded/decoded by serializers as "ABSE".
     /// </summary>
     [EnumMember(Value = "ABSE")]
     [IsoId("_hbSPoWliEeGaMcKyqKNRfQ_-1602851951")]
     [Description(@"Sub structured type of the financial instrument is an asset backed security.")]
-    AssetBackedSecurity,
+    AssetBackedSecurity = InstrumentSubStructureTypeCode.AssetBackedSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is an airline trust.
-    /// Encoded/decoded by serializers as "AirlineTrust".
+    /// Encoded/decoded by serializers as "AIRT".
     /// </summary>
     [EnumMember(Value = "AIRT")]
     [IsoId("_hbSPomliEeGaMcKyqKNRfQ_-1552631371")]
     [Description(@"Sub structured type of the financial instrument is an airline trust.")]
-    AirlineTrust,
+    AirlineTrust = InstrumentSubStructureTypeCode.AirlineTrust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is an auto trust.
-    /// Encoded/decoded by serializers as "AutoTrust".
+    /// Encoded/decoded by serializers as "AUTT".
     /// </summary>
     [EnumMember(Value = "AUTT")]
     [IsoId("_hbSPo2liEeGaMcKyqKNRfQ_-791866218")]
     [Description(@"Sub structured type of the financial instrument is an auto trust.")]
-    AutoTrust,
+    AutoTrust = InstrumentSubStructureTypeCode.AutoTrust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral bond obligation.
-    /// Encoded/decoded by serializers as "CollateralBondObligation".
+    /// Encoded/decoded by serializers as "CBOB".
     /// </summary>
     [EnumMember(Value = "CBOB")]
     [IsoId("_hbSPpGliEeGaMcKyqKNRfQ_675282545")]
     [Description(@"Sub structured type of the financial instrument is a collateral bond obligation.")]
-    CollateralBondObligation,
+    CollateralBondObligation = InstrumentSubStructureTypeCode.CollateralBondObligation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral debt obligation.
-    /// Encoded/decoded by serializers as "CollateralDebtObligation".
+    /// Encoded/decoded by serializers as "CDOB".
     /// </summary>
     [EnumMember(Value = "CDOB")]
     [IsoId("_hbSPpWliEeGaMcKyqKNRfQ_-1109642879")]
     [Description(@"Sub structured type of the financial instrument is a collateral debt obligation.")]
-    CollateralDebtObligation,
+    CollateralDebtObligation = InstrumentSubStructureTypeCode.CollateralDebtObligation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub-structured type of the financial instrument is a credit linked note.
-    /// Encoded/decoded by serializers as "CreditLinkedNotes".
+    /// Encoded/decoded by serializers as "CLNO".
     /// </summary>
     [EnumMember(Value = "CLNO")]
     [IsoId("_hbSPpmliEeGaMcKyqKNRfQ_357505884")]
     [Description(@"Sub-structured type of the financial instrument is a credit linked note.")]
-    CreditLinkedNotes,
+    CreditLinkedNotes = InstrumentSubStructureTypeCode.CreditLinkedNotes, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral loan obligation.
-    /// Encoded/decoded by serializers as "CollateralLoanObligation".
+    /// Encoded/decoded by serializers as "CLOB".
     /// </summary>
     [EnumMember(Value = "CLOB")]
     [IsoId("_hbSPp2liEeGaMcKyqKNRfQ_248168077")]
     [Description(@"Sub structured type of the financial instrument is a collateral loan obligation.")]
-    CollateralLoanObligation,
+    CollateralLoanObligation = InstrumentSubStructureTypeCode.CollateralLoanObligation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a commercial mortgage.
-    /// Encoded/decoded by serializers as "CommercialMortgage".
+    /// Encoded/decoded by serializers as "CMBS".
     /// </summary>
     [EnumMember(Value = "CMBS")]
     [IsoId("_hbSPqGliEeGaMcKyqKNRfQ_1715316840")]
     [Description(@"Sub structured type of the financial instrument is a commercial mortgage.")]
-    CommercialMortgage,
+    CommercialMortgage = InstrumentSubStructureTypeCode.CommercialMortgage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a consumer.
-    /// Encoded/decoded by serializers as "Consumer".
+    /// Encoded/decoded by serializers as "CSMR".
     /// </summary>
     [EnumMember(Value = "CSMR")]
     [IsoId("_hbSPqWliEeGaMcKyqKNRfQ_1128715103")]
     [Description(@"Sub structured type of the financial instrument is a consumer.")]
-    Consumer,
+    Consumer = InstrumentSubStructureTypeCode.Consumer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a credit card trust.
-    /// Encoded/decoded by serializers as "CreditCardTrust".
+    /// Encoded/decoded by serializers as "CRCT".
     /// </summary>
     [EnumMember(Value = "CRCT")]
     [IsoId("_hbSPqmliEeGaMcKyqKNRfQ_-1141613643")]
     [Description(@"Sub structured type of the financial instrument is a credit card trust.")]
-    CreditCardTrust,
+    CreditCardTrust = InstrumentSubStructureTypeCode.CreditCardTrust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a home equity loan.
-    /// Encoded/decoded by serializers as "HomeEquityLoans".
+    /// Encoded/decoded by serializers as "HELO".
     /// </summary>
     [EnumMember(Value = "HELO")]
     [IsoId("_hbSPq2liEeGaMcKyqKNRfQ_325535120")]
     [Description(@"Sub structured type of the financial instrument is a home equity loan.")]
-    HomeEquityLoans,
+    HomeEquityLoans = InstrumentSubStructureTypeCode.HomeEquityLoans, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a loan participation notes.
-    /// Encoded/decoded by serializers as "LoanParticipationNote".
+    /// Encoded/decoded by serializers as "LPNO".
     /// </summary>
     [EnumMember(Value = "LPNO")]
     [IsoId("_hbSPrGliEeGaMcKyqKNRfQ_-816496136")]
     [Description(@"Sub structured type of the financial instrument is a loan participation notes.")]
-    LoanParticipationNote,
+    LoanParticipationNote = InstrumentSubStructureTypeCode.LoanParticipationNote, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a covered bond.
-    /// Encoded/decoded by serializers as "CoveredBond".
+    /// Encoded/decoded by serializers as "PFAB".
     /// </summary>
     [EnumMember(Value = "PFAB")]
     [IsoId("_hbSPrWliEeGaMcKyqKNRfQ_650652627")]
     [Description(@"Sub structured type of the financial instrument is a covered bond.")]
-    CoveredBond,
+    CoveredBond = InstrumentSubStructureTypeCode.CoveredBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a payment right.
-    /// Encoded/decoded by serializers as "PaymentRight".
+    /// Encoded/decoded by serializers as "PYRT".
     /// </summary>
     [EnumMember(Value = "PYRT")]
     [IsoId("_hbSPrmliEeGaMcKyqKNRfQ_2103546148")]
     [Description(@"Sub structured type of the financial instrument is a payment right.")]
-    PaymentRight,
+    PaymentRight = InstrumentSubStructureTypeCode.PaymentRight, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a repackaging.
-    /// Encoded/decoded by serializers as "Repackagings".
+    /// Encoded/decoded by serializers as "REPK".
     /// </summary>
     [EnumMember(Value = "REPK")]
     [IsoId("_hbSPr2liEeGaMcKyqKNRfQ_1468514302")]
     [Description(@"Sub structured type of the financial instrument is a repackaging.")]
-    Repackagings,
+    Repackagings = InstrumentSubStructureTypeCode.Repackagings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a residential mortgage.
-    /// Encoded/decoded by serializers as "ResidentialMortgage".
+    /// Encoded/decoded by serializers as "RMBS".
     /// </summary>
     [EnumMember(Value = "RMBS")]
     [IsoId("_hbSPsGliEeGaMcKyqKNRfQ_-1359304231")]
     [Description(@"Sub structured type of the financial instrument is a residential mortgage.")]
-    ResidentialMortgage,
+    ResidentialMortgage = InstrumentSubStructureTypeCode.ResidentialMortgage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a structured covered bond.
-    /// Encoded/decoded by serializers as "StructuredCoveredBond".
+    /// Encoded/decoded by serializers as "SCBO".
     /// </summary>
     [EnumMember(Value = "SCBO")]
     [IsoId("_hbSPsWliEeGaMcKyqKNRfQ_-1748432656")]
     [Description(@"Sub structured type of the financial instrument is a structured covered bond.")]
-    StructuredCoveredBond,
+    StructuredCoveredBond = InstrumentSubStructureTypeCode.StructuredCoveredBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a straight bond.
-    /// Encoded/decoded by serializers as "StraightBond".
+    /// Encoded/decoded by serializers as "STRB".
     /// </summary>
     [EnumMember(Value = "STRB")]
     [IsoId("_hbSPsmliEeGaMcKyqKNRfQ_-281283893")]
     [Description(@"Sub structured type of the financial instrument is a straight bond.")]
-    StraightBond,
+    StraightBond = InstrumentSubStructureTypeCode.StraightBond, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a student loan trust.
-    /// Encoded/decoded by serializers as "StudentLoanTrust".
+    /// Encoded/decoded by serializers as "STUT".
     /// </summary>
     [EnumMember(Value = "STUT")]
     [IsoId("_hbSPs2liEeGaMcKyqKNRfQ_-697299584")]
     [Description(@"Sub structured type of the financial instrument is a student loan trust.")]
-    StudentLoanTrust,
+    StudentLoanTrust = InstrumentSubStructureTypeCode.StudentLoanTrust, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sub structured type of the financial instrument is a whole business security.
-    /// Encoded/decoded by serializers as "WholeBusinessSecurity".
+    /// Encoded/decoded by serializers as "WBSE".
     /// </summary>
     [EnumMember(Value = "WBSE")]
     [IsoId("_hbSPtGliEeGaMcKyqKNRfQ_769849179")]
     [Description(@"Sub structured type of the financial instrument is a whole business security.")]
-    WholeBusinessSecurity,
+    WholeBusinessSecurity = InstrumentSubStructureTypeCode.WholeBusinessSecurity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -208,7 +208,7 @@ public enum InstrumentSubStructureType1Code
 public static class InstrumentSubStructureType1CodeMetadataExtensions
 {
     private static readonly InstrumentSubStructureType1CodeDropdownSource _dropdownSource = new InstrumentSubStructureType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

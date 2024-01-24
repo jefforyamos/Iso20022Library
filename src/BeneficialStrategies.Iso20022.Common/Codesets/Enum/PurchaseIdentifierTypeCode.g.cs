@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_dsO7g_JOEeiJn9rM2Znz2w")]
 [Description(@"Identifies the type of identifier used in the Purchase Identifier field. ")]
 [Derivations(typeof(PurchaseIdentifierType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PurchaseIdentifierTypeCode
 {
     /// <summary>
@@ -200,7 +199,7 @@ public enum PurchaseIdentifierTypeCode
 public static class PurchaseIdentifierTypeCodeMetadataExtensions
 {
     private static readonly PurchaseIdentifierTypeCodeDropdownSource _dropdownSource = new PurchaseIdentifierTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

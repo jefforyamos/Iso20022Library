@@ -21,30 +21,30 @@ public enum LumpSumType1Code
 {
     /// <summary>
     /// Lump sum is a death benefit lump sum.
-    /// Encoded/decoded by serializers as "DeathBenefit".
+    /// Encoded/decoded by serializers as "DEAB".
     /// </summary>
     [EnumMember(Value = "DEAB")]
     [IsoId("_ULDvsbKeEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is a death benefit lump sum.")]
-    DeathBenefit,
+    DeathBenefit = LumpSumTypeCode.DeathBenefit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lump sum is a pension commencement lump sum.
-    /// Encoded/decoded by serializers as "PensionCommencement".
+    /// Encoded/decoded by serializers as "PCLS".
     /// </summary>
     [EnumMember(Value = "PCLS")]
     [IsoId("_UQQ_0bKeEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is a pension commencement lump sum.")]
-    PensionCommencement,
+    PensionCommencement = LumpSumTypeCode.PensionCommencement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Lump sum is an uncrystallised fund pension lump sum.
-    /// Encoded/decoded by serializers as "Uncrystallised".
+    /// Encoded/decoded by serializers as "UFPL".
     /// </summary>
     [EnumMember(Value = "UFPL")]
     [IsoId("_UVKt8bKeEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is an uncrystallised fund pension lump sum.")]
-    Uncrystallised,
+    Uncrystallised = LumpSumTypeCode.Uncrystallised, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum LumpSumType1Code
 public static class LumpSumType1CodeMetadataExtensions
 {
     private static readonly LumpSumType1CodeDropdownSource _dropdownSource = new LumpSumType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

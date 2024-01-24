@@ -21,120 +21,120 @@ public enum Side1Code
 {
     /// <summary>
     /// Order is buy driven.
-    /// Encoded/decoded by serializers as "Buy".
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_ZO3hUdp-Ed-ak6NoX_4Aeg_336258192")]
     [Description(@"Order is buy driven.")]
-    Buy,
+    Buy = SideCode.Buy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_ZO3hUtp-Ed-ak6NoX_4Aeg_336258193")]
     [Description(@"Order is sell driven.")]
-    Sell,
+    Sell = SideCode.Sell, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates that the side refers to both buys and sells.
-    /// Encoded/decoded by serializers as "TwoSided".
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_ZO3hU9p-Ed-ak6NoX_4Aeg_336258194")]
     [Description(@"Indicates that the side refers to both buys and sells.")]
-    TwoSided,
+    TwoSided = SideCode.TwoSided, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A round-lot market order to buy minus is an order to buy a stated amount of a stock provided that its price is: |- not higher than the last sale if the last sale was a minus or zero minus tick and|- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a plus or zero plus tick.|A limit price order to buy minus also states the highest price at which it can be executed.
-    /// Encoded/decoded by serializers as "BuyMinus".
+    /// Encoded/decoded by serializers as "BUMI".
     /// </summary>
     [EnumMember(Value = "BUMI")]
     [IsoId("_ZO3hVNp-Ed-ak6NoX_4Aeg_953165368")]
     [Description(@"A round-lot market order to buy minus is an order to buy a stated amount of a stock provided that its price is: |- not higher than the last sale if the last sale was a minus or zero minus tick and|- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a plus or zero plus tick.|A limit price order to buy minus also states the highest price at which it can be executed.")]
-    BuyMinus,
+    BuyMinus = SideCode.BuyMinus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A round-lot market order to sell plus is an order to sell a stated amount of a stock provided that its price is: |- not lower than the last sale if the last sale was a plus or zero plus tick and|- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a minus or zero minus tick.|A limit-price order to sell plus also states the lowest price at which it can be executed.
-    /// Encoded/decoded by serializers as "SellPlus".
+    /// Encoded/decoded by serializers as "SEPL".
     /// </summary>
     [EnumMember(Value = "SEPL")]
     [IsoId("_ZO3hVdp-Ed-ak6NoX_4Aeg_953165771")]
     [Description(@"A round-lot market order to sell plus is an order to sell a stated amount of a stock provided that its price is: |- not lower than the last sale if the last sale was a plus or zero plus tick and|- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a minus or zero minus tick.|A limit-price order to sell plus also states the lowest price at which it can be executed.")]
-    SellPlus,
+    SellPlus = SideCode.SellPlus, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.
-    /// Encoded/decoded by serializers as "SellShort".
+    /// Encoded/decoded by serializers as "SESH".
     /// </summary>
     [EnumMember(Value = "SESH")]
     [IsoId("_ZO3hVtp-Ed-ak6NoX_4Aeg_953165891")]
     [Description(@"An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.")]
-    SellShort,
+    SellShort = SideCode.SellShort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Short sale exempt from short-sale rules.
-    /// Encoded/decoded by serializers as "SellShortExempt".
+    /// Encoded/decoded by serializers as "SSEX".
     /// </summary>
     [EnumMember(Value = "SSEX")]
     [IsoId("_ZO3hV9p-Ed-ak6NoX_4Aeg_953166228")]
     [Description(@"Short sale exempt from short-sale rules.")]
-    SellShortExempt,
+    SellShortExempt = SideCode.SellShortExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an order for which a broker wishes to take the other side and cross with the client.
-    /// Encoded/decoded by serializers as "Cross".
+    /// Encoded/decoded by serializers as "CROS".
     /// </summary>
     [EnumMember(Value = "CROS")]
     [IsoId("_ZO3hWNp-Ed-ak6NoX_4Aeg_2013366401")]
     [Description(@"Identifies an order for which a broker wishes to take the other side and cross with the client.")]
-    Cross,
+    Cross = SideCode.Cross, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position, and sends a Sell Short order to the broker. Many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to Cross (instead of Cross Short) could result in an illegal short sell.
-    /// Encoded/decoded by serializers as "CrossShort".
+    /// Encoded/decoded by serializers as "CRSH".
     /// </summary>
     [EnumMember(Value = "CRSH")]
     [IsoId("_ZO3hWdp-Ed-ak6NoX_4Aeg_2013366805")]
     [Description(@"Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position, and sends a Sell Short order to the broker. Many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to Cross (instead of Cross Short) could result in an illegal short sell.")]
-    CrossShort,
+    CrossShort = SideCode.CrossShort, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position and is exempt from the uptick restriction. Used as audit trail on exchanges.
-    /// Encoded/decoded by serializers as "CrossShortExempt".
+    /// Encoded/decoded by serializers as "CSHE".
     /// </summary>
     [EnumMember(Value = "CSHE")]
     [IsoId("_ZPArQNp-Ed-ak6NoX_4Aeg_2013366943")]
     [Description(@"Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position and is exempt from the uptick restriction. Used as audit trail on exchanges.")]
-    CrossShortExempt,
+    CrossShortExempt = SideCode.CrossShortExempt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "AsDefined".
+    /// Encoded/decoded by serializers as "DEFI".
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_ZPArQdp-Ed-ak6NoX_4Aeg_2013367073")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.")]
-    AsDefined,
+    AsDefined = SideCode.AsDefined, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "Opposite".
+    /// Encoded/decoded by serializers as "OPPO".
     /// </summary>
     [EnumMember(Value = "OPPO")]
     [IsoId("_ZPArQtp-Ed-ak6NoX_4Aeg_2013367427")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.")]
-    Opposite,
+    Opposite = SideCode.Opposite, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
-    /// Encoded/decoded by serializers as "Undisclosed".
+    /// Encoded/decoded by serializers as "UNDI".
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_ZPArQ9p-Ed-ak6NoX_4Aeg_2013367778")]
     [Description(@"The side of the indication of interest is not disclosed.")]
-    Undisclosed,
+    Undisclosed = SideCode.Undisclosed, // same ordinal as derivation source for type conversions
     
 }
 
@@ -145,7 +145,7 @@ public enum Side1Code
 public static class Side1CodeMetadataExtensions
 {
     private static readonly Side1CodeDropdownSource _dropdownSource = new Side1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

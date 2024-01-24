@@ -21,21 +21,21 @@ public enum ServiceAdjustmentType1Code
 {
     /// <summary>
     /// Adjustment applies to a service which is balance compensable. Earnings credits based on average balances maintained in the account can be used to offset the service charge.
-    /// Encoded/decoded by serializers as "Compensable".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_6V6hwJqlEeGSON8vddiWzQ_1688850679")]
     [Description(@"Adjustment applies to a service which is balance compensable. Earnings credits based on average balances maintained in the account can be used to offset the service charge.")]
-    Compensable,
+    Compensable = ServiceAdjustmentTypeCode.Compensable, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Adjustment applies to a service which is not balance compensable. Balance based credits cannot be used to offset the service charge.
-    /// Encoded/decoded by serializers as "NonCompensable".
+    /// Encoded/decoded by serializers as "NCMP".
     /// </summary>
     [EnumMember(Value = "NCMP")]
     [IsoId("_6V6hwZqlEeGSON8vddiWzQ_1677751902")]
     [Description(@"Adjustment applies to a service which is not balance compensable. Balance based credits cannot be used to offset the service charge.")]
-    NonCompensable,
+    NonCompensable = ServiceAdjustmentTypeCode.NonCompensable, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ServiceAdjustmentType1Code
 public static class ServiceAdjustmentType1CodeMetadataExtensions
 {
     private static readonly ServiceAdjustmentType1CodeDropdownSource _dropdownSource = new ServiceAdjustmentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

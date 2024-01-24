@@ -21,75 +21,75 @@ public enum CardholderVerificationCapability3Code
 {
     /// <summary>
     /// Online PIN (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OnLinePIN".
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_uI4vAYn7EeShMpas3885ww")]
     [Description(@"Online PIN (Personal Identification Number).")]
-    OnLinePIN,
+    OnLinePIN = CardholderVerificationCapabilityCode.OnLinePIN, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePINClear".
+    /// Encoded/decoded by serializers as "FCPN".
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_v1O8EYn7EeShMpas3885ww")]
     [Description(@"Offline PIN in clear (Personal Identification Number).")]
-    OfflinePINClear,
+    OfflinePINClear = CardholderVerificationCapabilityCode.OfflinePINClear, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
-    /// Encoded/decoded by serializers as "OfflinePINEncrypted".
+    /// Encoded/decoded by serializers as "FEPN".
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_v7pGEYn7EeShMpas3885ww")]
     [Description(@"Offline PIN encrypted (Personal Identification Number).")]
-    OfflinePINEncrypted,
+    OfflinePINEncrypted = CardholderVerificationCapabilityCode.OfflinePINEncrypted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline digital signature analysis.
-    /// Encoded/decoded by serializers as "OfflineDigitalSignature".
+    /// Encoded/decoded by serializers as "FDSG".
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_xFjUcYn7EeShMpas3885ww")]
     [Description(@"Offline digital signature analysis.")]
-    OfflineDigitalSignature,
+    OfflineDigitalSignature = CardholderVerificationCapabilityCode.OfflineDigitalSignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline biometrics.
-    /// Encoded/decoded by serializers as "OfflineBiometrics".
+    /// Encoded/decoded by serializers as "FBIO".
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_x1FT8Yn7EeShMpas3885ww")]
     [Description(@"Offline biometrics.")]
-    OfflineBiometrics,
+    OfflineBiometrics = CardholderVerificationCapabilityCode.OfflineBiometrics, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Offline biographics.
-    /// Encoded/decoded by serializers as "OfflineBiographics".
+    /// Encoded/decoded by serializers as "FBIG".
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_x6xsQYn7EeShMpas3885ww")]
     [Description(@"Offline biographics.")]
-    OfflineBiographics,
+    OfflineBiographics = CardholderVerificationCapabilityCode.OfflineBiographics, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
-    /// Encoded/decoded by serializers as "PKISignature".
+    /// Encoded/decoded by serializers as "PKIS".
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_ylWTQYn7EeShMpas3885ww")]
     [Description(@"PKI (Public Key Infrastructure) based digital signature.")]
-    PKISignature,
+    PKISignature = CardholderVerificationCapabilityCode.PKISignature, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Personal code of the customer for banking services.
-    /// Encoded/decoded by serializers as "PersonalCode".
+    /// Encoded/decoded by serializers as "PCOD".
     /// </summary>
     [EnumMember(Value = "PCOD")]
     [IsoId("_zQIVoYn7EeShMpas3885ww")]
     [Description(@"Personal code of the customer for banking services.")]
-    PersonalCode,
+    PersonalCode = CardholderVerificationCapabilityCode.PersonalCode, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum CardholderVerificationCapability3Code
 public static class CardholderVerificationCapability3CodeMetadataExtensions
 {
     private static readonly CardholderVerificationCapability3CodeDropdownSource _dropdownSource = new CardholderVerificationCapability3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

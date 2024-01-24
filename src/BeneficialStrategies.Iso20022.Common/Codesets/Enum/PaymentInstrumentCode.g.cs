@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Z0Hjd9p-Ed-ak6NoX_4Aeg_382466788")]
 [Description(@"Specifies the payment instrument used or the underlying financial transaction that resulted in a payment transaction.")]
 [Derivations(typeof(PaymentInstrument1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentInstrumentCode
 {
     /// <summary>
@@ -119,7 +118,7 @@ public enum PaymentInstrumentCode
 public static class PaymentInstrumentCodeMetadataExtensions
 {
     private static readonly PaymentInstrumentCodeDropdownSource _dropdownSource = new PaymentInstrumentCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_sPf1A154Ee2a_-MvhEjKmA")]
 [Description(@"Pairing status for an individual transaction or report.")]
 [Derivations(typeof(PairingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PairingStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum PairingStatusCode
 public static class PairingStatusCodeMetadataExtensions
 {
     private static readonly PairingStatusCodeDropdownSource _dropdownSource = new PairingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

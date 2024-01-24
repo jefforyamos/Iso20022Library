@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_atVqdtp-Ed-ak6NoX_4Aeg_267040757")]
 [Description(@"Specifies the category of the investment fund order.")]
-[Derivations(typeof(FundOrderType2Code),typeof(FundOrderType6Code),typeof(FundOrderType3Code),typeof(FundOrderType5Code),typeof(FundOrderType4Code),typeof(HedgeFundOrderType2Code),typeof(HedgeFundOrderType1Code),typeof(FundOrderType1Code),typeof(FundOrderType7Code),typeof(FundOrderType8Code),typeof(FundOrderType10Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(FundOrderType10Code),typeof(FundOrderType2Code),typeof(FundOrderType6Code),typeof(FundOrderType1Code),typeof(FundOrderType3Code),typeof(FundOrderType7Code),typeof(HedgeFundOrderType1Code),typeof(HedgeFundOrderType2Code),typeof(FundOrderType4Code),typeof(FundOrderType5Code),typeof(FundOrderType8Code))]
 public enum FundOrderTypeCode
 {
     /// <summary>
@@ -290,7 +289,7 @@ public enum FundOrderTypeCode
 public static class FundOrderTypeCodeMetadataExtensions
 {
     private static readonly FundOrderTypeCodeDropdownSource _dropdownSource = new FundOrderTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

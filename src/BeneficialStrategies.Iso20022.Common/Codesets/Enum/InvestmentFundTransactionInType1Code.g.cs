@@ -21,48 +21,48 @@ public enum InvestmentFundTransactionInType1Code
 {
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "Subscription".
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_acpjGNp-Ed-ak6NoX_4Aeg_99517208")]
     [Description(@"Transaction is a subscription to an investment fund.")]
-    Subscription,
+    Subscription = InvestmentFundTransactionTypeCode.Subscription, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SwitchIn".
+    /// Encoded/decoded by serializers as "SWII".
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_acpjGdp-Ed-ak6NoX_4Aeg_99517562")]
     [Description(@"Transaction is a subscription leg of a switch order execution.")]
-    SwitchIn,
+    SwitchIn = InvestmentFundTransactionTypeCode.SwitchIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "InSpecie".
+    /// Encoded/decoded by serializers as "INSP".
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_aczUENp-Ed-ak6NoX_4Aeg_100437611")]
     [Description(@"Transaction is an InSpecie.")]
-    InSpecie,
+    InSpecie = InvestmentFundTransactionTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a cross-in.
-    /// Encoded/decoded by serializers as "CrossIn".
+    /// Encoded/decoded by serializers as "CROI".
     /// </summary>
     [EnumMember(Value = "CROI")]
     [IsoId("_aczUEdp-Ed-ak6NoX_4Aeg_100437629")]
     [Description(@"Transaction is a cross-in.")]
-    CrossIn,
+    CrossIn = InvestmentFundTransactionTypeCode.CrossIn, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction is a reinvestment of dividend.
-    /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
+    /// Encoded/decoded by serializers as "RDIV".
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_aczUEtp-Ed-ak6NoX_4Aeg_711808534")]
     [Description(@"Transaction is a reinvestment of dividend.")]
-    ReinvestmentOfDividend,
+    ReinvestmentOfDividend = InvestmentFundTransactionTypeCode.ReinvestmentOfDividend, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum InvestmentFundTransactionInType1Code
 public static class InvestmentFundTransactionInType1CodeMetadataExtensions
 {
     private static readonly InvestmentFundTransactionInType1CodeDropdownSource _dropdownSource = new InvestmentFundTransactionInType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

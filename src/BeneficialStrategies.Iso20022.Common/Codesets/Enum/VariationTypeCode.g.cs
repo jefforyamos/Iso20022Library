@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aqnvkHynEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the type of variation.")]
 [Derivations(typeof(VariationType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum VariationTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum VariationTypeCode
 public static class VariationTypeCodeMetadataExtensions
 {
     private static readonly VariationTypeCodeDropdownSource _dropdownSource = new VariationTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

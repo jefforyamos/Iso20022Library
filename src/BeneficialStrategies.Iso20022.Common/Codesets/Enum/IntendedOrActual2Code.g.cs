@@ -21,21 +21,21 @@ public enum IntendedOrActual2Code
 {
     /// <summary>
     /// Ex ante (intended).
-    /// Encoded/decoded by serializers as "ExAnte".
+    /// Encoded/decoded by serializers as "ANTE".
     /// </summary>
     [EnumMember(Value = "ANTE")]
     [IsoId("_bTCWIYppEeidFfW6ExBZOw")]
     [Description(@"Ex ante (intended).")]
-    ExAnte,
+    ExAnte = IntendedOrActualCode.ExAnte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ex post (actual).
-    /// Encoded/decoded by serializers as "ExPost".
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_bYjIQYppEeidFfW6ExBZOw")]
     [Description(@"Ex post (actual).")]
-    ExPost,
+    ExPost = IntendedOrActualCode.ExPost, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum IntendedOrActual2Code
 public static class IntendedOrActual2CodeMetadataExtensions
 {
     private static readonly IntendedOrActual2CodeDropdownSource _dropdownSource = new IntendedOrActual2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

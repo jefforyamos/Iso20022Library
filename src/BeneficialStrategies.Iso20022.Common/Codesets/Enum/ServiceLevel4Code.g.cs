@@ -21,12 +21,12 @@ public enum ServiceLevel4Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_ZKjCBdp-Ed-ak6NoX_4Aeg_918510723")]
     [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
-    SingleEuroPaymentsArea,
+    SingleEuroPaymentsArea = ServiceLevelCode.SingleEuroPaymentsArea, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ServiceLevel4Code
 public static class ServiceLevel4CodeMetadataExtensions
 {
     private static readonly ServiceLevel4CodeDropdownSource _dropdownSource = new ServiceLevel4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

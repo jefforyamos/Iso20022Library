@@ -21,597 +21,597 @@ public enum PendingReason3Code
 {
     /// <summary>
     /// Financial instruments are delivered, but still awaiting money from counterparty.
-    /// Encoded/decoded by serializers as "AwaitingMoney".
+    /// Encoded/decoded by serializers as "AWMO".
     /// </summary>
     [EnumMember(Value = "AWMO")]
     [IsoId("_aBreUdp-Ed-ak6NoX_4Aeg_-1456234196")]
     [Description(@"Financial instruments are delivered, but still awaiting money from counterparty.")]
-    AwaitingMoney,
+    AwaitingMoney = PendingFailingReasonCode.AwaitingMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_aBreUtp-Ed-ak6NoX_4Aeg_196393312")]
     [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = PendingFailingReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Tax reclaim has been sent to the tax authorities.
-    /// Encoded/decoded by serializers as "SentToTaxAuthorities".
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_aBreU9p-Ed-ak6NoX_4Aeg_-95564426")]
     [Description(@"Tax reclaim has been sent to the tax authorities.")]
-    SentToTaxAuthorities,
+    SentToTaxAuthorities = PendingFailingReasonCode.SentToTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
-    /// Encoded/decoded by serializers as "AwaitingSecurities".
+    /// Encoded/decoded by serializers as "CAIS".
     /// </summary>
     [EnumMember(Value = "CAIS")]
     [IsoId("_aBreVNp-Ed-ak6NoX_4Aeg_82554246")]
     [Description(@"Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.")]
-    AwaitingSecurities,
+    AwaitingSecurities = PendingFailingReasonCode.AwaitingSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been refused or not recognised and is represented automatically.
-    /// Encoded/decoded by serializers as "InstructionRefusedOrNotRecognised".
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_aBreVdp-Ed-ak6NoX_4Aeg_1841660747")]
     [Description(@"Instruction has been refused or not recognised and is represented automatically.")]
-    InstructionRefusedOrNotRecognised,
+    InstructionRefusedOrNotRecognised = PendingFailingReasonCode.InstructionRefusedOrNotRecognised, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments have not yet been received from the counterparty (if receive against payment trade), the money has been delivered.
-    /// Encoded/decoded by serializers as "AwaitingSecuritiesFromCounterparty".
+    /// Encoded/decoded by serializers as "AWSH".
     /// </summary>
     [EnumMember(Value = "AWSH")]
     [IsoId("_aBreVtp-Ed-ak6NoX_4Aeg_-800679041")]
     [Description(@"Financial instruments have not yet been received from the counterparty (if receive against payment trade), the money has been delivered.")]
-    AwaitingSecuritiesFromCounterparty,
+    AwaitingSecuritiesFromCounterparty = PendingFailingReasonCode.AwaitingSecuritiesFromCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement is physical. Financial instruments are being delivered.
-    /// Encoded/decoded by serializers as "PhysicalDeliveryDelay".
+    /// Encoded/decoded by serializers as "PHSE".
     /// </summary>
     [EnumMember(Value = "PHSE")]
     [IsoId("_aBreV9p-Ed-ak6NoX_4Aeg_-1092636779")]
     [Description(@"Settlement is physical. Financial instruments are being delivered.")]
-    PhysicalDeliveryDelay,
+    PhysicalDeliveryDelay = PendingFailingReasonCode.PhysicalDeliveryDelay, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade is being amended in the market.
-    /// Encoded/decoded by serializers as "TradeAmendedInMarket".
+    /// Encoded/decoded by serializers as "TAMM".
     /// </summary>
     [EnumMember(Value = "TAMM")]
     [IsoId("_aBreWNp-Ed-ak6NoX_4Aeg_-914518107")]
     [Description(@"Trade is being amended in the market.")]
-    TradeAmendedInMarket,
+    TradeAmendedInMarket = PendingFailingReasonCode.TradeAmendedInMarket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting documents or endorsements from you.
-    /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
+    /// Encoded/decoded by serializers as "DOCY".
     /// </summary>
     [EnumMember(Value = "DOCY")]
     [IsoId("_aB1PUNp-Ed-ak6NoX_4Aeg_844588394")]
     [Description(@"Awaiting documents or endorsements from you.")]
-    AwaitingDocumentsOrEndorsementsFromYou,
+    AwaitingDocumentsOrEndorsementsFromYou = PendingFailingReasonCode.AwaitingDocumentsOrEndorsementsFromYou, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting documents or endorsements from counterparty.
-    /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromCounterparty".
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_aB1PUdp-Ed-ak6NoX_4Aeg_-1797751394")]
     [Description(@"Awaiting documents or endorsements from counterparty.")]
-    AwaitingDocumentsOrEndorsementsFromCounterparty,
+    AwaitingDocumentsOrEndorsementsFromCounterparty = PendingFailingReasonCode.AwaitingDocumentsOrEndorsementsFromCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your account is blocked, no instruction can settle over the account.
-    /// Encoded/decoded by serializers as "AccountBlocked".
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_aB1PUtp-Ed-ak6NoX_4Aeg_-2089709132")]
     [Description(@"Your account is blocked, no instruction can settle over the account.")]
-    AccountBlocked,
+    AccountBlocked = PendingFailingReasonCode.AccountBlocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A chaser/enquiry has been sent.
-    /// Encoded/decoded by serializers as "EnquirySent".
+    /// Encoded/decoded by serializers as "CHAS".
     /// </summary>
     [EnumMember(Value = "CHAS")]
     [IsoId("_aB1PU9p-Ed-ak6NoX_4Aeg_-1911590460")]
     [Description(@"A chaser/enquiry has been sent.")]
-    EnquirySent,
+    EnquirySent = PendingFailingReasonCode.EnquirySent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instrument is a new issue and not yet available/tradable.
-    /// Encoded/decoded by serializers as "NewIssues".
+    /// Encoded/decoded by serializers as "NEWI".
     /// </summary>
     [EnumMember(Value = "NEWI")]
     [IsoId("_aB1PVNp-Ed-ak6NoX_4Aeg_-152483959")]
     [Description(@"Financial instrument is a new issue and not yet available/tradable.")]
-    NewIssues,
+    NewIssues = PendingFailingReasonCode.NewIssues, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.
-    /// Encoded/decoded by serializers as "CounterpartyInsufficientSecurities".
+    /// Encoded/decoded by serializers as "CLAC".
     /// </summary>
     [EnumMember(Value = "CLAC")]
     [IsoId("_aB1PVdp-Ed-ak6NoX_4Aeg_1500143549")]
     [Description(@"Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.")]
-    CounterpartyInsufficientSecurities,
+    CounterpartyInsufficientSecurities = PendingFailingReasonCode.CounterpartyInsufficientSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MultipleSettlementAmount".
+    /// Encoded/decoded by serializers as "MUNO".
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_aB1PVtp-Ed-ak6NoX_4Aeg_1208185811")]
     [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
-    MultipleSettlementAmount,
+    MultipleSettlementAmount = PendingFailingReasonCode.MultipleSettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement cannot be executed; financial instruments are in global form.
-    /// Encoded/decoded by serializers as "GlobalFormSecurities".
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aB1PV9p-Ed-ak6NoX_4Aeg_1386304483")]
     [Description(@"Settlement cannot be executed; financial instruments are in global form.")]
-    GlobalFormSecurities,
+    GlobalFormSecurities = PendingFailingReasonCode.GlobalFormSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "YourInstructionOnHold".
+    /// Encoded/decoded by serializers as "PREA".
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_aB1PWNp-Ed-ak6NoX_4Aeg_-1149556312")]
     [Description(@"Your instruction is a preadvice, that is, for matching only.")]
-    YourInstructionOnHold,
+    YourInstructionOnHold = PendingFailingReasonCode.YourInstructionOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade will settle in partials.
-    /// Encoded/decoded by serializers as "TradeSettlesInPartials".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_aB1PWdp-Ed-ak6NoX_4Aeg_211113458")]
     [Description(@"Trade will settle in partials.")]
-    TradeSettlesInPartials,
+    TradeSettlesInPartials = PendingFailingReasonCode.TradeSettlesInPartials, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has not been matched; matching process is not required.
-    /// Encoded/decoded by serializers as "NoMatchingRequired".
+    /// Encoded/decoded by serializers as "NMAS".
     /// </summary>
     [EnumMember(Value = "NMAS")]
     [IsoId("_aB1PWtp-Ed-ak6NoX_4Aeg_389232130")]
     [Description(@"Instruction has not been matched; matching process is not required.")]
-    NoMatchingRequired,
+    NoMatchingRequired = PendingFailingReasonCode.NoMatchingRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in counterparty's account.
-    /// Encoded/decoded by serializers as "CounterpartyInsufficientMoney".
+    /// Encoded/decoded by serializers as "CMON".
     /// </summary>
     [EnumMember(Value = "CMON")]
     [IsoId("_aB-ZQNp-Ed-ak6NoX_4Aeg_-2146628665")]
     [Description(@"Insufficient money in counterparty's account.")]
-    CounterpartyInsufficientMoney,
+    CounterpartyInsufficientMoney = PendingFailingReasonCode.CounterpartyInsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient collateral in your account to execute the instruction.
-    /// Encoded/decoded by serializers as "CollateralShortage".
+    /// Encoded/decoded by serializers as "YCOL".
     /// </summary>
     [EnumMember(Value = "YCOL")]
     [IsoId("_aB-ZQdp-Ed-ak6NoX_4Aeg_-416962456")]
     [Description(@"Insufficient collateral in your account to execute the instruction.")]
-    CollateralShortage,
+    CollateralShortage = PendingFailingReasonCode.CollateralShortage, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are not deliverable as they are pledged as collateral.
-    /// Encoded/decoded by serializers as "SecuritiesPledgedAsCollateral".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_aB-ZQtp-Ed-ak6NoX_4Aeg_-708920194")]
     [Description(@"Financial instruments are not deliverable as they are pledged as collateral.")]
-    SecuritiesPledgedAsCollateral,
+    SecuritiesPledgedAsCollateral = PendingFailingReasonCode.SecuritiesPledgedAsCollateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit of shares for the issuing of depositary receipts has been refused. The allotment granted by the issuer is exceeded by your transaction.
-    /// Encoded/decoded by serializers as "RefusedDepositForIssueOfDepositaryReceipts".
+    /// Encoded/decoded by serializers as "DEPO".
     /// </summary>
     [EnumMember(Value = "DEPO")]
     [IsoId("_aB-ZQ9p-Ed-ak6NoX_4Aeg_-530801522")]
     [Description(@"Deposit of shares for the issuing of depositary receipts has been refused. The allotment granted by the issuer is exceeded by your transaction.")]
-    RefusedDepositForIssueOfDepositaryReceipts,
+    RefusedDepositForIssueOfDepositaryReceipts = PendingFailingReasonCode.RefusedDepositForIssueOfDepositaryReceipts, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
-    /// Encoded/decoded by serializers as "MaximumForeignLimitReached".
+    /// Encoded/decoded by serializers as "FLIM".
     /// </summary>
     [EnumMember(Value = "FLIM")]
     [IsoId("_aB-ZRNp-Ed-ak6NoX_4Aeg_1228304979")]
     [Description(@"Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.")]
-    MaximumForeignLimitReached,
+    MaximumForeignLimitReached = PendingFailingReasonCode.MaximumForeignLimitReached, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A foreign exchange instruction from you is missing.
-    /// Encoded/decoded by serializers as "NoForeignExchangeInstruction".
+    /// Encoded/decoded by serializers as "NOFX".
     /// </summary>
     [EnumMember(Value = "NOFX")]
     [IsoId("_aB-ZRdp-Ed-ak6NoX_4Aeg_1269027446")]
     [Description(@"A foreign exchange instruction from you is missing.")]
-    NoForeignExchangeInstruction,
+    NoForeignExchangeInstruction = PendingFailingReasonCode.NoForeignExchangeInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments require income adjustment, for example, dividend or interest.
-    /// Encoded/decoded by serializers as "IncomeAdjustementRequired".
+    /// Encoded/decoded by serializers as "INCA".
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_aB-ZRtp-Ed-ak6NoX_4Aeg_977069708")]
     [Description(@"Financial instruments require income adjustment, for example, dividend or interest.")]
-    IncomeAdjustementRequired,
+    IncomeAdjustementRequired = PendingFailingReasonCode.IncomeAdjustementRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your instruction is pending settlement because the instruction linked to it is pending.
-    /// Encoded/decoded by serializers as "PendingLinkedInstruction".
+    /// Encoded/decoded by serializers as "LINK".
     /// </summary>
     [EnumMember(Value = "LINK")]
     [IsoId("_aB-ZR9p-Ed-ak6NoX_4Aeg_1155188380")]
     [Description(@"Your instruction is pending settlement because the instruction linked to it is pending.")]
-    PendingLinkedInstruction,
+    PendingLinkedInstruction = PendingFailingReasonCode.PendingLinkedInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting settlement date. No settlement problems to be reported.
-    /// Encoded/decoded by serializers as "AwaitingSettlementDate".
+    /// Encoded/decoded by serializers as "FUTU".
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_aB-ZSNp-Ed-ak6NoX_4Aeg_-1380672415")]
     [Description(@"Awaiting settlement date. No settlement problems to be reported.")]
-    AwaitingSettlementDate,
+    AwaitingSettlementDate = PendingFailingReasonCode.AwaitingSettlementDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LackOfSecurities".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_aB-ZSdp-Ed-ak6NoX_4Aeg_271955093")]
     [Description(@"Insufficient financial instruments in your account.")]
-    LackOfSecurities,
+    LackOfSecurities = PendingFailingReasonCode.LackOfSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are out on loan.
-    /// Encoded/decoded by serializers as "SecuritiesLoanedOut".
+    /// Encoded/decoded by serializers as "LALO".
     /// </summary>
     [EnumMember(Value = "LALO")]
     [IsoId("_aCIKQNp-Ed-ak6NoX_4Aeg_-20002645")]
     [Description(@"Financial instruments are out on loan.")]
-    SecuritiesLoanedOut,
+    SecuritiesLoanedOut = PendingFailingReasonCode.SecuritiesLoanedOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "InsufficientMoney".
+    /// Encoded/decoded by serializers as "MONY".
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_aCIKQdp-Ed-ak6NoX_4Aeg_158116027")]
     [Description(@"Insufficient money in your account.")]
-    InsufficientMoney,
+    InsufficientMoney = PendingFailingReasonCode.InsufficientMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Confirmation of settlement has not yet been received.
-    /// Encoded/decoded by serializers as "ConfirmationNotReceived".
+    /// Encoded/decoded by serializers as "NCON".
     /// </summary>
     [EnumMember(Value = "NCON")]
     [IsoId("_aCIKQtp-Ed-ak6NoX_4Aeg_1917222528")]
     [Description(@"Confirmation of settlement has not yet been received.")]
-    ConfirmationNotReceived,
+    ConfirmationNotReceived = PendingFailingReasonCode.ConfirmationNotReceived, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Delivery/receipt was refused because physical financial instruments are not in good order.
-    /// Encoded/decoded by serializers as "NotInGoodOrder".
+    /// Encoded/decoded by serializers as "REFS".
     /// </summary>
     [EnumMember(Value = "REFS")]
     [IsoId("_aCIKQ9p-Ed-ak6NoX_4Aeg_-725117260")]
     [Description(@"Delivery/receipt was refused because physical financial instruments are not in good order.")]
-    NotInGoodOrder,
+    NotInGoodOrder = PendingFailingReasonCode.NotInGoodOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Stamp duty information is missing.
-    /// Encoded/decoded by serializers as "LackOfStampDutyInformation".
+    /// Encoded/decoded by serializers as "SDUT".
     /// </summary>
     [EnumMember(Value = "SDUT")]
     [IsoId("_aCIKRNp-Ed-ak6NoX_4Aeg_-1017074998")]
     [Description(@"Stamp duty information is missing.")]
-    LackOfStampDutyInformation,
+    LackOfStampDutyInformation = PendingFailingReasonCode.LackOfStampDutyInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing batch differs in the counterparty's instruction, for example, daytime/real-time versus overnight.
-    /// Encoded/decoded by serializers as "ProcessingBatchDifference".
+    /// Encoded/decoded by serializers as "BATC".
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_aCIKRdp-Ed-ak6NoX_4Aeg_-838956326")]
     [Description(@"Processing batch differs in the counterparty's instruction, for example, daytime/real-time versus overnight.")]
-    ProcessingBatchDifference,
+    ProcessingBatchDifference = PendingFailingReasonCode.ProcessingBatchDifference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.
-    /// Encoded/decoded by serializers as "AwaitingNextSettlementCycle".
+    /// Encoded/decoded by serializers as "CYCL".
     /// </summary>
     [EnumMember(Value = "CYCL")]
     [IsoId("_aCIKRtp-Ed-ak6NoX_4Aeg_920150175")]
     [Description(@"Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.")]
-    AwaitingNextSettlementCycle,
+    AwaitingNextSettlementCycle = PendingFailingReasonCode.AwaitingNextSettlementCycle, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are blocked due to, for example, a corporate action event, realignment.
-    /// Encoded/decoded by serializers as "SecuritiesBlocked".
+    /// Encoded/decoded by serializers as "SBLO".
     /// </summary>
     [EnumMember(Value = "SBLO")]
     [IsoId("_aCIKR9p-Ed-ak6NoX_4Aeg_-1722189613")]
     [Description(@"Financial instruments are blocked due to, for example, a corporate action event, realignment.")]
-    SecuritiesBlocked,
+    SecuritiesBlocked = PendingFailingReasonCode.SecuritiesBlocked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty is in receivership (form of bankruptcy where a court appointed person - the receiver - manages the affairs of the business).
-    /// Encoded/decoded by serializers as "CounterpartyInReceivership".
+    /// Encoded/decoded by serializers as "CPEC".
     /// </summary>
     [EnumMember(Value = "CPEC")]
     [IsoId("_aCIKSNp-Ed-ak6NoX_4Aeg_-2014147351")]
     [Description(@"Counterparty is in receivership (form of bankruptcy where a court appointed person - the receiver - manages the affairs of the business).")]
-    CounterpartyInReceivership,
+    CounterpartyInReceivership = PendingFailingReasonCode.CounterpartyInReceivership, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MinimumSettlementAmount".
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_aCIKSdp-Ed-ak6NoX_4Aeg_-1836028679")]
     [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
-    MinimumSettlementAmount,
+    MinimumSettlementAmount = PendingFailingReasonCode.MinimumSettlementAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Pending reason being investigated.
-    /// Encoded/decoded by serializers as "StatusReasonInvestigation".
+    /// Encoded/decoded by serializers as "IAAD".
     /// </summary>
     [EnumMember(Value = "IAAD")]
     [IsoId("_aCRUMNp-Ed-ak6NoX_4Aeg_-76922178")]
     [Description(@"Pending reason being investigated.")]
-    StatusReasonInvestigation,
+    StatusReasonInvestigation = PendingFailingReasonCode.StatusReasonInvestigation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Physical financial instruments have been received and are being checked for authenticity.
-    /// Encoded/decoded by serializers as "PhysicalSecuritiesVerification".
+    /// Encoded/decoded by serializers as "PHCK".
     /// </summary>
     [EnumMember(Value = "PHCK")]
     [IsoId("_aCRUMdp-Ed-ak6NoX_4Aeg_1575705330")]
     [Description(@"Physical financial instruments have been received and are being checked for authenticity.")]
-    PhysicalSecuritiesVerification,
+    PhysicalSecuritiesVerification = PendingFailingReasonCode.PhysicalSecuritiesVerification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Disagreement in beneficial ownership.
-    /// Encoded/decoded by serializers as "BeneficialOwnershipDisagreement".
+    /// Encoded/decoded by serializers as "BENO".
     /// </summary>
     [EnumMember(Value = "BENO")]
     [IsoId("_aCRUMtp-Ed-ak6NoX_4Aeg_1283747592")]
     [Description(@"Disagreement in beneficial ownership.")]
-    BeneficialOwnershipDisagreement,
+    BeneficialOwnershipDisagreement = PendingFailingReasonCode.BeneficialOwnershipDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.
-    /// Encoded/decoded by serializers as "BothInstructionsOnHold".
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_aCRUM9p-Ed-ak6NoX_4Aeg_1461866264")]
     [Description(@"Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.")]
-    BothInstructionsOnHold,
+    BothInstructionsOnHold = PendingFailingReasonCode.BothInstructionsOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructed settlement date does not agree with the settlement date on the clearing house trade, that is, a specific type of trade in India.
-    /// Encoded/decoded by serializers as "ClearingHouseTrade".
+    /// Encoded/decoded by serializers as "CLHT".
     /// </summary>
     [EnumMember(Value = "CLHT")]
     [IsoId("_aCRUNNp-Ed-ak6NoX_4Aeg_-1073994531")]
     [Description(@"Instructed settlement date does not agree with the settlement date on the clearing house trade, that is, a specific type of trade in India.")]
-    ClearingHouseTrade,
+    ClearingHouseTrade = PendingFailingReasonCode.ClearingHouseTrade, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
-    /// Encoded/decoded by serializers as "UnavailableDeliverableDenominatedQuantity".
+    /// Encoded/decoded by serializers as "DENO".
     /// </summary>
     [EnumMember(Value = "DENO")]
     [IsoId("_aCRUNdp-Ed-ak6NoX_4Aeg_286675239")]
     [Description(@"Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.")]
-    UnavailableDeliverableDenominatedQuantity,
+    UnavailableDeliverableDenominatedQuantity = PendingFailingReasonCode.UnavailableDeliverableDenominatedQuantity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Exceptional closing of all financial institutions due to natural disaster, for example, earthquake.
-    /// Encoded/decoded by serializers as "NaturalDisaster".
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_aCRUNtp-Ed-ak6NoX_4Aeg_464793911")]
     [Description(@"Exceptional closing of all financial institutions due to natural disaster, for example, earthquake.")]
-    NaturalDisaster,
+    NaturalDisaster = PendingFailingReasonCode.NaturalDisaster, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty has returned or refuses the securities.
-    /// Encoded/decoded by serializers as "CounterpartyReturnedShares".
+    /// Encoded/decoded by serializers as "DKNY".
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_aCRUN9p-Ed-ak6NoX_4Aeg_-2071066884")]
     [Description(@"Counterparty has returned or refuses the securities.")]
-    CounterpartyReturnedShares,
+    CounterpartyReturnedShares = PendingFailingReasonCode.CounterpartyReturnedShares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "QuantityDisagreement".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_aCRUONp-Ed-ak6NoX_4Aeg_-418439376")]
     [Description(@"Quantity of financial instruments does not match.")]
-    QuantityDisagreement,
+    QuantityDisagreement = PendingFailingReasonCode.QuantityDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments are blocked at the Central Security Depository (CSD) following a corporate event.
-    /// Encoded/decoded by serializers as "SecuritiesFrozenAtCSD".
+    /// Encoded/decoded by serializers as "FROZ".
     /// </summary>
     [EnumMember(Value = "FROZ")]
     [IsoId("_aCRUOdp-Ed-ak6NoX_4Aeg_-710397114")]
     [Description(@"Financial instruments are blocked at the Central Security Depository (CSD) following a corporate event.")]
-    SecuritiesFrozenAtCSD,
+    SecuritiesFrozenAtCSD = PendingFailingReasonCode.SecuritiesFrozenAtCSD, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting settlement of a purchase to cover failing positions.
-    /// Encoded/decoded by serializers as "AwaitingOtherTransaction".
+    /// Encoded/decoded by serializers as "LAAW".
     /// </summary>
     [EnumMember(Value = "LAAW")]
     [IsoId("_aCbFMNp-Ed-ak6NoX_4Aeg_-532278442")]
     [Description(@"Awaiting settlement of a purchase to cover failing positions.")]
-    AwaitingOtherTransaction,
+    AwaitingOtherTransaction = PendingFailingReasonCode.AwaitingOtherTransaction, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_aCbFMdp-Ed-ak6NoX_4Aeg_1226828059")]
     [Description(@"Instruction was received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = PendingFailingReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Central bank liquidity is insufficient.
-    /// Encoded/decoded by serializers as "InsufficientCentralBankLiquidity".
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_aCbFMtp-Ed-ak6NoX_4Aeg_-1415511729")]
     [Description(@"Central bank liquidity is insufficient.")]
-    InsufficientCentralBankLiquidity,
+    InsufficientCentralBankLiquidity = PendingFailingReasonCode.InsufficientCentralBankLiquidity, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MissingCertification".
+    /// Encoded/decoded by serializers as "MCER".
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_aCbFM9p-Ed-ak6NoX_4Aeg_-1707469467")]
     [Description(@"Awaiting receipt of adequate certification.")]
-    MissingCertification,
+    MissingCertification = PendingFailingReasonCode.MissingCertification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment has not been made by issuer.
-    /// Encoded/decoded by serializers as "NoPayment".
+    /// Encoded/decoded by serializers as "NPAY".
     /// </summary>
     [EnumMember(Value = "NPAY")]
     [IsoId("_aCbFNNp-Ed-ak6NoX_4Aeg_-1529350795")]
     [Description(@"Payment has not been made by issuer.")]
-    NoPayment,
+    NoPayment = PendingFailingReasonCode.NoPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Financial instruments have not been delivered by the issuer.
-    /// Encoded/decoded by serializers as "NotDelivered".
+    /// Encoded/decoded by serializers as "NSEC".
     /// </summary>
     [EnumMember(Value = "NSEC")]
     [IsoId("_aCbFNdp-Ed-ak6NoX_4Aeg_229755706")]
     [Description(@"Financial instruments have not been delivered by the issuer.")]
-    NotDelivered,
+    NotDelivered = PendingFailingReasonCode.NotDelivered, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
-    /// Encoded/decoded by serializers as "PendingReceipt".
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_aCbFNtp-Ed-ak6NoX_4Aeg_1882383214")]
     [Description(@"The instruction is pending receipt of securities, for example, from a purchase, loan etc.")]
-    PendingReceipt,
+    PendingReceipt = PendingFailingReasonCode.PendingReceipt, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Counterparty's instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "CounterpartyInstructionOnHold".
+    /// Encoded/decoded by serializers as "PRCY".
     /// </summary>
     [EnumMember(Value = "PRCY")]
     [IsoId("_aCbFN9p-Ed-ak6NoX_4Aeg_1590425476")]
     [Description(@"Counterparty's instruction is a preadvice, that is, for matching only.")]
-    CounterpartyInstructionOnHold,
+    CounterpartyInstructionOnHold = PendingFailingReasonCode.CounterpartyInstructionOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certificates have been lodged with the registrar but rejected due to incomplete documentation or foreign ownership limitation reached.
-    /// Encoded/decoded by serializers as "CertificatesRejected".
+    /// Encoded/decoded by serializers as "REGT".
     /// </summary>
     [EnumMember(Value = "REGT")]
     [IsoId("_aCk2MNp-Ed-ak6NoX_4Aeg_1768544148")]
     [Description(@"Certificates have been lodged with the registrar but rejected due to incomplete documentation or foreign ownership limitation reached.")]
-    CertificatesRejected,
+    CertificatesRejected = PendingFailingReasonCode.CertificatesRejected, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settlement system/method has been modified at central securities depository to allow settlement.
-    /// Encoded/decoded by serializers as "SettlementSystemMethodModified".
+    /// Encoded/decoded by serializers as "SETS".
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_aCk2Mdp-Ed-ak6NoX_4Aeg_-767316647")]
     [Description(@"Settlement system/method has been modified at central securities depository to allow settlement.")]
-    SettlementSystemMethodModified,
+    SettlementSystemMethodModified = PendingFailingReasonCode.SettlementSystemMethodModified, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
-    /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
+    /// Encoded/decoded by serializers as "VLDA".
     /// </summary>
     [EnumMember(Value = "VLDA")]
     [IsoId("_aCk2Mtp-Ed-ak6NoX_4Aeg_885310861")]
     [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
-    ValidForTaxAuthorities,
+    ValidForTaxAuthorities = PendingFailingReasonCode.ValidForTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was put on hold/frozen by the system.
-    /// Encoded/decoded by serializers as "SystemOnHold".
+    /// Encoded/decoded by serializers as "PRSY".
     /// </summary>
     [EnumMember(Value = "PRSY")]
     [IsoId("_aCk2M9p-Ed-ak6NoX_4Aeg_-948275558")]
     [Description(@"Transaction was put on hold/frozen by the system.")]
-    SystemOnHold,
+    SystemOnHold = PendingFailingReasonCode.SystemOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "ConditionalCurrency".
+    /// Encoded/decoded by serializers as "CDCY".
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_aCk2NNp-Ed-ak6NoX_4Aeg_-298646898")]
     [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
-    ConditionalCurrency,
+    ConditionalCurrency = PendingFailingReasonCode.ConditionalCurrency, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "ConditionalRegistrar".
+    /// Encoded/decoded by serializers as "CDRG".
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_aCk2Ndp-Ed-ak6NoX_4Aeg_-1587676989")]
     [Description(@"Execution is conditional to the execution of a process at the registrar.")]
-    ConditionalRegistrar,
+    ConditionalRegistrar = PendingFailingReasonCode.ConditionalRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "AwaitingConfirmation".
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_aCk2Ntp-Ed-ak6NoX_4Aeg_-1644596522")]
     [Description(@"Awaiting confirmation from the counterparty.")]
-    AwaitingConfirmation,
+    AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "ConditionalRealignement".
+    /// Encoded/decoded by serializers as "CDRE".
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_aCk2N9p-Ed-ak6NoX_4Aeg_-989041367")]
     [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
-    ConditionalRealignement,
+    ConditionalRealignement = PendingFailingReasonCode.ConditionalRealignement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aCk2ONp-Ed-ak6NoX_4Aeg_-507650738")]
     [Description(@"Other. See Narrative.")]
-    Other,
+    Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -622,7 +622,7 @@ public enum PendingReason3Code
 public static class PendingReason3CodeMetadataExtensions
 {
     private static readonly PendingReason3CodeDropdownSource _dropdownSource = new PendingReason3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,12 +21,12 @@ public enum RateType5Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZZmKo9p-Ed-ak6NoX_4Aeg_1553034192")]
     [Description(@"Rate is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum RateType5Code
 public static class RateType5CodeMetadataExtensions
 {
     private static readonly RateType5CodeDropdownSource _dropdownSource = new RateType5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

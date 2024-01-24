@@ -21,111 +21,111 @@ public enum ChequeDelivery1Code
 {
     /// <summary>
     /// Cheque is to be sent through mail services to debtor.
-    /// Encoded/decoded by serializers as "MailToDebtor".
+    /// Encoded/decoded by serializers as "MLDB".
     /// </summary>
     [EnumMember(Value = "MLDB")]
     [IsoId("_a-UsyNp-Ed-ak6NoX_4Aeg_740702059")]
     [Description(@"Cheque is to be sent through mail services to debtor.")]
-    MailToDebtor,
+    MailToDebtor = ChequeDeliveryCode.MailToDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor.
-    /// Encoded/decoded by serializers as "MailToCreditor".
+    /// Encoded/decoded by serializers as "MLCD".
     /// </summary>
     [EnumMember(Value = "MLCD")]
     [IsoId("_a-edwNp-Ed-ak6NoX_4Aeg_740702112")]
     [Description(@"Cheque is to be sent through mail services to creditor.")]
-    MailToCreditor,
+    MailToCreditor = ChequeDeliveryCode.MailToCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor agent.
-    /// Encoded/decoded by serializers as "MailToFinalAgent".
+    /// Encoded/decoded by serializers as "MLFA".
     /// </summary>
     [EnumMember(Value = "MLFA")]
     [IsoId("_a-edwdp-Ed-ak6NoX_4Aeg_740702197")]
     [Description(@"Cheque is to be sent through mail services to creditor agent.")]
-    MailToFinalAgent,
+    MailToFinalAgent = ChequeDeliveryCode.MailToFinalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through courier services to debtor.
-    /// Encoded/decoded by serializers as "CourierToDebtor".
+    /// Encoded/decoded by serializers as "CRDB".
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_a-edwtp-Ed-ak6NoX_4Aeg_740702267")]
     [Description(@"Cheque is to be sent through courier services to debtor.")]
-    CourierToDebtor,
+    CourierToDebtor = ChequeDeliveryCode.CourierToDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor.
-    /// Encoded/decoded by serializers as "CourierToCreditor".
+    /// Encoded/decoded by serializers as "CRCD".
     /// </summary>
     [EnumMember(Value = "CRCD")]
     [IsoId("_a-edw9p-Ed-ak6NoX_4Aeg_740702569")]
     [Description(@"Cheque is to be sent through courier services to creditor.")]
-    CourierToCreditor,
+    CourierToCreditor = ChequeDeliveryCode.CourierToCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor agent.
-    /// Encoded/decoded by serializers as "CourierToFinalAgent".
+    /// Encoded/decoded by serializers as "CRFA".
     /// </summary>
     [EnumMember(Value = "CRFA")]
     [IsoId("_a-edxNp-Ed-ak6NoX_4Aeg_740702664")]
     [Description(@"Cheque is to be sent through courier services to creditor agent.")]
-    CourierToFinalAgent,
+    CourierToFinalAgent = ChequeDeliveryCode.CourierToFinalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque will be picked up by the debtor.
-    /// Encoded/decoded by serializers as "PickUpByDebtor".
+    /// Encoded/decoded by serializers as "PUDB".
     /// </summary>
     [EnumMember(Value = "PUDB")]
     [IsoId("_a-edxdp-Ed-ak6NoX_4Aeg_740702989")]
     [Description(@"Cheque will be picked up by the debtor.")]
-    PickUpByDebtor,
+    PickUpByDebtor = ChequeDeliveryCode.PickUpByDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque will be picked up by the creditor.
-    /// Encoded/decoded by serializers as "PickUpByCreditor".
+    /// Encoded/decoded by serializers as "PUCD".
     /// </summary>
     [EnumMember(Value = "PUCD")]
     [IsoId("_a-edxtp-Ed-ak6NoX_4Aeg_740703067")]
     [Description(@"Cheque will be picked up by the creditor.")]
-    PickUpByCreditor,
+    PickUpByCreditor = ChequeDeliveryCode.PickUpByCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque will be picked up by the creditor agent.
-    /// Encoded/decoded by serializers as "PickUpByFinalAgent".
+    /// Encoded/decoded by serializers as "PUFA".
     /// </summary>
     [EnumMember(Value = "PUFA")]
     [IsoId("_a-edx9p-Ed-ak6NoX_4Aeg_740703144")]
     [Description(@"Cheque will be picked up by the creditor agent.")]
-    PickUpByFinalAgent,
+    PickUpByFinalAgent = ChequeDeliveryCode.PickUpByFinalAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to debtor.
-    /// Encoded/decoded by serializers as "RegisteredMailToDebtor".
+    /// Encoded/decoded by serializers as "RGDB".
     /// </summary>
     [EnumMember(Value = "RGDB")]
     [IsoId("_a-edyNp-Ed-ak6NoX_4Aeg_740703222")]
     [Description(@"Cheque is to be sent through registered mail services to debtor.")]
-    RegisteredMailToDebtor,
+    RegisteredMailToDebtor = ChequeDeliveryCode.RegisteredMailToDebtor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor.
-    /// Encoded/decoded by serializers as "RegisteredMailToCreditor".
+    /// Encoded/decoded by serializers as "RGCD".
     /// </summary>
     [EnumMember(Value = "RGCD")]
     [IsoId("_a-edydp-Ed-ak6NoX_4Aeg_740703534")]
     [Description(@"Cheque is to be sent through registered mail services to creditor.")]
-    RegisteredMailToCreditor,
+    RegisteredMailToCreditor = ChequeDeliveryCode.RegisteredMailToCreditor, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor agent.
-    /// Encoded/decoded by serializers as "RegisteredMailToFinalAgent".
+    /// Encoded/decoded by serializers as "RGFA".
     /// </summary>
     [EnumMember(Value = "RGFA")]
     [IsoId("_a-edytp-Ed-ak6NoX_4Aeg_740703629")]
     [Description(@"Cheque is to be sent through registered mail services to creditor agent.")]
-    RegisteredMailToFinalAgent,
+    RegisteredMailToFinalAgent = ChequeDeliveryCode.RegisteredMailToFinalAgent, // same ordinal as derivation source for type conversions
     
 }
 
@@ -136,7 +136,7 @@ public enum ChequeDelivery1Code
 public static class ChequeDelivery1CodeMetadataExtensions
 {
     private static readonly ChequeDelivery1CodeDropdownSource _dropdownSource = new ChequeDelivery1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

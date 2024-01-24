@@ -21,57 +21,57 @@ public enum CryptographicKeyType3Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES128".
+    /// Encoded/decoded by serializers as "AES2".
     /// </summary>
     [EnumMember(Value = "AES2")]
     [IsoId("_A4GNEWp0EeSMqvBfBY1c9A")]
     [Description(@"AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
-    AES128,
+    AES128 = CryptographicKeyTypeCode.AES128, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data encryption standard key of 112 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "DES112".
+    /// Encoded/decoded by serializers as "EDE3".
     /// </summary>
     [EnumMember(Value = "EDE3")]
     [IsoId("_A4GNE2p0EeSMqvBfBY1c9A")]
     [Description(@"Data encryption standard key of 112 bits (without the parity bits).")]
-    DES112,
+    DES112 = CryptographicKeyTypeCode.DES112, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DUKPT2009".
+    /// Encoded/decoded by serializers as "DKP9".
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_A4GNFWp0EeSMqvBfBY1c9A")]
     [Description(@"DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.")]
-    DUKPT2009,
+    DUKPT2009 = CryptographicKeyTypeCode.DUKPT2009, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// AES (Advanced Encryption Standard) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES192".
+    /// Encoded/decoded by serializers as "AES9".
     /// </summary>
     [EnumMember(Value = "AES9")]
     [IsoId("_Ej_QAWp0EeSMqvBfBY1c9A")]
     [Description(@"AES (Advanced Encryption Standard) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
-    AES192,
+    AES192 = CryptographicKeyTypeCode.AES192, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// AES (Advanced Encryption Standard) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES256".
+    /// Encoded/decoded by serializers as "AES5".
     /// </summary>
     [EnumMember(Value = "AES5")]
     [IsoId("_E4s7wWp0EeSMqvBfBY1c9A")]
     [Description(@"AES (Advanced Encryption Standard) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
-    AES256,
+    AES256 = CryptographicKeyTypeCode.AES256, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Data encryption standard key of 168 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "DES168".
+    /// Encoded/decoded by serializers as "EDE4".
     /// </summary>
     [EnumMember(Value = "EDE4")]
     [IsoId("_FL6ysWp0EeSMqvBfBY1c9A")]
     [Description(@"Data encryption standard key of 168 bits (without the parity bits).")]
-    DES168,
+    DES168 = CryptographicKeyTypeCode.DES168, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum CryptographicKeyType3Code
 public static class CryptographicKeyType3CodeMetadataExtensions
 {
     private static readonly CryptographicKeyType3CodeDropdownSource _dropdownSource = new CryptographicKeyType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

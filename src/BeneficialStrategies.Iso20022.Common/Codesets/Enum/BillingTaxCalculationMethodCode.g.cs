@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_6Vm_wJqlEeGSON8vddiWzQ_-160980643")]
 [Description(@"Defines the tax calculation method to be used for the billing of the services.")]
 [Derivations(typeof(BillingTaxCalculationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BillingTaxCalculationMethodCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum BillingTaxCalculationMethodCode
 public static class BillingTaxCalculationMethodCodeMetadataExtensions
 {
     private static readonly BillingTaxCalculationMethodCodeDropdownSource _dropdownSource = new BillingTaxCalculationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

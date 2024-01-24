@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ay2cldp-Ed-ak6NoX_4Aeg_1145636079")]
 [Description(@"Specifies the type of day.")]
 [Derivations(typeof(DayType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DayTypeCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum DayTypeCode
 public static class DayTypeCodeMetadataExtensions
 {
     private static readonly DayTypeCodeDropdownSource _dropdownSource = new DayTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

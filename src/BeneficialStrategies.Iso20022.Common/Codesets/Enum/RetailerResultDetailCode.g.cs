@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_OzDOwNxXEeioifFt1dhnJA")]
 [Description(@"Result of the processing of the message.")]
 [Derivations(typeof(RetailerResultDetail1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RetailerResultDetailCode
 {
     /// <summary>
@@ -173,7 +172,7 @@ public enum RetailerResultDetailCode
 public static class RetailerResultDetailCodeMetadataExtensions
 {
     private static readonly RetailerResultDetailCodeDropdownSource _dropdownSource = new RetailerResultDetailCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

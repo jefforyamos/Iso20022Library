@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_aM_9gNp-Ed-ak6NoX_4Aeg_1957137994")]
 [Description(@"Indicates the method of execution reporting requested by issuer of the order.")]
 [Derivations(typeof(MultilegReportType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum MultilegReportTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum MultilegReportTypeCode
 public static class MultilegReportTypeCodeMetadataExtensions
 {
     private static readonly MultilegReportTypeCodeDropdownSource _dropdownSource = new MultilegReportTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

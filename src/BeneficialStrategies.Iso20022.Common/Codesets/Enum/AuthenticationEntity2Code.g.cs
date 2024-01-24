@@ -21,57 +21,57 @@ public enum AuthenticationEntity2Code
 {
     /// <summary>
     /// Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.
-    /// Encoded/decoded by serializers as "ICC".
+    /// Encoded/decoded by serializers as "ICCD".
     /// </summary>
     [EnumMember(Value = "ICCD")]
     [IsoId("_a4ZqMWjoEeSDR-pyia6Xtg")]
     [Description(@"Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.")]
-    ICC,
+    ICC = AuthenticationEntityCode.ICC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Authorisation agent of the issuer.
-    /// Encoded/decoded by serializers as "AuthorisedAgent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_a4ZqM2joEeSDR-pyia6Xtg")]
     [Description(@"Authorisation agent of the issuer.")]
-    AuthorisedAgent,
+    AuthorisedAgent = AuthenticationEntityCode.AuthorisedAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Merchant (for example signature verification by the attendant).
-    /// Encoded/decoded by serializers as "Merchant".
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_a4ZqNWjoEeSDR-pyia6Xtg")]
     [Description(@"Merchant (for example signature verification by the attendant).")]
-    Merchant,
+    Merchant = AuthenticationEntityCode.Merchant, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Acquirer of the transaction.
-    /// Encoded/decoded by serializers as "Acquirer".
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_xWp_8WjoEeSDR-pyia6Xtg")]
     [Description(@"Acquirer of the transaction.")]
-    Acquirer,
+    Acquirer = AuthenticationEntityCode.Acquirer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Card issuer.
-    /// Encoded/decoded by serializers as "Issuer".
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_xlWjQWjoEeSDR-pyia6Xtg")]
     [Description(@"Card issuer.")]
-    Issuer,
+    Issuer = AuthenticationEntityCode.Issuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Secure application in the terminal.
-    /// Encoded/decoded by serializers as "Terminal".
+    /// Encoded/decoded by serializers as "TRML".
     /// </summary>
     [EnumMember(Value = "TRML")]
     [IsoId("_xytCwWjoEeSDR-pyia6Xtg")]
     [Description(@"Secure application in the terminal.")]
-    Terminal,
+    Terminal = AuthenticationEntityCode.Terminal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum AuthenticationEntity2Code
 public static class AuthenticationEntity2CodeMetadataExtensions
 {
     private static readonly AuthenticationEntity2CodeDropdownSource _dropdownSource = new AuthenticationEntity2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

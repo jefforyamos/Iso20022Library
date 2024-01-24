@@ -21,21 +21,21 @@ public enum DateType8Code
 {
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "Unknown".
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q3yFcmtdEeCY4-KZ9JEyUQ_98980666")]
     [Description(@"Date is unknown by the sender or has not been established.")]
-    Unknown,
+    Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "Ongoing".
+    /// Encoded/decoded by serializers as "ONGO".
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_q3yFc2tdEeCY4-KZ9JEyUQ_-1984793229")]
     [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
-    Ongoing,
+    Ongoing = DateTypeCode.Ongoing, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum DateType8Code
 public static class DateType8CodeMetadataExtensions
 {
     private static readonly DateType8CodeDropdownSource _dropdownSource = new DateType8CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

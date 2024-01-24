@@ -21,84 +21,84 @@ public enum AttendanceAdmissionConditions2Code
 {
     /// <summary>
     /// Any attendee must be a shareholder themselves.
-    /// Encoded/decoded by serializers as "AllowedForShareholder".
+    /// Encoded/decoded by serializers as "MASH".
     /// </summary>
     [EnumMember(Value = "MASH")]
     [IsoId("_X7kGQfNhEeqRfth943bvEA")]
     [Description(@"Any attendee must be a shareholder themselves.")]
-    AllowedForShareholder,
+    AllowedForShareholder = AttendanceAdmissionConditionsCode.AllowedForShareholder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendee must be a shareholder registered in company stock ledger book.
-    /// Encoded/decoded by serializers as "AllowedIfRegisteredInStockLedger".
+    /// Encoded/decoded by serializers as "MASL".
     /// </summary>
     [EnumMember(Value = "MASL")]
     [IsoId("_YBXMQfNhEeqRfth943bvEA")]
     [Description(@"Attendee must be a shareholder registered in company stock ledger book.")]
-    AllowedIfRegisteredInStockLedger,
+    AllowedIfRegisteredInStockLedger = AttendanceAdmissionConditionsCode.AllowedIfRegisteredInStockLedger, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.
-    /// Encoded/decoded by serializers as "AllowedOnBehalf".
+    /// Encoded/decoded by serializers as "MAPO".
     /// </summary>
     [EnumMember(Value = "MAPO")]
     [IsoId("_YGuNYfNhEeqRfth943bvEA")]
     [Description(@"Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.")]
-    AllowedOnBehalf,
+    AllowedOnBehalf = AttendanceAdmissionConditionsCode.AllowedOnBehalf, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendees will be placed on a attendee list and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "AllowedWithAttendeeList".
+    /// Encoded/decoded by serializers as "MAAL".
     /// </summary>
     [EnumMember(Value = "MAAL")]
     [IsoId("_YLn7gfNhEeqRfth943bvEA")]
     [Description(@"Attendees will be placed on a attendee list and must bring photographic identification with them.")]
-    AllowedWithAttendeeList,
+    AllowedWithAttendeeList = AttendanceAdmissionConditionsCode.AllowedWithAttendeeList, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "AllowedWithLetterOfRepresentation".
+    /// Encoded/decoded by serializers as "MALR".
     /// </summary>
     [EnumMember(Value = "MALR")]
     [IsoId("_YRbokfNhEeqRfth943bvEA")]
     [Description(@"Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.")]
-    AllowedWithLetterOfRepresentation,
+    AllowedWithLetterOfRepresentation = AttendanceAdmissionConditionsCode.AllowedWithLetterOfRepresentation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendees must request proof of holding and register for attendance directly with Issuer.
-    /// Encoded/decoded by serializers as "AllowedWithProof".
+    /// Encoded/decoded by serializers as "MAHI".
     /// </summary>
     [EnumMember(Value = "MAHI")]
     [IsoId("_YWV9wfNhEeqRfth943bvEA")]
     [Description(@"Attendees must request proof of holding and register for attendance directly with Issuer.")]
-    AllowedWithProof,
+    AllowedWithProof = AttendanceAdmissionConditionsCode.AllowedWithProof, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendees will be issued an admission ticket and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "AllowedWithTicket".
+    /// Encoded/decoded by serializers as "MATK".
     /// </summary>
     [EnumMember(Value = "MATK")]
     [IsoId("_YaNKEfNhEeqRfth943bvEA")]
     [Description(@"Attendees will be issued an admission ticket and must bring photographic identification with them.")]
-    AllowedWithTicket,
+    AllowedWithTicket = AttendanceAdmissionConditionsCode.AllowedWithTicket, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Attendee must be a delegate of the shareholder registered in the company stock ledger book.
-    /// Encoded/decoded by serializers as "DelegateAllowedIfRegisteredInStockLedger".
+    /// Encoded/decoded by serializers as "MADS".
     /// </summary>
     [EnumMember(Value = "MADS")]
     [IsoId("_YeOHYfNhEeqRfth943bvEA")]
     [Description(@"Attendee must be a delegate of the shareholder registered in the company stock ledger book.")]
-    DelegateAllowedIfRegisteredInStockLedger,
+    DelegateAllowedIfRegisteredInStockLedger = AttendanceAdmissionConditionsCode.DelegateAllowedIfRegisteredInStockLedger, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Meeting attendance is not possible.
-    /// Encoded/decoded by serializers as "NotPossible".
+    /// Encoded/decoded by serializers as "MANP".
     /// </summary>
     [EnumMember(Value = "MANP")]
     [IsoId("_YhpO0fNhEeqRfth943bvEA")]
     [Description(@"Meeting attendance is not possible.")]
-    NotPossible,
+    NotPossible = AttendanceAdmissionConditionsCode.NotPossible, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum AttendanceAdmissionConditions2Code
 public static class AttendanceAdmissionConditions2CodeMetadataExtensions
 {
     private static readonly AttendanceAdmissionConditions2CodeDropdownSource _dropdownSource = new AttendanceAdmissionConditions2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

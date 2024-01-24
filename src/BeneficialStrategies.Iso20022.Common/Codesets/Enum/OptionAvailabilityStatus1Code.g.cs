@@ -21,21 +21,21 @@ public enum OptionAvailabilityStatus1Code
 {
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.
-    /// Encoded/decoded by serializers as "Inactive".
+    /// Encoded/decoded by serializers as "INTV".
     /// </summary>
     [EnumMember(Value = "INTV")]
     [IsoId("_aPPZN9p-Ed-ak6NoX_4Aeg_-1302299836")]
     [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.")]
-    Inactive,
+    Inactive = OptionAvailabilityStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_aPPZONp-Ed-ak6NoX_4Aeg_-1302299783")]
     [Description(@"Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.")]
-    Cancelled,
+    Cancelled = OptionAvailabilityStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum OptionAvailabilityStatus1Code
 public static class OptionAvailabilityStatus1CodeMetadataExtensions
 {
     private static readonly OptionAvailabilityStatus1CodeDropdownSource _dropdownSource = new OptionAvailabilityStatus1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

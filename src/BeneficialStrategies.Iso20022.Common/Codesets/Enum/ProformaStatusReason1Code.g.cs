@@ -21,21 +21,21 @@ public enum ProformaStatusReason1Code
 {
     /// <summary>
     /// Modification to the account data is in process.
-    /// Encoded/decoded by serializers as "ModificationInProcess".
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_kDXs0U_vEeaB8-OWTiMVrQ")]
     [Description(@"Modification to the account data is in process.")]
-    ModificationInProcess,
+    ModificationInProcess = ProformaStatusReasonCode.ModificationInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account opening is waiting for rights holder information.
-    /// Encoded/decoded by serializers as "Rights".
+    /// Encoded/decoded by serializers as "RIGH".
     /// </summary>
     [EnumMember(Value = "RIGH")]
     [IsoId("_kWRasU_vEeaB8-OWTiMVrQ")]
     [Description(@"Account opening is waiting for rights holder information.")]
-    Rights,
+    Rights = ProformaStatusReasonCode.Rights, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ProformaStatusReason1Code
 public static class ProformaStatusReason1CodeMetadataExtensions
 {
     private static readonly ProformaStatusReason1CodeDropdownSource _dropdownSource = new ProformaStatusReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

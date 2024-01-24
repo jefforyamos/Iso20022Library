@@ -54,7 +54,7 @@ public enum MergerTypeCode
 public static class MergerTypeCodeMetadataExtensions
 {
     private static readonly MergerTypeCodeDropdownSource _dropdownSource = new MergerTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

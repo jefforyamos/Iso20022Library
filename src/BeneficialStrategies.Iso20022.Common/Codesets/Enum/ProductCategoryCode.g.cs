@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZVRrUNp-Ed-ak6NoX_4Aeg_2004734273")]
 [Description(@"Specifies the category of a product.")]
 [Derivations(typeof(ProductCategory1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ProductCategoryCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum ProductCategoryCode
 public static class ProductCategoryCodeMetadataExtensions
 {
     private static readonly ProductCategoryCodeDropdownSource _dropdownSource = new ProductCategoryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

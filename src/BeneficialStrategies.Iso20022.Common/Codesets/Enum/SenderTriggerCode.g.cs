@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_hy2h4MmLEeWAGphE2LvqeA")]
 [Description(@"Specifies the trigger code used by the sender to generate the file.")]
 [Derivations(typeof(SenderTrigger1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SenderTriggerCode
 {
     /// <summary>
@@ -45,7 +44,7 @@ public enum SenderTriggerCode
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_qjgfMMmLEeWAGphE2LvqeA")]
-    [Description(@"File generated based on a manual event (file has been generated manually).")]
+    [Description(@"File generated based on a manual event (file has been|generated manually).")]
     Manual,
     
     /// <summary>
@@ -66,7 +65,7 @@ public enum SenderTriggerCode
 public static class SenderTriggerCodeMetadataExtensions
 {
     private static readonly SenderTriggerCodeDropdownSource _dropdownSource = new SenderTriggerCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

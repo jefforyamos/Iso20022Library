@@ -21,84 +21,84 @@ public enum TypeOfIdentification4Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AlienRegistrationNumber".
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_VQxBcY6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AlienRegistrationNumber,
+    AlienRegistrationNumber = TypeOfIdentificationCode.AlienRegistrationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by an issuer to identify a customer via the concatenation of the birthdate and characters of the first name and surname. 
-    /// Encoded/decoded by serializers as "Concat".
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_VbVSso6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by an issuer to identify a customer via the concatenation of the birthdate and characters of the first name and surname. ")]
-    Concat,
+    Concat = TypeOfIdentificationCode.Concat, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CorporateIdentification".
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_Viecgo6CEemzmeK8_tPygg")]
     [Description(@"Number assigned to a corporate entity.")]
-    CorporateIdentification,
+    CorporateIdentification = TypeOfIdentificationCode.CorporateIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned to a driver's license.
-    /// Encoded/decoded by serializers as "DriverLicenseNumber".
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_Vp6hQo6CEemzmeK8_tPygg")]
     [Description(@"Number assigned to a driver's license.")]
-    DriverLicenseNumber,
+    DriverLicenseNumber = TypeOfIdentificationCode.DriverLicenseNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IdentityCardNumber".
+    /// Encoded/decoded by serializers as "IDCD".
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_XbksIY6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by a national authority to an identity card.")]
-    IdentityCardNumber,
+    IdentityCardNumber = TypeOfIdentificationCode.IdentityCardNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NationalRegistrationIdentificationNumber".
+    /// Encoded/decoded by serializers as "NRIN".
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_Xk8qko6CEemzmeK8_tPygg")]
     [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
-    NationalRegistrationIdentificationNumber,
+    NationalRegistrationIdentificationNumber = TypeOfIdentificationCode.NationalRegistrationIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a passport authority.
-    /// Encoded/decoded by serializers as "PassportNumber".
+    /// Encoded/decoded by serializers as "CCPT".
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_Xrf-go6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by a passport authority.")]
-    PassportNumber,
+    PassportNumber = TypeOfIdentificationCode.PassportNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SocialSecurityNumber".
+    /// Encoded/decoded by serializers as "SOCS".
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_X-PUUo6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by a social security agency.")]
-    SocialSecurityNumber,
+    SocialSecurityNumber = TypeOfIdentificationCode.SocialSecurityNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TaxIdentificationNumber".
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_Yqk14Y6CEemzmeK8_tPygg")]
     [Description(@"Number assigned by a tax authority to an entity.")]
-    TaxIdentificationNumber,
+    TaxIdentificationNumber = TypeOfIdentificationCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
 
@@ -109,7 +109,7 @@ public enum TypeOfIdentification4Code
 public static class TypeOfIdentification4CodeMetadataExtensions
 {
     private static readonly TypeOfIdentification4CodeDropdownSource _dropdownSource = new TypeOfIdentification4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

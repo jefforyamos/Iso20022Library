@@ -21,21 +21,21 @@ public enum CertificationFormatType1Code
 {
     /// <summary>
     /// Certification must be provided in electronic format.
-    /// Encoded/decoded by serializers as "Electronic".
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_a78HIdp-Ed-ak6NoX_4Aeg_-1559890547")]
     [Description(@"Certification must be provided in electronic format.")]
-    Electronic,
+    Electronic = CertificationFormatTypeCode.Electronic, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Certification must be provided in physical format.
-    /// Encoded/decoded by serializers as "Physical".
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_a78HItp-Ed-ak6NoX_4Aeg_-1559890529")]
     [Description(@"Certification must be provided in physical format.")]
-    Physical,
+    Physical = CertificationFormatTypeCode.Physical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CertificationFormatType1Code
 public static class CertificationFormatType1CodeMetadataExtensions
 {
     private static readonly CertificationFormatType1CodeDropdownSource _dropdownSource = new CertificationFormatType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

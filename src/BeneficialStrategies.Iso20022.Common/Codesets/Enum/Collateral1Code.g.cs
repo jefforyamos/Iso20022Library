@@ -21,21 +21,21 @@ public enum Collateral1Code
 {
     /// <summary>
     /// Item is used as collateral.
-    /// Encoded/decoded by serializers as "Collateral".
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_QHQx4SC-EeWPMvNwVtiMsA")]
     [Description(@"Item is used as collateral.")]
-    Collateral,
+    Collateral = CollateralCode.Collateral, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Item is not used as collateral.
-    /// Encoded/decoded by serializers as "NotCollateral".
+    /// Encoded/decoded by serializers as "NCOL".
     /// </summary>
     [EnumMember(Value = "NCOL")]
     [IsoId("_QPdEkSC-EeWPMvNwVtiMsA")]
     [Description(@"Item is not used as collateral.")]
-    NotCollateral,
+    NotCollateral = CollateralCode.NotCollateral, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum Collateral1Code
 public static class Collateral1CodeMetadataExtensions
 {
     private static readonly Collateral1CodeDropdownSource _dropdownSource = new Collateral1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

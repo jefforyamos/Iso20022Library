@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_gjAHYNtcEeipuvJHTHIw9A")]
 [Description(@"Type of stored value account.")]
 [Derivations(typeof(StoredValueAccountType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum StoredValueAccountTypeCode
 {
     /// <summary>
@@ -146,7 +145,7 @@ public enum StoredValueAccountTypeCode
 public static class StoredValueAccountTypeCodeMetadataExtensions
 {
     private static readonly StoredValueAccountTypeCodeDropdownSource _dropdownSource = new StoredValueAccountTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

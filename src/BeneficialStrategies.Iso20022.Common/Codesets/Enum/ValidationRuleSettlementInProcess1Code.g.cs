@@ -21,12 +21,12 @@ public enum ValidationRuleSettlementInProcess1Code
 {
     /// <summary>
     /// Accepted settlement in process.
-    /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_C55eASE6EeuIZ4Hf6difAw")]
     [Description(@"Accepted settlement in process.")]
-    AcceptedSettlementInProcess,
+    AcceptedSettlementInProcess = ValidationRuleCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ValidationRuleSettlementInProcess1Code
 public static class ValidationRuleSettlementInProcess1CodeMetadataExtensions
 {
     private static readonly ValidationRuleSettlementInProcess1CodeDropdownSource _dropdownSource = new ValidationRuleSettlementInProcess1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

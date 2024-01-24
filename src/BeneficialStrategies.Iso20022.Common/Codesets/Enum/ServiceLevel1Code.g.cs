@@ -21,30 +21,30 @@ public enum ServiceLevel1Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_ZKZRB9p-Ed-ak6NoX_4Aeg_798217531")]
     [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
-    SingleEuroPaymentsArea,
+    SingleEuroPaymentsArea = ServiceLevelCode.SingleEuroPaymentsArea, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment must be executed with same day value to the creditor.
-    /// Encoded/decoded by serializers as "SameDayValue".
+    /// Encoded/decoded by serializers as "SDVA".
     /// </summary>
     [EnumMember(Value = "SDVA")]
     [IsoId("_ZKZRCNp-Ed-ak6NoX_4Aeg_798217556")]
     [Description(@"Payment must be executed with same day value to the creditor.")]
-    SameDayValue,
+    SameDayValue = ServiceLevelCode.SameDayValue, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction must be processed according to the EBA|Priority Service.
-    /// Encoded/decoded by serializers as "EBAPriorityService".
+    /// Encoded/decoded by serializers as "PRPT".
     /// </summary>
     [EnumMember(Value = "PRPT")]
     [IsoId("_ZKjCANp-Ed-ak6NoX_4Aeg_1645064833")]
     [Description(@"Transaction must be processed according to the EBA|Priority Service.")]
-    EBAPriorityService,
+    EBAPriorityService = ServiceLevelCode.EBAPriorityService, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum ServiceLevel1Code
 public static class ServiceLevel1CodeMetadataExtensions
 {
     private static readonly ServiceLevel1CodeDropdownSource _dropdownSource = new ServiceLevel1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

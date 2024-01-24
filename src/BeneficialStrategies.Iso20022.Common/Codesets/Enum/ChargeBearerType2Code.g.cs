@@ -21,12 +21,12 @@ public enum ChargeBearerType2Code
 {
     /// <summary>
     /// Charges are to be applied following the rules agreed in the service level and/or scheme.
-    /// Encoded/decoded by serializers as "FollowingServiceLevel".
+    /// Encoded/decoded by serializers as "SLEV".
     /// </summary>
     [EnumMember(Value = "SLEV")]
     [IsoId("_a8PpJtp-Ed-ak6NoX_4Aeg_-867377749")]
     [Description(@"Charges are to be applied following the rules agreed in the service level and/or scheme.")]
-    FollowingServiceLevel,
+    FollowingServiceLevel = ChargeBearerTypeCode.FollowingServiceLevel, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum ChargeBearerType2Code
 public static class ChargeBearerType2CodeMetadataExtensions
 {
     private static readonly ChargeBearerType2CodeDropdownSource _dropdownSource = new ChargeBearerType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

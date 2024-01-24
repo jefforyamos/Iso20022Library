@@ -21,30 +21,30 @@ public enum RateType3Code
 {
     /// <summary>
     /// Imputed tax.
-    /// Encoded/decoded by serializers as "Imputed".
+    /// Encoded/decoded by serializers as "IMPU".
     /// </summary>
     [EnumMember(Value = "IMPU")]
     [IsoId("_ZZcZqdp-Ed-ak6NoX_4Aeg_-1424495955")]
     [Description(@"Imputed tax.")]
-    Imputed,
+    Imputed = RateTypeCode.Imputed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is a precompte.
-    /// Encoded/decoded by serializers as "Precompte".
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_ZZmKoNp-Ed-ak6NoX_4Aeg_-1424495946")]
     [Description(@"Rate is a precompte.")]
-    Precompte,
+    Precompte = RateTypeCode.Precompte, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Rate is a one tier tax.
-    /// Encoded/decoded by serializers as "OneTierTax".
+    /// Encoded/decoded by serializers as "TIER".
     /// </summary>
     [EnumMember(Value = "TIER")]
     [IsoId("_ZZmKodp-Ed-ak6NoX_4Aeg_-1424495927")]
     [Description(@"Rate is a one tier tax.")]
-    OneTierTax,
+    OneTierTax = RateTypeCode.OneTierTax, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RateType3Code
 public static class RateType3CodeMetadataExtensions
 {
     private static readonly RateType3CodeDropdownSource _dropdownSource = new RateType3CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

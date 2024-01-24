@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZRQG-Np-Ed-ak6NoX_4Aeg_2007403378")]
 [Description(@"Specifies the reason for system inactivity.")]
 [Derivations(typeof(SystemClosureReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum SystemClosureReasonCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum SystemClosureReasonCode
 public static class SystemClosureReasonCodeMetadataExtensions
 {
     private static readonly SystemClosureReasonCodeDropdownSource _dropdownSource = new SystemClosureReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

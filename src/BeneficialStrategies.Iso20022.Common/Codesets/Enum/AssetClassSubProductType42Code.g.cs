@@ -21,12 +21,12 @@ public enum AssetClassSubProductType42Code
 {
     /// <summary>
     /// Commodity of type sulphur.
-    /// Encoded/decoded by serializers as "Sulphur".
+    /// Encoded/decoded by serializers as "SLPH".
     /// </summary>
     [EnumMember(Value = "SLPH")]
     [IsoId("_jVdRR1r3EeWN79Bl6BUd3g")]
     [Description(@"Commodity of type sulphur.")]
-    Sulphur,
+    Sulphur = AssetClassSubProductTypeCode.Sulphur, // same ordinal as derivation source for type conversions
     
 }
 
@@ -37,7 +37,7 @@ public enum AssetClassSubProductType42Code
 public static class AssetClassSubProductType42CodeMetadataExtensions
 {
     private static readonly AssetClassSubProductType42CodeDropdownSource _dropdownSource = new AssetClassSubProductType42CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

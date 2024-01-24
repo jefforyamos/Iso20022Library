@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bU-SNtp-Ed-ak6NoX_4Aeg_335335556")]
 [Description(@"Description of the method used to book single or grouped executions.")]
 [Derivations(typeof(BookingUnit1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum BookingUnitCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum BookingUnitCode
 public static class BookingUnitCodeMetadataExtensions
 {
     private static readonly BookingUnitCodeDropdownSource _dropdownSource = new BookingUnitCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

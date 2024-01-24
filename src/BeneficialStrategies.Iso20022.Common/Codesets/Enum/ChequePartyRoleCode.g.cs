@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_eJokECmxEeutWNGMV2XKIQ")]
 [Description(@"Specifies the roles of the parties linked to a cheque.")]
 [Derivations(typeof(ChequePartyRole1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ChequePartyRoleCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum ChequePartyRoleCode
 public static class ChequePartyRoleCodeMetadataExtensions
 {
     private static readonly ChequePartyRoleCodeDropdownSource _dropdownSource = new ChequePartyRoleCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

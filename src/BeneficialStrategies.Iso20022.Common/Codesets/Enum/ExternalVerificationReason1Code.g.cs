@@ -16,36 +16,36 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_YWiyMNp-Ed-ak6NoX_4Aeg_914233593")]
-[Description(@"Specifies the external verification reason code, as published in an external verification code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external verification reason code, as published in an external verification code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalVerificationReasonCode))]
 public enum ExternalVerificationReason1Code
 {
     /// <summary>
     /// Account number provided in the request is invalid or missing.
-    /// Encoded/decoded by serializers as "IncorrectAccountNumber".
+    /// Encoded/decoded by serializers as "AC01".
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_uG8YjvRYEeuLhpyIdtJzwg")]
     [Description(@"Account number provided in the request is invalid or missing.")]
-    IncorrectAccountNumber,
+    IncorrectAccountNumber = ExternalVerificationReasonCode.IncorrectAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent identification provided in the request is incorrect
-    /// Encoded/decoded by serializers as "IncorrectAgent".
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_uHFicvRYEeuLhpyIdtJzwg")]
     [Description(@"Agent identification provided in the request is incorrect")]
-    IncorrectAgent,
+    IncorrectAgent = ExternalVerificationReasonCode.IncorrectAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Request is a duplicate of another request
-    /// Encoded/decoded by serializers as "DuplicateRequest".
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_uHFidfRYEeuLhpyIdtJzwg")]
     [Description(@"Request is a duplicate of another request")]
-    DuplicateRequest,
+    DuplicateRequest = ExternalVerificationReasonCode.DuplicateRequest, // same ordinal as derivation source for type conversions
     
 }
 
@@ -56,7 +56,7 @@ public enum ExternalVerificationReason1Code
 public static class ExternalVerificationReason1CodeMetadataExtensions
 {
     private static readonly ExternalVerificationReason1CodeDropdownSource _dropdownSource = new ExternalVerificationReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

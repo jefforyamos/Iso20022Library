@@ -21,21 +21,21 @@ public enum AgentType1Code
 {
     /// <summary>
     /// Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.
-    /// Encoded/decoded by serializers as "DropAgentBearer".
+    /// Encoded/decoded by serializers as "DAGB".
     /// </summary>
     [EnumMember(Value = "DAGB")]
     [IsoId("_1sQOJDL3EeKU9IrkkToqcw_38160419")]
     [Description(@"Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.")]
-    DropAgentBearer,
+    DropAgentBearer = AgentTypeCode.DropAgentBearer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Agent that cannot be classified as any listed type of agent.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTAG".
     /// </summary>
     [EnumMember(Value = "OTAG")]
     [IsoId("_1sQOJTL3EeKU9IrkkToqcw_108929944")]
     [Description(@"Agent that cannot be classified as any listed type of agent.")]
-    Other,
+    Other = AgentTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum AgentType1Code
 public static class AgentType1CodeMetadataExtensions
 {
     private static readonly AgentType1CodeDropdownSource _dropdownSource = new AgentType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

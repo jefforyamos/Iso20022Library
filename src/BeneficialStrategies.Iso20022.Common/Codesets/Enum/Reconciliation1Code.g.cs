@@ -21,66 +21,66 @@ public enum Reconciliation1Code
 {
     /// <summary>
     /// Trade repository has both sides of the trade reported and all fields match.
-    /// Encoded/decoded by serializers as "DualSidedMatched".
+    /// Encoded/decoded by serializers as "DSMA".
     /// </summary>
     [EnumMember(Value = "DSMA")]
     [IsoId("_ZATBAYSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has both sides of the trade reported and all fields match.")]
-    DualSidedMatched,
+    DualSidedMatched = ReconciliationCode.DualSidedMatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade repository has both sides of the trade reported but not all fields match.
-    /// Encoded/decoded by serializers as "DualSidedNonMatched".
+    /// Encoded/decoded by serializers as "DSNM".
     /// </summary>
     [EnumMember(Value = "DSNM")]
     [IsoId("_ZLK0QYSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has both sides of the trade reported but not all fields match.")]
-    DualSidedNonMatched,
+    DualSidedNonMatched = ReconciliationCode.DualSidedNonMatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade was not required to be submitted for reconciliation.
-    /// Encoded/decoded by serializers as "NotSubmittedToReconciliation".
+    /// Encoded/decoded by serializers as "NORE".
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_ZdxAIoSIEeW47-F5RGn37Q")]
     [Description(@"Trade was not required to be submitted for reconciliation.")]
-    NotSubmittedToReconciliation,
+    NotSubmittedToReconciliation = ReconciliationCode.NotSubmittedToReconciliation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, and the result has been successful according to the specification of the inter-TR reconciliation process.
-    /// Encoded/decoded by serializers as "SingleSidedEEAMatched".
+    /// Encoded/decoded by serializers as "SSMA".
     /// </summary>
     [EnumMember(Value = "SSMA")]
     [IsoId("_ZtHqwoSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, and the result has been successful according to the specification of the inter-TR reconciliation process.")]
-    SingleSidedEEAMatched,
+    SingleSidedEEAMatched = ReconciliationCode.SingleSidedEEAMatched, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, and either has already performed comparison of the reports, or is in the process of doing so.
-    /// Encoded/decoded by serializers as "SingleSidedEEAPaired".
+    /// Encoded/decoded by serializers as "SSPA".
     /// </summary>
     [EnumMember(Value = "SSPA")]
     [IsoId("_Z8YOwoSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, and either has already performed comparison of the reports, or is in the process of doing so.")]
-    SingleSidedEEAPaired,
+    SingleSidedEEAPaired = ReconciliationCode.SingleSidedEEAPaired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade repository has one side of the trade and knows that the other side does not have a reporting obligation.
-    /// Encoded/decoded by serializers as "SingleSidedNonEEA".
+    /// Encoded/decoded by serializers as "SSNE".
     /// </summary>
     [EnumMember(Value = "SSNE")]
     [IsoId("_aUga4oSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has one side of the trade and knows that the other side does not have a reporting obligation.")]
-    SingleSidedNonEEA,
+    SingleSidedNonEEA = ReconciliationCode.SingleSidedNonEEA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Trade repository has one side of the trade, knows that the other side is EEA counterparty and does not know which TR holds the other side of the trade.
-    /// Encoded/decoded by serializers as "SingleSidedEEAUnpaired".
+    /// Encoded/decoded by serializers as "SSUN".
     /// </summary>
     [EnumMember(Value = "SSUN")]
     [IsoId("_afMA4YSIEeW47-F5RGn37Q")]
     [Description(@"Trade repository has one side of the trade, knows that the other side is EEA counterparty and does not know which TR holds the other side of the trade.")]
-    SingleSidedEEAUnpaired,
+    SingleSidedEEAUnpaired = ReconciliationCode.SingleSidedEEAUnpaired, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum Reconciliation1Code
 public static class Reconciliation1CodeMetadataExtensions
 {
     private static readonly Reconciliation1CodeDropdownSource _dropdownSource = new Reconciliation1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

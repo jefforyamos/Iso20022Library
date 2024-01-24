@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_ZvpTINp-Ed-ak6NoX_4Aeg_663303244")]
 [Description(@"Specifies the reason why the instruction is in repair.")]
 [Derivations(typeof(RepairReason4Code),typeof(RepairReason7Code),typeof(RepairReason5Code),typeof(RepairReason6Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RepairReasonV2Code
 {
     /// <summary>
@@ -470,7 +469,7 @@ public enum RepairReasonV2Code
 public static class RepairReasonV2CodeMetadataExtensions
 {
     private static readonly RepairReasonV2CodeDropdownSource _dropdownSource = new RepairReasonV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -16,7 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_OTgzMjc5-AOSNFX-8224496")]
-[Description(@"Specifies the type of action concerning registration information. The default value is OPEN.")]
+[Description(@"Specifies the type of action concerning registration information.|The default value is OPEN.")]
 [DerivedFrom(typeof(AgreementItemActionCode))]
 public enum AgreementItemAction1Code
 {
@@ -27,7 +27,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "DEAC")]
     [IsoId("_OTMxOTY3-AOSNFX-0262741")]
     [Description(@"Deactivate agreement item.")]
-    Deactivate,
+    Deactivate = AgreementItemActionCode.Deactivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hold the agreement item.
@@ -36,7 +36,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "HOLD")]
     [IsoId("_OTMxOTY2-AOSNFX-0262741")]
     [Description(@"Hold the agreement item.")]
-    Hold,
+    Hold = AgreementItemActionCode.Hold, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modify agreement item information.
@@ -45,7 +45,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "MDFY")]
     [IsoId("_OTMxOTY1-AOSNFX-0262740")]
     [Description(@"Modify agreement item information.")]
-    Modify,
+    Modify = AgreementItemActionCode.Modify, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reactivate agreement item.
@@ -54,7 +54,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "REAC")]
     [IsoId("_OTMxOTY4-AOSNFX-0262741")]
     [Description(@"Reactivate agreement item.")]
-    Reactivate,
+    Reactivate = AgreementItemActionCode.Reactivate, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Register item as new agreement.
@@ -63,7 +63,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "OPEN")]
     [IsoId("_OTMxOTY0-AOSNFX-0262740")]
     [Description(@"Register item as new agreement.")]
-    Register,
+    Register = AgreementItemActionCode.Register, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Send status with full agreement information details.
@@ -72,7 +72,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "SYNC")]
     [IsoId("_OTMxOTcw-AOSNFX-0262741")]
     [Description(@"Send status with full agreement information details.")]
-    Synchronize,
+    Synchronize = AgreementItemActionCode.Synchronize, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Verify agreement item information.
@@ -81,7 +81,7 @@ public enum AgreementItemAction1Code
     [EnumMember(Value = "VRFY")]
     [IsoId("_OTMxOTY5-AOSNFX-0262741")]
     [Description(@"Verify agreement item information.")]
-    Verify,
+    Verify = AgreementItemActionCode.Verify, // same ordinal as derivation source for type conversions
     
 }
 
@@ -92,7 +92,7 @@ public enum AgreementItemAction1Code
 public static class AgreementItemAction1CodeMetadataExtensions
 {
     private static readonly AgreementItemAction1CodeDropdownSource _dropdownSource = new AgreementItemAction1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

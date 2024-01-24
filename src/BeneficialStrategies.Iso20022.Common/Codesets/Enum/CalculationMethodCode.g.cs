@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YbAbcNp-Ed-ak6NoX_4Aeg_181218670")]
 [Description(@"Specifies whether the interest calculation method is simple or compounding.")]
 [Derivations(typeof(CalculationMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CalculationMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum CalculationMethodCode
 public static class CalculationMethodCodeMetadataExtensions
 {
     private static readonly CalculationMethodCodeDropdownSource _dropdownSource = new CalculationMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

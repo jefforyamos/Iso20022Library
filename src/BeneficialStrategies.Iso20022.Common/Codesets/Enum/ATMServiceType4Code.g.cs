@@ -21,75 +21,75 @@ public enum ATMServiceType4Code
 {
     /// <summary>
     /// Ask for account statement information to a related custumer account.
-    /// Encoded/decoded by serializers as "AccountStatements".
+    /// Encoded/decoded by serializers as "ASTS".
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_q0NdsYq1EeSIDtZ76p6McQ")]
     [Description(@"Ask for account statement information to a related custumer account.")]
-    AccountStatements,
+    AccountStatements = ATMServiceTypeCode.AccountStatements, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Balance inquiry.
-    /// Encoded/decoded by serializers as "BalanceInquiry".
+    /// Encoded/decoded by serializers as "BLCQ".
     /// </summary>
     [EnumMember(Value = "BLCQ")]
     [IsoId("_rAu2w4q1EeSIDtZ76p6McQ")]
     [Description(@"Balance inquiry.")]
-    BalanceInquiry,
+    BalanceInquiry = ATMServiceTypeCode.BalanceInquiry, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit of items.
-    /// Encoded/decoded by serializers as "Deposit".
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_r33TE4q1EeSIDtZ76p6McQ")]
     [Description(@"Deposit of items.")]
-    Deposit,
+    Deposit = ATMServiceTypeCode.Deposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Modification of the card PIN value.
-    /// Encoded/decoded by serializers as "PINChange".
+    /// Encoded/decoded by serializers as "PINC".
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_sHXHo4q1EeSIDtZ76p6McQ")]
     [Description(@"Modification of the card PIN value.")]
-    PINChange,
+    PINChange = ATMServiceTypeCode.PINChange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Standard withdrawal of items.
-    /// Encoded/decoded by serializers as "StandardWithdrawal".
+    /// Encoded/decoded by serializers as "STDR".
     /// </summary>
     [EnumMember(Value = "STDR")]
     [IsoId("_tePbA4q1EeSIDtZ76p6McQ")]
     [Description(@"Standard withdrawal of items.")]
-    StandardWithdrawal,
+    StandardWithdrawal = ATMServiceTypeCode.StandardWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount and notes Values are pre-defined by the customer profile.
-    /// Encoded/decoded by serializers as "ProfileWithdrawal".
+    /// Encoded/decoded by serializers as "PRFL".
     /// </summary>
     [EnumMember(Value = "PRFL")]
     [IsoId("_ttIyo4q1EeSIDtZ76p6McQ")]
     [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
-    ProfileWithdrawal,
+    ProfileWithdrawal = ATMServiceTypeCode.ProfileWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
-    /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
+    /// Encoded/decoded by serializers as "PATH".
     /// </summary>
     [EnumMember(Value = "PATH")]
     [IsoId("_uqYeA4q1EeSIDtZ76p6McQ")]
     [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
-    PreAuthorisedWithdrawal,
+    PreAuthorisedWithdrawal = ATMServiceTypeCode.PreAuthorisedWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Amount and notes values are chosen by the customer.
-    /// Encoded/decoded by serializers as "ChosenWithdrawal".
+    /// Encoded/decoded by serializers as "CHSN".
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_-zpAkYq1EeSIDtZ76p6McQ")]
     [Description(@"Amount and notes values are chosen by the customer.")]
-    ChosenWithdrawal,
+    ChosenWithdrawal = ATMServiceTypeCode.ChosenWithdrawal, // same ordinal as derivation source for type conversions
     
 }
 
@@ -100,7 +100,7 @@ public enum ATMServiceType4Code
 public static class ATMServiceType4CodeMetadataExtensions
 {
     private static readonly ATMServiceType4CodeDropdownSource _dropdownSource = new ATMServiceType4CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

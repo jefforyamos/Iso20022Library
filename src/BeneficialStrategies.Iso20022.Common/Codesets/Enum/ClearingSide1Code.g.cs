@@ -21,39 +21,39 @@ public enum ClearingSide1Code
 {
     /// <summary>
     /// Clearing member is on the buying side.
-    /// Encoded/decoded by serializers as "Buy".
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("__1DJtdojEeC60axPepSq7g_-1447578854")]
     [Description(@"Clearing member is on the buying side.")]
-    Buy,
+    Buy = ClearingSideCode.Buy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing member is on the selling side.
-    /// Encoded/decoded by serializers as "Sell".
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("__1M6sNojEeC60axPepSq7g_-1458677631")]
     [Description(@"Clearing member is on the selling side.")]
-    Sell,
+    Sell = ClearingSideCode.Sell, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing member is on the lending side.
-    /// Encoded/decoded by serializers as "Lend".
+    /// Encoded/decoded by serializers as "LEND".
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("__1M6sdojEeC60axPepSq7g_8471132")]
     [Description(@"Clearing member is on the lending side.")]
-    Lend,
+    Lend = ClearingSideCode.Lend, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Clearing member is on the borrowing side.
-    /// Encoded/decoded by serializers as "Borrow".
+    /// Encoded/decoded by serializers as "BORW".
     /// </summary>
     [EnumMember(Value = "BORW")]
     [IsoId("__1M6stojEeC60axPepSq7g_-407544559")]
     [Description(@"Clearing member is on the borrowing side.")]
-    Borrow,
+    Borrow = ClearingSideCode.Borrow, // same ordinal as derivation source for type conversions
     
 }
 
@@ -64,7 +64,7 @@ public enum ClearingSide1Code
 public static class ClearingSide1CodeMetadataExtensions
 {
     private static readonly ClearingSide1CodeDropdownSource _dropdownSource = new ClearingSide1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

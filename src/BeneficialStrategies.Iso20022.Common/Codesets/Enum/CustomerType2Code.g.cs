@@ -21,21 +21,21 @@ public enum CustomerType2Code
 {
     /// <summary>
     /// Consumer
-    /// Encoded/decoded by serializers as "Consumer".
+    /// Encoded/decoded by serializers as "CSMR".
     /// </summary>
     [EnumMember(Value = "CSMR")]
     [IsoId("_56414S7QEemIy6A-26wnAg")]
     [Description(@"Consumer")]
-    Consumer,
+    Consumer = CustomerTypeCode.Consumer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Company
-    /// Encoded/decoded by serializers as "Company".
+    /// Encoded/decoded by serializers as "CPNY".
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_6R19US7QEemIy6A-26wnAg")]
     [Description(@"Company")]
-    Company,
+    Company = CustomerTypeCode.Company, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum CustomerType2Code
 public static class CustomerType2CodeMetadataExtensions
 {
     private static readonly CustomerType2CodeDropdownSource _dropdownSource = new CustomerType2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

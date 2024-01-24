@@ -21,48 +21,48 @@ public enum CancellationRight2Code
 {
     /// <summary>
     /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
-    /// Encoded/decoded by serializers as "Entitled".
+    /// Encoded/decoded by serializers as "VALI".
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_VkKxMdp-Ed-ak6NoX_4Aeg_1687884304")]
     [Description(@"Investor is entitled to a ""cooling off"" period with cancellation rights under compliance rules.")]
-    Entitled,
+    Entitled = CancellationRightCode.Entitled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
-    /// Encoded/decoded by serializers as "ExecutionOnly".
+    /// Encoded/decoded by serializers as "NOXO".
     /// </summary>
     [EnumMember(Value = "NOXO")]
     [IsoId("_VkKxMtp-Ed-ak6NoX_4Aeg_1687884598")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.")]
-    ExecutionOnly,
+    ExecutionOnly = CancellationRightCode.ExecutionOnly, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
-    /// Encoded/decoded by serializers as "WaiverAgreement".
+    /// Encoded/decoded by serializers as "NOWA".
     /// </summary>
     [EnumMember(Value = "NOWA")]
     [IsoId("_VkKxM9p-Ed-ak6NoX_4Aeg_1687884616")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.")]
-    WaiverAgreement,
+    WaiverAgreement = CancellationRightCode.WaiverAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
-    /// Encoded/decoded by serializers as "Institutional".
+    /// Encoded/decoded by serializers as "NOIN".
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_VkKxNNp-Ed-ak6NoX_4Aeg_1687884658")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.")]
-    Institutional,
+    Institutional = CancellationRightCode.Institutional, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of cancellation right.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VkKxNdp-Ed-ak6NoX_4Aeg_593992752")]
     [Description(@"Another type of cancellation right.")]
-    Other,
+    Other = CancellationRightCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -73,7 +73,7 @@ public enum CancellationRight2Code
 public static class CancellationRight2CodeMetadataExtensions
 {
     private static readonly CancellationRight2CodeDropdownSource _dropdownSource = new CancellationRight2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

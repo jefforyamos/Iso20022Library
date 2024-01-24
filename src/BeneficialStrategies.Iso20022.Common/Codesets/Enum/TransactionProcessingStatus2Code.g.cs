@@ -21,66 +21,66 @@ public enum TransactionProcessingStatus2Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "Cancelled".
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_YsJOx9p-Ed-ak6NoX_4Aeg_1783970831")]
     [Description(@"Instruction has been cancelled.")]
-    Cancelled,
+    Cancelled = InstructionProcessingStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
-    /// Encoded/decoded by serializers as "PendingCancellation".
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_YsJOyNp-Ed-ak6NoX_4Aeg_1783971358")]
     [Description(@"Cancellation request from yourself for this instruction is pending waiting for further processing.")]
-    PendingCancellation,
+    PendingCancellation = InstructionProcessingStatusCode.PendingCancellation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
-    /// Encoded/decoded by serializers as "CancellationRequested".
+    /// Encoded/decoded by serializers as "CPRC".
     /// </summary>
     [EnumMember(Value = "CPRC")]
     [IsoId("_YsS_wNp-Ed-ak6NoX_4Aeg_1783971359")]
     [Description(@"Cancellation request from the counterparty is awaiting for your cancellation request or your consent.")]
-    CancellationRequested,
+    CancellationRequested = InstructionProcessingStatusCode.CancellationRequested, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PendingProcessing".
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_YsS_wdp-Ed-ak6NoX_4Aeg_1783971393")]
     [Description(@"Processing of the instruction is pending.")]
-    PendingProcessing,
+    PendingProcessing = InstructionProcessingStatusCode.PendingProcessing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "AcknowledgedAccepted".
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YsS_wtp-Ed-ak6NoX_4Aeg_1783971418")]
     [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
-    AcknowledgedAccepted,
+    AcknowledgedAccepted = InstructionProcessingStatusCode.AcknowledgedAccepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Account servicer or third party created the transaction. It was not instructed directly by the account owner.
-    /// Encoded/decoded by serializers as "Generated".
+    /// Encoded/decoded by serializers as "CGEN".
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_YsS_w9p-Ed-ak6NoX_4Aeg_1783971419")]
     [Description(@"Account servicer or third party created the transaction. It was not instructed directly by the account owner.")]
-    Generated,
+    Generated = InstructionProcessingStatusCode.Generated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "InRepair".
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_YsS_xNp-Ed-ak6NoX_4Aeg_1783971435")]
     [Description(@"Instruction is accepted but in repair.")]
-    InRepair,
+    InRepair = InstructionProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TransactionProcessingStatus2Code
 public static class TransactionProcessingStatus2CodeMetadataExtensions
 {
     private static readonly TransactionProcessingStatus2CodeDropdownSource _dropdownSource = new TransactionProcessingStatus2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,138 +21,138 @@ public enum RejectionReason1Code
 {
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Zi1mMtp-Ed-ak6NoX_4Aeg_-219351513")]
     [Description(@"Instruction received after the account servicers specified deadline.")]
-    AccountServicerDeadlineMissed,
+    AccountServicerDeadlineMissed = RejectionReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "MarketDeadlineMissed".
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Zi1mM9p-Ed-ak6NoX_4Aeg_-192568846")]
     [Description(@"Received after market deadline.")]
-    MarketDeadlineMissed,
+    MarketDeadlineMissed = RejectionReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "QuantityRejection".
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Zi1mNNp-Ed-ak6NoX_4Aeg_-126077469")]
     [Description(@"Unrecognised or invalid instructed quantity.")]
-    QuantityRejection,
+    QuantityRejection = RejectionReasonCode.QuantityRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Position is less than required threshold.
-    /// Encoded/decoded by serializers as "InsufficientTresholdPosition".
+    /// Encoded/decoded by serializers as "IPOS".
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_Zi1mNdp-Ed-ak6NoX_4Aeg_-106680134")]
     [Description(@"Position is less than required threshold.")]
-    InsufficientTresholdPosition,
+    InsufficientTresholdPosition = RejectionReasonCode.InsufficientTresholdPosition, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instructed position exceeds the eligible balance.
-    /// Encoded/decoded by serializers as "LackofSecurities".
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_Zi1mNtp-Ed-ak6NoX_4Aeg_646909701")]
     [Description(@"Instructed position exceeds the eligible balance.")]
-    LackofSecurities,
+    LackofSecurities = RejectionReasonCode.LackofSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction contains an invalid or unrecognised safekeeping account.
-    /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Zi1mN9p-Ed-ak6NoX_4Aeg_680157992")]
     [Description(@"Instruction contains an invalid or unrecognised safekeeping account.")]
-    SafekeepingAccountRejection,
+    SafekeepingAccountRejection = RejectionReasonCode.SafekeepingAccountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Issuer or Registrar has rejected the instruction.
-    /// Encoded/decoded by serializers as "RejectedByIssuerOrRegistrar".
+    /// Encoded/decoded by serializers as "RBIS".
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_Zi1mONp-Ed-ak6NoX_4Aeg_705093323")]
     [Description(@"Issuer or Registrar has rejected the instruction.")]
-    RejectedByIssuerOrRegistrar,
+    RejectedByIssuerOrRegistrar = RejectionReasonCode.RejectedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised event number or identification (eg corporate action event number, a meeting identification).
-    /// Encoded/decoded by serializers as "UnrecognizedIdentification".
+    /// Encoded/decoded by serializers as "EVNM".
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_Zi1mOdp-Ed-ak6NoX_4Aeg_766044307")]
     [Description(@"Unrecognised event number or identification (eg corporate action event number, a meeting identification).")]
-    UnrecognizedIdentification,
+    UnrecognizedIdentification = RejectionReasonCode.UnrecognizedIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Instruction contains an invalid message reference, reference is unknown.
-    /// Encoded/decoded by serializers as "InvalidReference".
+    /// Encoded/decoded by serializers as "ULNK".
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zi-wINp-Ed-ak6NoX_4Aeg_1032018093")]
     [Description(@"Instruction contains an invalid message reference, reference is unknown.")]
-    InvalidReference,
+    InvalidReference = RejectionReasonCode.InvalidReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid proxy information.
-    /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_Zi-wIdp-Ed-ak6NoX_4Aeg_1047717799")]
     [Description(@"Invalid proxy information.")]
-    ProxyCardDiscrepancy,
+    ProxyCardDiscrepancy = RejectionReasonCode.ProxyCardDiscrepancy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Partial voting is not allowed.
-    /// Encoded/decoded by serializers as "PartialVoteNotAllowed".
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Zi-wItp-Ed-ak6NoX_4Aeg_1068961790")]
     [Description(@"Partial voting is not allowed.")]
-    PartialVoteNotAllowed,
+    PartialVoteNotAllowed = RejectionReasonCode.PartialVoteNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Split voting is not allowed.
-    /// Encoded/decoded by serializers as "SplitVoteNotAllowed".
+    /// Encoded/decoded by serializers as "SPLT".
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_Zi-wI9p-Ed-ak6NoX_4Aeg_1080964521")]
     [Description(@"Split voting is not allowed.")]
-    SplitVoteNotAllowed,
+    SplitVoteNotAllowed = RejectionReasonCode.SplitVoteNotAllowed, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
+    /// Encoded/decoded by serializers as "IPOA".
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_Zi-wJNp-Ed-ak6NoX_4Aeg_1104977941")]
     [Description(@"Missing or invalid power of attorney.")]
-    MissingOrInvalidPOA,
+    MissingOrInvalidPOA = RejectionReasonCode.MissingOrInvalidPOA, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Invalid registration information.
-    /// Encoded/decoded by serializers as "RegistrationDiscrepancy".
+    /// Encoded/decoded by serializers as "IREG".
     /// </summary>
     [EnumMember(Value = "IREG")]
     [IsoId("_Zi-wJdp-Ed-ak6NoX_4Aeg_1667403767")]
     [Description(@"Invalid registration information.")]
-    RegistrationDiscrepancy,
+    RegistrationDiscrepancy = RejectionReasonCode.RegistrationDiscrepancy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "InvalidSecurity".
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Zi-wJtp-Ed-ak6NoX_4Aeg_1926910316")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    InvalidSecurity,
+    InvalidSecurity = RejectionReasonCode.InvalidSecurity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum RejectionReason1Code
 public static class RejectionReason1CodeMetadataExtensions
 {
     private static readonly RejectionReason1CodeDropdownSource _dropdownSource = new RejectionReason1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

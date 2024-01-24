@@ -21,21 +21,21 @@ public enum SettlementSystemMethod1Code
 {
     /// <summary>
     /// Settle through the default settlement system/method. If there is a standing instruction in place for settlement through the alternate settlement system/method, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "NSET".
     /// </summary>
     [EnumMember(Value = "NSET")]
     [IsoId("_ZMx2oNp-Ed-ak6NoX_4Aeg_-1225226401")]
     [Description(@"Settle through the default settlement system/method. If there is a standing instruction in place for settlement through the alternate settlement system/method, then this standing instruction is to be ignored.")]
-    Default,
+    Default = SettlementSystemMethodCode.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Settle through the alternate settlement system/method. If there is a standing instruction in place for settlement through the default settlement system/method, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "Alternative".
+    /// Encoded/decoded by serializers as "YSET".
     /// </summary>
     [EnumMember(Value = "YSET")]
     [IsoId("_ZMx2odp-Ed-ak6NoX_4Aeg_-1170737712")]
     [Description(@"Settle through the alternate settlement system/method. If there is a standing instruction in place for settlement through the default settlement system/method, then this standing instruction is to be ignored.")]
-    Alternative,
+    Alternative = SettlementSystemMethodCode.Alternative, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum SettlementSystemMethod1Code
 public static class SettlementSystemMethod1CodeMetadataExtensions
 {
     private static readonly SettlementSystemMethod1CodeDropdownSource _dropdownSource = new SettlementSystemMethod1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

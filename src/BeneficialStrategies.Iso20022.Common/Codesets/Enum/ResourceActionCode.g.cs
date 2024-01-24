@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_LI9QYC7_Eeu125Ip9zFcsQ")]
 [Description(@"Type of action to perform on a media resource.")]
 [Derivations(typeof(ResourceAction1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ResourceActionCode
 {
     /// <summary>
@@ -83,7 +82,7 @@ public enum ResourceActionCode
 public static class ResourceActionCodeMetadataExtensions
 {
     private static readonly ResourceActionCodeDropdownSource _dropdownSource = new ResourceActionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

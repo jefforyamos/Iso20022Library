@@ -21,30 +21,30 @@ public enum MailType1Code
 {
     /// <summary>
     /// Air mail.
-    /// Encoded/decoded by serializers as "AirMail".
+    /// Encoded/decoded by serializers as "AIRM".
     /// </summary>
     [EnumMember(Value = "AIRM")]
     [IsoId("_jWjjASCXEeWJd9HF2tO7BA")]
     [Description(@"Air mail.")]
-    AirMail,
+    AirMail = MailTypeCode.AirMail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Ordinary mail.
-    /// Encoded/decoded by serializers as "OrdinaryMail".
+    /// Encoded/decoded by serializers as "ORDM".
     /// </summary>
     [EnumMember(Value = "ORDM")]
     [IsoId("_jdi70SCXEeWJd9HF2tO7BA")]
     [Description(@"Ordinary mail.")]
-    OrdinaryMail,
+    OrdinaryMail = MailTypeCode.OrdinaryMail, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Registered Mail.
-    /// Encoded/decoded by serializers as "RegisteredMail".
+    /// Encoded/decoded by serializers as "REGM".
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("_jkZKsSCXEeWJd9HF2tO7BA")]
     [Description(@"Registered Mail.")]
-    RegisteredMail,
+    RegisteredMail = MailTypeCode.RegisteredMail, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum MailType1Code
 public static class MailType1CodeMetadataExtensions
 {
     private static readonly MailType1CodeDropdownSource _dropdownSource = new MailType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

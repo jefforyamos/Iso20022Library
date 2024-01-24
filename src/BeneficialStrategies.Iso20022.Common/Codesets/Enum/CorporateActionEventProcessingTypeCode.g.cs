@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_bDij9dp-Ed-ak6NoX_4Aeg_-1352374921")]
 [Description(@"Specifies the type of event processing.")]
 [Derivations(typeof(CorporateActionEventProcessingType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionEventProcessingTypeCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum CorporateActionEventProcessingTypeCode
 public static class CorporateActionEventProcessingTypeCodeMetadataExtensions
 {
     private static readonly CorporateActionEventProcessingTypeCodeDropdownSource _dropdownSource = new CorporateActionEventProcessingTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

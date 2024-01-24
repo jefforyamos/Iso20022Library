@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_0hBrIL_VEeeb2ZBoAlSG1Q")]
 [Description(@"Specifies DTC (The Depository Trust Company) security sub-issue type.")]
 [Derivations(typeof(DTCAssetType3Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCAssetTypeV2Code
 {
     /// <summary>
@@ -884,7 +883,7 @@ public enum DTCAssetTypeV2Code
 public static class DTCAssetTypeV2CodeMetadataExtensions
 {
     private static readonly DTCAssetTypeV2CodeDropdownSource _dropdownSource = new DTCAssetTypeV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

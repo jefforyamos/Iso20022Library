@@ -21,21 +21,21 @@ public enum FailureReason5Code
 {
     /// <summary>
     /// General security error.
-    /// Encoded/decoded by serializers as "Security".
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_4Y2kQYr-EeSvuOJS0mmL0g")]
     [Description(@"General security error.")]
-    Security,
+    Security = FailureReasonCode.Security, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Hardware error on the device.
-    /// Encoded/decoded by serializers as "Hardware".
+    /// Encoded/decoded by serializers as "HRDW".
     /// </summary>
     [EnumMember(Value = "HRDW")]
     [IsoId("_-lfssYr-EeSvuOJS0mmL0g")]
     [Description(@"Hardware error on the device.")]
-    Hardware,
+    Hardware = FailureReasonCode.Hardware, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum FailureReason5Code
 public static class FailureReason5CodeMetadataExtensions
 {
     private static readonly FailureReason5CodeDropdownSource _dropdownSource = new FailureReason5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -21,21 +21,21 @@ public enum ExPostCostCalculationBasis1Code
 {
     /// <summary>
     /// Basic for cost calculation is fixed, that is calendar year.
-    /// Encoded/decoded by serializers as "FixedBasis".
+    /// Encoded/decoded by serializers as "FIXB".
     /// </summary>
     [EnumMember(Value = "FIXB")]
     [IsoId("_QMy0sbVQEeqkjqDuFVh1-A")]
     [Description(@"Basic for cost calculation is fixed, that is calendar year.")]
-    FixedBasis,
+    FixedBasis = ExPostCostCalculationBasisCode.FixedBasis, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Basis for cost calculation is rolling, that is, the last twelve months.
-    /// Encoded/decoded by serializers as "RollingBasis".
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_QTDNsbVQEeqkjqDuFVh1-A")]
     [Description(@"Basis for cost calculation is rolling, that is, the last twelve months.")]
-    RollingBasis,
+    RollingBasis = ExPostCostCalculationBasisCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ExPostCostCalculationBasis1Code
 public static class ExPostCostCalculationBasis1CodeMetadataExtensions
 {
     private static readonly ExPostCostCalculationBasis1CodeDropdownSource _dropdownSource = new ExPostCostCalculationBasis1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

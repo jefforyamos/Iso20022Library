@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_a-oOxdp-Ed-ak6NoX_4Aeg_337061457")]
 [Description(@"Specifies the method to be used in delivering a cheque to a party.")]
 [Derivations(typeof(ChequeDelivery1Code),typeof(ChequeDelivery2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ChequeDeliveryCode
 {
     /// <summary>
@@ -137,7 +136,7 @@ public enum ChequeDeliveryCode
 public static class ChequeDeliveryCodeMetadataExtensions
 {
     private static readonly ChequeDeliveryCodeDropdownSource _dropdownSource = new ChequeDeliveryCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

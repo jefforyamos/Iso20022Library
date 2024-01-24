@@ -21,30 +21,30 @@ public enum Eligibility1Code
 {
     /// <summary>
     /// Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules.
-    /// Encoded/decoded by serializers as "EligibleCounterparty".
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ahHzZdp-Ed-ak6NoX_4Aeg_-1307879388")]
     [Description(@"Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules.")]
-    EligibleCounterparty,
+    EligibleCounterparty = EligibilityCode.EligibleCounterparty, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Retail customers are the least sophisticated level of investor.
-    /// Encoded/decoded by serializers as "RetailClient".
+    /// Encoded/decoded by serializers as "RETL".
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_ahHzZtp-Ed-ak6NoX_4Aeg_-1307879371")]
     [Description(@"Retail customers are the least sophisticated level of investor.")]
-    RetailClient,
+    RetailClient = EligibilityCode.RetailClient, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Professional customers are, for example, investment firms, credit institutions, insurance companies.
-    /// Encoded/decoded by serializers as "ProfessionalClient".
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_ahHzZ9p-Ed-ak6NoX_4Aeg_-1307879327")]
     [Description(@"Professional customers are, for example, investment firms, credit institutions, insurance companies.")]
-    ProfessionalClient,
+    ProfessionalClient = EligibilityCode.ProfessionalClient, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum Eligibility1Code
 public static class Eligibility1CodeMetadataExtensions
 {
     private static readonly Eligibility1CodeDropdownSource _dropdownSource = new Eligibility1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

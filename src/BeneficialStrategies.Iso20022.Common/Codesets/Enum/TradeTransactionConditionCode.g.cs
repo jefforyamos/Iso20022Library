@@ -16,8 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YpT9Mtp-Ed-ak6NoX_4Aeg_-1512742367")]
 [Description(@"Indicates the conditions under which the order/trade is to be/was executed.")]
-[Derivations(typeof(TradeTransactionCondition4Code),typeof(TradeTransactionCondition2Code),typeof(TradeTransactionCondition1Code),typeof(TradeTransactionCondition3Code),typeof(TradeTransactionCondition5Code))]
-// External derivations that should be provided by the proper interface are: 
+[Derivations(typeof(TradeTransactionCondition3Code),typeof(TradeTransactionCondition1Code),typeof(TradeTransactionCondition4Code),typeof(TradeTransactionCondition5Code),typeof(TradeTransactionCondition2Code))]
 public enum TradeTransactionConditionCode
 {
     /// <summary>
@@ -117,7 +116,7 @@ public enum TradeTransactionConditionCode
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_YpduM9p-Ed-ak6NoX_4Aeg_-1512742058")]
-    [Description(@"Indicates whether the trade is executed with a special cum  dividend, that is, buying after the ex date and getting the dividend.")]
+    [Description(@"Indicates whether the trade is executed with a special cum |dividend, that is, buying after the ex date and getting the dividend.")]
     SpecialCumDividend,
     
     /// <summary>
@@ -127,7 +126,7 @@ public enum TradeTransactionConditionCode
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_YpduNNp-Ed-ak6NoX_4Aeg_-1512742057")]
-    [Description(@"Indicates whether the trade is executed with a special ex  dividend, that is, selling before the ex date without the coupon.")]
+    [Description(@"Indicates whether the trade is executed with a special ex |dividend, that is, selling before the ex date without the coupon.")]
     SpecialExDividend,
     
     /// <summary>
@@ -526,7 +525,7 @@ public enum TradeTransactionConditionCode
 public static class TradeTransactionConditionCodeMetadataExtensions
 {
     private static readonly TradeTransactionConditionCodeDropdownSource _dropdownSource = new TradeTransactionConditionCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

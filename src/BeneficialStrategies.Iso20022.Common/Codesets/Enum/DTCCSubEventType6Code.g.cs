@@ -21,372 +21,372 @@ public enum DTCCSubEventType6Code
 {
     /// <summary>
     /// Identifies an event (for example Cash Dividend) where DTC (the Depository Trust Company) offers a DRIP option as a default option (holder must opt out of the DRIP Option).
-    /// Encoded/decoded by serializers as "OptOut".
+    /// Encoded/decoded by serializers as "OPTO".
     /// </summary>
     [EnumMember(Value = "OPTO")]
     [IsoId("_QB0oIb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event (for example Cash Dividend) where DTC (the Depository Trust Company) offers a DRIP option as a default option (holder must opt out of the DRIP Option).")]
-    OptOut,
+    OptOut = DTCCSubEventTypeCode.OptOut, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the Issue is eligible for a Dividend Reinvestment program at DTCC (The Depository Trust and Clearing Corporation).
-    /// Encoded/decoded by serializers as "DividendReinvestmentByDTC".
+    /// Encoded/decoded by serializers as "DRPD".
     /// </summary>
     [EnumMember(Value = "DRPD")]
     [IsoId("_QB0oI7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the Issue is eligible for a Dividend Reinvestment program at DTCC (The Depository Trust and Clearing Corporation).")]
-    DividendReinvestmentByDTC,
+    DividendReinvestmentByDTC = DTCCSubEventTypeCode.DividendReinvestmentByDTC, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a change in the place where the security is listed.
-    /// Encoded/decoded by serializers as "PlaceOfListing".
+    /// Encoded/decoded by serializers as "PLCL".
     /// </summary>
     [EnumMember(Value = "PLCL")]
     [IsoId("_QB0oJb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a change in the place where the security is listed.")]
-    PlaceOfListing,
+    PlaceOfListing = DTCCSubEventTypeCode.PlaceOfListing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a change in Board Lot size.
-    /// Encoded/decoded by serializers as "BoardLot".
+    /// Encoded/decoded by serializers as "BLOT".
     /// </summary>
     [EnumMember(Value = "BLOT")]
     [IsoId("_QB0oJ7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a change in Board Lot size.")]
-    BoardLot,
+    BoardLot = DTCCSubEventTypeCode.BoardLot, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event that involves a Stock Purchase Contract product that is offering an early settlement or remarketing feature prior to the contract's expiration.
-    /// Encoded/decoded by serializers as "Remarketing".
+    /// Encoded/decoded by serializers as "RMRK".
     /// </summary>
     [EnumMember(Value = "RMRK")]
     [IsoId("_QB0oKb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event that involves a Stock Purchase Contract product that is offering an early settlement or remarketing feature prior to the contract's expiration.")]
-    Remarketing,
+    Remarketing = DTCCSubEventTypeCode.Remarketing, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where "unwinding" of the basket of securities occurs.
-    /// Encoded/decoded by serializers as "Unwind".
+    /// Encoded/decoded by serializers as "UNWD".
     /// </summary>
     [EnumMember(Value = "UNWD")]
     [IsoId("_QB0oK7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where ""unwinding"" of the basket of securities occurs.")]
-    Unwind,
+    Unwind = DTCCSubEventTypeCode.Unwind, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where two companies exchange their shares during a merger. After the share exchange, one company becomes a subsidiary of the other and is no longer listed. Usually applicable to an event in JP markets.
-    /// Encoded/decoded by serializers as "ShareExchange".
+    /// Encoded/decoded by serializers as "SHEX".
     /// </summary>
     [EnumMember(Value = "SHEX")]
     [IsoId("_QB0oLb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where two companies exchange their shares during a merger. After the share exchange, one company becomes a subsidiary of the other and is no longer listed. Usually applicable to an event in JP markets.")]
-    ShareExchange,
+    ShareExchange = DTCCSubEventTypeCode.ShareExchange, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where one company merges with the other and assumes the name of the surviving company. It is the standard market-accepted merger. Usually applicable to an event in JP markets.
-    /// Encoded/decoded by serializers as "Standard".
+    /// Encoded/decoded by serializers as "STDT".
     /// </summary>
     [EnumMember(Value = "STDT")]
     [IsoId("_QB0oL7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where one company merges with the other and assumes the name of the surviving company. It is the standard market-accepted merger. Usually applicable to an event in JP markets.")]
-    Standard,
+    Standard = DTCCSubEventTypeCode.Standard, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where one company transfers all of its shares to a newly created company. Usually applicable to an event in JP markets.
-    /// Encoded/decoded by serializers as "Transfer".
+    /// Encoded/decoded by serializers as "XFER".
     /// </summary>
     [EnumMember(Value = "XFER")]
     [IsoId("_QB0oMb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where one company transfers all of its shares to a newly created company. Usually applicable to an event in JP markets.")]
-    Transfer,
+    Transfer = DTCCSubEventTypeCode.Transfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates an event where the Issue has an early redemption feature. This feature allows the holder to elect to sell bonds back to the issuer on a predetermined basis (excluding monthly) according to specific priorities.
-    /// Encoded/decoded by serializers as "SurvivorOptions".
+    /// Encoded/decoded by serializers as "SOPT".
     /// </summary>
     [EnumMember(Value = "SOPT")]
     [IsoId("_QB0oM7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Indicates an event where the Issue has an early redemption feature. This feature allows the holder to elect to sell bonds back to the issuer on a predetermined basis (excluding monthly) according to specific priorities.")]
-    SurvivorOptions,
+    SurvivorOptions = DTCCSubEventTypeCode.SurvivorOptions, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates an event where the issue has an early redemption feature that allows the holder to elect to sell bonds back to the issuer on a monthly basis, according to specified conditions.
-    /// Encoded/decoded by serializers as "MortgageBacked".
+    /// Encoded/decoded by serializers as "MBCK".
     /// </summary>
     [EnumMember(Value = "MBCK")]
     [IsoId("_QB0oNb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Indicates an event where the issue has an early redemption feature that allows the holder to elect to sell bonds back to the issuer on a monthly basis, according to specified conditions.")]
-    MortgageBacked,
+    MortgageBacked = DTCCSubEventTypeCode.MortgageBacked, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the distribution is from the proceeds of the sale of assets.
-    /// Encoded/decoded by serializers as "SaleOfAssets".
+    /// Encoded/decoded by serializers as "SALE".
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_QB0oN7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the distribution is from the proceeds of the sale of assets.")]
-    SaleOfAssets,
+    SaleOfAssets = DTCCSubEventTypeCode.SaleOfAssets, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the company is not issuing a security with the right to subscribe for additional shares. In these instances, a User CUSIP is created by DTC (The Depository Trust Company) as opposed to a company-issued CUSIP in order to identify these issues.
-    /// Encoded/decoded by serializers as "PhysicalRightsNotIssued".
+    /// Encoded/decoded by serializers as "PRNI".
     /// </summary>
     [EnumMember(Value = "PRNI")]
     [IsoId("_QB0oOb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the company is not issuing a security with the right to subscribe for additional shares. In these instances, a User CUSIP is created by DTC (The Depository Trust Company) as opposed to a company-issued CUSIP in order to identify these issues.")]
-    PhysicalRightsNotIssued,
+    PhysicalRightsNotIssued = DTCCSubEventTypeCode.PhysicalRightsNotIssued, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies sale of rights event where issuers redeem poison pill rights.
-    /// Encoded/decoded by serializers as "PoisonPill".
+    /// Encoded/decoded by serializers as "POPI".
     /// </summary>
     [EnumMember(Value = "POPI")]
     [IsoId("_QB0oO7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies sale of rights event where issuers redeem poison pill rights.")]
-    PoisonPill,
+    PoisonPill = DTCCSubEventTypeCode.PoisonPill, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the issuer offers a dividend reinvestment program that is not processed by DTC (the Depository Trust Company).
-    /// Encoded/decoded by serializers as "DividendReinvestmentByIssuer".
+    /// Encoded/decoded by serializers as "DRPI".
     /// </summary>
     [EnumMember(Value = "DRPI")]
     [IsoId("_QB0oPb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the issuer offers a dividend reinvestment program that is not processed by DTC (the Depository Trust Company).")]
-    DividendReinvestmentByIssuer,
+    DividendReinvestmentByIssuer = DTCCSubEventTypeCode.DividendReinvestmentByIssuer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where redemption shares are issued in addition to shares of the original security. This is related to the Mandatory Exchange event with the same sub-event type name.
-    /// Encoded/decoded by serializers as "MandatoryRedemptionOfShares".
+    /// Encoded/decoded by serializers as "MROS".
     /// </summary>
     [EnumMember(Value = "MROS")]
     [IsoId("_QB0oP7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where redemption shares are issued in addition to shares of the original security. This is related to the Mandatory Exchange event with the same sub-event type name.")]
-    MandatoryRedemptionOfShares,
+    MandatoryRedemptionOfShares = DTCCSubEventTypeCode.MandatoryRedemptionOfShares, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event involving the offer of shares by a corporation listed on the Australia Stock Exchange, in which ASIC will give relief so that the company can offer existing shareholders the opportunity to acquire small numbers of additional shares without needing a disclosure document or Product Disclosure Statement (PDS).
-    /// Encoded/decoded by serializers as "SharePurchasePlan".
+    /// Encoded/decoded by serializers as "SHPP".
     /// </summary>
     [EnumMember(Value = "SHPP")]
     [IsoId("_QB0oQb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event involving the offer of shares by a corporation listed on the Australia Stock Exchange, in which ASIC will give relief so that the company can offer existing shareholders the opportunity to acquire small numbers of additional shares without needing a disclosure document or Product Disclosure Statement (PDS).")]
-    SharePurchasePlan,
+    SharePurchasePlan = DTCCSubEventTypeCode.SharePurchasePlan, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event in certain markets where underlying rights are not issued.
-    /// Encoded/decoded by serializers as "OpenOffer".
+    /// Encoded/decoded by serializers as "OPOF".
     /// </summary>
     [EnumMember(Value = "OPOF")]
     [IsoId("_QB0oQ7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event in certain markets where underlying rights are not issued.")]
-    OpenOffer,
+    OpenOffer = DTCCSubEventTypeCode.OpenOffer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a tender offer event on a Rights security. Holders must submit both the ordinary share(s) and right(s) to be eligible to receive the tender consideration. The ratio of ordinary shares to rights is defined in the offer.
-    /// Encoded/decoded by serializers as "TenderWithRights".
+    /// Encoded/decoded by serializers as "TWRI".
     /// </summary>
     [EnumMember(Value = "TWRI")]
     [IsoId("_QB0oRb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a tender offer event on a Rights security. Holders must submit both the ordinary share(s) and right(s) to be eligible to receive the tender consideration. The ratio of ordinary shares to rights is defined in the offer.")]
-    TenderWithRights,
+    TenderWithRights = DTCCSubEventTypeCode.TenderWithRights, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies DTC (the Depository Trust Company) specific sub-event where holders can elect to "sell" whole shares to satisfy fractional entitlements (usually as a result of a merger) at the beneficial owner level.
-    /// Encoded/decoded by serializers as "CashinLieu".
+    /// Encoded/decoded by serializers as "CILI".
     /// </summary>
     [EnumMember(Value = "CILI")]
     [IsoId("_QB0oR7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies DTC (the Depository Trust Company) specific sub-event where holders can elect to ""sell"" whole shares to satisfy fractional entitlements (usually as a result of a merger) at the beneficial owner level.")]
-    CashinLieu,
+    CashinLieu = DTCCSubEventTypeCode.CashinLieu, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a tender offer event in which the holder can choose the price at which they are willing to tender their securities. This price may or may not be accepted by the offeror.
-    /// Encoded/decoded by serializers as "BidTenderSealedTender".
+    /// Encoded/decoded by serializers as "BTST".
     /// </summary>
     [EnumMember(Value = "BTST")]
     [IsoId("_QB0oSb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a tender offer event in which the holder can choose the price at which they are willing to tender their securities. This price may or may not be accepted by the offeror.")]
-    BidTenderSealedTender,
+    BidTenderSealedTender = DTCCSubEventTypeCode.BidTenderSealedTender, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a tender offer event made by another company to purchase a portion or all of the outstanding shares.
-    /// Encoded/decoded by serializers as "OfferToPurchase".
+    /// Encoded/decoded by serializers as "FTPR".
     /// </summary>
     [EnumMember(Value = "FTPR")]
     [IsoId("_QB0oS7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a tender offer event made by another company to purchase a portion or all of the outstanding shares.")]
-    OfferToPurchase,
+    OfferToPurchase = DTCCSubEventTypeCode.OfferToPurchase, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies when the event security is an ADR. The underlying security is American Depositary Receipt.
-    /// Encoded/decoded by serializers as "ADR".
+    /// Encoded/decoded by serializers as "ADRS".
     /// </summary>
     [EnumMember(Value = "ADRS")]
     [IsoId("_QB0oTb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies when the event security is an ADR. The underlying security is American Depositary Receipt.")]
-    ADR,
+    ADR = DTCCSubEventTypeCode.ADR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a consent event with payout.
-    /// Encoded/decoded by serializers as "WithPayout".
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_QB0oT7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a consent event with payout.")]
-    WithPayout,
+    WithPayout = DTCCSubEventTypeCode.WithPayout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a consent event without payout.
-    /// Encoded/decoded by serializers as "WithoutPayout".
+    /// Encoded/decoded by serializers as "WITO".
     /// </summary>
     [EnumMember(Value = "WITO")]
     [IsoId("_QB0oUb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a consent event without payout.")]
-    WithoutPayout,
+    WithoutPayout = DTCCSubEventTypeCode.WithoutPayout, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where a tax credit relating to the Build America Bonds will occur.
-    /// Encoded/decoded by serializers as "TaxCredit".
+    /// Encoded/decoded by serializers as "CTAX".
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_QB0oU7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where a tax credit relating to the Build America Bonds will occur.")]
-    TaxCredit,
+    TaxCredit = DTCCSubEventTypeCode.TaxCredit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an exchange offer on securities that are subject to Securities Rule 144A.
-    /// Encoded/decoded by serializers as "USLegal144A".
+    /// Encoded/decoded by serializers as "A144".
     /// </summary>
     [EnumMember(Value = "A144")]
     [IsoId("_QB0oVb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an exchange offer on securities that are subject to Securities Rule 144A.")]
-    USLegal144A,
+    USLegal144A = DTCCSubEventTypeCode.USLegal144A, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the payout will be both cash and securities.
-    /// Encoded/decoded by serializers as "CashAndSecurities".
+    /// Encoded/decoded by serializers as "CASE".
     /// </summary>
     [EnumMember(Value = "CASE")]
     [IsoId("_QB0oV7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the payout will be both cash and securities.")]
-    CashAndSecurities,
+    CashAndSecurities = DTCCSubEventTypeCode.CashAndSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an exchange offer on securities that are subject to securities rule Reg S.
-    /// Encoded/decoded by serializers as "RegulationS".
+    /// Encoded/decoded by serializers as "REGS".
     /// </summary>
     [EnumMember(Value = "REGS")]
     [IsoId("_QB0oWb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an exchange offer on securities that are subject to securities rule Reg S.")]
-    RegulationS,
+    RegulationS = DTCCSubEventTypeCode.RegulationS, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a MMI Important Notice.
-    /// Encoded/decoded by serializers as "ImportantNotice".
+    /// Encoded/decoded by serializers as "NOTI".
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_QB0oW7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a MMI Important Notice.")]
-    ImportantNotice,
+    ImportantNotice = DTCCSubEventTypeCode.ImportantNotice, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event which will be based on record date holdings.
-    /// Encoded/decoded by serializers as "BasedOnRecordDateHoldings".
+    /// Encoded/decoded by serializers as "RDTH".
     /// </summary>
     [EnumMember(Value = "RDTH")]
     [IsoId("_QB0oXb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event which will be based on record date holdings.")]
-    BasedOnRecordDateHoldings,
+    BasedOnRecordDateHoldings = DTCCSubEventTypeCode.BasedOnRecordDateHoldings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the payout will be cash.
-    /// Encoded/decoded by serializers as "Cash".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_QB0oX7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the payout will be cash.")]
-    Cash,
+    Cash = DTCCSubEventTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the presentation of securities will be required.
-    /// Encoded/decoded by serializers as "PresentationRequired".
+    /// Encoded/decoded by serializers as "PREQ".
     /// </summary>
     [EnumMember(Value = "PREQ")]
     [IsoId("_QB0oYb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the presentation of securities will be required.")]
-    PresentationRequired,
+    PresentationRequired = DTCCSubEventTypeCode.PresentationRequired, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event where the payout will be securities.
-    /// Encoded/decoded by serializers as "Securities".
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_QB0oY7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event where the payout will be securities.")]
-    Securities,
+    Securities = DTCCSubEventTypeCode.Securities, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies a tender offer with a convert feature.
-    /// Encoded/decoded by serializers as "ConvertAndTender".
+    /// Encoded/decoded by serializers as "COTE".
     /// </summary>
     [EnumMember(Value = "COTE")]
     [IsoId("_QB0oZb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies a tender offer with a convert feature.")]
-    ConvertAndTender,
+    ConvertAndTender = DTCCSubEventTypeCode.ConvertAndTender, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies when a tender offer is a mini tender.
-    /// Encoded/decoded by serializers as "MiniTender".
+    /// Encoded/decoded by serializers as "MITE".
     /// </summary>
     [EnumMember(Value = "MITE")]
     [IsoId("_QB0oZ7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies when a tender offer is a mini tender.")]
-    MiniTender,
+    MiniTender = DTCCSubEventTypeCode.MiniTender, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies when a tender offer is a self tender.
-    /// Encoded/decoded by serializers as "SelfTender".
+    /// Encoded/decoded by serializers as "SETE".
     /// </summary>
     [EnumMember(Value = "SETE")]
     [IsoId("_QB0oab_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies when a tender offer is a self tender.")]
-    SelfTender,
+    SelfTender = DTCCSubEventTypeCode.SelfTender, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies when the event security is a GDR. The underlying security is a global depositary receipt.
-    /// Encoded/decoded by serializers as "GDR".
+    /// Encoded/decoded by serializers as "GDRS".
     /// </summary>
     [EnumMember(Value = "GDRS")]
     [IsoId("_QB0oa7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies when the event security is a GDR. The underlying security is a global depositary receipt.")]
-    GDR,
+    GDR = DTCCSubEventTypeCode.GDR, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event which has been considered a dividend equivalent payment under Section 871(m) of the United States Internal Revenue Code.
-    /// Encoded/decoded by serializers as "DividendEquivalentPayment871M".
+    /// Encoded/decoded by serializers as "M871".
     /// </summary>
     [EnumMember(Value = "M871")]
     [IsoId("_QB0obb_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event which has been considered a dividend equivalent payment under Section 871(m) of the United States Internal Revenue Code.")]
-    DividendEquivalentPayment871M,
+    DividendEquivalentPayment871M = DTCCSubEventTypeCode.DividendEquivalentPayment871M, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event which has been considered a deemed distribution under Section 305(c) of the United States  Internal Revenue Code.
-    /// Encoded/decoded by serializers as "DeemedDividend305C".
+    /// Encoded/decoded by serializers as "C305".
     /// </summary>
     [EnumMember(Value = "C305")]
     [IsoId("_QB0ob7_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event which has been considered a deemed distribution under Section 305(c) of the United States  Internal Revenue Code.")]
-    DeemedDividend305C,
+    DeemedDividend305C = DTCCSubEventTypeCode.DeemedDividend305C, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Identifies an event which is a full call or a maturity with conversion.
-    /// Encoded/decoded by serializers as "Conversion".
+    /// Encoded/decoded by serializers as "CONV".
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_STd6ob_oEeeb2ZBoAlSG1Q")]
     [Description(@"Identifies an event which is a full call or a maturity with conversion.")]
-    Conversion,
+    Conversion = DTCCSubEventTypeCode.Conversion, // same ordinal as derivation source for type conversions
     
 }
 
@@ -397,7 +397,7 @@ public enum DTCCSubEventType6Code
 public static class DTCCSubEventType6CodeMetadataExtensions
 {
     private static readonly DTCCSubEventType6CodeDropdownSource _dropdownSource = new DTCCSubEventType6CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

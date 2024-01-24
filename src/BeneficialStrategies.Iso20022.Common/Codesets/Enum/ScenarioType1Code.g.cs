@@ -21,21 +21,21 @@ public enum ScenarioType1Code
 {
     /// <summary>
     /// Scenario that replays an event that occurred in the past, including antithetic historical scenarios.
-    /// Encoded/decoded by serializers as "Historical".
+    /// Encoded/decoded by serializers as "HIST".
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_WJzxkassEeayv9XxdmMwKQ")]
     [Description(@"Scenario that replays an event that occurred in the past, including antithetic historical scenarios.")]
-    Historical,
+    Historical = ScenarioTypeCode.Historical, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Scenario that is defined by a hypothetical or theoretical event that may happen in the future.
-    /// Encoded/decoded by serializers as "Hypothetical".
+    /// Encoded/decoded by serializers as "HYPT".
     /// </summary>
     [EnumMember(Value = "HYPT")]
     [IsoId("_WN-f4assEeayv9XxdmMwKQ")]
     [Description(@"Scenario that is defined by a hypothetical or theoretical event that may happen in the future.")]
-    Hypothetical,
+    Hypothetical = ScenarioTypeCode.Hypothetical, // same ordinal as derivation source for type conversions
     
 }
 
@@ -46,7 +46,7 @@ public enum ScenarioType1Code
 public static class ScenarioType1CodeMetadataExtensions
 {
     private static readonly ScenarioType1CodeDropdownSource _dropdownSource = new ScenarioType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

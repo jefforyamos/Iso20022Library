@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_Kl0T0CDEEeWPMvNwVtiMsA")]
 [Description(@"Specifies the accounting status.")]
 [Derivations(typeof(AccountingStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum AccountingStatusCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum AccountingStatusCode
 public static class AccountingStatusCodeMetadataExtensions
 {
     private static readonly AccountingStatusCodeDropdownSource _dropdownSource = new AccountingStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

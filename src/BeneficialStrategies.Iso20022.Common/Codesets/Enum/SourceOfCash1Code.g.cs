@@ -21,138 +21,138 @@ public enum SourceOfCash1Code
 {
     /// <summary>
     /// Income as a result of alimony.
-    /// Encoded/decoded by serializers as "Alimony".
+    /// Encoded/decoded by serializers as "ALMY".
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_ml8KwTlHEealR6-8aQ15BA")]
     [Description(@"Income as a result of alimony.")]
-    Alimony,
+    Alimony = SourceOfCashCode.Alimony, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income is cash proceeds from customers.
-    /// Encoded/decoded by serializers as "CashProceeds".
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_mwDwETlHEealR6-8aQ15BA")]
     [Description(@"Income is cash proceeds from customers.")]
-    CashProceeds,
+    CashProceeds = SourceOfCashCode.CashProceeds, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income is from compensation received.
-    /// Encoded/decoded by serializers as "Compensation".
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_mzLVgTlHEealR6-8aQ15BA")]
     [Description(@"Income is from compensation received.")]
-    Compensation,
+    Compensation = SourceOfCashCode.Compensation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Employee income.
-    /// Encoded/decoded by serializers as "EmployeeIncome".
+    /// Encoded/decoded by serializers as "EMIN".
     /// </summary>
     [EnumMember(Value = "EMIN")]
     [IsoId("_m9S60TlHEealR6-8aQ15BA")]
     [Description(@"Employee income.")]
-    EmployeeIncome,
+    EmployeeIncome = SourceOfCashCode.EmployeeIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income was a cash gift.
-    /// Encoded/decoded by serializers as "Gift".
+    /// Encoded/decoded by serializers as "GIFT".
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_nAbHUTlHEealR6-8aQ15BA")]
     [Description(@"Income was a cash gift.")]
-    Gift,
+    Gift = SourceOfCashCode.Gift, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Cash from an inheritance.
-    /// Encoded/decoded by serializers as "Inheritance".
+    /// Encoded/decoded by serializers as "INHE".
     /// </summary>
     [EnumMember(Value = "INHE")]
     [IsoId("_nKPKoTlHEealR6-8aQ15BA")]
     [Description(@"Cash from an inheritance.")]
-    Inheritance,
+    Inheritance = SourceOfCashCode.Inheritance, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from the liquidation of an insurance premium.
-    /// Encoded/decoded by serializers as "InsurancePremiumLiquidation".
+    /// Encoded/decoded by serializers as "INLQ".
     /// </summary>
     [EnumMember(Value = "INLQ")]
     [IsoId("_nNXXITlHEealR6-8aQ15BA")]
     [Description(@"Income from the liquidation of an insurance premium.")]
-    InsurancePremiumLiquidation,
+    InsurancePremiumLiquidation = SourceOfCashCode.InsurancePremiumLiquidation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from the sale of real estate.
-    /// Encoded/decoded by serializers as "RealEstateSale".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_nXe8cTlHEealR6-8aQ15BA")]
     [Description(@"Income from the sale of real estate.")]
-    RealEstateSale,
+    RealEstateSale = SourceOfCashCode.RealEstateSale, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Redemption of an investment fund.
-    /// Encoded/decoded by serializers as "Redemption".
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_ngtJ4TlHEealR6-8aQ15BA")]
     [Description(@"Redemption of an investment fund.")]
-    Redemption,
+    Redemption = SourceOfCashCode.Redemption, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from a retirement policy.
-    /// Encoded/decoded by serializers as "RetirementPolicy".
+    /// Encoded/decoded by serializers as "REPY".
     /// </summary>
     [EnumMember(Value = "REPY")]
     [IsoId("_np7XUTlHEealR6-8aQ15BA")]
     [Description(@"Income from a retirement policy.")]
-    RetirementPolicy,
+    RetirementPolicy = SourceOfCashCode.RetirementPolicy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sale and acquisition of a corporation.
-    /// Encoded/decoded by serializers as "SaleAquisitionCorporation".
+    /// Encoded/decoded by serializers as "SEAQ".
     /// </summary>
     [EnumMember(Value = "SEAQ")]
     [IsoId("_nzJkwTlHEealR6-8aQ15BA")]
     [Description(@"Sale and acquisition of a corporation.")]
-    SaleAquisitionCorporation,
+    SaleAquisitionCorporation = SourceOfCashCode.SaleAquisitionCorporation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Sale of goods.
-    /// Encoded/decoded by serializers as "SaleOfGoods".
+    /// Encoded/decoded by serializers as "SALE".
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_n2biQTlHEealR6-8aQ15BA")]
     [Description(@"Sale of goods.")]
-    SaleOfGoods,
+    SaleOfGoods = SourceOfCashCode.SaleOfGoods, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from a savings plan.
-    /// Encoded/decoded by serializers as "Savings".
+    /// Encoded/decoded by serializers as "SVGS".
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_oAiggTlHEealR6-8aQ15BA")]
     [Description(@"Income from a savings plan.")]
-    Savings,
+    Savings = SourceOfCashCode.Savings, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from self-employment.
-    /// Encoded/decoded by serializers as "SelfEmploymentIncome".
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_oDqtATlHEealR6-8aQ15BA")]
     [Description(@"Income from self-employment.")]
-    SelfEmploymentIncome,
+    SelfEmploymentIncome = SourceOfCashCode.SelfEmploymentIncome, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Income from a cash win.
-    /// Encoded/decoded by serializers as "Winnings".
+    /// Encoded/decoded by serializers as "WINS".
     /// </summary>
     [EnumMember(Value = "WINS")]
     [IsoId("_oMvwgTlHEealR6-8aQ15BA")]
     [Description(@"Income from a cash win.")]
-    Winnings,
+    Winnings = SourceOfCashCode.Winnings, // same ordinal as derivation source for type conversions
     
 }
 
@@ -163,7 +163,7 @@ public enum SourceOfCash1Code
 public static class SourceOfCash1CodeMetadataExtensions
 {
     private static readonly SourceOfCash1CodeDropdownSource _dropdownSource = new SourceOfCash1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

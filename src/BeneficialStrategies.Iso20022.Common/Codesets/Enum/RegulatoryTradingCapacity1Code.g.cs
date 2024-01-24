@@ -21,30 +21,30 @@ public enum RegulatoryTradingCapacity1Code
 {
     /// <summary>
     /// Transaction was carried out as a matched principal trading.
-    /// Encoded/decoded by serializers as "MatchedPrincipal".
+    /// Encoded/decoded by serializers as "MTCH".
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_Am-fce8cEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as a matched principal trading.")]
-    MatchedPrincipal,
+    MatchedPrincipal = RegulatoryTradingCapacityCode.MatchedPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was carried out as a deal under own account.
-    /// Encoded/decoded by serializers as "DealOnOwnAccount".
+    /// Encoded/decoded by serializers as "DEAL".
     /// </summary>
     [EnumMember(Value = "DEAL")]
     [IsoId("_AuSBUe8cEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as a deal under own account.")]
-    DealOnOwnAccount,
+    DealOnOwnAccount = RegulatoryTradingCapacityCode.DealOnOwnAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Transaction was carried out as an agent.
-    /// Encoded/decoded by serializers as "AnyOtherCapacity".
+    /// Encoded/decoded by serializers as "AOTC".
     /// </summary>
     [EnumMember(Value = "AOTC")]
     [IsoId("_A1hRwe8cEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as an agent.")]
-    AnyOtherCapacity,
+    AnyOtherCapacity = RegulatoryTradingCapacityCode.AnyOtherCapacity, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum RegulatoryTradingCapacity1Code
 public static class RegulatoryTradingCapacity1CodeMetadataExtensions
 {
     private static readonly RegulatoryTradingCapacity1CodeDropdownSource _dropdownSource = new RegulatoryTradingCapacity1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

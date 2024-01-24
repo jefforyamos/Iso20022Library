@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_1oiLwzL3EeKU9IrkkToqcw_-1345943536")]
 [Description(@"Specifies the quantity sought type.")]
 [Derivations(typeof(DTCCQuantitySought1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum DTCCQuantitySoughtCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum DTCCQuantitySoughtCode
 public static class DTCCQuantitySoughtCodeMetadataExtensions
 {
     private static readonly DTCCQuantitySoughtCodeDropdownSource _dropdownSource = new DTCCQuantitySoughtCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

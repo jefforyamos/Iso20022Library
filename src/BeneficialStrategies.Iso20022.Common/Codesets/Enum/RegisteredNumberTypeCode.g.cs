@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_V0O2MFf7EeOuDtoQo1qilA")]
 [Description(@"Code values for the registered number type.")]
 [Derivations(typeof(RegisteredNumberType1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum RegisteredNumberTypeCode
 {
     /// <summary>
@@ -74,7 +73,7 @@ public enum RegisteredNumberTypeCode
 public static class RegisteredNumberTypeCodeMetadataExtensions
 {
     private static readonly RegisteredNumberTypeCodeDropdownSource _dropdownSource = new RegisteredNumberTypeCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YmyNoNp-Ed-ak6NoX_4Aeg_243553548")]
 [Description(@"Specifies the type of bank service selected by the user.")]
 [Derivations(typeof(TradeFinanceService2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TradeFinanceServiceCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TradeFinanceServiceCode
 public static class TradeFinanceServiceCodeMetadataExtensions
 {
     private static readonly TradeFinanceServiceCodeDropdownSource _dropdownSource = new TradeFinanceServiceCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

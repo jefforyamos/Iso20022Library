@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_YbAbdtp-Ed-ak6NoX_4Aeg_-843141968")]
 [Description(@"Specifies whether the interest will be setlled in cash or rolled in.")]
 [Derivations(typeof(InterestMethod1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum InterestMethodCode
 {
     /// <summary>
@@ -47,7 +46,7 @@ public enum InterestMethodCode
 public static class InterestMethodCodeMetadataExtensions
 {
     private static readonly InterestMethodCodeDropdownSource _dropdownSource = new InterestMethodCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

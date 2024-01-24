@@ -21,30 +21,30 @@ public enum PaymentScenario2Code
 {
     /// <summary>
     /// Indicates customer credit transfer(s).
-    /// Encoded/decoded by serializers as "CustomerCreditTransfer".
+    /// Encoded/decoded by serializers as "CCTR".
     /// </summary>
     [EnumMember(Value = "CCTR")]
     [IsoId("_pmo6gXYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s).")]
-    CustomerCreditTransfer,
+    CustomerCreditTransfer = PaymentScenarioCode.CustomerCreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates cover payment(s).
-    /// Encoded/decoded by serializers as "Cover".
+    /// Encoded/decoded by serializers as "COVE".
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_qYxiEXYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates cover payment(s).")]
-    Cover,
+    Cover = PaymentScenarioCode.Cover, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Indicates customer credit transfer(s) and cover(s).
-    /// Encoded/decoded by serializers as "CustomerCreditTransferAndCover".
+    /// Encoded/decoded by serializers as "CTCO".
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_rCIoIXYkEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) and cover(s).")]
-    CustomerCreditTransferAndCover,
+    CustomerCreditTransferAndCover = PaymentScenarioCode.CustomerCreditTransferAndCover, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum PaymentScenario2Code
 public static class PaymentScenario2CodeMetadataExtensions
 {
     private static readonly PaymentScenario2CodeDropdownSource _dropdownSource = new PaymentScenario2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

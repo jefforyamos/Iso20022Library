@@ -21,30 +21,30 @@ public enum WaivingInstruction2Code
 {
     /// <summary>
     /// Form of commission waived is cash.
-    /// Encoded/decoded by serializers as "WaiveInCash".
+    /// Encoded/decoded by serializers as "WICA".
     /// </summary>
     [EnumMember(Value = "WICA")]
     [IsoId("_Vg5axtp-Ed-ak6NoX_4Aeg_-646298105")]
     [Description(@"Form of commission waived is cash.")]
-    WaiveInCash,
+    WaiveInCash = WaivingInstructionCode.WaiveInCash, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Form of commission waived is additional units of a financial instrument.
-    /// Encoded/decoded by serializers as "WaiveInUnits".
+    /// Encoded/decoded by serializers as "WIUN".
     /// </summary>
     [EnumMember(Value = "WIUN")]
     [IsoId("_Vg5ax9p-Ed-ak6NoX_4Aeg_-633369743")]
     [Description(@"Form of commission waived is additional units of a financial instrument.")]
-    WaiveInUnits,
+    WaiveInUnits = WaivingInstructionCode.WaiveInUnits, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Another type of commission waiving.
-    /// Encoded/decoded by serializers as "Other".
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vg5ayNp-Ed-ak6NoX_4Aeg_-312488315")]
     [Description(@"Another type of commission waiving.")]
-    Other,
+    Other = WaivingInstructionCode.Other, // same ordinal as derivation source for type conversions
     
 }
 
@@ -55,7 +55,7 @@ public enum WaivingInstruction2Code
 public static class WaivingInstruction2CodeMetadataExtensions
 {
     private static readonly WaivingInstruction2CodeDropdownSource _dropdownSource = new WaivingInstruction2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

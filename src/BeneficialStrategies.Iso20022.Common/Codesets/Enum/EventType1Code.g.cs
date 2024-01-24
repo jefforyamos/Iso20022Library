@@ -21,57 +21,57 @@ public enum EventType1Code
 {
     /// <summary>
     /// In fixed income this is the put provision on the bond allowing the investor the right to "redeem the bond at a specified price prior to maturity".
-    /// Encoded/decoded by serializers as "Put".
+    /// Encoded/decoded by serializers as "PUT1".
     /// </summary>
     [EnumMember(Value = "PUT1")]
     [IsoId("_aki61Np-Ed-ak6NoX_4Aeg_1311076273")]
     [Description(@"In fixed income this is the put provision on the bond allowing the investor the right to ""redeem the bond at a specified price prior to maturity"".")]
-    Put,
+    Put = EventTypeCode.Put, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// In fixed income this is the call provision on the bond allowing the bond issuer "the right to redeem [the bond] prior to its maturity date, under certain conditions.".
-    /// Encoded/decoded by serializers as "Call".
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_aki61dp-Ed-ak6NoX_4Aeg_1311076290")]
     [Description(@"In fixed income this is the call provision on the bond allowing the bond issuer ""the right to redeem [the bond] prior to its maturity date, under certain conditions."".")]
-    Call,
+    Call = EventTypeCode.Call, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Synonymous with Put but is the preferred term for certain asset classes in some markets.
-    /// Encoded/decoded by serializers as "Tender".
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_aki61tp-Ed-ak6NoX_4Aeg_1311076291")]
     [Description(@"Synonymous with Put but is the preferred term for certain asset classes in some markets.")]
-    Tender,
+    Tender = EventTypeCode.Tender, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date when the security is activated for trading and clearing.
-    /// Encoded/decoded by serializers as "Activation".
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_aki619p-Ed-ak6NoX_4Aeg_1311076308")]
     [Description(@"Date when the security is activated for trading and clearing.")]
-    Activation,
+    Activation = EventTypeCode.Activation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Date when the security is no longer available for trading and clearing.
-    /// Encoded/decoded by serializers as "Inactivation".
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_aki62Np-Ed-ak6NoX_4Aeg_1311076309")]
     [Description(@"Date when the security is no longer available for trading and clearing.")]
-    Inactivation,
+    Inactivation = EventTypeCode.Inactivation, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// A provision allowing a bond issuer the opportunity to buy outstanding bonds from bondholders for a set rate, using money (a sinking fund) from the issuer's earnings saved specifically for security buybacks. Because it adds doubt for investors over whether the bond will continue to pay until its maturity date, a sinking fund call is seen as an additional risk for investors.
-    /// Encoded/decoded by serializers as "SinkingFundCall".
+    /// Encoded/decoded by serializers as "SFCA".
     /// </summary>
     [EnumMember(Value = "SFCA")]
     [IsoId("_aksr0Np-Ed-ak6NoX_4Aeg_-368590761")]
     [Description(@"A provision allowing a bond issuer the opportunity to buy outstanding bonds from bondholders for a set rate, using money (a sinking fund) from the issuer's earnings saved specifically for security buybacks. Because it adds doubt for investors over whether the bond will continue to pay until its maturity date, a sinking fund call is seen as an additional risk for investors.")]
-    SinkingFundCall,
+    SinkingFundCall = EventTypeCode.SinkingFundCall, // same ordinal as derivation source for type conversions
     
 }
 
@@ -82,7 +82,7 @@ public enum EventType1Code
 public static class EventType1CodeMetadataExtensions
 {
     private static readonly EventType1CodeDropdownSource _dropdownSource = new EventType1CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

@@ -17,9 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_-ctAF_ouEe2ClqPWkEN24A")]
-[Description(@"Specifies the external market code, to which the instruction, operation or report relates, in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code set published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the external market code, to which the instruction, operation or report relates, in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalMarketArea1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalMarketAreaCode
 {
     /// <summary>
@@ -202,7 +201,7 @@ public enum ExternalMarketAreaCode
 public static class ExternalMarketAreaCodeMetadataExtensions
 {
     private static readonly ExternalMarketAreaCodeDropdownSource _dropdownSource = new ExternalMarketAreaCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

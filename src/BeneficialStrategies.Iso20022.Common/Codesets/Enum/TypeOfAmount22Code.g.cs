@@ -21,66 +21,66 @@ public enum TypeOfAmount22Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "Actual".
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_-9S_4VFFEeyhmN3K0lwfug")]
     [Description(@"Actual amount.")]
-    Actual,
+    Actual = TypeOfAmountCode.Actual, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Default amount.
-    /// Encoded/decoded by serializers as "Default".
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("__unIEVFFEeyhmN3K0lwfug")]
     [Description(@"Default amount.")]
-    Default,
+    Default = TypeOfAmountCode.Default, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Deposit amount.
-    /// Encoded/decoded by serializers as "Deposit".
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_ARnHcVFGEeyhmN3K0lwfug")]
     [Description(@"Deposit amount.")]
-    Deposit,
+    Deposit = TypeOfAmountCode.Deposit, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "Estimated".
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_Al1rAVFGEeyhmN3K0lwfug")]
     [Description(@"Estimated amount (the final amount could be above or below).")]
-    Estimated,
+    Estimated = TypeOfAmountCode.Estimated, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "Maximum".
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_BQzTkVFGEeyhmN3K0lwfug")]
     [Description(@"Maximum amount (the final amount must be less or equal).")]
-    Maximum,
+    Maximum = TypeOfAmountCode.Maximum, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Substitute for an amount to be authorised.
-    /// Encoded/decoded by serializers as "Proxy".
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_CP_fsVFGEeyhmN3K0lwfug")]
     [Description(@"Substitute for an amount to be authorised.")]
-    Proxy,
+    Proxy = TypeOfAmountCode.Proxy, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Reserved or updated reserved amount for reservation.
-    /// Encoded/decoded by serializers as "Reserved".
+    /// Encoded/decoded by serializers as "RESD".
     /// </summary>
     [EnumMember(Value = "RESD")]
     [IsoId("_DV9CMVFGEeyhmN3K0lwfug")]
     [Description(@"Reserved or updated reserved amount for reservation.")]
-    Reserved,
+    Reserved = TypeOfAmountCode.Reserved, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TypeOfAmount22Code
 public static class TypeOfAmount22CodeMetadataExtensions
 {
     private static readonly TypeOfAmount22CodeDropdownSource _dropdownSource = new TypeOfAmount22CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

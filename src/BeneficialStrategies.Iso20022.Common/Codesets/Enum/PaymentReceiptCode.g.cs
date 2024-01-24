@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_oMVPoA5EEeenr-7g_0TYag")]
 [Description(@"Specifies if an operation is a payment, or a receipt or none.")]
 [Derivations(typeof(PaymentReceipt1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum PaymentReceiptCode
 {
     /// <summary>
@@ -56,7 +55,7 @@ public enum PaymentReceiptCode
 public static class PaymentReceiptCodeMetadataExtensions
 {
     private static readonly PaymentReceiptCodeDropdownSource _dropdownSource = new PaymentReceiptCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

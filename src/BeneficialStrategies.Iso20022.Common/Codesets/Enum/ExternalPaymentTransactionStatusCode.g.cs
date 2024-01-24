@@ -16,9 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [DataContract]
 [Serializable]
 [IsoId("_mTPNQLf8Eee9KIDjEHK7ZQ")]
-[Description(@"Specifies the status of an individual payment instructions, as published in an external payment transaction status code set. External code sets can be downloaded from www.iso20022.org.")]
+[Description(@"Specifies the status of an individual payment instructions, as published in an external payment transaction status code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentTransactionStatus1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentTransactionStatusCode
 {
     /// <summary>
@@ -192,7 +191,7 @@ public enum ExternalPaymentTransactionStatusCode
 public static class ExternalPaymentTransactionStatusCodeMetadataExtensions
 {
     private static readonly ExternalPaymentTransactionStatusCodeDropdownSource _dropdownSource = new ExternalPaymentTransactionStatusCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

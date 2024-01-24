@@ -21,66 +21,66 @@ public enum TransactionChannel5Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MailOrder".
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_ImxrUbDHEeaW-9Sj0pzN5A")]
     [Description(@"Mail order.")]
-    MailOrder,
+    MailOrder = TransactionChannelCode.MailOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Telephone order.
-    /// Encoded/decoded by serializers as "TelephoneOrder".
+    /// Encoded/decoded by serializers as "TLPH".
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_ImxrU7DHEeaW-9Sj0pzN5A")]
     [Description(@"Telephone order.")]
-    TelephoneOrder,
+    TelephoneOrder = TransactionChannelCode.TelephoneOrder, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce.
-    /// Encoded/decoded by serializers as "ElectronicCommerce".
+    /// Encoded/decoded by serializers as "ECOM".
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_ImxrVbDHEeaW-9Sj0pzN5A")]
     [Description(@"Electronic commerce.")]
-    ElectronicCommerce,
+    ElectronicCommerce = TransactionChannelCode.ElectronicCommerce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment on television.
-    /// Encoded/decoded by serializers as "TelevisionPayment".
+    /// Encoded/decoded by serializers as "TVPY".
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_ImxrV7DHEeaW-9Sj0pzN5A")]
     [Description(@"Payment on television.")]
-    TelevisionPayment,
+    TelevisionPayment = TransactionChannelCode.TelevisionPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Electronic commerce with cardholder authentication.
-    /// Encoded/decoded by serializers as "SecuredElectronicCommerce".
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_ImxrWbDHEeaW-9Sj0pzN5A")]
     [Description(@"Electronic commerce with cardholder authentication.")]
-    SecuredElectronicCommerce,
+    SecuredElectronicCommerce = TransactionChannelCode.SecuredElectronicCommerce, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment performed through a cardholder mobile device.
-    /// Encoded/decoded by serializers as "MobilePayment".
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_ImxrW7DHEeaW-9Sj0pzN5A")]
     [Description(@"Payment performed through a cardholder mobile device.")]
-    MobilePayment,
+    MobilePayment = TransactionChannelCode.MobilePayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
     /// Payment performed through a merchant mobile device.
-    /// Encoded/decoded by serializers as "MobilePOS".
+    /// Encoded/decoded by serializers as "MPOS".
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_KbWnUbDHEeaW-9Sj0pzN5A")]
     [Description(@"Payment performed through a merchant mobile device.")]
-    MobilePOS,
+    MobilePOS = TransactionChannelCode.MobilePOS, // same ordinal as derivation source for type conversions
     
 }
 
@@ -91,7 +91,7 @@ public enum TransactionChannel5Code
 public static class TransactionChannel5CodeMetadataExtensions
 {
     private static readonly TransactionChannel5CodeDropdownSource _dropdownSource = new TransactionChannel5CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

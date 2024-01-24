@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_X1pf0HyiEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the termination reason.")]
 [Derivations(typeof(TerminationReason1Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum TerminationReasonCode
 {
     /// <summary>
@@ -65,7 +64,7 @@ public enum TerminationReasonCode
 public static class TerminationReasonCodeMetadataExtensions
 {
     private static readonly TerminationReasonCodeDropdownSource _dropdownSource = new TerminationReasonCodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>

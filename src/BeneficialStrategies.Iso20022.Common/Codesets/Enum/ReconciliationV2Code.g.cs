@@ -17,7 +17,6 @@ namespace BeneficialStrategies.Iso20222.Common;
 [IsoId("_FZQwYHhCEeu3kecHd7QKUQ")]
 [Description(@"Specifies the process type used for the trade repository reconciliation.")]
 [Derivations(typeof(Reconciliation2Code))]
-// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationV2Code
 {
     /// <summary>
@@ -92,7 +91,7 @@ public enum ReconciliationV2Code
 public static class ReconciliationV2CodeMetadataExtensions
 {
     private static readonly ReconciliationV2CodeDropdownSource _dropdownSource = new ReconciliationV2CodeDropdownSource();
-
+    
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>
