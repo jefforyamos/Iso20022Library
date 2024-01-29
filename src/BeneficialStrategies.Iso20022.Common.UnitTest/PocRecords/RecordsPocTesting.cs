@@ -7,6 +7,12 @@ using System.Xml.Linq;
 using System.Reflection;
 using Microsoft.VisualBasic;
 using BeneficialStrategies.Iso20022.SchemaValidation;
+using System.Runtime.Serialization.DataContracts;
+using Xunit.Sdk;
+using System.Xml.Serialization;
+using System.Numerics;
+using System.Globalization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
@@ -283,4 +289,76 @@ public class RecordsPocTesting
         Assert.True(ss.IsCompiled, "Must be compiled");
         Assert.True(ss.Schemas().Count >= 4);
     }
+
+   	// <topLevelDictionaryEntry xsi:type="iso20022:ChoiceComponent" xmi:id="_rQn0cJBrEeaGiLsfv6g8MA" name="DateFormat42Choice" definition="Choice of formats for a date." registrationStatus="Registered">
+    //   <messageElement xsi:type="iso20022:MessageAttribute" xmi:id="_xXmZwpBrEeaGiLsfv6g8MA" name="YearMonth" definition="Year and month." registrationStatus="Provisionally Registered" maxOccurs="1" minOccurs="1" xmlTag="YrMnth" businessElementTrace="_FiqwYMTGEeChad0JzLk7QA_-260170499" isDerived="false" simpleType="_YYU64tp-Ed-ak6NoX_4Aeg_-1824134999"/>
+    //   <messageElement xsi:type="iso20022:MessageAttribute" xmi:id="_xXmZw5BrEeaGiLsfv6g8MA" name="YearMonthDay" definition="Year, month and day." registrationStatus="Provisionally Registered" maxOccurs="1" minOccurs="1" xmlTag="YrMnthDay" businessElementTrace="_FiqwYMTGEeChad0JzLk7QA_-260170499" isDerived="false" simpleType="_YXSZFtp-Ed-ak6NoX_4Aeg_2032498111"/>
+    // </topLevelDictionaryEntry>
+ 
+	// [DataContract]
+	// [Serializable]
+	private struct YearMonth : IXmlSerializable
+    {
+
+        [DataMember]
+		public required UInt16 Year { get; init;}
+
+		[DataMember]
+		public required byte Month { get; init;}
+
+        // private UInt32 Value 
+        // {
+        // 	get
+        // 	{
+        // 		return (UInt32) Year * 100 + Month;
+        // 	}
+        // }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public XmlSchema? GetSchema()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReadXml(XmlReader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WriteXml(XmlWriter writer)
+        {
+            throw new NotImplementedException();
+        }
+   }
+
+	[Fact]
+	public void ShouldSerializeMyStruct()
+	{
+		DataContractSerializer ser = new DataContractSerializer(typeof(YearMonth));
+		var original = new YearMonth{ Year = 2023, Month = 11};
+		var memoryStream = new MemoryStream();
+		ser.WriteObject(memoryStream, original);
+		memoryStream.Position = 0;
+		var stringReader = new StreamReader( memoryStream);
+		var contents = stringReader.ReadToEnd();
+		memoryStream.Position = 0;
+		var copyObj = ser.ReadObject(memoryStream) ?? throw new InvalidCastException("Failed to deserialize");
+		YearMonth copy = (YearMonth) copyObj;
+		Assert.Equal( original.Year, copy.Year);
+		Assert.Equal(original.Month, copy.Month);
+	}
 }
