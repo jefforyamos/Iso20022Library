@@ -22,7 +22,7 @@ public partial record ApplicationSpecifics1
     /// <summary>
     /// Contains the digital signature of the Business Entity authorised to sign this Business File.
     /// </summary>
-    //public IsoSignatureEnvelope? Signature { get; init; } 
+    public IsoSignatureEnvelope? Signature { get; init; } 
     /// <summary>
     /// Gives the total number of instances (messages) within the file.
     /// </summary>

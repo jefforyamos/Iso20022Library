@@ -22,6 +22,6 @@ public partial record SupplementaryData : IReportingTransactionType3Choice
     /// <summary>
     /// Technical element wrapping the supplementary data.
     /// </summary>
-    //public required IsoSupplementaryDataEnvelope1 Envelope { get; init; } 
+    public required IsoSupplementaryDataEnvelope1 Envelope { get; init; } 
     #nullable disable
 }
