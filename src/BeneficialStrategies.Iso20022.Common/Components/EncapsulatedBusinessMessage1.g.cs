@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -30,7 +32,7 @@ public partial record EncapsulatedBusinessMessage1
     /// <summary>
     /// The encapsulated ISO 20022 message.
     /// </summary>
-    public required IsoStrictPayload Message { get; init; } 
+    public required StrictPayload Message { get; init; } 
     
     #nullable disable
 }

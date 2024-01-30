@@ -5,6 +5,7 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using BeneficialStrategies.Iso20022.ExternalSchema;
 
 namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus20Choice;
 

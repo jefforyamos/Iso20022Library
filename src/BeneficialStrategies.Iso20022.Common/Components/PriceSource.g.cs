@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -18,7 +20,7 @@ public partial record PriceSource
     /// <summary>
     /// Source of the price.
     /// </summary>
-    public required PriceSource1Code PriceSource { get; init; } 
+    public required PriceSource1Code PriceSourceValue { get; init; } 
     /// <summary>
     /// Additional information about the source of a price.
     /// </summary>

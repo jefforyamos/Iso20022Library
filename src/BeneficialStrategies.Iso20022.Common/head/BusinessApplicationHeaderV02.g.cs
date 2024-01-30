@@ -159,7 +159,7 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
     [Description(@"Contains the digital signature of the Business Entity authorised to sign this Business Message.")]
     [DataMember(Name="Sgntr")]
     [XmlElement(ElementName="Sgntr")]
-    public IsoSignatureEnvelope? Signature { get; init; }
+    public SignatureEnvelope? Signature { get; init; }
     
     /// <summary>
     /// Specifies the Business Application Header(s) of the Business Message(s) to which this Business Message relates.

@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -23,7 +25,7 @@ public partial record SupplementaryData1
     /// <summary>
     /// Technical element wrapping the supplementary data.
     /// </summary>
-    public required IsoSupplementaryDataEnvelope1 Envelope { get; init; } 
+    public required SupplementaryDataEnvelope1 Envelope { get; init; } 
     
     #nullable disable
 }

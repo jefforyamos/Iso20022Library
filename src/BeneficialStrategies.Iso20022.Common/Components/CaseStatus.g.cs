@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -22,7 +24,7 @@ public partial record CaseStatus
     /// <summary>
     /// Status of the case.
     /// </summary>
-    public required CaseStatus1Code CaseStatus { get; init; } 
+    public required CaseStatus1Code CaseStatusValue { get; init; } 
     /// <summary>
     /// Status of the investigation.
     /// </summary>

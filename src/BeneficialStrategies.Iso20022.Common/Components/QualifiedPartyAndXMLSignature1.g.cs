@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -22,7 +24,7 @@ public partial record QualifiedPartyAndXMLSignature1
     /// <summary>
     /// Digital signature in XML-DSIG format and reference to signing party.
     /// </summary>
-    public required IsoSignatureEnvelope Signature { get; init; } 
+    public required SignatureEnvelope Signature { get; init; } 
     
     #nullable disable
 }

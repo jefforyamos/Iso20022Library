@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -18,7 +20,7 @@ public partial record ResponseLevel
     /// <summary>
     /// Specifies the level of response requested from the receiver of the message.
     /// </summary>
-    public required ResponseLevel1Code ResponseLevel { get; init; } 
+    public required ResponseLevel1Code ResponseLevelValue { get; init; } 
     
     #nullable disable
 }

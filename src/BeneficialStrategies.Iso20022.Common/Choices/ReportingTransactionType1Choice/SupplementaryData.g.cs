@@ -5,6 +5,7 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using BeneficialStrategies.Iso20022.ExternalSchema;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReportingTransactionType1Choice;
 
@@ -22,6 +23,6 @@ public partial record SupplementaryData : IReportingTransactionType1Choice
     /// <summary>
     /// Technical element wrapping the supplementary data.
     /// </summary>
-    public required IsoSupplementaryDataEnvelope1 Envelope { get; init; } 
+    public required SupplementaryDataEnvelope1 Envelope { get; init; } 
     #nullable disable
 }

@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -18,7 +20,7 @@ public partial record QueryReference
     /// <summary>
     /// Unique and unambiguous identification of the query.
     /// </summary>
-    public required IsoMax35Text QueryReference { get; init; } 
+    public required IsoMax35Text QueryReferenceValue { get; init; } 
     /// <summary>
     /// Name of the query.
     /// </summary>

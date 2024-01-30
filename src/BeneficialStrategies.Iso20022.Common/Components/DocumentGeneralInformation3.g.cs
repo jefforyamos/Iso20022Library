@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -39,7 +41,7 @@ public partial record DocumentGeneralInformation3
     /// Full Signature Structure without Signature itself:
     /// Hash + Certificate.
     /// </summary>
-    public IsoSignatureEnvelopeReference? LinkFileHash { get; init; } 
+    public SignatureEnvelopeReference? LinkFileHash { get; init; } 
     /// <summary>
     /// Attached binary file for this document.
     /// </summary>

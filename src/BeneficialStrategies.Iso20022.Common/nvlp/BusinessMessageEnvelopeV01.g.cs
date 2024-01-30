@@ -29,7 +29,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [Description(@"ISO 20022 Business Application Header instance.|Rule: The external schema must be an official ISO 20022 Business Application Header.")]
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
-    public IsoLaxPayload? Header { get; init; }
+    public LaxPayload? Header { get; init; }
     
     /// <summary>
     /// ISO 20022 Message Definition instance.
@@ -40,7 +40,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [DataMember(Name="Doc")]
     [XmlElement(ElementName="Doc")]
     [Required]
-    public required IsoLaxPayload Document { get; init; }
+    public required LaxPayload Document { get; init; }
     
     /// <summary>
     /// Reference related to the delivery of the business message whilst in transit from sending to receiving business application.

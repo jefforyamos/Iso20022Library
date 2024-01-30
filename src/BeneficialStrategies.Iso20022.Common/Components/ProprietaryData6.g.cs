@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -18,7 +20,7 @@ public partial record ProprietaryData6
     /// <summary>
     /// Proprietary content.
     /// </summary>
-    public required IsoSkipPayload Any { get; init; } 
+    public required SkipPayload Any { get; init; } 
     
     #nullable disable
 }

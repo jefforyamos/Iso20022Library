@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -18,7 +20,7 @@ public partial record SubscriptionRequest
     /// <summary>
     /// Used to subscribe or unsubscribe for the receipt of a certain message.
     /// </summary>
-    public required SubscriptionRequest1Code SubscriptionRequest { get; init; } 
+    public required SubscriptionRequest1Code SubscriptionRequestValue { get; init; } 
     
     #nullable disable
 }

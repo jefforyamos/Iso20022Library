@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Choices;
+using BeneficialStrategies.Iso20022.ExternalSchema;
+using BeneficialStrategies.Iso20022.UserDefined;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -22,7 +24,7 @@ public partial record PartyAndSignature3
     /// <summary>
     /// Signature of a party.
     /// </summary>
-    public required IsoSkipPayload Signature { get; init; } 
+    public required SkipPayload Signature { get; init; } 
     
     #nullable disable
 }
