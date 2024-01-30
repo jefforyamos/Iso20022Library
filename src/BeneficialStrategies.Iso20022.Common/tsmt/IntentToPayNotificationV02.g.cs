@@ -34,7 +34,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
     [Required]
-    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    public required MessageIdentification1 NotificationIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -44,7 +44,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -53,7 +53,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [Description(@"Reference to the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// The financial institution of the buyer, uniquely identified by its BIC. |.
@@ -63,7 +63,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [DataMember(Name="BuyrBk")]
     [XmlElement(ElementName="BuyrBk")]
     [Required]
-    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    public required BICIdentification1 BuyerBank { get; init; }
     
     /// <summary>
     /// The financial institution of the seller, uniquely identified by its BIC. |.
@@ -73,7 +73,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [DataMember(Name="SellrBk")]
     [XmlElement(ElementName="SellrBk")]
     [Required]
-    public required SomeSellerBankRecord SellerBank { get; init; }
+    public required BICIdentification1 SellerBank { get; init; }
     
     /// <summary>
     /// Provides the details of the intention to pay.
@@ -83,7 +83,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     [DataMember(Name="InttToPay")]
     [XmlElement(ElementName="InttToPay")]
     [Required]
-    public required SomeIntentToPayRecord IntentToPay { get; init; }
+    public required IntentToPay2 IntentToPay { get; init; }
     
     */
     

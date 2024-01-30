@@ -28,7 +28,7 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) optional dividend service election.")]
     [DataMember(Name="OptnlDvdd")]
     [XmlElement(ElementName="OptnlDvdd")]
-    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    public OptionalDividendAccountQuantitySD3? OptionalDividend { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) tax exempt service election.
@@ -37,7 +37,7 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) tax exempt service election.")]
     [DataMember(Name="TaxXmpt")]
     [XmlElement(ElementName="TaxXmpt")]
-    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    public TaxExemptQuantitySD2? TaxExempt { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.
@@ -46,7 +46,7 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.")]
     [DataMember(Name="WireInstr")]
     [XmlElement(ElementName="WireInstr")]
-    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    public WireInstructionSD3? WireInstruction { get; init; }
     
     /// <summary>
     /// Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.
@@ -55,7 +55,7 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
     [Description(@"Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.")]
     [DataMember(Name="ReorgInstrDtls")]
     [XmlElement(ElementName="ReorgInstrDtls")]
-    public required IReadonlyCollection<SomeReorganisationInstructionDetailsRecord> ReorganisationInstructionDetails { get; init; } // Min=0, Max=12
+    public required IReadonlyCollection<ReorganisationInstructionDetailsSD1> ReorganisationInstructionDetails { get; init; } // Min=0, Max=12
     
     */
     

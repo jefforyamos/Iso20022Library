@@ -38,7 +38,7 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required MessageAndBusinessReference2 RequestDetails { get; init; }
     
     */
     

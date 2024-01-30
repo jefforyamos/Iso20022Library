@@ -38,7 +38,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="MtgInstrStsId")]
     [XmlElement(ElementName="MtgInstrStsId")]
     [Required]
-    public required SomeMeetingInstructionStatusIdentificationRecord MeetingInstructionStatusIdentification { get; init; }
+    public required MessageIdentification1 MeetingInstructionStatusIdentification { get; init; }
     
     /// <summary>
     /// Identifies the meeting instruction message for which the status is provided.
@@ -48,7 +48,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
     [Required]
-    public required SomeInstructionIdentificationRecord InstructionIdentification { get; init; }
+    public required MessageIdentification InstructionIdentification { get; init; }
     
     /// <summary>
     /// Identifies the meeting instruction cancellation request message for which the status is provided.
@@ -58,7 +58,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="InstrCxlId")]
     [XmlElement(ElementName="InstrCxlId")]
     [Required]
-    public required SomeInstructionCancellationIdentificationRecord InstructionCancellationIdentification { get; init; }
+    public required MessageIdentification InstructionCancellationIdentification { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -68,7 +68,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference3 MeetingReference { get; init; }
     
     /// <summary>
     /// Party reporting the status.
@@ -78,7 +78,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required SomeReportingPartyRecord ReportingParty { get; init; }
+    public required IPartyIdentification9Choice ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -88,7 +88,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="SctyId")]
     [XmlElement(ElementName="SctyId")]
     [Required]
-    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    public required SecurityIdentification3 SecurityIdentification { get; init; }
     
     /// <summary>
     /// Status applying to the instruction request received. The instruction is identified by the InstructionIdentification.
@@ -98,7 +98,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="InstrSts")]
     [XmlElement(ElementName="InstrSts")]
     [Required]
-    public required SomeInstructionStatusRecord InstructionStatus { get; init; }
+    public required IInstructionStatus1Choice InstructionStatus { get; init; }
     
     /// <summary>
     /// Status applying to the instruction cancellation request received. The instruction cancellation is identified by the InstructionCancellationIdentification.
@@ -108,7 +108,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="CxlSts")]
     [XmlElement(ElementName="CxlSts")]
     [Required]
-    public required SomeCancellationStatusRecord CancellationStatus { get; init; }
+    public required ICancellationStatus1Choice CancellationStatus { get; init; }
     
     */
     

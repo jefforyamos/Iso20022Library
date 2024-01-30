@@ -39,7 +39,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -49,7 +49,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -58,7 +58,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Reference to the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Specifies the commercial details of the underlying transaction.
@@ -68,7 +68,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [DataMember(Name="Baseln")]
     [XmlElement(ElementName="Baseln")]
     [Required]
-    public required SomeBaselineRecord Baseline { get; init; }
+    public required Baseline4 Baseline { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the buyer.
@@ -77,7 +77,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the buyer.")]
     [DataMember(Name="BuyrCtctPrsn")]
     [XmlElement(ElementName="BuyrCtctPrsn")]
-    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    public ContactIdentification1? BuyerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the seller.
@@ -86,7 +86,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the seller.")]
     [DataMember(Name="SellrCtctPrsn")]
     [XmlElement(ElementName="SellrCtctPrsn")]
-    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    public ContactIdentification1? SellerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the buyer's bank.
@@ -95,7 +95,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Person to be contacted in the buyer's bank.")]
     [DataMember(Name="BuyrBkCtctPrsn")]
     [XmlElement(ElementName="BuyrBkCtctPrsn")]
-    public SomeBuyerBankContactPersonRecord? BuyerBankContactPerson { get; init; }
+    public ContactIdentification1? BuyerBankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the seller's bank.
@@ -104,7 +104,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Person to be contacted in the seller's bank.")]
     [DataMember(Name="SellrBkCtctPrsn")]
     [XmlElement(ElementName="SellrBkCtctPrsn")]
-    public SomeSellerBankContactPersonRecord? SellerBankContactPerson { get; init; }
+    public ContactIdentification1? SellerBankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in another bank than the seller or buyer's bank.
@@ -113,7 +113,7 @@ public partial record BaselineAmendmentRequestV04 : IOuterRecord
     [Description(@"Person to be contacted in another bank than the seller or buyer's bank.")]
     [DataMember(Name="OthrBkCtctPrsn")]
     [XmlElement(ElementName="OthrBkCtctPrsn")]
-    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    public ContactIdentification3? OtherBankContactPerson { get; init; }
     
     */
     

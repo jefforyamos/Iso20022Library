@@ -33,7 +33,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="VoteExctnConfId")]
     [XmlElement(ElementName="VoteExctnConfId")]
     [Required]
-    public required SomeVoteExecutionConfirmationIdentificationRecord VoteExecutionConfirmationIdentification { get; init; }
+    public required MessageIdentification1 VoteExecutionConfirmationIdentification { get; init; }
     
     /// <summary>
     /// Identifies the meeting instruction message.
@@ -43,7 +43,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required MessageIdentification RelatedReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -53,7 +53,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference3 MeetingReference { get; init; }
     
     /// <summary>
     /// Party confirming the votes.
@@ -63,7 +63,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required SomeReportingPartyRecord ReportingParty { get; init; }
+    public required IPartyIdentification9Choice ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -73,7 +73,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="SctyId")]
     [XmlElement(ElementName="SctyId")]
     [Required]
-    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    public required SecurityIdentification3 SecurityIdentification { get; init; }
     
     /// <summary>
     /// Specifies how a party has voted for each agenda item.
@@ -83,7 +83,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="VoteInstr")]
     [XmlElement(ElementName="VoteInstr")]
     [Required]
-    public required SomeVoteInstructionRecord VoteInstruction { get; init; }
+    public required DetailedInstructionStatus2 VoteInstruction { get; init; }
     
     */
     

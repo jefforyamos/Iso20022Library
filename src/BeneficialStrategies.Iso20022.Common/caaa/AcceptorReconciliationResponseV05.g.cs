@@ -30,7 +30,7 @@ public partial record AcceptorReconciliationResponseV05 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header30 Header { get; init; }
     
     /// <summary>
     /// Information related to the reconciliation response.
@@ -40,7 +40,7 @@ public partial record AcceptorReconciliationResponseV05 : IOuterRecord
     [DataMember(Name="RcncltnRspn")]
     [XmlElement(ElementName="RcncltnRspn")]
     [Required]
-    public required SomeReconciliationResponseRecord ReconciliationResponse { get; init; }
+    public required AcceptorReconciliationResponse4 ReconciliationResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -49,7 +49,7 @@ public partial record AcceptorReconciliationResponseV05 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

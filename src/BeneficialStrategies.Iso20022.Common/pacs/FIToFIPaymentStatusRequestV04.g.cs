@@ -35,7 +35,7 @@ public partial record FIToFIPaymentStatusRequestV04 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader91 GroupHeader { get; init; }
     
     /// <summary>
     /// Original group information concerning the group of transactions, to which the status request message refers to.
@@ -44,7 +44,7 @@ public partial record FIToFIPaymentStatusRequestV04 : IOuterRecord
     [Description(@"Original group information concerning the group of transactions, to which the status request message refers to.")]
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
-    public SomeOriginalGroupInformationRecord? OriginalGroupInformation { get; init; }
+    public OriginalGroupInformation27? OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original transaction, to which the status request message refers.
@@ -53,7 +53,7 @@ public partial record FIToFIPaymentStatusRequestV04 : IOuterRecord
     [Description(@"Information concerning the original transaction, to which the status request message refers.")]
     [DataMember(Name="TxInf")]
     [XmlElement(ElementName="TxInf")]
-    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    public PaymentTransaction121? TransactionInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record FIToFIPaymentStatusRequestV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

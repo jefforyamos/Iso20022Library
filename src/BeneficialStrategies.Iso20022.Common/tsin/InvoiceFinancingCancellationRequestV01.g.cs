@@ -37,7 +37,7 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CxlReqId")]
     [XmlElement(ElementName="CxlReqId")]
     [Required]
-    public required SomeCancellationRequestIdentificationRecord CancellationRequestIdentification { get; init; }
+    public required MessageIdentification1 CancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Set of information related to the cancellation request, such as actors involved and identification of the original invoice financing request to which the cancellation request refers.
@@ -47,7 +47,7 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CxlReqInf")]
     [XmlElement(ElementName="CxlReqInf")]
     [Required]
-    public required SomeCancellationRequestInformationRecord CancellationRequestInformation { get; init; }
+    public required CancellationRequestInformation1 CancellationRequestInformation { get; init; }
     
     */
     

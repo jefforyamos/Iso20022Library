@@ -33,7 +33,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).")]
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
-    public SomeIdentificationRecord? Identification { get; init; }
+    public TransactionAndDocumentIdentification6? Identification { get; init; }
     
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
@@ -42,7 +42,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Identification assigned by the account servicer to unambiguously identify a corporate action event.")]
     [DataMember(Name="CorpActnEvtId")]
     [XmlElement(ElementName="CorpActnEvtId")]
-    public SomeCorporateActionEventIdentificationRecord? CorporateActionEventIdentification { get; init; }
+    public Identification14? CorporateActionEventIdentification { get; init; }
     
     /// <summary>
     /// Count of the number of transactions linked.
@@ -51,7 +51,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public SomeNumberCountsRecord? NumberCounts { get; init; }
+    public INumberCount1Choice? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -60,7 +60,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
     [DataMember(Name="Lnkgs")]
     [XmlElement(ElementName="Lnkgs")]
-    public SomeLinkagesRecord? Linkages { get; init; }
+    public Linkages57? Linkages { get; init; }
     
     /// <summary>
     /// Account to or from which an entry is made.
@@ -70,7 +70,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [DataMember(Name="CshAcct")]
     [XmlElement(ElementName="CshAcct")]
     [Required]
-    public required SomeCashAccountRecord CashAccount { get; init; }
+    public required CashAccount38 CashAccount { get; init; }
     
     /// <summary>
     /// Party that legally owns the cash account.
@@ -79,7 +79,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Party that legally owns the cash account.")]
     [DataMember(Name="CshAcctOwnr")]
     [XmlElement(ElementName="CshAcctOwnr")]
-    public SomeCashAccountOwnerRecord? CashAccountOwner { get; init; }
+    public SystemPartyIdentification8? CashAccountOwner { get; init; }
     
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
@@ -88,7 +88,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.")]
     [DataMember(Name="CshAcctSvcr")]
     [XmlElement(ElementName="CshAcctSvcr")]
-    public SomeCashAccountServicerRecord? CashAccountServicer { get; init; }
+    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; }
     
     /// <summary>
     /// Intra-balance movement transaction details.
@@ -98,7 +98,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [DataMember(Name="IntraBal")]
     [XmlElement(ElementName="IntraBal")]
     [Required]
-    public required SomeIntraBalanceRecord IntraBalance { get; init; }
+    public required IntraBalance5 IntraBalance { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -107,7 +107,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

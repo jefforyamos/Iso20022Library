@@ -32,7 +32,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     [DataMember(Name="MktClmCreId")]
     [XmlElement(ElementName="MktClmCreId")]
     [Required]
-    public required SomeMarketClaimCreationIdentificationRecord MarketClaimCreationIdentification { get; init; }
+    public required DocumentIdentification9 MarketClaimCreationIdentification { get; init; }
     
     /// <summary>
     /// References of the market claim for which cancellation is requested.
@@ -42,7 +42,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     [DataMember(Name="TxRef")]
     [XmlElement(ElementName="TxRef")]
     [Required]
-    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    public required References26 TransactionReference { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -52,7 +52,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -62,7 +62,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountIdentification46 AccountDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -71,7 +71,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

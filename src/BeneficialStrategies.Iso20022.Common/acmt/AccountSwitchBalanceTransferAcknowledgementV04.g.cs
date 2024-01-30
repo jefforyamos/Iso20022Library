@@ -29,7 +29,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Contains information about the details of the account switch.
@@ -39,7 +39,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [DataMember(Name="AcctSwtchDtls")]
     [XmlElement(ElementName="AcctSwtchDtls")]
     [Required]
-    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; }
     
     /// <summary>
     /// Account held at the old Account Servicer being switched to the new Account Servicer.
@@ -49,7 +49,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [DataMember(Name="OdAcct")]
     [XmlElement(ElementName="OdAcct")]
     [Required]
-    public required SomeOldAccountRecord OldAccount { get; init; }
+    public required CashAccount41 OldAccount { get; init; }
     
     /// <summary>
     /// Balance of the old account.
@@ -59,7 +59,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [DataMember(Name="OdAcctBal")]
     [XmlElement(ElementName="OdAcctBal")]
     [Required]
-    public required SomeOldAccountBalanceRecord OldAccountBalance { get; init; }
+    public required AmountAndDirection5 OldAccountBalance { get; init; }
     
     /// <summary>
     /// Information that enables any payments made in connection with the fulfilment of an account switch to be reconciled by the relevant account servicer with the associated request.
@@ -69,7 +69,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [Description(@"Information that enables any payments made in connection with the fulfilment of an account switch to be reconciled by the relevant account servicer with the associated request.||Usage: In the case of a negative closing balance of the old account, and where the old account servicer wishes any payment from the new account servicer to be addressed to an alternate account, this will be specified here.")]
     [DataMember(Name="BalTrf")]
     [XmlElement(ElementName="BalTrf")]
-    public SomeBalanceTransferRecord? BalanceTransfer { get; init; }
+    public BalanceTransfer4? BalanceTransfer { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -78,7 +78,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

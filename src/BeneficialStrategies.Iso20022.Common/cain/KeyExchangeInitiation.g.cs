@@ -29,7 +29,7 @@ public partial record KeyExchangeInitiation : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header17 Header { get; init; }
     
     /// <summary>
     /// Information related to the key exchange.
@@ -39,7 +39,7 @@ public partial record KeyExchangeInitiation : IOuterRecord
     [DataMember(Name="KeyXchgInitn")]
     [XmlElement(ElementName="KeyXchgInitn")]
     [Required]
-    public required SomeKeyExchangeInitiationRecord KeyExchangeInitiation { get; init; }
+    public required AcquirerKeyExchangeInitiation1 KeyExchangeInitiation { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -49,7 +49,7 @@ public partial record KeyExchangeInitiation : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType12 SecurityTrailer { get; init; }
     
     */
     

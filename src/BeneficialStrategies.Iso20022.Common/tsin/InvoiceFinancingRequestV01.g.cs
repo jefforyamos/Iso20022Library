@@ -43,7 +43,7 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord
     [DataMember(Name="ReqGrpInf")]
     [XmlElement(ElementName="ReqGrpInf")]
     [Required]
-    public required SomeRequestGroupInformationRecord RequestGroupInformation { get; init; }
+    public required RequestGroupInformation1 RequestGroupInformation { get; init; }
     
     /// <summary>
     /// Set of characteristics that unambiguously identify the single invoice financing request related to the entire invoice or a specific instalment of the invoice settlement, such as actors involved, invoice totals or payment method.
@@ -53,7 +53,7 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord
     [DataMember(Name="InvcReqInf")]
     [XmlElement(ElementName="InvcReqInf")]
     [Required]
-    public required SomeInvoiceRequestInformationRecord InvoiceRequestInformation { get; init; }
+    public required InvoiceRequestInformation1 InvoiceRequestInformation { get; init; }
     
     */
     

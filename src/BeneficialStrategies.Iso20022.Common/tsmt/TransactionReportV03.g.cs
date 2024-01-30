@@ -33,7 +33,7 @@ public partial record TransactionReportV03 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Reference to the previous message requesting the report.
@@ -43,7 +43,7 @@ public partial record TransactionReportV03 : IOuterRecord
     [DataMember(Name="RltdMsgRef")]
     [XmlElement(ElementName="RltdMsgRef")]
     [Required]
-    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    public required MessageIdentification1 RelatedMessageReference { get; init; }
     
     /// <summary>
     /// Detailed description of the items that correspond to the parameters set in the request.
@@ -52,7 +52,7 @@ public partial record TransactionReportV03 : IOuterRecord
     [Description(@"Detailed description of the items that correspond to the parameters set in the request.")]
     [DataMember(Name="RptdItms")]
     [XmlElement(ElementName="RptdItms")]
-    public SomeReportedItemsRecord? ReportedItems { get; init; }
+    public TransactionReportItems3? ReportedItems { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV02 : IOut
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides the reason why no activity is reported or the required list of transactions for the foreign exchange swaps segment.
@@ -39,7 +39,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV02 : IOut
     [DataMember(Name="FXSwpsRpt")]
     [XmlElement(ElementName="FXSwpsRpt")]
     [Required]
-    public required SomeForeignExchangeSwapsReportRecord ForeignExchangeSwapsReport { get; init; }
+    public required IForeignExchangeSwap3Choice ForeignExchangeSwapsReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV02 : IOut
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

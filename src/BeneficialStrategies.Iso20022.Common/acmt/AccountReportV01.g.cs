@@ -32,7 +32,7 @@ public partial record AccountReportV01 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References5 References { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
@@ -42,7 +42,7 @@ public partial record AccountReportV01 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
@@ -52,7 +52,7 @@ public partial record AccountReportV01 : IOuterRecord
     [DataMember(Name="Org")]
     [XmlElement(ElementName="Org")]
     [Required]
-    public required SomeOrganisationRecord Organisation { get; init; }
+    public required Organisation6 Organisation { get; init; }
     
     /// <summary>
     /// Account report.
@@ -61,7 +61,7 @@ public partial record AccountReportV01 : IOuterRecord
     [Description(@"Account report.")]
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
-    public SomeReportRecord? Report { get; init; }
+    public AccountReport1? Report { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -70,7 +70,7 @@ public partial record AccountReportV01 : IOuterRecord
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature1? DigitalSignature { get; init; }
     
     */
     

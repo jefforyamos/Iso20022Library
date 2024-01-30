@@ -31,7 +31,7 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header32 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -40,7 +40,7 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMDpstCmpltnAdvc")]
     [XmlElement(ElementName="PrtctdATMDpstCmpltnAdvc")]
-    public SomeProtectedATMDepositCompletionAdviceRecord? ProtectedATMDepositCompletionAdvice { get; init; }
+    public ContentInformationType10? ProtectedATMDepositCompletionAdvice { get; init; }
     
     /// <summary>
     /// Information related to the completion of a deposit transaction on the ATM.
@@ -49,7 +49,7 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     [Description(@"Information related to the completion of a deposit transaction on the ATM.")]
     [DataMember(Name="ATMDpstCmpltnAdvc")]
     [XmlElement(ElementName="ATMDpstCmpltnAdvc")]
-    public SomeATMDepositCompletionAdviceRecord? ATMDepositCompletionAdvice { get; init; }
+    public ATMDepositCompletionAdvice1? ATMDepositCompletionAdvice { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -58,7 +58,7 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

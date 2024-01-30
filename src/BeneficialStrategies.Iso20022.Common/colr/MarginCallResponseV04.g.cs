@@ -38,7 +38,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -48,7 +48,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation4 Obligation { get; init; }
     
     /// <summary>
     /// Agreement details for the over the counter market.
@@ -57,7 +57,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Agreement details for the over the counter market.")]
     [DataMember(Name="Agrmt")]
     [XmlElement(ElementName="Agrmt")]
-    public SomeAgreementRecord? Agreement { get; init; }
+    public Agreement4? Agreement { get; init; }
     
     /// <summary>
     /// Provides details about the margin calculation that would be due to party A.
@@ -66,7 +66,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Provides details about the margin calculation that would be due to party A.")]
     [DataMember(Name="MrgnDtlsDueToA")]
     [XmlElement(ElementName="MrgnDtlsDueToA")]
-    public SomeMarginDetailsDueToARecord? MarginDetailsDueToA { get; init; }
+    public MarginCall1? MarginDetailsDueToA { get; init; }
     
     /// <summary>
     /// Provides details about the margin calculation that would be due to party B.
@@ -75,7 +75,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Provides details about the margin calculation that would be due to party B.")]
     [DataMember(Name="MrgnDtlsDueToB")]
     [XmlElement(ElementName="MrgnDtlsDueToB")]
-    public SomeMarginDetailsDueToBRecord? MarginDetailsDueToB { get; init; }
+    public MarginCall1? MarginDetailsDueToB { get; init; }
     
     /// <summary>
     /// Provides details about the agreed amount that would be due to party A.
@@ -84,7 +84,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Provides details about the agreed amount that would be due to party A.")]
     [DataMember(Name="AgrdAmtDueToA")]
     [XmlElement(ElementName="AgrdAmtDueToA")]
-    public SomeAgreedAmountDueToARecord? AgreedAmountDueToA { get; init; }
+    public IAgreedAmount1Choice? AgreedAmountDueToA { get; init; }
     
     /// <summary>
     /// Provides details about the agreed amount that would be due to party B.
@@ -93,7 +93,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Provides details about the agreed amount that would be due to party B.")]
     [DataMember(Name="AgrdAmtDueToB")]
     [XmlElement(ElementName="AgrdAmtDueToB")]
-    public SomeAgreedAmountDueToBRecord? AgreedAmountDueToB { get; init; }
+    public IAgreedAmount1Choice? AgreedAmountDueToB { get; init; }
     
     /// <summary>
     /// Provides response details about the margin call.
@@ -102,7 +102,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Provides response details about the margin call.")]
     [DataMember(Name="RspnDtls")]
     [XmlElement(ElementName="RspnDtls")]
-    public SomeResponseDetailsRecord? ResponseDetails { get; init; }
+    public Response1? ResponseDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -111,7 +111,7 @@ public partial record MarginCallResponseV04 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

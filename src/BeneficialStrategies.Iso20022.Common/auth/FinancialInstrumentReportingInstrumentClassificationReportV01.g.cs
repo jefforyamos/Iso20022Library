@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     [DataMember(Name="InstrmClssfctn")]
     [XmlElement(ElementName="InstrmClssfctn")]
     [Required]
-    public required SomeInstrumentClassificationRecord InstrumentClassification { get; init; }
+    public required SecuritiesInstrumentClassification2 InstrumentClassification { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

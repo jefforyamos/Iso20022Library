@@ -29,7 +29,7 @@ public partial record ATMKeyDownloadResponseV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header31 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMKeyDownloadResponseV03 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMKeyDwnldRspn")]
     [XmlElement(ElementName="PrtctdATMKeyDwnldRspn")]
-    public SomeProtectedATMKeyDownloadResponseRecord? ProtectedATMKeyDownloadResponse { get; init; }
+    public ContentInformationType10? ProtectedATMKeyDownloadResponse { get; init; }
     
     /// <summary>
     /// Information related to the response of an ATM key download from an ATM manager.
@@ -47,7 +47,7 @@ public partial record ATMKeyDownloadResponseV03 : IOuterRecord
     [Description(@"Information related to the response of an ATM key download from an ATM manager.")]
     [DataMember(Name="ATMKeyDwnldRspn")]
     [XmlElement(ElementName="ATMKeyDwnldRspn")]
-    public SomeATMKeyDownloadResponseRecord? ATMKeyDownloadResponse { get; init; }
+    public ATMKeyDownloadResponse4? ATMKeyDownloadResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -56,7 +56,7 @@ public partial record ATMKeyDownloadResponseV03 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType13? SecurityTrailer { get; init; }
     
     */
     

@@ -33,7 +33,7 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -43,7 +43,7 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference3 PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -52,7 +52,7 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// The FundDetailedConfirmedCashForecastReport to be cancelled.
@@ -61,7 +61,7 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     [Description(@"The FundDetailedConfirmedCashForecastReport to be cancelled.")]
     [DataMember(Name="CshFcstRptToBeCanc")]
     [XmlElement(ElementName="CshFcstRptToBeCanc")]
-    public SomeCashForecastReportToBeCancelledRecord? CashForecastReportToBeCancelled { get; init; }
+    public FundConfirmedCashForecastReport1? CashForecastReportToBeCancelled { get; init; }
     
     */
     

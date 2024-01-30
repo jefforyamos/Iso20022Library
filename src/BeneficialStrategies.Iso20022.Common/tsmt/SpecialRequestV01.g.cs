@@ -32,7 +32,7 @@ public partial record SpecialRequestV01 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -42,7 +42,7 @@ public partial record SpecialRequestV01 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the identification of the transaction for the requesting financial institution.
@@ -51,7 +51,7 @@ public partial record SpecialRequestV01 : IOuterRecord
     [Description(@"Reference to the identification of the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Type and details of the notification.
@@ -61,7 +61,7 @@ public partial record SpecialRequestV01 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required Notification1 Notification { get; init; }
     
     */
     

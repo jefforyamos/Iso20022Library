@@ -29,7 +29,7 @@ public partial record AcquirerReversalResponse : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header18 Header { get; init; }
     
     /// <summary>
     /// Information related to the response of a reversal.
@@ -39,7 +39,7 @@ public partial record AcquirerReversalResponse : IOuterRecord
     [DataMember(Name="RvslRspn")]
     [XmlElement(ElementName="RvslRspn")]
     [Required]
-    public required SomeReversalResponseRecord ReversalResponse { get; init; }
+    public required AcquirerReversalResponse1 ReversalResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -48,7 +48,7 @@ public partial record AcquirerReversalResponse : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

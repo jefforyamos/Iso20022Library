@@ -33,7 +33,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="TxInstrId")]
     [XmlElement(ElementName="TxInstrId")]
     [Required]
-    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    public required TransactionIdentifications46 TransactionInstructionIdentification { get; init; }
     
     /// <summary>
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
@@ -43,7 +43,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides the status of allocation of collateral to cover the instruction.
@@ -52,7 +52,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of allocation of collateral to cover the instruction.|")]
     [DataMember(Name="AllcnSts")]
     [XmlElement(ElementName="AllcnSts")]
-    public SomeAllocationStatusRecord? AllocationStatus { get; init; }
+    public IAllocationStatus1Choice? AllocationStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of the transaction or the instruction.
@@ -61,7 +61,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of settlement of the transaction or the instruction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    public ISettlementStatus27Choice? SettlementStatus { get; init; }
     
     /// <summary>
     /// Provides the collateral status of an instruction.
@@ -70,7 +70,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the collateral status of an instruction.|")]
     [DataMember(Name="CollSts")]
     [XmlElement(ElementName="CollSts")]
-    public SomeCollateralStatusRecord? CollateralStatus { get; init; }
+    public ICollateralStatus3Choice? CollateralStatus { get; init; }
     
     /// <summary>
     /// provides general information about the instruction and collateral transaction the message refers to.
@@ -80,7 +80,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="GnlParams")]
     [XmlElement(ElementName="GnlParams")]
     [Required]
-    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    public required CollateralParameters13 GeneralParameters { get; init; }
     
     /// <summary>
     /// Identifies the chain of collateral parties.
@@ -90,7 +90,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CollPties")]
     [XmlElement(ElementName="CollPties")]
     [Required]
-    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    public required CollateralParties8 CollateralParties { get; init; }
     
     /// <summary>
     /// Specifies the information related to the deal.
@@ -100,7 +100,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="DealTxDtls")]
     [XmlElement(ElementName="DealTxDtls")]
     [Required]
-    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    public required DealTransactionDetails7 DealTransactionDetails { get; init; }
     
     /// <summary>
     /// Identifies the dates related to the triparty collateral instruction or transactions.
@@ -110,7 +110,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [DataMember(Name="DealTxDt")]
     [XmlElement(ElementName="DealTxDt")]
     [Required]
-    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    public required CollateralDate2 DealTransactionDate { get; init; }
     
     /// <summary>
     /// Securities movements.
@@ -119,7 +119,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Securities movements.")]
     [DataMember(Name="SctiesMvmnt")]
     [XmlElement(ElementName="SctiesMvmnt")]
-    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    public SecuritiesMovement8? SecuritiesMovement { get; init; }
     
     /// <summary>
     ///  Cash movement.
@@ -128,7 +128,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@" Cash movement.")]
     [DataMember(Name="CshMvmnt")]
     [XmlElement(ElementName="CshMvmnt")]
-    public SomeCashMovementRecord? CashMovement { get; init; }
+    public CashMovement7? CashMovement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -137,7 +137,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

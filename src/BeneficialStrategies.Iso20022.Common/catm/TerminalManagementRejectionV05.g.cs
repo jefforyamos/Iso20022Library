@@ -29,7 +29,7 @@ public partial record TerminalManagementRejectionV05 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required TMSHeader1 Header { get; init; }
     
     /// <summary>
     /// Information related to the reject.
@@ -39,7 +39,7 @@ public partial record TerminalManagementRejectionV05 : IOuterRecord
     [DataMember(Name="Rjct")]
     [XmlElement(ElementName="Rjct")]
     [Required]
-    public required SomeRejectRecord Reject { get; init; }
+    public required AcceptorRejection3 Reject { get; init; }
     
     */
     

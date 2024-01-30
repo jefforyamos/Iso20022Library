@@ -29,7 +29,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header20 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdHstToATMAck")]
     [XmlElement(ElementName="PrtctdHstToATMAck")]
-    public SomeProtectedHostToATMAcknowledgementRecord? ProtectedHostToATMAcknowledgement { get; init; }
+    public ContentInformationType10? ProtectedHostToATMAcknowledgement { get; init; }
     
     /// <summary>
     /// Information related to the acknowledgement from an ATM to contact the ATM manager.
@@ -47,7 +47,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
     [Description(@"Information related to the acknowledgement from an ATM to contact the ATM manager.")]
     [DataMember(Name="HstToATMAck")]
     [XmlElement(ElementName="HstToATMAck")]
-    public SomeHostToATMAcknowledgementRecord? HostToATMAcknowledgement { get; init; }
+    public HostToATMAcknowledgement1? HostToATMAcknowledgement { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

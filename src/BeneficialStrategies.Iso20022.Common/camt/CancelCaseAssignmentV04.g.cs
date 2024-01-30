@@ -43,7 +43,7 @@ public partial record CancelCaseAssignmentV04 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment5 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -53,7 +53,7 @@ public partial record CancelCaseAssignmentV04 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case5 Case { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record CancelCaseAssignmentV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

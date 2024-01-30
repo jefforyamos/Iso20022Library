@@ -30,7 +30,7 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader104 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements providing information specific to the individual settlement request(s).
@@ -40,7 +40,7 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord
     [DataMember(Name="SttlmReq")]
     [XmlElement(ElementName="SttlmReq")]
     [Required]
-    public required SomeSettlementRequestRecord SettlementRequest { get; init; }
+    public required MultilateralSettlementRequest2 SettlementRequest { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -49,7 +49,7 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [Description(@"Page number of the message and continuation indicator to indicate that the identification disclosure response, when split in several parts (messages), is to continue or that the message is the last page of the multi-part identification disclosure response.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
@@ -38,7 +38,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [DataMember(Name="IssrDsclsrReqRef")]
     [XmlElement(ElementName="IssrDsclsrReqRef")]
     [Required]
-    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; }
     
     /// <summary>
     /// Unique identification of the disclosure response. The same disclosure response identification number is to be used when the response is split in multiple (paginated) messages.
@@ -48,7 +48,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [DataMember(Name="DsclsrRspnId")]
     [XmlElement(ElementName="DsclsrRspnId")]
     [Required]
-    public required SomeDisclosureResponseIdentificationRecord DisclosureResponseIdentification { get; init; }
+    public required IsoMax35Text DisclosureResponseIdentification { get; init; }
     
     /// <summary>
     /// Unique identification of the intermediary party responding to the shareholders identification disclosure request.
@@ -58,7 +58,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [DataMember(Name="RspndgIntrmy")]
     [XmlElement(ElementName="RspndgIntrmy")]
     [Required]
-    public required SomeRespondingIntermediaryRecord RespondingIntermediary { get; init; }
+    public required PartyIdentification219 RespondingIntermediary { get; init; }
     
     /// <summary>
     /// Provide detailed shareholding disclosure information or indicate that disclosure information is not provided.
@@ -68,7 +68,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [DataMember(Name="DsclsrInf")]
     [XmlElement(ElementName="DsclsrInf")]
     [Required]
-    public required SomeDisclosureInformationRecord DisclosureInformation { get; init; }
+    public required IDisclosure1Choice DisclosureInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -77,7 +77,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

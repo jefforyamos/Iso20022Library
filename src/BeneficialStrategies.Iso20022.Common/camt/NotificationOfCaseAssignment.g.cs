@@ -43,7 +43,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ReportHeader Header { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -53,7 +53,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Identifies the current assignment of the case. ||The Assigner must be the emitter of the notification.|The Assignee must be another Party in the payment chain.
@@ -63,7 +63,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Information about the type of action taken.
@@ -73,7 +73,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required CaseForwardingNotification Notification { get; init; }
     
     */
     

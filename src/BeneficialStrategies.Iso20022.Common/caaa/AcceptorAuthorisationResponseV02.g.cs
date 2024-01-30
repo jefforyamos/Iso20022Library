@@ -29,7 +29,7 @@ public partial record AcceptorAuthorisationResponseV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header1 Header { get; init; }
     
     /// <summary>
     /// Information related to the response of the authorisation.
@@ -39,7 +39,7 @@ public partial record AcceptorAuthorisationResponseV02 : IOuterRecord
     [DataMember(Name="AuthstnRspn")]
     [XmlElement(ElementName="AuthstnRspn")]
     [Required]
-    public required SomeAuthorisationResponseRecord AuthorisationResponse { get; init; }
+    public required AcceptorAuthorisationResponse2 AuthorisationResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -49,7 +49,7 @@ public partial record AcceptorAuthorisationResponseV02 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType6 SecurityTrailer { get; init; }
     
     */
     

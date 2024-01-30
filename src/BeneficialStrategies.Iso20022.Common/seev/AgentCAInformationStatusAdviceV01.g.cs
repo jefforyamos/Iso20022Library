@@ -33,7 +33,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Information Advice for which a status is given.
@@ -43,7 +43,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAInfAdvcId")]
     [XmlElement(ElementName="AgtCAInfAdvcId")]
     [Required]
-    public required SomeAgentCAInformationAdviceIdentificationRecord AgentCAInformationAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAInformationAdviceIdentification { get; init; }
     
     /// <summary>
     /// Additional information about the corporate action such as the delivery details.
@@ -52,7 +52,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information about the corporate action such as the delivery details.")]
     [DataMember(Name="CorpActnAddtlInf")]
     [XmlElement(ElementName="CorpActnAddtlInf")]
-    public SomeCorporateActionAdditionalInformationRecord? CorporateActionAdditionalInformation { get; init; }
+    public CorporateActionAdditionalInformation1? CorporateActionAdditionalInformation { get; init; }
     
     /// <summary>
     /// Status of the information advice sent by the CSD.
@@ -62,7 +62,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="InfStsDtls")]
     [XmlElement(ElementName="InfStsDtls")]
     [Required]
-    public required SomeInformationStatusDetailsRecord InformationStatusDetails { get; init; }
+    public required ICorporateActionInformationStatus1Choice InformationStatusDetails { get; init; }
     
     */
     

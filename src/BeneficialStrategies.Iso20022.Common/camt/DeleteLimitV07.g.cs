@@ -40,7 +40,7 @@ public partial record DeleteLimitV07 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies one particular limit set by the member and managed by the transaction administrator.
@@ -50,7 +50,7 @@ public partial record DeleteLimitV07 : IOuterRecord
     [DataMember(Name="LmtDtls")]
     [XmlElement(ElementName="LmtDtls")]
     [Required]
-    public required SomeLimitDetailsRecord LimitDetails { get; init; }
+    public required ILimitStructure2Choice LimitDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record DeleteLimitV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

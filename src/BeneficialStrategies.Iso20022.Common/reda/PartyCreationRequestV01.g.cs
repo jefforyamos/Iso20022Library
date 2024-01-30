@@ -28,7 +28,7 @@ public partial record PartyCreationRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Specifies the details of the party to be created in the system.
@@ -38,7 +38,7 @@ public partial record PartyCreationRequestV01 : IOuterRecord
     [DataMember(Name="Pty")]
     [XmlElement(ElementName="Pty")]
     [Required]
-    public required SomePartyRecord Party { get; init; }
+    public required SystemParty4 Party { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record PartyCreationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -35,7 +35,7 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
     [DataMember(Name="AccptncId")]
     [XmlElement(ElementName="AccptncId")]
     [Required]
-    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    public required MessageIdentification1 AcceptanceIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -45,7 +45,7 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -54,7 +54,7 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
     [Description(@"Reference to the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Specifies the status accepted.
@@ -64,7 +64,7 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
     [DataMember(Name="AccptdSts")]
     [XmlElement(ElementName="AccptdSts")]
     [Required]
-    public required SomeAcceptedStatusRecord AcceptedStatus { get; init; }
+    public required TransactionStatus3 AcceptedStatus { get; init; }
     
     */
     

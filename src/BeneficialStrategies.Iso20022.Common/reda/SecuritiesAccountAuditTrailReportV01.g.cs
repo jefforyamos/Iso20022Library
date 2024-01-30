@@ -28,7 +28,7 @@ public partial record SecuritiesAccountAuditTrailReportV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader12? MessageHeader { get; init; }
     
     /// <summary>
     /// Provides information on report or error resulting from the originating query message.
@@ -38,7 +38,7 @@ public partial record SecuritiesAccountAuditTrailReportV01 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    public required ISecuritiesAccountAuditTrailOrOperationalError3Choice ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record SecuritiesAccountAuditTrailReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

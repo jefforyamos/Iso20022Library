@@ -40,7 +40,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -49,7 +49,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -58,7 +58,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -67,7 +67,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -77,7 +77,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.
@@ -86,7 +86,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.")]
     [DataMember(Name="FndOrSubFndDtls")]
     [XmlElement(ElementName="FndOrSubFndDtls")]
-    public SomeFundOrSubFundDetailsRecord? FundOrSubFundDetails { get; init; }
+    public Fund4? FundOrSubFundDetails { get; init; }
     
     /// <summary>
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of transactions in shares in an investment fund, for example, subscriptions, redemptions or switches. The information provided is sorted by pre-defined criteria such as country, institution, currency or user defined criteria.
@@ -96,7 +96,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [DataMember(Name="FndCshFcstDtls")]
     [XmlElement(ElementName="FndCshFcstDtls")]
     [Required]
-    public required SomeFundCashForecastDetailsRecord FundCashForecastDetails { get; init; }
+    public required FundCashForecast6 FundCashForecastDetails { get; init; }
     
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified in the fund cash forecast details.
@@ -105,7 +105,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Net cash as a result of the cash-in and cash-out flows specified in the fund cash forecast details.")]
     [DataMember(Name="CnsltdNetCshFcst")]
     [XmlElement(ElementName="CnsltdNetCshFcst")]
-    public SomeConsolidatedNetCashForecastRecord? ConsolidatedNetCashForecast { get; init; }
+    public NetCashForecast3? ConsolidatedNetCashForecast { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -114,7 +114,7 @@ public partial record FundDetailedConfirmedCashForecastReportV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

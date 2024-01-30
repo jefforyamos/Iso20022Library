@@ -32,7 +32,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References3 References { get; init; }
     
     /// <summary>
     /// Identifier for an organisation.
@@ -42,7 +42,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [DataMember(Name="OrgId")]
     [XmlElement(ElementName="OrgId")]
     [Required]
-    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -52,7 +52,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountForAction1 AccountIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
@@ -62,7 +62,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Identification of the account to which the remaining positive balance of the account to be closed must be transferred or account from which funds can be moved to the account to be closed and which balance is negative. This account must be held in the same financial institution as the account to be closed if the transfer account is used to compensate a negative balance. For a positive balance to be transferred, an account in another financial institution might be used. In that case the account servicer is mandatory.
@@ -71,7 +71,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [Description(@"Identification of the account to which the remaining positive balance of the account to be closed must be transferred or account from which funds can be moved to the account to be closed and which balance is negative. This account must be held in the same financial institution as the account to be closed if the transfer account is used to compensate a negative balance. For a positive balance to be transferred, an account in another financial institution might be used. In that case the account servicer is mandatory.")]
     [DataMember(Name="BalTrfAcct")]
     [XmlElement(ElementName="BalTrfAcct")]
-    public SomeBalanceTransferAccountRecord? BalanceTransferAccount { get; init; }
+    public AccountForAction1? BalanceTransferAccount { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme, that is the servicer of the transfer account.
@@ -80,7 +80,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme, that is the servicer of the transfer account.")]
     [DataMember(Name="TrfAcctSvcrId")]
     [XmlElement(ElementName="TrfAcctSvcrId")]
-    public SomeTransferAccountServicerIdentificationRecord? TransferAccountServicerIdentification { get; init; }
+    public BranchAndFinancialInstitutionIdentification4? TransferAccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -89,7 +89,7 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature1? DigitalSignature { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageHeader10 MessageIdentification { get; init; }
     
     /// <summary>
     /// Provides report details on the request.
@@ -39,7 +39,7 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
     [Required]
-    public required SomeReportRecord Report { get; init; }
+    public required ReceiptAcknowledgementReport2 Report { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

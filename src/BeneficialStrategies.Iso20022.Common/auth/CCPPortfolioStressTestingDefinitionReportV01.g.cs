@@ -29,7 +29,7 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
     [DataMember(Name="ScnroDef")]
     [XmlElement(ElementName="ScnroDef")]
     [Required]
-    public required SomeScenarioDefinitionRecord ScenarioDefinition { get; init; }
+    public required ScenarioDefinition1 ScenarioDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

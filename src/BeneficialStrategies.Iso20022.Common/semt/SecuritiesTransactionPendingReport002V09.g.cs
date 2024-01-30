@@ -41,7 +41,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the report.
@@ -51,7 +51,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement70 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -60,7 +60,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification119? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -70,7 +70,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount30 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Status information.
@@ -79,7 +79,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [Description(@"Status information.")]
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
-    public SomeStatusRecord? Status { get; init; }
+    public StatusAndReason35? Status { get; init; }
     
     /// <summary>
     /// Details of the transactions reported.
@@ -88,7 +88,7 @@ public partial record SecuritiesTransactionPendingReport002V09 : IOuterRecord
     [Description(@"Details of the transactions reported.")]
     [DataMember(Name="Txs")]
     [XmlElement(ElementName="Txs")]
-    public SomeTransactionsRecord? Transactions { get; init; }
+    public Transaction64? Transactions { get; init; }
     
     */
     

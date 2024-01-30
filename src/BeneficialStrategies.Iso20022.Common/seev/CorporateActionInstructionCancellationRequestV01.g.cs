@@ -35,7 +35,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification12 Identification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent instruction document.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
     [Required]
-    public required SomeInstructionIdentificationRecord InstructionIdentification { get; init; }
+    public required DocumentIdentification15 InstructionIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -55,7 +55,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation7 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account and the account owner.
@@ -65,7 +65,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountIdentification8 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -75,7 +75,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
     [Required]
-    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    public required CorporateActionOption6 CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -84,7 +84,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -93,7 +93,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -102,7 +102,7 @@ public partial record CorporateActionInstructionCancellationRequestV01 : IOuterR
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

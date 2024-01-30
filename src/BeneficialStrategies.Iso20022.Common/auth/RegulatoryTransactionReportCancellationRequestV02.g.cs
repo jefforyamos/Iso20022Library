@@ -32,7 +32,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the firm that executed the transaction.|.
@@ -42,7 +42,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
     
     /// <summary>
     /// Identifies the intermediary which is reporting on behalf on the reporting institution.
@@ -51,7 +51,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [Description(@"Identifies the intermediary which is reporting on behalf on the reporting institution.")]
     [DataMember(Name="RptgAgt")]
     [XmlElement(ElementName="RptgAgt")]
-    public SomeReportingAgentRecord? ReportingAgent { get; init; }
+    public IPartyIdentification24Choice? ReportingAgent { get; init; }
     
     /// <summary>
     /// Provides all the details of the transaction report that needs to be cancelled. More than one set of details can be provided.||.
@@ -61,7 +61,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="CxlByTxDtls")]
     [XmlElement(ElementName="CxlByTxDtls")]
     [Required]
-    public required SomeCancellationByTransactionDetailsRecord CancellationByTransactionDetails { get; init; }
+    public required TransactionDetails3 CancellationByTransactionDetails { get; init; }
     
     /// <summary>
     /// Provides the reference of the RegulatoryTransactionReport document that was previously sent and that needs to be cancelled in its entirety.
@@ -71,7 +71,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required DocumentIdentification9 PreviousReference { get; init; }
     
     /// <summary>
     /// Provides the trade reference of the transaction report that needs to be cancelled. More than one reference may be provided.
@@ -81,7 +81,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="CxlByTradRef")]
     [XmlElement(ElementName="CxlByTradRef")]
     [Required]
-    public required SomeCancellationByTradeReferenceRecord CancellationByTradeReference { get; init; }
+    public required TransactionDetails2 CancellationByTradeReference { get; init; }
     
     */
     

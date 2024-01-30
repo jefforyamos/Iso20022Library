@@ -35,7 +35,7 @@ public partial record RequestForTransferStatusReport : IOuterRecord
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required MessageAndBusinessReference1 RequestDetails { get; init; }
     
     */
     

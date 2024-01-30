@@ -29,7 +29,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ActivationHeader2 Header { get; init; }
     
     /// <summary>
     /// Provides details on the debtor activation cancellation request.
@@ -39,7 +39,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     [DataMember(Name="CxlData")]
     [XmlElement(ElementName="CxlData")]
     [Required]
-    public required SomeCancellationDataRecord CancellationData { get; init; }
+    public required DebtorActivationCancellation2 CancellationData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

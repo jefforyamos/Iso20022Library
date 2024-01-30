@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingReferenceDataReportV01 : IOute
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Details of the reference data reported by the trading venue.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingReferenceDataReportV01 : IOute
     [DataMember(Name="RefData")]
     [XmlElement(ElementName="RefData")]
     [Required]
-    public required SomeReferenceDataRecord ReferenceData { get; init; }
+    public required SecuritiesReferenceDataReport5 ReferenceData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingReferenceDataReportV01 : IOute
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

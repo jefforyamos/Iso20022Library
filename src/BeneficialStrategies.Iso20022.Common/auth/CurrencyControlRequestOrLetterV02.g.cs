@@ -29,7 +29,7 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required CurrencyControlHeader5 GroupHeader { get; init; }
     
     /// <summary>
     /// Supporting document request or letter details.
@@ -39,7 +39,7 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord
     [DataMember(Name="ReqOrLttr")]
     [XmlElement(ElementName="ReqOrLttr")]
     [Required]
-    public required SomeRequestOrLetterRecord RequestOrLetter { get; init; }
+    public required SupportingDocumentRequestOrLetter2 RequestOrLetter { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

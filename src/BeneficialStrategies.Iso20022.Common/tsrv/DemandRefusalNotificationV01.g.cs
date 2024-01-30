@@ -28,7 +28,7 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
     [Description(@"Details of the demand refusal notification.")]
     [DataMember(Name="DmndRfslNtfctnDtls")]
     [XmlElement(ElementName="DmndRfslNtfctnDtls")]
-    public SomeDemandRefusalNotificationDetailsRecord? DemandRefusalNotificationDetails { get; init; }
+    public DemandRefusal1? DemandRefusalNotificationDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the notification.
@@ -37,7 +37,7 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

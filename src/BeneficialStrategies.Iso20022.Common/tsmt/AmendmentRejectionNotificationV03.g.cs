@@ -34,7 +34,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
     [Required]
-    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    public required MessageIdentification1 NotificationIdentification { get; init; }
     
     /// <summary>
     /// Unique Identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -44,7 +44,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -54,7 +54,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
     [Required]
-    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -64,7 +64,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
@@ -73,7 +73,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Reference to the identification of the delta report that contained the amendment.
@@ -83,7 +83,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="DltaRptRef")]
     [XmlElement(ElementName="DltaRptRef")]
     [Required]
-    public required SomeDeltaReportReferenceRecord DeltaReportReference { get; init; }
+    public required MessageIdentification1 DeltaReportReference { get; init; }
     
     /// <summary>
     /// Sequence number of the rejected baseline amendment.
@@ -93,7 +93,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="RjctdAmdmntNb")]
     [XmlElement(ElementName="RjctdAmdmntNb")]
     [Required]
-    public required SomeRejectedAmendmentNumberRecord RejectedAmendmentNumber { get; init; }
+    public required Count1 RejectedAmendmentNumber { get; init; }
     
     /// <summary>
     /// Party that has rejected the amendment.
@@ -103,7 +103,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="Initr")]
     [XmlElement(ElementName="Initr")]
     [Required]
-    public required SomeInitiatorRecord Initiator { get; init; }
+    public required BICIdentification1 Initiator { get; init; }
     
     /// <summary>
     /// Specifies the reaons for rejecting the amendment.
@@ -113,7 +113,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="RjctnRsn")]
     [XmlElement(ElementName="RjctnRsn")]
     [Required]
-    public required SomeRejectionReasonRecord RejectionReason { get; init; }
+    public required IRejectionReason1Choice RejectionReason { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -122,7 +122,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

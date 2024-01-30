@@ -29,7 +29,7 @@ public partial record ChargeBackResponseV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header40 Header { get; init; }
     
     /// <summary>
     /// Information related to the initiation of a chargeback.
@@ -40,7 +40,7 @@ public partial record ChargeBackResponseV01 : IOuterRecord
     [DataMember(Name="Body")]
     [XmlElement(ElementName="Body")]
     [Required]
-    public required SomeBodyRecord Body { get; init; }
+    public required ChargeBackResponse1 Body { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -50,7 +50,7 @@ public partial record ChargeBackResponseV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.|It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType20? SecurityTrailer { get; init; }
     
     */
     

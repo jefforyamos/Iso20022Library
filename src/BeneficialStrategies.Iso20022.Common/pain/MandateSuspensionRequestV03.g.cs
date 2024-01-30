@@ -35,7 +35,7 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader80 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide information on the suspension request of the mandate.
@@ -45,7 +45,7 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord
     [DataMember(Name="UndrlygSspnsnDtls")]
     [XmlElement(ElementName="UndrlygSspnsnDtls")]
     [Required]
-    public required SomeUnderlyingSuspensionDetailsRecord UnderlyingSuspensionDetails { get; init; }
+    public required MandateSuspension3 UnderlyingSuspensionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -54,7 +54,7 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

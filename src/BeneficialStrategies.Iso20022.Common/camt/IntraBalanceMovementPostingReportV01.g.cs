@@ -32,7 +32,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [Description(@"Unambiguous identification of the message as known by the account servicer or settlement infrastructure.")]
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
-    public SomeIdentificationRecord? Identification { get; init; }
+    public DocumentIdentification51? Identification { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -42,7 +42,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General characteristics related to the report information.
@@ -52,7 +52,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [DataMember(Name="RptGnlDtls")]
     [XmlElement(ElementName="RptGnlDtls")]
     [Required]
-    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    public required IntraBalanceReport6 ReportGeneralDetails { get; init; }
     
     /// <summary>
     /// Account to or from which a cash entry is made.
@@ -62,7 +62,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [DataMember(Name="CshAcct")]
     [XmlElement(ElementName="CshAcct")]
     [Required]
-    public required SomeCashAccountRecord CashAccount { get; init; }
+    public required CashAccount38 CashAccount { get; init; }
     
     /// <summary>
     /// Party that owns the account.
@@ -71,7 +71,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [Description(@"Party that owns the account.")]
     [DataMember(Name="CshAcctOwnr")]
     [XmlElement(ElementName="CshAcctOwnr")]
-    public SomeCashAccountOwnerRecord? CashAccountOwner { get; init; }
+    public SystemPartyIdentification8? CashAccountOwner { get; init; }
     
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
@@ -80,7 +80,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [Description(@"Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.")]
     [DataMember(Name="CshAcctSvcr")]
     [XmlElement(ElementName="CshAcctSvcr")]
-    public SomeCashAccountServicerRecord? CashAccountServicer { get; init; }
+    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; }
     
     /// <summary>
     /// Identifies the transactions.
@@ -89,7 +89,7 @@ public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
     [Description(@"Identifies the transactions.")]
     [DataMember(Name="SubBal")]
     [XmlElement(ElementName="SubBal")]
-    public SomeSubBalanceRecord? SubBalance { get; init; }
+    public IntraBalancePosting5? SubBalance { get; init; }
     
     */
     

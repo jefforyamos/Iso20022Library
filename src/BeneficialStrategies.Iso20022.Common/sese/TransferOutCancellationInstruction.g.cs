@@ -34,7 +34,7 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference2 PreviousReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -43,7 +43,7 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference2? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -52,7 +52,7 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// </summary>
@@ -60,7 +60,7 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     [Description(@"")]
     [DataMember(Name="TrfOutToBeCanc")]
     [XmlElement(ElementName="TrfOutToBeCanc")]
-    public SomeTransferOutToBeCancelledRecord? TransferOutToBeCancelled { get; init; }
+    public TransferOut2? TransferOutToBeCancelled { get; init; }
     
     */
     

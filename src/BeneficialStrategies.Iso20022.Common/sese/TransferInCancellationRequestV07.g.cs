@@ -36,7 +36,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
@@ -45,7 +45,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [Description(@"Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.")]
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
-    public SomeReferencesRecord? References { get; init; }
+    public References20? References { get; init; }
     
     /// <summary>
     /// Function of the transfer-in, that is, whether the message is used as a request to cancel a previously sent instruction or as a cancellation of a previously sent advice and request for information. The absence of Function indicates the message is a request to cancel a previously sent instruction.
@@ -54,7 +54,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [Description(@"Function of the transfer-in, that is, whether the message is used as a request to cancel a previously sent instruction or as a cancellation of a previously sent advice and request for information. The absence of Function indicates the message is a request to cancel a previously sent instruction.")]
     [DataMember(Name="Fctn")]
     [XmlElement(ElementName="Fctn")]
-    public SomeFunctionRecord? Function { get; init; }
+    public TransferInFunction1Code? Function { get; init; }
     
     /// <summary>
     /// Choice between cancellation by reference or by transfer details.
@@ -64,7 +64,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [DataMember(Name="Cxl")]
     [XmlElement(ElementName="Cxl")]
     [Required]
-    public required SomeCancellationRecord Cancellation { get; init; }
+    public required ICancellation10Choice Cancellation { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -73,7 +73,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -82,7 +82,7 @@ public partial record TransferInCancellationRequestV07 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation4? CopyDetails { get; init; }
     
     */
     

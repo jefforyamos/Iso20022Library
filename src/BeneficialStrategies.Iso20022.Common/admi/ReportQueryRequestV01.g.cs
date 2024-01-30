@@ -29,7 +29,7 @@ public partial record ReportQueryRequestV01 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader7 MessageHeader { get; init; }
     
     /// <summary>
     /// Definition of the report query criteria.
@@ -38,7 +38,7 @@ public partial record ReportQueryRequestV01 : IOuterRecord
     [Description(@"Definition of the report query criteria.")]
     [DataMember(Name="RptQryCrit")]
     [XmlElement(ElementName="RptQryCrit")]
-    public SomeReportQueryCriteriaRecord? ReportQueryCriteria { get; init; }
+    public ReportQueryCriteria2? ReportQueryCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record ReportQueryRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

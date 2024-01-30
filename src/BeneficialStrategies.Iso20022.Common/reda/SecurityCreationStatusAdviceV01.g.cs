@@ -38,7 +38,7 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader12? MessageHeader { get; init; }
     
     /// <summary>
     /// Identification of the financial instrument.
@@ -47,7 +47,7 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     [Description(@"Identification of the financial instrument.")]
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
-    public SomeFinancialInstrumentIdentificationRecord? FinancialInstrumentIdentification { get; init; }
+    public SecurityIdentification39? FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Represents the processing status.
@@ -57,7 +57,7 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus72Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -66,7 +66,7 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

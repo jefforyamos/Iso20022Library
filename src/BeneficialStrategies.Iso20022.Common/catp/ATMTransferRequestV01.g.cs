@@ -29,7 +29,7 @@ public partial record ATMTransferRequestV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header31 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMTransferRequestV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMTrfReq")]
     [XmlElement(ElementName="PrtctdATMTrfReq")]
-    public SomeProtectedATMTransferRequestRecord? ProtectedATMTransferRequest { get; init; }
+    public ContentInformationType10? ProtectedATMTransferRequest { get; init; }
     
     /// <summary>
     /// Information related to the request of a fund transfer from an ATM.
@@ -47,7 +47,7 @@ public partial record ATMTransferRequestV01 : IOuterRecord
     [Description(@"Information related to the request of a fund transfer from an ATM.")]
     [DataMember(Name="ATMTrfReq")]
     [XmlElement(ElementName="ATMTrfReq")]
-    public SomeATMTransferRequestRecord? ATMTransferRequest { get; init; }
+    public ATMTransferRequest1? ATMTransferRequest { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record ATMTransferRequestV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

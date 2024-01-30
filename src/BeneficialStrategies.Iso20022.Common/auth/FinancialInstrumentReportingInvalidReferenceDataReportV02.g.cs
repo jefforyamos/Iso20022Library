@@ -31,7 +31,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     [DataMember(Name="DtPrd")]
     [XmlElement(ElementName="DtPrd")]
     [Required]
-    public required SomeDatePeriodRecord DatePeriod { get; init; }
+    public required IPeriod4Choice DatePeriod { get; init; }
     
     /// <summary>
     /// Number of invalid records in this message.
@@ -40,7 +40,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     [Description(@"Number of invalid records in this message.|")]
     [DataMember(Name="NbOfRcrds")]
     [XmlElement(ElementName="NbOfRcrds")]
-    public SomeNumberOfRecordsRecord? NumberOfRecords { get; init; }
+    public IsoNumber? NumberOfRecords { get; init; }
     
     /// <summary>
     /// Provides the details of the financial instruments.
@@ -50,7 +50,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     [DataMember(Name="FinInstrms")]
     [XmlElement(ElementName="FinInstrms")]
     [Required]
-    public required SomeFinancialInstrumentsRecord FinancialInstruments { get; init; }
+    public required SecuritiesInvalidReferenceDataReport4 FinancialInstruments { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

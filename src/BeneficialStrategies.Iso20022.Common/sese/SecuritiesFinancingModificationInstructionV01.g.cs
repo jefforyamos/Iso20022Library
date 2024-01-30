@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing), modification information and other parameters.
@@ -56,7 +56,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="TxTpAndModAddtlParams")]
     [XmlElement(ElementName="TxTpAndModAddtlParams")]
     [Required]
-    public required SomeTransactionTypeAndModificationAdditionalParametersRecord TransactionTypeAndModificationAdditionalParameters { get; init; }
+    public required TransactionTypeAndAdditionalParameters2 TransactionTypeAndModificationAdditionalParameters { get; init; }
     
     /// <summary>
     /// Details of the securities financing deal.
@@ -66,7 +66,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="TradDtls")]
     [XmlElement(ElementName="TradDtls")]
     [Required]
-    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    public required SecuritiesTradeDetails5 TradeDetails { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -76,7 +76,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Details related to the account and quantity involved in the transaction.
@@ -86,7 +86,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="QtyAndAcctDtls")]
     [XmlElement(ElementName="QtyAndAcctDtls")]
     [Required]
-    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    public required QuantityAndAccount7 QuantityAndAccountDetails { get; init; }
     
     /// <summary>
     /// Details of the closing of the securities financing transaction.
@@ -96,7 +96,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [DataMember(Name="SctiesFincgAddtlDtls")]
     [XmlElement(ElementName="SctiesFincgAddtlDtls")]
     [Required]
-    public required SomeSecuritiesFinancingAdditionalDetailsRecord SecuritiesFinancingAdditionalDetails { get; init; }
+    public required SecuritiesFinancingTransactionDetails1 SecuritiesFinancingAdditionalDetails { get; init; }
     
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
@@ -105,7 +105,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.")]
     [DataMember(Name="SttlmParams")]
     [XmlElement(ElementName="SttlmParams")]
-    public SomeSettlementParametersRecord? SettlementParameters { get; init; }
+    public SettlementDetails3? SettlementParameters { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -114,7 +114,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties5? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -123,7 +123,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties5? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.
@@ -132,7 +132,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.")]
     [DataMember(Name="OpngSttlmAmt")]
     [XmlElement(ElementName="OpngSttlmAmt")]
-    public SomeOpeningSettlementAmountRecord? OpeningSettlementAmount { get; init; }
+    public AmountAndDirection10? OpeningSettlementAmount { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -141,7 +141,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -150,7 +150,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -159,7 +159,7 @@ public partial record SecuritiesFinancingModificationInstructionV01 : IOuterReco
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

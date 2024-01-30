@@ -28,7 +28,7 @@ public partial record DTCCCARESD1V02 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to notification general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD35? CorporateActionGeneralInformation { get; init; }
     
     */
     

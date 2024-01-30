@@ -29,7 +29,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References3 References { get; init; }
     
     /// <summary>
     /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution. OrganisationIdentification6.
@@ -38,7 +38,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution. OrganisationIdentification6.")]
     [DataMember(Name="Fr")]
     [XmlElement(ElementName="Fr")]
-    public SomeFromRecord? From { get; init; }
+    public OrganisationIdentification8? From { get; init; }
     
     /// <summary>
     /// Identification of the organisation.
@@ -48,7 +48,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [DataMember(Name="OrgId")]
     [XmlElement(ElementName="OrgId")]
     [Required]
-    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    public required OrganisationIdentification8 OrganisationIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -58,7 +58,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [DataMember(Name="Acct")]
     [XmlElement(ElementName="Acct")]
     [Required]
-    public required SomeAccountRecord Account { get; init; }
+    public required CustomerAccount4 Account { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
@@ -68,7 +68,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification5 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
@@ -77,7 +77,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [Description(@"Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.")]
     [DataMember(Name="UndrlygMstrAgrmt")]
     [XmlElement(ElementName="UndrlygMstrAgrmt")]
-    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    public ContractDocument1? UnderlyingMasterAgreement { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -86,7 +86,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -95,7 +95,7 @@ public partial record AccountOpeningAdditionalInformationRequestV02 : IOuterReco
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

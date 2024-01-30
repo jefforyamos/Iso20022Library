@@ -44,7 +44,7 @@ public partial record ReturnCurrencyExchangeRateV05 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader7 MessageHeader { get; init; }
     
     /// <summary>
     /// Reports on currency exchange information.
@@ -54,7 +54,7 @@ public partial record ReturnCurrencyExchangeRateV05 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    public required IExchangeRateReportOrError3Choice ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -63,7 +63,7 @@ public partial record ReturnCurrencyExchangeRateV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

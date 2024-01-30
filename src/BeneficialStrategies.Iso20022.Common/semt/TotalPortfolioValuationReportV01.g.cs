@@ -37,7 +37,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// General information related to the total portfolio valuation report.
@@ -47,7 +47,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [DataMember(Name="RptGnlDtls")]
     [XmlElement(ElementName="RptGnlDtls")]
     [Required]
-    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    public required Report4 ReportGeneralDetails { get; init; }
     
     /// <summary>
     /// Details of the account. The account may represent an investment portfolio or a fund.
@@ -57,7 +57,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required SecuritiesAccount21 AccountDetails { get; init; }
     
     /// <summary>
     /// Valuation information of the portfolio. In some markets a fund of funds or an investment fund is regarded as a portfolio.
@@ -67,7 +67,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [DataMember(Name="TtlPrtflValtn")]
     [XmlElement(ElementName="TtlPrtflValtn")]
     [Required]
-    public required SomeTotalPortfolioValuationRecord TotalPortfolioValuation { get; init; }
+    public required TotalPortfolioValuation1 TotalPortfolioValuation { get; init; }
     
     /// <summary>
     /// Balance breakdown information.
@@ -76,7 +76,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [Description(@"Balance breakdown information.")]
     [DataMember(Name="Bal")]
     [XmlElement(ElementName="Bal")]
-    public SomeBalanceRecord? Balance { get; init; }
+    public PortfolioBalance1? Balance { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -85,7 +85,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -33,7 +33,7 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Standing Instruction Request to be cancelled.
@@ -43,7 +43,7 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="AgtCAStgInstrReqId")]
     [XmlElement(ElementName="AgtCAStgInstrReqId")]
     [Required]
-    public required SomeAgentCAStandingInstructionRequestIdentificationRecord AgentCAStandingInstructionRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAStandingInstructionRequestIdentification { get; init; }
     
     /// <summary>
     /// General information about the standing instruction.
@@ -53,7 +53,7 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
     [DataMember(Name="StgInstrGnlInf")]
     [XmlElement(ElementName="StgInstrGnlInf")]
     [Required]
-    public required SomeStandingInstructionGeneralInformationRecord StandingInstructionGeneralInformation { get; init; }
+    public required CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information related to the standing instruction.
@@ -62,7 +62,7 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
     [Description(@"Information related to the standing instruction.")]
     [DataMember(Name="StgInstrDtls")]
     [XmlElement(ElementName="StgInstrDtls")]
-    public SomeStandingInstructionDetailsRecord? StandingInstructionDetails { get; init; }
+    public CorporateActionStandingInstruction1? StandingInstructionDetails { get; init; }
     
     */
     

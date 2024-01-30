@@ -35,7 +35,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [Description(@"Identification of a related instruction cancellation request document.")]
     [DataMember(Name="InstrCxlReqId")]
     [XmlElement(ElementName="InstrCxlReqId")]
-    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    public DocumentIdentification9? InstructionCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -44,7 +44,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification33? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -54,7 +54,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation109 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the processing status of the instruction cancellation request.
@@ -64,7 +64,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [DataMember(Name="InstrCxlReqSts")]
     [XmlElement(ElementName="InstrCxlReqSts")]
     [Required]
-    public required SomeInstructionCancellationRequestStatusRecord InstructionCancellationRequestStatus { get; init; }
+    public required IInstructionCancellationRequestStatus11Choice InstructionCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -73,7 +73,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [Description(@"Information about the corporate action option.")]
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
-    public SomeCorporateActionInstructionRecord? CorporateActionInstruction { get; init; }
+    public CorporateActionOption116? CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -82,7 +82,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative10? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -91,7 +91,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

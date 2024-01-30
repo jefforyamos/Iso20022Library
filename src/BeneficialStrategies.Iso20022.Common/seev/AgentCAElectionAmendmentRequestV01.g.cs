@@ -34,7 +34,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Election Advice for which an amendment is requested.
@@ -44,7 +44,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnAdvcId")]
     [XmlElement(ElementName="AgtCAElctnAdvcId")]
     [Required]
-    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -54,7 +54,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the account.
@@ -64,7 +64,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required SecuritiesAccount7 AccountDetails { get; init; }
     
     /// <summary>
     /// Provides information about the original election to be amended.
@@ -74,7 +74,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="OrgnlElctnDtls")]
     [XmlElement(ElementName="OrgnlElctnDtls")]
     [Required]
-    public required SomeOriginalElectionDetailsRecord OriginalElectionDetails { get; init; }
+    public required CorporateActionElection1 OriginalElectionDetails { get; init; }
     
     /// <summary>
     /// Provides information about the amendments to the election.
@@ -84,7 +84,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="AmddElctnDtls")]
     [XmlElement(ElementName="AmddElctnDtls")]
     [Required]
-    public required SomeAmendedElectionDetailsRecord AmendedElectionDetails { get; init; }
+    public required CorporateActionElection2 AmendedElectionDetails { get; init; }
     
     /// <summary>
     /// Contact responsible for the transaction identified in the message.
@@ -93,7 +93,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     [Description(@"Contact responsible for the transaction identified in the message.")]
     [DataMember(Name="CtctDtls")]
     [XmlElement(ElementName="CtctDtls")]
-    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    public ContactPerson1? ContactDetails { get; init; }
     
     */
     

@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [Description(@"Identification of the advice acknowledgement.")]
     [DataMember(Name="AdvcAckId")]
     [XmlElement(ElementName="AdvcAckId")]
-    public SomeAdviceAcknowledgementIdentificationRecord? AdviceAcknowledgementIdentification { get; init; }
+    public MessageIdentification1? AdviceAcknowledgementIdentification { get; init; }
     
     /// <summary>
     /// Identification of the request.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the date on which the trade was executed.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="TradDt")]
     [XmlElement(ElementName="TradDt")]
     [Required]
-    public required SomeTradeDateRecord TradeDate { get; init; }
+    public required IsoISODate TradeDate { get; init; }
     
     /// <summary>
     /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="TradId")]
     [XmlElement(ElementName="TradId")]
     [Required]
-    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    public required IsoMax35Text TradeIdentification { get; init; }
     
     /// <summary>
     /// Identifies the type of the trade mode.
@@ -72,7 +72,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="TradgMd")]
     [XmlElement(ElementName="TradgMd")]
     [Required]
-    public required SomeTradingModeRecord TradingMode { get; init; }
+    public required TradingModeType1Code TradingMode { get; init; }
     
     /// <summary>
     /// Identifies the status of the confirmation acknowledgement.
@@ -82,7 +82,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="AffirmSts")]
     [XmlElement(ElementName="AffirmSts")]
     [Required]
-    public required SomeAffirmationStatusRecord AffirmationStatus { get; init; }
+    public required AffirmStatus1Code AffirmationStatus { get; init; }
     
     /// <summary>
     /// Identifies the status of the confirmation.
@@ -92,7 +92,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="ConfSts")]
     [XmlElement(ElementName="ConfSts")]
     [Required]
-    public required SomeConfirmationStatusRecord ConfirmationStatus { get; init; }
+    public required TradeConfirmationStatus1Code ConfirmationStatus { get; init; }
     
     /// <summary>
     /// Market in which a trade transaction has been executed.
@@ -102,7 +102,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    public required MarketIdentification88 MarketIdentification { get; init; }
     
     /// <summary>
     /// Free format text string.
@@ -111,7 +111,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [Description(@"Free format text string.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public AdditionalInformation5? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -120,7 +120,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

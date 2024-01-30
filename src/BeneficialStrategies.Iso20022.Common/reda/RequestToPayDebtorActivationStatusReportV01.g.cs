@@ -29,7 +29,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ActivationHeader2 Header { get; init; }
     
     /// <summary>
     /// Status of the debtor activation instruction (that is request, amendment or cancellation).
@@ -39,7 +39,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     [DataMember(Name="OrgnlActvtnAndSts")]
     [XmlElement(ElementName="OrgnlActvtnAndSts")]
     [Required]
-    public required SomeOriginalActivationAndStatusRecord OriginalActivationAndStatus { get; init; }
+    public required ActivationStatus2 OriginalActivationAndStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

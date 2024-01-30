@@ -29,7 +29,7 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
     [DataMember(Name="UdrtkgNonXtnsnReqDtls")]
     [XmlElement(ElementName="UdrtkgNonXtnsnReqDtls")]
     [Required]
-    public required SomeUndertakingNonExtensionRequestDetailsRecord UndertakingNonExtensionRequestDetails { get; init; }
+    public required UndertakingNonExtensionRequest1 UndertakingNonExtensionRequestDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the request.
@@ -38,7 +38,7 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
     [Description(@"Digital signature of the request.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

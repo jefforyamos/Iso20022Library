@@ -33,7 +33,7 @@ public partial record ReversalOfTransferOutConfirmation : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference2 PreviousReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -42,7 +42,7 @@ public partial record ReversalOfTransferOutConfirmation : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference2? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -51,7 +51,7 @@ public partial record ReversalOfTransferOutConfirmation : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Copy of the transfer out confirmation to reverse.
@@ -60,7 +60,7 @@ public partial record ReversalOfTransferOutConfirmation : IOuterRecord
     [Description(@"Copy of the transfer out confirmation to reverse.")]
     [DataMember(Name="TrfOutConfToBeRvsd")]
     [XmlElement(ElementName="TrfOutConfToBeRvsd")]
-    public SomeTransferOutConfirmationToBeReversedRecord? TransferOutConfirmationToBeReversed { get; init; }
+    public TransferOut1? TransferOutConfirmationToBeReversed { get; init; }
     
     */
     

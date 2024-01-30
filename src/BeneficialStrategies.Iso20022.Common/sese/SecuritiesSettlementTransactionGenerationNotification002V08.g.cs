@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [DataMember(Name="TxIdDtls")]
     [XmlElement(ElementName="TxIdDtls")]
     [Required]
-    public required SomeTransactionIdentificationDetailsRecord TransactionIdentificationDetails { get; init; }
+    public required SettlementTypeAndIdentification24 TransactionIdentificationDetails { get; init; }
     
     /// <summary>
     /// Count of the number of transactions linked.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public SomeNumberCountsRecord? NumberCounts { get; init; }
+    public INumberCount1Choice? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
     [DataMember(Name="Lnkgs")]
     [XmlElement(ElementName="Lnkgs")]
-    public SomeLinkagesRecord? Linkages { get; init; }
+    public Linkages43? Linkages { get; init; }
     
     /// <summary>
     /// Details of the trade.
@@ -68,7 +68,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [DataMember(Name="TradDtls")]
     [XmlElement(ElementName="TradDtls")]
     [Required]
-    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    public required SecuritiesTradeDetails87 TradeDetails { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -78,7 +78,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -87,7 +87,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes97? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Details related to the account and quantity involved in the transaction.
@@ -97,7 +97,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [DataMember(Name="QtyAndAcctDtls")]
     [XmlElement(ElementName="QtyAndAcctDtls")]
     [Required]
-    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    public required QuantityAndAccount69 QuantityAndAccountDetails { get; init; }
     
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
@@ -107,7 +107,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [DataMember(Name="SttlmParams")]
     [XmlElement(ElementName="SttlmParams")]
     [Required]
-    public required SomeSettlementParametersRecord SettlementParameters { get; init; }
+    public required SettlementDetails156 SettlementParameters { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -116,7 +116,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties64? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -125,7 +125,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties64? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
@@ -134,7 +134,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Cash parties involved in the transaction if different for the securities settlement parties.")]
     [DataMember(Name="CshPties")]
     [XmlElement(ElementName="CshPties")]
-    public SomeCashPartiesRecord? CashParties { get; init; }
+    public CashParties30? CashParties { get; init; }
     
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
@@ -143,7 +143,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Total amount of money to be paid or received in exchange for the securities.")]
     [DataMember(Name="SttlmAmt")]
     [XmlElement(ElementName="SttlmAmt")]
-    public SomeSettlementAmountRecord? SettlementAmount { get; init; }
+    public AmountAndDirection90? SettlementAmount { get; init; }
     
     /// <summary>
     /// Other amounts than the settlement amount.
@@ -152,7 +152,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Other amounts than the settlement amount.")]
     [DataMember(Name="OthrAmts")]
     [XmlElement(ElementName="OthrAmts")]
-    public SomeOtherAmountsRecord? OtherAmounts { get; init; }
+    public OtherAmounts43? OtherAmounts { get; init; }
     
     /// <summary>
     /// Other business parties relevant to the transaction.
@@ -161,7 +161,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Other business parties relevant to the transaction.")]
     [DataMember(Name="OthrBizPties")]
     [XmlElement(ElementName="OthrBizPties")]
-    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    public OtherParties29? OtherBusinessParties { get; init; }
     
     /// <summary>
     /// Provides information required for the registration or physical settlement.
@@ -170,7 +170,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Provides information required for the registration or physical settlement.")]
     [DataMember(Name="AddtlPhysOrRegnDtls")]
     [XmlElement(ElementName="AddtlPhysOrRegnDtls")]
-    public SomeAdditionalPhysicalOrRegistrationDetailsRecord? AdditionalPhysicalOrRegistrationDetails { get; init; }
+    public RegistrationParameters7? AdditionalPhysicalOrRegistrationDetails { get; init; }
     
     /// <summary>
     /// Specifies the reason why the transaction was generated.
@@ -179,7 +179,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Specifies the reason why the transaction was generated.")]
     [DataMember(Name="GnrtdRsn")]
     [XmlElement(ElementName="GnrtdRsn")]
-    public SomeGeneratedReasonRecord? GeneratedReason { get; init; }
+    public GeneratedReason6? GeneratedReason { get; init; }
     
     /// <summary>
     /// Status and reason of the transaction.
@@ -188,7 +188,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Status and reason of the transaction.")]
     [DataMember(Name="StsAndRsn")]
     [XmlElement(ElementName="StsAndRsn")]
-    public SomeStatusAndReasonRecord? StatusAndReason { get; init; }
+    public StatusAndReason29? StatusAndReason { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -197,7 +197,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotification002V0
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

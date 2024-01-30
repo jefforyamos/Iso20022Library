@@ -36,7 +36,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [Description(@"Identification of a previously sent notification document.")]
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
-    public SomeNotificationIdentificationRecord? NotificationIdentification { get; init; }
+    public DocumentIdentification9? NotificationIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -45,7 +45,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification14? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -55,7 +55,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information about the status of a corporate action.
@@ -65,7 +65,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [DataMember(Name="EvtPrcgSts")]
     [XmlElement(ElementName="EvtPrcgSts")]
     [Required]
-    public required SomeEventProcessingStatusRecord EventProcessingStatus { get; init; }
+    public required IEventProcessingStatus1Choice EventProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -74,7 +74,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative10? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -83,7 +83,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

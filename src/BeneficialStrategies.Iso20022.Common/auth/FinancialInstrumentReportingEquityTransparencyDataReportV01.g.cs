@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingEquityTransparencyDataReportV0
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Details the equity transparency qualitative data reported by a trading venue.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingEquityTransparencyDataReportV0
     [DataMember(Name="EqtyTrnsprncyData")]
     [XmlElement(ElementName="EqtyTrnsprncyData")]
     [Required]
-    public required SomeEquityTransparencyDataRecord EquityTransparencyData { get; init; }
+    public required TransparencyDataReport11 EquityTransparencyData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingEquityTransparencyDataReportV0
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

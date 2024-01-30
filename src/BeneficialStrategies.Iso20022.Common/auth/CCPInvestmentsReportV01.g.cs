@@ -29,7 +29,7 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord
     [DataMember(Name="Invstmt")]
     [XmlElement(ElementName="Invstmt")]
     [Required]
-    public required SomeInvestmentRecord Investment { get; init; }
+    public required IInvestment1Choice Investment { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

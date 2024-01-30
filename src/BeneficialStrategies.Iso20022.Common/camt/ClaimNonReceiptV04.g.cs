@@ -29,7 +29,7 @@ public partial record ClaimNonReceiptV04 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment3 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -39,7 +39,7 @@ public partial record ClaimNonReceiptV04 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case3 Case { get; init; }
     
     /// <summary>
     /// Identifies the payment instruction for which the Creditor has not received the funds.|Usage: In case of a missing cover, it must be the identification of the related payment instruction.|In case of a claim non receipt initiated by the debtor, it must be the identification of the instruction.
@@ -49,7 +49,7 @@ public partial record ClaimNonReceiptV04 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction2Choice Underlying { get; init; }
     
     /// <summary>
     /// Provides the cover related information of a claim non receipt investigation. The absence of the component means that the message is not a cover related investigation.
@@ -58,7 +58,7 @@ public partial record ClaimNonReceiptV04 : IOuterRecord
     [Description(@"Provides the cover related information of a claim non receipt investigation. The absence of the component means that the message is not a cover related investigation.")]
     [DataMember(Name="CoverDtls")]
     [XmlElement(ElementName="CoverDtls")]
-    public SomeCoverDetailsRecord? CoverDetails { get; init; }
+    public MissingCover3? CoverDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -67,7 +67,7 @@ public partial record ClaimNonReceiptV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

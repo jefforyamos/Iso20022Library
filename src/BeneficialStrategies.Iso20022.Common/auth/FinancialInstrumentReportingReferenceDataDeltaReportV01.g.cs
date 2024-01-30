@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides the details of the reference data that have been updated (since the last report).
@@ -38,7 +38,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     [Description(@"Provides the details of the reference data that have been updated (since the last report).")]
     [DataMember(Name="FinInstrm")]
     [XmlElement(ElementName="FinInstrm")]
-    public SomeFinancialInstrumentRecord? FinancialInstrument { get; init; }
+    public ISecuritiesReferenceDeltaStatusReport2Choice? FinancialInstrument { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

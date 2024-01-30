@@ -34,7 +34,7 @@ public partial record AccountManagementStatusReportV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -43,7 +43,7 @@ public partial record AccountManagementStatusReportV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference3> RelatedReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Status report details of an account opening instruction or account modification instruction that was previously received.
@@ -53,7 +53,7 @@ public partial record AccountManagementStatusReportV03 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required AccountManagementStatusAndReason2 StatusReport { get; init; }
     
     */
     

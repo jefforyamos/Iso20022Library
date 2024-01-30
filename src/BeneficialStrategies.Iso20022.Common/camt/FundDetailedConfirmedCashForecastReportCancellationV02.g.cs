@@ -33,7 +33,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -42,7 +42,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -51,7 +51,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -60,7 +60,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -70,7 +70,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// The FundDetailedConfirmedCashForecastReport to be cancelled.
@@ -79,7 +79,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV02 : I
     [Description(@"The FundDetailedConfirmedCashForecastReport to be cancelled.")]
     [DataMember(Name="CshFcstRptToBeCanc")]
     [XmlElement(ElementName="CshFcstRptToBeCanc")]
-    public SomeCashForecastReportToBeCancelledRecord? CashForecastReportToBeCancelled { get; init; }
+    public FundDetailedConfirmedCashForecastReport2? CashForecastReportToBeCancelled { get; init; }
     
     */
     

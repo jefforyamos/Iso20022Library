@@ -29,7 +29,7 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header17 Header { get; init; }
     
     /// <summary>
     /// Information related to the authorisation initiation.
@@ -39,7 +39,7 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
     [DataMember(Name="AuthstnInitn")]
     [XmlElement(ElementName="AuthstnInitn")]
     [Required]
-    public required SomeAuthorisationInitiationRecord AuthorisationInitiation { get; init; }
+    public required AcquirerAuthorisationInitiation1 AuthorisationInitiation { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -49,7 +49,7 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.|It corresponds patially to ISO 8583 field number 53, completed by the field number 64 or 128.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

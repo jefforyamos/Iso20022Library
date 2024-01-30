@@ -29,7 +29,7 @@ public partial record ATMDiagnosticResponseV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header20 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMDiagnosticResponseV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMDgnstcRspn")]
     [XmlElement(ElementName="PrtctdATMDgnstcRspn")]
-    public SomeProtectedATMDiagnosticResponseRecord? ProtectedATMDiagnosticResponse { get; init; }
+    public ContentInformationType10? ProtectedATMDiagnosticResponse { get; init; }
     
     /// <summary>
     /// Information related to the response of a diagnostic from an ATM manager.
@@ -47,7 +47,7 @@ public partial record ATMDiagnosticResponseV01 : IOuterRecord
     [Description(@"Information related to the response of a diagnostic from an ATM manager.")]
     [DataMember(Name="ATMDgnstcRspn")]
     [XmlElement(ElementName="ATMDgnstcRspn")]
-    public SomeATMDiagnosticResponseRecord? ATMDiagnosticResponse { get; init; }
+    public ATMDiagnosticResponse1? ATMDiagnosticResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record ATMDiagnosticResponseV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

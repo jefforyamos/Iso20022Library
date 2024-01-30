@@ -29,7 +29,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [DataMember(Name="PtyId")]
     [XmlElement(ElementName="PtyId")]
     [Required]
-    public required SomePartyIdentificationRecord PartyIdentification { get; init; }
+    public required IPartyIdentification73Choice PartyIdentification { get; init; }
     
     /// <summary>
     /// General information applicable to the report.
@@ -39,7 +39,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [DataMember(Name="RptData")]
     [XmlElement(ElementName="RptData")]
     [Required]
-    public required SomeReportDataRecord ReportData { get; init; }
+    public required ReportData4 ReportData { get; init; }
     
     /// <summary>
     /// Projected net position for all currencies, projected long for the value date.
@@ -48,7 +48,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [Description(@"Projected net position for all currencies, projected long for the value date.")]
     [DataMember(Name="PayInSchdlLngBal")]
     [XmlElement(ElementName="PayInSchdlLngBal")]
-    public SomePayInScheduleLongBalanceRecord? PayInScheduleLongBalance { get; init; }
+    public BalanceStatus2? PayInScheduleLongBalance { get; init; }
     
     /// <summary>
     /// Currency and total amount to be paid in by the corresponding deadline.
@@ -57,7 +57,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [Description(@"Currency and total amount to be paid in by the corresponding deadline.")]
     [DataMember(Name="PayInSchdlItm")]
     [XmlElement(ElementName="PayInSchdlItm")]
-    public SomePayInScheduleItemRecord? PayInScheduleItem { get; init; }
+    public PayInScheduleItems1? PayInScheduleItem { get; init; }
     
     /// <summary>
     /// Factors used in the calculation of the pay-in schedule.
@@ -66,7 +66,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [Description(@"Factors used in the calculation of the pay-in schedule.")]
     [DataMember(Name="PayInFctrs")]
     [XmlElement(ElementName="PayInFctrs")]
-    public SomePayInFactorsRecord? PayInFactors { get; init; }
+    public PayInFactors1? PayInFactors { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -75,7 +75,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

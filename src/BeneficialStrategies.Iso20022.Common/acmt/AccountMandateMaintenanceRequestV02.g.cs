@@ -32,7 +32,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References4 References { get; init; }
     
     /// <summary>
     /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
@@ -41,7 +41,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.")]
     [DataMember(Name="Fr")]
     [XmlElement(ElementName="Fr")]
-    public SomeFromRecord? From { get; init; }
+    public OrganisationIdentification8? From { get; init; }
     
     /// <summary>
     /// Specifies target dates.
@@ -50,7 +50,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Specifies target dates.")]
     [DataMember(Name="CtrctDts")]
     [XmlElement(ElementName="CtrctDts")]
-    public SomeContractDatesRecord? ContractDates { get; init; }
+    public AccountContract2? ContractDates { get; init; }
     
     /// <summary>
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
@@ -59,7 +59,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.")]
     [DataMember(Name="UndrlygMstrAgrmt")]
     [XmlElement(ElementName="UndrlygMstrAgrmt")]
-    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    public ContractDocument1? UnderlyingMasterAgreement { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -69,7 +69,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountForAction1 AccountIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
@@ -79,7 +79,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification5 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Identification of the organisation requesting the change.
@@ -89,7 +89,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [DataMember(Name="OrgId")]
     [XmlElement(ElementName="OrgId")]
     [Required]
-    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    public required Organisation14 OrganisationIdentification { get; init; }
     
     /// <summary>
     /// Information specifying the account mandate.
@@ -99,7 +99,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [DataMember(Name="Mndt")]
     [XmlElement(ElementName="Mndt")]
     [Required]
-    public required SomeMandateRecord Mandate { get; init; }
+    public required OperationMandate3 Mandate { get; init; }
     
     /// <summary>
     /// Definition of a group of parties.
@@ -108,7 +108,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Definition of a group of parties.")]
     [DataMember(Name="Grp")]
     [XmlElement(ElementName="Grp")]
-    public SomeGroupRecord? Group { get; init; }
+    public Group2? Group { get; init; }
     
     /// <summary>
     /// Contains additional information related to the message.
@@ -117,7 +117,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Contains additional information related to the message.")]
     [DataMember(Name="AddtlMsgInf")]
     [XmlElement(ElementName="AddtlMsgInf")]
-    public SomeAdditionalMessageInformationRecord? AdditionalMessageInformation { get; init; }
+    public AdditionalInformation5? AdditionalMessageInformation { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -126,7 +126,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -135,7 +135,7 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

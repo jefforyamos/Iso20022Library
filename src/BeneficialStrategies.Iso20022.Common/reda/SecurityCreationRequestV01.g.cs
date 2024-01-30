@@ -38,7 +38,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Represents the financial instruments details.
@@ -48,7 +48,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
     [Required]
-    public required SomeSecurityRecord Security { get; init; }
+    public required SecurityAttributes10 Security { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

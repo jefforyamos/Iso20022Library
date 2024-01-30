@@ -35,7 +35,7 @@ public partial record FIToFIPaymentReversalV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader9 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -45,7 +45,7 @@ public partial record FIToFIPaymentReversalV01 : IOuterRecord
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
     [Required]
-    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    public required OriginalGroupInformation5 OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original transactions, to which the reversal message refers.
@@ -54,7 +54,7 @@ public partial record FIToFIPaymentReversalV01 : IOuterRecord
     [Description(@"Information concerning the original transactions, to which the reversal message refers.")]
     [DataMember(Name="TxInf")]
     [XmlElement(ElementName="TxInf")]
-    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    public PaymentTransactionInformation5? TransactionInformation { get; init; }
     
     */
     

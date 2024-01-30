@@ -53,7 +53,7 @@ public partial record GetTransactionV10 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the transaction query criteria.
@@ -62,7 +62,7 @@ public partial record GetTransactionV10 : IOuterRecord
     [Description(@"Defines the transaction query criteria.")]
     [DataMember(Name="TxQryDef")]
     [XmlElement(ElementName="TxQryDef")]
-    public SomeTransactionQueryDefinitionRecord? TransactionQueryDefinition { get; init; }
+    public TransactionQuery7? TransactionQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -71,7 +71,7 @@ public partial record GetTransactionV10 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

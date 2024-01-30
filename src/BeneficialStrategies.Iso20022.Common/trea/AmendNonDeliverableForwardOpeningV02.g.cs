@@ -32,7 +32,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement2 TradeInformation { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the non deliverable trade which is amended.
@@ -42,7 +42,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the non deliverable trade which is amended.
@@ -52,7 +52,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the amounts of the non deliverable trade which is amended.
@@ -62,7 +62,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="TradAmts")]
     [XmlElement(ElementName="TradAmts")]
     [Required]
-    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    public required AmountsAndValueDate1 TradeAmounts { get; init; }
     
     /// <summary>
     /// Specifies the rate of the non deliverable trade which is amended.
@@ -72,7 +72,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="AgrdRate")]
     [XmlElement(ElementName="AgrdRate")]
     [Required]
-    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    public required AgreedRate1 AgreedRate { get; init; }
     
     /// <summary>
     /// Specifies the valuation conditions of the non deliverable trade which is amended.
@@ -82,7 +82,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     [DataMember(Name="ValtnConds")]
     [XmlElement(ElementName="ValtnConds")]
     [Required]
-    public required SomeValuationConditionsRecord ValuationConditions { get; init; }
+    public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; }
     
     */
     

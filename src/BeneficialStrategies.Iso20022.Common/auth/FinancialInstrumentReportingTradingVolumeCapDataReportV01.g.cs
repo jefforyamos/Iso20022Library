@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingTradingVolumeCapDataReportV01 
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides details on the volume of trades of financial instruments.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingTradingVolumeCapDataReportV01 
     [DataMember(Name="VolCapData")]
     [XmlElement(ElementName="VolCapData")]
     [Required]
-    public required SomeVolumeCapDataRecord VolumeCapData { get; init; }
+    public required VolumeCapReport1 VolumeCapData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingTradingVolumeCapDataReportV01 
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

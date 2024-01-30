@@ -39,7 +39,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General information related to the report.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement63 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -67,7 +67,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount19? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Details of the allegement.
@@ -85,7 +85,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV10 : IOute
     [Description(@"Details of the allegement.")]
     [DataMember(Name="AllgmtDtls")]
     [XmlElement(ElementName="AllgmtDtls")]
-    public SomeAllegementDetailsRecord? AllegementDetails { get; init; }
+    public SecuritiesTradeDetails137? AllegementDetails { get; init; }
     
     */
     

@@ -34,7 +34,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [Description(@"Indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.")]
     [DataMember(Name="ChngInstrInd")]
     [XmlElement(ElementName="ChngInstrInd")]
-    public SomeChangeInstructionIndicatorRecord? ChangeInstructionIndicator { get; init; }
+    public IsoYesNoIndicator? ChangeInstructionIndicator { get; init; }
     
     /// <summary>
     /// Identification of a previously sent instruction document.
@@ -44,7 +44,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
     [Required]
-    public required SomeInstructionIdentificationRecord InstructionIdentification { get; init; }
+    public required DocumentIdentification31 InstructionIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -54,7 +54,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation155 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account and the account owner.
@@ -64,7 +64,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountIdentification46 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -74,7 +74,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
     [Required]
-    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    public required CorporateActionOption181 CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides detailed information on protect and cover protect instructions.
@@ -83,7 +83,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [Description(@"Provides detailed information on protect and cover protect instructions.")]
     [DataMember(Name="PrtctInstr")]
     [XmlElement(ElementName="PrtctInstr")]
-    public SomeProtectInstructionRecord? ProtectInstruction { get; init; }
+    public ProtectInstruction3? ProtectInstruction { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -92,7 +92,7 @@ public partial record CorporateActionInstructionCancellationRequestV10 : IOuterR
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// General information about the standing instruction.
@@ -46,7 +46,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
     [DataMember(Name="StgInstrGnlInf")]
     [XmlElement(ElementName="StgInstrGnlInf")]
     [Required]
-    public required SomeStandingInstructionGeneralInformationRecord StandingInstructionGeneralInformation { get; init; }
+    public required CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides detailed information about the standing instruction.
@@ -56,7 +56,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
     [DataMember(Name="StgInstrDtls")]
     [XmlElement(ElementName="StgInstrDtls")]
     [Required]
-    public required SomeStandingInstructionDetailsRecord StandingInstructionDetails { get; init; }
+    public required CorporateActionStandingInstruction1 StandingInstructionDetails { get; init; }
     
     /// <summary>
     /// Contact responsible for the transaction identified in the message.
@@ -65,7 +65,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
     [Description(@"Contact responsible for the transaction identified in the message.")]
     [DataMember(Name="CtctDtls")]
     [XmlElement(ElementName="CtctDtls")]
-    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    public ContactPerson1? ContactDetails { get; init; }
     
     */
     

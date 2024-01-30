@@ -43,7 +43,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment2 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -53,7 +53,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case2 Case { get; init; }
     
     /// <summary>
     /// References the payment instruction or statement entry that a party is unable to execute or unable to reconcile.
@@ -63,7 +63,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction1Choice Underlying { get; init; }
     
     /// <summary>
     /// Explains the reason why the case creator is unable to apply the instruction.
@@ -73,7 +73,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required SomeJustificationRecord Justification { get; init; }
+    public required IUnableToApplyJustification2Choice Justification { get; init; }
     
     */
     

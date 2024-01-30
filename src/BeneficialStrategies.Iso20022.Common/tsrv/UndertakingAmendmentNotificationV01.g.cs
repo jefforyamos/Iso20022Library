@@ -29,7 +29,7 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord
     [DataMember(Name="UdrtkgAmdmntNtfctnDtls")]
     [XmlElement(ElementName="UdrtkgAmdmntNtfctnDtls")]
     [Required]
-    public required SomeUndertakingAmendmentNotificationDetailsRecord UndertakingAmendmentNotificationDetails { get; init; }
+    public required Amendment6 UndertakingAmendmentNotificationDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the notification.
@@ -38,7 +38,7 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

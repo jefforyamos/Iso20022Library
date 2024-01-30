@@ -29,7 +29,7 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord
     [DataMember(Name="XtndOrPayRspnDtls")]
     [XmlElement(ElementName="XtndOrPayRspnDtls")]
     [Required]
-    public required SomeExtendOrPayResponseDetailsRecord ExtendOrPayResponseDetails { get; init; }
+    public required ExtendOrPayQuery2 ExtendOrPayResponseDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the response.
@@ -38,7 +38,7 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord
     [Description(@"Digital signature of the response.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

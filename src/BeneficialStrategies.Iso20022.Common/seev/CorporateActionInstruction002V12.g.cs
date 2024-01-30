@@ -35,7 +35,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Indicates that the current instruction is replacing a previous one that was cancelled earlier.")]
     [DataMember(Name="ChngInstrInd")]
     [XmlElement(ElementName="ChngInstrInd")]
-    public SomeChangeInstructionIndicatorRecord? ChangeInstructionIndicator { get; init; }
+    public IsoYesNoIndicator? ChangeInstructionIndicator { get; init; }
     
     /// <summary>
     /// Identification of a previously sent cancelled instruction document.
@@ -44,7 +44,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Identification of a previously sent cancelled instruction document.")]
     [DataMember(Name="CancInstrId")]
     [XmlElement(ElementName="CancInstrId")]
-    public SomeCancelledInstructionIdentificationRecord? CancelledInstructionIdentification { get; init; }
+    public DocumentIdentification37? CancelledInstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent instruction cancellation request document.
@@ -53,7 +53,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Identification of a previously sent instruction cancellation request document.")]
     [DataMember(Name="InstrCxlReqId")]
     [XmlElement(ElementName="InstrCxlReqId")]
-    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    public DocumentIdentification37? InstructionCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -62,7 +62,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification38? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.
@@ -71,7 +71,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReference4? EventsLinkage { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -81,7 +81,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation166 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -91,7 +91,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountAndBalance51 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the beneficial owner of the securities.
@@ -100,7 +100,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Information about the beneficial owner of the securities.")]
     [DataMember(Name="BnfclOwnrDtls")]
     [XmlElement(ElementName="BnfclOwnrDtls")]
-    public SomeBeneficialOwnerDetailsRecord? BeneficialOwnerDetails { get; init; }
+    public PartyIdentification252? BeneficialOwnerDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.
@@ -110,7 +110,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
     [Required]
-    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    public required CorporateActionOption204 CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides detailed information on protect and cover protect instructions.
@@ -119,7 +119,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Provides detailed information on protect and cover protect instructions.")]
     [DataMember(Name="PrtctInstr")]
     [XmlElement(ElementName="PrtctInstr")]
-    public SomeProtectInstructionRecord? ProtectInstruction { get; init; }
+    public ProtectInstruction5? ProtectInstruction { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -128,7 +128,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative34? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -137,7 +137,7 @@ public partial record CorporateActionInstruction002V12 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -38,7 +38,7 @@ public partial record PortfolioTransferNotificationV04 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the notification.
@@ -48,7 +48,7 @@ public partial record PortfolioTransferNotificationV04 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement46 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -57,7 +57,7 @@ public partial record PortfolioTransferNotificationV04 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification98? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -67,7 +67,7 @@ public partial record PortfolioTransferNotificationV04 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of transfer.
@@ -76,7 +76,7 @@ public partial record PortfolioTransferNotificationV04 : IOuterRecord
     [Description(@"Details of transfer.")]
     [DataMember(Name="TrfNtfctnDtls")]
     [XmlElement(ElementName="TrfNtfctnDtls")]
-    public SomeTransferNotificationDetailsRecord? TransferNotificationDetails { get; init; }
+    public SecuritiesTradeDetails48? TransferNotificationDetails { get; init; }
     
     */
     

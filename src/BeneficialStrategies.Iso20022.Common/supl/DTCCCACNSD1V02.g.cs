@@ -28,7 +28,7 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to cancellation advice.")]
     [DataMember(Name="NtfctnXtnsn")]
     [XmlElement(ElementName="NtfctnXtnsn")]
-    public SomeNotificationExtensionRecord? NotificationExtension { get; init; }
+    public CorporateActionNotificationSD1? NotificationExtension { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to cancellation advice general information.
@@ -37,7 +37,7 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to cancellation advice general information.")]
     [DataMember(Name="GnlInfXtnsn")]
     [XmlElement(ElementName="GnlInfXtnsn")]
-    public SomeGeneralInformationExtensionRecord? GeneralInformationExtension { get; init; }
+    public CorporateActionGeneralInformationSD2? GeneralInformationExtension { get; init; }
     
     /// <summary>
     /// Information to be extended as events linkage supplementary data to events to cancellation advice.
@@ -46,7 +46,7 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
     [Description(@"Information to be extended as events linkage supplementary data to events to cancellation advice.")]
     [DataMember(Name="EvtsLkgXtnsn")]
     [XmlElement(ElementName="EvtsLkgXtnsn")]
-    public SomeEventsLinkageExtensionRecord? EventsLinkageExtension { get; init; }
+    public CorporateActionCancellationSD1? EventsLinkageExtension { get; init; }
     
     /// <summary>
     /// Information to be extended as external comments to cancellation advice.
@@ -55,7 +55,7 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
     [Description(@"Information to be extended as external comments to cancellation advice.")]
     [DataMember(Name="XtrnlCmntsXtnsn")]
     [XmlElement(ElementName="XtrnlCmntsXtnsn")]
-    public SomeExternalCommentsExtensionRecord? ExternalCommentsExtension { get; init; }
+    public CorporateActionCancellationSD2? ExternalCommentsExtension { get; init; }
     
     */
     

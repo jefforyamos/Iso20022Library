@@ -39,7 +39,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    public required IInstructionType1Choice InstructionType { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -49,7 +49,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference7 MeetingReference { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -59,7 +59,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Type of instruction status.
@@ -69,7 +69,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    public required IInstructionTypeStatus2Choice InstructionTypeStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -78,7 +78,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

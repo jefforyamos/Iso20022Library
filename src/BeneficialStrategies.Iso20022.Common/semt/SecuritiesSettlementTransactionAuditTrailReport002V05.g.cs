@@ -35,7 +35,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Identification of the SecuritiesStatusQuery message sent to request this report.
@@ -44,7 +44,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@"Identification of the SecuritiesStatusQuery message sent to request this report.")]
     [DataMember(Name="QryRef")]
     [XmlElement(ElementName="QryRef")]
-    public SomeQueryReferenceRecord? QueryReference { get; init; }
+    public IsoRestrictedFINXMax16Text? QueryReference { get; init; }
     
     /// <summary>
     /// Provides unambiguous transaction identification information.
@@ -53,7 +53,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@"Provides unambiguous transaction identification information.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentifications34? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -62,7 +62,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount37? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -71,7 +71,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -80,7 +80,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification156? AccountOwner { get; init; }
     
     /// <summary>
     ///  Provides the history of status and reasons for a pending, posted or cancelled transaction.
@@ -89,7 +89,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     [Description(@" Provides the history of status and reasons for a pending, posted or cancelled transaction.")]
     [DataMember(Name="StsTrl")]
     [XmlElement(ElementName="StsTrl")]
-    public SomeStatusTrailRecord? StatusTrail { get; init; }
+    public StatusTrail11? StatusTrail { get; init; }
     
     */
     

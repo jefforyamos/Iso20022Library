@@ -41,7 +41,7 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V04 :
     [DataMember(Name="ModfdTxDtls")]
     [XmlElement(ElementName="ModfdTxDtls")]
     [Required]
-    public required SomeModifiedTransactionDetailsRecord ModifiedTransactionDetails { get; init; }
+    public required TransactionDetails85 ModifiedTransactionDetails { get; init; }
     
     /// <summary>
     /// Specifies the type of update requested.
@@ -50,7 +50,7 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V04 :
     [Description(@"Specifies the type of update requested.")]
     [DataMember(Name="UpdTp")]
     [XmlElement(ElementName="UpdTp")]
-    public required IReadonlyCollection<SomeUpdateTypeRecord> UpdateType { get; init; } // Min=1, Max=3
+    public required IReadonlyCollection<IUpdateType22Choice> UpdateType { get; init; } // Min=1, Max=3
     
     */
     

@@ -28,7 +28,7 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord
     [Description(@"Information to be extended as custodian details supplementary data to corporate action notification.")]
     [DataMember(Name="CtdnDtls")]
     [XmlElement(ElementName="CtdnDtls")]
-    public SomeCustodianDetailsRecord? CustodianDetails { get; init; }
+    public CustodianDetailsSD1? CustodianDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as custodian service supplementary data to option details.
@@ -37,7 +37,7 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord
     [Description(@"Information to be extended as custodian service supplementary data to option details.")]
     [DataMember(Name="CtdnOptnDtDtls")]
     [XmlElement(ElementName="CtdnOptnDtDtls")]
-    public SomeCustodianOptionDateDetailsRecord? CustodianOptionDateDetails { get; init; }
+    public CustodianOptionDateDetailsSD1? CustodianOptionDateDetails { get; init; }
     
     */
     

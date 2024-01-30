@@ -33,7 +33,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Identifies the transactions that this submission relates to and provides associated information.
@@ -43,7 +43,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="RltdTxRefs")]
     [XmlElement(ElementName="RltdTxRefs")]
     [Required]
-    public required SomeRelatedTransactionReferencesRecord RelatedTransactionReferences { get; init; }
+    public required DataSetSubmissionReferences4 RelatedTransactionReferences { get; init; }
     
     /// <summary>
     /// This reference must be used for all data sets belonging to the same submission group.
@@ -53,7 +53,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="CmonSubmissnRef")]
     [XmlElement(ElementName="CmonSubmissnRef")]
     [Required]
-    public required SomeCommonSubmissionReferenceRecord CommonSubmissionReference { get; init; }
+    public required SimpleIdentificationInformation CommonSubmissionReference { get; init; }
     
     /// <summary>
     /// The financial institution that has submitted the data sets to the matching engine.
@@ -63,7 +63,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="Submitr")]
     [XmlElement(ElementName="Submitr")]
     [Required]
-    public required SomeSubmitterRecord Submitter { get; init; }
+    public required BICIdentification1 Submitter { get; init; }
     
     /// <summary>
     /// The financial institution of the buyer, uniquely identified by its BIC.
@@ -73,7 +73,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="BuyrBk")]
     [XmlElement(ElementName="BuyrBk")]
     [Required]
-    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    public required BICIdentification1 BuyerBank { get; init; }
     
     /// <summary>
     /// The financial institution of the seller, uniquely identified by its BIC.
@@ -83,7 +83,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [DataMember(Name="SellrBk")]
     [XmlElement(ElementName="SellrBk")]
     [Required]
-    public required SomeSellerBankRecord SellerBank { get; init; }
+    public required BICIdentification1 SellerBank { get; init; }
     
     /// <summary>
     /// Commercial information that has been submitted to the matching application by the other party.
@@ -92,7 +92,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Commercial information that has been submitted to the matching application by the other party.")]
     [DataMember(Name="ComrclDataSet")]
     [XmlElement(ElementName="ComrclDataSet")]
-    public SomeCommercialDataSetRecord? CommercialDataSet { get; init; }
+    public CommercialDataSet4? CommercialDataSet { get; init; }
     
     /// <summary>
     /// Transport information that has been submitted to the matching application by the other party.
@@ -101,7 +101,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Transport information that has been submitted to the matching application by the other party.")]
     [DataMember(Name="TrnsprtDataSet")]
     [XmlElement(ElementName="TrnsprtDataSet")]
-    public SomeTransportDataSetRecord? TransportDataSet { get; init; }
+    public TransportDataSet4? TransportDataSet { get; init; }
     
     /// <summary>
     /// Insurance information that has been submitted to the matching application by the other party.
@@ -110,7 +110,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Insurance information that has been submitted to the matching application by the other party.")]
     [DataMember(Name="InsrncDataSet")]
     [XmlElement(ElementName="InsrncDataSet")]
-    public SomeInsuranceDataSetRecord? InsuranceDataSet { get; init; }
+    public InsuranceDataSet1? InsuranceDataSet { get; init; }
     
     /// <summary>
     /// Certificate information that has been submitted to the matching application by the other party.
@@ -119,7 +119,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Certificate information that has been submitted to the matching application by the other party.")]
     [DataMember(Name="CertDataSet")]
     [XmlElement(ElementName="CertDataSet")]
-    public SomeCertificateDataSetRecord? CertificateDataSet { get; init; }
+    public CertificateDataSet2? CertificateDataSet { get; init; }
     
     /// <summary>
     /// Other certificate information that has been submitted to the matching application by the other party.
@@ -128,7 +128,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Other certificate information that has been submitted to the matching application by the other party.")]
     [DataMember(Name="OthrCertDataSet")]
     [XmlElement(ElementName="OthrCertDataSet")]
-    public SomeOtherCertificateDataSetRecord? OtherCertificateDataSet { get; init; }
+    public OtherCertificateDataSet1? OtherCertificateDataSet { get; init; }
     
     /// <summary>
     /// Next processing step required.
@@ -137,7 +137,7 @@ public partial record ForwardDataSetSubmissionReportV04 : IOuterRecord
     [Description(@"Next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

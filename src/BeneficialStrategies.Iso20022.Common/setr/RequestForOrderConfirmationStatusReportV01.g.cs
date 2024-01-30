@@ -38,7 +38,7 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Information to identify the order confirmation for which the status is requested.
@@ -48,7 +48,7 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required MessageAndBusinessReference5 RequestDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

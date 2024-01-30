@@ -34,7 +34,7 @@ public partial record MeetingVoteExecutionConfirmationV05 : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required MessageIdentification RelatedReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -44,7 +44,7 @@ public partial record MeetingVoteExecutionConfirmationV05 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference7 MeetingReference { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -54,7 +54,7 @@ public partial record MeetingVoteExecutionConfirmationV05 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Specifies how a party has voted for each agenda item.
@@ -64,7 +64,7 @@ public partial record MeetingVoteExecutionConfirmationV05 : IOuterRecord
     [DataMember(Name="VoteInstrs")]
     [XmlElement(ElementName="VoteInstrs")]
     [Required]
-    public required SomeVoteInstructionsRecord VoteInstructions { get; init; }
+    public required DetailedInstructionStatus10 VoteInstructions { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -73,7 +73,7 @@ public partial record MeetingVoteExecutionConfirmationV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

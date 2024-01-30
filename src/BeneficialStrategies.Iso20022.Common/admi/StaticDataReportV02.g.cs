@@ -29,7 +29,7 @@ public partial record StaticDataReportV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required IsoMax35Text MessageIdentification { get; init; }
     
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
@@ -38,7 +38,7 @@ public partial record StaticDataReportV02 : IOuterRecord
     [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
     [DataMember(Name="SttlmSsnIdr")]
     [XmlElement(ElementName="SttlmSsnIdr")]
-    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; }
     
     /// <summary>
     /// Report type and returned data.
@@ -48,7 +48,7 @@ public partial record StaticDataReportV02 : IOuterRecord
     [DataMember(Name="RptDtls")]
     [XmlElement(ElementName="RptDtls")]
     [Required]
-    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    public required RequestDetails5 ReportDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record StaticDataReportV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

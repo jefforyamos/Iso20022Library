@@ -43,7 +43,7 @@ public partial record SecuritiesTransactionStatusQueryV04 : IOuterRecord
     [DataMember(Name="StsAdvcReqd")]
     [XmlElement(ElementName="StsAdvcReqd")]
     [Required]
-    public required SomeStatusAdviceRequestedRecord StatusAdviceRequested { get; init; }
+    public required DocumentNumber12 StatusAdviceRequested { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -52,7 +52,7 @@ public partial record SecuritiesTransactionStatusQueryV04 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification98? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -62,7 +62,7 @@ public partial record SecuritiesTransactionStatusQueryV04 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount24 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -71,7 +71,7 @@ public partial record SecuritiesTransactionStatusQueryV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

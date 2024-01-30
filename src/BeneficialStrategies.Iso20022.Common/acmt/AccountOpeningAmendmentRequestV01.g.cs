@@ -33,7 +33,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References4 References { get; init; }
     
     /// <summary>
     /// Specifies target dates.
@@ -42,7 +42,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [Description(@"Specifies target dates.")]
     [DataMember(Name="CtrctDts")]
     [XmlElement(ElementName="CtrctDts")]
-    public SomeContractDatesRecord? ContractDates { get; init; }
+    public AccountContract2? ContractDates { get; init; }
     
     /// <summary>
     /// Account contract established between the organisation or the Group to which the organisation belongs, and the account Servicer. This contract has to be applied for the new account to be opened and maintained.
@@ -51,7 +51,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [Description(@"Account contract established between the organisation or the Group to which the organisation belongs, and the account Servicer. This contract has to be applied for the new account to be opened and maintained.")]
     [DataMember(Name="UndrlygMstrAgrmt")]
     [XmlElement(ElementName="UndrlygMstrAgrmt")]
-    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    public ContractDocument1? UnderlyingMasterAgreement { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -61,7 +61,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="Acct")]
     [XmlElement(ElementName="Acct")]
     [Required]
-    public required SomeAccountRecord Account { get; init; }
+    public required CustomerAccount1 Account { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
@@ -71,7 +71,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
@@ -81,7 +81,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="Org")]
     [XmlElement(ElementName="Org")]
     [Required]
-    public required SomeOrganisationRecord Organisation { get; init; }
+    public required Organisation6 Organisation { get; init; }
     
     /// <summary>
     /// Information specifying the account mandate.
@@ -90,7 +90,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [Description(@"Information specifying the account mandate.")]
     [DataMember(Name="Mndt")]
     [XmlElement(ElementName="Mndt")]
-    public SomeMandateRecord? Mandate { get; init; }
+    public OperationMandate1? Mandate { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account used as a reference for the opening of another account.
@@ -99,7 +99,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [Description(@"Unique and unambiguous identification of the account used as a reference for the opening of another account.")]
     [DataMember(Name="RefAcct")]
     [XmlElement(ElementName="RefAcct")]
-    public SomeReferenceAccountRecord? ReferenceAccount { get; init; }
+    public CashAccount16? ReferenceAccount { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -108,7 +108,7 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature1? DigitalSignature { get; init; }
     
     */
     

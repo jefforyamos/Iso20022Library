@@ -37,7 +37,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -46,7 +46,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -55,7 +55,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -64,7 +64,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [Description(@"Pagination of the message.")]
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
-    public SomeMessagePaginationRecord? MessagePagination { get; init; }
+    public Pagination? MessagePagination { get; init; }
     
     /// <summary>
     /// Information related to the switch order.
@@ -74,7 +74,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [DataMember(Name="SwtchOrdrDtls")]
     [XmlElement(ElementName="SwtchOrdrDtls")]
     [Required]
-    public required SomeSwitchOrderDetailsRecord SwitchOrderDetails { get; init; }
+    public required SwitchOrder4 SwitchOrderDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -83,7 +83,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -92,7 +92,7 @@ public partial record SwitchOrderV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

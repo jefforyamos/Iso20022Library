@@ -29,7 +29,7 @@ public partial record RemittanceAdviceV03 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader62 GroupHeader { get; init; }
     
     /// <summary>
     /// Provides information to enable the matching of an entry with the items that the associated payment is intended to settle, such as commercial invoices in an accounts' receivable system, tax obligations, or garnishment orders.
@@ -39,7 +39,7 @@ public partial record RemittanceAdviceV03 : IOuterRecord
     [DataMember(Name="RmtInf")]
     [XmlElement(ElementName="RmtInf")]
     [Required]
-    public required SomeRemittanceInformationRecord RemittanceInformation { get; init; }
+    public required RemittanceInformation13 RemittanceInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record RemittanceAdviceV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

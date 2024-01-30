@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="StsDtls")]
     [XmlElement(ElementName="StsDtls")]
     [Required]
-    public required SomeStatusDetailsRecord StatusDetails { get; init; }
+    public required TradeData14 StatusDetails { get; init; }
     
     /// <summary>
     /// General information related to the foreign exchange trade.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement12 TradeInformation { get; init; }
     
     /// <summary>
     /// Party(ies) on the trading side of the foreign exchange trade.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification6 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Party(ies) on the counterparty side of the foreign exchange trade.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification6 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Amounts of the foreign exchange trade.
@@ -72,7 +72,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="TradAmts")]
     [XmlElement(ElementName="TradAmts")]
     [Required]
-    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    public required AmountsAndValueDate1 TradeAmounts { get; init; }
     
     /// <summary>
     /// Exchange rate as agreed by the traders.
@@ -82,7 +82,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [DataMember(Name="AgrdRate")]
     [XmlElement(ElementName="AgrdRate")]
     [Required]
-    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    public required AgreedRate3 AgreedRate { get; init; }
     
     /// <summary>
     /// Provides the opening and fixing information for an NDF trade.
@@ -91,7 +91,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Provides the opening and fixing information for an NDF trade.")]
     [DataMember(Name="NDFConds")]
     [XmlElement(ElementName="NDFConds")]
-    public SomeNonDeliverableForwardConditionsRecord? NonDeliverableForwardConditions { get; init; }
+    public NonDeliverableForwardConditions2? NonDeliverableForwardConditions { get; init; }
     
     /// <summary>
     /// Settlement instructions for the amounts received by the trading side.
@@ -100,7 +100,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Settlement instructions for the amounts received by the trading side.")]
     [DataMember(Name="TradgSdSttlmInstrs")]
     [XmlElement(ElementName="TradgSdSttlmInstrs")]
-    public SomeTradingSideSettlementInstructionsRecord? TradingSideSettlementInstructions { get; init; }
+    public SettlementParties29? TradingSideSettlementInstructions { get; init; }
     
     /// <summary>
     /// Settlement instructions for the amounts received by the counterparty.
@@ -109,7 +109,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Settlement instructions for the amounts received by the counterparty.")]
     [DataMember(Name="CtrPtySdSttlmInstrs")]
     [XmlElement(ElementName="CtrPtySdSttlmInstrs")]
-    public SomeCounterpartySideSettlementInstructionsRecord? CounterpartySideSettlementInstructions { get; init; }
+    public SettlementParties29? CounterpartySideSettlementInstructions { get; init; }
     
     /// <summary>
     /// Additional Information about the foreign exchange trade.
@@ -118,7 +118,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Additional Information about the foreign exchange trade.")]
     [DataMember(Name="GnlInf")]
     [XmlElement(ElementName="GnlInf")]
-    public SomeGeneralInformationRecord? GeneralInformation { get; init; }
+    public GeneralInformation5? GeneralInformation { get; init; }
     
     /// <summary>
     /// Details of the split trade.
@@ -127,7 +127,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Details of the split trade.")]
     [DataMember(Name="SpltTradInf")]
     [XmlElement(ElementName="SpltTradInf")]
-    public SomeSplitTradeInformationRecord? SplitTradeInformation { get; init; }
+    public SplitTradeDetails3? SplitTradeInformation { get; init; }
     
     /// <summary>
     /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
@@ -136,7 +136,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.")]
     [DataMember(Name="RgltryRptg")]
     [XmlElement(ElementName="RgltryRptg")]
-    public SomeRegulatoryReportingRecord? RegulatoryReporting { get; init; }
+    public RegulatoryReporting6? RegulatoryReporting { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -145,7 +145,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV04 : IOut
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

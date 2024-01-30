@@ -39,7 +39,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// General information related to report.
@@ -59,7 +59,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement17 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -68,7 +68,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification13Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -78,7 +78,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the allegement.
@@ -87,7 +87,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [Description(@"Details of the allegement.")]
     [DataMember(Name="AllgmtDtls")]
     [XmlElement(ElementName="AllgmtDtls")]
-    public SomeAllegementDetailsRecord? AllegementDetails { get; init; }
+    public SecuritiesTradeDetails4? AllegementDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -96,7 +96,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -105,7 +105,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV01 : IOute
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     */
     

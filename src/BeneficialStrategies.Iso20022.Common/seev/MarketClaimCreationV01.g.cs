@@ -31,7 +31,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="TxRef")]
     [XmlElement(ElementName="TxRef")]
     [Required]
-    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    public required References25 TransactionReference { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -41,7 +41,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information about the related settlement instruction for which the market claim has been created.
@@ -51,7 +51,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="RltdSttlmInstrDtls")]
     [XmlElement(ElementName="RltdSttlmInstrDtls")]
     [Required]
-    public required SomeRelatedSettlementInstructionDetailsRecord RelatedSettlementInstructionDetails { get; init; }
+    public required RelatedSettlementInstruction1 RelatedSettlementInstructionDetails { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -61,7 +61,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountIdentification46 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action event.
@@ -70,7 +70,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [Description(@"Information about the corporate action event.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateAction59? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Type of market claim creation requested.
@@ -80,7 +80,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="MktClmTp")]
     [XmlElement(ElementName="MktClmTp")]
     [Required]
-    public required SomeMarketClaimTypeRecord MarketClaimType { get; init; }
+    public required MarketClaimType1Code MarketClaimType { get; init; }
     
     /// <summary>
     /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
@@ -90,7 +90,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [DataMember(Name="MktClmDtls")]
     [XmlElement(ElementName="MktClmDtls")]
     [Required]
-    public required SomeMarketClaimDetailsRecord MarketClaimDetails { get; init; }
+    public required CorporateActionOption185 MarketClaimDetails { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -99,7 +99,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties75? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -108,7 +108,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties75? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -117,7 +117,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

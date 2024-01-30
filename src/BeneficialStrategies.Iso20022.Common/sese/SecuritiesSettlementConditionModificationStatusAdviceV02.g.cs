@@ -41,7 +41,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [DataMember(Name="ReqRef")]
     [XmlElement(ElementName="ReqRef")]
     [Required]
-    public required SomeRequestReferenceRecord RequestReference { get; init; }
+    public required Identification1 RequestReference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -50,7 +50,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification36Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -59,7 +59,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount13? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the request.
@@ -68,7 +68,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [Description(@"Details of the request.")]
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
-    public SomeRequestDetailsRecord? RequestDetails { get; init; }
+    public RequestDetails6? RequestDetails { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -78,7 +78,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus14Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -87,7 +87,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV02 :
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

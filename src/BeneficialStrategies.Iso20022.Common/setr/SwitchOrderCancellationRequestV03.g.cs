@@ -39,7 +39,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -48,7 +48,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -57,7 +57,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// References of the switch orders to be cancelled.
@@ -66,7 +66,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [Description(@"References of the switch orders to be cancelled.")]
     [DataMember(Name="CxlByRef")]
     [XmlElement(ElementName="CxlByRef")]
-    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    public InvestmentFundOrder1? CancellationByReference { get; init; }
     
     /// <summary>
     /// Common information related to all the switch orders to be cancelled.
@@ -75,7 +75,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Common information related to all the switch orders to be cancelled.")]
     [DataMember(Name="CxlByOrdrDtls")]
     [XmlElement(ElementName="CxlByOrdrDtls")]
-    public SomeCancellationByOrderDetailsRecord? CancellationByOrderDetails { get; init; }
+    public SwitchOrderInstruction2? CancellationByOrderDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -84,7 +84,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

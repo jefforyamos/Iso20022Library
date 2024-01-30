@@ -34,7 +34,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [DataMember(Name="MtgRsltsDssmntnTp")]
     [XmlElement(ElementName="MtgRsltsDssmntnTp")]
     [Required]
-    public required SomeMeetingResultsDisseminationTypeRecord MeetingResultsDisseminationType { get; init; }
+    public required NotificationType2Code MeetingResultsDisseminationType { get; init; }
     
     /// <summary>
     /// Identification of the previously sent meeting result dissemination message.
@@ -43,7 +43,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Identification of the previously sent meeting result dissemination message.")]
     [DataMember(Name="PrvsMtgRsltsDssmntnId")]
     [XmlElement(ElementName="PrvsMtgRsltsDssmntnId")]
-    public SomePreviousMeetingResultsDisseminationIdentificationRecord? PreviousMeetingResultsDisseminationIdentification { get; init; }
+    public IsoMax35Text? PreviousMeetingResultsDisseminationIdentification { get; init; }
     
     /// <summary>
     /// Set of elements to allow the unambiguous identification of a meeting.
@@ -53,7 +53,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference10 MeetingReference { get; init; }
     
     /// <summary>
     /// Securities for which the meeting is organised.
@@ -62,7 +62,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Securities for which the meeting is organised.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition12> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Results per resolution.
@@ -71,7 +71,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Results per resolution.")]
     [DataMember(Name="VoteRslt")]
     [XmlElement(ElementName="VoteRslt")]
-    public required IReadonlyCollection<SomeVoteResultRecord> VoteResult { get; init; } // Min=1, Max=1000
+    public required IReadonlyCollection<Vote16> VoteResult { get; init; } // Min=1, Max=1000
     
     /// <summary>
     /// Information about the participation to the voting process.
@@ -80,7 +80,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Information about the participation to the voting process.")]
     [DataMember(Name="Prtcptn")]
     [XmlElement(ElementName="Prtcptn")]
-    public SomeParticipationRecord? Participation { get; init; }
+    public Participation5? Participation { get; init; }
     
     /// <summary>
     /// Information on where additional information can be received.
@@ -89,7 +89,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Information on where additional information can be received.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CommunicationAddress11? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -98,7 +98,7 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

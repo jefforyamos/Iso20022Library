@@ -43,7 +43,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V02 
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required TransactionIdentification7 TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides the response status related to an allegement or a counterparty's instruction.
@@ -53,7 +53,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V02 
     [DataMember(Name="RspnSts")]
     [XmlElement(ElementName="RspnSts")]
     [Required]
-    public required SomeResponseStatusRecord ResponseStatus { get; init; }
+    public required IResponseStatus8Choice ResponseStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -62,7 +62,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V02 
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails92? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -71,7 +71,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V02 
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record AcceptorDiagnosticRequestV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header1 Header { get; init; }
     
     /// <summary>
     /// Information related to the diagnostic request.
@@ -39,7 +39,7 @@ public partial record AcceptorDiagnosticRequestV02 : IOuterRecord
     [DataMember(Name="DgnstcReq")]
     [XmlElement(ElementName="DgnstcReq")]
     [Required]
-    public required SomeDiagnosticRequestRecord DiagnosticRequest { get; init; }
+    public required AcceptorDiagnosticRequest2 DiagnosticRequest { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -49,7 +49,7 @@ public partial record AcceptorDiagnosticRequestV02 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType6 SecurityTrailer { get; init; }
     
     */
     

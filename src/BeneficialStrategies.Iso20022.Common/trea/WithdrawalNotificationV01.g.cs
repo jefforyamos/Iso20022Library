@@ -33,7 +33,7 @@ public partial record WithdrawalNotificationV01 : IOuterRecord
     [DataMember(Name="MtchgSysUnqRef")]
     [XmlElement(ElementName="MtchgSysUnqRef")]
     [Required]
-    public required SomeMatchingSystemUniqueReferenceRecord MatchingSystemUniqueReference { get; init; }
+    public required MessageReference MatchingSystemUniqueReference { get; init; }
     
     */
     

@@ -32,7 +32,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     [DataMember(Name="RjctnId")]
     [XmlElement(ElementName="RjctnId")]
     [Required]
-    public required SomeRejectionIdentificationRecord RejectionIdentification { get; init; }
+    public required MessageIdentification1 RejectionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the message that contained the baseline and is rejected.
@@ -42,7 +42,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     [DataMember(Name="RltdMsgRef")]
     [XmlElement(ElementName="RltdMsgRef")]
     [Required]
-    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    public required MessageIdentification1 RelatedMessageReference { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -52,7 +52,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reason why the user cannot accept the request.
@@ -61,7 +61,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     [Description(@"Reason why the user cannot accept the request.")]
     [DataMember(Name="RjctnRsn")]
     [XmlElement(ElementName="RjctnRsn")]
-    public SomeRejectionReasonRecord? RejectionReason { get; init; }
+    public Reason2? RejectionReason { get; init; }
     
     */
     

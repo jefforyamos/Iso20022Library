@@ -34,7 +34,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Contains the character set of the text-based elements used in the Business Message.")]
     [DataMember(Name="CharSet")]
     [XmlElement(ElementName="CharSet")]
-    public SomeCharacterSetRecord? CharacterSet { get; init; }
+    public UnicodeChartsCode? CharacterSet { get; init; }
     
     /// <summary>
     /// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
@@ -45,7 +45,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [DataMember(Name="Fr")]
     [XmlElement(ElementName="Fr")]
     [Required]
-    public required SomeFromRecord From { get; init; }
+    public required IParty44Choice From { get; init; }
     
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
@@ -56,7 +56,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [DataMember(Name="To")]
     [XmlElement(ElementName="To")]
     [Required]
-    public required SomeToRecord To { get; init; }
+    public required IParty44Choice To { get; init; }
     
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
@@ -66,7 +66,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [DataMember(Name="BizMsgIdr")]
     [XmlElement(ElementName="BizMsgIdr")]
     [Required]
-    public required SomeBusinessMessageIdentifierRecord BusinessMessageIdentifier { get; init; }
+    public required IsoMax35Text BusinessMessageIdentifier { get; init; }
     
     /// <summary>
     /// The Message Definition Identifier of the Business Message instance with which this Business Application Header instance is associated.
@@ -76,7 +76,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [DataMember(Name="MsgDefIdr")]
     [XmlElement(ElementName="MsgDefIdr")]
     [Required]
-    public required SomeMessageDefinitionIdentifierRecord MessageDefinitionIdentifier { get; init; }
+    public required IsoMax35Text MessageDefinitionIdentifier { get; init; }
     
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
@@ -88,7 +88,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.|To be used when there is a choice of processing services or processing service levels.||Example: |“marketx.hvps.01” and “marketx.xbdr.01” might be used to indicate that the associated messages are subject to different processing levels for domestic high value payments versus cross-border payments  within the same market practice.")]
     [DataMember(Name="BizSvc")]
     [XmlElement(ElementName="BizSvc")]
-    public SomeBusinessServiceRecord? BusinessService { get; init; }
+    public IsoMax35Text? BusinessService { get; init; }
     
     /// <summary>
     /// Specifies the market practice to which the message conforms. The market practices are a set of rules agreed between parties that restricts the usage of the messages in order to achieve better STP (Straight Through Processing) rates.
@@ -98,7 +98,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Specifies the market practice to which the message conforms. The market practices are a set of rules agreed between parties that restricts the usage of the messages in order to achieve better STP (Straight Through Processing) rates.|A market practice specification may also extend the underlying message specification by using extensions or supplementary data of this underlying message.")]
     [DataMember(Name="MktPrctc")]
     [XmlElement(ElementName="MktPrctc")]
-    public SomeMarketPracticeRecord? MarketPractice { get; init; }
+    public ImplementationSpecification1? MarketPractice { get; init; }
     
     /// <summary>
     /// Date and time when this Business Message (header) was created.
@@ -108,7 +108,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [DataMember(Name="CreDt")]
     [XmlElement(ElementName="CreDt")]
     [Required]
-    public required SomeCreationDateRecord CreationDate { get; init; }
+    public required IsoISODateTime CreationDate { get; init; }
     
     /// <summary>
     /// Processing date and time indicated by the sender for the receiver of the business message. This date may be different from the date and time provided in the CreationDate.
@@ -118,7 +118,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Processing date and time indicated by the sender for the receiver of the business message. This date may be different from the date and time provided in the CreationDate.||Usage: Market practice or bilateral agreement should specify how this element should be used.")]
     [DataMember(Name="BizPrcgDt")]
     [XmlElement(ElementName="BizPrcgDt")]
-    public SomeBusinessProcessingDateRecord? BusinessProcessingDate { get; init; }
+    public IsoISODateTime? BusinessProcessingDate { get; init; }
     
     /// <summary>
     /// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
@@ -127,7 +127,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.")]
     [DataMember(Name="CpyDplct")]
     [XmlElement(ElementName="CpyDplct")]
-    public SomeCopyDuplicateRecord? CopyDuplicate { get; init; }
+    public CopyDuplicate1Code? CopyDuplicate { get; init; }
     
     /// <summary>
     /// Flag indicating if the Business Message exchanged between the MessagingEndpoints is possibly a duplicate. 
@@ -140,7 +140,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Flag indicating if the Business Message exchanged between the MessagingEndpoints is possibly a duplicate. |If the receiving MessagingEndpoint did not receive the original, then this Business Message should be processed as if it were the original. ||If the receiving MessagingEndpoint did receive the original, then it should perform necessary actions to avoid processing this Business Message again.||This will guarantee business idempotent behaviour.||NOTE: this is named ""PossResend"" in FIX - this is an application level resend not a network level retransmission.")]
     [DataMember(Name="PssblDplct")]
     [XmlElement(ElementName="PssblDplct")]
-    public SomePossibleDuplicateRecord? PossibleDuplicate { get; init; }
+    public IsoYesNoIndicator? PossibleDuplicate { get; init; }
     
     /// <summary>
     /// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
@@ -149,7 +149,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.")]
     [DataMember(Name="Prty")]
     [XmlElement(ElementName="Prty")]
-    public SomePriorityRecord? Priority { get; init; }
+    public BusinessMessagePriorityCode? Priority { get; init; }
     
     /// <summary>
     /// Contains the digital signature of the Business Entity authorised to sign this Business Message.
@@ -158,7 +158,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Contains the digital signature of the Business Entity authorised to sign this Business Message.")]
     [DataMember(Name="Sgntr")]
     [XmlElement(ElementName="Sgntr")]
-    public SomeSignatureRecord? Signature { get; init; }
+    public IsoSignatureEnvelope? Signature { get; init; }
     
     /// <summary>
     /// Specifies the Business Application Header(s) of the Business Message(s) to which this Business Message relates.
@@ -168,7 +168,7 @@ public partial record BusinessApplicationHeaderV03 : IOuterRecord
     [Description(@"Specifies the Business Application Header(s) of the Business Message(s) to which this Business Message relates.|Can be used when replying to a query; can also be used when canceling or amending.")]
     [DataMember(Name="Rltd")]
     [XmlElement(ElementName="Rltd")]
-    public SomeRelatedRecord? Related { get; init; }
+    public BusinessApplicationHeader7? Related { get; init; }
     
     */
     

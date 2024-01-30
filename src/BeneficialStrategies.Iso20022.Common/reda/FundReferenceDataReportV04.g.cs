@@ -37,7 +37,7 @@ public partial record FundReferenceDataReportV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -46,7 +46,7 @@ public partial record FundReferenceDataReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference10? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -55,7 +55,7 @@ public partial record FundReferenceDataReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference10? RelatedReference { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for the fund reference data report, as assigned by the reporting party.
@@ -64,7 +64,7 @@ public partial record FundReferenceDataReportV04 : IOuterRecord
     [Description(@"Unique and unambiguous identifier for the fund reference data report, as assigned by the reporting party.")]
     [DataMember(Name="FndRefDataRptId")]
     [XmlElement(ElementName="FndRefDataRptId")]
-    public SomeFundReferenceDataReportIdentificationRecord? FundReferenceDataReportIdentification { get; init; }
+    public IsoMax35Text? FundReferenceDataReportIdentification { get; init; }
     
     /// <summary>
     /// Fund reference data.
@@ -74,7 +74,7 @@ public partial record FundReferenceDataReportV04 : IOuterRecord
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
     [Required]
-    public required SomeReportRecord Report { get; init; }
+    public required FundReferenceDataReport2 Report { get; init; }
     
     */
     

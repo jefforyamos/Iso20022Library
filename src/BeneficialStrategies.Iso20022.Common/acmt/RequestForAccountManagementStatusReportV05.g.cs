@@ -32,7 +32,7 @@ public partial record RequestForAccountManagementStatusReportV05 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Identifies the account for which the status of the account management instruction is requested.
@@ -42,7 +42,7 @@ public partial record RequestForAccountManagementStatusReportV05 : IOuterRecord
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required AccountManagementMessageReference4 RequestDetails { get; init; }
     
     */
     

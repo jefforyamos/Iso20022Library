@@ -39,7 +39,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Additional parameters to the transaction.
@@ -48,7 +48,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Additional parameters to the transaction.")]
     [DataMember(Name="AddtlParams")]
     [XmlElement(ElementName="AddtlParams")]
-    public SomeAdditionalParametersRecord? AdditionalParameters { get; init; }
+    public AdditionalParameters3? AdditionalParameters { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -57,7 +57,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification13Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -67,7 +67,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
@@ -76,7 +76,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public SomeSafekeepingPlaceRecord? SafekeepingPlace { get; init; }
+    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -86,7 +86,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -95,7 +95,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes4? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Intra-position movement transaction details.
@@ -105,7 +105,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="IntraPosDtls")]
     [XmlElement(ElementName="IntraPosDtls")]
     [Required]
-    public required SomeIntraPositionDetailsRecord IntraPositionDetails { get; init; }
+    public required IntraPositionDetails2 IntraPositionDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -114,7 +114,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -123,7 +123,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -132,7 +132,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

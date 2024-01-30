@@ -30,7 +30,7 @@ public partial record AddendumInitiationV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header48 Header { get; init; }
     
     /// <summary>
     /// The AddendumInitiation is used to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. The supplemental data is associated with an authorization or financial message.
@@ -39,7 +39,7 @@ public partial record AddendumInitiationV01 : IOuterRecord
     [Description(@"The AddendumInitiation is used to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. The supplemental data is associated with an authorization or financial message.")]
     [DataMember(Name="Body")]
     [XmlElement(ElementName="Body")]
-    public SomeBodyRecord? Body { get; init; }
+    public AddendumInitiation1? Body { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -48,7 +48,7 @@ public partial record AddendumInitiationV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType20? SecurityTrailer { get; init; }
     
     */
     

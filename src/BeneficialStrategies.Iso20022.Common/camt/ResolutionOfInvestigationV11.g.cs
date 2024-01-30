@@ -51,7 +51,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment5 Assignment { get; init; }
     
     /// <summary>
     /// Identifies a resolved case.
@@ -60,7 +60,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Identifies a resolved case.")]
     [DataMember(Name="RslvdCase")]
     [XmlElement(ElementName="RslvdCase")]
-    public SomeResolvedCaseRecord? ResolvedCase { get; init; }
+    public Case5? ResolvedCase { get; init; }
     
     /// <summary>
     /// Indicates the status of the investigation.
@@ -70,7 +70,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required IInvestigationStatus5Choice Status { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transactions being cancelled.
@@ -79,7 +79,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Specifies the details of the underlying transactions being cancelled.")]
     [DataMember(Name="CxlDtls")]
     [XmlElement(ElementName="CxlDtls")]
-    public SomeCancellationDetailsRecord? CancellationDetails { get; init; }
+    public UnderlyingTransaction29? CancellationDetails { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transaction being modified.
@@ -88,7 +88,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Specifies the details of the underlying transaction being modified.")]
     [DataMember(Name="ModDtls")]
     [XmlElement(ElementName="ModDtls")]
-    public SomeModificationDetailsRecord? ModificationDetails { get; init; }
+    public PaymentTransaction132? ModificationDetails { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transaction for which a claim non receipt has been initiated.
@@ -97,7 +97,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Specifies the details of the underlying transaction for which a claim non receipt has been initiated.")]
     [DataMember(Name="ClmNonRctDtls")]
     [XmlElement(ElementName="ClmNonRctDtls")]
-    public SomeClaimNonReceiptDetailsRecord? ClaimNonReceiptDetails { get; init; }
+    public IClaimNonReceipt2Choice? ClaimNonReceiptDetails { get; init; }
     
     /// <summary>
     /// Details on the underlying statement entry.
@@ -106,7 +106,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Details on the underlying statement entry.")]
     [DataMember(Name="StmtDtls")]
     [XmlElement(ElementName="StmtDtls")]
-    public SomeStatementDetailsRecord? StatementDetails { get; init; }
+    public StatementResolutionEntry4? StatementDetails { get; init; }
     
     /// <summary>
     /// References a transaction initiated to fix the case under investigation.
@@ -115,7 +115,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"References a transaction initiated to fix the case under investigation.")]
     [DataMember(Name="CrrctnTx")]
     [XmlElement(ElementName="CrrctnTx")]
-    public SomeCorrectionTransactionRecord? CorrectionTransaction { get; init; }
+    public ICorrectiveTransaction5Choice? CorrectionTransaction { get; init; }
     
     /// <summary>
     /// Reference to fix the case under investigation as part of the resolution.
@@ -124,7 +124,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Reference to fix the case under investigation as part of the resolution.")]
     [DataMember(Name="RsltnRltdInf")]
     [XmlElement(ElementName="RsltnRltdInf")]
-    public SomeResolutionRelatedInformationRecord? ResolutionRelatedInformation { get; init; }
+    public ResolutionData3? ResolutionRelatedInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -133,7 +133,7 @@ public partial record ResolutionOfInvestigationV11 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

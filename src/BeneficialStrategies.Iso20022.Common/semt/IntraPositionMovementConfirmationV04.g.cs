@@ -28,7 +28,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [Description(@"Additional parameters to the transaction.")]
     [DataMember(Name="AddtlParams")]
     [XmlElement(ElementName="AddtlParams")]
-    public SomeAdditionalParametersRecord? AdditionalParameters { get; init; }
+    public AdditionalParameters10? AdditionalParameters { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -37,7 +37,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification36Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -47,7 +47,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
@@ -56,7 +56,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public SomeSafekeepingPlaceRecord? SafekeepingPlace { get; init; }
+    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -66,7 +66,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -75,7 +75,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes36? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Intra-position movement transaction details.
@@ -85,7 +85,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [DataMember(Name="IntraPosDtls")]
     [XmlElement(ElementName="IntraPosDtls")]
     [Required]
-    public required SomeIntraPositionDetailsRecord IntraPositionDetails { get; init; }
+    public required IntraPositionDetails27 IntraPositionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -94,7 +94,7 @@ public partial record IntraPositionMovementConfirmationV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

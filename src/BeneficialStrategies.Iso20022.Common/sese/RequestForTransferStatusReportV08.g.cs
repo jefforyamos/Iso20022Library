@@ -36,7 +36,7 @@ public partial record RequestForTransferStatusReportV08 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Information to identify the transfer for which the status is requested.
@@ -46,7 +46,7 @@ public partial record RequestForTransferStatusReportV08 : IOuterRecord
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required MessageAndBusinessReference13 RequestDetails { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -55,7 +55,7 @@ public partial record RequestForTransferStatusReportV08 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -64,7 +64,7 @@ public partial record RequestForTransferStatusReportV08 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

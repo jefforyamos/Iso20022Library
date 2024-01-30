@@ -33,7 +33,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [DataMember(Name="QryReqId")]
     [XmlElement(ElementName="QryReqId")]
     [Required]
-    public required SomeQueryRequestIdentificationRecord QueryRequestIdentification { get; init; }
+    public required MessageIdentification1 QueryRequestIdentification { get; init; }
     
     /// <summary>
     /// Range of the trade for the inquire.
@@ -43,7 +43,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [DataMember(Name="QryOrdrSts")]
     [XmlElement(ElementName="QryOrdrSts")]
     [Required]
-    public required SomeQueryOrderStatusRecord QueryOrderStatus { get; init; }
+    public required QueryOrderStatus1Code QueryOrderStatus { get; init; }
     
     /// <summary>
     /// Specifies the inquiry type of the data.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Specifies the inquiry type of the data.")]
     [DataMember(Name="QryTp")]
     [XmlElement(ElementName="QryTp")]
-    public SomeQueryTypeRecord? QueryType { get; init; }
+    public QueryDataType1Code? QueryType { get; init; }
     
     /// <summary>
     /// Start number in request result.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [DataMember(Name="QryStartNb")]
     [XmlElement(ElementName="QryStartNb")]
     [Required]
-    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    public required IsoMax35NumericText QueryStartNumber { get; init; }
     
     /// <summary>
     /// Indicates whether the request is query trade for a period of time.
@@ -72,7 +72,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [DataMember(Name="QryByPrd")]
     [XmlElement(ElementName="QryByPrd")]
     [Required]
-    public required SomeQueryByPeriodRecord QueryByPeriod { get; init; }
+    public required IsoYesNoIndicator QueryByPeriod { get; init; }
     
     /// <summary>
     /// Period of the inquiry.
@@ -81,7 +81,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Period of the inquiry.")]
     [DataMember(Name="QryPrd")]
     [XmlElement(ElementName="QryPrd")]
-    public SomeQueryPeriodRecord? QueryPeriod { get; init; }
+    public Period4? QueryPeriod { get; init; }
     
     /// <summary>
     /// States the identification of the trade which the trading member inquires.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"States the identification of the trade which the trading member inquires.")]
     [DataMember(Name="QryTradId")]
     [XmlElement(ElementName="QryTradId")]
-    public SomeQueryTradeIdentificationRecord? QueryTradeIdentification { get; init; }
+    public IsoMax35Text? QueryTradeIdentification { get; init; }
     
     /// <summary>
     /// Identifies the end of the request result.
@@ -99,7 +99,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Identifies the end of the request result.")]
     [DataMember(Name="QryEndId")]
     [XmlElement(ElementName="QryEndId")]
-    public SomeQueryEndIdentificationRecord? QueryEndIdentification { get; init; }
+    public IsoMax35Text? QueryEndIdentification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -108,7 +108,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     /// <summary>
     /// Largest number of request result.
@@ -117,7 +117,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Largest number of request result.")]
     [DataMember(Name="QryPgSz")]
     [XmlElement(ElementName="QryPgSz")]
-    public SomeQueryPageSizeRecord? QueryPageSize { get; init; }
+    public IsoMax35NumericText? QueryPageSize { get; init; }
     
     /// <summary>
     /// Specifies the inquiry value of the parameter.
@@ -126,7 +126,7 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     [Description(@"Specifies the inquiry value of the parameter.")]
     [DataMember(Name="QryParamVal")]
     [XmlElement(ElementName="QryParamVal")]
-    public SomeQueryParameterValueRecord? QueryParameterValue { get; init; }
+    public IsoMax35Text? QueryParameterValue { get; init; }
     
     */
     

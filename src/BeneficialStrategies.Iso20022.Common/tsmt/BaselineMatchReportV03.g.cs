@@ -35,7 +35,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -45,7 +45,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -54,7 +54,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
-    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -64,7 +64,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
@@ -73,7 +73,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
@@ -83,7 +83,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="Buyr")]
     [XmlElement(ElementName="Buyr")]
     [Required]
-    public required SomeBuyerRecord Buyer { get; init; }
+    public required PartyIdentification26 Buyer { get; init; }
     
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
@@ -93,7 +93,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="Sellr")]
     [XmlElement(ElementName="Sellr")]
     [Required]
-    public required SomeSellerRecord Seller { get; init; }
+    public required PartyIdentification26 Seller { get; init; }
     
     /// <summary>
     /// The financial institution of the buyer, uniquely identified by its BIC.
@@ -103,7 +103,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="BuyrBk")]
     [XmlElement(ElementName="BuyrBk")]
     [Required]
-    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    public required BICIdentification1 BuyerBank { get; init; }
     
     /// <summary>
     /// The financial institution of the seller, uniquely identified by its BIC.
@@ -113,7 +113,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="SellrBk")]
     [XmlElement(ElementName="SellrBk")]
     [Required]
-    public required SomeSellerBankRecord SellerBank { get; init; }
+    public required BICIdentification1 SellerBank { get; init; }
     
     /// <summary>
     /// Specifies the number of matching trials for a baseline.
@@ -123,7 +123,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="BaselnEstblishmtTrils")]
     [XmlElement(ElementName="BaselnEstblishmtTrils")]
     [Required]
-    public required SomeBaselineEstablishmentTrialsRecord BaselineEstablishmentTrials { get; init; }
+    public required Limit1 BaselineEstablishmentTrials { get; init; }
     
     /// <summary>
     /// Identifies the two baselines compared in this report.
@@ -132,7 +132,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Identifies the two baselines compared in this report.")]
     [DataMember(Name="CmpardDocRef")]
     [XmlElement(ElementName="CmpardDocRef")]
-    public required IReadonlyCollection<SomeComparedDocumentReferenceRecord> ComparedDocumentReference { get; init; } // Min=2, Max=2
+    public required IReadonlyCollection<DocumentIdentification4> ComparedDocumentReference { get; init; } // Min=2, Max=2
     
     /// <summary>
     /// Description of the differences between the two proposed baselines.
@@ -142,7 +142,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
     [Required]
-    public required SomeReportRecord Report { get; init; }
+    public required MisMatchReport3 Report { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -151,7 +151,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

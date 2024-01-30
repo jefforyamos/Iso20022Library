@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingReferenceDataIndexReportV01 : 
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Details of specific financial instruments a National Competent Authority wishes to express an interest in receiving transaction reports on.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingReferenceDataIndexReportV01 : 
     [DataMember(Name="IndxData")]
     [XmlElement(ElementName="IndxData")]
     [Required]
-    public required SomeIndexDataRecord IndexData { get; init; }
+    public required SecuritiesIndexReport1 IndexData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingReferenceDataIndexReportV01 : 
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

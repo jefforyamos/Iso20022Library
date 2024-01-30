@@ -36,7 +36,7 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     ///  Fund Processing Passsport (FPP) is a fully harmonised document with all key operational information that fund promoters
@@ -47,7 +47,7 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord
     [DataMember(Name="FPP")]
     [XmlElement(ElementName="FPP")]
     [Required]
-    public required SomeFundProcessingPassportRecord FundProcessingPassport { get; init; }
+    public required FundProcessingPassport1 FundProcessingPassport { get; init; }
     
     */
     

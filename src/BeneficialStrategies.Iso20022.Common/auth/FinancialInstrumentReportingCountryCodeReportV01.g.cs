@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     [DataMember(Name="CtryData")]
     [XmlElement(ElementName="CtryData")]
     [Required]
-    public required SomeCountryDataRecord CountryData { get; init; }
+    public required SecuritiesCountryIdentification2 CountryData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

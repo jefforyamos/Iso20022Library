@@ -32,7 +32,7 @@ public partial record FinancialInstitutionDirectDebitV05 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader92 GroupHeader { get; init; }
     
     /// <summary>
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
@@ -42,7 +42,7 @@ public partial record FinancialInstitutionDirectDebitV05 : IOuterRecord
     [DataMember(Name="CdtInstr")]
     [XmlElement(ElementName="CdtInstr")]
     [Required]
-    public required SomeCreditInstructionRecord CreditInstruction { get; init; }
+    public required CreditTransferTransaction53 CreditInstruction { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -51,7 +51,7 @@ public partial record FinancialInstitutionDirectDebitV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

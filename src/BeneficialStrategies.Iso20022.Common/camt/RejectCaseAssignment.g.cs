@@ -40,7 +40,7 @@ public partial record RejectCaseAssignment : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -50,7 +50,7 @@ public partial record RejectCaseAssignment : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Specifies the reason for not accepting a Case.
@@ -60,7 +60,7 @@ public partial record RejectCaseAssignment : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required SomeJustificationRecord Justification { get; init; }
+    public required CaseAssignmentRejectionJustification Justification { get; init; }
     
     */
     

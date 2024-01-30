@@ -36,7 +36,7 @@ public partial record SecuritiesMessageRejection : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required AdditionalReference2 RelatedReference { get; init; }
     
     /// <summary>
     /// Reason to reject the message.
@@ -46,7 +46,7 @@ public partial record SecuritiesMessageRejection : IOuterRecord
     [DataMember(Name="Rsn")]
     [XmlElement(ElementName="Rsn")]
     [Required]
-    public required SomeReasonRecord Reason { get; init; }
+    public required RejectionReason1 Reason { get; init; }
     
     */
     

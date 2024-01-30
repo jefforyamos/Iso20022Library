@@ -32,7 +32,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Identification of the party that is the sender of the status advice message.
@@ -42,7 +42,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [DataMember(Name="SndrId")]
     [XmlElement(ElementName="SndrId")]
     [Required]
-    public required SomeSenderIdentificationRecord SenderIdentification { get; init; }
+    public required PartyIdentification100 SenderIdentification { get; init; }
     
     /// <summary>
     /// Identification of the party that is the receiver of the status advice message.
@@ -51,7 +51,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [Description(@"Identification of the party that is the receiver of the status advice message.")]
     [DataMember(Name="RcvrId")]
     [XmlElement(ElementName="RcvrId")]
-    public SomeReceiverIdentificationRecord? ReceiverIdentification { get; init; }
+    public PartyIdentification100? ReceiverIdentification { get; init; }
     
     /// <summary>
     /// Reference of the statement for which the status advice has been issued.
@@ -61,7 +61,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [DataMember(Name="RltdStmt")]
     [XmlElement(ElementName="RltdStmt")]
     [Required]
-    public required SomeRelatedStatementRecord RelatedStatement { get; init; }
+    public required StatementReference1 RelatedStatement { get; init; }
     
     /// <summary>
     /// Status of the referenced statement.
@@ -71,7 +71,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required IReportItemStatus1Choice Status { get; init; }
     
     /// <summary>
     /// Number of items for each identical transaction status.
@@ -80,7 +80,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [Description(@"Number of items for each identical transaction status.")]
     [DataMember(Name="NbOfItmsPerSts")]
     [XmlElement(ElementName="NbOfItmsPerSts")]
-    public required IReadonlyCollection<SomeNumberOfItemsPerStatusRecord> NumberOfItemsPerStatus { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<NumberOfItemsPerStatus1> NumberOfItemsPerStatus { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -89,7 +89,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

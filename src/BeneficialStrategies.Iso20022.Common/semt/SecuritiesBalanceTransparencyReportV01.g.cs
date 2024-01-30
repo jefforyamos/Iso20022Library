@@ -36,7 +36,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Identification of the party that is the sender of the message.
@@ -46,7 +46,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [DataMember(Name="SndrId")]
     [XmlElement(ElementName="SndrId")]
     [Required]
-    public required SomeSenderIdentificationRecord SenderIdentification { get; init; }
+    public required PartyIdentification100 SenderIdentification { get; init; }
     
     /// <summary>
     /// Identification of the party that is the receiver of the message.
@@ -55,7 +55,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [Description(@"Identification of the party that is the receiver of the message.")]
     [DataMember(Name="RcvrId")]
     [XmlElement(ElementName="RcvrId")]
-    public SomeReceiverIdentificationRecord? ReceiverIdentification { get; init; }
+    public PartyIdentification100? ReceiverIdentification { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -65,7 +65,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the statement.
@@ -75,7 +75,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement37 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Details of the account, account sub-levels and the holdings.
@@ -85,7 +85,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [DataMember(Name="SfkpgAcctAndHldgs")]
     [XmlElement(ElementName="SfkpgAcctAndHldgs")]
     [Required]
-    public required SomeSafekeepingAccountAndHoldingsRecord SafekeepingAccountAndHoldings { get; init; }
+    public required SafekeepingAccount5 SafekeepingAccountAndHoldings { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -94,7 +94,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

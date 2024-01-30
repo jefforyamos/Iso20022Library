@@ -28,7 +28,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Unique identification, as assigned by the executing system, to unambiguously identify the party to be modified.
@@ -38,7 +38,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     [DataMember(Name="SysPtyId")]
     [XmlElement(ElementName="SysPtyId")]
     [Required]
-    public required SomeSystemPartyIdentificationRecord SystemPartyIdentification { get; init; }
+    public required SystemPartyIdentification8 SystemPartyIdentification { get; init; }
     
     /// <summary>
     /// Identifies the list of requested modifications to be executed by the system.
@@ -48,7 +48,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required SystemPartyModification2 Modification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

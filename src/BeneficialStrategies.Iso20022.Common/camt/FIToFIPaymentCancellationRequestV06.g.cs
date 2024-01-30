@@ -50,7 +50,7 @@ public partial record FIToFIPaymentCancellationRequestV06 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment3 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -59,7 +59,7 @@ public partial record FIToFIPaymentCancellationRequestV06 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case3? Case { get; init; }
     
     /// <summary>
     /// Provides details on the number of transactions and the control sum of the message.
@@ -68,7 +68,7 @@ public partial record FIToFIPaymentCancellationRequestV06 : IOuterRecord
     [Description(@"Provides details on the number of transactions and the control sum of the message.")]
     [DataMember(Name="CtrlData")]
     [XmlElement(ElementName="CtrlData")]
-    public SomeControlDataRecord? ControlData { get; init; }
+    public ControlData1? ControlData { get; init; }
     
     /// <summary>
     /// Identifies the payment instruction to be cancelled.
@@ -78,7 +78,7 @@ public partial record FIToFIPaymentCancellationRequestV06 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required UnderlyingTransaction16 Underlying { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -87,7 +87,7 @@ public partial record FIToFIPaymentCancellationRequestV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

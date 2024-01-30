@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [DataMember(Name="AcctSvcrTxId")]
     [XmlElement(ElementName="AcctSvcrTxId")]
     [Required]
-    public required SomeAccountServicerTransactionIdentificationRecord AccountServicerTransactionIdentification { get; init; }
+    public required SettlementTypeAndIdentification22 AccountServicerTransactionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
     [DataMember(Name="MktInfrstrctrTxId")]
     [XmlElement(ElementName="MktInfrstrctrTxId")]
-    public SomeMarketInfrastructureTransactionIdentificationRecord? MarketInfrastructureTransactionIdentification { get; init; }
+    public IsoRestrictedFINXMax16Text? MarketInfrastructureTransactionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a counterparty transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Identification of a counterparty transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
     [DataMember(Name="CtrPtyMktInfrstrctrTxId")]
     [XmlElement(ElementName="CtrPtyMktInfrstrctrTxId")]
-    public SomeCounterpartyMarketInfrastructureTransactionIdentificationRecord? CounterpartyMarketInfrastructureTransactionIdentification { get; init; }
+    public IsoRestrictedFINXMax16Text? CounterpartyMarketInfrastructureTransactionIdentification { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -67,7 +67,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification156? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount30? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -85,7 +85,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -94,7 +94,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails156? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -103,7 +103,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V06 : IOuter
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

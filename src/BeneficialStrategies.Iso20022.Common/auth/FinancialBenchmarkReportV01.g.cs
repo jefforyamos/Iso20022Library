@@ -29,7 +29,7 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord
     [DataMember(Name="BchmkData")]
     [XmlElement(ElementName="BchmkData")]
     [Required]
-    public required SomeBenchmarkDataRecord BenchmarkData { get; init; }
+    public required IBenchmarkReport1Choice BenchmarkData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

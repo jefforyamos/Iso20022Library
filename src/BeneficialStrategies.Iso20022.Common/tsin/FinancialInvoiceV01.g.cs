@@ -34,7 +34,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     [DataMember(Name="InvcHdr")]
     [XmlElement(ElementName="InvcHdr")]
     [Required]
-    public required SomeInvoiceHeaderRecord InvoiceHeader { get; init; }
+    public required InvoiceHeader1 InvoiceHeader { get; init; }
     
     /// <summary>
     /// Commercial information such as terms of commerce, parties, and documentation, related to the trading agreement under which this invoice is issued.
@@ -44,7 +44,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     [DataMember(Name="TradAgrmt")]
     [XmlElement(ElementName="TradAgrmt")]
     [Required]
-    public required SomeTradeAgreementRecord TradeAgreement { get; init; }
+    public required TradeAgreement6 TradeAgreement { get; init; }
     
     /// <summary>
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
@@ -54,7 +54,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     [DataMember(Name="TradDlvry")]
     [XmlElement(ElementName="TradDlvry")]
     [Required]
-    public required SomeTradeDeliveryRecord TradeDelivery { get; init; }
+    public required TradeDelivery1 TradeDelivery { get; init; }
     
     /// <summary>
     /// Settlement information that enables the financial reconciliation and payment of this invoice.
@@ -64,7 +64,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     [DataMember(Name="TradSttlm")]
     [XmlElement(ElementName="TradSttlm")]
     [Required]
-    public required SomeTradeSettlementRecord TradeSettlement { get; init; }
+    public required TradeSettlement1 TradeSettlement { get; init; }
     
     /// <summary>
     /// Unit of information in this invoice showning the related provision of products and/or services and monetary summations reported as a discrete line item.
@@ -73,7 +73,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     [Description(@"Unit of information in this invoice showning the related provision of products and/or services and monetary summations reported as a discrete line item.|||")]
     [DataMember(Name="LineItm")]
     [XmlElement(ElementName="LineItm")]
-    public SomeLineItemRecord? LineItem { get; init; }
+    public LineItem10? LineItem { get; init; }
     
     */
     

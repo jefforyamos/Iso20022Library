@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header23 Header { get; init; }
     
     /// <summary>
     /// Identifies the amendment request messge.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="AmdmntReqId")]
     [XmlElement(ElementName="AmdmntReqId")]
     [Required]
-    public required SomeAmendmentRequestIdentificationRecord AmendmentRequestIdentification { get; init; }
+    public required MessageIdentification1 AmendmentRequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the treasury trade which is captured.
@@ -51,7 +51,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [Description(@"Specifies the trading side of the treasury trade which is captured.")]
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
-    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    public TradePartyIdentification7? TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty side of the treasury trade which is captured.
@@ -60,7 +60,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
-    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    public TradePartyIdentification7? CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Details of the treasury trade confirmed.
@@ -70,7 +70,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="TradDtl")]
     [XmlElement(ElementName="TradDtl")]
     [Required]
-    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    public required Trade2 TradeDetail { get; init; }
     
     /// <summary>
     /// Period of the inquiry.
@@ -80,7 +80,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="QryPrd")]
     [XmlElement(ElementName="QryPrd")]
     [Required]
-    public required SomeQueryPeriodRecord QueryPeriod { get; init; }
+    public required Period4 QueryPeriod { get; init; }
     
     /// <summary>
     /// Number which the query results will start from.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="QryStartNb")]
     [XmlElement(ElementName="QryStartNb")]
     [Required]
-    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    public required IsoMax35NumericText QueryStartNumber { get; init; }
     
     /// <summary>
     /// Specifies the inquiry status of the trade.
@@ -100,7 +100,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [DataMember(Name="QryTradSts")]
     [XmlElement(ElementName="QryTradSts")]
     [Required]
-    public required SomeQueryTradeStatusRecord QueryTradeStatus { get; init; }
+    public required QueryTradeStatus1Code QueryTradeStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -109,7 +109,7 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

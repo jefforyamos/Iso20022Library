@@ -29,7 +29,7 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord
     [DataMember(Name="AvlblFinRsrcsAmt")]
     [XmlElement(ElementName="AvlblFinRsrcsAmt")]
     [Required]
-    public required SomeAvailableFinancialResourcesAmountRecord AvailableFinancialResourcesAmount { get; init; }
+    public required AvailableFinancialResourcesAmount1 AvailableFinancialResourcesAmount { get; init; }
     
     /// <summary>
     /// Breakdown of other CCP prefunded resources required as part of the default waterfall.
@@ -38,7 +38,7 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord
     [Description(@"Breakdown of other CCP prefunded resources required as part of the default waterfall.")]
     [DataMember(Name="OthrPrfnddRsrcs")]
     [XmlElement(ElementName="OthrPrfnddRsrcs")]
-    public SomeOtherPrefundedResourcesRecord? OtherPrefundedResources { get; init; }
+    public ReportingAssetBreakdown1? OtherPrefundedResources { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

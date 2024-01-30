@@ -35,7 +35,7 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader36 GroupHeader { get; init; }
     
     /// <summary>
     /// Original group information concerning the group of transactions, to which the status report message refers to.
@@ -45,7 +45,7 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
     [DataMember(Name="OrgnlGrpInfAndSts")]
     [XmlElement(ElementName="OrgnlGrpInfAndSts")]
     [Required]
-    public required SomeOriginalGroupInformationAndStatusRecord OriginalGroupInformationAndStatus { get; init; }
+    public required OriginalGroupInformation20 OriginalGroupInformationAndStatus { get; init; }
     
     /// <summary>
     /// Information concerning the original payment information, to which the status report message refers.
@@ -54,7 +54,7 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
     [Description(@"Information concerning the original payment information, to which the status report message refers.")]
     [DataMember(Name="OrgnlPmtInfAndSts")]
     [XmlElement(ElementName="OrgnlPmtInfAndSts")]
-    public SomeOriginalPaymentInformationAndStatusRecord? OriginalPaymentInformationAndStatus { get; init; }
+    public OriginalPaymentInformation1? OriginalPaymentInformationAndStatus { get; init; }
     
     */
     

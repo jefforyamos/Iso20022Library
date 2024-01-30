@@ -35,7 +35,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -44,7 +44,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference2? PreviousReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -53,7 +53,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference2? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -62,7 +62,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Reference of the transfer to be cancelled.
@@ -71,7 +71,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"Reference of the transfer to be cancelled.")]
     [DataMember(Name="CxlByRef")]
     [XmlElement(ElementName="CxlByRef")]
-    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    public TransferReference1? CancellationByReference { get; init; }
     
     /// <summary>
     /// The transfer out request message to cancel.
@@ -80,7 +80,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"The transfer out request message to cancel.")]
     [DataMember(Name="CxlByTrfOutDtls")]
     [XmlElement(ElementName="CxlByTrfOutDtls")]
-    public SomeCancellationByTransferOutDetailsRecord? CancellationByTransferOutDetails { get; init; }
+    public TransferOut5? CancellationByTransferOutDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -89,7 +89,7 @@ public partial record TransferOutCancellationRequestV02 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Page number of the message and continuation indicator to indicate that the multi-parts message is to continue or that the message is the last page of the multi-parts message.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Notification information to be extended as supplementary data to cancellation advice.
@@ -37,7 +37,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Notification information to be extended as supplementary data to cancellation advice.")]
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
-    public SomeNotificationRecord? Notification { get; init; }
+    public CorporateActionNotificationSD10? Notification { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to general information.
@@ -46,7 +46,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to general information.")]
     [DataMember(Name="GnlInf")]
     [XmlElement(ElementName="GnlInf")]
-    public SomeGeneralInformationRecord? GeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD48? GeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -55,7 +55,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD20? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to events linkage.
@@ -64,7 +64,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to events linkage.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionCancellationSD3? EventsLinkage { get; init; }
     
     /// <summary>
     /// Information to be extended as external comments to cancellation advice.
@@ -73,7 +73,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord
     [Description(@"Information to be extended as external comments to cancellation advice.")]
     [DataMember(Name="XtrnlCmnts")]
     [XmlElement(ElementName="XtrnlCmnts")]
-    public SomeExternalCommentsRecord? ExternalComments { get; init; }
+    public CorporateActionCancellationSD4? ExternalComments { get; init; }
     
     */
     

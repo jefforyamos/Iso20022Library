@@ -34,7 +34,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [DataMember(Name="MtgInstrId")]
     [XmlElement(ElementName="MtgInstrId")]
     [Required]
-    public required SomeMeetingInstructionIdentificationRecord MeetingInstructionIdentification { get; init; }
+    public required IsoMax35Text MeetingInstructionIdentification { get; init; }
     
     /// <summary>
     /// Set of elements to allow the unambiguous identification of a meeting.
@@ -44,7 +44,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference10 MeetingReference { get; init; }
     
     /// <summary>
     /// Security for which the meeting is organised.
@@ -54,7 +54,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Specifies how a party has voted for each agenda item.
@@ -63,7 +63,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [Description(@"Specifies how a party has voted for each agenda item.")]
     [DataMember(Name="VoteInstrs")]
     [XmlElement(ElementName="VoteInstrs")]
-    public SomeVoteInstructionsRecord? VoteInstructions { get; init; }
+    public DetailedInstructionStatus15? VoteInstructions { get; init; }
     
     /// <summary>
     /// Address to use over the www (HTTP) service where the confirmations of the vote instructions can be found.
@@ -72,7 +72,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [Description(@"Address to use over the www (HTTP) service where the confirmations of the vote instructions can be found.")]
     [DataMember(Name="VoteInstrsConfURLAdr")]
     [XmlElement(ElementName="VoteInstrsConfURLAdr")]
-    public SomeVoteInstructionsConfirmationURLAddressRecord? VoteInstructionsConfirmationURLAddress { get; init; }
+    public IsoMax2048Text? VoteInstructionsConfirmationURLAddress { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -81,7 +81,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -44,7 +44,7 @@ public partial record NotificationOfCaseAssignmentV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ReportHeader2 Header { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -54,7 +54,7 @@ public partial record NotificationOfCaseAssignmentV03 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case2 Case { get; init; }
     
     /// <summary>
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
@@ -64,7 +64,7 @@ public partial record NotificationOfCaseAssignmentV03 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment2 Assignment { get; init; }
     
     /// <summary>
     /// Information about the type of action taken.
@@ -74,7 +74,7 @@ public partial record NotificationOfCaseAssignmentV03 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required CaseForwardingNotification3 Notification { get; init; }
     
     */
     

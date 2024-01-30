@@ -36,7 +36,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [DataMember(Name="CxlAdvcGnlInf")]
     [XmlElement(ElementName="CxlAdvcGnlInf")]
     [Required]
-    public required SomeCancellationAdviceGeneralInformationRecord CancellationAdviceGeneralInformation { get; init; }
+    public required ICorporateActionProcessingStatus1Choice CancellationAdviceGeneralInformation { get; init; }
     
     /// <summary>
     /// Identification of a previously sent movement preliminary advice document.
@@ -46,7 +46,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [DataMember(Name="MvmntPrlimryAdvcId")]
     [XmlElement(ElementName="MvmntPrlimryAdvcId")]
     [Required]
-    public required SomeMovementPreliminaryAdviceIdentificationRecord MovementPreliminaryAdviceIdentification { get; init; }
+    public required DocumentIdentification15 MovementPreliminaryAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -56,7 +56,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation25 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account and the account owner.
@@ -66,7 +66,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required IAccountIdentification13Choice AccountDetails { get; init; }
     
     /// <summary>
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
@@ -75,7 +75,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public IPartyIdentification46Choice? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -84,7 +84,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public SomePayingAgentRecord? PayingAgent { get; init; }
+    public IPartyIdentification46Choice? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -93,7 +93,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    public IPartyIdentification46Choice? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Party/agent responsible for maintaining the register of a security.
@@ -102,7 +102,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"Party/agent responsible for maintaining the register of a security.")]
     [DataMember(Name="Regar")]
     [XmlElement(ElementName="Regar")]
-    public SomeRegistrarRecord? Registrar { get; init; }
+    public IPartyIdentification46Choice? Registrar { get; init; }
     
     /// <summary>
     /// A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
@@ -111,7 +111,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
     [DataMember(Name="RsellngAgt")]
     [XmlElement(ElementName="RsellngAgt")]
-    public SomeResellingAgentRecord? ResellingAgent { get; init; }
+    public IPartyIdentification46Choice? ResellingAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
@@ -120,7 +120,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
     [DataMember(Name="PhysSctiesAgt")]
     [XmlElement(ElementName="PhysSctiesAgt")]
-    public SomePhysicalSecuritiesAgentRecord? PhysicalSecuritiesAgent { get; init; }
+    public IPartyIdentification46Choice? PhysicalSecuritiesAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.
@@ -129,7 +129,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.")]
     [DataMember(Name="DrpAgt")]
     [XmlElement(ElementName="DrpAgt")]
-    public SomeDropAgentRecord? DropAgent { get; init; }
+    public IPartyIdentification46Choice? DropAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
@@ -138,7 +138,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
     [DataMember(Name="SlctnAgt")]
     [XmlElement(ElementName="SlctnAgt")]
-    public SomeSolicitationAgentRecord? SolicitationAgent { get; init; }
+    public IPartyIdentification46Choice? SolicitationAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
@@ -147,7 +147,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
     [DataMember(Name="InfAgt")]
     [XmlElement(ElementName="InfAgt")]
-    public SomeInformationAgentRecord? InformationAgent { get; init; }
+    public IPartyIdentification46Choice? InformationAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -156,7 +156,7 @@ public partial record CorporateActionMovementPreliminaryAdviceCancellationAdvice
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -44,7 +44,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Definition of the general business information query.
@@ -53,7 +53,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
     [Description(@"Definition of the general business information query.")]
     [DataMember(Name="GnlBizInfQryDef")]
     [XmlElement(ElementName="GnlBizInfQryDef")]
-    public SomeGeneralBusinessInformationQueryDefinitionRecord? GeneralBusinessInformationQueryDefinition { get; init; }
+    public BusinessInformationQueryDefinition3? GeneralBusinessInformationQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

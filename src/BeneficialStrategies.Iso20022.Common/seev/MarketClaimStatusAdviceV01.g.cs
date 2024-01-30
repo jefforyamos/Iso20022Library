@@ -30,7 +30,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [Description(@"Identification of a related instruction document.")]
     [DataMember(Name="MktClmCreId")]
     [XmlElement(ElementName="MktClmCreId")]
-    public SomeMarketClaimCreationIdentificationRecord? MarketClaimCreationIdentification { get; init; }
+    public DocumentIdentification9? MarketClaimCreationIdentification { get; init; }
     
     /// <summary>
     /// References of the transaction for which the securities settlement condition modification is requested.
@@ -40,7 +40,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [DataMember(Name="TxRef")]
     [XmlElement(ElementName="TxRef")]
     [Required]
-    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    public required References26 TransactionReference { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -50,7 +50,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -59,7 +59,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [Description(@"General information about the safekeeping account, owner and account balance.")]
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
-    public SomeAccountDetailsRecord? AccountDetails { get; init; }
+    public AccountIdentification46? AccountDetails { get; init; }
     
     /// <summary>
     /// Status information about the processing of the market claim transaction.
@@ -69,7 +69,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [DataMember(Name="MktClmPrcgSts")]
     [XmlElement(ElementName="MktClmPrcgSts")]
     [Required]
-    public required SomeMarketClaimProcessingStatusRecord MarketClaimProcessingStatus { get; init; }
+    public required IMarketClaimProcessingStatus1Choice MarketClaimProcessingStatus { get; init; }
     
     /// <summary>
     /// Details of the market claim transaction for which a status is provided.
@@ -78,7 +78,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [Description(@"Details of the market claim transaction for which a status is provided.")]
     [DataMember(Name="MktClmDtls")]
     [XmlElement(ElementName="MktClmDtls")]
-    public SomeMarketClaimDetailsRecord? MarketClaimDetails { get; init; }
+    public CorporateActionOption185? MarketClaimDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -87,7 +87,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

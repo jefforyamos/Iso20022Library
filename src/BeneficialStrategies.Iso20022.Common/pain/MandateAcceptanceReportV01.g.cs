@@ -35,7 +35,7 @@ public partial record MandateAcceptanceReportV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader31 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide information on the acception or rejection of the mandate request.
@@ -45,7 +45,7 @@ public partial record MandateAcceptanceReportV01 : IOuterRecord
     [DataMember(Name="UndrlygAccptncDtls")]
     [XmlElement(ElementName="UndrlygAccptncDtls")]
     [Required]
-    public required SomeUnderlyingAcceptanceDetailsRecord UnderlyingAcceptanceDetails { get; init; }
+    public required MandateAcceptance1 UnderlyingAcceptanceDetails { get; init; }
     
     */
     

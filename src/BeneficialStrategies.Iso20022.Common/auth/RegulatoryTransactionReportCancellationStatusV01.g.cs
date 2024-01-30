@@ -36,7 +36,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the firm that executed the transaction.
@@ -46,7 +46,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
     
     /// <summary>
     /// Provides the status of the entire RegulatoryTransactionReportCancellationRequest document that was previously sent by a reporting institution.||.
@@ -56,7 +56,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     [DataMember(Name="RptCxlSts")]
     [XmlElement(ElementName="RptCxlSts")]
     [Required]
-    public required SomeReportCancellationStatusRecord ReportCancellationStatus { get; init; }
+    public required ReportStatusAndReason2 ReportCancellationStatus { get; init; }
     
     /// <summary>
     /// Provides the cancellation status of one or more transactions within a RegulatoryTransactionReportCancellationRequest that was previously sent by a reporting institution.
@@ -66,7 +66,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     [DataMember(Name="IndvTxCxlSts")]
     [XmlElement(ElementName="IndvTxCxlSts")]
     [Required]
-    public required SomeIndividualTransactionCancellationStatusRecord IndividualTransactionCancellationStatus { get; init; }
+    public required TradeTransactionStatusAndReason2 IndividualTransactionCancellationStatus { get; init; }
     
     */
     

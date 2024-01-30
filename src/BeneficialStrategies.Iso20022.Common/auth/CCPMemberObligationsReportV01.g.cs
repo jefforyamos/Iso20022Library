@@ -29,7 +29,7 @@ public partial record CCPMemberObligationsReportV01 : IOuterRecord
     [DataMember(Name="SttlmAcct")]
     [XmlElement(ElementName="SttlmAcct")]
     [Required]
-    public required SomeSettlementAccountRecord SettlementAccount { get; init; }
+    public required SettlementAccount1 SettlementAccount { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPMemberObligationsReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

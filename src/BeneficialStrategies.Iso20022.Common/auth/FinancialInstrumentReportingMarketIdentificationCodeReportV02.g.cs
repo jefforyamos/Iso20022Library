@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingMarketIdentificationCodeReport
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    public required MarketIdentification95 MarketIdentification { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialInstrumentReportingMarketIdentificationCodeReport
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

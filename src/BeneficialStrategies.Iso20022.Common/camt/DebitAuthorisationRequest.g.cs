@@ -39,7 +39,7 @@ public partial record DebitAuthorisationRequest : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -49,7 +49,7 @@ public partial record DebitAuthorisationRequest : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Identifies the underlying payment instructrion.
@@ -59,7 +59,7 @@ public partial record DebitAuthorisationRequest : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required PaymentInstructionExtract Underlying { get; init; }
     
     /// <summary>
     /// Detailed information about the request.
@@ -69,7 +69,7 @@ public partial record DebitAuthorisationRequest : IOuterRecord
     [DataMember(Name="Dtl")]
     [XmlElement(ElementName="Dtl")]
     [Required]
-    public required SomeDetailRecord Detail { get; init; }
+    public required DebitAuthorisationDetails Detail { get; init; }
     
     */
     

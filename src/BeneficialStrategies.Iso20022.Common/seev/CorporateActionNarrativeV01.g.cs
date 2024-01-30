@@ -35,7 +35,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account and the account owner.
@@ -44,7 +44,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [Description(@"General information about the safekeeping account and the account owner.")]
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
-    public SomeAccountDetailsRecord? AccountDetails { get; init; }
+    public IAccountIdentification9Choice? AccountDetails { get; init; }
     
     /// <summary>
     /// Provides information about the securitised right for entitlement.
@@ -53,7 +53,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [Description(@"Provides information about the securitised right for entitlement.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public UnderlyingSecurity1? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -63,7 +63,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation10 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -73,7 +73,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
     [Required]
-    public required SomeAdditionalInformationRecord AdditionalInformation { get; init; }
+    public required UpdatedAdditionalInformation2 AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -82,7 +82,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -91,7 +91,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -100,7 +100,7 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

@@ -35,7 +35,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
     [DataMember(Name="AccptncId")]
     [XmlElement(ElementName="AccptncId")]
     [Required]
-    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    public required MessageIdentification1 AcceptanceIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -45,7 +45,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -54,7 +54,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
     [Description(@"Reference to the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Identifies the status for which the user accepts an extension of the validity period.
@@ -64,7 +64,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
     [DataMember(Name="XtndedSts")]
     [XmlElement(ElementName="XtndedSts")]
     [Required]
-    public required SomeExtendedStatusRecord ExtendedStatus { get; init; }
+    public required TransactionStatus4 ExtendedStatus { get; init; }
     
     */
     

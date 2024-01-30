@@ -28,7 +28,7 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD14? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -37,7 +37,7 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD9? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as account balance for distribution events.
@@ -46,7 +46,7 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
     [Description(@"Extension block for the information to be extended as account balance for distribution events.")]
     [DataMember(Name="DstrbtnsAcctBal")]
     [XmlElement(ElementName="DstrbtnsAcctBal")]
-    public SomeDistributionsAccountBalanceRecord? DistributionsAccountBalance { get; init; }
+    public AccountBalanceSD5? DistributionsAccountBalance { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as account balance for redemptions events.
@@ -55,7 +55,7 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
     [Description(@"Extension block for the information to be extended as account balance for redemptions events.")]
     [DataMember(Name="RedsAcctBal")]
     [XmlElement(ElementName="RedsAcctBal")]
-    public SomeRedemptionsAccountBalanceRecord? RedemptionsAccountBalance { get; init; }
+    public AccountBalanceSD6? RedemptionsAccountBalance { get; init; }
     
     */
     

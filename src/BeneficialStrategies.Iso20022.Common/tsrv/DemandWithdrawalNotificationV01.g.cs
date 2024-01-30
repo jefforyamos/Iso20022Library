@@ -29,7 +29,7 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord
     [DataMember(Name="DmndWdrwlNtfctnDtls")]
     [XmlElement(ElementName="DmndWdrwlNtfctnDtls")]
     [Required]
-    public required SomeDemandWithdrawalNotificationDetailsRecord DemandWithdrawalNotificationDetails { get; init; }
+    public required UndertakingDemandWithdrawal1 DemandWithdrawalNotificationDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the notification.
@@ -38,7 +38,7 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

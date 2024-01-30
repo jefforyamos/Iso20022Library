@@ -32,7 +32,7 @@ public partial record StatusReportV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header4 Header { get; init; }
     
     /// <summary>
     /// Status of the point of interaction (POI), its components and their installed versions.
@@ -42,7 +42,7 @@ public partial record StatusReportV01 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required StatusReport1 StatusReport { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -52,7 +52,7 @@ public partial record StatusReportV01 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType1 SecurityTrailer { get; init; }
     
     */
     

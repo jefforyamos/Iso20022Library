@@ -29,7 +29,7 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     [DataMember(Name="UdrtkgAmdmntRspnNtfctnDtls")]
     [XmlElement(ElementName="UdrtkgAmdmntRspnNtfctnDtls")]
     [Required]
-    public required SomeUndertakingAmendmentResponseNotificationDetailsRecord UndertakingAmendmentResponseNotificationDetails { get; init; }
+    public required Amendment9 UndertakingAmendmentResponseNotificationDetails { get; init; }
     
     /// <summary>
     /// Additional information reported by the beneficiary.
@@ -38,7 +38,7 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     [Description(@"Additional information reported by the beneficiary.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public IsoMax2000Text? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Digital signature of the response notification.
@@ -47,7 +47,7 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the response notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

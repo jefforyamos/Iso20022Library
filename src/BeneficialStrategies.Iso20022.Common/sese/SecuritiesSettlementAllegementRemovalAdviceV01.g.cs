@@ -39,7 +39,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV01 : IOuterRec
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Details of the transaction.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV01 : IOuterRec
     [DataMember(Name="Dtls")]
     [XmlElement(ElementName="Dtls")]
     [Required]
-    public required SomeDetailsRecord Details { get; init; }
+    public required TransactionDetails13 Details { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV01 : IOuterRec
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -67,7 +67,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV01 : IOuterRec
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV01 : IOuterRec
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

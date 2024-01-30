@@ -34,7 +34,7 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -44,7 +44,7 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -53,7 +53,7 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
     [Description(@"Reference to the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -63,7 +63,7 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
     [DataMember(Name="StsToBeXtnded")]
     [XmlElement(ElementName="StsToBeXtnded")]
     [Required]
-    public required SomeStatusToBeExtendedRecord StatusToBeExtended { get; init; }
+    public required TransactionStatus5 StatusToBeExtended { get; init; }
     
     */
     

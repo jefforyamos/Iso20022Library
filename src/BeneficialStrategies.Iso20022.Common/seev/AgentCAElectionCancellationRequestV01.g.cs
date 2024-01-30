@@ -33,7 +33,7 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Election Advice to be cancelled.
@@ -43,7 +43,7 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnAdvcId")]
     [XmlElement(ElementName="AgtCAElctnAdvcId")]
     [Required]
-    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -53,7 +53,7 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the election advice to be cancelled.
@@ -62,7 +62,7 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     [Description(@"Provides information about the election advice to be cancelled.")]
     [DataMember(Name="ElctnDtls")]
     [XmlElement(ElementName="ElctnDtls")]
-    public SomeElectionDetailsRecord? ElectionDetails { get; init; }
+    public CorporateActionElection3? ElectionDetails { get; init; }
     
     */
     

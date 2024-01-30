@@ -34,7 +34,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Identifies a related order.
@@ -43,7 +43,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Identifies a related order.")]
     [DataMember(Name="OrdrRef")]
     [XmlElement(ElementName="OrdrRef")]
-    public SomeOrderReferenceRecord? OrderReference { get; init; }
+    public InvestmentFundOrder4? OrderReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -52,7 +52,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Provide detailed information about the request or instruction which triggered this confirmation.
@@ -62,7 +62,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [DataMember(Name="ConfDtls")]
     [XmlElement(ElementName="ConfDtls")]
     [Required]
-    public required SomeConfirmationDetailsRecord ConfirmationDetails { get; init; }
+    public required AccountManagementConfirmation1 ConfirmationDetails { get; init; }
     
     /// <summary>
     /// Confirmation of the information related to a selected investment account.
@@ -71,7 +71,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the information related to a selected investment account.")]
     [DataMember(Name="InvstmtAcct")]
     [XmlElement(ElementName="InvstmtAcct")]
-    public SomeInvestmentAccountRecord? InvestmentAccount { get; init; }
+    public InvestmentAccount27? InvestmentAccount { get; init; }
     
     /// <summary>
     /// Confirmation of information related to parties who are related to a selected investment account.
@@ -80,7 +80,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of information related to parties who are related to a selected investment account.")]
     [DataMember(Name="AcctPties")]
     [XmlElement(ElementName="AcctPties")]
-    public SomeAccountPartiesRecord? AccountParties { get; init; }
+    public AccountParties5? AccountParties { get; init; }
     
     /// <summary>
     /// Confirmation of information related to intermediaries who are related to a selected investment account.
@@ -89,7 +89,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of information related to intermediaries who are related to a selected investment account.")]
     [DataMember(Name="Intrmies")]
     [XmlElement(ElementName="Intrmies")]
-    public required IReadonlyCollection<SomeIntermediariesRecord> Intermediaries { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<Intermediary12> Intermediaries { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Placement agent for the hedge fund industry.
@@ -98,7 +98,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Placement agent for the hedge fund industry.")]
     [DataMember(Name="Plcmnt")]
     [XmlElement(ElementName="Plcmnt")]
-    public SomePlacementRecord? Placement { get; init; }
+    public ReferredAgent1? Placement { get; init; }
     
     /// <summary>
     /// Eligibility conditions applicable when there is an allocation of new issues for hedge fund account opening.
@@ -107,7 +107,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Eligibility conditions applicable when there is an allocation of new issues for hedge fund account opening.")]
     [DataMember(Name="NewIsseAllcn")]
     [XmlElement(ElementName="NewIsseAllcn")]
-    public SomeNewIssueAllocationRecord? NewIssueAllocation { get; init; }
+    public NewIssueAllocation1? NewIssueAllocation { get; init; }
     
     /// <summary>
     /// Confirmation of the information related to a savings plan that is related to a selected investment account.
@@ -116,7 +116,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the information related to a savings plan that is related to a selected investment account.")]
     [DataMember(Name="SvgsInvstmtPlan")]
     [XmlElement(ElementName="SvgsInvstmtPlan")]
-    public required IReadonlyCollection<SomeSavingsInvestmentPlanRecord> SavingsInvestmentPlan { get; init; } // Min=0, Max=50
+    public required IReadonlyCollection<InvestmentPlan4> SavingsInvestmentPlan { get; init; } // Min=0, Max=50
     
     /// <summary>
     /// Confirmation of the information related to a withrawal plan that is related to a selected investment account.
@@ -125,7 +125,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the information related to a withrawal plan that is related to a selected investment account.")]
     [DataMember(Name="WdrwlInvstmtPlan")]
     [XmlElement(ElementName="WdrwlInvstmtPlan")]
-    public required IReadonlyCollection<SomeWithdrawalInvestmentPlanRecord> WithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<InvestmentPlan4> WithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Confirmation of the cash settlement standing instruction associated to the investment fund transaction.
@@ -134,7 +134,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the cash settlement standing instruction associated to the investment fund transaction.")]
     [DataMember(Name="CshSttlm")]
     [XmlElement(ElementName="CshSttlm")]
-    public SomeCashSettlementRecord? CashSettlement { get; init; }
+    public InvestmentFundCashSettlementInformation3? CashSettlement { get; init; }
     
     /// <summary>
     /// Identifies documents to be provided for the account opening.
@@ -143,7 +143,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Identifies documents to be provided for the account opening.")]
     [DataMember(Name="SvcLvlAgrmt")]
     [XmlElement(ElementName="SvcLvlAgrmt")]
-    public required IReadonlyCollection<SomeServiceLevelAgreementRecord> ServiceLevelAgreement { get; init; } // Min=0, Max=30
+    public required IReadonlyCollection<DocumentToSend1> ServiceLevelAgreement { get; init; } // Min=0, Max=30
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -152,7 +152,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

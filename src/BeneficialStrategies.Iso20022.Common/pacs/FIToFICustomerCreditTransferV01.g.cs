@@ -38,7 +38,7 @@ public partial record FIToFICustomerCreditTransferV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader2 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements providing information specific to the individual credit transfer(s).
@@ -48,7 +48,7 @@ public partial record FIToFICustomerCreditTransferV01 : IOuterRecord
     [DataMember(Name="CdtTrfTxInf")]
     [XmlElement(ElementName="CdtTrfTxInf")]
     [Required]
-    public required SomeCreditTransferTransactionInformationRecord CreditTransferTransactionInformation { get; init; }
+    public required CreditTransferTransactionInformation2 CreditTransferTransactionInformation { get; init; }
     
     */
     

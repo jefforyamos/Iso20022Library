@@ -29,7 +29,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Contains information about the account switch.
@@ -40,7 +40,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     [DataMember(Name="AcctSwtchDtls")]
     [XmlElement(ElementName="AcctSwtchDtls")]
     [Required]
-    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -49,7 +49,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

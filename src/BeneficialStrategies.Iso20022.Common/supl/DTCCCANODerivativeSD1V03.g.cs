@@ -28,7 +28,7 @@ public partial record DTCCCANODerivativeSD1V03 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action notification details.")]
     [DataMember(Name="CorpActnNtfctn")]
     [XmlElement(ElementName="CorpActnNtfctn")]
-    public SomeCorporateActionNotificationRecord? CorporateActionNotification { get; init; }
+    public CorporateActionNotificationSD2? CorporateActionNotification { get; init; }
     
     */
     

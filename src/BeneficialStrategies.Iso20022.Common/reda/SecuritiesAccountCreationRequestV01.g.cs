@@ -31,7 +31,7 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Securities account to be created in the executing party system.
@@ -41,7 +41,7 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord
     [DataMember(Name="SctiesAcct")]
     [XmlElement(ElementName="SctiesAcct")]
     [Required]
-    public required SomeSecuritiesAccountRecord SecuritiesAccount { get; init; }
+    public required SystemSecuritiesAccount7 SecuritiesAccount { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -50,7 +50,7 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

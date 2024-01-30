@@ -34,7 +34,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Information specific to an amendment.")]
     [DataMember(Name="Amdmnt")]
     [XmlElement(ElementName="Amdmnt")]
-    public SomeAmendmentRecord? Amendment { get; init; }
+    public AmendInformation1? Amendment { get; init; }
     
     /// <summary>
     /// Defines the global status of the event contained in the notification.
@@ -44,7 +44,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [DataMember(Name="NtfctnSts")]
     [XmlElement(ElementName="NtfctnSts")]
     [Required]
-    public required SomeNotificationStatusRecord NotificationStatus { get; init; }
+    public required NotificationStatus2 NotificationStatus { get; init; }
     
     /// <summary>
     /// Specifies information about the meeting. This component contains meeting identifications, various deadlines, contact persons, electronic and postal locations for accessing information and proxy assignment parameters.
@@ -54,7 +54,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [DataMember(Name="Mtg")]
     [XmlElement(ElementName="Mtg")]
     [Required]
-    public required SomeMeetingRecord Meeting { get; init; }
+    public required MeetingNotice4 Meeting { get; init; }
     
     /// <summary>
     /// Dates and details of the shareholders meeting.
@@ -63,7 +63,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Dates and details of the shareholders meeting.")]
     [DataMember(Name="MtgDtls")]
     [XmlElement(ElementName="MtgDtls")]
-    public required IReadonlyCollection<SomeMeetingDetailsRecord> MeetingDetails { get; init; } // Min=1, Max=5
+    public required IReadonlyCollection<Meeting4> MeetingDetails { get; init; } // Min=1, Max=5
     
     /// <summary>
     /// Specifies the institution that is the issuer of the security to which the meeting applies.
@@ -73,7 +73,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
     [Required]
-    public required SomeIssuerRecord Issuer { get; init; }
+    public required IssuerInformation2 Issuer { get; init; }
     
     /// <summary>
     /// Agents of the issuer.
@@ -82,7 +82,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Agents of the issuer.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public required IReadonlyCollection<SomeIssuerAgentRecord> IssuerAgent { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<IssuerAgent2> IssuerAgent { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -91,7 +91,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition8> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Detailed information of a resolution proposed to the vote.
@@ -100,7 +100,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Detailed information of a resolution proposed to the vote.")]
     [DataMember(Name="Rsltn")]
     [XmlElement(ElementName="Rsltn")]
-    public required IReadonlyCollection<SomeResolutionRecord> Resolution { get; init; } // Min=0, Max=1000
+    public required IReadonlyCollection<Resolution3> Resolution { get; init; } // Min=0, Max=1000
     
     /// <summary>
     /// Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.
@@ -109,7 +109,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.")]
     [DataMember(Name="Vote")]
     [XmlElement(ElementName="Vote")]
-    public SomeVoteRecord? Vote { get; init; }
+    public VoteParameters4? Vote { get; init; }
     
     /// <summary>
     /// Specifies the entitlement ratio and the different deadlines for calculating the entitlement.
@@ -118,7 +118,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Specifies the entitlement ratio and the different deadlines for calculating the entitlement.")]
     [DataMember(Name="EntitlmntSpcfctn")]
     [XmlElement(ElementName="EntitlmntSpcfctn")]
-    public SomeEntitlementSpecificationRecord? EntitlementSpecification { get; init; }
+    public EntitlementAssessment3? EntitlementSpecification { get; init; }
     
     /// <summary>
     /// Specifies requirements relative to the use of Power of Attorney.
@@ -127,7 +127,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Specifies requirements relative to the use of Power of Attorney.")]
     [DataMember(Name="PwrOfAttnyRqrmnts")]
     [XmlElement(ElementName="PwrOfAttnyRqrmnts")]
-    public SomePowerOfAttorneyRequirementsRecord? PowerOfAttorneyRequirements { get; init; }
+    public PowerOfAttorneyRequirements3? PowerOfAttorneyRequirements { get; init; }
     
     /// <summary>
     /// Provides additional narrative information about the corporate event.
@@ -136,7 +136,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Provides additional narrative information about the corporate event.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateEventNarrative2? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -145,7 +145,7 @@ public partial record MeetingNotificationV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

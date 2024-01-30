@@ -32,7 +32,7 @@ public partial record StatusNotificationV02 : IOuterRecord
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required SomeTradeDataRecord TradeData { get; init; }
+    public required TradeData1 TradeData { get; init; }
     
     */
     

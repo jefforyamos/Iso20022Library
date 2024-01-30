@@ -29,7 +29,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     [DataMember(Name="StsRptHdr")]
     [XmlElement(ElementName="StsRptHdr")]
     [Required]
-    public required SomeStatusReportHeaderRecord StatusReportHeader { get; init; }
+    public required MoneyMarketStatusReportHeader1 StatusReportHeader { get; init; }
     
     /// <summary>
     /// Provides the status on an individual transaction and the related reason if required.
@@ -38,7 +38,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status on an individual transaction and the related reason if required.")]
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
-    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    public MoneyMarketTransactionStatus2? TransactionStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

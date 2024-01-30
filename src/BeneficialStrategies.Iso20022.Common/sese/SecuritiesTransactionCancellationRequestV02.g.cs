@@ -37,7 +37,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [DataMember(Name="AcctOwnrTxId")]
     [XmlElement(ElementName="AcctOwnrTxId")]
     [Required]
-    public required SomeAccountOwnerTransactionIdentificationRecord AccountOwnerTransactionIdentification { get; init; }
+    public required IReferences2Choice AccountOwnerTransactionIdentification { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
@@ -46,7 +46,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Unambiguous identification of the transaction as known by the account servicer.")]
     [DataMember(Name="AcctSvcrTxId")]
     [XmlElement(ElementName="AcctSvcrTxId")]
-    public SomeAccountServicerTransactionIdentificationRecord? AccountServicerTransactionIdentification { get; init; }
+    public IsoMax35Text? AccountServicerTransactionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
@@ -55,7 +55,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
     [DataMember(Name="MktInfrstrctrTxId")]
     [XmlElement(ElementName="MktInfrstrctrTxId")]
-    public SomeMarketInfrastructureTransactionIdentificationRecord? MarketInfrastructureTransactionIdentification { get; init; }
+    public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; }
     
     /// <summary>
     /// Message Reference identifying the Processor of the transaction.
@@ -64,7 +64,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Message Reference identifying the Processor of the transaction.")]
     [DataMember(Name="PrcrTxId")]
     [XmlElement(ElementName="PrcrTxId")]
-    public SomeProcessorTransactionIdentificationRecord? ProcessorTransactionIdentification { get; init; }
+    public IsoMax35Text? ProcessorTransactionIdentification { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -73,7 +73,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification36Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -83,7 +83,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -92,7 +92,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails29? TransactionDetails { get; init; }
     
     /// <summary>
     /// Specifies whether an associated FX should be cancelled.
@@ -101,7 +101,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Specifies whether an associated FX should be cancelled.")]
     [DataMember(Name="FxCxl")]
     [XmlElement(ElementName="FxCxl")]
-    public SomeFXCancellationRecord? FXCancellation { get; init; }
+    public IFXCancellation1Choice? FXCancellation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -110,7 +110,7 @@ public partial record SecuritiesTransactionCancellationRequestV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

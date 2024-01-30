@@ -39,7 +39,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -49,7 +49,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Identifies the underlying payment instruction.
@@ -59,7 +59,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required PaymentInstructionExtract Underlying { get; init; }
     
     /// <summary>
     /// Additional information to the underlying payment instruction.
@@ -69,7 +69,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord
     [DataMember(Name="Inf")]
     [XmlElement(ElementName="Inf")]
     [Required]
-    public required SomeInformationRecord Information { get; init; }
+    public required PaymentComplementaryInformation Information { get; init; }
     
     */
     

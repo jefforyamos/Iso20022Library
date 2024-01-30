@@ -35,7 +35,7 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required IdentificationAssignment1 Assignment { get; init; }
     
     /// <summary>
     /// Provides reference information on the original message.
@@ -44,7 +44,7 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord
     [Description(@"Provides reference information on the original message.")]
     [DataMember(Name="OrgnlTxRef")]
     [XmlElement(ElementName="OrgnlTxRef")]
-    public SomeOriginalTransactionReferenceRecord? OriginalTransactionReference { get; init; }
+    public OriginalTransactionReference14? OriginalTransactionReference { get; init; }
     
     /// <summary>
     /// Information concerning the identification data that is advised to be modified.
@@ -54,7 +54,7 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required IdentificationModification1 Modification { get; init; }
     
     */
     

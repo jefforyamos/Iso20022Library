@@ -34,7 +34,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Page number of the message and continuation indicator to indicate that the multi-part instruction is to continue or that the message is the last page of the multi-part instruction.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Unique identification of the group of meeting instruction messages when the instruction is split in multiple (paginated) messages.
@@ -43,7 +43,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Unique identification of the group of meeting instruction messages when the instruction is split in multiple (paginated) messages.")]
     [DataMember(Name="MtgInstrId")]
     [XmlElement(ElementName="MtgInstrId")]
-    public SomeMeetingInstructionIdentificationRecord? MeetingInstructionIdentification { get; init; }
+    public IsoMax35Text? MeetingInstructionIdentification { get; init; }
     
     /// <summary>
     /// Set of elements to allow the unambiguous identification of a meeting.
@@ -53,7 +53,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference10 MeetingReference { get; init; }
     
     /// <summary>
     /// Security for which the meeting is organised.
@@ -63,7 +63,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of the cancellation request message requesting cancellation of individual instruction(s).
@@ -72,7 +72,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Identification of the cancellation request message requesting cancellation of individual instruction(s).")]
     [DataMember(Name="InstrCxlReqId")]
     [XmlElement(ElementName="InstrCxlReqId")]
-    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    public MeetingInstructionCancellation1? InstructionCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Identification of the message and individual instruction(s) for which the cancellation was requested.
@@ -81,7 +81,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Identification of the message and individual instruction(s) for which the cancellation was requested.")]
     [DataMember(Name="CancInstrId")]
     [XmlElement(ElementName="CancInstrId")]
-    public SomeCancelledInstructionIdentificationRecord? CancelledInstructionIdentification { get; init; }
+    public MeetingInstructionIdentification1? CancelledInstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of other messages/documents as well as the messages/documents number.
@@ -90,7 +90,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Identification of other messages/documents as well as the messages/documents number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification32? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// The position of the instructing party and the action that it wants to take.
@@ -100,7 +100,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [DataMember(Name="Instr")]
     [XmlElement(ElementName="Instr")]
     [Required]
-    public required SomeInstructionRecord Instruction { get; init; }
+    public required Instruction7 Instruction { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -109,7 +109,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

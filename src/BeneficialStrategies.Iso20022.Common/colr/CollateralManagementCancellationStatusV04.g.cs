@@ -36,7 +36,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides reference to the previous received message.
@@ -46,7 +46,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
     [Required]
-    public required SomeReferenceRecord Reference { get; init; }
+    public required Reference16 Reference { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -56,7 +56,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation4 Obligation { get; init; }
     
     /// <summary>
     /// Provides status details of the collateral cancellation message.
@@ -66,7 +66,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     [DataMember(Name="CxlSts")]
     [XmlElement(ElementName="CxlSts")]
     [Required]
-    public required SomeCancellationStatusRecord CancellationStatus { get; init; }
+    public required CollateralCancellationStatus1 CancellationStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -75,7 +75,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

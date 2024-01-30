@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="TxIdDtls")]
     [XmlElement(ElementName="TxIdDtls")]
     [Required]
-    public required SomeTransactionIdentificationDetailsRecord TransactionIdentificationDetails { get; init; }
+    public required SettlementTypeAndIdentification24 TransactionIdentificationDetails { get; init; }
     
     /// <summary>
     /// Reference to the unambiguous identification of the confirmation as per the account servicer.
@@ -50,7 +50,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="ConfRef")]
     [XmlElement(ElementName="ConfRef")]
     [Required]
-    public required SomeConfirmationReferenceRecord ConfirmationReference { get; init; }
+    public required Identification16 ConfirmationReference { get; init; }
     
     /// <summary>
     /// Additional parameters to the transaction.
@@ -59,7 +59,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Additional parameters to the transaction.")]
     [DataMember(Name="AddtlParams")]
     [XmlElement(ElementName="AddtlParams")]
-    public SomeAdditionalParametersRecord? AdditionalParameters { get; init; }
+    public AdditionalParameters28? AdditionalParameters { get; init; }
     
     /// <summary>
     /// Details of the trade.
@@ -69,7 +69,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="TradDtls")]
     [XmlElement(ElementName="TradDtls")]
     [Required]
-    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    public required SecuritiesTradeDetails62 TradeDetails { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -79,7 +79,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -88,7 +88,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Details related to the account and quantity involved in the transaction.
@@ -98,7 +98,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="QtyAndAcctDtls")]
     [XmlElement(ElementName="QtyAndAcctDtls")]
     [Required]
-    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    public required QuantityAndAccount51 QuantityAndAccountDetails { get; init; }
     
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
@@ -108,7 +108,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [DataMember(Name="SttlmParams")]
     [XmlElement(ElementName="SttlmParams")]
     [Required]
-    public required SomeSettlementParametersRecord SettlementParameters { get; init; }
+    public required SettlementDetails110 SettlementParameters { get; init; }
     
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
@@ -117,7 +117,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.")]
     [DataMember(Name="StgSttlmInstrDtls")]
     [XmlElement(ElementName="StgSttlmInstrDtls")]
-    public SomeStandingSettlementInstructionDetailsRecord? StandingSettlementInstructionDetails { get; init; }
+    public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -126,7 +126,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties44? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -135,7 +135,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties44? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
@@ -144,7 +144,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Cash parties involved in the transaction if different for the securities settlement parties.")]
     [DataMember(Name="CshPties")]
     [XmlElement(ElementName="CshPties")]
-    public SomeCashPartiesRecord? CashParties { get; init; }
+    public CashParties32? CashParties { get; init; }
     
     /// <summary>
     /// Amount effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
@@ -153,7 +153,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Amount effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.")]
     [DataMember(Name="SttldAmt")]
     [XmlElement(ElementName="SttldAmt")]
-    public SomeSettledAmountRecord? SettledAmount { get; init; }
+    public AmountAndDirection60? SettledAmount { get; init; }
     
     /// <summary>
     /// Other amounts than the settlement amount.
@@ -162,7 +162,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Other amounts than the settlement amount.")]
     [DataMember(Name="OthrAmts")]
     [XmlElement(ElementName="OthrAmts")]
-    public SomeOtherAmountsRecord? OtherAmounts { get; init; }
+    public OtherAmounts38? OtherAmounts { get; init; }
     
     /// <summary>
     /// Other business parties relevant to the transaction.
@@ -171,7 +171,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Other business parties relevant to the transaction.")]
     [DataMember(Name="OthrBizPties")]
     [XmlElement(ElementName="OthrBizPties")]
-    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    public OtherParties29? OtherBusinessParties { get; init; }
     
     /// <summary>
     /// Provides information required for the registration or physical settlement.
@@ -180,7 +180,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Provides information required for the registration or physical settlement.")]
     [DataMember(Name="AddtlPhysOrRegnDtls")]
     [XmlElement(ElementName="AddtlPhysOrRegnDtls")]
-    public SomeAdditionalPhysicalOrRegistrationDetailsRecord? AdditionalPhysicalOrRegistrationDetails { get; init; }
+    public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -189,7 +189,7 @@ public partial record SecuritiesSettlementTransactionReversalAdvice002V05 : IOut
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

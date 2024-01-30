@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingNonWorkingDayReportV01 : IOute
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides details on the days a venue is not open.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingNonWorkingDayReportV01 : IOute
     [DataMember(Name="NonWorkgDay")]
     [XmlElement(ElementName="NonWorkgDay")]
     [Required]
-    public required SomeNonWorkingDayRecord NonWorkingDay { get; init; }
+    public required SecuritiesNonTradingDayReport1 NonWorkingDay { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingNonWorkingDayReportV01 : IOute
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

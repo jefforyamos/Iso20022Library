@@ -34,7 +34,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the report.
@@ -44,7 +44,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement78 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Identifies the chain of collateral parties.
@@ -54,7 +54,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [DataMember(Name="CollPties")]
     [XmlElement(ElementName="CollPties")]
     [Required]
-    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    public required CollateralParties9 CollateralParties { get; init; }
     
     /// <summary>
     /// Overall Collateral  contains the global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.
@@ -63,7 +63,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Overall Collateral  contains the global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.|")]
     [DataMember(Name="OvrllCollAggtn")]
     [XmlElement(ElementName="OvrllCollAggtn")]
-    public SomeOverallCollateralAggregationRecord? OverallCollateralAggregation { get; init; }
+    public OverallCollateralDetails2? OverallCollateralAggregation { get; init; }
     
     /// <summary>
     /// Specifies the valuation details per exposure type aggregation.
@@ -72,7 +72,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Specifies the valuation details per exposure type aggregation.")]
     [DataMember(Name="XpsrTpAggtn")]
     [XmlElement(ElementName="XpsrTpAggtn")]
-    public SomeExposureTypeAggregationRecord? ExposureTypeAggregation { get; init; }
+    public ExposureTypeAggregation3? ExposureTypeAggregation { get; init; }
     
     /// <summary>
     /// Specifies the valuation details per counterparty aggregation.
@@ -81,7 +81,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Specifies the valuation details per counterparty aggregation.")]
     [DataMember(Name="CtrPtyAggtn")]
     [XmlElement(ElementName="CtrPtyAggtn")]
-    public SomeCounterpartyAggregationRecord? CounterpartyAggregation { get; init; }
+    public CounterpartyAggregation3? CounterpartyAggregation { get; init; }
     
     /// <summary>
     /// Specifies the transaction,  the collateral and related valuation details.
@@ -90,7 +90,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Specifies the transaction,  the collateral and related valuation details.|")]
     [DataMember(Name="Txs")]
     [XmlElement(ElementName="Txs")]
-    public SomeTransactionsRecord? Transactions { get; init; }
+    public Transaction124? Transactions { get; init; }
     
     /// <summary>
     /// Total valuation amounts provided in the base currency of the account
@@ -99,7 +99,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Total valuation amounts provided in the base currency of the account")]
     [DataMember(Name="AcctBaseCcyTtlAmts")]
     [XmlElement(ElementName="AcctBaseCcyTtlAmts")]
-    public SomeAccountBaseCurrencyTotalAmountsRecord? AccountBaseCurrencyTotalAmounts { get; init; }
+    public TotalValueInPageAndStatement5? AccountBaseCurrencyTotalAmounts { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -108,7 +108,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

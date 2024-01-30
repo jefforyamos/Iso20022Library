@@ -32,7 +32,7 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header2 Header { get; init; }
     
     /// <summary>
     /// Information related to the cancellation advice response.
@@ -42,7 +42,7 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord
     [DataMember(Name="AccptrCxlAdvcRspn")]
     [XmlElement(ElementName="AccptrCxlAdvcRspn")]
     [Required]
-    public required SomeAcceptorCancellationAdviceResponseRecord AcceptorCancellationAdviceResponse { get; init; }
+    public required AcceptorCancellationAdviceResponse1 AcceptorCancellationAdviceResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -52,7 +52,7 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType3 SecurityTrailer { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -46,7 +46,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation4 Obligation { get; init; }
     
     /// <summary>
     /// Agreement details for the over the counter market.
@@ -56,7 +56,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [DataMember(Name="Agrmt")]
     [XmlElement(ElementName="Agrmt")]
     [Required]
-    public required SomeAgreementRecord Agreement { get; init; }
+    public required Agreement4 Agreement { get; init; }
     
     /// <summary>
     /// Provides details on the interest amount due to party A.
@@ -65,7 +65,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [Description(@"Provides details on the interest amount due to party A.")]
     [DataMember(Name="IntrstDueToA")]
     [XmlElement(ElementName="IntrstDueToA")]
-    public SomeInterestDueToARecord? InterestDueToA { get; init; }
+    public InterestAmount2? InterestDueToA { get; init; }
     
     /// <summary>
     /// Provides details on the interest amount due to party B.
@@ -74,7 +74,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [Description(@"Provides details on the interest amount due to party B.")]
     [DataMember(Name="IntrstDueToB")]
     [XmlElement(ElementName="IntrstDueToB")]
-    public SomeInterestDueToBRecord? InterestDueToB { get; init; }
+    public InterestAmount2? InterestDueToB { get; init; }
     
     /// <summary>
     /// Provides details on the response to the interest payment request.
@@ -84,7 +84,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [DataMember(Name="IntrstRspn")]
     [XmlElement(ElementName="IntrstRspn")]
     [Required]
-    public required SomeInterestResponseRecord InterestResponse { get; init; }
+    public required InterestResponse1 InterestResponse { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -93,7 +93,7 @@ public partial record InterestPaymentResponseV04 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

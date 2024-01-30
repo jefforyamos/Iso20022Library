@@ -29,7 +29,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="IncmStmt")]
     [XmlElement(ElementName="IncmStmt")]
     [Required]
-    public required SomeIncomeStatementRecord IncomeStatement { get; init; }
+    public required IncomeStatement1 IncomeStatement { get; init; }
     
     /// <summary>
     /// Report of the breakdown of the components for the capital requirement for central counterparty.
@@ -39,7 +39,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="CptlRqrmnts")]
     [XmlElement(ElementName="CptlRqrmnts")]
     [Required]
-    public required SomeCapitalRequirementsRecord CapitalRequirements { get; init; }
+    public required CapitalRequirement1 CapitalRequirements { get; init; }
     
     /// <summary>
     /// Sum of the CCP's capital requirements for operational expenses; for winding down or restructuring its activities; for overall operational and legal risk; for uncovered credit, counterparty credit and market risks and business risks.
@@ -49,7 +49,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="TtlCptl")]
     [XmlElement(ElementName="TtlCptl")]
     [Required]
-    public required SomeTotalCapitalRecord TotalCapital { get; init; }
+    public required IsoActiveCurrencyAndAmount TotalCapital { get; init; }
     
     /// <summary>
     /// Total capital resources invested in liquid financial resources.
@@ -59,7 +59,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="LqdFinRsrcs")]
     [XmlElement(ElementName="LqdFinRsrcs")]
     [Required]
-    public required SomeLiquidFinancialResourcesRecord LiquidFinancialResources { get; init; }
+    public required IsoActiveCurrencyAndAmount LiquidFinancialResources { get; init; }
     
     /// <summary>
     /// Hypothetical capital requirement due to counterparty credit risk exposures to all clearing members.
@@ -69,7 +69,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="HpthtclCptlMeasr")]
     [XmlElement(ElementName="HpthtclCptlMeasr")]
     [Required]
-    public required SomeHypotheticalCapitalMeasureRecord HypotheticalCapitalMeasure { get; init; }
+    public required HypotheticalCapitalMeasure1 HypotheticalCapitalMeasure { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -78,7 +78,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

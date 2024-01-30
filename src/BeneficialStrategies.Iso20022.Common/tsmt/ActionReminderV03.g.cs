@@ -44,7 +44,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [DataMember(Name="RmndrId")]
     [XmlElement(ElementName="RmndrId")]
     [Required]
-    public required SomeReminderIdentificationRecord ReminderIdentification { get; init; }
+    public required MessageIdentification1 ReminderIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -54,7 +54,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -63,7 +63,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
-    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -73,7 +73,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
@@ -82,7 +82,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Identifies the message for which an action is required.
@@ -92,7 +92,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [DataMember(Name="MsgReqrngActn")]
     [XmlElement(ElementName="MsgReqrngActn")]
     [Required]
-    public required SomeMessageRequiringActionRecord MessageRequiringAction { get; init; }
+    public required MessageIdentification1 MessageRequiringAction { get; init; }
     
     /// <summary>
     /// Next processing step required.
@@ -102,7 +102,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [DataMember(Name="PdgReqForActn")]
     [XmlElement(ElementName="PdgReqForActn")]
     [Required]
-    public required SomePendingRequestForActionRecord PendingRequestForAction { get; init; }
+    public required PendingActivity2 PendingRequestForAction { get; init; }
     
     */
     

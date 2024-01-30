@@ -29,7 +29,7 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Contains information about the details of the account switch and a response code to the original payment request.
@@ -39,7 +39,7 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     [DataMember(Name="AcctSwtchDtls")]
     [XmlElement(ElementName="AcctSwtchDtls")]
     [Required]
-    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; }
     
     /// <summary>
     /// Account held at the old account servicer being switched to the new account servicer.
@@ -49,7 +49,7 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     [DataMember(Name="OdAcct")]
     [XmlElement(ElementName="OdAcct")]
     [Required]
-    public required SomeOldAccountRecord OldAccount { get; init; }
+    public required CashAccount39 OldAccount { get; init; }
     
     /// <summary>
     /// Specific information relating to a request for payment, including details that enable the receiving account servicer to reconcile the payment to be received with the original payment request.
@@ -59,7 +59,7 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     [DataMember(Name="CdtInstr")]
     [XmlElement(ElementName="CdtInstr")]
     [Required]
-    public required SomeCreditInstructionRecord CreditInstruction { get; init; }
+    public required CreditTransferTransaction33 CreditInstruction { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -68,7 +68,7 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -42,7 +42,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent Corporate Action Election Status Advice.
@@ -52,7 +52,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnStsAdvcId")]
     [XmlElement(ElementName="AgtCAElctnStsAdvcId")]
     [Required]
-    public required SomeAgentCAElectionStatusAdviceIdentificationRecord AgentCAElectionStatusAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of the Agent Corporate Action Global Distribution Status Advice.
@@ -62,7 +62,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAGblDstrbtnStsAdvcId")]
     [XmlElement(ElementName="AgtCAGblDstrbtnStsAdvcId")]
     [Required]
-    public required SomeAgentCAGlobalDistributionStatusAdviceIdentificationRecord AgentCAGlobalDistributionStatusAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Movement Instruction for which a status is given.
@@ -72,7 +72,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAMvmntInstrId")]
     [XmlElement(ElementName="AgtCAMvmntInstrId")]
     [Required]
-    public required SomeAgentCAMovementInstructionIdentificationRecord AgentCAMovementInstructionIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Movement Cancellation Request for which a status is given.
@@ -82,7 +82,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAMvmntCxlReqId")]
     [XmlElement(ElementName="AgtCAMvmntCxlReqId")]
     [Required]
-    public required SomeAgentCAMovementCancellationRequestIdentificationRecord AgentCAMovementCancellationRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAMovementCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -92,7 +92,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Status of the movement instruction.
@@ -102,7 +102,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="MvmntStsDtls")]
     [XmlElement(ElementName="MvmntStsDtls")]
     [Required]
-    public required SomeMovementStatusDetailsRecord MovementStatusDetails { get; init; }
+    public required ICorporateActionMovementStatus1Choice MovementStatusDetails { get; init; }
     
     /// <summary>
     /// Status of the movement cancellation request.
@@ -112,7 +112,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="MvmntCxlStsDtls")]
     [XmlElement(ElementName="MvmntCxlStsDtls")]
     [Required]
-    public required SomeMovementCancellationStatusDetailsRecord MovementCancellationStatusDetails { get; init; }
+    public required CorporateMovementStatus2 MovementCancellationStatusDetails { get; init; }
     
     */
     

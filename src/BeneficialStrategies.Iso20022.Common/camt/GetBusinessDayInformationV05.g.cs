@@ -42,7 +42,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the business day information query criteria.
@@ -51,7 +51,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
     [Description(@"Defines the business day information query criteria.")]
     [DataMember(Name="BizDayInfQryDef")]
     [XmlElement(ElementName="BizDayInfQryDef")]
-    public SomeBusinessDayInformationQueryDefinitionRecord? BusinessDayInformationQueryDefinition { get; init; }
+    public BusinessDayQuery2? BusinessDayInformationQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -60,7 +60,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

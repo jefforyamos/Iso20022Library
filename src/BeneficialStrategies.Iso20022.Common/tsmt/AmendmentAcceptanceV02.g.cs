@@ -35,7 +35,7 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     [DataMember(Name="AccptncId")]
     [XmlElement(ElementName="AccptncId")]
     [Required]
-    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    public required MessageIdentification1 AcceptanceIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -45,7 +45,7 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the identification of the transaction for the requesting financial institution.
@@ -54,7 +54,7 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     [Description(@"Reference to the identification of the transaction for the requesting financial institution.")]
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
-    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Reference to the identification of the delta report that contained the amendment.
@@ -64,7 +64,7 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     [DataMember(Name="DltaRptRef")]
     [XmlElement(ElementName="DltaRptRef")]
     [Required]
-    public required SomeDeltaReportReferenceRecord DeltaReportReference { get; init; }
+    public required MessageIdentification1 DeltaReportReference { get; init; }
     
     /// <summary>
     /// Sequence number of the accepted baseline amendment.
@@ -74,7 +74,7 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     [DataMember(Name="AccptdAmdmntNb")]
     [XmlElement(ElementName="AccptdAmdmntNb")]
     [Required]
-    public required SomeAcceptedAmendmentNumberRecord AcceptedAmendmentNumber { get; init; }
+    public required Count1 AcceptedAmendmentNumber { get; init; }
     
     */
     

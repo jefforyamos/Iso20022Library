@@ -32,7 +32,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -41,7 +41,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -50,7 +50,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -60,7 +60,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for the price report, as assigned by the reporting party.
@@ -70,7 +70,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [DataMember(Name="PricRptId")]
     [XmlElement(ElementName="PricRptId")]
     [Required]
-    public required SomePriceReportIdentificationRecord PriceReportIdentification { get; init; }
+    public required IsoMax35Text PriceReportIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.
@@ -80,7 +80,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [DataMember(Name="CxlId")]
     [XmlElement(ElementName="CxlId")]
     [Required]
-    public required SomeCancellationIdentificationRecord CancellationIdentification { get; init; }
+    public required IsoMax35Text CancellationIdentification { get; init; }
     
     /// <summary>
     /// Reason for the cancellation.
@@ -89,7 +89,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Reason for the cancellation.")]
     [DataMember(Name="CxlRsn")]
     [XmlElement(ElementName="CxlRsn")]
-    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    public IsoMax350Text? CancellationReason { get; init; }
     
     /// <summary>
     /// Date or date and time the price will be corrected.
@@ -98,7 +98,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Date or date and time the price will be corrected.")]
     [DataMember(Name="XpctdPricCrrctnDt")]
     [XmlElement(ElementName="XpctdPricCrrctnDt")]
-    public SomeExpectedPriceCorrectionDateRecord? ExpectedPriceCorrectionDate { get; init; }
+    public IDateAndDateTime1Choice? ExpectedPriceCorrectionDate { get; init; }
     
     /// <summary>
     /// Indicates whether or not all the prices of the referenced price report are cancelled.
@@ -108,7 +108,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [DataMember(Name="CmpltPricCxl")]
     [XmlElement(ElementName="CmpltPricCxl")]
     [Required]
-    public required SomeCompletePriceCancellationRecord CompletePriceCancellation { get; init; }
+    public required IsoYesNoIndicator CompletePriceCancellation { get; init; }
     
     /// <summary>
     /// Details of prices to be cancelled.
@@ -117,7 +117,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Details of prices to be cancelled.")]
     [DataMember(Name="CancPricValtnDtls")]
     [XmlElement(ElementName="CancPricValtnDtls")]
-    public SomeCancelledPriceValuationDetailsRecord? CancelledPriceValuationDetails { get; init; }
+    public PriceReport3? CancelledPriceValuationDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -126,7 +126,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

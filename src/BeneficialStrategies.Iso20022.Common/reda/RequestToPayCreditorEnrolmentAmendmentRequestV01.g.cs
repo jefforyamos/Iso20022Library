@@ -30,7 +30,7 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required EnrolmentHeader2 Header { get; init; }
     
     /// <summary>
     /// Provides further details on the creditor enrolment amendment request.
@@ -40,7 +40,7 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
     [DataMember(Name="AmdmntData")]
     [XmlElement(ElementName="AmdmntData")]
     [Required]
-    public required SomeAmendmentDataRecord AmendmentData { get; init; }
+    public required CreditorEnrolmentAmendment3 AmendmentData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -49,7 +49,7 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

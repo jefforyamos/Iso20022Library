@@ -29,7 +29,7 @@ public partial record ResendRequestV01 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader7 MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the criteria to unambiguously identify the information to be resent.
@@ -39,7 +39,7 @@ public partial record ResendRequestV01 : IOuterRecord
     [DataMember(Name="RsndSchCrit")]
     [XmlElement(ElementName="RsndSchCrit")]
     [Required]
-    public required SomeResendSearchCriteriaRecord ResendSearchCriteria { get; init; }
+    public required ResendSearchCriteria2 ResendSearchCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record ResendRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SettlementFailsReportHeader2 ReportHeader { get; init; }
     
     /// <summary>
     /// Aggregated annual volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
@@ -39,7 +39,7 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord
     [DataMember(Name="AnlAggt")]
     [XmlElement(ElementName="AnlAggt")]
     [Required]
-    public required SomeAnnualAggregateRecord AnnualAggregate { get; init; }
+    public required SettlementFailsData4 AnnualAggregate { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

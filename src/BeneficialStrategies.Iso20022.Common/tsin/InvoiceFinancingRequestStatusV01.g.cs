@@ -44,7 +44,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
     [DataMember(Name="StsId")]
     [XmlElement(ElementName="StsId")]
     [Required]
-    public required SomeStatusIdentificationRecord StatusIdentification { get; init; }
+    public required MessageIdentification1 StatusIdentification { get; init; }
     
     /// <summary>
     /// Set of summary information that unambiguously identifies the original invoice financing (or cancellation) request to which the status is referred. The status of the original request is also given in this block.|.
@@ -54,7 +54,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
     [DataMember(Name="OrgnlReqInfAndSts")]
     [XmlElement(ElementName="OrgnlReqInfAndSts")]
     [Required]
-    public required SomeOriginalRequestInformationAndStatusRecord OriginalRequestInformationAndStatus { get; init; }
+    public required OriginalRequestInformation1 OriginalRequestInformationAndStatus { get; init; }
     
     /// <summary>
     /// Information concerning the business status of a financing request.
@@ -63,7 +63,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
     [Description(@"Information concerning the business status of a financing request.")]
     [DataMember(Name="FincgInfAndSts")]
     [XmlElement(ElementName="FincgInfAndSts")]
-    public SomeFinancingInformationAndStatusRecord? FinancingInformationAndStatus { get; init; }
+    public FinancingInformationAndStatus1? FinancingInformationAndStatus { get; init; }
     
     */
     

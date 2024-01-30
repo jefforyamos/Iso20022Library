@@ -32,7 +32,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     [Description(@"Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).")]
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
-    public SomeIdentificationRecord? Identification { get; init; }
+    public DocumentIdentification51? Identification { get; init; }
     
     /// <summary>
     /// Defines the intra-balance movement cancellation query criteria.
@@ -42,7 +42,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     [DataMember(Name="QryDef")]
     [XmlElement(ElementName="QryDef")]
     [Required]
-    public required SomeQueryDefinitionRecord QueryDefinition { get; init; }
+    public required IntraBalanceQueryDefinition7 QueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -51,7 +51,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

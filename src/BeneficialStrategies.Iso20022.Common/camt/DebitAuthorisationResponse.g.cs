@@ -35,7 +35,7 @@ public partial record DebitAuthorisationResponse : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies a case.
@@ -45,7 +45,7 @@ public partial record DebitAuthorisationResponse : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Indicates if the debit authorisation is granted or not.
@@ -55,7 +55,7 @@ public partial record DebitAuthorisationResponse : IOuterRecord
     [DataMember(Name="Conf")]
     [XmlElement(ElementName="Conf")]
     [Required]
-    public required SomeConfirmationRecord Confirmation { get; init; }
+    public required DebitAuthorisationConfirmation Confirmation { get; init; }
     
     */
     

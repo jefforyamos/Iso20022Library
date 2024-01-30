@@ -36,7 +36,7 @@ public partial record BankToCustomerStatementV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader23 GroupHeader { get; init; }
     
     /// <summary>
     /// Reports on booked entries and balances for a cash account.
@@ -46,7 +46,7 @@ public partial record BankToCustomerStatementV01 : IOuterRecord
     [DataMember(Name="Stmt")]
     [XmlElement(ElementName="Stmt")]
     [Required]
-    public required SomeStatementRecord Statement { get; init; }
+    public required AccountStatement1 Statement { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record ATMWithdrawalCompletionAcknowledgementV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header21 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMWithdrawalCompletionAcknowledgementV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMWdrwlCmpltnAck")]
     [XmlElement(ElementName="PrtctdATMWdrwlCmpltnAck")]
-    public SomeProtectedATMWithdrawalCompletionAcknowledgementRecord? ProtectedATMWithdrawalCompletionAcknowledgement { get; init; }
+    public ContentInformationType10? ProtectedATMWithdrawalCompletionAcknowledgement { get; init; }
     
     /// <summary>
     /// Information related to the acknowledgement of an ATM withdrawal transaction from the ATM manager.
@@ -47,7 +47,7 @@ public partial record ATMWithdrawalCompletionAcknowledgementV01 : IOuterRecord
     [Description(@"Information related to the acknowledgement of an ATM withdrawal transaction from the ATM manager.")]
     [DataMember(Name="ATMWdrwlCmpltnAck")]
     [XmlElement(ElementName="ATMWdrwlCmpltnAck")]
-    public SomeATMWithdrawalCompletionAcknowledgementRecord? ATMWithdrawalCompletionAcknowledgement { get; init; }
+    public ATMWithdrawalCompletionAcknowledgement1? ATMWithdrawalCompletionAcknowledgement { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record ATMWithdrawalCompletionAcknowledgementV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

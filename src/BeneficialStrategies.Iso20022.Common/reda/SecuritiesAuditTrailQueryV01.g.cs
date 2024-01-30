@@ -28,7 +28,7 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the criteria to be used to query the securities audit trail by the executing system.
@@ -38,7 +38,7 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    public required SecuritiesAuditTrailSearchCriteria4 SearchCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

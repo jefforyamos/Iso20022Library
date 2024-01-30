@@ -29,7 +29,7 @@ public partial record AcceptorRejectionV04 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header13 Header { get; init; }
     
     /// <summary>
     /// Information related to the reject.
@@ -39,7 +39,7 @@ public partial record AcceptorRejectionV04 : IOuterRecord
     [DataMember(Name="Rjct")]
     [XmlElement(ElementName="Rjct")]
     [Required]
-    public required SomeRejectRecord Reject { get; init; }
+    public required AcceptorRejection2 Reject { get; init; }
     
     */
     

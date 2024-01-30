@@ -33,7 +33,7 @@ public partial record MeetingCancellationV09 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference10 MeetingReference { get; init; }
     
     /// <summary>
     /// Identification of the security for which the meeting was organised.
@@ -42,7 +42,7 @@ public partial record MeetingCancellationV09 : IOuterRecord
     [Description(@"Identification of the security for which the meeting was organised.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition17> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Justification for the cancellation.
@@ -52,7 +52,7 @@ public partial record MeetingCancellationV09 : IOuterRecord
     [DataMember(Name="Rsn")]
     [XmlElement(ElementName="Rsn")]
     [Required]
-    public required SomeReasonRecord Reason { get; init; }
+    public required MeetingCancellationReason2 Reason { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -61,7 +61,7 @@ public partial record MeetingCancellationV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

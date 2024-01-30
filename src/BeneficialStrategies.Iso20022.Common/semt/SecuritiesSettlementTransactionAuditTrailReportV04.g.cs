@@ -35,7 +35,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Identification of the SecuritiesStatusQuery message sent to request this report.
@@ -44,7 +44,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [Description(@"Identification of the SecuritiesStatusQuery message sent to request this report.")]
     [DataMember(Name="QryRef")]
     [XmlElement(ElementName="QryRef")]
-    public SomeQueryReferenceRecord? QueryReference { get; init; }
+    public Identification14? QueryReference { get; init; }
     
     /// <summary>
     /// Provides unambiguous transaction identification information.
@@ -53,7 +53,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [Description(@"Provides unambiguous transaction identification information.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentifications29? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -63,7 +63,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount22 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -72,7 +72,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     ///  Provides the history of status and reasons for a pending, posted or cancelled transaction.
@@ -81,7 +81,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV04 : IOute
     [Description(@" Provides the history of status and reasons for a pending, posted or cancelled transaction.")]
     [DataMember(Name="StsTrl")]
     [XmlElement(ElementName="StsTrl")]
-    public SomeStatusTrailRecord? StatusTrail { get; init; }
+    public StatusTrail8? StatusTrail { get; init; }
     
     */
     

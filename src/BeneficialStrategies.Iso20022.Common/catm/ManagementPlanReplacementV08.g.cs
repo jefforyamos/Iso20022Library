@@ -29,7 +29,7 @@ public partial record ManagementPlanReplacementV08 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required TMSHeader1 Header { get; init; }
     
     /// <summary>
     /// Sequence of terminal maintenance actions to be performed by a point of interaction (POI).
@@ -39,7 +39,7 @@ public partial record ManagementPlanReplacementV08 : IOuterRecord
     [DataMember(Name="MgmtPlan")]
     [XmlElement(ElementName="MgmtPlan")]
     [Required]
-    public required SomeManagementPlanRecord ManagementPlan { get; init; }
+    public required ManagementPlan8 ManagementPlan { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record ManagementPlanReplacementV08 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType21? SecurityTrailer { get; init; }
     
     */
     

@@ -41,7 +41,7 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to the message or communication that was previously received.
@@ -50,7 +50,7 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public IReferences61Choice? Reference { get; init; }
     
     /// <summary>
     /// Status of the order cancellation.
@@ -60,7 +60,7 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required IStatus26Choice StatusReport { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -69,7 +69,7 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

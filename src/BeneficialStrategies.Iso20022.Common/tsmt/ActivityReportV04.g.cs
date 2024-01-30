@@ -35,7 +35,7 @@ public partial record ActivityReportV04 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Reference to the previous message requesting the report.
@@ -44,7 +44,7 @@ public partial record ActivityReportV04 : IOuterRecord
     [Description(@"Reference to the previous message requesting the report.")]
     [DataMember(Name="RltdMsgRef")]
     [XmlElement(ElementName="RltdMsgRef")]
-    public SomeRelatedMessageReferenceRecord? RelatedMessageReference { get; init; }
+    public MessageIdentification1? RelatedMessageReference { get; init; }
     
     /// <summary>
     /// Describes the events that occurred for one transaction.
@@ -53,7 +53,7 @@ public partial record ActivityReportV04 : IOuterRecord
     [Description(@"Describes the events that occurred for one transaction.")]
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
-    public SomeReportRecord? Report { get; init; }
+    public ActivityReportItems3? Report { get; init; }
     
     */
     

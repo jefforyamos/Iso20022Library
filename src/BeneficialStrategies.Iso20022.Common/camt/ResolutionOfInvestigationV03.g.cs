@@ -50,7 +50,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment2 Assignment { get; init; }
     
     /// <summary>
     /// Identifies a resolved case.
@@ -59,7 +59,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [Description(@"Identifies a resolved case.")]
     [DataMember(Name="RslvdCase")]
     [XmlElement(ElementName="RslvdCase")]
-    public SomeResolvedCaseRecord? ResolvedCase { get; init; }
+    public Case2? ResolvedCase { get; init; }
     
     /// <summary>
     /// Indicates the status of the investigation.
@@ -69,7 +69,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required IInvestigationStatus2Choice Status { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transactions being cancelled.
@@ -78,7 +78,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [Description(@"Specifies the details of the underlying transactions being cancelled.")]
     [DataMember(Name="CxlDtls")]
     [XmlElement(ElementName="CxlDtls")]
-    public SomeCancellationDetailsRecord? CancellationDetails { get; init; }
+    public UnderlyingTransaction3? CancellationDetails { get; init; }
     
     /// <summary>
     /// Details on the underlying statement entry.
@@ -87,7 +87,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [Description(@"Details on the underlying statement entry.")]
     [DataMember(Name="StmtDtls")]
     [XmlElement(ElementName="StmtDtls")]
-    public SomeStatementDetailsRecord? StatementDetails { get; init; }
+    public StatementResolutionEntry1? StatementDetails { get; init; }
     
     /// <summary>
     /// References a transaction initiated to fix the case under investigation.
@@ -96,7 +96,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [Description(@"References a transaction initiated to fix the case under investigation.")]
     [DataMember(Name="CrrctnTx")]
     [XmlElement(ElementName="CrrctnTx")]
-    public SomeCorrectionTransactionRecord? CorrectionTransaction { get; init; }
+    public ICorrectiveTransaction1Choice? CorrectionTransaction { get; init; }
     
     /// <summary>
     /// Reference of a return or a reversal initiated to fix the case under investigation as part of the resolution.
@@ -105,7 +105,7 @@ public partial record ResolutionOfInvestigationV03 : IOuterRecord
     [Description(@"Reference of a return or a reversal initiated to fix the case under investigation as part of the resolution.")]
     [DataMember(Name="RsltnRltdInf")]
     [XmlElement(ElementName="RsltnRltdInf")]
-    public SomeResolutionRelatedInformationRecord? ResolutionRelatedInformation { get; init; }
+    public ResolutionInformation1? ResolutionRelatedInformation { get; init; }
     
     */
     

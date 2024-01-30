@@ -29,7 +29,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [DataMember(Name="AdvsgPty")]
     [XmlElement(ElementName="AdvsgPty")]
     [Required]
-    public required SomeAdvisingPartyRecord AdvisingParty { get; init; }
+    public required PartyIdentification43 AdvisingParty { get; init; }
     
     /// <summary>
     /// Additional party that advises the undertaking.
@@ -38,7 +38,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [Description(@"Additional party that advises the undertaking.")]
     [DataMember(Name="ScndAdvsgPty")]
     [XmlElement(ElementName="ScndAdvsgPty")]
-    public SomeSecondAdvisingPartyRecord? SecondAdvisingParty { get; init; }
+    public PartyIdentification43? SecondAdvisingParty { get; init; }
     
     /// <summary>
     /// Date on which the undertaking is advised.
@@ -48,7 +48,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [DataMember(Name="DtOfAdvc")]
     [XmlElement(ElementName="DtOfAdvc")]
     [Required]
-    public required SomeDateOfAdviceRecord DateOfAdvice { get; init; }
+    public required IDateAndDateTimeChoice DateOfAdvice { get; init; }
     
     /// <summary>
     /// Details related to the advice of the issued undertaking.
@@ -58,7 +58,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [DataMember(Name="UdrtkgIssncAdvcDtls")]
     [XmlElement(ElementName="UdrtkgIssncAdvcDtls")]
     [Required]
-    public required SomeUndertakingIssuanceAdviceDetailsRecord UndertakingIssuanceAdviceDetails { get; init; }
+    public required UndertakingAdvice1 UndertakingIssuanceAdviceDetails { get; init; }
     
     /// <summary>
     /// Additional information specific to the bank-to-bank communication.
@@ -67,7 +67,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    public required IReadonlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking advice.
@@ -76,7 +76,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [Description(@"Digital signature of the undertaking advice.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

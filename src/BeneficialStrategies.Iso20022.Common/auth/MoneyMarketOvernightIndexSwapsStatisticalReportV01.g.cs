@@ -29,7 +29,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides the reason why no activity is reported or the required list of transactions for the overnight index swaps segment.
@@ -39,7 +39,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     [DataMember(Name="OvrnghtIndxSwpsRpt")]
     [XmlElement(ElementName="OvrnghtIndxSwpsRpt")]
     [Required]
-    public required SomeOvernightIndexSwapsReportRecord OvernightIndexSwapsReport { get; init; }
+    public required IOvernightIndexSwap3Choice OvernightIndexSwapsReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

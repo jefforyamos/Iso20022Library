@@ -33,7 +33,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement2 TradeInformation { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the currency option trade which is amended.
@@ -43,7 +43,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification4 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the currency option trade which is amended.
@@ -53,7 +53,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification4 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the parameters of the currency option which is bought by the trading side.
@@ -63,7 +63,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
     [DataMember(Name="Optn")]
     [XmlElement(ElementName="Optn")]
     [Required]
-    public required SomeOptionRecord Option { get; init; }
+    public required Option3 Option { get; init; }
     
     */
     

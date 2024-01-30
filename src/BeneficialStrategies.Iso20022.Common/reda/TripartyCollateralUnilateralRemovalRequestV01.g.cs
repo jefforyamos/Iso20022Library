@@ -31,7 +31,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the removal request as known by the account owner (or the instructing party managing the account).
@@ -41,7 +41,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [DataMember(Name="RmvlReqId")]
     [XmlElement(ElementName="RmvlReqId")]
     [Required]
-    public required SomeRemovalRequestIdentificationRecord RemovalRequestIdentification { get; init; }
+    public required IsoMax35Text RemovalRequestIdentification { get; init; }
     
     /// <summary>
     /// Instructing party sending the removal request.
@@ -51,7 +51,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [DataMember(Name="PtyA")]
     [XmlElement(ElementName="PtyA")]
     [Required]
-    public required SomePartyARecord PartyA { get; init; }
+    public required PartyIdentification232 PartyA { get; init; }
     
     /// <summary>
     /// Party that instructs party A to send the message.
@@ -60,7 +60,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [Description(@"Party that instructs party A to send the message.")]
     [DataMember(Name="ClntPtyA")]
     [XmlElement(ElementName="ClntPtyA")]
-    public SomeClientPartyARecord? ClientPartyA { get; init; }
+    public PartyIdentification232? ClientPartyA { get; init; }
     
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
@@ -70,7 +70,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [DataMember(Name="CollSd")]
     [XmlElement(ElementName="CollSd")]
     [Required]
-    public required SomeCollateralSideRecord CollateralSide { get; init; }
+    public required CollateralRole1Code CollateralSide { get; init; }
     
     /// <summary>
     /// Details of the request (the request details block is not repetitive to remove some complexity, only one removal request will be possible per message).
@@ -80,7 +80,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
     [Required]
-    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    public required RequestDetails28 RequestDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -89,7 +89,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

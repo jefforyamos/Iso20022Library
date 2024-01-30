@@ -34,7 +34,7 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Deactivation Instruction to be cancelled.
@@ -44,7 +44,7 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="AgtCADeactvtnInstrId")]
     [XmlElement(ElementName="AgtCADeactvtnInstrId")]
     [Required]
-    public required SomeAgentCADeactivationInstructionIdentificationRecord AgentCADeactivationInstructionIdentification { get; init; }
+    public required DocumentIdentification8 AgentCADeactivationInstructionIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -54,7 +54,7 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Details of the deactivation instruction to be cancelled.
@@ -63,7 +63,7 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     [Description(@"Details of the deactivation instruction to be cancelled.")]
     [DataMember(Name="DeactvtnInstrDtls")]
     [XmlElement(ElementName="DeactvtnInstrDtls")]
-    public SomeDeactivationInstructionDetailsRecord? DeactivationInstructionDetails { get; init; }
+    public CorporateActionDeactivationInstruction1? DeactivationInstructionDetails { get; init; }
     
     */
     

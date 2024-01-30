@@ -29,7 +29,7 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord
     [DataMember(Name="StrngCstmrAuthntcn")]
     [XmlElement(ElementName="StrngCstmrAuthntcn")]
     [Required]
-    public required SomeStrongCustomerAuthenticationRecord StrongCustomerAuthentication { get; init; }
+    public required StrongCustomerAuthentication1 StrongCustomerAuthentication { get; init; }
     
     */
     

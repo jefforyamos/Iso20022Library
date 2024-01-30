@@ -39,7 +39,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [DataMember(Name="ModReqRef")]
     [XmlElement(ElementName="ModReqRef")]
     [Required]
-    public required SomeModificationRequestReferenceRecord ModificationRequestReference { get; init; }
+    public required Identification14 ModificationRequestReference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -48,7 +48,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Provides unambiguous transaction identification information.
@@ -67,7 +67,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [Description(@"Provides unambiguous transaction identification information.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentifications33? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -77,7 +77,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [DataMember(Name="ModPrcgSts")]
     [XmlElement(ElementName="ModPrcgSts")]
     [Required]
-    public required SomeModificationProcessingStatusRecord ModificationProcessingStatus { get; init; }
+    public required IModificationProcessingStatus7Choice ModificationProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -86,7 +86,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails137? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -95,7 +95,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

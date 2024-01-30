@@ -29,7 +29,7 @@ public partial record SaleToPOIAbortV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header41 Header { get; init; }
     
     /// <summary>
     /// Information related to an abort request.
@@ -39,7 +39,7 @@ public partial record SaleToPOIAbortV02 : IOuterRecord
     [DataMember(Name="Abrt")]
     [XmlElement(ElementName="Abrt")]
     [Required]
-    public required SomeAbortRecord Abort { get; init; }
+    public required SystemAbort3 Abort { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record SaleToPOIAbortV02 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType21? SecurityTrailer { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record SaleToPOIReportResponseV05 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header41 Header { get; init; }
     
     /// <summary>
     /// Information related to the response of a report request.
@@ -39,7 +39,7 @@ public partial record SaleToPOIReportResponseV05 : IOuterRecord
     [DataMember(Name="RptRspn")]
     [XmlElement(ElementName="RptRspn")]
     [Required]
-    public required SomeReportResponseRecord ReportResponse { get; init; }
+    public required ReportResponse6 ReportResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record SaleToPOIReportResponseV05 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType33? SecurityTrailer { get; init; }
     
     */
     

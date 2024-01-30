@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header23 Header { get; init; }
     
     /// <summary>
     /// Identifies the cancellation request messge.
@@ -41,7 +41,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [Description(@"Identifies the cancellation request messge.")]
     [DataMember(Name="CxlReqId")]
     [XmlElement(ElementName="CxlReqId")]
-    public SomeCancellationRequestIdentificationRecord? CancellationRequestIdentification { get; init; }
+    public MessageIdentification1? CancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the treasury trade which is captured.
@@ -51,7 +51,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification7 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty side of the treasury trade which is captured.
@@ -61,7 +61,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [DataMember(Name="CtrPtyRoleId")]
     [XmlElement(ElementName="CtrPtyRoleId")]
     [Required]
-    public required SomeCounterpartyRoleIdentificationRecord CounterpartyRoleIdentification { get; init; }
+    public required TradePartyIdentification7 CounterpartyRoleIdentification { get; init; }
     
     /// <summary>
     /// Identifier of the trade that needs to be cancelled.
@@ -71,7 +71,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [DataMember(Name="TradId")]
     [XmlElement(ElementName="TradId")]
     [Required]
-    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    public required IsoMax35Text TradeIdentification { get; init; }
     
     /// <summary>
     /// Specifies the underlying product type.
@@ -81,7 +81,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [DataMember(Name="UndrlygPdctTp")]
     [XmlElement(ElementName="UndrlygPdctTp")]
     [Required]
-    public required SomeUnderlyingProductTypeRecord UnderlyingProductType { get; init; }
+    public required UnderlyingProductIdentifier1Code UnderlyingProductType { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

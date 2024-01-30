@@ -28,7 +28,7 @@ public partial record PartyActivityAdviceV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Activity report of changes occurred for a party defined in the system.
@@ -38,7 +38,7 @@ public partial record PartyActivityAdviceV01 : IOuterRecord
     [DataMember(Name="PtyActvty")]
     [XmlElement(ElementName="PtyActvty")]
     [Required]
-    public required SomePartyActivityRecord PartyActivity { get; init; }
+    public required PartyStatement2 PartyActivity { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record PartyActivityAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

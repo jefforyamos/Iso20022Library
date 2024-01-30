@@ -29,7 +29,7 @@ public partial record NetworkManagementInitiation : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header17 Header { get; init; }
     
     /// <summary>
     /// Information related to the network management.
@@ -39,7 +39,7 @@ public partial record NetworkManagementInitiation : IOuterRecord
     [DataMember(Name="NtwkMgmtInitn")]
     [XmlElement(ElementName="NtwkMgmtInitn")]
     [Required]
-    public required SomeNetworkManagementInitiationRecord NetworkManagementInitiation { get; init; }
+    public required AcquirerNetworkManagementInitiation1 NetworkManagementInitiation { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -48,7 +48,7 @@ public partial record NetworkManagementInitiation : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

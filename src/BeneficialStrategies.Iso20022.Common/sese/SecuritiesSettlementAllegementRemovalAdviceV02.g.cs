@@ -36,7 +36,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [DataMember(Name="AcctSvcrTxId")]
     [XmlElement(ElementName="AcctSvcrTxId")]
     [Required]
-    public required SomeAccountServicerTransactionIdentificationRecord AccountServicerTransactionIdentification { get; init; }
+    public required SettlementTypeAndIdentification3 AccountServicerTransactionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
@@ -45,7 +45,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [Description(@"Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
     [DataMember(Name="MktInfrstrctrTxId")]
     [XmlElement(ElementName="MktInfrstrctrTxId")]
-    public SomeMarketInfrastructureTransactionIdentificationRecord? MarketInfrastructureTransactionIdentification { get; init; }
+    public Identification1? MarketInfrastructureTransactionIdentification { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -54,7 +54,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification36Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -64,7 +64,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -73,7 +73,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails28? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -82,7 +82,7 @@ public partial record SecuritiesSettlementAllegementRemovalAdviceV02 : IOuterRec
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record UndertakingAmendmentV01 : IOuterRecord
     [DataMember(Name="UdrtkgAmdmntDtls")]
     [XmlElement(ElementName="UdrtkgAmdmntDtls")]
     [Required]
-    public required SomeUndertakingAmendmentDetailsRecord UndertakingAmendmentDetails { get; init; }
+    public required Amendment1 UndertakingAmendmentDetails { get; init; }
     
     /// <summary>
     /// Additional information specific to the bank-to-bank communication.
@@ -38,7 +38,7 @@ public partial record UndertakingAmendmentV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    public required IReadonlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the proposed undertaking amendment.
@@ -47,7 +47,7 @@ public partial record UndertakingAmendmentV01 : IOuterRecord
     [Description(@"Digital signature of the proposed undertaking amendment.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

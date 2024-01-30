@@ -32,7 +32,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [DataMember(Name="InstrCxlId")]
     [XmlElement(ElementName="InstrCxlId")]
     [Required]
-    public required SomeInstructionCancellationIdentificationRecord InstructionCancellationIdentification { get; init; }
+    public required MessageIdentification1 InstructionCancellationIdentification { get; init; }
     
     /// <summary>
     /// Identifies the instruction to be cancelled.
@@ -42,7 +42,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required MessageIdentification PreviousReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -51,7 +51,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [Description(@"Series of elements which allow to identify a meeting.")]
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
-    public SomeMeetingReferenceRecord? MeetingReference { get; init; }
+    public MeetingReference3? MeetingReference { get; init; }
     
     /// <summary>
     /// Party requesting the cancellation.
@@ -60,7 +60,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [Description(@"Party requesting the cancellation.")]
     [DataMember(Name="RqstngPty")]
     [XmlElement(ElementName="RqstngPty")]
-    public SomeRequestingPartyRecord? RequestingParty { get; init; }
+    public IPartyIdentification9Choice? RequestingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.
@@ -69,7 +69,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [Description(@"Identifies the security for which the meeting is organised.")]
     [DataMember(Name="SctyId")]
     [XmlElement(ElementName="SctyId")]
-    public SomeSecurityIdentificationRecord? SecurityIdentification { get; init; }
+    public SecurityIdentification3? SecurityIdentification { get; init; }
     
     /// <summary>
     /// Identifies the account and instructed positions for which the instruction cancellation request applies.
@@ -78,7 +78,7 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     [Description(@"Identifies the account and instructed positions for which the instruction cancellation request applies.")]
     [DataMember(Name="InstdPos")]
     [XmlElement(ElementName="InstdPos")]
-    public SomeInstructedPositionRecord? InstructedPosition { get; init; }
+    public SafekeepingAccount3? InstructedPosition { get; init; }
     
     */
     

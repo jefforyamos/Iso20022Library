@@ -35,7 +35,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [DataMember(Name="NtfctnTp")]
     [XmlElement(ElementName="NtfctnTp")]
     [Required]
-    public required SomeNotificationTypeRecord NotificationType { get; init; }
+    public required NotificationType2Code NotificationType { get; init; }
     
     /// <summary>
     /// Identification of the original meeting notification entitlement message which is amended.
@@ -44,7 +44,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [Description(@"Identification of the original meeting notification entitlement message which is amended.")]
     [DataMember(Name="PrvsEntitlmntNtfctnId")]
     [XmlElement(ElementName="PrvsEntitlmntNtfctnId")]
-    public SomePreviousEntitlementNotificationIdentificationRecord? PreviousEntitlementNotificationIdentification { get; init; }
+    public IsoMax35Text? PreviousEntitlementNotificationIdentification { get; init; }
     
     /// <summary>
     /// Set of elements that allow to identify unambiguously a meeting.
@@ -54,7 +54,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference8 MeetingReference { get; init; }
     
     /// <summary>
     /// Institution that is the issuer of the security to which the meeting applies.
@@ -64,7 +64,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
     [Required]
-    public required SomeIssuerRecord Issuer { get; init; }
+    public required IPartyIdentification129Choice Issuer { get; init; }
     
     /// <summary>
     /// Security for which the meeting is organised, the account and the positions of the security holder.
@@ -73,7 +73,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [Description(@"Security for which the meeting is organised, the account and the positions of the security holder.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition11> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Date determining eligibility.
@@ -83,7 +83,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [DataMember(Name="Elgblty")]
     [XmlElement(ElementName="Elgblty")]
     [Required]
-    public required SomeEligibilityRecord Eligibility { get; init; }
+    public required EligibilityDates1 Eligibility { get; init; }
     
     /// <summary>
     /// Person attending physically the meeting as a natural or legal person.
@@ -92,7 +92,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [Description(@"Person attending physically the meeting as a natural or legal person.")]
     [DataMember(Name="MtgAttndee")]
     [XmlElement(ElementName="MtgAttndee")]
-    public SomeMeetingAttendeeRecord? MeetingAttendee { get; init; }
+    public IPartyIdentification223Choice? MeetingAttendee { get; init; }
     
     /// <summary>
     /// Third party agent assigned by the shareholder that is legally authorised to cast a vote on the shareholder's behalf at the general meeting.
@@ -101,7 +101,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [Description(@"Third party agent assigned by the shareholder that is legally authorised to cast a vote on the shareholder's behalf at the general meeting.")]
     [DataMember(Name="Prxy")]
     [XmlElement(ElementName="Prxy")]
-    public SomeProxyRecord? Proxy { get; init; }
+    public IPartyIdentification223Choice? Proxy { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -110,7 +110,7 @@ public partial record MeetingEntitlementNotificationV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

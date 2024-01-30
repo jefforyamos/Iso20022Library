@@ -29,7 +29,7 @@ public partial record PriceReportV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -38,7 +38,7 @@ public partial record PriceReportV04 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -47,7 +47,7 @@ public partial record PriceReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -56,7 +56,7 @@ public partial record PriceReportV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -66,7 +66,7 @@ public partial record PriceReportV04 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for the price report, as assigned by the reporting party.
@@ -76,7 +76,7 @@ public partial record PriceReportV04 : IOuterRecord
     [DataMember(Name="PricRptId")]
     [XmlElement(ElementName="PricRptId")]
     [Required]
-    public required SomePriceReportIdentificationRecord PriceReportIdentification { get; init; }
+    public required IsoMax35Text PriceReportIdentification { get; init; }
     
     /// <summary>
     /// Function of the price report, that is, whether the price report is a new price report or a replacement of some kind.
@@ -86,7 +86,7 @@ public partial record PriceReportV04 : IOuterRecord
     [DataMember(Name="Fctn")]
     [XmlElement(ElementName="Fctn")]
     [Required]
-    public required SomeFunctionRecord Function { get; init; }
+    public required PriceReportFunction1Code Function { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.
@@ -95,7 +95,7 @@ public partial record PriceReportV04 : IOuterRecord
     [Description(@"Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.")]
     [DataMember(Name="CxlId")]
     [XmlElement(ElementName="CxlId")]
-    public SomeCancellationIdentificationRecord? CancellationIdentification { get; init; }
+    public IsoMax35Text? CancellationIdentification { get; init; }
     
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
@@ -105,7 +105,7 @@ public partial record PriceReportV04 : IOuterRecord
     [DataMember(Name="PricValtnDtls")]
     [XmlElement(ElementName="PricValtnDtls")]
     [Required]
-    public required SomePriceValuationDetailsRecord PriceValuationDetails { get; init; }
+    public required PriceValuation4 PriceValuationDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -114,7 +114,7 @@ public partial record PriceReportV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

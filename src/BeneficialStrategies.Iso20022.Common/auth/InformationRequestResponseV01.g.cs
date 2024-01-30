@@ -33,7 +33,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="RspnId")]
     [XmlElement(ElementName="RspnId")]
     [Required]
-    public required SomeResponseIdentificationRecord ResponseIdentification { get; init; }
+    public required IsoMax35Text ResponseIdentification { get; init; }
     
     /// <summary>
     /// Unique identification for the specific investigation as known by the requesting party.
@@ -43,7 +43,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="InvstgtnId")]
     [XmlElement(ElementName="InvstgtnId")]
     [Required]
-    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    public required IsoMax35Text InvestigationIdentification { get; init; }
     
     /// <summary>
     /// Provides the status of the response.
@@ -53,7 +53,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="RspnSts")]
     [XmlElement(ElementName="RspnSts")]
     [Required]
-    public required SomeResponseStatusRecord ResponseStatus { get; init; }
+    public required StatusResponse1Code ResponseStatus { get; init; }
     
     /// <summary>
     /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
@@ -63,7 +63,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    public required ISearchCriteria1Choice SearchCriteria { get; init; }
     
     /// <summary>
     /// Provides the return indicators and the investigation result.
@@ -73,7 +73,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="RtrInd")]
     [XmlElement(ElementName="RtrInd")]
     [Required]
-    public required SomeReturnIndicatorRecord ReturnIndicator { get; init; }
+    public required ReturnIndicator1 ReturnIndicator { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -82,7 +82,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

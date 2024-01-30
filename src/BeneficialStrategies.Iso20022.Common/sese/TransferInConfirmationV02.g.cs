@@ -34,7 +34,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -43,7 +43,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -52,7 +52,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference2? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -61,7 +61,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference2? PreviousReference { get; init; }
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.
@@ -71,7 +71,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [DataMember(Name="TrfDtls")]
     [XmlElement(ElementName="TrfDtls")]
     [Required]
-    public required SomeTransferDetailsRecord TransferDetails { get; init; }
+    public required Transfer7 TransferDetails { get; init; }
     
     /// <summary>
     /// Information related to the financial instrument received.
@@ -81,7 +81,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [DataMember(Name="FinInstrmDtls")]
     [XmlElement(ElementName="FinInstrmDtls")]
     [Required]
-    public required SomeFinancialInstrumentDetailsRecord FinancialInstrumentDetails { get; init; }
+    public required FinancialInstrument13 FinancialInstrumentDetails { get; init; }
     
     /// <summary>
     /// Information related to the account into which the financial instrument was received.
@@ -91,7 +91,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required InvestmentAccount22 AccountDetails { get; init; }
     
     /// <summary>
     /// Information related to the delivering side of the transfer.
@@ -101,7 +101,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    public required DeliverInformation4 SettlementDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -110,7 +110,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -119,7 +119,7 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

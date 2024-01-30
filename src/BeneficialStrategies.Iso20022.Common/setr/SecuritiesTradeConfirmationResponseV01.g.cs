@@ -37,7 +37,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required TransactiontIdentification4 Identification { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -47,7 +47,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required Linkages15 References { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the trade.
@@ -57,7 +57,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required StatusAndReason10 Status { get; init; }
     
     /// <summary>
     /// Provides clearing member information.
@@ -66,7 +66,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [Description(@"Provides clearing member information.")]
     [DataMember(Name="ClrDtls")]
     [XmlElement(ElementName="ClrDtls")]
-    public SomeClearingDetailsRecord? ClearingDetails { get; init; }
+    public Clearing3? ClearingDetails { get; init; }
     
     /// <summary>
     /// Parties involved in the confirmation of the details of a trade.
@@ -75,7 +75,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [Description(@"Parties involved in the confirmation of the details of a trade.")]
     [DataMember(Name="ConfPties")]
     [XmlElement(ElementName="ConfPties")]
-    public SomeConfirmationPartiesRecord? ConfirmationParties { get; init; }
+    public ConfirmationParties3? ConfirmationParties { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -84,7 +84,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

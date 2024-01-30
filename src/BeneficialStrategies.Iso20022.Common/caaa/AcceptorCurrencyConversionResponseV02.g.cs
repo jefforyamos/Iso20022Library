@@ -29,7 +29,7 @@ public partial record AcceptorCurrencyConversionResponseV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header10 Header { get; init; }
     
     /// <summary>
     /// Information related to the outcome of the currency conversion.
@@ -39,7 +39,7 @@ public partial record AcceptorCurrencyConversionResponseV02 : IOuterRecord
     [DataMember(Name="CcyConvsRspn")]
     [XmlElement(ElementName="CcyConvsRspn")]
     [Required]
-    public required SomeCurrencyConversionResponseRecord CurrencyConversionResponse { get; init; }
+    public required AcceptorCurrencyConversionResponse2 CurrencyConversionResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC (message authentication code).
@@ -49,7 +49,7 @@ public partial record AcceptorCurrencyConversionResponseV02 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType11 SecurityTrailer { get; init; }
     
     */
     

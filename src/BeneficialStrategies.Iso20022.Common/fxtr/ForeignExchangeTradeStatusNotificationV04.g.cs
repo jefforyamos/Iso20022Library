@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeStatusNotificationV04 : IOuterRecord
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required SomeTradeDataRecord TradeData { get; init; }
+    public required TradeData7 TradeData { get; init; }
     
     /// <summary>
     /// This is information that is to be provided to trade repositories in the context of the regulatory standards around OTC derivatives, central counterparties and trade repositories.
@@ -41,7 +41,7 @@ public partial record ForeignExchangeTradeStatusNotificationV04 : IOuterRecord
     [Description(@"This is information that is to be provided to trade repositories in the context of the regulatory standards around OTC derivatives, central counterparties and trade repositories.")]
     [DataMember(Name="RgltryRptg")]
     [XmlElement(ElementName="RgltryRptg")]
-    public SomeRegulatoryReportingRecord? RegulatoryReporting { get; init; }
+    public RegulatoryReporting1? RegulatoryReporting { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -50,7 +50,7 @@ public partial record ForeignExchangeTradeStatusNotificationV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

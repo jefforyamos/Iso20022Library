@@ -32,7 +32,7 @@ public partial record BuyInResponseV03 : IOuterRecord
     [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public IsoMax35Text? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides response details such as a request for delay and the number of days associated to that request.
@@ -42,7 +42,7 @@ public partial record BuyInResponseV03 : IOuterRecord
     [DataMember(Name="BuyInRspnDtls")]
     [XmlElement(ElementName="BuyInRspnDtls")]
     [Required]
-    public required SomeBuyInResponseDetailsRecord BuyInResponseDetails { get; init; }
+    public required BuyIn3 BuyInResponseDetails { get; init; }
     
     /// <summary>
     /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
@@ -51,7 +51,7 @@ public partial record BuyInResponseV03 : IOuterRecord
     [Description(@"Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.")]
     [DataMember(Name="OrgnlSttlmOblgtnDtls")]
     [XmlElement(ElementName="OrgnlSttlmOblgtnDtls")]
-    public SomeOriginalSettlementObligationDetailsRecord? OriginalSettlementObligationDetails { get; init; }
+    public SettlementObligation7? OriginalSettlementObligationDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -60,7 +60,7 @@ public partial record BuyInResponseV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

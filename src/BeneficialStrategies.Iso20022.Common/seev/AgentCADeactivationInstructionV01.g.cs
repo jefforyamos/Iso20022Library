@@ -37,7 +37,7 @@ public partial record AgentCADeactivationInstructionV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -47,7 +47,7 @@ public partial record AgentCADeactivationInstructionV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information related to the deactivation of a CA event.
@@ -57,7 +57,7 @@ public partial record AgentCADeactivationInstructionV01 : IOuterRecord
     [DataMember(Name="DeactvtnDtls")]
     [XmlElement(ElementName="DeactvtnDtls")]
     [Required]
-    public required SomeDeactivationDetailsRecord DeactivationDetails { get; init; }
+    public required CorporateActionDeactivationInstruction1 DeactivationDetails { get; init; }
     
     */
     

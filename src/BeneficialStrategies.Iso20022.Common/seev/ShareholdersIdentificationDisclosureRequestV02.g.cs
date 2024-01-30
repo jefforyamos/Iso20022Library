@@ -29,7 +29,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="IssrDsclsrReqId")]
     [XmlElement(ElementName="IssrDsclsrReqId")]
     [Required]
-    public required SomeIssuerDisclosureRequestIdentificationRecord IssuerDisclosureRequestIdentification { get; init; }
+    public required IsoMax35Text IssuerDisclosureRequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the type of disclosure request.
@@ -39,7 +39,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="DsclsrReqTp")]
     [XmlElement(ElementName="DsclsrReqTp")]
     [Required]
-    public required SomeDisclosureRequestTypeRecord DisclosureRequestType { get; init; }
+    public required DisclosureRequestType1Code DisclosureRequestType { get; init; }
     
     /// <summary>
     /// Indicates whether the request is to be forwarded to and responded by the other intermediaries down the chain of intermediaries or not. 
@@ -49,7 +49,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Indicates whether the request is to be forwarded to and responded by the other intermediaries down the chain of intermediaries or not. |If not to be forwarded, the indicator may not be present.")]
     [DataMember(Name="FwdReqInd")]
     [XmlElement(ElementName="FwdReqInd")]
-    public SomeForwardRequestIndicatorRecord? ForwardRequestIndicator { get; init; }
+    public IsoYesNoIndicator? ForwardRequestIndicator { get; init; }
     
     /// <summary>
     /// Indicates whether the shareholder identification disclosure response is to be sent back down the chain of intermediaries or directly to the identified response recipient. 
@@ -60,7 +60,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Indicates whether the shareholder identification disclosure response is to be sent back down the chain of intermediaries or directly to the identified response recipient. |If ""true"" or ""1"", the response must be sent back through the chain of intermediaries.|If ""false"" or ""0"", the response must be sent directly to the identified response recipient and the indicator may not be present.")]
     [DataMember(Name="RspnThrghChainInd")]
     [XmlElement(ElementName="RspnThrghChainInd")]
-    public SomeResponseThroughChainIndicatorRecord? ResponseThroughChainIndicator { get; init; }
+    public IsoYesNoIndicator? ResponseThroughChainIndicator { get; init; }
     
     /// <summary>
     /// Indicates whether the request was initiated by the first intermediary in the custody chain in accordance with SRD II.
@@ -69,7 +69,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Indicates whether the request was initiated by the first intermediary in the custody chain in accordance with SRD II.")]
     [DataMember(Name="ShrhldrRghtsDrctvInd")]
     [XmlElement(ElementName="ShrhldrRghtsDrctvInd")]
-    public SomeShareholderRightsDirectiveIndicatorRecord? ShareholderRightsDirectiveIndicator { get; init; }
+    public IsoYesNoIndicator? ShareholderRightsDirectiveIndicator { get; init; }
     
     /// <summary>
     /// Identifies the financial instrument.
@@ -79,7 +79,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
@@ -89,7 +89,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="ShrhldrsDsclsrRcrdDt")]
     [XmlElement(ElementName="ShrhldrsDsclsrRcrdDt")]
     [Required]
-    public required SomeShareholdersDisclosureRecordDateRecord ShareholdersDisclosureRecordDate { get; init; }
+    public required IDateFormat46Choice ShareholdersDisclosureRecordDate { get; init; }
     
     /// <summary>
     /// Minimum number of shares held by a shareholder above which the identification must be disclosed.
@@ -98,7 +98,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Minimum number of shares held by a shareholder above which the identification must be disclosed.")]
     [DataMember(Name="ShrsQtyThrshld")]
     [XmlElement(ElementName="ShrsQtyThrshld")]
-    public SomeSharesQuantityThresholdRecord? SharesQuantityThreshold { get; init; }
+    public IsoDecimalNumber? SharesQuantityThreshold { get; init; }
     
     /// <summary>
     /// Indicates whether the date from which the shares have been held must be communicated into the disclosure response and according to which method theses dates have to be communicated.
@@ -107,7 +107,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Indicates whether the date from which the shares have been held must be communicated into the disclosure response and according to which method theses dates have to be communicated.")]
     [DataMember(Name="ReqShrHeldDt")]
     [XmlElement(ElementName="ReqShrHeldDt")]
-    public SomeRequestShareHeldDateRecord? RequestShareHeldDate { get; init; }
+    public IRequestShareHeldDate1Choice? RequestShareHeldDate { get; init; }
     
     /// <summary>
     /// Issuer or third party nominated by the issuer to whom the disclosure response shall be transmitted by the intermediary.
@@ -117,7 +117,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="DsclsrRspnRcpt")]
     [XmlElement(ElementName="DsclsrRspnRcpt")]
     [Required]
-    public required SomeDisclosureResponseRecipientRecord DisclosureResponseRecipient { get; init; }
+    public required PartyIdentification214 DisclosureResponseRecipient { get; init; }
     
     /// <summary>
     /// Latest date/time set by the issuer or  a third party appointed by the issuer at which a response to the request to disclose shareholder identity shall be provided by each intermediary to the recipient to whom the response must be sent.  
@@ -127,7 +127,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [DataMember(Name="IssrDsclsrDdln")]
     [XmlElement(ElementName="IssrDsclsrDdln")]
     [Required]
-    public required SomeIssuerDisclosureDeadlineRecord IssuerDisclosureDeadline { get; init; }
+    public required IDateFormat46Choice IssuerDisclosureDeadline { get; init; }
     
     /// <summary>
     /// Latest date/time set by an intermediary at which a response to the request to disclose shareholder identity shall be provided when sending the response though the chain of intermediaries.  
@@ -136,7 +136,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Latest date/time set by an intermediary at which a response to the request to disclose shareholder identity shall be provided when sending the response though the chain of intermediaries.  ")]
     [DataMember(Name="DsclsrRspnDdln")]
     [XmlElement(ElementName="DsclsrRspnDdln")]
-    public SomeDisclosureResponseDeadlineRecord? DisclosureResponseDeadline { get; init; }
+    public IDateFormat46Choice? DisclosureResponseDeadline { get; init; }
     
     /// <summary>
     /// Issuer of the financial instrument.
@@ -145,7 +145,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Issuer of the financial instrument.")]
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
-    public SomeIssuerRecord? Issuer { get; init; }
+    public IPartyIdentification129Choice? Issuer { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -154,7 +154,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV02 : IOuterRec
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

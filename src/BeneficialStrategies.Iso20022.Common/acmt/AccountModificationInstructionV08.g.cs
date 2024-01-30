@@ -39,7 +39,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -48,7 +48,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference13? PreviousReference { get; init; }
     
     /// <summary>
     /// Information about the modification instruction.
@@ -57,7 +57,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information about the modification instruction.")]
     [DataMember(Name="InstrDtls")]
     [XmlElement(ElementName="InstrDtls")]
-    public SomeInstructionDetailsRecord? InstructionDetails { get; init; }
+    public InvestmentAccountModification4? InstructionDetails { get; init; }
     
     /// <summary>
     /// Identifies the account for which the information is modified.
@@ -67,7 +67,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [DataMember(Name="InvstmtAcctSelctn")]
     [XmlElement(ElementName="InvstmtAcctSelctn")]
     [Required]
-    public required SomeInvestmentAccountSelectionRecord InvestmentAccountSelection { get; init; }
+    public required IAccountSelection3Choice InvestmentAccountSelection { get; init; }
     
     /// <summary>
     /// Information related to general characteristics of the account to be inserted, updated or deleted.
@@ -76,7 +76,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to general characteristics of the account to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdInvstmtAcct")]
     [XmlElement(ElementName="ModfdInvstmtAcct")]
-    public SomeModifiedInvestmentAccountRecord? ModifiedInvestmentAccount { get; init; }
+    public InvestmentAccount75? ModifiedInvestmentAccount { get; init; }
     
     /// <summary>
     /// Information related to an account party to be inserted, updated or deleted.
@@ -85,7 +85,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to an account party to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdAcctPties")]
     [XmlElement(ElementName="ModfdAcctPties")]
-    public SomeModifiedAccountPartiesRecord? ModifiedAccountParties { get; init; }
+    public AccountParties18? ModifiedAccountParties { get; init; }
     
     /// <summary>
     /// Information related to intermediaries to be inserted, updated or deleted.
@@ -94,7 +94,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to intermediaries to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdIntrmies")]
     [XmlElement(ElementName="ModfdIntrmies")]
-    public SomeModifiedIntermediariesRecord? ModifiedIntermediaries { get; init; }
+    public ModificationScope40? ModifiedIntermediaries { get; init; }
     
     /// <summary>
     /// Information related to referral information to be inserted, updated or deleted.
@@ -103,7 +103,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to referral information to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdPlcmnt")]
     [XmlElement(ElementName="ModfdPlcmnt")]
-    public SomeModifiedPlacementRecord? ModifiedPlacement { get; init; }
+    public ModificationScope43? ModifiedPlacement { get; init; }
     
     /// <summary>
     /// Eligibility conditions related to allocation of new issues to be inserted, updated or deleted.
@@ -112,7 +112,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Eligibility conditions related to allocation of new issues to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdIsseAllcn")]
     [XmlElement(ElementName="ModfdIsseAllcn")]
-    public SomeModifiedIssueAllocationRecord? ModifiedIssueAllocation { get; init; }
+    public ModificationScope21? ModifiedIssueAllocation { get; init; }
     
     /// <summary>
     /// Information related to a savings plan to be inserted, updated or deleted.
@@ -121,7 +121,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to a savings plan to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdSvgsInvstmtPlan")]
     [XmlElement(ElementName="ModfdSvgsInvstmtPlan")]
-    public required IReadonlyCollection<SomeModifiedSavingsInvestmentPlanRecord> ModifiedSavingsInvestmentPlan { get; init; } // Min=0, Max=50
+    public required IReadonlyCollection<ModificationScope41> ModifiedSavingsInvestmentPlan { get; init; } // Min=0, Max=50
     
     /// <summary>
     /// Information related to a withdrawal plan to be inserted, updated or deleted.
@@ -130,7 +130,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to a withdrawal plan to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdWdrwlInvstmtPlan")]
     [XmlElement(ElementName="ModfdWdrwlInvstmtPlan")]
-    public required IReadonlyCollection<SomeModifiedWithdrawalInvestmentPlanRecord> ModifiedWithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<ModificationScope41> ModifiedWithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Cash settlement standing instruction to be either inserted or deleted.
@@ -139,7 +139,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Cash settlement standing instruction to be either inserted or deleted.")]
     [DataMember(Name="ModfdCshSttlm")]
     [XmlElement(ElementName="ModfdCshSttlm")]
-    public required IReadonlyCollection<SomeModifiedCashSettlementRecord> ModifiedCashSettlement { get; init; } // Min=0, Max=8
+    public required IReadonlyCollection<CashSettlement4> ModifiedCashSettlement { get; init; } // Min=0, Max=8
     
     /// <summary>
     /// Information related to documents to be added, deleted or updated.
@@ -148,7 +148,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to documents to be added, deleted or updated.")]
     [DataMember(Name="ModfdSvcLvlAgrmt")]
     [XmlElement(ElementName="ModfdSvcLvlAgrmt")]
-    public required IReadonlyCollection<SomeModifiedServiceLevelAgreementRecord> ModifiedServiceLevelAgreement { get; init; } // Min=0, Max=30
+    public required IReadonlyCollection<ModificationScope44> ModifiedServiceLevelAgreement { get; init; } // Min=0, Max=30
     
     /// <summary>
     /// Information related to additional information to be added, deleted or updated.
@@ -157,7 +157,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Information related to additional information to be added, deleted or updated.")]
     [DataMember(Name="ModfdAddtlInf")]
     [XmlElement(ElementName="ModfdAddtlInf")]
-    public SomeModifiedAdditionalInformationRecord? ModifiedAdditionalInformation { get; init; }
+    public ModificationScope45? ModifiedAdditionalInformation { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -166,7 +166,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -175,7 +175,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

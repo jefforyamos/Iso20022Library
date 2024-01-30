@@ -30,7 +30,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Identification of the securities account to be updated in the executing party system.
@@ -40,7 +40,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required SecuritiesAccount19 AccountIdentification { get; init; }
     
     /// <summary>
     /// Further details about the requested modification.
@@ -50,7 +50,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required SecuritiesAccountModification2 Modification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

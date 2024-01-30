@@ -29,7 +29,7 @@ public partial record DerivativesTradeStateReportV01 : IOuterRecord
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required TradeReportHeader4 ReportHeader { get; init; }
     
     /// <summary>
     /// Data concerning the reporting trade.
@@ -39,7 +39,7 @@ public partial record DerivativesTradeStateReportV01 : IOuterRecord
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required SomeTradeDataRecord TradeData { get; init; }
+    public required ITradeData58Choice TradeData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record DerivativesTradeStateReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

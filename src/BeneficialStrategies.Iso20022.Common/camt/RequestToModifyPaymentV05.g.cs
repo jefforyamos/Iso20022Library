@@ -57,7 +57,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment4 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -66,7 +66,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case4? Case { get; init; }
     
     /// <summary>
     /// Identifies the payment transaction to be modified.
@@ -76,7 +76,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction4Choice Underlying { get; init; }
     
     /// <summary>
     /// Identifies the list of modifications requested.
@@ -86,7 +86,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required RequestedModification7 Modification { get; init; }
     
     /// <summary>
     /// Further information related to the processing of the investigation that may need to be acted upon by the assignee.
@@ -95,7 +95,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [Description(@"Further information related to the processing of the investigation that may need to be acted upon by the assignee.")]
     [DataMember(Name="InstrForAssgne")]
     [XmlElement(ElementName="InstrForAssgne")]
-    public SomeInstructionForAssigneeRecord? InstructionForAssignee { get; init; }
+    public InstructionForAssignee1? InstructionForAssignee { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -104,7 +104,7 @@ public partial record RequestToModifyPaymentV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

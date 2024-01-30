@@ -32,7 +32,7 @@ public partial record NotificationToReceiveV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader43 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide further details on the account notification.
@@ -42,7 +42,7 @@ public partial record NotificationToReceiveV02 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required AccountNotification4 Notification { get; init; }
     
     */
     

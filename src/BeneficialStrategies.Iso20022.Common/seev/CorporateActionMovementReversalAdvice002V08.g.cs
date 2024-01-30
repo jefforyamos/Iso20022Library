@@ -36,7 +36,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [DataMember(Name="MvmntConfId")]
     [XmlElement(ElementName="MvmntConfId")]
     [Required]
-    public required SomeMovementConfirmationIdentificationRecord MovementConfirmationIdentification { get; init; }
+    public required DocumentIdentification37 MovementConfirmationIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -45,7 +45,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification38? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
@@ -54,7 +54,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReference4? EventsLinkage { get; init; }
     
     /// <summary>
     /// Reason for the reversal.
@@ -63,7 +63,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Reason for the reversal.")]
     [DataMember(Name="RvslRsn")]
     [XmlElement(ElementName="RvslRsn")]
-    public SomeReversalReasonRecord? ReversalReason { get; init; }
+    public CorporateActionReversalReason4? ReversalReason { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -73,7 +73,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation118 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -83,7 +83,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountAndBalance40 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action event.
@@ -92,7 +92,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Information about the corporate action event.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateAction36? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -102,7 +102,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [DataMember(Name="CorpActnConfDtls")]
     [XmlElement(ElementName="CorpActnConfDtls")]
     [Required]
-    public required SomeCorporateActionConfirmationDetailsRecord CorporateActionConfirmationDetails { get; init; }
+    public required CorporateActionOption126 CorporateActionConfirmationDetails { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -111,7 +111,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative35? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
@@ -120,7 +120,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public IPartyIdentification104Choice? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -129,7 +129,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public SomePayingAgentRecord? PayingAgent { get; init; }
+    public IPartyIdentification104Choice? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -138,7 +138,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    public IPartyIdentification104Choice? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -147,7 +147,7 @@ public partial record CorporateActionMovementReversalAdvice002V08 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

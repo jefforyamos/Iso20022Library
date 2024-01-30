@@ -33,7 +33,7 @@ public partial record CollateralProposalResponseV05 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -43,7 +43,7 @@ public partial record CollateralProposalResponseV05 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation5 Obligation { get; init; }
     
     /// <summary>
     /// Details the response to the collateral which has been proposed for the margin call. The proposed collateral can be accepted or rejected.
@@ -53,7 +53,7 @@ public partial record CollateralProposalResponseV05 : IOuterRecord
     [DataMember(Name="PrpslRspn")]
     [XmlElement(ElementName="PrpslRspn")]
     [Required]
-    public required SomeProposalResponseRecord ProposalResponse { get; init; }
+    public required ICollateralProposalResponse3Choice ProposalResponse { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record CollateralProposalResponseV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -34,7 +34,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -43,7 +43,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -53,7 +53,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference3 PreviousReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -63,7 +63,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// Common information related to all the price reports to be cancelled.
@@ -72,7 +72,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     [Description(@"Common information related to all the price reports to be cancelled.")]
     [DataMember(Name="PricRptToBeCanc")]
     [XmlElement(ElementName="PricRptToBeCanc")]
-    public SomePriceReportToBeCancelledRecord? PriceReportToBeCancelled { get; init; }
+    public PriceReport2? PriceReportToBeCancelled { get; init; }
     
     */
     

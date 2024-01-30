@@ -41,7 +41,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Identification of the SecuritiesSettlementConditionsModificationRequest.
@@ -51,7 +51,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [DataMember(Name="ReqRef")]
     [XmlElement(ElementName="ReqRef")]
     [Required]
-    public required SomeRequestReferenceRecord RequestReference { get; init; }
+    public required Identification1 RequestReference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -60,7 +60,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification13Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -69,7 +69,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount13? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the request.
@@ -78,7 +78,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Details of the request.")]
     [DataMember(Name="ReqDtls")]
     [XmlElement(ElementName="ReqDtls")]
-    public SomeRequestDetailsRecord? RequestDetails { get; init; }
+    public RequestDetails1? RequestDetails { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -88,7 +88,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus5Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -97,7 +97,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -106,7 +106,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -115,7 +115,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

@@ -35,7 +35,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// General characteristics related to a statement which reports information.
@@ -55,7 +55,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement12 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Account information and detailed account holdings information report for corporate action events.
@@ -65,7 +65,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [DataMember(Name="AcctAndStmtDtls")]
     [XmlElement(ElementName="AcctAndStmtDtls")]
     [Required]
-    public required SomeAccountAndStatementDetailsRecord AccountAndStatementDetails { get; init; }
+    public required AccountIdentification6 AccountAndStatementDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -74,7 +74,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -83,7 +83,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -92,7 +92,7 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

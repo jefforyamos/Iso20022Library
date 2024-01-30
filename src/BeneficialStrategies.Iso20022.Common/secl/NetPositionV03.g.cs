@@ -33,7 +33,7 @@ public partial record NetPositionV03 : IOuterRecord
     [DataMember(Name="RptParams")]
     [XmlElement(ElementName="RptParams")]
     [Required]
-    public required SomeReportParametersRecord ReportParameters { get; init; }
+    public required ReportParameters1 ReportParameters { get; init; }
     
     /// <summary>
     /// Provides information about the number of used pages.
@@ -43,7 +43,7 @@ public partial record NetPositionV03 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
@@ -53,7 +53,7 @@ public partial record NetPositionV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
@@ -63,7 +63,7 @@ public partial record NetPositionV03 : IOuterRecord
     [Description(@"Clearing organisation that will clear the trade.||Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
     [DataMember(Name="ClrSgmt")]
     [XmlElement(ElementName="ClrSgmt")]
-    public SomeClearingSegmentRecord? ClearingSegment { get; init; }
+    public IPartyIdentification35Choice? ClearingSegment { get; init; }
     
     /// <summary>
     /// Provides the net position details such as the average deal price and net quantity.
@@ -73,7 +73,7 @@ public partial record NetPositionV03 : IOuterRecord
     [DataMember(Name="NetPosRpt")]
     [XmlElement(ElementName="NetPosRpt")]
     [Required]
-    public required SomeNetPositionReportRecord NetPositionReport { get; init; }
+    public required NetPosition3 NetPositionReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -82,7 +82,7 @@ public partial record NetPositionV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

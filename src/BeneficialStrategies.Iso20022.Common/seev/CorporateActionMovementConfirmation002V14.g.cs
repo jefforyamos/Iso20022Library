@@ -34,7 +34,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Page number of the message and continuation indicator to indicate that the multi-part notification is to continue or that the message is the last page of the multi-part notification.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Identification of a previously sent notification document.
@@ -43,7 +43,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Identification of a previously sent notification document.")]
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
-    public SomeNotificationIdentificationRecord? NotificationIdentification { get; init; }
+    public DocumentIdentification37? NotificationIdentification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent movement preliminary advice document.
@@ -52,7 +52,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Identification of a previously sent movement preliminary advice document.")]
     [DataMember(Name="MvmntPrlimryAdvcId")]
     [XmlElement(ElementName="MvmntPrlimryAdvcId")]
-    public SomeMovementPreliminaryAdviceIdentificationRecord? MovementPreliminaryAdviceIdentification { get; init; }
+    public DocumentIdentification37? MovementPreliminaryAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of a related instruction document.
@@ -61,7 +61,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Identification of a related instruction document.")]
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
-    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    public DocumentIdentification17? InstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -70,7 +70,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification38? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.
@@ -79,7 +79,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReference4? EventsLinkage { get; init; }
     
     /// <summary>
     /// Transaction type and identification information.
@@ -88,7 +88,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Transaction type and identification information.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentification1? TransactionIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -98,7 +98,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation167 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -108,7 +108,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountAndBalance52 AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action event.
@@ -117,7 +117,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Information about the corporate action event.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateAction75? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -127,7 +127,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [DataMember(Name="CorpActnConfDtls")]
     [XmlElement(ElementName="CorpActnConfDtls")]
     [Required]
-    public required SomeCorporateActionConfirmationDetailsRecord CorporateActionConfirmationDetails { get; init; }
+    public required CorporateActionOption213 CorporateActionConfirmationDetails { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -136,7 +136,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative35? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
@@ -145,7 +145,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public IPartyIdentification137Choice? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -154,7 +154,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public SomePayingAgentRecord? PayingAgent { get; init; }
+    public IPartyIdentification137Choice? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -163,7 +163,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    public IPartyIdentification137Choice? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -172,7 +172,7 @@ public partial record CorporateActionMovementConfirmation002V14 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

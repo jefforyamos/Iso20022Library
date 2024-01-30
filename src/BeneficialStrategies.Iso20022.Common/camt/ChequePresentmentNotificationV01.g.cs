@@ -30,7 +30,7 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader103 GroupHeader { get; init; }
     
     /// <summary>
     /// Specifies the details of the cheque.
@@ -40,7 +40,7 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord
     [DataMember(Name="Chq")]
     [XmlElement(ElementName="Chq")]
     [Required]
-    public required SomeChequeRecord Cheque { get; init; }
+    public required Cheque13 Cheque { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -49,7 +49,7 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -34,7 +34,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required MessageIdentification1 Identification { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -44,7 +44,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference4 MeetingReference { get; init; }
     
     /// <summary>
     /// Party notifying the instructions.
@@ -54,7 +54,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="InstgPty")]
     [XmlElement(ElementName="InstgPty")]
     [Required]
-    public required SomeInstructingPartyRecord InstructingParty { get; init; }
+    public required IPartyIdentification9Choice InstructingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.
@@ -64,7 +64,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="SctyId")]
     [XmlElement(ElementName="SctyId")]
     [Required]
-    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    public required SecurityIdentification11 SecurityIdentification { get; init; }
     
     /// <summary>
     /// Identifies the position of the instructing party and the action that they want to take.
@@ -74,7 +74,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="Instr")]
     [XmlElement(ElementName="Instr")]
     [Required]
-    public required SomeInstructionRecord Instruction { get; init; }
+    public required Instruction2 Instruction { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -83,7 +83,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

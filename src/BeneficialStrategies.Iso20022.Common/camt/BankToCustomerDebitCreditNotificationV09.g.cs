@@ -29,7 +29,7 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader81 GroupHeader { get; init; }
     
     /// <summary>
     /// Notifies debit and credit entries for the account.
@@ -39,7 +39,7 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required AccountNotification19 Notification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

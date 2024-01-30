@@ -28,7 +28,7 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
     [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader2? MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the criteria to be used to query the securities account reference data by the executing system.
@@ -38,7 +38,7 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    public required SecuritiesAccountSearchCriteria2 SearchCriteria { get; init; }
     
     /// <summary>
     /// Defines the expected securities account reference data to be returned.
@@ -47,7 +47,7 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
     [Description(@"Defines the expected securities account reference data to be returned.")]
     [DataMember(Name="RtrCrit")]
     [XmlElement(ElementName="RtrCrit")]
-    public SomeReturnCriteriaRecord? ReturnCriteria { get; init; }
+    public SecuritiesAccountReturnCriteria1? ReturnCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -56,7 +56,7 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

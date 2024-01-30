@@ -34,7 +34,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [Description(@"Identifies the meeting entitlement message to be modified.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public MessageIdentification? RelatedReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -44,7 +44,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference7 MeetingReference { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised, the account and the positions of the security holder.
@@ -53,7 +53,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [Description(@"Identifies the security for which the meeting is organised, the account and the positions of the security holder.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition9> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Defines the dates determining eligibility.
@@ -63,7 +63,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [DataMember(Name="Elgblty")]
     [XmlElement(ElementName="Elgblty")]
     [Required]
-    public required SomeEligibilityRecord Eligibility { get; init; }
+    public required EligibilityDates1 Eligibility { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -72,7 +72,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

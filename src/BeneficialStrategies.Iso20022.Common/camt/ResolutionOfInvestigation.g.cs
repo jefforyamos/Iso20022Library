@@ -49,7 +49,7 @@ public partial record ResolutionOfInvestigation : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies a resolved case.
@@ -59,7 +59,7 @@ public partial record ResolutionOfInvestigation : IOuterRecord
     [DataMember(Name="RslvdCase")]
     [XmlElement(ElementName="RslvdCase")]
     [Required]
-    public required SomeResolvedCaseRecord ResolvedCase { get; init; }
+    public required Case ResolvedCase { get; init; }
     
     /// <summary>
     /// Indicates the status of the investigation.
@@ -68,7 +68,7 @@ public partial record ResolutionOfInvestigation : IOuterRecord
     [Description(@"Indicates the status of the investigation.")]
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
-    public SomeStatusRecord? Status { get; init; }
+    public IInvestigationStatusChoice? Status { get; init; }
     
     /// <summary>
     /// References a transaction intitiated to fix the case under investigation.
@@ -77,7 +77,7 @@ public partial record ResolutionOfInvestigation : IOuterRecord
     [Description(@"References a transaction intitiated to fix the case under investigation.")]
     [DataMember(Name="CrrctnTx")]
     [XmlElement(ElementName="CrrctnTx")]
-    public SomeCorrectionTransactionRecord? CorrectionTransaction { get; init; }
+    public PaymentInstructionExtract? CorrectionTransaction { get; init; }
     
     */
     

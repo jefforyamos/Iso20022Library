@@ -28,7 +28,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD21? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -37,7 +37,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD9? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action details.
@@ -46,7 +46,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action details.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateActionSD10? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as account balance.
@@ -55,7 +55,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Extension block for the information to be extended as account balance.")]
     [DataMember(Name="AcctBal")]
     [XmlElement(ElementName="AcctBal")]
-    public SomeAccountBalanceRecord? AccountBalance { get; init; }
+    public AccountBalanceSD4? AccountBalance { get; init; }
     
     /// <summary>
     /// Information to be extended as corporate action confirmation securities movement details.
@@ -64,7 +64,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Information to be extended as corporate action confirmation securities movement details.")]
     [DataMember(Name="CorpActnConfSctiesMvmntDtls")]
     [XmlElement(ElementName="CorpActnConfSctiesMvmntDtls")]
-    public SomeCorporateActionConfirmationSecuritiesMovementDetailsRecord? CorporateActionConfirmationSecuritiesMovementDetails { get; init; }
+    public CorporateActionConfirmationSecuritiesMovementDetailsSD4? CorporateActionConfirmationSecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as corporate action confirmation cash movement details.
@@ -73,7 +73,7 @@ public partial record DTCCCACOSD1V04 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action confirmation cash movement details.")]
     [DataMember(Name="CorpActnConfCshMvmntDtls")]
     [XmlElement(ElementName="CorpActnConfCshMvmntDtls")]
-    public SomeCorporateActionConfirmationCashMovementDetailsRecord? CorporateActionConfirmationCashMovementDetails { get; init; }
+    public CorporateActionConfirmationCashMovementDetailsSD3? CorporateActionConfirmationCashMovementDetails { get; init; }
     
     */
     

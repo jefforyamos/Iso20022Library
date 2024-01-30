@@ -36,7 +36,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Global Distribution Authorisation Request for which a status is given.
@@ -46,7 +46,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAGblDstrbtnAuthstnReqId")]
     [XmlElement(ElementName="AgtCAGblDstrbtnAuthstnReqId")]
     [Required]
-    public required SomeAgentCAGlobalDistributionAuthorisationRequestIdentificationRecord AgentCAGlobalDistributionAuthorisationRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAGlobalDistributionAuthorisationRequestIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -56,7 +56,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the status of the global movement.
@@ -66,7 +66,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="GblMvmntSts")]
     [XmlElement(ElementName="GblMvmntSts")]
     [Required]
-    public required SomeGlobalMovementStatusRecord GlobalMovementStatus { get; init; }
+    public required GlobalDistributionStatus1 GlobalMovementStatus { get; init; }
     
     /// <summary>
     /// Provides information about the status of an individual movement.
@@ -76,7 +76,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="IndvMvmntSts")]
     [XmlElement(ElementName="IndvMvmntSts")]
     [Required]
-    public required SomeIndividualMovementStatusRecord IndividualMovementStatus { get; init; }
+    public required IndividualMovementStatus1 IndividualMovementStatus { get; init; }
     
     */
     

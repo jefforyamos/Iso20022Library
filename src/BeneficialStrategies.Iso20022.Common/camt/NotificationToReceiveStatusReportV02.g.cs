@@ -32,7 +32,7 @@ public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader44 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to identify the original notification and to provide the status.
@@ -42,7 +42,7 @@ public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
     [DataMember(Name="OrgnlNtfctnAndSts")]
     [XmlElement(ElementName="OrgnlNtfctnAndSts")]
     [Required]
-    public required SomeOriginalNotificationAndStatusRecord OriginalNotificationAndStatus { get; init; }
+    public required OriginalNotification3 OriginalNotificationAndStatus { get; init; }
     
     */
     

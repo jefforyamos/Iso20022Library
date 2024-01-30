@@ -32,7 +32,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required BusinessLetter1 Header { get; init; }
     
     /// <summary>
     /// Description of the event.
@@ -42,7 +42,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     [DataMember(Name="EvtNtce")]
     [XmlElement(ElementName="EvtNtce")]
     [Required]
-    public required SomeEventNoticeRecord EventNotice { get; init; }
+    public required EventDescription1 EventNotice { get; init; }
     
     /// <summary>
     /// Number of events as control value.
@@ -51,7 +51,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     [Description(@"Number of events as control value.")]
     [DataMember(Name="EvtCnt")]
     [XmlElement(ElementName="EvtCnt")]
-    public SomeEventCountRecord? EventCount { get; init; }
+    public IsoMax15NumericText? EventCount { get; init; }
     
     /// <summary>
     /// Referenced or related business message.
@@ -60,7 +60,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     [Description(@"Referenced or related business message.")]
     [DataMember(Name="AttchdMsg")]
     [XmlElement(ElementName="AttchdMsg")]
-    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    public EncapsulatedBusinessMessage1? AttachedMessage { get; init; }
     
     */
     

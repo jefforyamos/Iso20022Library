@@ -34,7 +34,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required MessageIdentification1 Identification { get; init; }
     
     /// <summary>
     /// Information indicating that the cancellation of a message previously sent is requested (and not the cancellation of the meeting).
@@ -43,7 +43,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [Description(@"Information indicating that the cancellation of a message previously sent is requested (and not the cancellation of the meeting).")]
     [DataMember(Name="MsgCxl")]
     [XmlElement(ElementName="MsgCxl")]
-    public SomeMessageCancellationRecord? MessageCancellation { get; init; }
+    public AmendInformation1? MessageCancellation { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -53,7 +53,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference5 MeetingReference { get; init; }
     
     /// <summary>
     /// Party notifying the cancellation of the meeting.
@@ -62,7 +62,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [Description(@"Party notifying the cancellation of the meeting.")]
     [DataMember(Name="NtifngPty")]
     [XmlElement(ElementName="NtifngPty")]
-    public SomeNotifyingPartyRecord? NotifyingParty { get; init; }
+    public IPartyIdentification9Choice? NotifyingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting was organised.
@@ -71,7 +71,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [Description(@"Identifies the security for which the meeting was organised.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=0, Max=200
+    public required IReadonlyCollection<SecurityPosition6> Security { get; init; } // Min=0, Max=200
     
     /// <summary>
     /// Defines the justification for the cancellation.
@@ -81,7 +81,7 @@ public partial record MeetingCancellationV03 : IOuterRecord
     [DataMember(Name="Rsn")]
     [XmlElement(ElementName="Rsn")]
     [Required]
-    public required SomeReasonRecord Reason { get; init; }
+    public required MeetingCancellationReason2 Reason { get; init; }
     
     */
     

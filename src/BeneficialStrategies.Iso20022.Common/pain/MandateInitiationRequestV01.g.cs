@@ -37,7 +37,7 @@ public partial record MandateInitiationRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader31 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide the details of the mandate signed between the (ultimate) creditor and the (ultimate) debtor.
@@ -47,7 +47,7 @@ public partial record MandateInitiationRequestV01 : IOuterRecord
     [DataMember(Name="Mndt")]
     [XmlElement(ElementName="Mndt")]
     [Required]
-    public required SomeMandateRecord Mandate { get; init; }
+    public required MandateInformation2 Mandate { get; init; }
     
     */
     

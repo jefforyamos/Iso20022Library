@@ -28,7 +28,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Optional Dividend service election.")]
     [DataMember(Name="OptnlDvdd")]
     [XmlElement(ElementName="OptnlDvdd")]
-    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    public OptionalDividendAccountQuantitySD1? OptionalDividend { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Tax Exempt service election.
@@ -37,7 +37,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Tax Exempt service election.")]
     [DataMember(Name="TaxXmpt")]
     [XmlElement(ElementName="TaxXmpt")]
-    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    public TaxExemptQuantitySD1? TaxExempt { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
@@ -46,7 +46,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.")]
     [DataMember(Name="WireInstr")]
     [XmlElement(ElementName="WireInstr")]
-    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    public WireInstructionSD1? WireInstruction { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Tax Relief service election.
@@ -55,7 +55,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Tax Relief service election.")]
     [DataMember(Name="DTCTaxRlf")]
     [XmlElement(ElementName="DTCTaxRlf")]
-    public SomeDTCTaxReliefRecord? DTCTaxRelief { get; init; }
+    public DTCTaxReliefSD2? DTCTaxRelief { get; init; }
     
     /// <summary>
     /// U.S. Tax Withholding elections.
@@ -64,7 +64,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"U.S. Tax Withholding elections.")]
     [DataMember(Name="USTaxWhldg")]
     [XmlElement(ElementName="USTaxWhldg")]
-    public SomeUSTaxWithholdingRecord? USTaxWithholding { get; init; }
+    public USTaxWithholdingSD1? USTaxWithholding { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Cash In Lieu service election.
@@ -73,7 +73,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Cash In Lieu service election.")]
     [DataMember(Name="CshInLieu")]
     [XmlElement(ElementName="CshInLieu")]
-    public SomeCashInLieuRecord? CashInLieu { get; init; }
+    public CashInLieuSD1? CashInLieu { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record DTCCCAISSD1V01 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.")]
     [DataMember(Name="SctiesQtyDtls")]
     [XmlElement(ElementName="SctiesQtyDtls")]
-    public SomeSecuritiesQuantityDetailsRecord? SecuritiesQuantityDetails { get; init; }
+    public SecuritiesQuantityDetailsSD1? SecuritiesQuantityDetails { get; init; }
     
     */
     

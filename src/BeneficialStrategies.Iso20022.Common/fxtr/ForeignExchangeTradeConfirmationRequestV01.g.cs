@@ -33,7 +33,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header23 Header { get; init; }
     
     /// <summary>
     /// Identifies the confirm request messge.
@@ -43,7 +43,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Details of the treasury trade confirmed.
@@ -53,7 +53,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="TradDtl")]
     [XmlElement(ElementName="TradDtl")]
     [Required]
-    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    public required Trade2 TradeDetail { get; init; }
     
     /// <summary>
     /// Identifies the type of confirmation message being sent.
@@ -63,7 +63,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="ConfTp")]
     [XmlElement(ElementName="ConfTp")]
     [Required]
-    public required SomeConfirmationTypeRecord ConfirmationType { get; init; }
+    public required ConfirmationRequest1Code ConfirmationType { get; init; }
     
     /// <summary>
     /// Period of the inquiry.
@@ -73,7 +73,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="QryPrd")]
     [XmlElement(ElementName="QryPrd")]
     [Required]
-    public required SomeQueryPeriodRecord QueryPeriod { get; init; }
+    public required Period4 QueryPeriod { get; init; }
     
     /// <summary>
     /// Start number in request result.
@@ -83,7 +83,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="QryStartNb")]
     [XmlElement(ElementName="QryStartNb")]
     [Required]
-    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    public required IsoMax35NumericText QueryStartNumber { get; init; }
     
     /// <summary>
     /// Specifies the inquiry status of the trade.
@@ -93,7 +93,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [DataMember(Name="QryTradSts")]
     [XmlElement(ElementName="QryTradSts")]
     [Required]
-    public required SomeQueryTradeStatusRecord QueryTradeStatus { get; init; }
+    public required QueryTradeStatus1Code QueryTradeStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -102,7 +102,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

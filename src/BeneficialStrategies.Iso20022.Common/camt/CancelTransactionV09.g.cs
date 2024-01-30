@@ -39,7 +39,7 @@ public partial record CancelTransactionV09 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Reference to the instruction related to the payment for which information is requested.
@@ -49,7 +49,7 @@ public partial record CancelTransactionV09 : IOuterRecord
     [DataMember(Name="PmtId")]
     [XmlElement(ElementName="PmtId")]
     [Required]
-    public required SomePaymentIdentificationRecord PaymentIdentification { get; init; }
+    public required IPaymentIdentification6Choice PaymentIdentification { get; init; }
     
     /// <summary>
     /// Account to or from which a cash entry is made.
@@ -58,7 +58,7 @@ public partial record CancelTransactionV09 : IOuterRecord
     [Description(@"Account to or from which a cash entry is made.")]
     [DataMember(Name="CshAcct")]
     [XmlElement(ElementName="CshAcct")]
-    public SomeCashAccountRecord? CashAccount { get; init; }
+    public CashAccount40? CashAccount { get; init; }
     
     /// <summary>
     /// Provides detailed information on the cancellation reason.
@@ -67,7 +67,7 @@ public partial record CancelTransactionV09 : IOuterRecord
     [Description(@"Provides detailed information on the cancellation reason.")]
     [DataMember(Name="CxlRsn")]
     [XmlElement(ElementName="CxlRsn")]
-    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    public PaymentCancellationReason5? CancellationReason { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -76,7 +76,7 @@ public partial record CancelTransactionV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

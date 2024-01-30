@@ -33,7 +33,7 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -42,7 +42,7 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -51,7 +51,7 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -61,7 +61,7 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// Information related to the correction of a price of a financial instrument.
@@ -71,7 +71,7 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     [DataMember(Name="PricCrrctnDtls")]
     [XmlElement(ElementName="PricCrrctnDtls")]
     [Required]
-    public required SomePriceCorrectionDetailsRecord PriceCorrectionDetails { get; init; }
+    public required PriceCorrection3 PriceCorrectionDetails { get; init; }
     
     */
     

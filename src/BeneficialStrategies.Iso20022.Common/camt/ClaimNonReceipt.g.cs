@@ -29,7 +29,7 @@ public partial record ClaimNonReceipt : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies a case.
@@ -39,7 +39,7 @@ public partial record ClaimNonReceipt : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Identifies the payment instruction for which the Creditor has not received the funds.|Note: |In case of a missing cover, it must be the Field 20 of the received MT103.|In case of a claim non receipt initiated by the Debtor, it must be the identification of the instruction (Field 20 of MT103, Instruction Identification of the Payment Initiation or the Bulk Credit Transfer).
@@ -49,7 +49,7 @@ public partial record ClaimNonReceipt : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required PaymentInstructionExtract Underlying { get; init; }
     
     /// <summary>
     /// Indicates if the claim non receipt is a missing cover. The absence of the component means that the message is not for a missing cover.
@@ -58,7 +58,7 @@ public partial record ClaimNonReceipt : IOuterRecord
     [Description(@"Indicates if the claim non receipt is a missing cover. The absence of the component means that the message is not for a missing cover.")]
     [DataMember(Name="MssngCover")]
     [XmlElement(ElementName="MssngCover")]
-    public SomeMissingCoverRecord? MissingCover { get; init; }
+    public MissingCover? MissingCover { get; init; }
     
     */
     

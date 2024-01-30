@@ -43,7 +43,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [DataMember(Name="StmtReqd")]
     [XmlElement(ElementName="StmtReqd")]
     [Required]
-    public required SomeStatementRequestedRecord StatementRequested { get; init; }
+    public required DocumentNumber14 StatementRequested { get; init; }
     
     /// <summary>
     /// General information related to report.
@@ -52,7 +52,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [Description(@"General information related to report.")]
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
-    public SomeStatementGeneralDetailsRecord? StatementGeneralDetails { get; init; }
+    public Statement54? StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -61,7 +61,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification109? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -71,7 +71,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount27 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Additional specific query criteria.
@@ -80,7 +80,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [Description(@"Additional specific query criteria.")]
     [DataMember(Name="AddtlQryParams")]
     [XmlElement(ElementName="AddtlQryParams")]
-    public SomeAdditionalQueryParametersRecord? AdditionalQueryParameters { get; init; }
+    public AdditionalQueryParameters12? AdditionalQueryParameters { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -89,7 +89,7 @@ public partial record SecuritiesStatementQuery002V06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

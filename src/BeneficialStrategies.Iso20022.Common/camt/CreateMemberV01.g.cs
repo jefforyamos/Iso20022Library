@@ -33,7 +33,7 @@ public partial record CreateMemberV01 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a system member, as assigned by the system, or the system administrator.
@@ -43,7 +43,7 @@ public partial record CreateMemberV01 : IOuterRecord
     [DataMember(Name="MmbId")]
     [XmlElement(ElementName="MmbId")]
     [Required]
-    public required SomeMemberIdentificationRecord MemberIdentification { get; init; }
+    public required IMemberIdentification3Choice MemberIdentification { get; init; }
     
     /// <summary>
     /// New member values.
@@ -53,7 +53,7 @@ public partial record CreateMemberV01 : IOuterRecord
     [DataMember(Name="ValSet")]
     [XmlElement(ElementName="ValSet")]
     [Required]
-    public required SomeValueSetRecord ValueSet { get; init; }
+    public required Member6 ValueSet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record CreateMemberV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

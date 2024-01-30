@@ -43,7 +43,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [DataMember(Name="StmtReqd")]
     [XmlElement(ElementName="StmtReqd")]
     [Required]
-    public required SomeStatementRequestedRecord StatementRequested { get; init; }
+    public required DocumentNumber13 StatementRequested { get; init; }
     
     /// <summary>
     /// General information related to the report.
@@ -52,7 +52,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"General information related to the report.")]
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
-    public SomeStatementGeneralDetailsRecord? StatementGeneralDetails { get; init; }
+    public Statement83? StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -61,7 +61,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -70,7 +70,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount19? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -79,7 +79,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Additional specific query criteria.
@@ -88,7 +88,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"Additional specific query criteria.")]
     [DataMember(Name="AddtlQryParams")]
     [XmlElement(ElementName="AddtlQryParams")]
-    public SomeAdditionalQueryParametersRecord? AdditionalQueryParameters { get; init; }
+    public AdditionalQueryParameters13? AdditionalQueryParameters { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -97,7 +97,7 @@ public partial record SecuritiesStatementQueryV08 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

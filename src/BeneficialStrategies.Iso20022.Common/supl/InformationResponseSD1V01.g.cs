@@ -29,7 +29,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     [DataMember(Name="InvstgtnId")]
     [XmlElement(ElementName="InvstgtnId")]
     [Required]
-    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    public required IsoMax35Text InvestigationIdentification { get; init; }
     
     /// <summary>
     /// Date and time of creation of the extension.
@@ -39,7 +39,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     [DataMember(Name="CreDtTm")]
     [XmlElement(ElementName="CreDtTm")]
     [Required]
-    public required SomeCreationDateTimeRecord CreationDateTime { get; init; }
+    public required IsoISODateTime CreationDateTime { get; init; }
     
     /// <summary>
     /// Identifies the account servicing institution.
@@ -49,7 +49,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Requested account and its owners.
@@ -59,7 +59,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     [DataMember(Name="AcctAndPties")]
     [XmlElement(ElementName="AcctAndPties")]
     [Required]
-    public required SomeAccountAndPartiesRecord AccountAndParties { get; init; }
+    public required AccountAndParties2 AccountAndParties { get; init; }
     
     */
     

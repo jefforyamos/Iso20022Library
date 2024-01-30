@@ -29,7 +29,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required IsoMax35Text MessageIdentification { get; init; }
     
     /// <summary>
     /// Represents the original reference of the system event notification for which the acknowledgement is given, as assigned by the central system.
@@ -38,7 +38,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     [Description(@"Represents the original reference of the system event notification for which the acknowledgement is given, as assigned by the central system.")]
     [DataMember(Name="OrgtrRef")]
     [XmlElement(ElementName="OrgtrRef")]
-    public SomeOriginatorReferenceRecord? OriginatorReference { get; init; }
+    public IsoMax35Text? OriginatorReference { get; init; }
     
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
@@ -47,7 +47,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
     [DataMember(Name="SttlmSsnIdr")]
     [XmlElement(ElementName="SttlmSsnIdr")]
-    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; }
     
     /// <summary>
     /// Details of the system event being acknowledged.
@@ -56,7 +56,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     [Description(@"Details of the system event being acknowledged.")]
     [DataMember(Name="AckDtls")]
     [XmlElement(ElementName="AckDtls")]
-    public SomeAcknowledgementDetailsRecord? AcknowledgementDetails { get; init; }
+    public Event1? AcknowledgementDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -65,7 +65,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

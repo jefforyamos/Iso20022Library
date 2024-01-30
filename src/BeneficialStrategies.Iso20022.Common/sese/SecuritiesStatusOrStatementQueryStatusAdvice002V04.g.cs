@@ -40,7 +40,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [DataMember(Name="QryDtls")]
     [XmlElement(ElementName="QryDtls")]
     [Required]
-    public required SomeQueryDetailsRecord QueryDetails { get; init; }
+    public required DocumentIdentification48 QueryDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -49,7 +49,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification109? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -58,7 +58,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount30? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the request.
@@ -67,7 +67,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [Description(@"Details of the request.")]
     [DataMember(Name="StsOrStmtReqd")]
     [XmlElement(ElementName="StsOrStmtReqd")]
-    public SomeStatusOrStatementRequestedRecord? StatusOrStatementRequested { get; init; }
+    public IStatusOrStatement8Choice? StatusOrStatementRequested { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -77,7 +77,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus64Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -86,7 +86,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdvice002V04 : IOute
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -32,7 +32,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification4 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the non deliverable trade which is reported.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification4 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Provides information on the conditions of the option.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord
     [DataMember(Name="OptnData")]
     [XmlElement(ElementName="OptnData")]
     [Required]
-    public required SomeOptionDataRecord OptionData { get; init; }
+    public required OptionData2 OptionData { get; init; }
     
     /// <summary>
     /// Provides information on the status of a trade in a settlement system.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord
     [DataMember(Name="TradSts")]
     [XmlElement(ElementName="TradSts")]
     [Required]
-    public required SomeTradeStatusRecord TradeStatus { get; init; }
+    public required TradeStatus1 TradeStatus { get; init; }
     
     /// <summary>
     /// Provides information on the settlement of a trade.
@@ -71,7 +71,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord
     [Description(@"Provides information on the settlement of a trade.")]
     [DataMember(Name="SttlmData")]
     [XmlElement(ElementName="SttlmData")]
-    public SomeSettlementDataRecord? SettlementData { get; init; }
+    public SettlementData2? SettlementData { get; init; }
     
     */
     

@@ -38,7 +38,7 @@ public partial record CaseStatusReportV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ReportHeader2 Header { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -48,7 +48,7 @@ public partial record CaseStatusReportV03 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case2 Case { get; init; }
     
     /// <summary>
     /// Defines the status of the case.
@@ -58,7 +58,7 @@ public partial record CaseStatusReportV03 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required CaseStatus2 Status { get; init; }
     
     /// <summary>
     /// Identifies the change of an assignment for an investigation case from an assigner to a new assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
@@ -67,7 +67,7 @@ public partial record CaseStatusReportV03 : IOuterRecord
     [Description(@"Identifies the change of an assignment for an investigation case from an assigner to a new assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.")]
     [DataMember(Name="NewAssgnmt")]
     [XmlElement(ElementName="NewAssgnmt")]
-    public SomeNewAssignmentRecord? NewAssignment { get; init; }
+    public CaseAssignment2? NewAssignment { get; init; }
     
     */
     

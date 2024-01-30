@@ -48,7 +48,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment5 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -57,7 +57,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case5? Case { get; init; }
     
     /// <summary>
     /// Identifies the payment instruction for which the Creditor has not received the funds.|Usage: In case of a missing cover, it must be the identification of the related payment instruction.|In case of a claim non receipt initiated by the debtor, it must be the identification of the instruction.
@@ -67,7 +67,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction7Choice Underlying { get; init; }
     
     /// <summary>
     /// Provides the cover related information of a claim non receipt investigation.
@@ -78,7 +78,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [Description(@"Provides the cover related information of a claim non receipt investigation.||Usage:|The absence of the cover details means that the message is not a cover related investigation.")]
     [DataMember(Name="CoverDtls")]
     [XmlElement(ElementName="CoverDtls")]
-    public SomeCoverDetailsRecord? CoverDetails { get; init; }
+    public MissingCover5? CoverDetails { get; init; }
     
     /// <summary>
     /// Further information related to the processing of the investigation that may need to be acted upon by the assignee.
@@ -87,7 +87,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [Description(@"Further information related to the processing of the investigation that may need to be acted upon by the assignee.")]
     [DataMember(Name="InstrForAssgne")]
     [XmlElement(ElementName="InstrForAssgne")]
-    public SomeInstructionForAssigneeRecord? InstructionForAssignee { get; init; }
+    public InstructionForAssignee1? InstructionForAssignee { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -96,7 +96,7 @@ public partial record ClaimNonReceiptV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

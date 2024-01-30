@@ -34,7 +34,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -43,7 +43,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference11? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -52,7 +52,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference10? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -61,7 +61,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference10? RelatedReference { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
@@ -70,7 +70,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public IsoMax35Text? MasterReference { get; init; }
     
     /// <summary>
     /// Function of the transfer-in, that is, whether the message is used as a reversal of a previously sent confirmation or as a reversal of a previously sent advice. The absence of Function indicates the message is a reversal of a previously sent confirmation.
@@ -79,7 +79,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Function of the transfer-in, that is, whether the message is used as a reversal of a previously sent confirmation or as a reversal of a previously sent advice. The absence of Function indicates the message is a reversal of a previously sent confirmation.")]
     [DataMember(Name="Fctn")]
     [XmlElement(ElementName="Fctn")]
-    public SomeFunctionRecord? Function { get; init; }
+    public TransferInFunction2Code? Function { get; init; }
     
     /// <summary>
     /// Reference of the transfer confirmation to be reversed.
@@ -89,7 +89,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [DataMember(Name="RvslRefs")]
     [XmlElement(ElementName="RvslRefs")]
     [Required]
-    public required SomeReversalReferencesRecord ReversalReferences { get; init; }
+    public required TransferReference16 ReversalReferences { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -98,7 +98,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -107,7 +107,7 @@ public partial record ReversalOfTransferInConfirmationV09 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation5? CopyDetails { get; init; }
     
     */
     

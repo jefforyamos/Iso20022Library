@@ -40,7 +40,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides general information to the report.
@@ -50,7 +50,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement82 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -59,7 +59,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification156? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -68,7 +68,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount40? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -77,7 +77,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet8? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Information about the party that provides services relating to financial products to investors, for example, advice on products and placement of orders for the investment fund.
@@ -86,7 +86,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Information about the party that provides services relating to financial products to investors, for example, advice on products and placement of orders for the investment fund.")]
     [DataMember(Name="IntrmyInf")]
     [XmlElement(ElementName="IntrmyInf")]
-    public required IReadonlyCollection<SomeIntermediaryInformationRecord> IntermediaryInformation { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<Intermediary45> IntermediaryInformation { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Reporting per financial instrument.
@@ -95,7 +95,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Reporting per financial instrument.")]
     [DataMember(Name="FinInstrmDtls")]
     [XmlElement(ElementName="FinInstrmDtls")]
-    public SomeFinancialInstrumentDetailsRecord? FinancialInstrumentDetails { get; init; }
+    public FinancialInstrumentDetails43? FinancialInstrumentDetails { get; init; }
     
     /// <summary>
     /// Details at sub-account level.
@@ -104,7 +104,7 @@ public partial record SecuritiesTransactionPostingReport002V12 : IOuterRecord
     [Description(@"Details at sub-account level.")]
     [DataMember(Name="SubAcctDtls")]
     [XmlElement(ElementName="SubAcctDtls")]
-    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    public SubAccountIdentification70? SubAccountDetails { get; init; }
     
     */
     

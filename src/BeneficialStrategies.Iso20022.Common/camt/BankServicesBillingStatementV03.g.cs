@@ -35,7 +35,7 @@ public partial record BankServicesBillingStatementV03 : IOuterRecord
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required ReportHeader6 ReportHeader { get; init; }
     
     /// <summary>
     /// Group of bank services billing statements with the same sender and receiver characteristics.
@@ -45,7 +45,7 @@ public partial record BankServicesBillingStatementV03 : IOuterRecord
     [DataMember(Name="BllgStmtGrp")]
     [XmlElement(ElementName="BllgStmtGrp")]
     [Required]
-    public required SomeBillingStatementGroupRecord BillingStatementGroup { get; init; }
+    public required StatementGroup3 BillingStatementGroup { get; init; }
     
     */
     

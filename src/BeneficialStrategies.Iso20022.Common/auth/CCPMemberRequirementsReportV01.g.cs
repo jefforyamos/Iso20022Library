@@ -29,7 +29,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord
     [DataMember(Name="IntraDayRqrmntAmt")]
     [XmlElement(ElementName="IntraDayRqrmntAmt")]
     [Required]
-    public required SomeIntraDayRequirementAmountRecord IntraDayRequirementAmount { get; init; }
+    public required IntraDayRequirement1 IntraDayRequirementAmount { get; init; }
     
     /// <summary>
     /// Describes an instance of an intraday margin call being made against a margin account.
@@ -38,7 +38,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord
     [Description(@"Describes an instance of an intraday margin call being made against a margin account.")]
     [DataMember(Name="IntraDayMrgnCall")]
     [XmlElement(ElementName="IntraDayMrgnCall")]
-    public SomeIntraDayMarginCallRecord? IntraDayMarginCall { get; init; }
+    public IntraDayMarginCall1? IntraDayMarginCall { get; init; }
     
     /// <summary>
     /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
@@ -48,7 +48,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord
     [DataMember(Name="EndOfDayRqrmnt")]
     [XmlElement(ElementName="EndOfDayRqrmnt")]
     [Required]
-    public required SomeEndOfDayRequirementRecord EndOfDayRequirement { get; init; }
+    public required EndOfDayRequirement2 EndOfDayRequirement { get; init; }
     
     /// <summary>
     /// Requirement for a clearing member to post collateral at a central counterparty with respect to a default fund.
@@ -58,7 +58,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord
     [DataMember(Name="DfltFndRqrmnt")]
     [XmlElement(ElementName="DfltFndRqrmnt")]
     [Required]
-    public required SomeDefaultFundRequirementRecord DefaultFundRequirement { get; init; }
+    public required DefaultFundRequirement1 DefaultFundRequirement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -67,7 +67,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

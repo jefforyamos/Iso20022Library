@@ -35,7 +35,7 @@ public partial record MeetingInstructionV05 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference7 MeetingReference { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.
@@ -45,7 +45,7 @@ public partial record MeetingInstructionV05 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Identifies the position of the instructing party and the action that they want to take.
@@ -55,7 +55,7 @@ public partial record MeetingInstructionV05 : IOuterRecord
     [DataMember(Name="Instr")]
     [XmlElement(ElementName="Instr")]
     [Required]
-    public required SomeInstructionRecord Instruction { get; init; }
+    public required Instruction3 Instruction { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -64,7 +64,7 @@ public partial record MeetingInstructionV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

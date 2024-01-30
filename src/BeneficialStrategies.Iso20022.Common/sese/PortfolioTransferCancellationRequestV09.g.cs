@@ -37,7 +37,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [DataMember(Name="MsgRef")]
     [XmlElement(ElementName="MsgRef")]
     [Required]
-    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    public required MessageIdentification1 MessageReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -46,7 +46,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference11? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -55,7 +55,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference10? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -64,7 +64,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference10? RelatedReference { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
@@ -73,7 +73,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [Description(@"Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public IsoMax35Text? MasterReference { get; init; }
     
     /// <summary>
     /// Reference of the portfolio transfer instruction to be cancelled.
@@ -83,7 +83,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [DataMember(Name="TrfRefs")]
     [XmlElement(ElementName="TrfRefs")]
     [Required]
-    public required SomeTransferReferencesRecord TransferReferences { get; init; }
+    public required TransferReference14 TransferReferences { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -92,7 +92,7 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     */
     

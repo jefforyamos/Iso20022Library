@@ -30,7 +30,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="InvstgtnId")]
     [XmlElement(ElementName="InvstgtnId")]
     [Required]
-    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    public required IsoMax35Text InvestigationIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the legal basis of the request.
@@ -40,7 +40,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="LglMndtBsis")]
     [XmlElement(ElementName="LglMndtBsis")]
     [Required]
-    public required SomeLegalMandateBasisRecord LegalMandateBasis { get; init; }
+    public required LegalMandate1 LegalMandateBasis { get; init; }
     
     /// <summary>
     /// Specifies the confidentiality status of the investigation.
@@ -50,7 +50,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="CnfdtltySts")]
     [XmlElement(ElementName="CnfdtltySts")]
     [Required]
-    public required SomeConfidentialityStatusRecord ConfidentialityStatus { get; init; }
+    public required IsoYesNoIndicator ConfidentialityStatus { get; init; }
     
     /// <summary>
     /// Specifies the date by when the financial institutiion needs to provide a response.
@@ -59,7 +59,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [Description(@"Specifies the date by when the financial institutiion needs to provide a response.")]
     [DataMember(Name="DueDt")]
     [XmlElement(ElementName="DueDt")]
-    public SomeDueDateRecord? DueDate { get; init; }
+    public DueDate1? DueDate { get; init; }
     
     /// <summary>
     /// Specifies the dates between which period the authority requests that the financial institution provides a response to the information request.
@@ -69,7 +69,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="InvstgtnPrd")]
     [XmlElement(ElementName="InvstgtnPrd")]
     [Required]
-    public required SomeInvestigationPeriodRecord InvestigationPeriod { get; init; }
+    public required IDateOrDateTimePeriodChoice InvestigationPeriod { get; init; }
     
     /// <summary>
     /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
@@ -79,7 +79,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    public required ISearchCriteria1Choice SearchCriteria { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -88,7 +88,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

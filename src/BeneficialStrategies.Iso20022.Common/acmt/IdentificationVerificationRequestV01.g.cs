@@ -33,7 +33,7 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required IdentificationAssignment1 Assignment { get; init; }
     
     /// <summary>
     /// Information concerning the identification data that is requested to be verified.
@@ -43,7 +43,7 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord
     [DataMember(Name="Vrfctn")]
     [XmlElement(ElementName="Vrfctn")]
     [Required]
-    public required SomeVerificationRecord Verification { get; init; }
+    public required IdentificationVerification1 Verification { get; init; }
     
     */
     

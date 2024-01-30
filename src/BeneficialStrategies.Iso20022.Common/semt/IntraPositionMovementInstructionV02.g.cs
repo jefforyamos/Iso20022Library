@@ -37,7 +37,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
@@ -46,7 +46,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Identification assigned by the account servicer to unambiguously identify a corporate action event.")]
     [DataMember(Name="CorpActnEvtId")]
     [XmlElement(ElementName="CorpActnEvtId")]
-    public SomeCorporateActionEventIdentificationRecord? CorporateActionEventIdentification { get; init; }
+    public Identification1? CorporateActionEventIdentification { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -55,7 +55,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
     [DataMember(Name="Lnkgs")]
     [XmlElement(ElementName="Lnkgs")]
-    public SomeLinkagesRecord? Linkages { get; init; }
+    public Linkages8? Linkages { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -64,7 +64,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification36Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -74,7 +74,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
@@ -83,7 +83,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public SomeSafekeepingPlaceRecord? SafekeepingPlace { get; init; }
+    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -93,7 +93,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -102,7 +102,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes21? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Intra-position movement transaction details.
@@ -112,7 +112,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [DataMember(Name="IntraPosDtls")]
     [XmlElement(ElementName="IntraPosDtls")]
     [Required]
-    public required SomeIntraPositionDetailsRecord IntraPositionDetails { get; init; }
+    public required IntraPositionDetails11 IntraPositionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -121,7 +121,7 @@ public partial record IntraPositionMovementInstructionV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

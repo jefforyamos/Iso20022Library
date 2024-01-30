@@ -29,7 +29,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV01 : IOuterRec
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Provides the reason why no activity is reported or the required list of transactions for the unsecured market segment.
@@ -39,7 +39,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV01 : IOuterRec
     [DataMember(Name="UscrdMktRpt")]
     [XmlElement(ElementName="UscrdMktRpt")]
     [Required]
-    public required SomeUnsecuredMarketReportRecord UnsecuredMarketReport { get; init; }
+    public required IUnsecuredMarketReport3Choice UnsecuredMarketReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV01 : IOuterRec
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

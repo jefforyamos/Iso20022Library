@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingNonEquityTradingActivityResult
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Details the transparency data reported by a trading venue.
@@ -39,7 +39,7 @@ public partial record FinancialInstrumentReportingNonEquityTradingActivityResult
     [DataMember(Name="NonEqtyTrnsprncyData")]
     [XmlElement(ElementName="NonEqtyTrnsprncyData")]
     [Required]
-    public required SomeNonEquityTransparencyDataRecord NonEquityTransparencyData { get; init; }
+    public required TransparencyDataReport18 NonEquityTransparencyData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingNonEquityTradingActivityResult
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

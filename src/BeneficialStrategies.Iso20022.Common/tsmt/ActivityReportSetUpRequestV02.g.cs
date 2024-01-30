@@ -33,7 +33,7 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the parameters to calculate the local reporting time.
@@ -43,7 +43,7 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord
     [DataMember(Name="UTCOffset")]
     [XmlElement(ElementName="UTCOffset")]
     [Required]
-    public required SomeUTCOffsetRecord UTCOffset { get; init; }
+    public required UTCOffset1 UTCOffset { get; init; }
     
     */
     

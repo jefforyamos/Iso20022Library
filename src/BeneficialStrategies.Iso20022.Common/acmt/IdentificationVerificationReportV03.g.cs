@@ -35,7 +35,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required IdentificationAssignment3 Assignment { get; init; }
     
     /// <summary>
     /// Provides for the reference to the original identification assignment.
@@ -44,7 +44,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord
     [Description(@"Provides for the reference to the original identification assignment.")]
     [DataMember(Name="OrgnlAssgnmt")]
     [XmlElement(ElementName="OrgnlAssgnmt")]
-    public SomeOriginalAssignmentRecord? OriginalAssignment { get; init; }
+    public MessageIdentification7? OriginalAssignment { get; init; }
     
     /// <summary>
     /// Information concerning the verification of the identification data for which verification was requested.
@@ -54,7 +54,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
     [Required]
-    public required SomeReportRecord Report { get; init; }
+    public required VerificationReport4 Report { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -63,7 +63,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD3? CorporateActionGeneralInformation { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record UndertakingStatusReportV01 : IOuterRecord
     [DataMember(Name="UdrtkgStsRptDtls")]
     [XmlElement(ElementName="UdrtkgStsRptDtls")]
     [Required]
-    public required SomeUndertakingStatusReportDetailsRecord UndertakingStatusReportDetails { get; init; }
+    public required UndertakingStatusAdvice1 UndertakingStatusReportDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the report.
@@ -38,7 +38,7 @@ public partial record UndertakingStatusReportV01 : IOuterRecord
     [Description(@"Digital signature of the report.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

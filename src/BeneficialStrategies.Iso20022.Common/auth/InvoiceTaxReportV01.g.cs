@@ -29,7 +29,7 @@ public partial record InvoiceTaxReportV01 : IOuterRecord
     [DataMember(Name="InvcTaxRptHdr")]
     [XmlElement(ElementName="InvcTaxRptHdr")]
     [Required]
-    public required SomeInvoiceTaxReportHeaderRecord InvoiceTaxReportHeader { get; init; }
+    public required TaxReportHeader1 InvoiceTaxReportHeader { get; init; }
     
     /// <summary>
     /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
@@ -39,7 +39,7 @@ public partial record InvoiceTaxReportV01 : IOuterRecord
     [DataMember(Name="TaxRpt")]
     [XmlElement(ElementName="TaxRpt")]
     [Required]
-    public required SomeTaxReportRecord TaxReport { get; init; }
+    public required TaxReport1 TaxReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record InvoiceTaxReportV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

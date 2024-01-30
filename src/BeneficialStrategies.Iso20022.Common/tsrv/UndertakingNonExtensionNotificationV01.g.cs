@@ -29,7 +29,7 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord
     [DataMember(Name="UdrtkgNonXtnsnNtfctnDtls")]
     [XmlElement(ElementName="UdrtkgNonXtnsnNtfctnDtls")]
     [Required]
-    public required SomeUndertakingNonExtensionNotificationDetailsRecord UndertakingNonExtensionNotificationDetails { get; init; }
+    public required UndertakingNonExtensionStatusAdvice1 UndertakingNonExtensionNotificationDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the notification.
@@ -38,7 +38,7 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

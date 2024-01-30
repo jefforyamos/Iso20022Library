@@ -32,7 +32,7 @@ public partial record AccountReportingRequestV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader43 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide further details on the reporting request.
@@ -42,7 +42,7 @@ public partial record AccountReportingRequestV02 : IOuterRecord
     [DataMember(Name="RptgReq")]
     [XmlElement(ElementName="RptgReq")]
     [Required]
-    public required SomeReportingRequestRecord ReportingRequest { get; init; }
+    public required ReportingRequest2 ReportingRequest { get; init; }
     
     */
     

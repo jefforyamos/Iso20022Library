@@ -28,7 +28,7 @@ public partial record DTCCCAISSD1V03 : IOuterRecord
     [Description(@"Supplementary data extending corporate action reorganisation instruction status message with corporate action elements not covered in the standard message.")]
     [DataMember(Name="ReorgInstrDtls")]
     [XmlElement(ElementName="ReorgInstrDtls")]
-    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    public ReorganisationInstructionSD6? ReorganisationInstructionDetails { get; init; }
     
     */
     

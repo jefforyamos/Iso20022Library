@@ -28,7 +28,7 @@ public partial record DTCCCAICSD1V01 : IOuterRecord
     [Description(@"Supplementary data extending corporate action instruction cancellation request message with corporate action reorganisation elements not covered in the standard message.")]
     [DataMember(Name="ReorgInstrCxlDtls")]
     [XmlElement(ElementName="ReorgInstrCxlDtls")]
-    public required IReadonlyCollection<SomeReorganisationInstructionCancellationDetailsRecord> ReorganisationInstructionCancellationDetails { get; init; } // Min=0, Max=12
+    public required IReadonlyCollection<ReorganisationInstructionDetailsSD3> ReorganisationInstructionCancellationDetails { get; init; } // Min=0, Max=12
     
     */
     

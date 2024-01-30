@@ -32,7 +32,7 @@ public partial record SystemEventNotificationV02 : IOuterRecord
     [DataMember(Name="EvtInf")]
     [XmlElement(ElementName="EvtInf")]
     [Required]
-    public required SomeEventInformationRecord EventInformation { get; init; }
+    public required Event2 EventInformation { get; init; }
     
     */
     

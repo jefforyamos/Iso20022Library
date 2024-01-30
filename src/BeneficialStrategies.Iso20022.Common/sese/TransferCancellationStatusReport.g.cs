@@ -35,7 +35,7 @@ public partial record TransferCancellationStatusReport : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference2> RelatedReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Reference to the linked message sent in a proprietary way or the reference of a system.
@@ -45,7 +45,7 @@ public partial record TransferCancellationStatusReport : IOuterRecord
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
     [Required]
-    public required SomeOtherReferenceRecord OtherReference { get; init; }
+    public required AdditionalReference2 OtherReference { get; init; }
     
     /// <summary>
     /// Status of the transfer cancellation instruction.
@@ -55,7 +55,7 @@ public partial record TransferCancellationStatusReport : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required CancellationStatusAndReason StatusReport { get; init; }
     
     */
     

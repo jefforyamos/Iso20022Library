@@ -38,7 +38,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Provides information about the type of notification advice and linked message.
@@ -48,7 +48,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnTpAndLkg")]
     [XmlElement(ElementName="NtfctnTpAndLkg")]
     [Required]
-    public required SomeNotificationTypeAndLinkageRecord NotificationTypeAndLinkage { get; init; }
+    public required LinkedCorporateAction1 NotificationTypeAndLinkage { get; init; }
     
     /// <summary>
     /// Provides general information about the notification advice.
@@ -58,7 +58,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnGnlInf")]
     [XmlElement(ElementName="NtfctnGnlInf")]
     [Required]
-    public required SomeNotificationGeneralInformationRecord NotificationGeneralInformation { get; init; }
+    public required CorporateActionNotification1 NotificationGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -68,7 +68,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation2 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides details information about the CA event.
@@ -78,7 +78,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
     [Required]
-    public required SomeCorporateActionDetailsRecord CorporateActionDetails { get; init; }
+    public required CorporateAction2 CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Provides detailed information about the option of the CA event.
@@ -87,7 +87,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [Description(@"Provides detailed information about the option of the CA event.")]
     [DataMember(Name="CorpActnOptnDtls")]
     [XmlElement(ElementName="CorpActnOptnDtls")]
-    public SomeCorporateActionOptionDetailsRecord? CorporateActionOptionDetails { get; init; }
+    public CorporateActionOption1? CorporateActionOptionDetails { get; init; }
     
     /// <summary>
     /// Provides information about the contact responsible for the transaction identified in the message.
@@ -96,7 +96,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [Description(@"Provides information about the contact responsible for the transaction identified in the message.")]
     [DataMember(Name="CtctDtls")]
     [XmlElement(ElementName="CtctDtls")]
-    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    public ContactPerson1? ContactDetails { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -105,7 +105,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative2? AdditionalInformation { get; init; }
     
     */
     

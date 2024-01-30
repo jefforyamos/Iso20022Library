@@ -33,7 +33,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -42,7 +42,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -51,7 +51,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Parameters for which the fund processing passport report is requested.
@@ -61,7 +61,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     [DataMember(Name="FPPRpt")]
     [XmlElement(ElementName="FPPRpt")]
     [Required]
-    public required SomeFundProcessingPassportReportRecord FundProcessingPassportReport { get; init; }
+    public required IFundParameters3Choice FundProcessingPassportReport { get; init; }
     
     */
     

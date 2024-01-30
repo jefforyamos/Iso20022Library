@@ -32,7 +32,7 @@ public partial record NotificationToReceiveCancellationAdviceV04 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader59 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to identify the original notification, to which the cancellation advice refers.
@@ -42,7 +42,7 @@ public partial record NotificationToReceiveCancellationAdviceV04 : IOuterRecord
     [DataMember(Name="OrgnlNtfctn")]
     [XmlElement(ElementName="OrgnlNtfctn")]
     [Required]
-    public required SomeOriginalNotificationRecord OriginalNotification { get; init; }
+    public required OriginalNotification8 OriginalNotification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -51,7 +51,7 @@ public partial record NotificationToReceiveCancellationAdviceV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

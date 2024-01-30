@@ -36,7 +36,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -45,7 +45,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference9? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -54,7 +54,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference8? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
@@ -63,7 +63,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public IsoMax35Text? MasterReference { get; init; }
     
     /// <summary>
     /// Identification of the individual order to be cancelled.
@@ -73,7 +73,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [DataMember(Name="OrdrRefs")]
     [XmlElement(ElementName="OrdrRefs")]
     [Required]
-    public required SomeOrderReferencesRecord OrderReferences { get; init; }
+    public required InvestmentFundOrder9 OrderReferences { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -82,7 +82,7 @@ public partial record RedemptionOrderCancellationRequestV04 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation4? CopyDetails { get; init; }
     
     */
     

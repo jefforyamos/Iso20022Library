@@ -41,7 +41,7 @@ public partial record CustomerPaymentCancellationRequestV01 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment2 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -50,7 +50,7 @@ public partial record CustomerPaymentCancellationRequestV01 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case2? Case { get; init; }
     
     /// <summary>
     /// Provides details on the number of transactions and the control sum of the message.
@@ -59,7 +59,7 @@ public partial record CustomerPaymentCancellationRequestV01 : IOuterRecord
     [Description(@"Provides details on the number of transactions and the control sum of the message.")]
     [DataMember(Name="CtrlData")]
     [XmlElement(ElementName="CtrlData")]
-    public SomeControlDataRecord? ControlData { get; init; }
+    public ControlData1? ControlData { get; init; }
     
     /// <summary>
     /// Identifies the payment instruction to be cancelled.
@@ -69,7 +69,7 @@ public partial record CustomerPaymentCancellationRequestV01 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required UnderlyingTransaction1 Underlying { get; init; }
     
     */
     

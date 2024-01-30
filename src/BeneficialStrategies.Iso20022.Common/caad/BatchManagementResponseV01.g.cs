@@ -29,7 +29,7 @@ public partial record BatchManagementResponseV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header38 Header { get; init; }
     
     /// <summary>
     /// Information related to the batch management.
@@ -39,7 +39,7 @@ public partial record BatchManagementResponseV01 : IOuterRecord
     [DataMember(Name="Body")]
     [XmlElement(ElementName="Body")]
     [Required]
-    public required SomeBodyRecord Body { get; init; }
+    public required BatchManagementResponse1 Body { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC
@@ -48,7 +48,7 @@ public partial record BatchManagementResponseV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType20? SecurityTrailer { get; init; }
     
     */
     

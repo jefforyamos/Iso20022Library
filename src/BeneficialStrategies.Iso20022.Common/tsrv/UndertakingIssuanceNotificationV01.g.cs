@@ -29,7 +29,7 @@ public partial record UndertakingIssuanceNotificationV01 : IOuterRecord
     [DataMember(Name="UdrtkgIssncNtfctnDtls")]
     [XmlElement(ElementName="UdrtkgIssncNtfctnDtls")]
     [Required]
-    public required SomeUndertakingIssuanceNotificationDetailsRecord UndertakingIssuanceNotificationDetails { get; init; }
+    public required UndertakingAdvice2 UndertakingIssuanceNotificationDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the undertaking notification.
@@ -38,7 +38,7 @@ public partial record UndertakingIssuanceNotificationV01 : IOuterRecord
     [Description(@"Digital signature of the undertaking notification.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

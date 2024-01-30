@@ -35,7 +35,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [DataMember(Name="MsgRef")]
     [XmlElement(ElementName="MsgRef")]
     [Required]
-    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    public required MessageIdentification1 MessageReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -44,7 +44,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -53,7 +53,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -62,7 +62,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Information related to the transfer instruction to be cancelled.
@@ -71,7 +71,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [Description(@"Information related to the transfer instruction to be cancelled.")]
     [DataMember(Name="CxlByTrfInstrDtls")]
     [XmlElement(ElementName="CxlByTrfInstrDtls")]
-    public SomeCancellationByTransferInstructionDetailsRecord? CancellationByTransferInstructionDetails { get; init; }
+    public PEPISATransfer11? CancellationByTransferInstructionDetails { get; init; }
     
     /// <summary>
     /// Reference of the transfer instruction to be cancelled.
@@ -80,7 +80,7 @@ public partial record PortfolioTransferCancellationRequestV03 : IOuterRecord
     [Description(@"Reference of the transfer instruction to be cancelled.")]
     [DataMember(Name="CxlByRef")]
     [XmlElement(ElementName="CxlByRef")]
-    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    public TransferReference3? CancellationByReference { get; init; }
     
     */
     

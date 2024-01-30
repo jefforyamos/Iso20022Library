@@ -37,7 +37,7 @@ public partial record SecurityReportV01 : IOuterRecord
     [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader12? MessageHeader { get; init; }
     
     /// <summary>
     /// Provides details on the page number of the message.
@@ -47,7 +47,7 @@ public partial record SecurityReportV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides the financial instruments details or error raised during the generation of the report.
@@ -57,7 +57,7 @@ public partial record SecurityReportV01 : IOuterRecord
     [DataMember(Name="SctyRptOrErr")]
     [XmlElement(ElementName="SctyRptOrErr")]
     [Required]
-    public required SomeSecurityReportOrErrorRecord SecurityReportOrError { get; init; }
+    public required ISecurityOrOperationalError4Choice SecurityReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -66,7 +66,7 @@ public partial record SecurityReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

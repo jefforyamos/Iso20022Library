@@ -36,7 +36,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification12 Identification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent cancelled instruction document.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Identification of a previously sent cancelled instruction document.")]
     [DataMember(Name="CancInstrId")]
     [XmlElement(ElementName="CancInstrId")]
-    public SomeCancelledInstructionIdentificationRecord? CancelledInstructionIdentification { get; init; }
+    public DocumentIdentification15? CancelledInstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent instruction cancellation request document.
@@ -54,7 +54,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Identification of a previously sent instruction cancellation request document.")]
     [DataMember(Name="InstrCxlReqId")]
     [XmlElement(ElementName="InstrCxlReqId")]
-    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    public DocumentIdentification15? InstructionCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -63,7 +63,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification13? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
@@ -72,7 +72,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReference1? EventsLinkage { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -82,7 +82,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation6 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -92,7 +92,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required AccountAndBalance2 AccountDetails { get; init; }
     
     /// <summary>
     /// Provides information about the beneficial owner of the securities.
@@ -101,7 +101,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Provides information about the beneficial owner of the securities.")]
     [DataMember(Name="BnfclOwnrDtls")]
     [XmlElement(ElementName="BnfclOwnrDtls")]
-    public SomeBeneficialOwnerDetailsRecord? BeneficialOwnerDetails { get; init; }
+    public PartyIdentification33? BeneficialOwnerDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.
@@ -111,7 +111,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
     [Required]
-    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    public required CorporateActionOption5 CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -120,7 +120,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative7? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -129,7 +129,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -138,7 +138,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -147,7 +147,7 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

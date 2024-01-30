@@ -33,7 +33,7 @@ public partial record TransactionReportRequestV03 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Parameters to be used as criteria for the content of the transaction report.
@@ -43,7 +43,7 @@ public partial record TransactionReportRequestV03 : IOuterRecord
     [DataMember(Name="RptSpcfctn")]
     [XmlElement(ElementName="RptSpcfctn")]
     [Required]
-    public required SomeReportSpecificationRecord ReportSpecification { get; init; }
+    public required ReportSpecification4 ReportSpecification { get; init; }
     
     */
     

@@ -33,7 +33,7 @@ public partial record MarginCallDisputeNotificationV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -43,7 +43,7 @@ public partial record MarginCallDisputeNotificationV03 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation3 Obligation { get; init; }
     
     /// <summary>
     /// Details of the dispute notification.
@@ -53,7 +53,7 @@ public partial record MarginCallDisputeNotificationV03 : IOuterRecord
     [DataMember(Name="DsptNtfctn")]
     [XmlElement(ElementName="DsptNtfctn")]
     [Required]
-    public required SomeDisputeNotificationRecord DisputeNotification { get; init; }
+    public required IDisputeNotification1Choice DisputeNotification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record MarginCallDisputeNotificationV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

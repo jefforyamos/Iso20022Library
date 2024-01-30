@@ -32,7 +32,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="TxInstrId")]
     [XmlElement(ElementName="TxInstrId")]
     [Required]
-    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    public required TransactionIdentifications44 TransactionInstructionIdentification { get; init; }
     
     /// <summary>
     /// Specifies the type of collateral instruction.
@@ -42,7 +42,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="CollTxTp")]
     [XmlElement(ElementName="CollTxTp")]
     [Required]
-    public required SomeCollateralTransactionTypeRecord CollateralTransactionType { get; init; }
+    public required ICollateralTransactionType1Choice CollateralTransactionType { get; init; }
     
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
@@ -52,7 +52,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="XpsrTp")]
     [XmlElement(ElementName="XpsrTp")]
     [Required]
-    public required SomeExposureTypeRecord ExposureType { get; init; }
+    public required IExposureType23Choice ExposureType { get; init; }
     
     /// <summary>
     /// Specifies whether the alleging side is the collateral taker or giver.
@@ -62,7 +62,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="CollSd")]
     [XmlElement(ElementName="CollSd")]
     [Required]
-    public required SomeCollateralSideRecord CollateralSide { get; init; }
+    public required CollateralRole1Code CollateralSide { get; init; }
     
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
@@ -71,7 +71,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [Description(@"Number identifying the collateral eligibility set profile of the counterparty.")]
     [DataMember(Name="ElgbltySetPrfl")]
     [XmlElement(ElementName="ElgbltySetPrfl")]
-    public SomeEligibilitySetProfileRecord? EligibilitySetProfile { get; init; }
+    public GenericIdentification1? EligibilitySetProfile { get; init; }
     
     /// <summary>
     /// Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.
@@ -81,7 +81,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="CollPties")]
     [XmlElement(ElementName="CollPties")]
     [Required]
-    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    public required CollateralParties8 CollateralParties { get; init; }
     
     /// <summary>
     /// Amount of the principal.
@@ -90,7 +90,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [Description(@"Amount of the principal.")]
     [DataMember(Name="TxAmt")]
     [XmlElement(ElementName="TxAmt")]
-    public SomeTransactionAmountRecord? TransactionAmount { get; init; }
+    public AmountAndDirection49? TransactionAmount { get; init; }
     
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed. 
@@ -99,7 +99,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [Description(@"Date/time at which the instructing party requests the instruction to be executed. ")]
     [DataMember(Name="ReqdExctnDt")]
     [XmlElement(ElementName="ReqdExctnDt")]
-    public SomeRequestedExecutionDateRecord? RequestedExecutionDate { get; init; }
+    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -108,7 +108,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

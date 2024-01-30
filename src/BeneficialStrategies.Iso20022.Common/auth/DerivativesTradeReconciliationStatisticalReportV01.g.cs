@@ -29,7 +29,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     [DataMember(Name="SttstcsPerCtrPty")]
     [XmlElement(ElementName="SttstcsPerCtrPty")]
     [Required]
-    public required SomeStatisticsPerCounterpartyRecord StatisticsPerCounterparty { get; init; }
+    public required IStatisticsPerCounterparty1Choice StatisticsPerCounterparty { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

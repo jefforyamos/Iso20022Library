@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required TransactionIdentifications31 TransactionIdentification { get; init; }
     
     /// <summary>
     /// Link to another transaction - provided for information only.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Link to another transaction - provided for information only.")]
     [DataMember(Name="Lnkgs")]
     [XmlElement(ElementName="Lnkgs")]
-    public SomeLinkagesRecord? Linkages { get; init; }
+    public Linkages41? Linkages { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    public IProcessingStatus74Choice? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
@@ -67,7 +67,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
     [DataMember(Name="IfrrdMtchgSts")]
     [XmlElement(ElementName="IfrrdMtchgSts")]
-    public SomeInferredMatchingStatusRecord? InferredMatchingStatus { get; init; }
+    public IMatchingStatus24Choice? InferredMatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    public IMatchingStatus24Choice? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -85,7 +85,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    public ISettlementStatus17Choice? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -94,7 +94,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails113? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -103,7 +103,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV10 : IOuterRec
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

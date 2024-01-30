@@ -38,7 +38,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="TxInstrId")]
     [XmlElement(ElementName="TxInstrId")]
     [Required]
-    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    public required TransactionIdentifications44 TransactionInstructionIdentification { get; init; }
     
     /// <summary>
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
@@ -48,7 +48,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Specifies the different parameters of the collateral instruction or transaction.
@@ -58,7 +58,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="GnlParams")]
     [XmlElement(ElementName="GnlParams")]
     [Required]
-    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    public required CollateralParameters11 GeneralParameters { get; init; }
     
     /// <summary>
     /// Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.
@@ -68,7 +68,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="CollPties")]
     [XmlElement(ElementName="CollPties")]
     [Required]
-    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    public required CollateralParties8 CollateralParties { get; init; }
     
     /// <summary>
     /// Specifies the information related to the deal.
@@ -78,7 +78,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="DealTxDtls")]
     [XmlElement(ElementName="DealTxDtls")]
     [Required]
-    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    public required DealTransactionDetails6 DealTransactionDetails { get; init; }
     
     /// <summary>
     /// Identifies the dates related to the triparty collateral instruction or transactions.
@@ -88,7 +88,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [DataMember(Name="DealTxDt")]
     [XmlElement(ElementName="DealTxDt")]
     [Required]
-    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    public required CollateralDate2 DealTransactionDate { get; init; }
     
     /// <summary>
     /// Securities movements.
@@ -97,7 +97,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [Description(@"Securities movements.|")]
     [DataMember(Name="SctiesMvmnt")]
     [XmlElement(ElementName="SctiesMvmnt")]
-    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    public SecuritiesMovement7? SecuritiesMovement { get; init; }
     
     /// <summary>
     /// Cash movements.
@@ -106,7 +106,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [Description(@"Cash movements.|")]
     [DataMember(Name="CshMvmnt")]
     [XmlElement(ElementName="CshMvmnt")]
-    public SomeCashMovementRecord? CashMovement { get; init; }
+    public CashMovement5? CashMovement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -115,7 +115,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

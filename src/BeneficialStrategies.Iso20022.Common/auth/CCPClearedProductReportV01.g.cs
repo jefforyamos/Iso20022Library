@@ -29,7 +29,7 @@ public partial record CCPClearedProductReportV01 : IOuterRecord
     [DataMember(Name="ClrdPdct")]
     [XmlElement(ElementName="ClrdPdct")]
     [Required]
-    public required SomeClearedProductRecord ClearedProduct { get; init; }
+    public required ClearedProduct1 ClearedProduct { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPClearedProductReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

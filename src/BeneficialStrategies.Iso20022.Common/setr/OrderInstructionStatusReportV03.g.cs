@@ -60,7 +60,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
@@ -69,7 +69,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [Description(@"Reference to a linked message sent in a proprietary way or reference of a system.")]
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
-    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<AdditionalReference3> OtherReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -78,7 +78,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<AdditionalReference3> RelatedReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Status report details of all the individual orders conveyed in a bulk or multiple order message. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
@@ -88,7 +88,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [DataMember(Name="OrdrDtlsRpt")]
     [XmlElement(ElementName="OrdrDtlsRpt")]
     [Required]
-    public required SomeOrderDetailsReportRecord OrderDetailsReport { get; init; }
+    public required OrderStatusAndReason7 OrderDetailsReport { get; init; }
     
     /// <summary>
     /// Status report details of an individual order.
@@ -98,7 +98,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [DataMember(Name="IndvOrdrDtlsRpt")]
     [XmlElement(ElementName="IndvOrdrDtlsRpt")]
     [Required]
-    public required SomeIndividualOrderDetailsReportRecord IndividualOrderDetailsReport { get; init; }
+    public required IndividualOrderStatusAndReason2 IndividualOrderDetailsReport { get; init; }
     
     /// <summary>
     /// Status report details of a switch order.
@@ -108,7 +108,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [DataMember(Name="SwtchOrdrDtlsRpt")]
     [XmlElement(ElementName="SwtchOrdrDtlsRpt")]
     [Required]
-    public required SomeSwitchOrderDetailsReportRecord SwitchOrderDetailsReport { get; init; }
+    public required SwitchOrderStatusAndReason1 SwitchOrderDetailsReport { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -117,7 +117,7 @@ public partial record OrderInstructionStatusReportV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

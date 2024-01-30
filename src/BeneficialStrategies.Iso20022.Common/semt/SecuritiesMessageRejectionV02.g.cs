@@ -37,7 +37,7 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -47,7 +47,7 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required AdditionalReference3 RelatedReference { get; init; }
     
     /// <summary>
     /// Reason to reject the message.
@@ -57,7 +57,7 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord
     [DataMember(Name="Rsn")]
     [XmlElement(ElementName="Rsn")]
     [Required]
-    public required SomeReasonRecord Reason { get; init; }
+    public required RejectionReason3 Reason { get; init; }
     
     */
     

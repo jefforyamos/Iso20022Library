@@ -39,7 +39,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required AdditionalReference2 RelatedReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or the reference of a system.
@@ -49,7 +49,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
     [Required]
-    public required SomeOtherReferenceRecord OtherReference { get; init; }
+    public required AdditionalReference2 OtherReference { get; init; }
     
     /// <summary>
     /// Status of the transfer instruction.
@@ -59,7 +59,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required TransferStatusAndReason StatusReport { get; init; }
     
     */
     

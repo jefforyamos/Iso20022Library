@@ -33,7 +33,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Agreement details for the over the counter market.
@@ -42,7 +42,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [Description(@"Agreement details for the over the counter market.")]
     [DataMember(Name="Agrmt")]
     [XmlElement(ElementName="Agrmt")]
-    public SomeAgreementRecord? Agreement { get; init; }
+    public Agreement2? Agreement { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -52,7 +52,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation3 Obligation { get; init; }
     
     /// <summary>
     /// Provides general information on the report such as the statement identification.
@@ -62,7 +62,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [DataMember(Name="StmtParams")]
     [XmlElement(ElementName="StmtParams")]
     [Required]
-    public required SomeStatementParametersRecord StatementParameters { get; init; }
+    public required Statement32 StatementParameters { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -71,7 +71,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination? Pagination { get; init; }
     
     /// <summary>
     /// Provides details on the interest statement.
@@ -81,7 +81,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [DataMember(Name="IntrstStmt")]
     [XmlElement(ElementName="IntrstStmt")]
     [Required]
-    public required SomeInterestStatementRecord InterestStatement { get; init; }
+    public required InterestStatement3 InterestStatement { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -90,7 +90,7 @@ public partial record InterestPaymentStatementV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SettlementFailsReportHeader2 ReportHeader { get; init; }
     
     /// <summary>
     /// Aggregated monthly volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
@@ -39,7 +39,7 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
     [DataMember(Name="MnthlyAggt")]
     [XmlElement(ElementName="MnthlyAggt")]
     [Required]
-    public required SomeMonthlyAggregateRecord MonthlyAggregate { get; init; }
+    public required SettlementFailsData3 MonthlyAggregate { get; init; }
     
     /// <summary>
     /// Daily data volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
@@ -49,7 +49,7 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
     [DataMember(Name="DalyData")]
     [XmlElement(ElementName="DalyData")]
     [Required]
-    public required SomeDailyDataRecord DailyData { get; init; }
+    public required SettlementFailsDailyData3 DailyData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -58,7 +58,7 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

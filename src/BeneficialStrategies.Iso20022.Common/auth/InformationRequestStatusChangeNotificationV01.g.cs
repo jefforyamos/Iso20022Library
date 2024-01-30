@@ -29,7 +29,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     [DataMember(Name="OrgnlBizQry")]
     [XmlElement(ElementName="OrgnlBizQry")]
     [Required]
-    public required SomeOriginalBusinessQueryRecord OriginalBusinessQuery { get; init; }
+    public required IsoMax35Text OriginalBusinessQuery { get; init; }
     
     /// <summary>
     /// Specifies the confidentiality status of the investigation.
@@ -39,7 +39,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     [DataMember(Name="CnfdtltySts")]
     [XmlElement(ElementName="CnfdtltySts")]
     [Required]
-    public required SomeConfidentialityStatusRecord ConfidentialityStatus { get; init; }
+    public required IsoYesNoIndicator ConfidentialityStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

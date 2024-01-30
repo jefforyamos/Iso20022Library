@@ -34,7 +34,7 @@ public partial record CustomerPaymentReversalV04 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader56 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -44,7 +44,7 @@ public partial record CustomerPaymentReversalV04 : IOuterRecord
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
     [Required]
-    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    public required OriginalGroupHeader3 OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original payment information, to which the reversal message refers.
@@ -53,7 +53,7 @@ public partial record CustomerPaymentReversalV04 : IOuterRecord
     [Description(@"Information concerning the original payment information, to which the reversal message refers.")]
     [DataMember(Name="OrgnlPmtInfAndRvsl")]
     [XmlElement(ElementName="OrgnlPmtInfAndRvsl")]
-    public SomeOriginalPaymentInformationAndReversalRecord? OriginalPaymentInformationAndReversal { get; init; }
+    public OriginalPaymentInstruction7? OriginalPaymentInformationAndReversal { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record CustomerPaymentReversalV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

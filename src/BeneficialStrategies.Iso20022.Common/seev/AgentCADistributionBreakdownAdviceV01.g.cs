@@ -33,7 +33,7 @@ public partial record AgentCADistributionBreakdownAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -43,7 +43,7 @@ public partial record AgentCADistributionBreakdownAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the CA option and the entitlements.
@@ -53,7 +53,7 @@ public partial record AgentCADistributionBreakdownAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnDstrbtnDtls")]
     [XmlElement(ElementName="CorpActnDstrbtnDtls")]
     [Required]
-    public required SomeCorporateActionDistributionDetailsRecord CorporateActionDistributionDetails { get; init; }
+    public required EntitlementAdvice1 CorporateActionDistributionDetails { get; init; }
     
     */
     

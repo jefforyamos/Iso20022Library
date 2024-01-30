@@ -35,7 +35,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the entities of the submitter for which the activities have to be reported.
@@ -44,7 +44,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     [Description(@"Specifies the entities of the submitter for which the activities have to be reported.")]
     [DataMember(Name="NttiesToBeRptd")]
     [XmlElement(ElementName="NttiesToBeRptd")]
-    public SomeEntitiesToBeReportedRecord? EntitiesToBeReported { get; init; }
+    public BICIdentification1? EntitiesToBeReported { get; init; }
     
     /// <summary>
     /// Specifies the period for which activities have to be reported.
@@ -54,7 +54,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     [DataMember(Name="RptPrd")]
     [XmlElement(ElementName="RptPrd")]
     [Required]
-    public required SomeReportPeriodRecord ReportPeriod { get; init; }
+    public required DateTimePeriodDetails1 ReportPeriod { get; init; }
     
     */
     

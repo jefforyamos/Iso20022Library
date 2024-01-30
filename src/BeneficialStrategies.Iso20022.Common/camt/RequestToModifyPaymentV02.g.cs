@@ -57,7 +57,7 @@ public partial record RequestToModifyPaymentV02 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment3 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -67,7 +67,7 @@ public partial record RequestToModifyPaymentV02 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case3 Case { get; init; }
     
     /// <summary>
     /// Identifies the payment transaction to be modified.
@@ -77,7 +77,7 @@ public partial record RequestToModifyPaymentV02 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction2Choice Underlying { get; init; }
     
     /// <summary>
     /// Identifies the list of modifications requested.
@@ -87,7 +87,7 @@ public partial record RequestToModifyPaymentV02 : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required RequestedModification4 Modification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -96,7 +96,7 @@ public partial record RequestToModifyPaymentV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

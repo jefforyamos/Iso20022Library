@@ -41,7 +41,7 @@ public partial record CaseStatusReportRequest : IOuterRecord
     [DataMember(Name="ReqHdr")]
     [XmlElement(ElementName="ReqHdr")]
     [Required]
-    public required SomeRequestHeaderRecord RequestHeader { get; init; }
+    public required ReportHeader RequestHeader { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -51,7 +51,7 @@ public partial record CaseStatusReportRequest : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     */
     

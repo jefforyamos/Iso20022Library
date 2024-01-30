@@ -40,7 +40,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -49,7 +49,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<AdditionalReference3> RelatedReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Reference to the linked message sent in a proprietary way or the reference of a system.
@@ -58,7 +58,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to the linked message sent in a proprietary way or the reference of a system.")]
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
-    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<AdditionalReference3> OtherReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Status of the transfer cancellation instruction.
@@ -68,7 +68,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required CancellationStatusAndReason2 StatusReport { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -77,7 +77,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

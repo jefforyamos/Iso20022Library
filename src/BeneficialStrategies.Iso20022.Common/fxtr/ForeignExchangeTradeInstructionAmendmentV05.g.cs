@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement15 TradeInformation { get; init; }
     
     /// <summary>
     /// Party(ies) on the trading side of the trade.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification8 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Party(ies) on the counterparty side of the trade.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification8 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Amounts of the trade.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [DataMember(Name="TradAmts")]
     [XmlElement(ElementName="TradAmts")]
     [Required]
-    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    public required AmountsAndValueDate6 TradeAmounts { get; init; }
     
     /// <summary>
     /// Exchange rate as agreed by the traders.
@@ -72,7 +72,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [DataMember(Name="AgrdRate")]
     [XmlElement(ElementName="AgrdRate")]
     [Required]
-    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    public required AgreedRate3 AgreedRate { get; init; }
     
     /// <summary>
     /// Specifies the conditions for a non deliverable opening or fixing confirmation.
@@ -81,7 +81,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Specifies the conditions for a non deliverable opening or fixing confirmation.")]
     [DataMember(Name="NDFConds")]
     [XmlElement(ElementName="NDFConds")]
-    public SomeNonDeliverableForwardConditionsRecord? NonDeliverableForwardConditions { get; init; }
+    public NonDeliverableForwardConditions1? NonDeliverableForwardConditions { get; init; }
     
     /// <summary>
     /// Settlement instructions for the amounts received by the trading side.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Settlement instructions for the amounts received by the trading side.")]
     [DataMember(Name="TradgSdSttlmInstrs")]
     [XmlElement(ElementName="TradgSdSttlmInstrs")]
-    public SomeTradingSideSettlementInstructionsRecord? TradingSideSettlementInstructions { get; init; }
+    public SettlementParties120? TradingSideSettlementInstructions { get; init; }
     
     /// <summary>
     /// Settlement instructions for the amounts received by the counterparty.
@@ -99,7 +99,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Settlement instructions for the amounts received by the counterparty.")]
     [DataMember(Name="CtrPtySdSttlmInstrs")]
     [XmlElement(ElementName="CtrPtySdSttlmInstrs")]
-    public SomeCounterpartySideSettlementInstructionsRecord? CounterpartySideSettlementInstructions { get; init; }
+    public SettlementParties120? CounterpartySideSettlementInstructions { get; init; }
     
     /// <summary>
     /// Specifies whether the trade is a block or an individual trade. It also contains supplementary information such as free format information, broker's identification, dealing branches and references.
@@ -108,7 +108,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Specifies whether the trade is a block or an individual trade. It also contains supplementary information such as free format information, broker's identification, dealing branches and references.")]
     [DataMember(Name="OptnlGnlInf")]
     [XmlElement(ElementName="OptnlGnlInf")]
-    public SomeOptionalGeneralInformationRecord? OptionalGeneralInformation { get; init; }
+    public GeneralInformation8? OptionalGeneralInformation { get; init; }
     
     /// <summary>
     /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
@@ -117,7 +117,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.")]
     [DataMember(Name="RgltryRptg")]
     [XmlElement(ElementName="RgltryRptg")]
-    public SomeRegulatoryReportingRecord? RegulatoryReporting { get; init; }
+    public RegulatoryReporting7? RegulatoryReporting { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -126,7 +126,7 @@ public partial record ForeignExchangeTradeInstructionAmendmentV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

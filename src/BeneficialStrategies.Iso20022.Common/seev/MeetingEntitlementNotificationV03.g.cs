@@ -34,7 +34,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required MessageIdentification1 Identification { get; init; }
     
     /// <summary>
     /// Identifies the meeting entitlement message to be modified.
@@ -43,7 +43,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [Description(@"Identifies the meeting entitlement message to be modified.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public MessageIdentification? RelatedReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -53,7 +53,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference4 MeetingReference { get; init; }
     
     /// <summary>
     /// Party notifying the entitlement.
@@ -63,7 +63,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [DataMember(Name="NtifngPty")]
     [XmlElement(ElementName="NtifngPty")]
     [Required]
-    public required SomeNotifyingPartyRecord NotifyingParty { get; init; }
+    public required IPartyIdentification9Choice NotifyingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised, the account and the positions of the security holder.
@@ -72,7 +72,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [Description(@"Identifies the security for which the meeting is organised, the account and the positions of the security holder.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    public required IReadonlyCollection<SecurityPosition6> Security { get; init; } // Min=1, Max=200
     
     /// <summary>
     /// Defines the dates determining eligibility.
@@ -82,7 +82,7 @@ public partial record MeetingEntitlementNotificationV03 : IOuterRecord
     [DataMember(Name="Elgblty")]
     [XmlElement(ElementName="Elgblty")]
     [Required]
-    public required SomeEligibilityRecord Eligibility { get; init; }
+    public required EligibilityDates1 Eligibility { get; init; }
     
     */
     

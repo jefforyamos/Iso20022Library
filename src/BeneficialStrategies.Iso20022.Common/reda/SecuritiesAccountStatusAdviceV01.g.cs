@@ -31,7 +31,7 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader12? MessageHeader { get; init; }
     
     /// <summary>
     /// Status of the securities account involved in the originating message.
@@ -41,7 +41,7 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     [DataMember(Name="SctiesAcctSts")]
     [XmlElement(ElementName="SctiesAcctSts")]
     [Required]
-    public required SomeSecuritiesAccountStatusRecord SecuritiesAccountStatus { get; init; }
+    public required SecuritiesAccountStatus2 SecuritiesAccountStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -50,7 +50,7 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record FinancialInstrumentReportingCurrencyCodeReportV01 : IOuter
     [DataMember(Name="CcyData")]
     [XmlElement(ElementName="CcyData")]
     [Required]
-    public required SomeCurrencyDataRecord CurrencyData { get; init; }
+    public required SecuritiesCurrencyIdentification2 CurrencyData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialInstrumentReportingCurrencyCodeReportV01 : IOuter
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

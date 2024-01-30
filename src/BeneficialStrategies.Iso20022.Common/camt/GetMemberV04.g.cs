@@ -43,7 +43,7 @@ public partial record GetMemberV04 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Definition of the member query.
@@ -52,7 +52,7 @@ public partial record GetMemberV04 : IOuterRecord
     [Description(@"Definition of the member query.")]
     [DataMember(Name="MmbQryDef")]
     [XmlElement(ElementName="MmbQryDef")]
-    public SomeMemberQueryDefinitionRecord? MemberQueryDefinition { get; init; }
+    public MemberQueryDefinition4? MemberQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -61,7 +61,7 @@ public partial record GetMemberV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

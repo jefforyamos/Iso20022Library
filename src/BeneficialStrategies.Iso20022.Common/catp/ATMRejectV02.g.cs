@@ -29,7 +29,7 @@ public partial record ATMRejectV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header33 Header { get; init; }
     
     /// <summary>
     /// Information related to the reject of a message from an ATM or an ATM manager.
@@ -39,7 +39,7 @@ public partial record ATMRejectV02 : IOuterRecord
     [DataMember(Name="ATMRjct")]
     [XmlElement(ElementName="ATMRjct")]
     [Required]
-    public required SomeATMRejectRecord ATMReject { get; init; }
+    public required ATMReject2 ATMReject { get; init; }
     
     */
     

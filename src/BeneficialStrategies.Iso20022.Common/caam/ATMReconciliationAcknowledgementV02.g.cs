@@ -29,7 +29,7 @@ public partial record ATMReconciliationAcknowledgementV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header32 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMReconciliationAcknowledgementV02 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMRcncltnAck")]
     [XmlElement(ElementName="PrtctdATMRcncltnAck")]
-    public SomeProtectedATMReconciliationAcknowledgementRecord? ProtectedATMReconciliationAcknowledgement { get; init; }
+    public ContentInformationType10? ProtectedATMReconciliationAcknowledgement { get; init; }
     
     /// <summary>
     /// Information related to the acknowledgement of an ATM reconciliation from the ATM manager.
@@ -47,7 +47,7 @@ public partial record ATMReconciliationAcknowledgementV02 : IOuterRecord
     [Description(@"Information related to the acknowledgement of an ATM reconciliation from the ATM manager.")]
     [DataMember(Name="ATMRcncltnAck")]
     [XmlElement(ElementName="ATMRcncltnAck")]
-    public SomeATMReconciliationAcknowledgementRecord? ATMReconciliationAcknowledgement { get; init; }
+    public ATMReconciliationAcknowledgement2? ATMReconciliationAcknowledgement { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record ATMReconciliationAcknowledgementV02 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

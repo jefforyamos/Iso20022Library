@@ -29,7 +29,7 @@ public partial record DerivativesTradeReportQueryV02 : IOuterRecord
     [DataMember(Name="RqstngAuthrty")]
     [XmlElement(ElementName="RqstngAuthrty")]
     [Required]
-    public required SomeRequestingAuthorityRecord RequestingAuthority { get; init; }
+    public required IPartyIdentification121Choice RequestingAuthority { get; init; }
     
     /// <summary>
     /// Criteria for defining recurrent and ad-hoc queries.
@@ -39,7 +39,7 @@ public partial record DerivativesTradeReportQueryV02 : IOuterRecord
     [DataMember(Name="TradQryData")]
     [XmlElement(ElementName="TradQryData")]
     [Required]
-    public required SomeTradeQueryDataRecord TradeQueryData { get; init; }
+    public required ITradeReportQuery10Choice TradeQueryData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record DerivativesTradeReportQueryV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

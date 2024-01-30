@@ -29,7 +29,7 @@ public partial record ATMDeviceControlV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header20 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMDeviceControlV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMDvcCtrl")]
     [XmlElement(ElementName="PrtctdATMDvcCtrl")]
-    public SomeProtectedATMDeviceControlRecord? ProtectedATMDeviceControl { get; init; }
+    public ContentInformationType10? ProtectedATMDeviceControl { get; init; }
     
     /// <summary>
     /// Information related to the control of an ATM device.
@@ -47,7 +47,7 @@ public partial record ATMDeviceControlV01 : IOuterRecord
     [Description(@"Information related to the control of an ATM device.")]
     [DataMember(Name="ATMDvcCtrl")]
     [XmlElement(ElementName="ATMDvcCtrl")]
-    public SomeATMDeviceControlRecord? ATMDeviceControl { get; init; }
+    public ATMDeviceControl1? ATMDeviceControl { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -56,7 +56,7 @@ public partial record ATMDeviceControlV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType13? SecurityTrailer { get; init; }
     
     */
     

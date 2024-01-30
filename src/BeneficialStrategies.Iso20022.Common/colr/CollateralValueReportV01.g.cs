@@ -29,7 +29,7 @@ public partial record CollateralValueReportV01 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader3 MessageHeader { get; init; }
     
     /// <summary>
     /// Report on collateral value information or operational error.
@@ -39,7 +39,7 @@ public partial record CollateralValueReportV01 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    public required ICollateralValueReportOrError5Choice ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record CollateralValueReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

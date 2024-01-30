@@ -36,7 +36,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -46,7 +46,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -55,7 +55,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
-    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -65,7 +65,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the financial institution which submitted the baseline.
@@ -74,7 +74,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution which submitted the baseline.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Specifies the type of report.
@@ -84,7 +84,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [DataMember(Name="RptPurp")]
     [XmlElement(ElementName="RptPurp")]
     [Required]
-    public required SomeReportPurposeRecord ReportPurpose { get; init; }
+    public required ReportType1 ReportPurpose { get; init; }
     
     /// <summary>
     /// Specifies the commercial details of the underlying transaction.
@@ -94,7 +94,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [DataMember(Name="PushdThrghBaseln")]
     [XmlElement(ElementName="PushdThrghBaseln")]
     [Required]
-    public required SomePushedThroughBaselineRecord PushedThroughBaseline { get; init; }
+    public required Baseline3 PushedThroughBaseline { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the buyer.
@@ -103,7 +103,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the buyer.")]
     [DataMember(Name="BuyrCtctPrsn")]
     [XmlElement(ElementName="BuyrCtctPrsn")]
-    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    public ContactIdentification1? BuyerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the seller.
@@ -112,7 +112,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the seller.")]
     [DataMember(Name="SellrCtctPrsn")]
     [XmlElement(ElementName="SellrCtctPrsn")]
-    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    public ContactIdentification1? SellerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the buyer's bank.
@@ -121,7 +121,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Person to be contacted in the buyer's bank.")]
     [DataMember(Name="BuyrBkCtctPrsn")]
     [XmlElement(ElementName="BuyrBkCtctPrsn")]
-    public SomeBuyerBankContactPersonRecord? BuyerBankContactPerson { get; init; }
+    public ContactIdentification1? BuyerBankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the seller's bank.
@@ -130,7 +130,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Person to be contacted in the seller's bank.")]
     [DataMember(Name="SellrBkCtctPrsn")]
     [XmlElement(ElementName="SellrBkCtctPrsn")]
-    public SomeSellerBankContactPersonRecord? SellerBankContactPerson { get; init; }
+    public ContactIdentification1? SellerBankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in another bank than the seller or buyer's bank.
@@ -139,7 +139,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Person to be contacted in another bank than the seller or buyer's bank.")]
     [DataMember(Name="OthrBkCtctPrsn")]
     [XmlElement(ElementName="OthrBkCtctPrsn")]
-    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    public ContactIdentification3? OtherBankContactPerson { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -148,7 +148,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

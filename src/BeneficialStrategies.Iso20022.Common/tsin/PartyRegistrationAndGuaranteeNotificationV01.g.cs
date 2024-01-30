@@ -31,7 +31,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required BusinessLetter1 Header { get; init; }
     
     /// <summary>
     /// List of otifications.
@@ -41,7 +41,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [DataMember(Name="NtfctnList")]
     [XmlElement(ElementName="NtfctnList")]
     [Required]
-    public required SomeNotificationListRecord NotificationList { get; init; }
+    public required FinancingAgreementList1 NotificationList { get; init; }
     
     /// <summary>
     /// Number of notification lists as control value.
@@ -50,7 +50,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [Description(@"Number of notification lists as control value.")]
     [DataMember(Name="NtfctnCnt")]
     [XmlElement(ElementName="NtfctnCnt")]
-    public SomeNotificationCountRecord? NotificationCount { get; init; }
+    public IsoMax15NumericText? NotificationCount { get; init; }
     
     /// <summary>
     /// Total number of individual items in all lists.
@@ -59,7 +59,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [Description(@"Total number of individual items in all lists.")]
     [DataMember(Name="ItmCnt")]
     [XmlElement(ElementName="ItmCnt")]
-    public SomeItemCountRecord? ItemCount { get; init; }
+    public IsoMax15NumericText? ItemCount { get; init; }
     
     /// <summary>
     /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
@@ -68,7 +68,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
     [DataMember(Name="CtrlSum")]
     [XmlElement(ElementName="CtrlSum")]
-    public SomeControlSumRecord? ControlSum { get; init; }
+    public IsoDecimalNumber? ControlSum { get; init; }
     
     /// <summary>
     /// Referenced or related business message.
@@ -77,7 +77,7 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     [Description(@"Referenced or related business message.")]
     [DataMember(Name="AttchdMsg")]
     [XmlElement(ElementName="AttchdMsg")]
-    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    public EncapsulatedBusinessMessage1? AttachedMessage { get; init; }
     
     */
     

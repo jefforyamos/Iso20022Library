@@ -28,7 +28,7 @@ public partial record DTCCCAINSD1V06 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) optional dividend service election.")]
     [DataMember(Name="OptnlDvdd")]
     [XmlElement(ElementName="OptnlDvdd")]
-    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    public OptionalDividendAccountQuantitySD3? OptionalDividend { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) tax exempt service election.
@@ -37,7 +37,7 @@ public partial record DTCCCAINSD1V06 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) tax exempt service election.")]
     [DataMember(Name="TaxXmpt")]
     [XmlElement(ElementName="TaxXmpt")]
-    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    public TaxExemptQuantitySD2? TaxExempt { get; init; }
     
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
@@ -46,7 +46,7 @@ public partial record DTCCCAINSD1V06 : IOuterRecord
     [Description(@"Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.")]
     [DataMember(Name="TaxCtgy")]
     [XmlElement(ElementName="TaxCtgy")]
-    public required IReadonlyCollection<SomeTaxCategoryRecord> TaxCategory { get; init; } // Min=0, Max=99
+    public required IReadonlyCollection<TaxCategory2> TaxCategory { get; init; } // Min=0, Max=99
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.
@@ -55,7 +55,7 @@ public partial record DTCCCAINSD1V06 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.")]
     [DataMember(Name="WireInstr")]
     [XmlElement(ElementName="WireInstr")]
-    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    public WireInstructionSD3? WireInstruction { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to instruction message for reorganisation events.
@@ -64,7 +64,7 @@ public partial record DTCCCAINSD1V06 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to instruction message for reorganisation events.")]
     [DataMember(Name="ReorgInstrDtls")]
     [XmlElement(ElementName="ReorgInstrDtls")]
-    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    public ReorganisationInstructionSD10? ReorganisationInstructionDetails { get; init; }
     
     */
     

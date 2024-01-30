@@ -34,7 +34,7 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Provides information about the type of notification cancellation request and linked message.
@@ -44,7 +44,7 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="NtfctnCxlTpAndLkg")]
     [XmlElement(ElementName="NtfctnCxlTpAndLkg")]
     [Required]
-    public required SomeNotificationCancellationTypeAndLinkageRecord NotificationCancellationTypeAndLinkage { get; init; }
+    public required NotificationCancellation1 NotificationCancellationTypeAndLinkage { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -54,7 +54,7 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation2 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Detailed information of the notification advice to be cancelled.
@@ -63,7 +63,7 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     [Description(@"Detailed information of the notification advice to be cancelled.")]
     [DataMember(Name="CorpActnNtfctnDtls")]
     [XmlElement(ElementName="CorpActnNtfctnDtls")]
-    public SomeCorporateActionNotificationDetailsRecord? CorporateActionNotificationDetails { get; init; }
+    public CorporateActionNotificationAdvice1? CorporateActionNotificationDetails { get; init; }
     
     */
     

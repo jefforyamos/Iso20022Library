@@ -31,7 +31,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required CurrencyControlHeader6 GroupHeader { get; init; }
     
     /// <summary>
     /// Provides the group status for the global message.
@@ -41,7 +41,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord
     [DataMember(Name="GrpSts")]
     [XmlElement(ElementName="GrpSts")]
     [Required]
-    public required SomeGroupStatusRecord GroupStatus { get; init; }
+    public required CurrencyControlGroupStatus2 GroupStatus { get; init; }
     
     /// <summary>
     /// Provides the status of the package in the message, which may contain the individual records.
@@ -50,7 +50,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord
     [Description(@"Provides the status of the package in the message, which may contain the individual records.")]
     [DataMember(Name="PackgSts")]
     [XmlElement(ElementName="PackgSts")]
-    public SomePackageStatusRecord? PackageStatus { get; init; }
+    public CurrencyControlPackageStatus2? PackageStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

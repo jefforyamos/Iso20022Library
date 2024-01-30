@@ -28,7 +28,7 @@ public partial record DTCCCAPCSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD45? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -37,7 +37,7 @@ public partial record DTCCCAPCSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD20? UnderlyingSecurity { get; init; }
     
     */
     

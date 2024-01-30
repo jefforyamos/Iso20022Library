@@ -28,7 +28,7 @@ public partial record DTCCCANOEligibleBalanceSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD49? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -37,7 +37,7 @@ public partial record DTCCCANOEligibleBalanceSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD21? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to account balance for distribution events.
@@ -46,7 +46,7 @@ public partial record DTCCCANOEligibleBalanceSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to account balance for distribution events.")]
     [DataMember(Name="DstrbtnAcctBal")]
     [XmlElement(ElementName="DstrbtnAcctBal")]
-    public SomeDistributionAccountBalanceRecord? DistributionAccountBalance { get; init; }
+    public AccountBalanceSD10? DistributionAccountBalance { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to account balance for redemptions events.
@@ -55,7 +55,7 @@ public partial record DTCCCANOEligibleBalanceSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to account balance for redemptions events.|")]
     [DataMember(Name="RedAcctBal")]
     [XmlElement(ElementName="RedAcctBal")]
-    public SomeRedemptionAccountBalanceRecord? RedemptionAccountBalance { get; init; }
+    public AccountBalanceSD11? RedemptionAccountBalance { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to account balance for reorganisation events.
@@ -64,7 +64,7 @@ public partial record DTCCCANOEligibleBalanceSD1V11 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to account balance for reorganisation events.")]
     [DataMember(Name="ReorgAcctBal")]
     [XmlElement(ElementName="ReorgAcctBal")]
-    public SomeReorganisationAccountBalanceRecord? ReorganisationAccountBalance { get; init; }
+    public AccountBalanceSD12? ReorganisationAccountBalance { get; init; }
     
     */
     

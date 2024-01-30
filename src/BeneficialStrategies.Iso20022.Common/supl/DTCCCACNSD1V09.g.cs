@@ -28,7 +28,7 @@ public partial record DTCCCACNSD1V09 : IOuterRecord
     [Description(@"Page number of the message and continuation indicator to indicate that the multi-parts confirmation is to continue or that the message is the last page of the multi-parts confirmation.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to cancellation advice.
@@ -37,7 +37,7 @@ public partial record DTCCCACNSD1V09 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to cancellation advice.")]
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
-    public SomeNotificationRecord? Notification { get; init; }
+    public CorporateActionNotificationSD10? Notification { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to cancellation advice general information.
@@ -46,7 +46,7 @@ public partial record DTCCCACNSD1V09 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to cancellation advice general information.")]
     [DataMember(Name="GnlInf")]
     [XmlElement(ElementName="GnlInf")]
-    public SomeGeneralInformationRecord? GeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD40? GeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as events linkage supplementary data to events to cancellation advice.
@@ -55,7 +55,7 @@ public partial record DTCCCACNSD1V09 : IOuterRecord
     [Description(@"Information to be extended as events linkage supplementary data to events to cancellation advice.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionCancellationSD3? EventsLinkage { get; init; }
     
     /// <summary>
     /// Information to be extended as external comments to cancellation advice.
@@ -64,7 +64,7 @@ public partial record DTCCCACNSD1V09 : IOuterRecord
     [Description(@"Information to be extended as external comments to cancellation advice.")]
     [DataMember(Name="XtrnlCmnts")]
     [XmlElement(ElementName="XtrnlCmnts")]
-    public SomeExternalCommentsRecord? ExternalComments { get; init; }
+    public CorporateActionCancellationSD4? ExternalComments { get; init; }
     
     */
     

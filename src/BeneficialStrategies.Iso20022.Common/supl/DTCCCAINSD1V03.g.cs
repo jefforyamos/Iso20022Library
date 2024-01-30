@@ -28,7 +28,7 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Optional Dividend service election.")]
     [DataMember(Name="OptnlDvdd")]
     [XmlElement(ElementName="OptnlDvdd")]
-    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    public OptionalDividendAccountQuantitySD2? OptionalDividend { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Tax Exempt service election.
@@ -37,7 +37,7 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Tax Exempt service election.")]
     [DataMember(Name="TaxXmpt")]
     [XmlElement(ElementName="TaxXmpt")]
-    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    public TaxExemptQuantitySD1? TaxExempt { get; init; }
     
     /// <summary>
     /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
@@ -46,7 +46,7 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
     [Description(@"DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.")]
     [DataMember(Name="WireInstr")]
     [XmlElement(ElementName="WireInstr")]
-    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    public WireInstructionSD2? WireInstruction { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.
@@ -55,7 +55,7 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.")]
     [DataMember(Name="SctiesQtyDtls")]
     [XmlElement(ElementName="SctiesQtyDtls")]
-    public SomeSecuritiesQuantityDetailsRecord? SecuritiesQuantityDetails { get; init; }
+    public SecuritiesQuantityDetailsSD1? SecuritiesQuantityDetails { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader7 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -46,7 +46,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
     [Required]
-    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    public required OriginalGroupInformation4 OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original transactions, to which the cancellation request message refers.
@@ -55,7 +55,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     [Description(@"Information concerning the original transactions, to which the cancellation request message refers.")]
     [DataMember(Name="TxInf")]
     [XmlElement(ElementName="TxInf")]
-    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    public PaymentTransactionInformation3? TransactionInformation { get; init; }
     
     */
     

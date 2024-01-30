@@ -28,7 +28,7 @@ public partial record DTCCCARESD1V01 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action details.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateActionSD12? CorporateActionDetails { get; init; }
     
     */
     

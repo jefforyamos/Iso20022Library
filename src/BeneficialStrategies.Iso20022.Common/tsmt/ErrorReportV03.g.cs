@@ -36,7 +36,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -45,7 +45,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public SimpleIdentificationInformation? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -54,7 +54,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
-    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -63,7 +63,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Identifies the status of the transaction by means of a code.")]
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
-    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    public TransactionStatus4? TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the financial institution which is the sender of the rejected message.
@@ -72,7 +72,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution which is the sender of the rejected message.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public SomeUserTransactionReferenceRecord? UserTransactionReference { get; init; }
+    public DocumentIdentification5? UserTransactionReference { get; init; }
     
     /// <summary>
     /// Reference to the identification of the rejected message.
@@ -81,7 +81,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Reference to the identification of the rejected message.")]
     [DataMember(Name="RjctdMsgRef")]
     [XmlElement(ElementName="RjctdMsgRef")]
-    public SomeRejectedMessageReferenceRecord? RejectedMessageReference { get; init; }
+    public MessageIdentification1? RejectedMessageReference { get; init; }
     
     /// <summary>
     /// Specifies the total number of errors identified in the rejected message.
@@ -91,7 +91,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [DataMember(Name="NbOfErrs")]
     [XmlElement(ElementName="NbOfErrs")]
     [Required]
-    public required SomeNumberOfErrorsRecord NumberOfErrors { get; init; }
+    public required Count1 NumberOfErrors { get; init; }
     
     /// <summary>
     /// Describes the error that is the cause of the rejection.
@@ -101,7 +101,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [DataMember(Name="ErrDesc")]
     [XmlElement(ElementName="ErrDesc")]
     [Required]
-    public required SomeErrorDescriptionRecord ErrorDescription { get; init; }
+    public required ValidationResult3 ErrorDescription { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -110,7 +110,7 @@ public partial record ErrorReportV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

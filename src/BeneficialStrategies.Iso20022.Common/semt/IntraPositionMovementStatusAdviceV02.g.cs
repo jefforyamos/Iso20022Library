@@ -35,7 +35,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required TransactionIdentifications10 TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
@@ -44,7 +44,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    public IIntraPositionProcessingStatus1Choice? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -53,7 +53,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    public ISettlementStatus2Choice? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -62,7 +62,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public IntraPositionDetails9? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -71,7 +71,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

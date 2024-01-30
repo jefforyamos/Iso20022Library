@@ -34,7 +34,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -43,7 +43,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference9? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -52,7 +52,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference8? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -61,7 +61,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference8? RelatedReference { get; init; }
     
     /// <summary>
     /// Reference of the transfer confirmation to be reversed.
@@ -71,7 +71,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [DataMember(Name="RvslRefs")]
     [XmlElement(ElementName="RvslRefs")]
     [Required]
-    public required SomeReversalReferencesRecord ReversalReferences { get; init; }
+    public required TransferReference12 ReversalReferences { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -80,7 +80,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -89,7 +89,7 @@ public partial record ReversalOfTransferOutConfirmationV08 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation4? CopyDetails { get; init; }
     
     */
     

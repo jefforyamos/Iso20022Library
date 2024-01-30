@@ -29,7 +29,7 @@ public partial record MaintenanceDelegationResponseV07 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required TMSHeader1 Header { get; init; }
     
     /// <summary>
     /// Information related to the request of maintenance delegations.
@@ -39,7 +39,7 @@ public partial record MaintenanceDelegationResponseV07 : IOuterRecord
     [DataMember(Name="MntncDlgtnRspn")]
     [XmlElement(ElementName="MntncDlgtnRspn")]
     [Required]
-    public required SomeMaintenanceDelegationResponseRecord MaintenanceDelegationResponse { get; init; }
+    public required MaintenanceDelegationResponse7 MaintenanceDelegationResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record MaintenanceDelegationResponseV07 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType33? SecurityTrailer { get; init; }
     
     */
     

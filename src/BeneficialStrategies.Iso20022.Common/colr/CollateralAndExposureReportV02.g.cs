@@ -35,7 +35,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [DataMember(Name="RptParams")]
     [XmlElement(ElementName="RptParams")]
     [Required]
-    public required SomeReportParametersRecord ReportParameters { get; init; }
+    public required ReportParameters2 ReportParameters { get; init; }
     
     /// <summary>
     /// Specifies the page number and an indicator of whether it is the only or last page, or if there are additional pages. 
@@ -44,7 +44,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [Description(@"Specifies the page number and an indicator of whether it is the only or last page, or if there are additional pages. |")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination? Pagination { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -54,7 +54,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation3 Obligation { get; init; }
     
     /// <summary>
     /// Agreement details for the over the counter market.
@@ -63,7 +63,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [Description(@"Agreement details for the over the counter market.")]
     [DataMember(Name="Agrmt")]
     [XmlElement(ElementName="Agrmt")]
-    public SomeAgreementRecord? Agreement { get; init; }
+    public Agreement2? Agreement { get; init; }
     
     /// <summary>
     /// Provides details on the collateral report.
@@ -73,7 +73,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [DataMember(Name="CollRpt")]
     [XmlElement(ElementName="CollRpt")]
     [Required]
-    public required SomeCollateralReportRecord CollateralReport { get; init; }
+    public required Collateral9 CollateralReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -82,7 +82,7 @@ public partial record CollateralAndExposureReportV02 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

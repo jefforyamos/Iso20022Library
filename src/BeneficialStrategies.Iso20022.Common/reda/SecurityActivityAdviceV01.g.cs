@@ -28,7 +28,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -38,7 +38,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Activity report of changes occurred for a financial instrument defined in the system.
@@ -48,7 +48,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
     [DataMember(Name="SctyActvty")]
     [XmlElement(ElementName="SctyActvty")]
     [Required]
-    public required SomeSecurityActivityRecord SecurityActivity { get; init; }
+    public required SecurityStatement3 SecurityActivity { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

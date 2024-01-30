@@ -37,7 +37,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord
     [Description(@"Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination1? Pagination { get; init; }
     
     /// <summary>
     /// Notifies the type of report transmitted.
@@ -47,7 +47,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord
     [DataMember(Name="RptGnlDtls")]
     [XmlElement(ElementName="RptGnlDtls")]
     [Required]
-    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    public required Report6 ReportGeneralDetails { get; init; }
     
     /// <summary>
     /// Parties involved in the confirmation of the details of a trade.
@@ -56,7 +56,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord
     [Description(@"Parties involved in the confirmation of the details of a trade.")]
     [DataMember(Name="ConfPties")]
     [XmlElement(ElementName="ConfPties")]
-    public SomeConfirmationPartiesRecord? ConfirmationParties { get; init; }
+    public ConfirmationParties7? ConfirmationParties { get; init; }
     
     /// <summary>
     /// Party that identifies the underlying investor.
@@ -65,7 +65,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord
     [Description(@"Party that identifies the underlying investor.")]
     [DataMember(Name="Invstr")]
     [XmlElement(ElementName="Invstr")]
-    public SomeInvestorRecord? Investor { get; init; }
+    public PartyIdentificationAndAccount220? Investor { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -74,7 +74,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

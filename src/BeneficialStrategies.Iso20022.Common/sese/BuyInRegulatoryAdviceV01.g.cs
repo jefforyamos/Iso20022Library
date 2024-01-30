@@ -32,7 +32,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account used in the original failing transaction.
@@ -42,7 +42,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the buy-in.
@@ -52,7 +52,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord
     [DataMember(Name="BuyInAttrbts")]
     [XmlElement(ElementName="BuyInAttrbts")]
     [Required]
-    public required SomeBuyInAttributesRecord BuyInAttributes { get; init; }
+    public required BuyInAdviceDetails1 BuyInAttributes { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -61,7 +61,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

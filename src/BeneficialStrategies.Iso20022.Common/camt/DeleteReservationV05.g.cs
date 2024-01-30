@@ -29,7 +29,7 @@ public partial record DeleteReservationV05 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies the current reservation to delete.
@@ -38,7 +38,7 @@ public partial record DeleteReservationV05 : IOuterRecord
     [Description(@"Identifies the current reservation to delete.")]
     [DataMember(Name="CurRsvatn")]
     [XmlElement(ElementName="CurRsvatn")]
-    public SomeCurrentReservationRecord? CurrentReservation { get; init; }
+    public ReservationIdentification2? CurrentReservation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record DeleteReservationV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

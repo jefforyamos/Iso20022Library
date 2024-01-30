@@ -36,7 +36,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [Description(@"Date on which the SSI is effective.")]
     [DataMember(Name="FctvDtDtls")]
     [XmlElement(ElementName="FctvDtDtls")]
-    public SomeEffectiveDateDetailsRecord? EffectiveDateDetails { get; init; }
+    public EffectiveDate1? EffectiveDateDetails { get; init; }
     
     /// <summary>
     /// Unique and unambiguous master identification known to the sender (or its authorised agent) and receiver (or its authorised agent), below which the SSI will be lodged. This may be an account number or reference to a fund.
@@ -47,7 +47,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountIdentification26 AccountIdentification { get; init; }
     
     /// <summary>
     /// Identifies the market for the standing settlement instruction.
@@ -57,7 +57,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
     
     /// <summary>
     /// Settlement information that helps to identify the standing settlement instruction, cancellation or deletion for which the status is sent.
@@ -67,7 +67,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    public required IPartyOrCurrency1Choice SettlementDetails { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -77,7 +77,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="RltdMsgRef")]
     [XmlElement(ElementName="RltdMsgRef")]
     [Required]
-    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    public required IsoMax35Text RelatedMessageReference { get; init; }
     
     /// <summary>
     /// Status of the standing settlement instruction, deletion or cancellation.
@@ -87,7 +87,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus43Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -96,7 +96,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

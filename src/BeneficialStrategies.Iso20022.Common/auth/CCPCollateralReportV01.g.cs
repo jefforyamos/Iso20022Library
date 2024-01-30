@@ -29,7 +29,7 @@ public partial record CCPCollateralReportV01 : IOuterRecord
     [DataMember(Name="CollAcctOwnr")]
     [XmlElement(ElementName="CollAcctOwnr")]
     [Required]
-    public required SomeCollateralAccountOwnerRecord CollateralAccountOwner { get; init; }
+    public required CollateralAccount4 CollateralAccountOwner { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPCollateralReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

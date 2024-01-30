@@ -36,7 +36,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [Description(@"Identification of a related instruction document.")]
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
-    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    public DocumentIdentification9? InstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification33? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -55,7 +55,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation109 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the processing status of the instruction.
@@ -65,7 +65,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
     [Required]
-    public required SomeInstructionProcessingStatusRecord InstructionProcessingStatus { get; init; }
+    public required IInstructionProcessingStatus29Choice InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.
@@ -74,7 +74,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [Description(@"Information about the corporate action instruction.")]
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
-    public SomeCorporateActionInstructionRecord? CorporateActionInstruction { get; init; }
+    public CorporateActionOption141? CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -83,7 +83,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative10? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -92,7 +92,7 @@ public partial record CorporateActionInstructionStatusAdviceV09 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference3> RelatedReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
@@ -45,7 +45,7 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message sent in a proprietary way or reference of a system.")]
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
-    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference3> OtherReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Status report details of a bulk or multiple or switch order cancellation instruction that was previously received.
@@ -55,7 +55,7 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord
     [DataMember(Name="CxlStsRpt")]
     [XmlElement(ElementName="CxlStsRpt")]
     [Required]
-    public required SomeCancellationStatusReportRecord CancellationStatusReport { get; init; }
+    public required OrderStatusAndReason4 CancellationStatusReport { get; init; }
     
     */
     

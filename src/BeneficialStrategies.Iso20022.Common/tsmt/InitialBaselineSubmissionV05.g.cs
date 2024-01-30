@@ -36,7 +36,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="SubmissnId")]
     [XmlElement(ElementName="SubmissnId")]
     [Required]
-    public required SomeSubmissionIdentificationRecord SubmissionIdentification { get; init; }
+    public required MessageIdentification1 SubmissionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the requesting financial institution.
@@ -46,7 +46,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="SubmitrTxRef")]
     [XmlElement(ElementName="SubmitrTxRef")]
     [Required]
-    public required SomeSubmitterTransactionReferenceRecord SubmitterTransactionReference { get; init; }
+    public required SimpleIdentificationInformation SubmitterTransactionReference { get; init; }
     
     /// <summary>
     /// Specifies the instruction requested by the submitter by means of a code.
@@ -56,7 +56,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="Instr")]
     [XmlElement(ElementName="Instr")]
     [Required]
-    public required SomeInstructionRecord Instruction { get; init; }
+    public required InstructionType1 Instruction { get; init; }
     
     /// <summary>
     /// Specifies the commercial details of the underlying transaction.
@@ -66,7 +66,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="Baseln")]
     [XmlElement(ElementName="Baseln")]
     [Required]
-    public required SomeBaselineRecord Baseline { get; init; }
+    public required Baseline5 Baseline { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the buyer.
@@ -75,7 +75,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the buyer.")]
     [DataMember(Name="BuyrCtctPrsn")]
     [XmlElement(ElementName="BuyrCtctPrsn")]
-    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    public ContactIdentification1? BuyerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the organisation of the seller.
@@ -84,7 +84,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [Description(@"Person to be contacted in the organisation of the seller.")]
     [DataMember(Name="SellrCtctPrsn")]
     [XmlElement(ElementName="SellrCtctPrsn")]
-    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    public ContactIdentification1? SellerContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in the seller's bank or buyer's bank.
@@ -94,7 +94,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="BkCtctPrsn")]
     [XmlElement(ElementName="BkCtctPrsn")]
     [Required]
-    public required SomeBankContactPersonRecord BankContactPerson { get; init; }
+    public required IBankContactPerson1Choice BankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in another bank than seller or buyer's bank.
@@ -103,7 +103,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [Description(@"Person to be contacted in another bank than seller or buyer's bank.")]
     [DataMember(Name="OthrBkCtctPrsn")]
     [XmlElement(ElementName="OthrBkCtctPrsn")]
-    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    public ContactIdentification3? OtherBankContactPerson { get; init; }
     
     */
     

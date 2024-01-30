@@ -29,7 +29,7 @@ public partial record PaymentSD1V01 : IOuterRecord
     [DataMember(Name="CardRmtInf")]
     [XmlElement(ElementName="CardRmtInf")]
     [Required]
-    public required SomeCardRemittanceInformationRecord CardRemittanceInformation { get; init; }
+    public required TransactionData1 CardRemittanceInformation { get; init; }
     
     */
     

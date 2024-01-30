@@ -38,7 +38,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required IsoMax35Text TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
@@ -48,7 +48,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [DataMember(Name="Oblgtn")]
     [XmlElement(ElementName="Oblgtn")]
     [Required]
-    public required SomeObligationRecord Obligation { get; init; }
+    public required Obligation3 Obligation { get; init; }
     
     /// <summary>
     /// Agreement details for the over the counter market.
@@ -57,7 +57,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Agreement details for the over the counter market.")]
     [DataMember(Name="Agrmt")]
     [XmlElement(ElementName="Agrmt")]
-    public SomeAgreementRecord? Agreement { get; init; }
+    public Agreement2? Agreement { get; init; }
     
     /// <summary>
     /// Provides details about the margin calculation that would be due to party A.
@@ -66,7 +66,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Provides details about the margin calculation that would be due to party A.")]
     [DataMember(Name="MrgnDtlsDueToA")]
     [XmlElement(ElementName="MrgnDtlsDueToA")]
-    public SomeMarginDetailsDueToARecord? MarginDetailsDueToA { get; init; }
+    public MarginCall1? MarginDetailsDueToA { get; init; }
     
     /// <summary>
     /// Provides details about the margin calculation that would be due to party B.
@@ -75,7 +75,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Provides details about the margin calculation that would be due to party B.")]
     [DataMember(Name="MrgnDtlsDueToB")]
     [XmlElement(ElementName="MrgnDtlsDueToB")]
-    public SomeMarginDetailsDueToBRecord? MarginDetailsDueToB { get; init; }
+    public MarginCall1? MarginDetailsDueToB { get; init; }
     
     /// <summary>
     /// Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.
@@ -84,7 +84,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.")]
     [DataMember(Name="RqrmntDtlsDueToA")]
     [XmlElement(ElementName="RqrmntDtlsDueToA")]
-    public SomeRequirementDetailsDueToARecord? RequirementDetailsDueToA { get; init; }
+    public IMarginRequirement1Choice? RequirementDetailsDueToA { get; init; }
     
     /// <summary>
     /// Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.
@@ -93,7 +93,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.")]
     [DataMember(Name="RqrmntDtlsDueToB")]
     [XmlElement(ElementName="RqrmntDtlsDueToB")]
-    public SomeRequirementDetailsDueToBRecord? RequirementDetailsDueToB { get; init; }
+    public IMarginRequirement1Choice? RequirementDetailsDueToB { get; init; }
     
     /// <summary>
     /// Summation of the call amounts per margin type. It is provided for the purposes of carrying forward for future messages that are used to compare the margin call results to determine whether a call is agreed or full/partially disputed.
@@ -103,7 +103,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [DataMember(Name="MrgnCallRslt")]
     [XmlElement(ElementName="MrgnCallRslt")]
     [Required]
-    public required SomeMarginCallResultRecord MarginCallResult { get; init; }
+    public required MarginCallResult3 MarginCallResult { get; init; }
     
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.
@@ -112,7 +112,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.")]
     [DataMember(Name="XpctdCollDueToB")]
     [XmlElement(ElementName="XpctdCollDueToB")]
-    public SomeExpectedCollateralDueToBRecord? ExpectedCollateralDueToB { get; init; }
+    public IExpectedCollateral1Choice? ExpectedCollateralDueToB { get; init; }
     
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.
@@ -121,7 +121,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.")]
     [DataMember(Name="XpctdCollDueToA")]
     [XmlElement(ElementName="XpctdCollDueToA")]
-    public SomeExpectedCollateralDueToARecord? ExpectedCollateralDueToA { get; init; }
+    public IExpectedCollateral1Choice? ExpectedCollateralDueToA { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -130,7 +130,7 @@ public partial record MarginCallRequestV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

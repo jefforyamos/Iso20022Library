@@ -30,7 +30,7 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
     [DataMember(Name="StsDtls")]
     [XmlElement(ElementName="StsDtls")]
     [Required]
-    public required SomeStatusDetailsRecord StatusDetails { get; init; }
+    public required TradeData12 StatusDetails { get; init; }
     
     /// <summary>
     /// Identifies one or more trades for which the status notification is sent.
@@ -40,7 +40,7 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required SomeTradeDataRecord TradeData { get; init; }
+    public required TradeData40 TradeData { get; init; }
     
     /// <summary>
     /// Page number of the message (within the status report) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the report.
@@ -49,7 +49,7 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
     [Description(@"Page number of the message (within the status report) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the report.")]
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
-    public SomeMessagePaginationRecord? MessagePagination { get; init; }
+    public Pagination1? MessagePagination { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -58,7 +58,7 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

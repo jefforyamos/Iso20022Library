@@ -32,7 +32,7 @@ public partial record CreateReservationV01 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identification of the default reservation.
@@ -42,7 +42,7 @@ public partial record CreateReservationV01 : IOuterRecord
     [DataMember(Name="RsvatnId")]
     [XmlElement(ElementName="RsvatnId")]
     [Required]
-    public required SomeReservationIdentificationRecord ReservationIdentification { get; init; }
+    public required ReservationIdentification2 ReservationIdentification { get; init; }
     
     /// <summary>
     /// New reservation values.
@@ -52,7 +52,7 @@ public partial record CreateReservationV01 : IOuterRecord
     [DataMember(Name="ValSet")]
     [XmlElement(ElementName="ValSet")]
     [Required]
-    public required SomeValueSetRecord ValueSet { get; init; }
+    public required Reservation4 ValueSet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -61,7 +61,7 @@ public partial record CreateReservationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

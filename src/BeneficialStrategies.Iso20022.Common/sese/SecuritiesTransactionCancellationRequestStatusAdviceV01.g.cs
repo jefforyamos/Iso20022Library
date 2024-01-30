@@ -39,7 +39,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Reference to the unambiguous identification of the cancellation request as per the account owner.
@@ -49,7 +49,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [DataMember(Name="CxlReqRef")]
     [XmlElement(ElementName="CxlReqRef")]
     [Required]
-    public required SomeCancellationRequestReferenceRecord CancellationRequestReference { get; init; }
+    public required Identification1 CancellationRequestReference { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
@@ -58,7 +58,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [Description(@"Unambiguous identification of the transaction as known by the account servicer.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentifications4? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -68,7 +68,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus2Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -77,7 +77,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails4? TransactionDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -86,7 +86,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -95,7 +95,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -104,7 +104,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV01 : 
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

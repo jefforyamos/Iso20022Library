@@ -36,7 +36,7 @@ public partial record PaymentReturnV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader6 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -45,7 +45,7 @@ public partial record PaymentReturnV01 : IOuterRecord
     [Description(@"Information concerning the original group of transactions, to which the message refers.")]
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
-    public SomeOriginalGroupInformationRecord? OriginalGroupInformation { get; init; }
+    public OriginalGroupInformation2? OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original transactions, to which the return message refers.
@@ -54,7 +54,7 @@ public partial record PaymentReturnV01 : IOuterRecord
     [Description(@"Information concerning the original transactions, to which the return message refers.")]
     [DataMember(Name="TxInf")]
     [XmlElement(ElementName="TxInf")]
-    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    public PaymentTransactionInformation2? TransactionInformation { get; init; }
     
     */
     

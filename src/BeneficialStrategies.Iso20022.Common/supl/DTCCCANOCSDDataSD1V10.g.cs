@@ -28,7 +28,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to notification general information.")]
     [DataMember(Name="NtfctnGnlInf")]
     [XmlElement(ElementName="NtfctnGnlInf")]
-    public SomeNotificationGeneralInformationRecord? NotificationGeneralInformation { get; init; }
+    public CorporateActionNotificationSD9? NotificationGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to notification general information.
@@ -37,7 +37,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to notification general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD28? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security details.
@@ -46,7 +46,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security details.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD15? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action details.
@@ -55,7 +55,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action details.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateActionSD17? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action date details.
@@ -64,7 +64,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action date details.")]
     [DataMember(Name="CorpActnDtDtls")]
     [XmlElement(ElementName="CorpActnDtDtls")]
-    public SomeCorporateActionDateDetailsRecord? CorporateActionDateDetails { get; init; }
+    public CorporateActionDateSD8? CorporateActionDateDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as corporate action price supplementary data.
@@ -73,7 +73,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as corporate action price supplementary data.")]
     [DataMember(Name="CorpActnPricDtls")]
     [XmlElement(ElementName="CorpActnPricDtls")]
-    public SomeCorporateActionPriceDetailsRecord? CorporateActionPriceDetails { get; init; }
+    public CorporateActionPriceSD4? CorporateActionPriceDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action period.
@@ -82,7 +82,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action period.")]
     [DataMember(Name="CorpActnPrdDtls")]
     [XmlElement(ElementName="CorpActnPrdDtls")]
-    public SomeCorporateActionPeriodDetailsRecord? CorporateActionPeriodDetails { get; init; }
+    public CorporateActionPeriodSD3? CorporateActionPeriodDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action rate and amount.
@@ -91,7 +91,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action rate and amount.")]
     [DataMember(Name="CorpActnRateAndAmtDtls")]
     [XmlElement(ElementName="CorpActnRateAndAmtDtls")]
-    public SomeCorporateActionRateAndAmountDetailsRecord? CorporateActionRateAndAmountDetails { get; init; }
+    public CorporateActionRateSD9? CorporateActionRateAndAmountDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action securities quantity.
@@ -100,7 +100,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action securities quantity.")]
     [DataMember(Name="CorpActnSctiesQty")]
     [XmlElement(ElementName="CorpActnSctiesQty")]
-    public SomeCorporateActionSecuritiesQuantityRecord? CorporateActionSecuritiesQuantity { get; init; }
+    public CorporateActionQuantitySD3? CorporateActionSecuritiesQuantity { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to option details.
@@ -109,7 +109,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to option details.")]
     [DataMember(Name="OptnDtls")]
     [XmlElement(ElementName="OptnDtls")]
-    public SomeOptionDetailsRecord? OptionDetails { get; init; }
+    public CorporateActionOptionSD11? OptionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to option date details.
@@ -118,7 +118,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to option date details.")]
     [DataMember(Name="OptnDtDtls")]
     [XmlElement(ElementName="OptnDtDtls")]
-    public SomeOptionDateDetailsRecord? OptionDateDetails { get; init; }
+    public CorporateActionDateSD9? OptionDateDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement details.
@@ -127,7 +127,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement details.")]
     [DataMember(Name="SctiesMvmntDtls")]
     [XmlElement(ElementName="SctiesMvmntDtls")]
-    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    public SecuritiesOptionSD9? SecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement security details.
@@ -136,7 +136,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement security details.")]
     [DataMember(Name="SctiesMvmntSctyDtls")]
     [XmlElement(ElementName="SctiesMvmntSctyDtls")]
-    public SomeSecuritiesMovementSecurityDetailsRecord? SecuritiesMovementSecurityDetails { get; init; }
+    public FinancialInstrumentAttributesSD16? SecuritiesMovementSecurityDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement rate details.
@@ -145,7 +145,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement rate details.")]
     [DataMember(Name="SctiesMvmntRateDtls")]
     [XmlElement(ElementName="SctiesMvmntRateDtls")]
-    public SomeSecuritiesMovementRateDetailsRecord? SecuritiesMovementRateDetails { get; init; }
+    public CorporateActionRateSD10? SecuritiesMovementRateDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as securities movement cash in lieu supplementary data.
@@ -154,7 +154,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as securities movement cash in lieu supplementary data.")]
     [DataMember(Name="SctiesMvmntCshInLieuDtls")]
     [XmlElement(ElementName="SctiesMvmntCshInLieuDtls")]
-    public SomeSecuritiesMovementCashInLieuDetailsRecord? SecuritiesMovementCashInLieuDetails { get; init; }
+    public CorporateActionPriceSD5? SecuritiesMovementCashInLieuDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement fraction disposition.
@@ -163,7 +163,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement fraction disposition.")]
     [DataMember(Name="SctiesMvmntFrctnDspstn")]
     [XmlElement(ElementName="SctiesMvmntFrctnDspstn")]
-    public SomeSecuritiesMovementFractionDispositionRecord? SecuritiesMovementFractionDisposition { get; init; }
+    public FractionDispositionTypeSD3? SecuritiesMovementFractionDisposition { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to cash movement details.
@@ -172,7 +172,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to cash movement details.")]
     [DataMember(Name="CshMvmntDtls")]
     [XmlElement(ElementName="CshMvmntDtls")]
-    public SomeCashMovementDetailsRecord? CashMovementDetails { get; init; }
+    public CashOptionSD11? CashMovementDetails { get; init; }
     
     /// <summary>
     /// Information to be extended new agent block. Used when required ISO agent type does not exist and entire new component must be generated.
@@ -181,7 +181,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Information to be extended new agent block. Used when required ISO agent type does not exist and entire new component must be generated.")]
     [DataMember(Name="NewAgt")]
     [XmlElement(ElementName="NewAgt")]
-    public SomeNewAgentRecord? NewAgent { get; init; }
+    public PartyIdentificationSD5? NewAgent { get; init; }
     
     /// <summary>
     /// Provides additional information to agent details (to message agent like "issuer agent", "reselling agent"). Used when required "ISO agent type" exists and only additional details need to be extended.
@@ -190,7 +190,7 @@ public partial record DTCCCANOCSDDataSD1V10 : IOuterRecord
     [Description(@"Provides additional information to agent details (to message agent like ""issuer agent"", ""reselling agent""). Used when required ""ISO agent type"" exists and only additional details need to be extended.")]
     [DataMember(Name="Agt")]
     [XmlElement(ElementName="Agt")]
-    public SomeAgentRecord? Agent { get; init; }
+    public PartyIdentificationSD6? Agent { get; init; }
     
     */
     

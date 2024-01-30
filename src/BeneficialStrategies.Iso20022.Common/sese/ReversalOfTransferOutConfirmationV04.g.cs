@@ -36,7 +36,7 @@ public partial record ReversalOfTransferOutConfirmationV04 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
@@ -46,7 +46,7 @@ public partial record ReversalOfTransferOutConfirmationV04 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References11 References { get; init; }
     
     /// <summary>
     /// Choice between reversal by reference or by reversal details.
@@ -56,7 +56,7 @@ public partial record ReversalOfTransferOutConfirmationV04 : IOuterRecord
     [DataMember(Name="Rvsl")]
     [XmlElement(ElementName="Rvsl")]
     [Required]
-    public required SomeReversalRecord Reversal { get; init; }
+    public required IReversal1Choice Reversal { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -65,7 +65,7 @@ public partial record ReversalOfTransferOutConfirmationV04 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

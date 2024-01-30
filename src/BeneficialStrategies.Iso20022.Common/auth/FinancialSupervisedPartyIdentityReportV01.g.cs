@@ -29,7 +29,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
     [DataMember(Name="PtyData")]
     [XmlElement(ElementName="PtyData")]
     [Required]
-    public required SomePartyDataRecord PartyData { get; init; }
+    public required IPartyReport1Choice PartyData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

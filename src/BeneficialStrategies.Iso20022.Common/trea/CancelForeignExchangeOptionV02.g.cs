@@ -33,7 +33,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement2 TradeInformation { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the currency option trade which is cancelled.
@@ -42,7 +42,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
     [Description(@"Specifies the trading side of the currency option trade which is cancelled.")]
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
-    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    public TradePartyIdentification4? TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the currency option trade which is cancelled.
@@ -51,7 +51,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
     [Description(@"Specifies the counterparty of the currency option trade which is cancelled.")]
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
-    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    public TradePartyIdentification4? CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the parameters of the currency option which is bought by the trading side.
@@ -60,7 +60,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
     [Description(@"Specifies the parameters of the currency option which is bought by the trading side.")]
     [DataMember(Name="Optn")]
     [XmlElement(ElementName="Optn")]
-    public SomeOptionRecord? Option { get; init; }
+    public Option3? Option { get; init; }
     
     */
     

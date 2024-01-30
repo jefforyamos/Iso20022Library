@@ -37,7 +37,7 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required TransactiontIdentification4 Identification { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -46,7 +46,7 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
-    public SomeReferencesRecord? References { get; init; }
+    public Linkages15? References { get; init; }
     
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
@@ -55,7 +55,7 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     [Description(@"Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.")]
     [DataMember(Name="OthrBizPties")]
     [XmlElement(ElementName="OthrBizPties")]
-    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    public OtherParties18? OtherBusinessParties { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -64,7 +64,7 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

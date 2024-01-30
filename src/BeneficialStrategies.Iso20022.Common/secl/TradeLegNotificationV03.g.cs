@@ -33,7 +33,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Identifies the clearing member account at the CCP through which the trade must be cleared (sometimes called position account).
@@ -43,7 +43,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [DataMember(Name="ClrAcct")]
     [XmlElement(ElementName="ClrAcct")]
     [Required]
-    public required SomeClearingAccountRecord ClearingAccount { get; init; }
+    public required SecuritiesAccount18 ClearingAccount { get; init; }
     
     /// <summary>
     /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
@@ -52,7 +52,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [Description(@"An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).")]
     [DataMember(Name="DlvryAcct")]
     [XmlElement(ElementName="DlvryAcct")]
-    public SomeDeliveryAccountRecord? DeliveryAccount { get; init; }
+    public SecuritiesAccount19? DeliveryAccount { get; init; }
     
     /// <summary>
     /// Provides details about the non clearing member identification and account.
@@ -61,7 +61,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [Description(@"Provides details about the non clearing member identification and account.")]
     [DataMember(Name="NonClrMmb")]
     [XmlElement(ElementName="NonClrMmb")]
-    public SomeNonClearingMemberRecord? NonClearingMember { get; init; }
+    public PartyIdentificationAndAccount31? NonClearingMember { get; init; }
     
     /// <summary>
     /// Provides clearing details such as the settlement netting (or not) eligibility code or the clearing segment.
@@ -70,7 +70,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [Description(@"Provides clearing details such as the settlement netting (or not) eligibility code or the clearing segment.")]
     [DataMember(Name="ClrDtls")]
     [XmlElement(ElementName="ClrDtls")]
-    public SomeClearingDetailsRecord? ClearingDetails { get; init; }
+    public Clearing4? ClearingDetails { get; init; }
     
     /// <summary>
     /// Provides details about the trade leg such as the trade date, the settlement date or the trading currency.
@@ -80,7 +80,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [DataMember(Name="TradLegDtls")]
     [XmlElement(ElementName="TradLegDtls")]
     [Required]
-    public required SomeTradeLegDetailsRecord TradeLegDetails { get; init; }
+    public required TradeLeg8 TradeLegDetails { get; init; }
     
     /// <summary>
     /// Provides details about the settlement details of the trade leg such the settlement amount or the place of settlement.
@@ -90,7 +90,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    public required Settlement1 SettlementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -99,7 +99,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -31,7 +31,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [DataMember(Name="MktClmCxlReqId")]
     [XmlElement(ElementName="MktClmCxlReqId")]
     [Required]
-    public required SomeMarketClaimCancellationRequestIdentificationRecord MarketClaimCancellationRequestIdentification { get; init; }
+    public required DocumentIdentification9 MarketClaimCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// References of the transaction for which the securities settlement condition modification is requested.
@@ -41,7 +41,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [DataMember(Name="TxRef")]
     [XmlElement(ElementName="TxRef")]
     [Required]
-    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    public required References26 TransactionReference { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -51,7 +51,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Status information about the processing of the market claim cancellation request.
@@ -61,7 +61,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [DataMember(Name="MktClmCxlReqSts")]
     [XmlElement(ElementName="MktClmCxlReqSts")]
     [Required]
-    public required SomeMarketClaimCancellationRequestStatusRecord MarketClaimCancellationRequestStatus { get; init; }
+    public required IMarketClaimCancellationRequestStatus1Choice MarketClaimCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
@@ -70,7 +70,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [Description(@"Detailed information about the related corporate action option and related movements to which the market claim is linked.")]
     [DataMember(Name="MktClmDtls")]
     [XmlElement(ElementName="MktClmDtls")]
-    public SomeMarketClaimDetailsRecord? MarketClaimDetails { get; init; }
+    public CorporateActionOption185? MarketClaimDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -79,7 +79,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

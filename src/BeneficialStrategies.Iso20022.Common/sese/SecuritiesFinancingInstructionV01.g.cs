@@ -42,7 +42,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required TransactionAndDocumentIdentification1 Identification { get; init; }
     
     /// <summary>
     /// Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing) and other parameters.
@@ -52,7 +52,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="TxTpAndAddtlParams")]
     [XmlElement(ElementName="TxTpAndAddtlParams")]
     [Required]
-    public required SomeTransactionTypeAndAdditionalParametersRecord TransactionTypeAndAdditionalParameters { get; init; }
+    public required TransactionTypeAndAdditionalParameters1 TransactionTypeAndAdditionalParameters { get; init; }
     
     /// <summary>
     /// Count of the number of transactions linked.
@@ -61,7 +61,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public SomeNumberCountsRecord? NumberCounts { get; init; }
+    public INumberCount1Choice? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -70,7 +70,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
     [DataMember(Name="Lnkgs")]
     [XmlElement(ElementName="Lnkgs")]
-    public SomeLinkagesRecord? Linkages { get; init; }
+    public Linkages1? Linkages { get; init; }
     
     /// <summary>
     /// Details of the securities financing deal.
@@ -80,7 +80,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="TradDtls")]
     [XmlElement(ElementName="TradDtls")]
     [Required]
-    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    public required SecuritiesTradeDetails3 TradeDetails { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -90,7 +90,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Elements characterising a financial instrument.
@@ -99,7 +99,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Elements characterising a financial instrument.")]
     [DataMember(Name="FinInstrmAttrbts")]
     [XmlElement(ElementName="FinInstrmAttrbts")]
-    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    public FinancialInstrumentAttributes8? FinancialInstrumentAttributes { get; init; }
     
     /// <summary>
     /// Details related to the account and quantity involved in the transaction.
@@ -109,7 +109,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="QtyAndAcctDtls")]
     [XmlElement(ElementName="QtyAndAcctDtls")]
     [Required]
-    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    public required QuantityAndAccount1 QuantityAndAccountDetails { get; init; }
     
     /// <summary>
     /// Details for the closing of the securities financing transaction.
@@ -119,7 +119,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [DataMember(Name="SctiesFincgDtls")]
     [XmlElement(ElementName="SctiesFincgDtls")]
     [Required]
-    public required SomeSecuritiesFinancingDetailsRecord SecuritiesFinancingDetails { get; init; }
+    public required SecuritiesFinancingTransactionDetails1 SecuritiesFinancingDetails { get; init; }
     
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
@@ -128,7 +128,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.")]
     [DataMember(Name="SttlmParams")]
     [XmlElement(ElementName="SttlmParams")]
-    public SomeSettlementParametersRecord? SettlementParameters { get; init; }
+    public SettlementDetails3? SettlementParameters { get; init; }
     
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
@@ -137,7 +137,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.")]
     [DataMember(Name="StgSttlmInstrDtls")]
     [XmlElement(ElementName="StgSttlmInstrDtls")]
-    public SomeStandingSettlementInstructionDetailsRecord? StandingSettlementInstructionDetails { get; init; }
+    public StandingSettlementInstruction1? StandingSettlementInstructionDetails { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -146,7 +146,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties5? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -155,7 +155,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties5? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
@@ -164,7 +164,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Cash parties involved in the transaction if different for the securities settlement parties.")]
     [DataMember(Name="CshPties")]
     [XmlElement(ElementName="CshPties")]
-    public SomeCashPartiesRecord? CashParties { get; init; }
+    public CashParties3? CashParties { get; init; }
     
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.
@@ -173,7 +173,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.")]
     [DataMember(Name="OpngSttlmAmt")]
     [XmlElement(ElementName="OpngSttlmAmt")]
-    public SomeOpeningSettlementAmountRecord? OpeningSettlementAmount { get; init; }
+    public AmountAndDirection2? OpeningSettlementAmount { get; init; }
     
     /// <summary>
     /// Other amounts than the settlement amount.
@@ -182,7 +182,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Other amounts than the settlement amount.")]
     [DataMember(Name="OthrAmts")]
     [XmlElement(ElementName="OthrAmts")]
-    public SomeOtherAmountsRecord? OtherAmounts { get; init; }
+    public OtherAmounts3? OtherAmounts { get; init; }
     
     /// <summary>
     /// Other business parties relevant to the transaction.
@@ -191,7 +191,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Other business parties relevant to the transaction.")]
     [DataMember(Name="OthrBizPties")]
     [XmlElement(ElementName="OthrBizPties")]
-    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    public OtherParties2? OtherBusinessParties { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -200,7 +200,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -209,7 +209,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -218,7 +218,7 @@ public partial record SecuritiesFinancingInstructionV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     [DataMember(Name="IssrDsclsrReqRef")]
     [XmlElement(ElementName="IssrDsclsrReqRef")]
     [Required]
-    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; }
     
     /// <summary>
     /// Provides the reason for cancelling the request for shareholders identification disclosure.
@@ -38,7 +38,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     [Description(@"Provides the reason for cancelling the request for shareholders identification disclosure.")]
     [DataMember(Name="CxlRsn")]
     [XmlElement(ElementName="CxlRsn")]
-    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    public DisclosureRequestCancellationReason1Code? CancellationReason { get; init; }
     
     /// <summary>
     /// Issuer of the financial instrument.
@@ -47,7 +47,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     [Description(@"Issuer of the financial instrument.")]
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
-    public SomeIssuerRecord? Issuer { get; init; }
+    public IPartyIdentification129Choice? Issuer { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -56,7 +56,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

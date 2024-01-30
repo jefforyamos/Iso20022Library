@@ -32,7 +32,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement1 TradeInformation { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the valuation of the non deliverable trade which is created.
@@ -42,7 +42,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the valuation of the non deliverable trade which is created.
@@ -52,7 +52,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the amounts of the valuation of the non deliverable trade which is created.
@@ -62,7 +62,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="TradAmts")]
     [XmlElement(ElementName="TradAmts")]
     [Required]
-    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    public required AmountsAndValueDate1 TradeAmounts { get; init; }
     
     /// <summary>
     /// Specifies the valuation information of the valuation of the non deliverable trade which is created.
@@ -72,7 +72,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="ValtnInf")]
     [XmlElement(ElementName="ValtnInf")]
     [Required]
-    public required SomeValuationInformationRecord ValuationInformation { get; init; }
+    public required ValuationData2 ValuationInformation { get; init; }
     
     /// <summary>
     /// Specifies the valuation rate of the valuation of the non deliverable trade which is created.
@@ -82,7 +82,7 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="ValtnRate")]
     [XmlElement(ElementName="ValtnRate")]
     [Required]
-    public required SomeValuationRateRecord ValuationRate { get; init; }
+    public required AgreedRate1 ValuationRate { get; init; }
     
     */
     

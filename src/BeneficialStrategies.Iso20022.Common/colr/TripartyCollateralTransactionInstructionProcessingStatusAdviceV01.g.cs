@@ -33,7 +33,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="TxInstrId")]
     [XmlElement(ElementName="TxInstrId")]
     [Required]
-    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    public required TransactionIdentifications46 TransactionInstructionIdentification { get; init; }
     
     /// <summary>
     /// Reference to the unambiguous identification of the cancellation request as per the account owner.
@@ -42,7 +42,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Reference to the unambiguous identification of the cancellation request as per the account owner.")]
     [DataMember(Name="CxlReqRef")]
     [XmlElement(ElementName="CxlReqRef")]
-    public SomeCancellationRequestReferenceRecord? CancellationRequestReference { get; init; }
+    public IsoMax35Text? CancellationRequestReference { get; init; }
     
     /// <summary>
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
@@ -52,7 +52,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides the status of an instruction.
@@ -61,7 +61,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the status of an instruction.")]
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
-    public SomeInstructionProcessingStatusRecord? InstructionProcessingStatus { get; init; }
+    public IProcessingStatus82Choice? InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -70,7 +70,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    public IMatchingStatus33Choice? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of a cancellation request or status query.
@@ -79,7 +79,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the status of a cancellation request or status query.|")]
     [DataMember(Name="CxlPrcgSts")]
     [XmlElement(ElementName="CxlPrcgSts")]
-    public SomeCancellationProcessingStatusRecord? CancellationProcessingStatus { get; init; }
+    public ICancellationStatus30Choice? CancellationProcessingStatus { get; init; }
     
     /// <summary>
     /// provides general information about the instruction and collateral transaction the message refers to.
@@ -89,7 +89,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="GnlParams")]
     [XmlElement(ElementName="GnlParams")]
     [Required]
-    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    public required CollateralParameters12 GeneralParameters { get; init; }
     
     /// <summary>
     /// Identifies the chain of collateral parties.
@@ -99,7 +99,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="CollPties")]
     [XmlElement(ElementName="CollPties")]
     [Required]
-    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    public required CollateralParties8 CollateralParties { get; init; }
     
     /// <summary>
     /// Specifies the information related to the deal.
@@ -109,7 +109,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="DealTxDtls")]
     [XmlElement(ElementName="DealTxDtls")]
     [Required]
-    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    public required DealTransactionDetails7 DealTransactionDetails { get; init; }
     
     /// <summary>
     /// Identifies the dates related to the triparty collateral instruction or transactions.
@@ -119,7 +119,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [DataMember(Name="DealTxDt")]
     [XmlElement(ElementName="DealTxDt")]
     [Required]
-    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    public required CollateralDate2 DealTransactionDate { get; init; }
     
     /// <summary>
     /// Securities movements.
@@ -128,7 +128,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Securities movements.")]
     [DataMember(Name="SctiesMvmnt")]
     [XmlElement(ElementName="SctiesMvmnt")]
-    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    public SecuritiesMovement8? SecuritiesMovement { get; init; }
     
     /// <summary>
     ///  Cash movement
@@ -137,7 +137,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@" Cash movement")]
     [DataMember(Name="CshMvmnt")]
     [XmlElement(ElementName="CshMvmnt")]
-    public SomeCashMovementRecord? CashMovement { get; init; }
+    public CashMovement7? CashMovement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -146,7 +146,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

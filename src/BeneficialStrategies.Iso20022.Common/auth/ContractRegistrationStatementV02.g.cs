@@ -29,7 +29,7 @@ public partial record ContractRegistrationStatementV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required CurrencyControlHeader6 GroupHeader { get; init; }
     
     /// <summary>
     /// Provides the contract registration statement, which includes all journals on the activities related to the contract.
@@ -39,7 +39,7 @@ public partial record ContractRegistrationStatementV02 : IOuterRecord
     [DataMember(Name="Stmt")]
     [XmlElement(ElementName="Stmt")]
     [Required]
-    public required SomeStatementRecord Statement { get; init; }
+    public required ContractRegistrationStatement2 Statement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record ContractRegistrationStatementV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

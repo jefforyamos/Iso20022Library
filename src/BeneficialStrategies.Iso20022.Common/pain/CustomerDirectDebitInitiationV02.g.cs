@@ -39,7 +39,7 @@ public partial record CustomerDirectDebitInitiationV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader39 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of characteristics that apply to the credit side of the payment transactions included in the direct debit transaction initiation.
@@ -49,7 +49,7 @@ public partial record CustomerDirectDebitInitiationV02 : IOuterRecord
     [DataMember(Name="PmtInf")]
     [XmlElement(ElementName="PmtInf")]
     [Required]
-    public required SomePaymentInformationRecord PaymentInformation { get; init; }
+    public required PaymentInstructionInformation4 PaymentInformation { get; init; }
     
     */
     

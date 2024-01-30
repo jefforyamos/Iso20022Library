@@ -40,7 +40,7 @@ public partial record MarginReportV02 : IOuterRecord
     [DataMember(Name="RptParams")]
     [XmlElement(ElementName="RptParams")]
     [Required]
-    public required SomeReportParametersRecord ReportParameters { get; init; }
+    public required ReportParameters3 ReportParameters { get; init; }
     
     /// <summary>
     /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
@@ -50,7 +50,7 @@ public partial record MarginReportV02 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
@@ -60,7 +60,7 @@ public partial record MarginReportV02 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
@@ -69,7 +69,7 @@ public partial record MarginReportV02 : IOuterRecord
     [Description(@"Provides details on the valuation of the collateral on deposit.")]
     [DataMember(Name="RptSummry")]
     [XmlElement(ElementName="RptSummry")]
-    public SomeReportSummaryRecord? ReportSummary { get; init; }
+    public MarginCalculation1? ReportSummary { get; init; }
     
     /// <summary>
     /// Provides the margin report details.
@@ -79,7 +79,7 @@ public partial record MarginReportV02 : IOuterRecord
     [DataMember(Name="RptDtls")]
     [XmlElement(ElementName="RptDtls")]
     [Required]
-    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    public required MarginReport2 ReportDetails { get; init; }
     
     /// <summary>
     /// Additional information that can't be captured in the structured fields and/or any other specific block.
@@ -88,7 +88,7 @@ public partial record MarginReportV02 : IOuterRecord
     [Description(@"Additional information that can't be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -34,7 +34,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
@@ -43,7 +43,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [Description(@"Unambiguous identification of the transfer allocated by the counterparty.")]
     [DataMember(Name="CtrPtyRef")]
     [XmlElement(ElementName="CtrPtyRef")]
-    public SomeCounterpartyReferenceRecord? CounterpartyReference { get; init; }
+    public AdditionalReference10? CounterpartyReference { get; init; }
     
     /// <summary>
     /// Reference to the message or communication that was previously received.
@@ -52,7 +52,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public IReferences64Choice? Reference { get; init; }
     
     /// <summary>
     /// Status of the transfer instruction.
@@ -62,7 +62,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required SomeStatusReportRecord StatusReport { get; init; }
+    public required TransferStatusAndReason8 StatusReport { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -71,7 +71,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -80,7 +80,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

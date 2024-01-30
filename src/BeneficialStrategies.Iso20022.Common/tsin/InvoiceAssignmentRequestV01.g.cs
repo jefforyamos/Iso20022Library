@@ -31,7 +31,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required BusinessLetter1 Header { get; init; }
     
     /// <summary>
     /// List of assignments of financial items.
@@ -41,7 +41,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [DataMember(Name="AssgnmtList")]
     [XmlElement(ElementName="AssgnmtList")]
     [Required]
-    public required SomeAssignmentListRecord AssignmentList { get; init; }
+    public required FinancingItemList1 AssignmentList { get; init; }
     
     /// <summary>
     /// Number of assignments.
@@ -50,7 +50,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [Description(@"Number of assignments.")]
     [DataMember(Name="AssgnmtCnt")]
     [XmlElement(ElementName="AssgnmtCnt")]
-    public SomeAssignmentCountRecord? AssignmentCount { get; init; }
+    public IsoMax15NumericText? AssignmentCount { get; init; }
     
     /// <summary>
     /// Total number of individual items in all assignments.
@@ -59,7 +59,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [Description(@"Total number of individual items in all assignments.")]
     [DataMember(Name="ItmCnt")]
     [XmlElement(ElementName="ItmCnt")]
-    public SomeItemCountRecord? ItemCount { get; init; }
+    public IsoMax15NumericText? ItemCount { get; init; }
     
     /// <summary>
     /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
@@ -68,7 +68,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
     [DataMember(Name="CtrlSum")]
     [XmlElement(ElementName="CtrlSum")]
-    public SomeControlSumRecord? ControlSum { get; init; }
+    public IsoDecimalNumber? ControlSum { get; init; }
     
     /// <summary>
     /// Referenced or related business message.
@@ -77,7 +77,7 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     [Description(@"Referenced or related business message.")]
     [DataMember(Name="AttchdMsg")]
     [XmlElement(ElementName="AttchdMsg")]
-    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    public EncapsulatedBusinessMessage1? AttachedMessage { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record DTCCCANOEligibleBalanceSD1V01 : IOuterRecord
     [Description(@"Extension block for the information to be extended as account balance.")]
     [DataMember(Name="AcctBal")]
     [XmlElement(ElementName="AcctBal")]
-    public SomeAccountBalanceRecord? AccountBalance { get; init; }
+    public AccountBalanceExtensionSD1? AccountBalance { get; init; }
     
     */
     

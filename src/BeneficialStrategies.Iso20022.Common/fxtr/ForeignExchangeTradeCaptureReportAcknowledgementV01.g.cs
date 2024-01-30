@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     [Description(@"Identifies the acknowledgement message.")]
     [DataMember(Name="AckId")]
     [XmlElement(ElementName="AckId")]
-    public SomeAcknowledgementIdentificationRecord? AcknowledgementIdentification { get; init; }
+    public MessageIdentification1? AcknowledgementIdentification { get; init; }
     
     /// <summary>
     /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
@@ -42,7 +42,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     [DataMember(Name="TradId")]
     [XmlElement(ElementName="TradId")]
     [Required]
-    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    public required IsoMax35Text TradeIdentification { get; init; }
     
     /// <summary>
     /// Acknowlegement status of recevied trade capture report.
@@ -52,7 +52,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required Status5Code Status { get; init; }
     
     /// <summary>
     /// Reference of the acknowledge, specifies the message this acknowledge responds to.
@@ -61,7 +61,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     [Description(@"Reference of the acknowledge, specifies the message this acknowledge responds to.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public AdditionalReferences? Reference { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -70,7 +70,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record SecuritiesAccountDeletionRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Identification of the securities account to be deleted from the executing party system.
@@ -38,7 +38,7 @@ public partial record SecuritiesAccountDeletionRequestV01 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required SecuritiesAccount19 AccountIdentification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record SecuritiesAccountDeletionRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

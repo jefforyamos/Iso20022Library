@@ -34,7 +34,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     [Description(@"General information about the safekeeping account and the account owner.")]
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
-    public SomeAccountDetailsRecord? AccountDetails { get; init; }
+    public IAccountIdentification42Choice? AccountDetails { get; init; }
     
     /// <summary>
     /// Provides information about the securitised right for entitlement.
@@ -43,7 +43,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     [Description(@"Provides information about the securitised right for entitlement.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public SecurityIdentification19? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -53,7 +53,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation92 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -63,7 +63,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
     [Required]
-    public required SomeAdditionalInformationRecord AdditionalInformation { get; init; }
+    public required UpdatedAdditionalInformation8 AdditionalInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -72,7 +72,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

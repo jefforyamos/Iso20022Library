@@ -35,7 +35,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header23 Header { get; init; }
     
     /// <summary>
     /// Identifies the capture report message.
@@ -44,7 +44,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Identifies the capture report message.")]
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
-    public SomeReportIdentificationRecord? ReportIdentification { get; init; }
+    public MessageIdentification1? ReportIdentification { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the treasury trade which is captured.
@@ -53,7 +53,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Specifies the trading side of the treasury trade which is captured.")]
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
-    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    public TradePartyIdentification7? TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty side of the treasury trade which is captured.
@@ -62,7 +62,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
-    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    public TradePartyIdentification7? CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Details of the treasury trade captured.
@@ -71,7 +71,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Details of the treasury trade captured.")]
     [DataMember(Name="TradDtl")]
     [XmlElement(ElementName="TradDtl")]
-    public SomeTradeDetailRecord? TradeDetail { get; init; }
+    public Trade1? TradeDetail { get; init; }
     
     /// <summary>
     /// Reference of the report.
@@ -80,7 +80,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Reference of the report.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public AdditionalReferences? Reference { get; init; }
     
     /// <summary>
     /// Indicates if this report is for responding to a capture request.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [DataMember(Name="ReqRspndr")]
     [XmlElement(ElementName="ReqRspndr")]
     [Required]
-    public required SomeRequestResponderRecord RequestResponder { get; init; }
+    public required IsoYesNoIndicator RequestResponder { get; init; }
     
     /// <summary>
     /// Indicates if this report is a rejection report for responding to a capture request.
@@ -99,7 +99,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Indicates if this report is a rejection report for responding to a capture request.")]
     [DataMember(Name="ReqRjctd")]
     [XmlElement(ElementName="ReqRjctd")]
-    public SomeRequestRejectedRecord? RequestRejected { get; init; }
+    public IsoYesNoIndicator? RequestRejected { get; init; }
     
     /// <summary>
     /// Reason of rejection.
@@ -108,7 +108,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Reason of rejection.")]
     [DataMember(Name="QryRjctRsn")]
     [XmlElement(ElementName="QryRjctRsn")]
-    public SomeQueryRejectReasonRecord? QueryRejectReason { get; init; }
+    public IsoMax35Text? QueryRejectReason { get; init; }
     
     /// <summary>
     /// Indicates the total number of trades.
@@ -117,7 +117,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Indicates the total number of trades.")]
     [DataMember(Name="TtlNbTrds")]
     [XmlElement(ElementName="TtlNbTrds")]
-    public SomeTotalNumberTradesRecord? TotalNumberTrades { get; init; }
+    public IsoNumber? TotalNumberTrades { get; init; }
     
     /// <summary>
     /// Indicates if this report is the last report sent for responding to one capture request.
@@ -126,7 +126,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Indicates if this report is the last report sent for responding to one capture request.")]
     [DataMember(Name="LastRptReqd")]
     [XmlElement(ElementName="LastRptReqd")]
-    public SomeLastReportRequestedRecord? LastReportRequested { get; init; }
+    public IsoYesNoIndicator? LastReportRequested { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -135,7 +135,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

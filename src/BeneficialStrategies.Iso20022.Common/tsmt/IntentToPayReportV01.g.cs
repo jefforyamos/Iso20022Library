@@ -33,7 +33,7 @@ public partial record IntentToPayReportV01 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Reports on the intention to pay per purchase order.
@@ -42,7 +42,7 @@ public partial record IntentToPayReportV01 : IOuterRecord
     [Description(@"Reports on the intention to pay per purchase order.")]
     [DataMember(Name="RptdItms")]
     [XmlElement(ElementName="RptdItms")]
-    public SomeReportedItemsRecord? ReportedItems { get; init; }
+    public ReportLine1? ReportedItems { get; init; }
     
     */
     

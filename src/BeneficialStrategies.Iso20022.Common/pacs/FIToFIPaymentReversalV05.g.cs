@@ -35,7 +35,7 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader57 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -44,7 +44,7 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
     [Description(@"Information concerning the original group of transactions, to which the message refers.")]
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
-    public SomeOriginalGroupInformationRecord? OriginalGroupInformation { get; init; }
+    public OriginalGroupHeader3? OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original transactions, to which the reversal message refers.
@@ -53,7 +53,7 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
     [Description(@"Information concerning the original transactions, to which the reversal message refers.")]
     [DataMember(Name="TxInf")]
     [XmlElement(ElementName="TxInf")]
-    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    public PaymentTransaction51? TransactionInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

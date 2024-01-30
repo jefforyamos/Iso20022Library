@@ -28,7 +28,7 @@ public partial record DTCCCAPASD1V01 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action general information.")]
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
-    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    public CorporateActionGeneralInformationSD1? CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as corporate action movement securities movement details.
@@ -37,7 +37,7 @@ public partial record DTCCCAPASD1V01 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action movement securities movement details.")]
     [DataMember(Name="CorpActnMvmntSctiesMvmntDtls")]
     [XmlElement(ElementName="CorpActnMvmntSctiesMvmntDtls")]
-    public SomeCorporateActionMovementSecuritiesMovementDetailsRecord? CorporateActionMovementSecuritiesMovementDetails { get; init; }
+    public CorporateActionMovementSecuritiesMovementDetailsSD1? CorporateActionMovementSecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Extension block for the information to be extended as corporate action movement cash movement details.
@@ -46,7 +46,7 @@ public partial record DTCCCAPASD1V01 : IOuterRecord
     [Description(@"Extension block for the information to be extended as corporate action movement cash movement details.")]
     [DataMember(Name="CorpActnMvmntCshMvmntDtls")]
     [XmlElement(ElementName="CorpActnMvmntCshMvmntDtls")]
-    public SomeCorporateActionMovementCashMovementDetailsRecord? CorporateActionMovementCashMovementDetails { get; init; }
+    public CorporateActionMovementCashMovementDetailsSD1? CorporateActionMovementCashMovementDetails { get; init; }
     
     */
     

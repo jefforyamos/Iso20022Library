@@ -30,7 +30,7 @@ public partial record RequestToPayCreditorEnrolmentCancellationRequestV01 : IOut
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required EnrolmentHeader2 Header { get; init; }
     
     /// <summary>
     /// Set of elements used to provide details on the cancellation request.
@@ -40,7 +40,7 @@ public partial record RequestToPayCreditorEnrolmentCancellationRequestV01 : IOut
     [DataMember(Name="CxlData")]
     [XmlElement(ElementName="CxlData")]
     [Required]
-    public required SomeCancellationDataRecord CancellationData { get; init; }
+    public required CreditorEnrolmentCancellation2 CancellationData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -49,7 +49,7 @@ public partial record RequestToPayCreditorEnrolmentCancellationRequestV01 : IOut
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

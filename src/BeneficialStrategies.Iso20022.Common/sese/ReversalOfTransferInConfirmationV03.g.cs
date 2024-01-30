@@ -38,7 +38,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
@@ -48,7 +48,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References11 References { get; init; }
     
     /// <summary>
     /// Reference of the transfer in confirmation to be reversed.
@@ -57,7 +57,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     [Description(@"Reference of the transfer in confirmation to be reversed.")]
     [DataMember(Name="RvslByRef")]
     [XmlElement(ElementName="RvslByRef")]
-    public SomeReversalByReferenceRecord? ReversalByReference { get; init; }
+    public TransferReference2? ReversalByReference { get; init; }
     
     /// <summary>
     /// Copy of the transfer in confirmation to reverse.
@@ -66,7 +66,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     [Description(@"Copy of the transfer in confirmation to reverse.")]
     [DataMember(Name="RvslByTrfInConfDtls")]
     [XmlElement(ElementName="RvslByTrfInConfDtls")]
-    public SomeReversalByTransferInConfirmationDetailsRecord? ReversalByTransferInConfirmationDetails { get; init; }
+    public TransferIn6? ReversalByTransferInConfirmationDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -75,7 +75,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

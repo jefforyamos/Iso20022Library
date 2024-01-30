@@ -35,7 +35,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [DataMember(Name="StmtParams")]
     [XmlElement(ElementName="StmtParams")]
     [Required]
-    public required SomeStatementParametersRecord StatementParameters { get; init; }
+    public required Statement31 StatementParameters { get; init; }
     
     /// <summary>
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
@@ -45,7 +45,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
@@ -55,7 +55,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
@@ -64,7 +64,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [Description(@"Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).")]
     [DataMember(Name="ClrAcct")]
     [XmlElement(ElementName="ClrAcct")]
-    public SomeClearingAccountRecord? ClearingAccount { get; init; }
+    public SecuritiesAccount18? ClearingAccount { get; init; }
     
     /// <summary>
     /// Provides the statement details.
@@ -74,7 +74,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [DataMember(Name="StmtDtls")]
     [XmlElement(ElementName="StmtDtls")]
     [Required]
-    public required SomeStatementDetailsRecord StatementDetails { get; init; }
+    public required TradeLegStatement3 StatementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -83,7 +83,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

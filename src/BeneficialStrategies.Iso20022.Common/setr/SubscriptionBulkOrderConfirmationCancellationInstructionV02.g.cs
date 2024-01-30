@@ -32,7 +32,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -41,7 +41,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference9? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -50,7 +50,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference8? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -59,7 +59,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference8? RelatedReference { get; init; }
     
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
@@ -69,7 +69,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [DataMember(Name="AmdmntInd")]
     [XmlElement(ElementName="AmdmntInd")]
     [Required]
-    public required SomeAmendmentIndicatorRecord AmendmentIndicator { get; init; }
+    public required IsoYesNoIndicator AmendmentIndicator { get; init; }
     
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
@@ -78,7 +78,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public IsoMax35Text? MasterReference { get; init; }
     
     /// <summary>
     /// Identification of the individual order confirmation to be cancelled.
@@ -88,7 +88,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [DataMember(Name="OrdrRefs")]
     [XmlElement(ElementName="OrdrRefs")]
     [Required]
-    public required SomeOrderReferencesRecord OrderReferences { get; init; }
+    public required InvestmentFundOrder11 OrderReferences { get; init; }
     
     /// <summary>
     /// Message is a copy.
@@ -97,7 +97,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     [Description(@"Message is a copy.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation4? CopyDetails { get; init; }
     
     */
     

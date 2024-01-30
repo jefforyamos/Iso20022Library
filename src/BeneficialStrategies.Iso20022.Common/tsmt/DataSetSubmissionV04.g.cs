@@ -39,7 +39,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="SubmissnId")]
     [XmlElement(ElementName="SubmissnId")]
     [Required]
-    public required SomeSubmissionIdentificationRecord SubmissionIdentification { get; init; }
+    public required MessageIdentification1 SubmissionIdentification { get; init; }
     
     /// <summary>
     /// Identifies the transactions that this submission relates to and provides associated information.
@@ -49,7 +49,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="RltdTxRefs")]
     [XmlElement(ElementName="RltdTxRefs")]
     [Required]
-    public required SomeRelatedTransactionReferencesRecord RelatedTransactionReferences { get; init; }
+    public required DataSetSubmissionReferences3 RelatedTransactionReferences { get; init; }
     
     /// <summary>
     /// This reference must be used for all data sets belonging to the same submission group.
@@ -59,7 +59,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="CmonSubmissnRef")]
     [XmlElement(ElementName="CmonSubmissnRef")]
     [Required]
-    public required SomeCommonSubmissionReferenceRecord CommonSubmissionReference { get; init; }
+    public required SimpleIdentificationInformation CommonSubmissionReference { get; init; }
     
     /// <summary>
     /// Specifies the instruction given by the submitter.
@@ -69,7 +69,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="Instr")]
     [XmlElement(ElementName="Instr")]
     [Required]
-    public required SomeInstructionRecord Instruction { get; init; }
+    public required InstructionType3 Instruction { get; init; }
     
     /// <summary>
     /// The financial institution of the buyer, uniquely identified by its BIC.
@@ -79,7 +79,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="BuyrBk")]
     [XmlElement(ElementName="BuyrBk")]
     [Required]
-    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    public required BICIdentification1 BuyerBank { get; init; }
     
     /// <summary>
     /// The financial institution of the seller, uniquely identified by its BIC.
@@ -89,7 +89,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [DataMember(Name="SellrBk")]
     [XmlElement(ElementName="SellrBk")]
     [Required]
-    public required SomeSellerBankRecord SellerBank { get; init; }
+    public required BICIdentification1 SellerBank { get; init; }
     
     /// <summary>
     /// Commercial information that is submitted to the matching application for processing.
@@ -98,7 +98,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [Description(@"Commercial information that is submitted to the matching application for processing.")]
     [DataMember(Name="ComrclDataSet")]
     [XmlElement(ElementName="ComrclDataSet")]
-    public SomeCommercialDataSetRecord? CommercialDataSet { get; init; }
+    public CommercialDataSet4? CommercialDataSet { get; init; }
     
     /// <summary>
     /// Transport information that is submitted to the matching application for processing.
@@ -107,7 +107,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [Description(@"Transport information that is submitted to the matching application for processing.")]
     [DataMember(Name="TrnsprtDataSet")]
     [XmlElement(ElementName="TrnsprtDataSet")]
-    public SomeTransportDataSetRecord? TransportDataSet { get; init; }
+    public TransportDataSet4? TransportDataSet { get; init; }
     
     /// <summary>
     /// Insurance information that is submitted to the matching application for processing.
@@ -116,7 +116,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [Description(@"Insurance information that is submitted to the matching application for processing.")]
     [DataMember(Name="InsrncDataSet")]
     [XmlElement(ElementName="InsrncDataSet")]
-    public SomeInsuranceDataSetRecord? InsuranceDataSet { get; init; }
+    public InsuranceDataSet1? InsuranceDataSet { get; init; }
     
     /// <summary>
     /// Certificate information that is submitted to the matching application for processing.
@@ -125,7 +125,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [Description(@"Certificate information that is submitted to the matching application for processing.")]
     [DataMember(Name="CertDataSet")]
     [XmlElement(ElementName="CertDataSet")]
-    public SomeCertificateDataSetRecord? CertificateDataSet { get; init; }
+    public CertificateDataSet2? CertificateDataSet { get; init; }
     
     /// <summary>
     /// Other certificate information that is submitted to the matching application for processing.
@@ -134,7 +134,7 @@ public partial record DataSetSubmissionV04 : IOuterRecord
     [Description(@"Other certificate information that is submitted to the matching application for processing.")]
     [DataMember(Name="OthrCertDataSet")]
     [XmlElement(ElementName="OthrCertDataSet")]
-    public SomeOtherCertificateDataSetRecord? OtherCertificateDataSet { get; init; }
+    public OtherCertificateDataSet1? OtherCertificateDataSet { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record RequestToPayCreditorEnrolmentStatusReportV01 : IOuterRecor
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required EnrolmentHeader2 Header { get; init; }
     
     /// <summary>
     /// Status of the creditor enrolment instruction (that is request, amendment or cancellation).
@@ -39,7 +39,7 @@ public partial record RequestToPayCreditorEnrolmentStatusReportV01 : IOuterRecor
     [DataMember(Name="OrgnlEnrlmntAndSts")]
     [XmlElement(ElementName="OrgnlEnrlmntAndSts")]
     [Required]
-    public required SomeOriginalEnrolmentAndStatusRecord OriginalEnrolmentAndStatus { get; init; }
+    public required EnrolmentStatus2 OriginalEnrolmentAndStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record RequestToPayCreditorEnrolmentStatusReportV01 : IOuterRecor
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -30,7 +30,7 @@ public partial record AcceptorCompletionAdviceV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header8 Header { get; init; }
     
     /// <summary>
     /// Information related to the completion advice.
@@ -40,7 +40,7 @@ public partial record AcceptorCompletionAdviceV03 : IOuterRecord
     [DataMember(Name="CmpltnAdvc")]
     [XmlElement(ElementName="CmpltnAdvc")]
     [Required]
-    public required SomeCompletionAdviceRecord CompletionAdvice { get; init; }
+    public required AcceptorCompletionAdvice3 CompletionAdvice { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -50,7 +50,7 @@ public partial record AcceptorCompletionAdviceV03 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType8 SecurityTrailer { get; init; }
     
     */
     

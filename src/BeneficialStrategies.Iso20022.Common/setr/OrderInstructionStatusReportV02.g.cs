@@ -45,7 +45,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message sent in a proprietary way or reference of a system.")]
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
-    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference3> OtherReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -54,7 +54,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=1, Max=2
+    public required IReadonlyCollection<AdditionalReference3> RelatedReference { get; init; } // Min=1, Max=2
     
     /// <summary>
     /// Reference to a multiple order or bulk order that represents the common reference of several individual orders.
@@ -63,7 +63,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord
     [Description(@"Reference to a multiple order or bulk order that represents the common reference of several individual orders.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public AdditionalReference3? MasterReference { get; init; }
     
     /// <summary>
     /// Status report details of a bulk or multiple or switch order that was previously received.
@@ -73,7 +73,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord
     [DataMember(Name="OrdrDtlsRpt")]
     [XmlElement(ElementName="OrdrDtlsRpt")]
     [Required]
-    public required SomeOrderDetailsReportRecord OrderDetailsReport { get; init; }
+    public required OrderStatusAndReason3 OrderDetailsReport { get; init; }
     
     /// <summary>
     /// Status report details of the individual orders of a bulk or multiple order that was previously received.
@@ -83,7 +83,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord
     [DataMember(Name="IndvOrdrDtlsRpt")]
     [XmlElement(ElementName="IndvOrdrDtlsRpt")]
     [Required]
-    public required SomeIndividualOrderDetailsReportRecord IndividualOrderDetailsReport { get; init; }
+    public required IndividualOrderStatusAndReason1 IndividualOrderDetailsReport { get; init; }
     
     */
     

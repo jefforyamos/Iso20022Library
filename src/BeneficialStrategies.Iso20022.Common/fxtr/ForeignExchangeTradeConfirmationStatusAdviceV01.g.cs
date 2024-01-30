@@ -32,7 +32,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header23 Header { get; init; }
     
     /// <summary>
     /// Identifies the advice message.
@@ -41,7 +41,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [Description(@"Identifies the advice message.")]
     [DataMember(Name="AdvcId")]
     [XmlElement(ElementName="AdvcId")]
-    public SomeAdviceIdentificationRecord? AdviceIdentification { get; init; }
+    public MessageIdentification1? AdviceIdentification { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the treasury trade which is captured.
@@ -51,7 +51,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification7 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty side of the treasury trade which is captured.
@@ -61,7 +61,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification7 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Details of the treasury trade confirmed.
@@ -71,7 +71,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [DataMember(Name="TradDtl")]
     [XmlElement(ElementName="TradDtl")]
     [Required]
-    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    public required Trade2 TradeDetail { get; init; }
     
     /// <summary>
     /// Details of the confirmation in the CMU.
@@ -81,7 +81,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [DataMember(Name="ConfInf")]
     [XmlElement(ElementName="ConfInf")]
     [Required]
-    public required SomeConfirmationInformationRecord ConfirmationInformation { get; init; }
+    public required Confirmation1 ConfirmationInformation { get; init; }
     
     /// <summary>
     /// Additional reference of this message.
@@ -90,7 +90,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [Description(@"Additional reference of this message.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public AdditionalReferences? Reference { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -99,7 +99,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

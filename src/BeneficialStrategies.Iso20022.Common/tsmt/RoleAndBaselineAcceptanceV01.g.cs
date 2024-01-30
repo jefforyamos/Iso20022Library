@@ -32,7 +32,7 @@ public partial record RoleAndBaselineAcceptanceV01 : IOuterRecord
     [DataMember(Name="AccptncId")]
     [XmlElement(ElementName="AccptncId")]
     [Required]
-    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    public required MessageIdentification1 AcceptanceIdentification { get; init; }
     
     /// <summary>
     /// Reference to the message that contained the baseline and is accepted.
@@ -42,7 +42,7 @@ public partial record RoleAndBaselineAcceptanceV01 : IOuterRecord
     [DataMember(Name="RltdMsgRef")]
     [XmlElement(ElementName="RltdMsgRef")]
     [Required]
-    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    public required MessageIdentification1 RelatedMessageReference { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -52,7 +52,7 @@ public partial record RoleAndBaselineAcceptanceV01 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     */
     

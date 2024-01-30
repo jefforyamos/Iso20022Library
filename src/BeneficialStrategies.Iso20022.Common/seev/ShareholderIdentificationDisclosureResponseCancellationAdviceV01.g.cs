@@ -30,7 +30,7 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
     [DataMember(Name="DsclsrRspnId")]
     [XmlElement(ElementName="DsclsrRspnId")]
     [Required]
-    public required SomeDisclosureResponseIdentificationRecord DisclosureResponseIdentification { get; init; }
+    public required IsoMax35Text DisclosureResponseIdentification { get; init; }
     
     /// <summary>
     /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
@@ -40,7 +40,7 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
     [DataMember(Name="IssrDsclsrReqRef")]
     [XmlElement(ElementName="IssrDsclsrReqRef")]
     [Required]
-    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; }
     
     /// <summary>
     /// Unique identification of the intermediary party responding to the shareholders identification disclosure request.
@@ -50,7 +50,7 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
     [DataMember(Name="RspndgIntrmy")]
     [XmlElement(ElementName="RspndgIntrmy")]
     [Required]
-    public required SomeRespondingIntermediaryRecord RespondingIntermediary { get; init; }
+    public required PartyIdentification215 RespondingIntermediary { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

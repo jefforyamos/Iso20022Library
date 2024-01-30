@@ -34,7 +34,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -43,7 +43,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference2? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -52,7 +52,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -62,7 +62,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// General information related to the investment fund statement of transactions.
@@ -72,7 +72,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement8 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Information related to an investment account.
@@ -82,7 +82,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [DataMember(Name="InvstmtAcctDtls")]
     [XmlElement(ElementName="InvstmtAcctDtls")]
     [Required]
-    public required SomeInvestmentAccountDetailsRecord InvestmentAccountDetails { get; init; }
+    public required InvestmentAccount25 InvestmentAccountDetails { get; init; }
     
     /// <summary>
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
@@ -91,7 +91,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [Description(@"Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.")]
     [DataMember(Name="TxOnAcct")]
     [XmlElement(ElementName="TxOnAcct")]
-    public SomeTransactionOnAccountRecord? TransactionOnAccount { get; init; }
+    public InvestmentFundTransactionsByFund2? TransactionOnAccount { get; init; }
     
     /// <summary>
     /// The sub-account of the safekeeping or investment account.
@@ -100,7 +100,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [Description(@"The sub-account of the safekeeping or investment account.")]
     [DataMember(Name="SubAcctDtls")]
     [XmlElement(ElementName="SubAcctDtls")]
-    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    public SubAccountIdentification6? SubAccountDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -109,7 +109,7 @@ public partial record StatementOfInvestmentFundTransactionsV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

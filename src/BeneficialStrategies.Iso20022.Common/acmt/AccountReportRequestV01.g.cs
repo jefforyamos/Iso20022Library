@@ -32,7 +32,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References4 References { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -42,7 +42,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountForAction1 AccountIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
@@ -52,7 +52,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Identification of the organisation requesting the report.
@@ -62,7 +62,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [DataMember(Name="OrgId")]
     [XmlElement(ElementName="OrgId")]
     [Required]
-    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; }
     
     /// <summary>
     /// Specifies target and/or actual dates.
@@ -71,7 +71,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [Description(@"Specifies target and/or actual dates.")]
     [DataMember(Name="CtrctDts")]
     [XmlElement(ElementName="CtrctDts")]
-    public SomeContractDatesRecord? ContractDates { get; init; }
+    public AccountContract2? ContractDates { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -80,7 +80,7 @@ public partial record AccountReportRequestV01 : IOuterRecord
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature1? DigitalSignature { get; init; }
     
     */
     

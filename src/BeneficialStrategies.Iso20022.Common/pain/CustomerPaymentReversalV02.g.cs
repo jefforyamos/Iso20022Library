@@ -34,7 +34,7 @@ public partial record CustomerPaymentReversalV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader40 GroupHeader { get; init; }
     
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
@@ -44,7 +44,7 @@ public partial record CustomerPaymentReversalV02 : IOuterRecord
     [DataMember(Name="OrgnlGrpInf")]
     [XmlElement(ElementName="OrgnlGrpInf")]
     [Required]
-    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    public required OriginalGroupInformation22 OriginalGroupInformation { get; init; }
     
     /// <summary>
     /// Information concerning the original payment information, to which the reversal message refers.
@@ -53,7 +53,7 @@ public partial record CustomerPaymentReversalV02 : IOuterRecord
     [Description(@"Information concerning the original payment information, to which the reversal message refers.")]
     [DataMember(Name="OrgnlPmtInfAndRvsl")]
     [XmlElement(ElementName="OrgnlPmtInfAndRvsl")]
-    public SomeOriginalPaymentInformationAndReversalRecord? OriginalPaymentInformationAndReversal { get; init; }
+    public OriginalPaymentInformation2? OriginalPaymentInformationAndReversal { get; init; }
     
     */
     

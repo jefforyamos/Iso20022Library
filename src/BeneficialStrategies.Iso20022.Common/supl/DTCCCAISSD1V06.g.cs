@@ -28,7 +28,7 @@ public partial record DTCCCAISSD1V06 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to instruction status message for reorganisation events.")]
     [DataMember(Name="ReorgInstrDtls")]
     [XmlElement(ElementName="ReorgInstrDtls")]
-    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    public ReorganisationInstructionSD12? ReorganisationInstructionDetails { get; init; }
     
     */
     

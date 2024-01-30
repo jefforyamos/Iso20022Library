@@ -29,7 +29,7 @@ public partial record TradeStatusReportV01 : IOuterRecord
     [DataMember(Name="TradStsAdvcDtls")]
     [XmlElement(ElementName="TradStsAdvcDtls")]
     [Required]
-    public required SomeTradeStatusAdviceDetailsRecord TradeStatusAdviceDetails { get; init; }
+    public required TradeStatusReport1 TradeStatusAdviceDetails { get; init; }
     
     /// <summary>
     /// Digital signature of the report.
@@ -38,7 +38,7 @@ public partial record TradeStatusReportV01 : IOuterRecord
     [Description(@"Digital signature of the report.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
     [DataMember(Name="CncntrtnAgt")]
     [XmlElement(ElementName="CncntrtnAgt")]
     [Required]
-    public required SomeConcentrationAgentRecord ConcentrationAgent { get; init; }
+    public required ConcentrationAgent1 ConcentrationAgent { get; init; }
     
     /// <summary>
     /// Agent used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
@@ -39,7 +39,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
     [DataMember(Name="SttlmAgt")]
     [XmlElement(ElementName="SttlmAgt")]
     [Required]
-    public required SomeSettlementAgentRecord SettlementAgent { get; init; }
+    public required SettlementAgent1 SettlementAgent { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

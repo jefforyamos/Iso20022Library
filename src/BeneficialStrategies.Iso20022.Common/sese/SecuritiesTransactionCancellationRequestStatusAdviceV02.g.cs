@@ -36,7 +36,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV02 : 
     [DataMember(Name="CxlReqRef")]
     [XmlElement(ElementName="CxlReqRef")]
     [Required]
-    public required SomeCancellationRequestReferenceRecord CancellationRequestReference { get; init; }
+    public required Identification1 CancellationRequestReference { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
@@ -45,7 +45,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV02 : 
     [Description(@"Unambiguous identification of the transaction as known by the account servicer.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public TransactionIdentifications11? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -55,7 +55,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV02 : 
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus13Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -64,7 +64,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV02 : 
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public TransactionDetails30? TransactionDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -73,7 +73,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdviceV02 : 
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

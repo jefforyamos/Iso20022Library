@@ -41,7 +41,7 @@ public partial record CaseStatusReportRequestV04 : IOuterRecord
     [DataMember(Name="ReqHdr")]
     [XmlElement(ElementName="ReqHdr")]
     [Required]
-    public required SomeRequestHeaderRecord RequestHeader { get; init; }
+    public required ReportHeader5 RequestHeader { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -51,7 +51,7 @@ public partial record CaseStatusReportRequestV04 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case5 Case { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -60,7 +60,7 @@ public partial record CaseStatusReportRequestV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

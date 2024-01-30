@@ -29,7 +29,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [Description(@"ISO 20022 Business Application Header instance.|Rule: The external schema must be an official ISO 20022 Business Application Header.")]
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
-    public SomeHeaderRecord? Header { get; init; }
+    public IsoLaxPayload? Header { get; init; }
     
     /// <summary>
     /// ISO 20022 Message Definition instance.
@@ -40,7 +40,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [DataMember(Name="Doc")]
     [XmlElement(ElementName="Doc")]
     [Required]
-    public required SomeDocumentRecord Document { get; init; }
+    public required IsoLaxPayload Document { get; init; }
     
     /// <summary>
     /// Reference related to the delivery of the business message whilst in transit from sending to receiving business application.
@@ -49,7 +49,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [Description(@"Reference related to the delivery of the business message whilst in transit from sending to receiving business application.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public SomeReferenceRecord? Reference { get; init; }
+    public Reference22? Reference { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -58,7 +58,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

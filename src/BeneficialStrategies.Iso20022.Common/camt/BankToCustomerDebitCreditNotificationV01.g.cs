@@ -40,7 +40,7 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader23 GroupHeader { get; init; }
     
     /// <summary>
     /// Notifies debit and credit entries for the account.
@@ -50,7 +50,7 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required AccountNotification1 Notification { get; init; }
     
     */
     

@@ -34,7 +34,7 @@ public partial record ProprietaryFormatInvestigationV02 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment2 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -44,7 +44,7 @@ public partial record ProprietaryFormatInvestigationV02 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case2 Case { get; init; }
     
     /// <summary>
     /// Proprietary information.
@@ -54,7 +54,7 @@ public partial record ProprietaryFormatInvestigationV02 : IOuterRecord
     [DataMember(Name="PrtryData")]
     [XmlElement(ElementName="PrtryData")]
     [Required]
-    public required SomeProprietaryDataRecord ProprietaryData { get; init; }
+    public required ProprietaryData4 ProprietaryData { get; init; }
     
     */
     

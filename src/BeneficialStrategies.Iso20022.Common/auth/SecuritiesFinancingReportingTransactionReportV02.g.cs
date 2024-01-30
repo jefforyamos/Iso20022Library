@@ -29,7 +29,7 @@ public partial record SecuritiesFinancingReportingTransactionReportV02 : IOuterR
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required SomeTradeDataRecord TradeData { get; init; }
+    public required ITradeData40Choice TradeData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record SecuritiesFinancingReportingTransactionReportV02 : IOuterR
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

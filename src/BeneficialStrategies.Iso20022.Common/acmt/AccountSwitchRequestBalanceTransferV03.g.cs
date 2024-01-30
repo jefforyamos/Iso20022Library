@@ -29,7 +29,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Contains information about the details of the account switch.
@@ -39,7 +39,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [DataMember(Name="AcctSwtchDtls")]
     [XmlElement(ElementName="AcctSwtchDtls")]
     [Required]
-    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; }
     
     /// <summary>
     /// Details of the new account set up with the new account servicer.
@@ -50,7 +50,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [DataMember(Name="NewAcct")]
     [XmlElement(ElementName="NewAcct")]
     [Required]
-    public required SomeNewAccountRecord NewAccount { get; init; }
+    public required CashAccount39 NewAccount { get; init; }
     
     /// <summary>
     /// Alternate beneficiary account for a payment made from the old account servicer to the new account servicer in the case of a positive closing balance of the old bank.
@@ -59,7 +59,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [Description(@"Alternate beneficiary account for a payment made from the old account servicer to the new account servicer in the case of a positive closing balance of the old bank.")]
     [DataMember(Name="NmntdAcct")]
     [XmlElement(ElementName="NmntdAcct")]
-    public SomeNominatedAccountRecord? NominatedAccount { get; init; }
+    public CashAccount39? NominatedAccount { get; init; }
     
     /// <summary>
     /// Information that enables the receiving bank to reconcile the payment with the request.
@@ -68,7 +68,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [Description(@"Information that enables the receiving bank to reconcile the payment with the request.")]
     [DataMember(Name="BalTrf")]
     [XmlElement(ElementName="BalTrf")]
-    public SomeBalanceTransferRecord? BalanceTransfer { get; init; }
+    public BalanceTransfer3? BalanceTransfer { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -77,7 +77,7 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

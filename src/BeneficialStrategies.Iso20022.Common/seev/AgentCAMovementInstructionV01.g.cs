@@ -41,7 +41,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA ElectionAdvice when the movements are the result of an ElectionAdvice.
@@ -50,7 +50,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [Description(@"Identification of the Agent CA ElectionAdvice when the movements are the result of an ElectionAdvice.")]
     [DataMember(Name="AgtCAElctnAdvcId")]
     [XmlElement(ElementName="AgtCAElctnAdvcId")]
-    public SomeAgentCAElectionAdviceIdentificationRecord? AgentCAElectionAdviceIdentification { get; init; }
+    public DocumentIdentification8? AgentCAElectionAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -60,7 +60,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides general information about the movement.
@@ -70,7 +70,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [DataMember(Name="MvmntGnlInf")]
     [XmlElement(ElementName="MvmntGnlInf")]
     [Required]
-    public required SomeMovementGeneralInformationRecord MovementGeneralInformation { get; init; }
+    public required CorporateActionMovement1 MovementGeneralInformation { get; init; }
     
     /// <summary>
     /// Information related to the movement of the underlying securities.
@@ -79,7 +79,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [Description(@"Information related to the movement of the underlying securities.")]
     [DataMember(Name="UndrlygSctiesMvmntDtls")]
     [XmlElement(ElementName="UndrlygSctiesMvmntDtls")]
-    public SomeUnderlyingSecuritiesMovementDetailsRecord? UnderlyingSecuritiesMovementDetails { get; init; }
+    public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Information related to the movement of the underlying cash.
@@ -88,7 +88,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [Description(@"Information related to the movement of the underlying cash.")]
     [DataMember(Name="UndrlygCshMvmntDtls")]
     [XmlElement(ElementName="UndrlygCshMvmntDtls")]
-    public SomeUnderlyingCashMovementDetailsRecord? UnderlyingCashMovementDetails { get; init; }
+    public CashMovement2? UnderlyingCashMovementDetails { get; init; }
     
     /// <summary>
     /// Information related to the movement of the CA proceeds.
@@ -97,7 +97,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     [Description(@"Information related to the movement of the CA proceeds.")]
     [DataMember(Name="PrcdsMvmntDtls")]
     [XmlElement(ElementName="PrcdsMvmntDtls")]
-    public SomeProceedsMovementDetailsRecord? ProceedsMovementDetails { get; init; }
+    public ProceedsMovement1? ProceedsMovementDetails { get; init; }
     
     */
     

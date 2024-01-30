@@ -36,7 +36,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the firm that is legally responsible for sending the transaction report.
@@ -46,7 +46,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
     
     /// <summary>
     /// Provides the status of the entire RegulatoryTransactionReport that was previously sent by the reporting institution.
@@ -56,7 +56,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     [DataMember(Name="RptSts")]
     [XmlElement(ElementName="RptSts")]
     [Required]
-    public required SomeReportStatusRecord ReportStatus { get; init; }
+    public required ReportStatusAndReason1 ReportStatus { get; init; }
     
     /// <summary>
     /// Provides the status of one or more transactions that were previously sent within a RegulatoryTransactionReport by the reporting institution.
@@ -66,7 +66,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     [DataMember(Name="IndvTxSts")]
     [XmlElement(ElementName="IndvTxSts")]
     [Required]
-    public required SomeIndividualTransactionStatusRecord IndividualTransactionStatus { get; init; }
+    public required TradeTransactionStatusAndReason1 IndividualTransactionStatus { get; init; }
     
     */
     

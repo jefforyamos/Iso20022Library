@@ -38,7 +38,7 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader31 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide details on the amendment request.
@@ -48,7 +48,7 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord
     [DataMember(Name="UndrlygAmdmntDtls")]
     [XmlElement(ElementName="UndrlygAmdmntDtls")]
     [Required]
-    public required SomeUnderlyingAmendmentDetailsRecord UnderlyingAmendmentDetails { get; init; }
+    public required MandateAmendment1 UnderlyingAmendmentDetails { get; init; }
     
     */
     

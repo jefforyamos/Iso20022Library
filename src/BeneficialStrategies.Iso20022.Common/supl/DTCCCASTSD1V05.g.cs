@@ -28,7 +28,7 @@ public partial record DTCCCASTSD1V05 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action balance details at event level.")]
     [DataMember(Name="EvtBalDtls")]
     [XmlElement(ElementName="EvtBalDtls")]
-    public SomeEventBalanceDetailsRecord? EventBalanceDetails { get; init; }
+    public CorporateActionBalanceSD5? EventBalanceDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action balance details at option level.
@@ -37,7 +37,7 @@ public partial record DTCCCASTSD1V05 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action balance details at option level.")]
     [DataMember(Name="TtlInstdBalOptnBalDtls")]
     [XmlElement(ElementName="TtlInstdBalOptnBalDtls")]
-    public SomeTotalInstructedBalanceOptionBalanceDetailsRecord? TotalInstructedBalanceOptionBalanceDetails { get; init; }
+    public CorporateActionInstructedBalanceOptionBalanceSD3? TotalInstructedBalanceOptionBalanceDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action balance details at option instruction details level. Option level instruction details are referenced by unique instruction identification, instruction date, quantity and status of instruction.
@@ -46,7 +46,7 @@ public partial record DTCCCASTSD1V05 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action balance details at option instruction details level. Option level instruction details are referenced by unique instruction identification, instruction date, quantity and status of instruction.")]
     [DataMember(Name="TtlInstdBalOptnInstrDtls")]
     [XmlElement(ElementName="TtlInstdBalOptnInstrDtls")]
-    public SomeTotalInstructedBalanceOptionInstructionDetailsRecord? TotalInstructedBalanceOptionInstructionDetails { get; init; }
+    public CorporateActionInstructedBalanceOptionInstructionSD4? TotalInstructedBalanceOptionInstructionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action balance details at option protect instruction details level.
@@ -55,7 +55,7 @@ public partial record DTCCCASTSD1V05 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action balance details at option protect instruction details level.")]
     [DataMember(Name="TtlInstdBalOptnPrtctInstrDtls")]
     [XmlElement(ElementName="TtlInstdBalOptnPrtctInstrDtls")]
-    public SomeTotalInstructedBalanceOptionProtectInstructionDetailsRecord? TotalInstructedBalanceOptionProtectInstructionDetails { get; init; }
+    public CorporateActionInstructedBalanceOptionProtectInstructionSD4? TotalInstructedBalanceOptionProtectInstructionDetails { get; init; }
     
     */
     

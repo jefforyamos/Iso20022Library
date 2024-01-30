@@ -42,7 +42,7 @@ public partial record SecuritiesTransactionStatusQueryV06 : IOuterRecord
     [DataMember(Name="StsAdvcReqd")]
     [XmlElement(ElementName="StsAdvcReqd")]
     [Required]
-    public required SomeStatusAdviceRequestedRecord StatusAdviceRequested { get; init; }
+    public required DocumentNumber18 StatusAdviceRequested { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -51,7 +51,7 @@ public partial record SecuritiesTransactionStatusQueryV06 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -60,7 +60,7 @@ public partial record SecuritiesTransactionStatusQueryV06 : IOuterRecord
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount22? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -69,7 +69,7 @@ public partial record SecuritiesTransactionStatusQueryV06 : IOuterRecord
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -78,7 +78,7 @@ public partial record SecuritiesTransactionStatusQueryV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

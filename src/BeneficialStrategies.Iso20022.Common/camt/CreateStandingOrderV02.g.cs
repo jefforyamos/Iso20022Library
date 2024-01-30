@@ -33,7 +33,7 @@ public partial record CreateStandingOrderV02 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies the standing order.
@@ -43,7 +43,7 @@ public partial record CreateStandingOrderV02 : IOuterRecord
     [DataMember(Name="StgOrdrId")]
     [XmlElement(ElementName="StgOrdrId")]
     [Required]
-    public required SomeStandingOrderIdentificationRecord StandingOrderIdentification { get; init; }
+    public required StandingOrderIdentification6 StandingOrderIdentification { get; init; }
     
     /// <summary>
     /// Set of values for the standing order.
@@ -53,7 +53,7 @@ public partial record CreateStandingOrderV02 : IOuterRecord
     [DataMember(Name="ValSet")]
     [XmlElement(ElementName="ValSet")]
     [Required]
-    public required SomeValueSetRecord ValueSet { get; init; }
+    public required StandingOrder8 ValueSet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record CreateStandingOrderV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

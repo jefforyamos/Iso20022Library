@@ -33,7 +33,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -42,7 +42,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference11? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -51,7 +51,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference10? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -60,7 +60,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference10? RelatedReference { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
@@ -69,7 +69,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public IsoMax35Text? MasterReference { get; init; }
     
     /// <summary>
     /// General information related to the transfer of the financial instrument.
@@ -79,7 +79,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [DataMember(Name="TrfDtls")]
     [XmlElement(ElementName="TrfDtls")]
     [Required]
-    public required SomeTransferDetailsRecord TransferDetails { get; init; }
+    public required Transfer36 TransferDetails { get; init; }
     
     /// <summary>
     /// Information related to the account from which the financial instrument is to be withdrawn.
@@ -89,7 +89,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required InvestmentAccount70 AccountDetails { get; init; }
     
     /// <summary>
     /// Information related to the receiving side of the transfer.
@@ -98,7 +98,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Information related to the receiving side of the transfer.")]
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
-    public SomeSettlementDetailsRecord? SettlementDetails { get; init; }
+    public ReceiveInformation21? SettlementDetails { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -107,7 +107,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -116,7 +116,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation5? CopyDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -125,7 +125,7 @@ public partial record TransferOutInstructionV09 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

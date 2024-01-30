@@ -29,7 +29,7 @@ public partial record AcquirerFinancialInitiation : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header17 Header { get; init; }
     
     /// <summary>
     /// Information related to financial authorisation.
@@ -39,7 +39,7 @@ public partial record AcquirerFinancialInitiation : IOuterRecord
     [DataMember(Name="FinInitn")]
     [XmlElement(ElementName="FinInitn")]
     [Required]
-    public required SomeFinancialInitiationRecord FinancialInitiation { get; init; }
+    public required AcquirerFinancialInitiation1 FinancialInitiation { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -49,7 +49,7 @@ public partial record AcquirerFinancialInitiation : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType15 SecurityTrailer { get; init; }
     
     */
     

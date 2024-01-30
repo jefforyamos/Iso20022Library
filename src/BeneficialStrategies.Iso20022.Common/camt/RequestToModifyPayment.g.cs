@@ -57,7 +57,7 @@ public partial record RequestToModifyPayment : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment Assignment { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -67,7 +67,7 @@ public partial record RequestToModifyPayment : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Identifies the Payment Transaction to modify.
@@ -77,7 +77,7 @@ public partial record RequestToModifyPayment : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required PaymentInstructionExtract Underlying { get; init; }
     
     /// <summary>
     /// </summary>
@@ -86,7 +86,7 @@ public partial record RequestToModifyPayment : IOuterRecord
     [DataMember(Name="Mod")]
     [XmlElement(ElementName="Mod")]
     [Required]
-    public required SomeModificationRecord Modification { get; init; }
+    public required RequestedModification Modification { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record BankToCustomerStatementV04 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader58 GroupHeader { get; init; }
     
     /// <summary>
     /// Reports on booked entries and balances for a cash account.
@@ -46,7 +46,7 @@ public partial record BankToCustomerStatementV04 : IOuterRecord
     [DataMember(Name="Stmt")]
     [XmlElement(ElementName="Stmt")]
     [Required]
-    public required SomeStatementRecord Statement { get; init; }
+    public required AccountStatement4 Statement { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -55,7 +55,7 @@ public partial record BankToCustomerStatementV04 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

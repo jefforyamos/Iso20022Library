@@ -33,7 +33,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required AdditionalReference2 RelatedReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -42,7 +42,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference2? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -51,7 +51,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference2? PreviousReference { get; init; }
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.
@@ -61,7 +61,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [DataMember(Name="TrfDtls")]
     [XmlElement(ElementName="TrfDtls")]
     [Required]
-    public required SomeTransferDetailsRecord TransferDetails { get; init; }
+    public required Transfer2 TransferDetails { get; init; }
     
     /// <summary>
     /// Information related to the financial instrument withdrawn.
@@ -71,7 +71,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [DataMember(Name="FinInstrmDtls")]
     [XmlElement(ElementName="FinInstrmDtls")]
     [Required]
-    public required SomeFinancialInstrumentDetailsRecord FinancialInstrumentDetails { get; init; }
+    public required FinancialInstrument3 FinancialInstrumentDetails { get; init; }
     
     /// <summary>
     /// Information related to the account from which the financial instrument was withdrawn.
@@ -81,7 +81,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required InvestmentAccount10 AccountDetails { get; init; }
     
     /// <summary>
     /// Information related to the receiving side of the transfer.
@@ -91,7 +91,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    public required ReceiveInformation2 SettlementDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -100,7 +100,7 @@ public partial record TransferOutConfirmation : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

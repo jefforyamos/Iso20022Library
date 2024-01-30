@@ -37,7 +37,7 @@ public partial record MandateCancellationRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader31 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide details on the cancellation request.
@@ -47,7 +47,7 @@ public partial record MandateCancellationRequestV01 : IOuterRecord
     [DataMember(Name="UndrlygCxlDtls")]
     [XmlElement(ElementName="UndrlygCxlDtls")]
     [Required]
-    public required SomeUnderlyingCancellationDetailsRecord UnderlyingCancellationDetails { get; init; }
+    public required MandateCancellation1 UnderlyingCancellationDetails { get; init; }
     
     */
     

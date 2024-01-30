@@ -33,7 +33,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [DataMember(Name="AckId")]
     [XmlElement(ElementName="AckId")]
     [Required]
-    public required SomeAcknowledgementIdentificationRecord AcknowledgementIdentification { get; init; }
+    public required MessageIdentification1 AcknowledgementIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -42,7 +42,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public SimpleIdentificationInformation? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -51,7 +51,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
-    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -60,7 +60,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [Description(@"Identifies the status of the transaction by means of a code.")]
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
-    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    public TransactionStatus4? TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the financial institution that is the sender of the acknowledged message.
@@ -69,7 +69,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution that is the sender of the acknowledged message.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Reference to the identification of the acknowledged message.
@@ -79,7 +79,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [DataMember(Name="AckdMsgRef")]
     [XmlElement(ElementName="AckdMsgRef")]
     [Required]
-    public required SomeAcknowledgedMessageReferenceRecord AcknowledgedMessageReference { get; init; }
+    public required MessageIdentification1 AcknowledgedMessageReference { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -88,7 +88,7 @@ public partial record AcknowledgementV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

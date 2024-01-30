@@ -29,7 +29,7 @@ public partial record CertificateManagementRequestV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required TMSHeader1 Header { get; init; }
     
     /// <summary>
     /// Information related to the request of certificate management.
@@ -39,7 +39,7 @@ public partial record CertificateManagementRequestV03 : IOuterRecord
     [DataMember(Name="CertMgmtReq")]
     [XmlElement(ElementName="CertMgmtReq")]
     [Required]
-    public required SomeCertificateManagementRequestRecord CertificateManagementRequest { get; init; }
+    public required CertificateManagementRequest2 CertificateManagementRequest { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record CertificateManagementRequestV03 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType21? SecurityTrailer { get; init; }
     
     */
     

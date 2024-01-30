@@ -37,7 +37,7 @@ public partial record BankToCustomerAccountReportV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader42 GroupHeader { get; init; }
     
     /// <summary>
     /// Reports on a cash account.
@@ -47,7 +47,7 @@ public partial record BankToCustomerAccountReportV02 : IOuterRecord
     [DataMember(Name="Rpt")]
     [XmlElement(ElementName="Rpt")]
     [Required]
-    public required SomeReportRecord Report { get; init; }
+    public required AccountReport11 Report { get; init; }
     
     */
     

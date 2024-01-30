@@ -33,7 +33,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     [DataMember(Name="RptParams")]
     [XmlElement(ElementName="RptParams")]
     [Required]
-    public required SomeReportParametersRecord ReportParameters { get; init; }
+    public required ReportParameters2 ReportParameters { get; init; }
     
     /// <summary>
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
@@ -43,7 +43,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Provides details on the default fund report.
@@ -53,7 +53,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     [DataMember(Name="RptDtls")]
     [XmlElement(ElementName="RptDtls")]
     [Required]
-    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    public required DefaultFundReport1 ReportDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -62,7 +62,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

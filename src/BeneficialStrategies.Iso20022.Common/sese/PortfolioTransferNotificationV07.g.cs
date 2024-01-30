@@ -38,7 +38,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the notification.
@@ -48,7 +48,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement62 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -57,7 +57,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -66,7 +66,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount19? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -75,7 +75,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Details of the transfer.
@@ -84,7 +84,7 @@ public partial record PortfolioTransferNotificationV07 : IOuterRecord
     [Description(@"Details of the transfer.")]
     [DataMember(Name="TrfNtfctnDtls")]
     [XmlElement(ElementName="TrfNtfctnDtls")]
-    public SomeTransferNotificationDetailsRecord? TransferNotificationDetails { get; init; }
+    public SecuritiesTradeDetails138? TransferNotificationDetails { get; init; }
     
     */
     

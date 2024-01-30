@@ -47,7 +47,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment4 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -56,7 +56,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case4? Case { get; init; }
     
     /// <summary>
     /// References the payment instruction or statement entry that a party is unable to execute or unable to reconcile.
@@ -66,7 +66,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction4Choice Underlying { get; init; }
     
     /// <summary>
     /// Explains the reason why the case creator is unable to apply the instruction.
@@ -76,7 +76,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required SomeJustificationRecord Justification { get; init; }
+    public required IUnableToApplyJustification3Choice Justification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -85,7 +85,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

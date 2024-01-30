@@ -35,7 +35,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required TransactiontIdentification4 Identification { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -45,7 +45,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required Linkages18 References { get; init; }
     
     /// <summary>
     /// Provides details on the affitrmation status of a trade.
@@ -54,7 +54,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Provides details on the affitrmation status of a trade.")]
     [DataMember(Name="AffirmSts")]
     [XmlElement(ElementName="AffirmSts")]
-    public SomeAffirmationStatusRecord? AffirmationStatus { get; init; }
+    public IAffirmationStatus6Choice? AffirmationStatus { get; init; }
     
     /// <summary>
     /// Provides the processing status of a trade.
@@ -63,7 +63,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Provides the processing status of a trade.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    public IProcessingStatus17Choice? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides details on the matching status of a trade.
@@ -72,7 +72,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Provides details on the matching status of a trade.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    public IMatchingStatus23Choice? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the replacement processing status of a trade.
@@ -81,7 +81,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Provides the replacement processing status of a trade.")]
     [DataMember(Name="RplcmntPrcgSts")]
     [XmlElement(ElementName="RplcmntPrcgSts")]
-    public SomeReplacementProcessingStatusRecord? ReplacementProcessingStatus { get; init; }
+    public IReplacementProcessingStatus7Choice? ReplacementProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides details on the cancellation status of a trade.
@@ -90,7 +90,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Provides details on the cancellation status of a trade.")]
     [DataMember(Name="CxlPrcgSts")]
     [XmlElement(ElementName="CxlPrcgSts")]
-    public SomeCancellationProcessingStatusRecord? CancellationProcessingStatus { get; init; }
+    public ICancellationProcessingStatus6Choice? CancellationProcessingStatus { get; init; }
     
     /// <summary>
     /// Details of the trading party.
@@ -99,7 +99,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Details of the trading party.")]
     [DataMember(Name="PtyTradgDtls")]
     [XmlElement(ElementName="PtyTradgDtls")]
-    public SomePartyTradingDetailsRecord? PartyTradingDetails { get; init; }
+    public Order18? PartyTradingDetails { get; init; }
     
     /// <summary>
     /// Details of the trading counterparty.
@@ -108,7 +108,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Details of the trading counterparty.")]
     [DataMember(Name="CtrPtyTradgDtls")]
     [XmlElement(ElementName="CtrPtyTradgDtls")]
-    public SomeCounterpartyTradingDetailsRecord? CounterpartyTradingDetails { get; init; }
+    public Order18? CounterpartyTradingDetails { get; init; }
     
     /// <summary>
     /// Parties used for acting parties that applies either to the whole message or to individual sides.
@@ -117,7 +117,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Parties used for acting parties that applies either to the whole message or to individual sides.")]
     [DataMember(Name="ConfPties")]
     [XmlElement(ElementName="ConfPties")]
-    public SomeConfirmationPartiesRecord? ConfirmationParties { get; init; }
+    public ConfirmationParties4? ConfirmationParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
@@ -126,7 +126,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Identifies the chain of delivering settlement parties.")]
     [DataMember(Name="DlvrgSttlmPties")]
     [XmlElement(ElementName="DlvrgSttlmPties")]
-    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    public SettlementParties23? DeliveringSettlementParties { get; init; }
     
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
@@ -135,7 +135,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Identifies the chain of receiving settlement parties.")]
     [DataMember(Name="RcvgSttlmPties")]
     [XmlElement(ElementName="RcvgSttlmPties")]
-    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    public SettlementParties23? ReceivingSettlementParties { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -144,7 +144,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

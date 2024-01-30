@@ -29,7 +29,7 @@ public partial record AcceptorBatchTransferResponseV02 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header3 Header { get; init; }
     
     /// <summary>
     /// Information related to the previously sent set of transaction.
@@ -39,7 +39,7 @@ public partial record AcceptorBatchTransferResponseV02 : IOuterRecord
     [DataMember(Name="BtchTrfRspn")]
     [XmlElement(ElementName="BtchTrfRspn")]
     [Required]
-    public required SomeBatchTransferResponseRecord BatchTransferResponse { get; init; }
+    public required CardPaymentBatchTransferResponse1 BatchTransferResponse { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -49,7 +49,7 @@ public partial record AcceptorBatchTransferResponseV02 : IOuterRecord
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
     [Required]
-    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    public required ContentInformationType4 SecurityTrailer { get; init; }
     
     */
     

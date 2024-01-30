@@ -44,7 +44,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the report.
@@ -54,7 +54,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement52 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -63,7 +63,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification109? AccountOwner { get; init; }
     
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.
@@ -72,7 +72,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.")]
     [DataMember(Name="AcctSvcr")]
     [XmlElement(ElementName="AcctSvcr")]
-    public SomeAccountServicerRecord? AccountServicer { get; init; }
+    public PartyIdentification111? AccountServicer { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -82,7 +82,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount33 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Information about the party that provides services relating to financial products to investors, for example, advice on products and placement of orders for the investment fund.
@@ -91,7 +91,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Information about the party that provides services relating to financial products to investors, for example, advice on products and placement of orders for the investment fund.")]
     [DataMember(Name="IntrmyInf")]
     [XmlElement(ElementName="IntrmyInf")]
-    public required IReadonlyCollection<SomeIntermediaryInformationRecord> IntermediaryInformation { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<Intermediary37> IntermediaryInformation { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -100,7 +100,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
     [DataMember(Name="BalForAcct")]
     [XmlElement(ElementName="BalForAcct")]
-    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    public AggregateBalanceInformation33? BalanceForAccount { get; init; }
     
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
@@ -109,7 +109,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Sub-account of the safekeeping or investment account.")]
     [DataMember(Name="SubAcctDtls")]
     [XmlElement(ElementName="SubAcctDtls")]
-    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    public SubAccountIdentification46? SubAccountDetails { get; init; }
     
     /// <summary>
     /// Total valuation amounts provided in the base currency of the account.
@@ -118,7 +118,7 @@ public partial record SecuritiesBalanceCustodyReport002V09 : IOuterRecord
     [Description(@"Total valuation amounts provided in the base currency of the account.")]
     [DataMember(Name="AcctBaseCcyTtlAmts")]
     [XmlElement(ElementName="AcctBaseCcyTtlAmts")]
-    public SomeAccountBaseCurrencyTotalAmountsRecord? AccountBaseCurrencyTotalAmounts { get; init; }
+    public TotalValueInPageAndStatement3? AccountBaseCurrencyTotalAmounts { get; init; }
     
     */
     

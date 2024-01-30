@@ -29,7 +29,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Contains information about the details of the account switch.
@@ -39,7 +39,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [DataMember(Name="AcctSwtchDtls")]
     [XmlElement(ElementName="AcctSwtchDtls")]
     [Required]
-    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; }
     
     /// <summary>
     /// New account to which the switch will be made (destination account).
@@ -49,7 +49,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [DataMember(Name="NewAcct")]
     [XmlElement(ElementName="NewAcct")]
     [Required]
-    public required SomeNewAccountRecord NewAccount { get; init; }
+    public required CashAccount36 NewAccount { get; init; }
     
     /// <summary>
     /// Account held at the old account servicer being switched to the new account servicer.
@@ -59,7 +59,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [DataMember(Name="OdAcct")]
     [XmlElement(ElementName="OdAcct")]
     [Required]
-    public required SomeOldAccountRecord OldAccount { get; init; }
+    public required CashAccount36 OldAccount { get; init; }
     
     /// <summary>
     /// Details of debit payment arrangements associated with the old account. For example the payment may be a standing order, a bill payment arrangement or a future dated payment.
@@ -68,7 +68,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [Description(@"Details of debit payment arrangements associated with the old account. For example the payment may be a standing order, a bill payment arrangement or a future dated payment.")]
     [DataMember(Name="PmtInstr")]
     [XmlElement(ElementName="PmtInstr")]
-    public SomePaymentInstructionRecord? PaymentInstruction { get; init; }
+    public PaymentInstruction24? PaymentInstruction { get; init; }
     
     /// <summary>
     /// Details of a direct debit instruction associated with the old account.
@@ -77,7 +77,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [Description(@"Details of a direct debit instruction associated with the old account.")]
     [DataMember(Name="DrctDbtInstr")]
     [XmlElement(ElementName="DrctDbtInstr")]
-    public SomeDirectDebitInstructionRecord? DirectDebitInstruction { get; init; }
+    public DirectDebitInstructionDetails1? DirectDebitInstruction { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -86,7 +86,7 @@ public partial record AccountSwitchInformationResponseV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

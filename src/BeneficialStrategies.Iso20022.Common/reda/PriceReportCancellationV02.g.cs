@@ -33,7 +33,7 @@ public partial record PriceReportCancellationV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -43,7 +43,7 @@ public partial record PriceReportCancellationV02 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference3 PreviousReference { get; init; }
     
     /// <summary>
     /// Common information related to all the price reports to be cancelled.
@@ -52,7 +52,7 @@ public partial record PriceReportCancellationV02 : IOuterRecord
     [Description(@"Common information related to all the price reports to be cancelled.")]
     [DataMember(Name="PricRptToBeCanc")]
     [XmlElement(ElementName="PricRptToBeCanc")]
-    public SomePriceReportToBeCancelledRecord? PriceReportToBeCancelled { get; init; }
+    public PriceReport1? PriceReportToBeCancelled { get; init; }
     
     */
     

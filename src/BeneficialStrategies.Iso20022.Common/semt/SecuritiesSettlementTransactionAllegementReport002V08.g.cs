@@ -39,7 +39,7 @@ public partial record SecuritiesSettlementTransactionAllegementReport002V08 : IO
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General information related to the report.
@@ -49,7 +49,7 @@ public partial record SecuritiesSettlementTransactionAllegementReport002V08 : IO
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement69 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -58,7 +58,7 @@ public partial record SecuritiesSettlementTransactionAllegementReport002V08 : IO
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification156? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -68,7 +68,7 @@ public partial record SecuritiesSettlementTransactionAllegementReport002V08 : IO
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount30 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the allegement.
@@ -77,7 +77,7 @@ public partial record SecuritiesSettlementTransactionAllegementReport002V08 : IO
     [Description(@"Details of the allegement.")]
     [DataMember(Name="AllgmtDtls")]
     [XmlElement(ElementName="AllgmtDtls")]
-    public SomeAllegementDetailsRecord? AllegementDetails { get; init; }
+    public SecuritiesTradeDetails105? AllegementDetails { get; init; }
     
     */
     

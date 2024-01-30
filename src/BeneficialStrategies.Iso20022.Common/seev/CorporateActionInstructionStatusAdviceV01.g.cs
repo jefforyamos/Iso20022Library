@@ -36,7 +36,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Identification of a related instruction document.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Identification of a related instruction document.")]
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
-    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    public DocumentIdentification9? InstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -54,7 +54,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification14? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -64,7 +64,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides information about the processing status of the instruction.
@@ -74,7 +74,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
     [Required]
-    public required SomeInstructionProcessingStatusRecord InstructionProcessingStatus { get; init; }
+    public required IInstructionProcessingStatus1Choice InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.
@@ -83,7 +83,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Information about the corporate action instruction.")]
     [DataMember(Name="CorpActnInstr")]
     [XmlElement(ElementName="CorpActnInstr")]
-    public SomeCorporateActionInstructionRecord? CorporateActionInstruction { get; init; }
+    public CorporateActionOption9? CorporateActionInstruction { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -92,7 +92,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative10? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -101,7 +101,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -110,7 +110,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -119,7 +119,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

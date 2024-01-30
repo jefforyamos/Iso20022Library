@@ -35,7 +35,7 @@ public partial record SwitchOrderCancellationInstructionV02 : IOuterRecord
     [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public AdditionalReference3? MasterReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -44,7 +44,7 @@ public partial record SwitchOrderCancellationInstructionV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -54,7 +54,7 @@ public partial record SwitchOrderCancellationInstructionV02 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference3 PreviousReference { get; init; }
     
     /// <summary>
     /// Common information related to all the orders to be cancelled.
@@ -63,7 +63,7 @@ public partial record SwitchOrderCancellationInstructionV02 : IOuterRecord
     [Description(@"Common information related to all the orders to be cancelled.")]
     [DataMember(Name="OrdrToBeCanc")]
     [XmlElement(ElementName="OrdrToBeCanc")]
-    public SomeOrderToBeCancelledRecord? OrderToBeCancelled { get; init; }
+    public SwitchOrderInstruction1? OrderToBeCancelled { get; init; }
     
     */
     

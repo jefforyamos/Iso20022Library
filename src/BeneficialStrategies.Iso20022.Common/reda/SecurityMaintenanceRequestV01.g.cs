@@ -38,7 +38,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Request to maintain data's of a security.
@@ -48,7 +48,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [DataMember(Name="UpdTp")]
     [XmlElement(ElementName="UpdTp")]
     [Required]
-    public required SomeUpdateTypeRecord UpdateType { get; init; }
+    public required IUpdateType36Choice UpdateType { get; init; }
     
     /// <summary>
     /// Reason for the update of a security.
@@ -57,7 +57,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [Description(@"Reason for the update of a security.")]
     [DataMember(Name="UpdRsn")]
     [XmlElement(ElementName="UpdRsn")]
-    public SomeUpdateReasonRecord? UpdateReason { get; init; }
+    public ISecuritiesUpdateReason1Choice? UpdateReason { get; init; }
     
     /// <summary>
     /// Identification of the financial instrument.
@@ -67,7 +67,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -76,7 +76,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

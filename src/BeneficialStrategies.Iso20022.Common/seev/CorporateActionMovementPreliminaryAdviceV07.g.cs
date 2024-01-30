@@ -35,7 +35,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Page number of the message and continuation indicator to indicate that the multi-parts preliminary advice is to continue or that the message is the last page of the multi-parts preliminary advice.")]
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
-    public SomePaginationRecord? Pagination { get; init; }
+    public Pagination? Pagination { get; init; }
     
     /// <summary>
     /// General information about the movement preliminary advice document.
@@ -45,7 +45,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [DataMember(Name="MvmntPrlimryAdvcGnlInf")]
     [XmlElement(ElementName="MvmntPrlimryAdvcGnlInf")]
     [Required]
-    public required SomeMovementPreliminaryAdviceGeneralInformationRecord MovementPreliminaryAdviceGeneralInformation { get; init; }
+    public required CorporateActionPreliminaryAdviceType2 MovementPreliminaryAdviceGeneralInformation { get; init; }
     
     /// <summary>
     /// Identification of a previously sent movement preliminary advice document.
@@ -54,7 +54,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of a previously sent movement preliminary advice document.")]
     [DataMember(Name="PrvsMvmntPrlimryAdvcId")]
     [XmlElement(ElementName="PrvsMvmntPrlimryAdvcId")]
-    public SomePreviousMovementPreliminaryAdviceIdentificationRecord? PreviousMovementPreliminaryAdviceIdentification { get; init; }
+    public DocumentIdentification31? PreviousMovementPreliminaryAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent notification document.
@@ -63,7 +63,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of a previously sent notification document.")]
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
-    public SomeNotificationIdentificationRecord? NotificationIdentification { get; init; }
+    public DocumentIdentification31? NotificationIdentification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent movement confirmation document.
@@ -72,7 +72,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of a previously sent movement confirmation document.")]
     [DataMember(Name="MvmntConfId")]
     [XmlElement(ElementName="MvmntConfId")]
-    public SomeMovementConfirmationIdentificationRecord? MovementConfirmationIdentification { get; init; }
+    public DocumentIdentification31? MovementConfirmationIdentification { get; init; }
     
     /// <summary>
     /// Identification of a related instruction document.
@@ -81,7 +81,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of a related instruction document.")]
     [DataMember(Name="InstrId")]
     [XmlElement(ElementName="InstrId")]
-    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    public DocumentIdentification9? InstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -90,7 +90,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification32? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
@@ -99,7 +99,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReference3? EventsLinkage { get; init; }
     
     /// <summary>
     /// Reason for the reversal.
@@ -108,7 +108,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Reason for the reversal.")]
     [DataMember(Name="RvslRsn")]
     [XmlElement(ElementName="RvslRsn")]
-    public SomeReversalReasonRecord? ReversalReason { get; init; }
+    public CorporateActionReversalReason3? ReversalReason { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -118,7 +118,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation84 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account, owner and account balance.
@@ -128,7 +128,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required IAccountIdentification32Choice AccountDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action event.
@@ -137,7 +137,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Information about the corporate action event.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateAction32? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.
@@ -146,7 +146,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Information about the corporate action option.")]
     [DataMember(Name="CorpActnMvmntDtls")]
     [XmlElement(ElementName="CorpActnMvmntDtls")]
-    public SomeCorporateActionMovementDetailsRecord? CorporateActionMovementDetails { get; init; }
+    public CorporateActionOption115? CorporateActionMovementDetails { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -155,7 +155,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative28? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
@@ -164,7 +164,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public IPartyIdentification71Choice? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -173,7 +173,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public SomePayingAgentRecord? PayingAgent { get; init; }
+    public IPartyIdentification71Choice? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -182,7 +182,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    public IPartyIdentification71Choice? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Party/agent responsible for maintaining the register of a security.
@@ -191,7 +191,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Party/agent responsible for maintaining the register of a security.")]
     [DataMember(Name="Regar")]
     [XmlElement(ElementName="Regar")]
-    public SomeRegistrarRecord? Registrar { get; init; }
+    public IPartyIdentification71Choice? Registrar { get; init; }
     
     /// <summary>
     /// A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
@@ -200,7 +200,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
     [DataMember(Name="RsellngAgt")]
     [XmlElement(ElementName="RsellngAgt")]
-    public SomeResellingAgentRecord? ResellingAgent { get; init; }
+    public IPartyIdentification71Choice? ResellingAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
@@ -209,7 +209,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
     [DataMember(Name="PhysSctiesAgt")]
     [XmlElement(ElementName="PhysSctiesAgt")]
-    public SomePhysicalSecuritiesAgentRecord? PhysicalSecuritiesAgent { get; init; }
+    public IPartyIdentification71Choice? PhysicalSecuritiesAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.
@@ -218,7 +218,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.")]
     [DataMember(Name="DrpAgt")]
     [XmlElement(ElementName="DrpAgt")]
-    public SomeDropAgentRecord? DropAgent { get; init; }
+    public IPartyIdentification71Choice? DropAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
@@ -227,7 +227,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
     [DataMember(Name="SlctnAgt")]
     [XmlElement(ElementName="SlctnAgt")]
-    public SomeSolicitationAgentRecord? SolicitationAgent { get; init; }
+    public IPartyIdentification71Choice? SolicitationAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
@@ -236,7 +236,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
     [DataMember(Name="InfAgt")]
     [XmlElement(ElementName="InfAgt")]
-    public SomeInformationAgentRecord? InformationAgent { get; init; }
+    public IPartyIdentification71Choice? InformationAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -245,7 +245,7 @@ public partial record CorporateActionMovementPreliminaryAdviceV07 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

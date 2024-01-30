@@ -34,7 +34,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [DataMember(Name="RptParams")]
     [XmlElement(ElementName="RptParams")]
     [Required]
-    public required SomeReportParametersRecord ReportParameters { get; init; }
+    public required ReportParameters4 ReportParameters { get; init; }
     
     /// <summary>
     /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
@@ -44,7 +44,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides the identification of the clearing member (individual clearing member or general clearing member).
@@ -53,7 +53,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
-    public SomeClearingMemberRecord? ClearingMember { get; init; }
+    public IPartyIdentification35Choice? ClearingMember { get; init; }
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
@@ -63,7 +63,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Clearing organisation that will clear the trade.|Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
     [DataMember(Name="ClrSgmt")]
     [XmlElement(ElementName="ClrSgmt")]
-    public SomeClearingSegmentRecord? ClearingSegment { get; init; }
+    public IPartyIdentification35Choice? ClearingSegment { get; init; }
     
     /// <summary>
     /// Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
@@ -72,7 +72,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).")]
     [DataMember(Name="DlvryAcct")]
     [XmlElement(ElementName="DlvryAcct")]
-    public SomeDeliveryAccountRecord? DeliveryAccount { get; init; }
+    public SecuritiesAccount19? DeliveryAccount { get; init; }
     
     /// <summary>
     /// Provides details on the settlement obligation report.
@@ -82,7 +82,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [DataMember(Name="RptDtls")]
     [XmlElement(ElementName="RptDtls")]
     [Required]
-    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    public required Report5 ReportDetails { get; init; }
     
     /// <summary>
     /// Provides details about the receiving parties involved in the settlement chain.
@@ -91,7 +91,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Provides details about the receiving parties involved in the settlement chain.")]
     [DataMember(Name="SttlmPties")]
     [XmlElement(ElementName="SttlmPties")]
-    public SomeSettlementPartiesRecord? SettlementParties { get; init; }
+    public ISettlementParties2Choice? SettlementParties { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -100,7 +100,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -28,7 +28,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to an identification of a security by proprietary or domestic identification scheme.")]
     [DataMember(Name="OthrId")]
     [XmlElement(ElementName="OthrId")]
-    public SomeOtherIdentificationRecord? OtherIdentification { get; init; }
+    public OtherIdentification2SD1? OtherIdentification { get; init; }
     
     /// <summary>
     /// Extension to provide additional information about rates and amounts related to a corporate action option.
@@ -37,7 +37,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide additional information about rates and amounts related to a corporate action option.")]
     [DataMember(Name="RateAndAmtDtls")]
     [XmlElement(ElementName="RateAndAmtDtls")]
-    public SomeRateAndAmountDetailsRecord? RateAndAmountDetails { get; init; }
+    public DividendSD1? RateAndAmountDetails { get; init; }
     
     /// <summary>
     /// Extension to provide more information for the underlying security.
@@ -46,7 +46,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide more information for the underlying security.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributes23SD1? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Extension to provide information about the securities quantity linked to a corporate action.
@@ -55,7 +55,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide information about the securities quantity linked to a corporate action.")]
     [DataMember(Name="SctiesQty")]
     [XmlElement(ElementName="SctiesQty")]
-    public SomeSecuritiesQuantityRecord? SecuritiesQuantity { get; init; }
+    public CorporateActionQuantity4SD2? SecuritiesQuantity { get; init; }
     
     /// <summary>
     /// Extension to specify additional information related to the type of dividend.
@@ -64,7 +64,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to specify additional information related to the type of dividend.")]
     [DataMember(Name="DvddTp")]
     [XmlElement(ElementName="DvddTp")]
-    public SomeDividendTypeRecord? DividendType { get; init; }
+    public DividendTypeFormat4SD1? DividendType { get; init; }
     
     /// <summary>
     /// Extension to provide additional corporate action details information.
@@ -73,7 +73,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide additional corporate action details information.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateAction6SD1? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Extension to provide information about the entity making the offer (when it is different from the issuing company).
@@ -82,7 +82,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide information about the entity making the offer (when it is different from the issuing company).")]
     [DataMember(Name="Offerr")]
     [XmlElement(ElementName="Offerr")]
-    public SomeOfferorRecord? Offeror { get; init; }
+    public UpdatedAdditionalInformation6SD3? Offeror { get; init; }
     
     /// <summary>
     /// Extension to capture the new to old ratio with higher precision.
@@ -91,7 +91,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to capture the new to old ratio with higher precision.")]
     [DataMember(Name="RateDtls")]
     [XmlElement(ElementName="RateDtls")]
-    public SomeRateDetailsRecord? RateDetails { get; init; }
+    public CorporateActionRate19SD1? RateDetails { get; init; }
     
     /// <summary>
     /// Extension for the stage in the corporate action event life cycle.
@@ -100,7 +100,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension for the stage in the corporate action event life cycle.")]
     [DataMember(Name="EvtStag")]
     [XmlElement(ElementName="EvtStag")]
-    public SomeEventStageRecord? EventStage { get; init; }
+    public CorporateActionEventStageFormat4SD1? EventStage { get; init; }
     
     /// <summary>
     /// Extension for the features that may apply to a corporate action option.
@@ -109,7 +109,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension for the features that may apply to a corporate action option.")]
     [DataMember(Name="OptnFeatrs")]
     [XmlElement(ElementName="OptnFeatrs")]
-    public SomeOptionFeaturesRecord? OptionFeatures { get; init; }
+    public OptionFeaturesFormat8SD1? OptionFeatures { get; init; }
     
     /// <summary>
     /// Extension to provide information on additional corporate action dates.
@@ -118,7 +118,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide information on additional corporate action dates.")]
     [DataMember(Name="DtDtls")]
     [XmlElement(ElementName="DtDtls")]
-    public SomeDateDetailsRecord? DateDetails { get; init; }
+    public CorporateActionDate21SD1? DateDetails { get; init; }
     
     /// <summary>
     /// Extension to provide breakdown details as used by custody banks for tax processing and asset valuation.
@@ -127,7 +127,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide breakdown details as used by custody banks for tax processing and asset valuation.")]
     [DataMember(Name="GrssDvddRate")]
     [XmlElement(ElementName="GrssDvddRate")]
-    public SomeGrossDividendRateRecord? GrossDividendRate { get; init; }
+    public GrossDividendRateFormat6SD1? GrossDividendRate { get; init; }
     
     /// <summary>
     /// Extension to provide information about the dates related to securities movement.
@@ -136,7 +136,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide information about the dates related to securities movement.")]
     [DataMember(Name="SctiesMvmntDtDtls")]
     [XmlElement(ElementName="SctiesMvmntDtDtls")]
-    public SomeSecuritiesMovementDateDetailsRecord? SecuritiesMovementDateDetails { get; init; }
+    public SecurityDate8SD1? SecuritiesMovementDateDetails { get; init; }
     
     /// <summary>
     /// Extension to provide extra parameters of the securities of the counterparties in a merger or exchange offer.
@@ -145,7 +145,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide extra parameters of the securities of the counterparties in a merger or exchange offer.")]
     [DataMember(Name="SctiesMvmntDtls")]
     [XmlElement(ElementName="SctiesMvmntDtls")]
-    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    public SecuritiesOption22SD1? SecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Extension to provide the new name of a company following a name change.
@@ -154,7 +154,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide the new name of a company following a name change.")]
     [DataMember(Name="NewCpnyNm")]
     [XmlElement(ElementName="NewCpnyNm")]
-    public SomeNewCompanyNameRecord? NewCompanyName { get; init; }
+    public UpdatedAdditionalInformation6SD2? NewCompanyName { get; init; }
     
     /// <summary>
     /// Extension for the name of the Issuer Agent.
@@ -163,7 +163,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension for the name of the Issuer Agent.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public OrganisationIdentificationSD1? IssuerAgent { get; init; }
     
     /// <summary>
     /// Extension to provide additional taxation information related to the corporate action event.
@@ -172,7 +172,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide additional taxation information related to the corporate action event.")]
     [DataMember(Name="TaxtnConds")]
     [XmlElement(ElementName="TaxtnConds")]
-    public SomeTaxationConditionsRecord? TaxationConditions { get; init; }
+    public UpdatedAdditionalInformation5SD3? TaxationConditions { get; init; }
     
     /// <summary>
     /// Extension to provide additional narrative information in the local language.
@@ -181,7 +181,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     [Description(@"Extension to provide additional narrative information in the local language.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative17SD1? AdditionalInformation { get; init; }
     
     */
     

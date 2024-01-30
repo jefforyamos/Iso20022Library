@@ -36,7 +36,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -45,7 +45,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference4? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -54,7 +54,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<AdditionalReference4> RelatedReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Pagination of the message.
@@ -64,7 +64,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// The safekeeping or investment account.
@@ -74,7 +74,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [DataMember(Name="InvstmtAcctDtls")]
     [XmlElement(ElementName="InvstmtAcctDtls")]
     [Required]
-    public required SomeInvestmentAccountDetailsRecord InvestmentAccountDetails { get; init; }
+    public required InvestmentAccount30 InvestmentAccountDetails { get; init; }
     
     /// <summary>
     /// General information related to the hedge fund accounting statement of holdings.|.
@@ -84,7 +84,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement10 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that provides services to investors relating to financial products.
@@ -93,7 +93,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Party that provides services to investors relating to financial products.")]
     [DataMember(Name="RltdPtyDtls")]
     [XmlElement(ElementName="RltdPtyDtls")]
-    public required IReadonlyCollection<SomeRelatedPartyDetailsRecord> RelatedPartyDetails { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<Intermediary17> RelatedPartyDetails { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -102,7 +102,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
     [DataMember(Name="BalForAcct")]
     [XmlElement(ElementName="BalForAcct")]
-    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    public AggregateBalanceInformation5? BalanceForAccount { get; init; }
     
     /// <summary>
     /// Value of total holdings reported.
@@ -111,7 +111,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Value of total holdings reported.")]
     [DataMember(Name="TtlVals")]
     [XmlElement(ElementName="TtlVals")]
-    public SomeTotalValuesRecord? TotalValues { get; init; }
+    public TotalValueInPageAndStatement? TotalValues { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -120,7 +120,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

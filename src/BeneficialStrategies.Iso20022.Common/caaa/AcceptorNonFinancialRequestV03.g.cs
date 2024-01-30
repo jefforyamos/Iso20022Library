@@ -29,7 +29,7 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header70 Header { get; init; }
     
     /// <summary>
     /// Information related to the non financial request.
@@ -39,7 +39,7 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord
     [DataMember(Name="NonFinReq")]
     [XmlElement(ElementName="NonFinReq")]
     [Required]
-    public required SomeNonFinancialRequestRecord NonFinancialRequest { get; init; }
+    public required NonFinancialRequestComponent3 NonFinancialRequest { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -48,7 +48,7 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType36? SecurityTrailer { get; init; }
     
     */
     

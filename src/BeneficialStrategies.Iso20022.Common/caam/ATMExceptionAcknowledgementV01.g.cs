@@ -29,7 +29,7 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header32 Header { get; init; }
     
     /// <summary>
     /// Encrypted body of the message.
@@ -38,7 +38,7 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
     [Description(@"Encrypted body of the message.")]
     [DataMember(Name="PrtctdATMXcptnAck")]
     [XmlElement(ElementName="PrtctdATMXcptnAck")]
-    public SomeProtectedATMExceptionAcknowledgementRecord? ProtectedATMExceptionAcknowledgement { get; init; }
+    public ContentInformationType10? ProtectedATMExceptionAcknowledgement { get; init; }
     
     /// <summary>
     /// Information related to the acknowledgement of an ATM exception.
@@ -47,7 +47,7 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
     [Description(@"Information related to the acknowledgement of an ATM exception.")]
     [DataMember(Name="ATMXcptnAck")]
     [XmlElement(ElementName="ATMXcptnAck")]
-    public SomeATMExceptionAcknowledgementRecord? ATMExceptionAcknowledgement { get; init; }
+    public ATMExceptionAcknowledgement1? ATMExceptionAcknowledgement { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC.
@@ -56,7 +56,7 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType15? SecurityTrailer { get; init; }
     
     */
     

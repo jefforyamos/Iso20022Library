@@ -34,7 +34,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -44,7 +44,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Provides detailed information about the global distribution.
@@ -54,7 +54,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     [DataMember(Name="GblDstrbtnDtls")]
     [XmlElement(ElementName="GblDstrbtnDtls")]
     [Required]
-    public required SomeGlobalDistributionDetailsRecord GlobalDistributionDetails { get; init; }
+    public required GlobalDistributionRequest1 GlobalDistributionDetails { get; init; }
     
     */
     

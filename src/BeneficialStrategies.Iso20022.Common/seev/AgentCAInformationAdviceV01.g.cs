@@ -33,7 +33,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Election Advice Identification.
@@ -42,7 +42,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [Description(@"Identification of the linked Agent CA Election Advice Identification.")]
     [DataMember(Name="AgtCAElctnAdvcId")]
     [XmlElement(ElementName="AgtCAElctnAdvcId")]
-    public SomeAgentCAElectionAdviceIdentificationRecord? AgentCAElectionAdviceIdentification { get; init; }
+    public DocumentIdentification8? AgentCAElectionAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -52,7 +52,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information about the account for which additional information is provided.
@@ -62,7 +62,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required SecuritiesAccount7 AccountDetails { get; init; }
     
     /// <summary>
     /// Additional information about the corporate action such as the delivery details.
@@ -72,7 +72,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnAddtlInf")]
     [XmlElement(ElementName="CorpActnAddtlInf")]
     [Required]
-    public required SomeCorporateActionAdditionalInformationRecord CorporateActionAdditionalInformation { get; init; }
+    public required CorporateActionAdditionalInformation1 CorporateActionAdditionalInformation { get; init; }
     
     /// <summary>
     /// Contact responsible for the transaction identified in the message.
@@ -81,7 +81,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     [Description(@"Contact responsible for the transaction identified in the message.")]
     [DataMember(Name="CtctDtls")]
     [XmlElement(ElementName="CtctDtls")]
-    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    public ContactPerson1? ContactDetails { get; init; }
     
     */
     

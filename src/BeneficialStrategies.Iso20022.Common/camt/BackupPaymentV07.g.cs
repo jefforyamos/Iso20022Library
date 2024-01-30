@@ -41,7 +41,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies the original message identification.|This was formerly the PaymentInstructionReference.
@@ -50,7 +50,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [Description(@"Identifies the original message identification.|This was formerly the PaymentInstructionReference.")]
     [DataMember(Name="OrgnlMsgId")]
     [XmlElement(ElementName="OrgnlMsgId")]
-    public SomeOriginalMessageIdentificationRecord? OriginalMessageIdentification { get; init; }
+    public MessageHeader1? OriginalMessageIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the execution and type of payment contained in the instruction.
@@ -59,7 +59,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [Description(@"Provides details on the execution and type of payment contained in the instruction.")]
     [DataMember(Name="InstrInf")]
     [XmlElement(ElementName="InstrInf")]
-    public SomeInstructionInformationRecord? InstructionInformation { get; init; }
+    public PaymentInstruction13? InstructionInformation { get; init; }
     
     /// <summary>
     /// Quantity of cash that the transaction administrator transfers from one account to another.
@@ -69,7 +69,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [DataMember(Name="TrfdAmt")]
     [XmlElement(ElementName="TrfdAmt")]
     [Required]
-    public required SomeTransferredAmountRecord TransferredAmount { get; init; }
+    public required IAmount2Choice TransferredAmount { get; init; }
     
     /// <summary>
     /// Party that receives an amount of money from the debtor.
@@ -79,7 +79,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [DataMember(Name="Cdtr")]
     [XmlElement(ElementName="Cdtr")]
     [Required]
-    public required SomeCreditorRecord Creditor { get; init; }
+    public required SystemMember3 Creditor { get; init; }
     
     /// <summary>
     /// Financial institution that receives the payment transaction on behalf of an account owner, or other nominated party, and credits the account.
@@ -88,7 +88,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [Description(@"Financial institution that receives the payment transaction on behalf of an account owner, or other nominated party, and credits the account.")]
     [DataMember(Name="CdtrAgt")]
     [XmlElement(ElementName="CdtrAgt")]
-    public SomeCreditorAgentRecord? CreditorAgent { get; init; }
+    public SystemMember3? CreditorAgent { get; init; }
     
     /// <summary>
     /// Financial institution that receives the payment transaction from the account owner, or other authorised party, and processes the instruction.
@@ -97,7 +97,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [Description(@"Financial institution that receives the payment transaction from the account owner, or other authorised party, and processes the instruction.")]
     [DataMember(Name="DbtrAgt")]
     [XmlElement(ElementName="DbtrAgt")]
-    public SomeDebtorAgentRecord? DebtorAgent { get; init; }
+    public SystemMember3? DebtorAgent { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -106,7 +106,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

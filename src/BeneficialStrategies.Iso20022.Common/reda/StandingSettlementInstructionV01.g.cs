@@ -43,7 +43,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="MsgRefId")]
     [XmlElement(ElementName="MsgRefId")]
     [Required]
-    public required SomeMessageReferenceIdentificationRecord MessageReferenceIdentification { get; init; }
+    public required IsoMax35Text MessageReferenceIdentification { get; init; }
     
     /// <summary>
     /// Date on which the SSI is effective.
@@ -52,7 +52,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [Description(@"Date on which the SSI is effective.")]
     [DataMember(Name="FctvDtDtls")]
     [XmlElement(ElementName="FctvDtDtls")]
-    public SomeEffectiveDateDetailsRecord? EffectiveDateDetails { get; init; }
+    public EffectiveDate1? EffectiveDateDetails { get; init; }
     
     /// <summary>
     /// Unique and unambiguous master identification known to the sender (or its authorised agent) and receiver (or its authorised agent), below which the SSI will be lodged. This may be an account number or reference to a fund.
@@ -63,7 +63,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountIdentification26 AccountIdentification { get; init; }
     
     /// <summary>
     /// Identifies the market for the standing settlement instruction.
@@ -73,7 +73,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
     
     /// <summary>
     /// Currency for which the SSI is specified.
@@ -82,7 +82,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [Description(@"Currency for which the SSI is specified.")]
     [DataMember(Name="SttlmCcy")]
     [XmlElement(ElementName="SttlmCcy")]
-    public SomeSettlementCurrencyRecord? SettlementCurrency { get; init; }
+    public ActiveCurrencyCode? SettlementCurrency { get; init; }
     
     /// <summary>
     /// Settlement chain parties, accounts and other details.
@@ -92,7 +92,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    public required ISecuritiesOrCash1Choice SettlementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -101,7 +101,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

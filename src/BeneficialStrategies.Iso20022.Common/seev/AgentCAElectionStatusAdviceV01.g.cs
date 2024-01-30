@@ -38,7 +38,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Election Advice for which a status is given.
@@ -48,7 +48,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnAdvcId")]
     [XmlElement(ElementName="AgtCAElctnAdvcId")]
     [Required]
-    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Election Cancellation Request for which a status is given.
@@ -58,7 +58,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnCxlReqId")]
     [XmlElement(ElementName="AgtCAElctnCxlReqId")]
     [Required]
-    public required SomeAgentCAElectionCancellationRequestIdentificationRecord AgentCAElectionCancellationRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Election Amendment Request for which a status is given.
@@ -68,7 +68,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnAmdmntReqId")]
     [XmlElement(ElementName="AgtCAElctnAmdmntReqId")]
     [Required]
-    public required SomeAgentCAElectionAmendmentRequestIdentificationRecord AgentCAElectionAmendmentRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionAmendmentRequestIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -78,7 +78,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Status of the election advice sent by the CSD.
@@ -88,7 +88,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnAdvcSts")]
     [XmlElement(ElementName="ElctnAdvcSts")]
     [Required]
-    public required SomeElectionAdviceStatusRecord ElectionAdviceStatus { get; init; }
+    public required IElectionAdviceStatus1Choice ElectionAdviceStatus { get; init; }
     
     /// <summary>
     /// Status of the election cancellation request sent by the CSD.
@@ -98,7 +98,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnCxlReqSts")]
     [XmlElement(ElementName="ElctnCxlReqSts")]
     [Required]
-    public required SomeElectionCancellationRequestStatusRecord ElectionCancellationRequestStatus { get; init; }
+    public required IElectionCancellationStatus1Choice ElectionCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Status of the amendment request sent by the CSD.
@@ -108,7 +108,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnAmdmntReqSts")]
     [XmlElement(ElementName="ElctnAmdmntReqSts")]
     [Required]
-    public required SomeElectionAmendmentRequestStatusRecord ElectionAmendmentRequestStatus { get; init; }
+    public required IElectionAmendmentStatus1Choice ElectionAmendmentRequestStatus { get; init; }
     
     */
     

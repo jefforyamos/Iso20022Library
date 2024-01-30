@@ -34,7 +34,7 @@ public partial record StatusReportRequestV03 : IOuterRecord
     [DataMember(Name="ReqId")]
     [XmlElement(ElementName="ReqId")]
     [Required]
-    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    public required MessageIdentification1 RequestIdentification { get; init; }
     
     /// <summary>
     /// Specifies the entities of the submitter for which the transactions have to be reported.
@@ -43,7 +43,7 @@ public partial record StatusReportRequestV03 : IOuterRecord
     [Description(@"Specifies the entities of the submitter for which the transactions have to be reported.")]
     [DataMember(Name="NttiesToBeRptd")]
     [XmlElement(ElementName="NttiesToBeRptd")]
-    public SomeEntitiesToBeReportedRecord? EntitiesToBeReported { get; init; }
+    public BICIdentification1? EntitiesToBeReported { get; init; }
     
     */
     

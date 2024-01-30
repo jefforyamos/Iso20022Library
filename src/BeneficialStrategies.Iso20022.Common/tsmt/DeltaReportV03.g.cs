@@ -36,7 +36,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="RptId")]
     [XmlElement(ElementName="RptId")]
     [Required]
-    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    public required MessageIdentification1 ReportIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
@@ -46,7 +46,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -56,7 +56,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
     [Required]
-    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -66,7 +66,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Sequence number of the proposed baseline amendment.
@@ -76,7 +76,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="AmdmntNb")]
     [XmlElement(ElementName="AmdmntNb")]
     [Required]
-    public required SomeAmendmentNumberRecord AmendmentNumber { get; init; }
+    public required Count1 AmendmentNumber { get; init; }
     
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
@@ -85,7 +85,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
@@ -95,7 +95,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="Buyr")]
     [XmlElement(ElementName="Buyr")]
     [Required]
-    public required SomeBuyerRecord Buyer { get; init; }
+    public required PartyIdentification26 Buyer { get; init; }
     
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
@@ -105,7 +105,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="Sellr")]
     [XmlElement(ElementName="Sellr")]
     [Required]
-    public required SomeSellerRecord Seller { get; init; }
+    public required PartyIdentification26 Seller { get; init; }
     
     /// <summary>
     /// The financial institution of the buyer, uniquely identified by its BIC.
@@ -115,7 +115,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="BuyrBk")]
     [XmlElement(ElementName="BuyrBk")]
     [Required]
-    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    public required BICIdentification1 BuyerBank { get; init; }
     
     /// <summary>
     /// The financial institution of the seller, uniquely identified by its BIC.
@@ -125,7 +125,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="SellrBk")]
     [XmlElement(ElementName="SellrBk")]
     [Required]
-    public required SomeSellerBankRecord SellerBank { get; init; }
+    public required BICIdentification1 SellerBank { get; init; }
     
     /// <summary>
     /// Reference to the identification of the baseline included in the amendment request.
@@ -135,7 +135,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="SubmitrPropsdBaselnRef")]
     [XmlElement(ElementName="SubmitrPropsdBaselnRef")]
     [Required]
-    public required SomeSubmitterProposedBaselineReferenceRecord SubmitterProposedBaselineReference { get; init; }
+    public required DocumentIdentification1 SubmitterProposedBaselineReference { get; init; }
     
     /// <summary>
     /// Detailed comparison between the currently established baseline elements and the proposed ones.
@@ -145,7 +145,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [DataMember(Name="UpdtdElmt")]
     [XmlElement(ElementName="UpdtdElmt")]
     [Required]
-    public required SomeUpdatedElementRecord UpdatedElement { get; init; }
+    public required ComparisonResult2 UpdatedElement { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -154,7 +154,7 @@ public partial record DeltaReportV03 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

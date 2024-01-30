@@ -36,7 +36,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Movement Instruction that triggered the movement(s).
@@ -46,7 +46,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="AgtCAMvmntInstrId")]
     [XmlElement(ElementName="AgtCAMvmntInstrId")]
     [Required]
-    public required SomeAgentCAMovementInstructionIdentificationRecord AgentCAMovementInstructionIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Election Status Advice that triggered the movement(s).
@@ -56,7 +56,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="AgtCAElctnStsAdvcId")]
     [XmlElement(ElementName="AgtCAElctnStsAdvcId")]
     [Required]
-    public required SomeAgentCAElectionStatusAdviceIdentificationRecord AgentCAElectionStatusAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of the Agent CA Global Distribution Status Advice that triggered the movement(s).
@@ -66,7 +66,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="AgtCAGblDstrbtnStsAdvcId")]
     [XmlElement(ElementName="AgtCAGblDstrbtnStsAdvcId")]
     [Required]
-    public required SomeAgentCAGlobalDistributionStatusAdviceIdentificationRecord AgentCAGlobalDistributionStatusAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -76,7 +76,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information about the securities movements.
@@ -85,7 +85,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [Description(@"Information about the securities movements.")]
     [DataMember(Name="SctiesMvmntDtls")]
     [XmlElement(ElementName="SctiesMvmntDtls")]
-    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    public CorporateActionSecuritiesMovement1? SecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Information about the cash movement.
@@ -94,7 +94,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     [Description(@"Information about the cash movement.")]
     [DataMember(Name="CshMvmntDtls")]
     [XmlElement(ElementName="CshMvmntDtls")]
-    public SomeCashMovementDetailsRecord? CashMovementDetails { get; init; }
+    public CashMovement3? CashMovementDetails { get; init; }
     
     */
     

@@ -32,7 +32,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
     [Required]
-    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the non deliverable trade which is reported.
@@ -42,7 +42,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
     [Required]
-    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Set of data specified for the opening of a non deliverable trade.
@@ -51,7 +51,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [Description(@"Set of data specified for the opening of a non deliverable trade.")]
     [DataMember(Name="OpngData")]
     [XmlElement(ElementName="OpngData")]
-    public SomeOpeningDataRecord? OpeningData { get; init; }
+    public OpeningData2? OpeningData { get; init; }
     
     /// <summary>
     /// Set of data specified for the valuation of a non deliverable trade.
@@ -60,7 +60,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [Description(@"Set of data specified for the valuation of a non deliverable trade.")]
     [DataMember(Name="ValtnData")]
     [XmlElement(ElementName="ValtnData")]
-    public SomeValuationDataRecord? ValuationData { get; init; }
+    public ClosingData2? ValuationData { get; init; }
     
     /// <summary>
     /// Provides information on the status of a trade in a central system.
@@ -70,7 +70,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [DataMember(Name="TradInfAndSts")]
     [XmlElement(ElementName="TradInfAndSts")]
     [Required]
-    public required SomeTradeInformationAndStatusRecord TradeInformationAndStatus { get; init; }
+    public required TradeStatus1 TradeInformationAndStatus { get; init; }
     
     /// <summary>
     /// Provides information on the settlement of a trade.
@@ -79,7 +79,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     [Description(@"Provides information on the settlement of a trade.")]
     [DataMember(Name="SttlmData")]
     [XmlElement(ElementName="SttlmData")]
-    public SomeSettlementDataRecord? SettlementData { get; init; }
+    public SettlementData2? SettlementData { get; init; }
     
     */
     

@@ -36,7 +36,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
     [DataMember(Name="MstrRef")]
     [XmlElement(ElementName="MstrRef")]
-    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    public AdditionalReference3? MasterReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -45,7 +45,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -54,7 +54,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -64,7 +64,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required AdditionalReference3 RelatedReference { get; init; }
     
     /// <summary>
     /// General information related to the execution of investment fund orders.
@@ -74,7 +74,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [DataMember(Name="MltplExctnDtls")]
     [XmlElement(ElementName="MltplExctnDtls")]
     [Required]
-    public required SomeMultipleExecutionDetailsRecord MultipleExecutionDetails { get; init; }
+    public required RedemptionMultipleExecution2 MultipleExecutionDetails { get; init; }
     
     /// <summary>
     /// Information related to an intermediary.
@@ -83,7 +83,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Information related to an intermediary.")]
     [DataMember(Name="IntrmyDtls")]
     [XmlElement(ElementName="IntrmyDtls")]
-    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    public required IReadonlyCollection<Intermediary4> IntermediaryDetails { get; init; } // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -92,7 +92,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation1? CopyDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -101,7 +101,7 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

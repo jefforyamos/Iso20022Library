@@ -29,7 +29,7 @@ public partial record AcceptorConfigurationUpdateV06 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header27 Header { get; init; }
     
     /// <summary>
     /// Acceptor configuration to be downloaded from the terminal management system.
@@ -39,7 +39,7 @@ public partial record AcceptorConfigurationUpdateV06 : IOuterRecord
     [DataMember(Name="AccptrCfgtn")]
     [XmlElement(ElementName="AccptrCfgtn")]
     [Required]
-    public required SomeAcceptorConfigurationRecord AcceptorConfiguration { get; init; }
+    public required AcceptorConfiguration6 AcceptorConfiguration { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record AcceptorConfigurationUpdateV06 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType12? SecurityTrailer { get; init; }
     
     */
     

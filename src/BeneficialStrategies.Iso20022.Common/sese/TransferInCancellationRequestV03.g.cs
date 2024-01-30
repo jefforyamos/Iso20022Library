@@ -36,7 +36,7 @@ public partial record TransferInCancellationRequestV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
@@ -46,7 +46,7 @@ public partial record TransferInCancellationRequestV03 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References11 References { get; init; }
     
     /// <summary>
     /// Reference of the transfer to be cancelled.
@@ -55,7 +55,7 @@ public partial record TransferInCancellationRequestV03 : IOuterRecord
     [Description(@"Reference of the transfer to be cancelled.")]
     [DataMember(Name="CxlByRef")]
     [XmlElement(ElementName="CxlByRef")]
-    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    public TransferReference1? CancellationByReference { get; init; }
     
     /// <summary>
     /// The transfer in request message to cancel.
@@ -64,7 +64,7 @@ public partial record TransferInCancellationRequestV03 : IOuterRecord
     [Description(@"The transfer in request message to cancel.")]
     [DataMember(Name="CxlByTrfInDtls")]
     [XmlElement(ElementName="CxlByTrfInDtls")]
-    public SomeCancellationByTransferInDetailsRecord? CancellationByTransferInDetails { get; init; }
+    public TransferIn5? CancellationByTransferInDetails { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -73,7 +73,7 @@ public partial record TransferInCancellationRequestV03 : IOuterRecord
     [Description(@"Information provided when the message is a copy of a previous message.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

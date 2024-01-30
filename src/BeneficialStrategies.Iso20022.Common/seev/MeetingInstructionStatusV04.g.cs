@@ -38,7 +38,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required MessageIdentification1 Identification { get; init; }
     
     /// <summary>
     /// Type of instruction.
@@ -48,7 +48,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    public required IInstructionType1Choice InstructionType { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -58,7 +58,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference4 MeetingReference { get; init; }
     
     /// <summary>
     /// Party reporting the status.
@@ -68,7 +68,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required SomeReportingPartyRecord ReportingParty { get; init; }
+    public required IPartyIdentification9Choice ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -78,7 +78,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="SctyId")]
     [XmlElement(ElementName="SctyId")]
     [Required]
-    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    public required SecurityIdentification11 SecurityIdentification { get; init; }
     
     /// <summary>
     /// Type of instruction status.
@@ -88,7 +88,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    public required IInstructionTypeStatus1Choice InstructionTypeStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -97,7 +97,7 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

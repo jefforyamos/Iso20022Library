@@ -35,7 +35,7 @@ public partial record CorporateActionInstructionStatementReportV08 : IOuterRecor
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General characteristics related to a statement which reports information.
@@ -45,7 +45,7 @@ public partial record CorporateActionInstructionStatementReportV08 : IOuterRecor
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement72 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Account information and detailed account holdings information report for corporate action events.
@@ -55,7 +55,7 @@ public partial record CorporateActionInstructionStatementReportV08 : IOuterRecor
     [DataMember(Name="AcctAndStmtDtls")]
     [XmlElement(ElementName="AcctAndStmtDtls")]
     [Required]
-    public required SomeAccountAndStatementDetailsRecord AccountAndStatementDetails { get; init; }
+    public required AccountIdentification45 AccountAndStatementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -64,7 +64,7 @@ public partial record CorporateActionInstructionStatementReportV08 : IOuterRecor
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

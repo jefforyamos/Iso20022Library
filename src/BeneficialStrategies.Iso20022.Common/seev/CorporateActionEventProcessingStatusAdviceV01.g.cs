@@ -36,7 +36,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Identification of a previously sent notification document.
@@ -45,7 +45,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Identification of a previously sent notification document.")]
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
-    public SomeNotificationIdentificationRecord? NotificationIdentification { get; init; }
+    public DocumentIdentification9? NotificationIdentification { get; init; }
     
     /// <summary>
     /// Identification of other documents as well as the document number.
@@ -54,7 +54,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Identification of other documents as well as the document number.")]
     [DataMember(Name="OthrDocId")]
     [XmlElement(ElementName="OthrDocId")]
-    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    public DocumentIdentification14? OtherDocumentIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -64,7 +64,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Information about the status of a corporate action.
@@ -74,7 +74,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [DataMember(Name="EvtPrcgSts")]
     [XmlElement(ElementName="EvtPrcgSts")]
     [Required]
-    public required SomeEventProcessingStatusRecord EventProcessingStatus { get; init; }
+    public required IEventProcessingStatus1Choice EventProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -83,7 +83,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Provides additional information.")]
     [DataMember(Name="AddtlInf")]
     [XmlElement(ElementName="AddtlInf")]
-    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    public CorporateActionNarrative10? AdditionalInformation { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -92,7 +92,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -101,7 +101,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -110,7 +110,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

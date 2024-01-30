@@ -29,7 +29,7 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     [DataMember(Name="LqdtyStrssScnroDef")]
     [XmlElement(ElementName="LqdtyStrssScnroDef")]
     [Required]
-    public required SomeLiquidityStressScenarioDefinitionRecord LiquidityStressScenarioDefinition { get; init; }
+    public required LiquidityStressScenarioDefinition1 LiquidityStressScenarioDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

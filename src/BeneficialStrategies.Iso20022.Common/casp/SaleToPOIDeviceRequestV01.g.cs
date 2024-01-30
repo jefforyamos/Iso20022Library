@@ -29,7 +29,7 @@ public partial record SaleToPOIDeviceRequestV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required Header37 Header { get; init; }
     
     /// <summary>
     /// Information related to a device request.
@@ -39,7 +39,7 @@ public partial record SaleToPOIDeviceRequestV01 : IOuterRecord
     [DataMember(Name="DvcReq")]
     [XmlElement(ElementName="DvcReq")]
     [Required]
-    public required SomeDeviceRequestRecord DeviceRequest { get; init; }
+    public required DeviceRequest2 DeviceRequest { get; init; }
     
     /// <summary>
     /// Trailer of the message containing a MAC or a digital signature.
@@ -48,7 +48,7 @@ public partial record SaleToPOIDeviceRequestV01 : IOuterRecord
     [Description(@"Trailer of the message containing a MAC or a digital signature.")]
     [DataMember(Name="SctyTrlr")]
     [XmlElement(ElementName="SctyTrlr")]
-    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    public ContentInformationType18? SecurityTrailer { get; init; }
     
     */
     

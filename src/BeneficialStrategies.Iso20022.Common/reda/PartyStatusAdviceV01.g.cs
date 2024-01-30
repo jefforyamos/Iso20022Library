@@ -32,7 +32,7 @@ public partial record PartyStatusAdviceV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader12? MessageHeader { get; init; }
     
     /// <summary>
     /// Status of the party involved in the originating message.
@@ -42,7 +42,7 @@ public partial record PartyStatusAdviceV01 : IOuterRecord
     [DataMember(Name="PtySts")]
     [XmlElement(ElementName="PtySts")]
     [Required]
-    public required SomePartyStatusRecord PartyStatus { get; init; }
+    public required PartyStatus2 PartyStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -51,7 +51,7 @@ public partial record PartyStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

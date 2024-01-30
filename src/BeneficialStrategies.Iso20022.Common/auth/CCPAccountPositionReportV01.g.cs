@@ -29,7 +29,7 @@ public partial record CCPAccountPositionReportV01 : IOuterRecord
     [DataMember(Name="Prtfl")]
     [XmlElement(ElementName="Prtfl")]
     [Required]
-    public required SomePortfolioRecord Portfolio { get; init; }
+    public required PositionAccount2 Portfolio { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record CCPAccountPositionReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

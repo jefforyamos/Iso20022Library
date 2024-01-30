@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV07 : IOute
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General information related to report.
@@ -50,7 +50,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV07 : IOute
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement63 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -59,7 +59,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV07 : IOute
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification98? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -69,7 +69,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV07 : IOute
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the allegement.
@@ -78,7 +78,7 @@ public partial record SecuritiesSettlementTransactionAllegementReportV07 : IOute
     [Description(@"Details of the allegement.")]
     [DataMember(Name="AllgmtDtls")]
     [XmlElement(ElementName="AllgmtDtls")]
-    public SomeAllegementDetailsRecord? AllegementDetails { get; init; }
+    public SecuritiesTradeDetails71? AllegementDetails { get; init; }
     
     */
     

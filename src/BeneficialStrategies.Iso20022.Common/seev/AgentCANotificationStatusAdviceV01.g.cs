@@ -33,7 +33,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Notification Advice for which a status is given.
@@ -43,7 +43,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCANtfctnAdvcId")]
     [XmlElement(ElementName="AgtCANtfctnAdvcId")]
     [Required]
-    public required SomeAgentCANotificationAdviceIdentificationRecord AgentCANotificationAdviceIdentification { get; init; }
+    public required DocumentIdentification8 AgentCANotificationAdviceIdentification { get; init; }
     
     /// <summary>
     /// Identification of the linked Agent CA Notification Cancellation Request for which a status is given.
@@ -53,7 +53,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="AgtCANtfctnCxlReqId")]
     [XmlElement(ElementName="AgtCANtfctnCxlReqId")]
     [Required]
-    public required SomeAgentCANotificationCancellationRequestIdentificationRecord AgentCANotificationCancellationRequestIdentification { get; init; }
+    public required DocumentIdentification8 AgentCANotificationCancellationRequestIdentification { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -63,7 +63,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionInformation2 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// Status of the Notification Cancellation Request sent by the issuer (agent).
@@ -73,7 +73,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnCxlReqSts")]
     [XmlElement(ElementName="NtfctnCxlReqSts")]
     [Required]
-    public required SomeNotificationCancellationRequestStatusRecord NotificationCancellationRequestStatus { get; init; }
+    public required INotificationCancellationRequestStatus1Choice NotificationCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Status of the notification advice sent by the issuer (agent).
@@ -83,7 +83,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnAdvcSts")]
     [XmlElement(ElementName="NtfctnAdvcSts")]
     [Required]
-    public required SomeNotificationAdviceStatusRecord NotificationAdviceStatus { get; init; }
+    public required INotificationAdviceStatus1Choice NotificationAdviceStatus { get; init; }
     
     */
     

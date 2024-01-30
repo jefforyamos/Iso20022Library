@@ -30,7 +30,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [DataMember(Name="UdrtkgIssncDtls")]
     [XmlElement(ElementName="UdrtkgIssncDtls")]
     [Required]
-    public required SomeUndertakingIssuanceDetailsRecord UndertakingIssuanceDetails { get; init; }
+    public required Undertaking3 UndertakingIssuanceDetails { get; init; }
     
     /// <summary>
     /// Additional information specific to the bank-to-beneficiary communication.
@@ -39,7 +39,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-beneficiary communication.")]
     [DataMember(Name="BkToBnfcryInf")]
     [XmlElement(ElementName="BkToBnfcryInf")]
-    public required IReadonlyCollection<SomeBankToBeneficiaryInformationRecord> BankToBeneficiaryInformation { get; init; } // Min=0, Max=5
+    public required IReadonlyCollection<IsoMax2000Text> BankToBeneficiaryInformation { get; init; } // Min=0, Max=5
     
     /// <summary>
     /// Additional information specific to the bank-to-bank communication.
@@ -48,7 +48,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    public required IReadonlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking.
@@ -57,7 +57,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [Description(@"Digital signature of the undertaking.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

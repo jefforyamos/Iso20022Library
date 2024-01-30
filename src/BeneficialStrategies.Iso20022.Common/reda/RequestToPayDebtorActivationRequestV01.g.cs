@@ -29,7 +29,7 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ActivationHeader2 Header { get; init; }
     
     /// <summary>
     /// Specific attributes provided the debtor, as requested by the creditor, for the activation request.
@@ -39,7 +39,7 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
     [DataMember(Name="DbtrActvtn")]
     [XmlElement(ElementName="DbtrActvtn")]
     [Required]
-    public required SomeDebtorActivationRecord DebtorActivation { get; init; }
+    public required DebtorActivation3 DebtorActivation { get; init; }
     
     /// <summary>
     /// Further data related to the electronic invoice (e-invoice).
@@ -49,7 +49,7 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
     [DataMember(Name="ElctrncInvcData")]
     [XmlElement(ElementName="ElctrncInvcData")]
     [Required]
-    public required SomeElectronicInvoiceDataRecord ElectronicInvoiceData { get; init; }
+    public required ElectronicInvoice1 ElectronicInvoiceData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -58,7 +58,7 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

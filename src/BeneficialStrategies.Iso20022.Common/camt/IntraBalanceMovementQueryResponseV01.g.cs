@@ -32,7 +32,7 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     [Description(@"Unambiguous identification of the message as known by the account servicer or settlement infrastructure.")]
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
-    public SomeIdentificationRecord? Identification { get; init; }
+    public DocumentIdentification51? Identification { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -42,7 +42,7 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination1 Pagination { get; init; }
     
     /// <summary>
     /// General characteristics related to the report information.
@@ -52,7 +52,7 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     [DataMember(Name="RptGnlDtls")]
     [XmlElement(ElementName="RptGnlDtls")]
     [Required]
-    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    public required MovementReport1 ReportGeneralDetails { get; init; }
     
     /// <summary>
     /// Provides information on report or error resulting from the originating query message.
@@ -61,7 +61,7 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     [Description(@"Provides information on report or error resulting from the originating query message.")]
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
-    public SomeReportOrErrorRecord? ReportOrError { get; init; }
+    public IIntraBalanceOrOperationalError7Choice? ReportOrError { get; init; }
     
     */
     

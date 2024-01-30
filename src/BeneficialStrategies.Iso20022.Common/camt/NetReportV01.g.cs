@@ -29,7 +29,7 @@ public partial record NetReportV01 : IOuterRecord
     [DataMember(Name="NetRptData")]
     [XmlElement(ElementName="NetRptData")]
     [Required]
-    public required SomeNetReportDataRecord NetReportData { get; init; }
+    public required NetReportData1 NetReportData { get; init; }
     
     /// <summary>
     /// Describes the participant receiving the net report.
@@ -39,7 +39,7 @@ public partial record NetReportV01 : IOuterRecord
     [DataMember(Name="NetSvcPtcptId")]
     [XmlElement(ElementName="NetSvcPtcptId")]
     [Required]
-    public required SomeNetServiceParticipantIdentificationRecord NetServiceParticipantIdentification { get; init; }
+    public required IPartyIdentification73Choice NetServiceParticipantIdentification { get; init; }
     
     /// <summary>
     /// Describes the counterparty participant involved in (all of) the obligations of the report.
@@ -48,7 +48,7 @@ public partial record NetReportV01 : IOuterRecord
     [Description(@"Describes the counterparty participant involved in (all of) the obligations of the report.")]
     [DataMember(Name="NetSvcCtrPtyId")]
     [XmlElement(ElementName="NetSvcCtrPtyId")]
-    public SomeNetServiceCounterpartyIdentificationRecord? NetServiceCounterpartyIdentification { get; init; }
+    public IPartyIdentification73Choice? NetServiceCounterpartyIdentification { get; init; }
     
     /// <summary>
     /// Provides the amount, direct parties or netting groups involved in the obligation.
@@ -58,7 +58,7 @@ public partial record NetReportV01 : IOuterRecord
     [DataMember(Name="NetOblgtn")]
     [XmlElement(ElementName="NetOblgtn")]
     [Required]
-    public required SomeNetObligationRecord NetObligation { get; init; }
+    public required NetObligation1 NetObligation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -67,7 +67,7 @@ public partial record NetReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

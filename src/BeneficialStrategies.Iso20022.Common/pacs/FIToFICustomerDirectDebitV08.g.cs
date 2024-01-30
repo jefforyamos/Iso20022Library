@@ -36,7 +36,7 @@ public partial record FIToFICustomerDirectDebitV08 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader94 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements providing information specific to the individual direct debit(s).
@@ -46,7 +46,7 @@ public partial record FIToFICustomerDirectDebitV08 : IOuterRecord
     [DataMember(Name="DrctDbtTxInf")]
     [XmlElement(ElementName="DrctDbtTxInf")]
     [Required]
-    public required SomeDirectDebitTransactionInformationRecord DirectDebitTransactionInformation { get; init; }
+    public required DirectDebitTransactionInformation24 DirectDebitTransactionInformation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -55,7 +55,7 @@ public partial record FIToFICustomerDirectDebitV08 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -39,7 +39,7 @@ public partial record AdditionalPaymentInformationV08 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment4 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -48,7 +48,7 @@ public partial record AdditionalPaymentInformationV08 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case4? Case { get; init; }
     
     /// <summary>
     /// Identifies the underlying payment instruction.
@@ -58,7 +58,7 @@ public partial record AdditionalPaymentInformationV08 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required SomeUnderlyingRecord Underlying { get; init; }
+    public required IUnderlyingTransaction4Choice Underlying { get; init; }
     
     /// <summary>
     /// Additional information to the underlying payment instruction.
@@ -68,7 +68,7 @@ public partial record AdditionalPaymentInformationV08 : IOuterRecord
     [DataMember(Name="Inf")]
     [XmlElement(ElementName="Inf")]
     [Required]
-    public required SomeInformationRecord Information { get; init; }
+    public required PaymentComplementaryInformation7 Information { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -77,7 +77,7 @@ public partial record AdditionalPaymentInformationV08 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

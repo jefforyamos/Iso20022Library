@@ -31,7 +31,7 @@ public partial record CreditorPaymentActivationRequestV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader45 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of characteristics that applies to the debit side of the payment transactions included in the creditor payment initiation.
@@ -41,7 +41,7 @@ public partial record CreditorPaymentActivationRequestV01 : IOuterRecord
     [DataMember(Name="PmtInf")]
     [XmlElement(ElementName="PmtInf")]
     [Required]
-    public required SomePaymentInformationRecord PaymentInformation { get; init; }
+    public required PaymentInstruction5 PaymentInformation { get; init; }
     
     */
     

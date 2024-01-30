@@ -29,7 +29,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     [DataMember(Name="UdrtkgApplDtls")]
     [XmlElement(ElementName="UdrtkgApplDtls")]
     [Required]
-    public required SomeUndertakingApplicationDetailsRecord UndertakingApplicationDetails { get; init; }
+    public required Undertaking1 UndertakingApplicationDetails { get; init; }
     
     /// <summary>
     /// Instructions specific to the bank receiving the message.
@@ -38,7 +38,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     [Description(@"Instructions specific to the bank receiving the message.")]
     [DataMember(Name="InstrsToBk")]
     [XmlElement(ElementName="InstrsToBk")]
-    public required IReadonlyCollection<SomeInstructionsToBankRecord> InstructionsToBank { get; init; } // Min=0, Max=5
+    public required IReadonlyCollection<IsoMax2000Text> InstructionsToBank { get; init; } // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking application.
@@ -47,7 +47,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     [Description(@"Digital signature of the undertaking application.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature2? DigitalSignature { get; init; }
     
     */
     

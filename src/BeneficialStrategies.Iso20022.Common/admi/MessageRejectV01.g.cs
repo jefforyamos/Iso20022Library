@@ -32,7 +32,7 @@ public partial record MessageRejectV01 : IOuterRecord
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
     [Required]
-    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    public required MessageReference RelatedReference { get; init; }
     
     /// <summary>
     /// General information about the reason of the message rejection.
@@ -42,7 +42,7 @@ public partial record MessageRejectV01 : IOuterRecord
     [DataMember(Name="Rsn")]
     [XmlElement(ElementName="Rsn")]
     [Required]
-    public required SomeReasonRecord Reason { get; init; }
+    public required RejectionReason2 Reason { get; init; }
     
     */
     

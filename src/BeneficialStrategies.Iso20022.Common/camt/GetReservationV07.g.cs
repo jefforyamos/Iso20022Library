@@ -38,7 +38,7 @@ public partial record GetReservationV07 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Definition of the reservation query.
@@ -47,7 +47,7 @@ public partial record GetReservationV07 : IOuterRecord
     [Description(@"Definition of the reservation query.")]
     [DataMember(Name="RsvatnQryDef")]
     [XmlElement(ElementName="RsvatnQryDef")]
-    public SomeReservationQueryDefinitionRecord? ReservationQueryDefinition { get; init; }
+    public ReservationQuery5? ReservationQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -56,7 +56,7 @@ public partial record GetReservationV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

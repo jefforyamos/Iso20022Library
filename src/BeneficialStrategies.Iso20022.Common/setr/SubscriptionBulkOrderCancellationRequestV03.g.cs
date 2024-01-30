@@ -47,7 +47,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required MessageIdentification1 MessageIdentification { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -56,7 +56,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -65,7 +65,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// References of the orders to be cancelled.
@@ -74,7 +74,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [Description(@"References of the orders to be cancelled.")]
     [DataMember(Name="CxlByRef")]
     [XmlElement(ElementName="CxlByRef")]
-    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    public InvestmentFundOrder1? CancellationByReference { get; init; }
     
     /// <summary>
     /// Common information related to all the orders to be cancelled.
@@ -83,7 +83,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Common information related to all the orders to be cancelled.")]
     [DataMember(Name="CxlByOrdrDtls")]
     [XmlElement(ElementName="CxlByOrdrDtls")]
-    public SomeCancellationByOrderDetailsRecord? CancellationByOrderDetails { get; init; }
+    public SubscriptionBulkOrderInstruction2? CancellationByOrderDetails { get; init; }
     
     /// <summary>
     /// Message is a copy.
@@ -92,7 +92,7 @@ public partial record SubscriptionBulkOrderCancellationRequestV03 : IOuterRecord
     [Description(@"Message is a copy.")]
     [DataMember(Name="CpyDtls")]
     [XmlElement(ElementName="CpyDtls")]
-    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    public CopyInformation2? CopyDetails { get; init; }
     
     */
     

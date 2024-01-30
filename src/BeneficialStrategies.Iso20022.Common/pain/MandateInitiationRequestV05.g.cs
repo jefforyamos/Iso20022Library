@@ -37,7 +37,7 @@ public partial record MandateInitiationRequestV05 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader47 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to provide the details of the mandate signed between the (ultimate) creditor and the (ultimate) debtor.
@@ -47,7 +47,7 @@ public partial record MandateInitiationRequestV05 : IOuterRecord
     [DataMember(Name="Mndt")]
     [XmlElement(ElementName="Mndt")]
     [Required]
-    public required SomeMandateRecord Mandate { get; init; }
+    public required Mandate10 Mandate { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -56,7 +56,7 @@ public partial record MandateInitiationRequestV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

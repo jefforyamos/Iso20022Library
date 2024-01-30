@@ -38,7 +38,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    public required IInstructionType2Choice InstructionType { get; init; }
     
     /// <summary>
     /// Set of elements that allow to identify unambiguously a meeting.
@@ -48,7 +48,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
     [Required]
-    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    public required MeetingReference8 MeetingReference { get; init; }
     
     /// <summary>
     /// Securities for which the meeting is organised.
@@ -58,7 +58,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
     [Required]
-    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Type of instruction status.
@@ -68,7 +68,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    public required IInstructionTypeStatus3Choice InstructionTypeStatus { get; init; }
     
     /// <summary>
     /// Party that confirms the receipt of the vote cast.
@@ -78,7 +78,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="CnfrmgPty")]
     [XmlElement(ElementName="CnfrmgPty")]
     [Required]
-    public required SomeConfirmingPartyRecord ConfirmingParty { get; init; }
+    public required IPartyIdentification226Choice ConfirmingParty { get; init; }
     
     /// <summary>
     /// Party that cast the voting ballot.
@@ -88,7 +88,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="VoteCstgPty")]
     [XmlElement(ElementName="VoteCstgPty")]
     [Required]
-    public required SomeVoteCastingPartyRecord VoteCastingParty { get; init; }
+    public required IPartyIdentification226Choice VoteCastingParty { get; init; }
     
     /// <summary>
     /// Owner of the voting rights.
@@ -97,7 +97,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [Description(@"Owner of the voting rights.")]
     [DataMember(Name="RghtsHldr")]
     [XmlElement(ElementName="RghtsHldr")]
-    public SomeRightsHolderRecord? RightsHolder { get; init; }
+    public IPartyIdentification227Choice? RightsHolder { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -106,7 +106,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

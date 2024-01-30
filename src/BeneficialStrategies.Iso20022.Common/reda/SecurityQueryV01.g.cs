@@ -38,7 +38,7 @@ public partial record SecurityQueryV01 : IOuterRecord
     [Description(@"Common business identification for the message.")]
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
-    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    public MessageHeader1? MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the type of action to be performed in the request.
@@ -47,7 +47,7 @@ public partial record SecurityQueryV01 : IOuterRecord
     [Description(@"Defines the type of action to be performed in the request.")]
     [DataMember(Name="ReqTp")]
     [XmlElement(ElementName="ReqTp")]
-    public SomeRequestTypeRecord? RequestType { get; init; }
+    public GenericIdentification1? RequestType { get; init; }
     
     /// <summary>
     /// Defines the criteria to be used to query the securities reference data by the executing system.
@@ -57,7 +57,7 @@ public partial record SecurityQueryV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    public required SecuritiesSearchCriteria4 SearchCriteria { get; init; }
     
     /// <summary>
     /// Defines the expected securities reference data to be returned.
@@ -66,7 +66,7 @@ public partial record SecurityQueryV01 : IOuterRecord
     [Description(@"Defines the expected securities reference data to be returned.")]
     [DataMember(Name="SmlSetRtrCrit")]
     [XmlElement(ElementName="SmlSetRtrCrit")]
-    public SomeSmallSetReturnCriteriaRecord? SmallSetReturnCriteria { get; init; }
+    public SecuritiesReturnCriteria1? SmallSetReturnCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -75,7 +75,7 @@ public partial record SecurityQueryV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -43,7 +43,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies the standing order.
@@ -53,7 +53,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord
     [DataMember(Name="StgOrdrId")]
     [XmlElement(ElementName="StgOrdrId")]
     [Required]
-    public required SomeStandingOrderIdentificationRecord StandingOrderIdentification { get; init; }
+    public required StandingOrderIdentification4 StandingOrderIdentification { get; init; }
     
     /// <summary>
     /// New set of values for the standing order.
@@ -63,7 +63,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord
     [DataMember(Name="NewStgOrdrValSet")]
     [XmlElement(ElementName="NewStgOrdrValSet")]
     [Required]
-    public required SomeNewStandingOrderValueSetRecord NewStandingOrderValueSet { get; init; }
+    public required StandingOrder7 NewStandingOrderValueSet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -72,7 +72,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

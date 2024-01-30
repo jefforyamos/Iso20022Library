@@ -29,7 +29,7 @@ public partial record ProcessingRequestV01 : IOuterRecord
     [DataMember(Name="MsgId")]
     [XmlElement(ElementName="MsgId")]
     [Required]
-    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    public required IsoMax35Text MessageIdentification { get; init; }
     
     /// <summary>
     /// Indicates the requested CLS Settlement Session that the related trade is part of.
@@ -38,7 +38,7 @@ public partial record ProcessingRequestV01 : IOuterRecord
     [Description(@"Indicates the requested CLS Settlement Session that the related trade is part of.")]
     [DataMember(Name="SttlmSsnIdr")]
     [XmlElement(ElementName="SttlmSsnIdr")]
-    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; }
     
     /// <summary>
     /// Contains the details of the processing request.
@@ -48,7 +48,7 @@ public partial record ProcessingRequestV01 : IOuterRecord
     [DataMember(Name="Req")]
     [XmlElement(ElementName="Req")]
     [Required]
-    public required SomeRequestRecord Request { get; init; }
+    public required RequestDetails19 Request { get; init; }
     
     */
     

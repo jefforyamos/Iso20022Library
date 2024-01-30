@@ -48,7 +48,7 @@ public partial record SecuritiesMessageCancellationAdvice002V07 : IOuterRecord
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
     [Required]
-    public required SomeReferenceRecord Reference { get; init; }
+    public required IReferences79Choice Reference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -57,7 +57,7 @@ public partial record SecuritiesMessageCancellationAdvice002V07 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification156? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -66,7 +66,7 @@ public partial record SecuritiesMessageCancellationAdvice002V07 : IOuterRecord
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount30? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
@@ -75,7 +75,7 @@ public partial record SecuritiesMessageCancellationAdvice002V07 : IOuterRecord
     [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
     [DataMember(Name="BlckChainAdrOrWllt")]
     [XmlElement(ElementName="BlckChainAdrOrWllt")]
-    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -84,7 +84,7 @@ public partial record SecuritiesMessageCancellationAdvice002V07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

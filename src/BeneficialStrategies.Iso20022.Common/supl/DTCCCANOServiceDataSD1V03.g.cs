@@ -28,7 +28,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to notification general information.")]
     [DataMember(Name="NtfctnGnlInf")]
     [XmlElement(ElementName="NtfctnGnlInf")]
-    public SomeNotificationGeneralInformationRecord? NotificationGeneralInformation { get; init; }
+    public CorporateActionNotificationSD6? NotificationGeneralInformation { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to events linkage.
@@ -37,7 +37,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to events linkage.")]
     [DataMember(Name="EvtsLkg")]
     [XmlElement(ElementName="EvtsLkg")]
-    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    public CorporateActionEventReferenceSD2? EventsLinkage { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to corporate action notification.
@@ -46,7 +46,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to corporate action notification.")]
     [DataMember(Name="CorpActnNtfctn")]
     [XmlElement(ElementName="CorpActnNtfctn")]
-    public SomeCorporateActionNotificationRecord? CorporateActionNotification { get; init; }
+    public CorporateActionNotificationSD1? CorporateActionNotification { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to underlying security.
@@ -55,7 +55,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to underlying security.")]
     [DataMember(Name="UndrlygScty")]
     [XmlElement(ElementName="UndrlygScty")]
-    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    public FinancialInstrumentAttributesSD7? UnderlyingSecurity { get; init; }
     
     /// <summary>
     /// Information to be extended as corporate action details supplementary data.
@@ -64,7 +64,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as corporate action details supplementary data.")]
     [DataMember(Name="CorpActnDtls")]
     [XmlElement(ElementName="CorpActnDtls")]
-    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    public CorporateActionSD4? CorporateActionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as corporate action date details supplementary data.
@@ -73,7 +73,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as corporate action date details supplementary data.")]
     [DataMember(Name="CorpActnDtDtls")]
     [XmlElement(ElementName="CorpActnDtDtls")]
-    public SomeCorporateActionDateDetailsRecord? CorporateActionDateDetails { get; init; }
+    public CorporateActionDateSD4? CorporateActionDateDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to option details.
@@ -82,7 +82,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to option details.")]
     [DataMember(Name="OptnDtls")]
     [XmlElement(ElementName="OptnDtls")]
-    public SomeOptionDetailsRecord? OptionDetails { get; init; }
+    public CorporateActionOptionSD5? OptionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement details.
@@ -91,7 +91,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement details.")]
     [DataMember(Name="SctiesMvmntDtls")]
     [XmlElement(ElementName="SctiesMvmntDtls")]
-    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    public SecuritiesOptionSD4? SecuritiesMovementDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to securities movement security details.
@@ -100,7 +100,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to securities movement security details.")]
     [DataMember(Name="SctiesMvmntSctyDtls")]
     [XmlElement(ElementName="SctiesMvmntSctyDtls")]
-    public SomeSecuritiesMovementSecurityDetailsRecord? SecuritiesMovementSecurityDetails { get; init; }
+    public FinancialInstrumentAttributesSD5? SecuritiesMovementSecurityDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as cash movement supplementary data.
@@ -109,7 +109,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     [Description(@"Information to be extended as cash movement supplementary data.")]
     [DataMember(Name="CshMvmntDtls")]
     [XmlElement(ElementName="CshMvmntDtls")]
-    public SomeCashMovementDetailsRecord? CashMovementDetails { get; init; }
+    public CashOptionSD5? CashMovementDetails { get; init; }
     
     */
     

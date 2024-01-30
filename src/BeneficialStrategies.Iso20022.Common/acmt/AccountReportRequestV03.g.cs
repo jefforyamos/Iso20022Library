@@ -29,7 +29,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [DataMember(Name="Refs")]
     [XmlElement(ElementName="Refs")]
     [Required]
-    public required SomeReferencesRecord References { get; init; }
+    public required References4 References { get; init; }
     
     /// <summary>
     /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
@@ -38,7 +38,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.")]
     [DataMember(Name="Fr")]
     [XmlElement(ElementName="Fr")]
-    public SomeFromRecord? From { get; init; }
+    public OrganisationIdentification29? From { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
@@ -48,7 +48,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [DataMember(Name="AcctId")]
     [XmlElement(ElementName="AcctId")]
     [Required]
-    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    public required AccountForAction1 AccountIdentification { get; init; }
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
@@ -58,7 +58,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [DataMember(Name="AcctSvcrId")]
     [XmlElement(ElementName="AcctSvcrId")]
     [Required]
-    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    public required BranchAndFinancialInstitutionIdentification6 AccountServicerIdentification { get; init; }
     
     /// <summary>
     /// Identification of the organisation requesting the report.
@@ -68,7 +68,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [DataMember(Name="OrgId")]
     [XmlElement(ElementName="OrgId")]
     [Required]
-    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    public required OrganisationIdentification29 OrganisationIdentification { get; init; }
     
     /// <summary>
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
@@ -77,7 +77,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
     [DataMember(Name="DgtlSgntr")]
     [XmlElement(ElementName="DgtlSgntr")]
-    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    public PartyAndSignature3? DigitalSignature { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -86,7 +86,7 @@ public partial record AccountReportRequestV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

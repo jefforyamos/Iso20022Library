@@ -31,7 +31,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     [DataMember(Name="RptHdr")]
     [XmlElement(ElementName="RptHdr")]
     [Required]
-    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    public required SettlementInternaliserReportHeader1 ReportHeader { get; init; }
     
     /// <summary>
     /// Identifies the settlement internaliser for which data is reported.
@@ -41,7 +41,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     [DataMember(Name="SttlmIntlr")]
     [XmlElement(ElementName="SttlmIntlr")]
     [Required]
-    public required SomeSettlementInternaliserRecord SettlementInternaliser { get; init; }
+    public required SettlementInternaliser1 SettlementInternaliser { get; init; }
     
     /// <summary>
     /// Identifies each issuer CSD (central securities depository) included in the report.
@@ -51,7 +51,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     [DataMember(Name="IssrCSD")]
     [XmlElement(ElementName="IssrCSD")]
     [Required]
-    public required SomeIssuerCSDRecord IssuerCSD { get; init; }
+    public required IssuerCSDReport1 IssuerCSD { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -60,7 +60,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

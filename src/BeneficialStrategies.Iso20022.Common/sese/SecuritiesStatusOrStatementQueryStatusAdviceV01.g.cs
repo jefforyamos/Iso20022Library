@@ -39,7 +39,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the query as per the account owner.
@@ -49,7 +49,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [DataMember(Name="QryRef")]
     [XmlElement(ElementName="QryRef")]
     [Required]
-    public required SomeQueryReferenceRecord QueryReference { get; init; }
+    public required Identification1 QueryReference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -58,7 +58,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification13Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -67,7 +67,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Account to or from which a securities entry is made.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount13? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the request.
@@ -76,7 +76,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Details of the request.")]
     [DataMember(Name="StsOrStmtReqd")]
     [XmlElement(ElementName="StsOrStmtReqd")]
-    public SomeStatusOrStatementRequestedRecord? StatusOrStatementRequested { get; init; }
+    public IStatusOrStatement1Choice? StatusOrStatementRequested { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -86,7 +86,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus4Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -95,7 +95,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -104,7 +104,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -113,7 +113,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

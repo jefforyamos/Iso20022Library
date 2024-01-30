@@ -32,7 +32,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -42,7 +42,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference3 PreviousReference { get; init; }
     
     /// <summary>
     /// Information related to the correction of a price of a financial instrument.
@@ -52,7 +52,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
     [DataMember(Name="PricCrrctnDtls")]
     [XmlElement(ElementName="PricCrrctnDtls")]
     [Required]
-    public required SomePriceCorrectionDetailsRecord PriceCorrectionDetails { get; init; }
+    public required PriceCorrection2 PriceCorrectionDetails { get; init; }
     
     */
     

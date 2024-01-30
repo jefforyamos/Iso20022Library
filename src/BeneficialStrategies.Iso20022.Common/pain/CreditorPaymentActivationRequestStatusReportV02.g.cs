@@ -31,7 +31,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV02 : IOuterRe
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader46 GroupHeader { get; init; }
     
     /// <summary>
     /// Original group information concerning the group of transactions, to which the status report message refers to.
@@ -41,7 +41,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV02 : IOuterRe
     [DataMember(Name="OrgnlGrpInfAndSts")]
     [XmlElement(ElementName="OrgnlGrpInfAndSts")]
     [Required]
-    public required SomeOriginalGroupInformationAndStatusRecord OriginalGroupInformationAndStatus { get; init; }
+    public required OriginalGroupInformation25 OriginalGroupInformationAndStatus { get; init; }
     
     /// <summary>
     /// Information concerning the original payment information, to which the status report message refers.
@@ -50,7 +50,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV02 : IOuterRe
     [Description(@"Information concerning the original payment information, to which the status report message refers.")]
     [DataMember(Name="OrgnlPmtInfAndSts")]
     [XmlElement(ElementName="OrgnlPmtInfAndSts")]
-    public SomeOriginalPaymentInformationAndStatusRecord? OriginalPaymentInformationAndStatus { get; init; }
+    public OriginalPaymentInstruction5? OriginalPaymentInformationAndStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -59,7 +59,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV02 : IOuterRe
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

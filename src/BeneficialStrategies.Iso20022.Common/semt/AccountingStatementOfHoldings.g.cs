@@ -42,7 +42,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference2? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -51,7 +51,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -61,7 +61,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// General information related to the accounting statement of holdings.
@@ -71,7 +71,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement4 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// The safekeeping or investment account.
@@ -81,7 +81,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    public required SafekeepingAccount1 AccountDetails { get; init; }
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -90,7 +90,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
     [DataMember(Name="BalForAcct")]
     [XmlElement(ElementName="BalForAcct")]
-    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    public AggregateBalanceInformation2? BalanceForAccount { get; init; }
     
     /// <summary>
     /// The sub-account of the safekeeping or investment account.
@@ -99,7 +99,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"The sub-account of the safekeeping or investment account.")]
     [DataMember(Name="SubAcctDtls")]
     [XmlElement(ElementName="SubAcctDtls")]
-    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    public SubAccountIdentification2? SubAccountDetails { get; init; }
     
     /// <summary>
     /// Value of total holdings reported.
@@ -108,7 +108,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"Value of total holdings reported.")]
     [DataMember(Name="TtlVals")]
     [XmlElement(ElementName="TtlVals")]
-    public SomeTotalValuesRecord? TotalValues { get; init; }
+    public TotalValueInPageAndStatement? TotalValues { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -117,7 +117,7 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

@@ -39,7 +39,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [DataMember(Name="AdvcRef")]
     [XmlElement(ElementName="AdvcRef")]
     [Required]
-    public required SomeAdviceReferenceRecord AdviceReference { get; init; }
+    public required Identification14 AdviceReference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -48,7 +48,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification144? AccountOwner { get; init; }
     
     /// <summary>
     /// Account used in the original failing transaction.
@@ -57,7 +57,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [Description(@"Account used in the original failing transaction.")]
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
-    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    public SecuritiesAccount19? SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Details of the buy-in.
@@ -66,7 +66,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [Description(@"Details of the buy-in.")]
     [DataMember(Name="BuyInAttrbts")]
     [XmlElement(ElementName="BuyInAttrbts")]
-    public SomeBuyInAttributesRecord? BuyInAttributes { get; init; }
+    public BuyInAdviceDetails1? BuyInAttributes { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the advice.
@@ -76,7 +76,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    public required IProcessingStatus79Choice ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -85,7 +85,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -37,7 +37,7 @@ public partial record MandateCopyRequestV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader80 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of information used to identify the mandate for which a copy is requested.
@@ -47,7 +47,7 @@ public partial record MandateCopyRequestV02 : IOuterRecord
     [DataMember(Name="UndrlygCpyReqDtls")]
     [XmlElement(ElementName="UndrlygCpyReqDtls")]
     [Required]
-    public required SomeUnderlyingCopyRequestDetailsRecord UnderlyingCopyRequestDetails { get; init; }
+    public required MandateCopy2 UnderlyingCopyRequestDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -56,7 +56,7 @@ public partial record MandateCopyRequestV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

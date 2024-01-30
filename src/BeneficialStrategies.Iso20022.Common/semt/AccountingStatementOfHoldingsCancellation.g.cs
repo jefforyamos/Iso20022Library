@@ -34,7 +34,7 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required AdditionalReference2 PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -43,7 +43,7 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference2? RelatedReference { get; init; }
     
     /// <summary>
     /// Pagination of the message.
@@ -53,7 +53,7 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
     [DataMember(Name="MsgPgntn")]
     [XmlElement(ElementName="MsgPgntn")]
     [Required]
-    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    public required Pagination MessagePagination { get; init; }
     
     /// <summary>
     /// The Accounting Statement of Holdings message to cancel.
@@ -62,7 +62,7 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
     [Description(@"The Accounting Statement of Holdings message to cancel.")]
     [DataMember(Name="StmtToBeCanc")]
     [XmlElement(ElementName="StmtToBeCanc")]
-    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    public AccountingStatementOfHoldings1? StatementToBeCancelled { get; init; }
     
     */
     

@@ -32,7 +32,7 @@ public partial record NotificationToReceiveCancellationAdviceV02 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader43 GroupHeader { get; init; }
     
     /// <summary>
     /// Set of elements used to identify the original notification, to which the cancellation advice refers.
@@ -42,7 +42,7 @@ public partial record NotificationToReceiveCancellationAdviceV02 : IOuterRecord
     [DataMember(Name="OrgnlNtfctn")]
     [XmlElement(ElementName="OrgnlNtfctn")]
     [Required]
-    public required SomeOriginalNotificationRecord OriginalNotification { get; init; }
+    public required OriginalNotification4 OriginalNotification { get; init; }
     
     */
     

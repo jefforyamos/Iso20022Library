@@ -39,7 +39,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Unambiguous identification of a transaction as per the account owner (or the instructing party managing the account).
@@ -49,7 +49,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required TransactionIdentifications3 TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
@@ -58,7 +58,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    public IIntraPositionProcessingStatus1Choice? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -67,7 +67,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    public ISettlementStatus2Choice? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -76,7 +76,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Identifies the details of the transaction.")]
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
-    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    public IntraPositionDetails4? TransactionDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -85,7 +85,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -94,7 +94,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -103,7 +103,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

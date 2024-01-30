@@ -33,7 +33,7 @@ public partial record IdentificationVerificationRequestV03 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required IdentificationAssignment3 Assignment { get; init; }
     
     /// <summary>
     /// Information concerning the identification data that is requested to be verified.
@@ -43,7 +43,7 @@ public partial record IdentificationVerificationRequestV03 : IOuterRecord
     [DataMember(Name="Vrfctn")]
     [XmlElement(ElementName="Vrfctn")]
     [Required]
-    public required SomeVerificationRecord Verification { get; init; }
+    public required IdentificationVerification4 Verification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -52,7 +52,7 @@ public partial record IdentificationVerificationRequestV03 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

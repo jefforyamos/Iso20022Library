@@ -44,7 +44,7 @@ public partial record RejectInvestigationV05 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment4 Assignment { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -53,7 +53,7 @@ public partial record RejectInvestigationV05 : IOuterRecord
     [Description(@"Identifies the investigation case.")]
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
-    public SomeCaseRecord? Case { get; init; }
+    public Case4? Case { get; init; }
     
     /// <summary>
     /// Specifies the reason for the rejection of an investigation.
@@ -63,7 +63,7 @@ public partial record RejectInvestigationV05 : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required SomeJustificationRecord Justification { get; init; }
+    public required InvestigationRejectionJustification1 Justification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -72,7 +72,7 @@ public partial record RejectInvestigationV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

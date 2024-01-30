@@ -29,7 +29,7 @@ public partial record ModifyLimitV07 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader1 MessageHeader { get; init; }
     
     /// <summary>
     /// Identifies one particular limit set by the member and managed by the transaction administrator.
@@ -38,7 +38,7 @@ public partial record ModifyLimitV07 : IOuterRecord
     [Description(@"Identifies one particular limit set by the member and managed by the transaction administrator.")]
     [DataMember(Name="LmtDtls")]
     [XmlElement(ElementName="LmtDtls")]
-    public SomeLimitDetailsRecord? LimitDetails { get; init; }
+    public LimitStructure3? LimitDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record ModifyLimitV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

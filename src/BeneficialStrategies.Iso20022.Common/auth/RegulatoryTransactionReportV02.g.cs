@@ -32,7 +32,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification8 Identification { get; init; }
     
     /// <summary>
     /// Provides details of the trade for which the transaction report is being sent.
@@ -42,7 +42,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [DataMember(Name="TxDtls")]
     [XmlElement(ElementName="TxDtls")]
     [Required]
-    public required SomeTransactionDetailsRecord TransactionDetails { get; init; }
+    public required TransactionDetails3 TransactionDetails { get; init; }
     
     /// <summary>
     /// Identification of the firm that is legally responsible for sending the transaction report.|.
@@ -52,7 +52,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
     
     /// <summary>
     /// Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.
@@ -61,7 +61,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [Description(@"Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.")]
     [DataMember(Name="RptgAgt")]
     [XmlElement(ElementName="RptgAgt")]
-    public SomeReportingAgentRecord? ReportingAgent { get; init; }
+    public IPartyIdentification24Choice? ReportingAgent { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -70,7 +70,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

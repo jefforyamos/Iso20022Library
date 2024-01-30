@@ -29,7 +29,7 @@ public partial record SecuritiesFinancingReportingTransactionStatusAdviceV02 : I
     [DataMember(Name="TxRptStsAndRsn")]
     [XmlElement(ElementName="TxRptStsAndRsn")]
     [Required]
-    public required SomeTransactionReportStatusAndReasonRecord TransactionReportStatusAndReason { get; init; }
+    public required ITradeData35Choice TransactionReportStatusAndReason { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -38,7 +38,7 @@ public partial record SecuritiesFinancingReportingTransactionStatusAdviceV02 : I
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

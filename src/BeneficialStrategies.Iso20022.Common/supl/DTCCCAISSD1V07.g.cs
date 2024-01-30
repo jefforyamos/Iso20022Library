@@ -28,7 +28,7 @@ public partial record DTCCCAISSD1V07 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to instruction status message for reorganisation events.")]
     [DataMember(Name="ReorgInstrDtls")]
     [XmlElement(ElementName="ReorgInstrDtls")]
-    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    public ReorganisationInstructionSD12? ReorganisationInstructionDetails { get; init; }
     
     /// <summary>
     /// Information to be extended as supplementary data to instruction status message for distribution events.
@@ -37,7 +37,7 @@ public partial record DTCCCAISSD1V07 : IOuterRecord
     [Description(@"Information to be extended as supplementary data to instruction status message for distribution events.")]
     [DataMember(Name="DstrbtnInstrDtls")]
     [XmlElement(ElementName="DstrbtnInstrDtls")]
-    public SomeDistributionInstructionDetailsRecord? DistributionInstructionDetails { get; init; }
+    public DistributionInstructionSD1? DistributionInstructionDetails { get; init; }
     
     */
     

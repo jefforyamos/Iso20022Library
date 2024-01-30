@@ -42,7 +42,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// Description of the statement requested.
@@ -52,7 +52,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [DataMember(Name="StmtReqd")]
     [XmlElement(ElementName="StmtReqd")]
     [Required]
-    public required SomeStatementRequestedRecord StatementRequested { get; init; }
+    public required DocumentNumber1 StatementRequested { get; init; }
     
     /// <summary>
     /// General information related to report.
@@ -61,7 +61,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"General information related to report.")]
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
-    public SomeStatementGeneralDetailsRecord? StatementGeneralDetails { get; init; }
+    public Statement16? StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -70,7 +70,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public IPartyIdentification13Choice? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -80,7 +80,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Additional specific query criteria.
@@ -89,7 +89,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"Additional specific query criteria.")]
     [DataMember(Name="AddtlQryParams")]
     [XmlElement(ElementName="AddtlQryParams")]
-    public SomeAdditionalQueryParametersRecord? AdditionalQueryParameters { get; init; }
+    public AdditionalQueryParameters1? AdditionalQueryParameters { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -98,7 +98,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -107,7 +107,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -116,7 +116,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

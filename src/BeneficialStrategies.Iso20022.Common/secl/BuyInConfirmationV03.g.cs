@@ -32,7 +32,7 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
-    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    public IsoMax35Text? TransactionIdentification { get; init; }
     
     /// <summary>
     /// Provides the identification of the clearing member (individual clearing member or general clearing member).
@@ -42,7 +42,7 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    public required IPartyIdentification35Choice ClearingMember { get; init; }
     
     /// <summary>
     /// Provides the buy-in details.
@@ -52,7 +52,7 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     [DataMember(Name="BuyInDtls")]
     [XmlElement(ElementName="BuyInDtls")]
     [Required]
-    public required SomeBuyInDetailsRecord BuyInDetails { get; init; }
+    public required BuyIn2 BuyInDetails { get; init; }
     
     /// <summary>
     /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
@@ -61,7 +61,7 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     [Description(@"Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.")]
     [DataMember(Name="OrgnlSttlmOblgtn")]
     [XmlElement(ElementName="OrgnlSttlmOblgtn")]
-    public SomeOriginalSettlementObligationRecord? OriginalSettlementObligation { get; init; }
+    public SettlementObligation7? OriginalSettlementObligation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -70,7 +70,7 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

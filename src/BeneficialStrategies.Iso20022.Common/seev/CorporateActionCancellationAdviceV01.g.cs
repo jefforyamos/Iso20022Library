@@ -35,7 +35,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [DataMember(Name="Id")]
     [XmlElement(ElementName="Id")]
     [Required]
-    public required SomeIdentificationRecord Identification { get; init; }
+    public required DocumentIdentification11 Identification { get; init; }
     
     /// <summary>
     /// General information about the event cancellation status and cancellation reason.
@@ -45,7 +45,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [DataMember(Name="CxlAdvcGnlInf")]
     [XmlElement(ElementName="CxlAdvcGnlInf")]
     [Required]
-    public required SomeCancellationAdviceGeneralInformationRecord CancellationAdviceGeneralInformation { get; init; }
+    public required CorporateActionCancellation1 CancellationAdviceGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the corporate action event.
@@ -55,7 +55,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [DataMember(Name="CorpActnGnlInf")]
     [XmlElement(ElementName="CorpActnGnlInf")]
     [Required]
-    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    public required CorporateActionGeneralInformation8 CorporateActionGeneralInformation { get; init; }
     
     /// <summary>
     /// General information about the safekeeping account and the account owner.
@@ -65,7 +65,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [DataMember(Name="AcctsDtls")]
     [XmlElement(ElementName="AcctsDtls")]
     [Required]
-    public required SomeAccountsDetailsRecord AccountsDetails { get; init; }
+    public required IAccountIdentification6Choice AccountsDetails { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -74,7 +74,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    public IPartyIdentification10Choice? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -83,7 +83,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    public IPartyIdentification10Choice? MessageRecipient { get; init; }
     
     /// <summary>
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
@@ -92,7 +92,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    public IPartyIdentification10Choice? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -101,7 +101,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public SomePayingAgentRecord? PayingAgent { get; init; }
+    public IPartyIdentification10Choice? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -110,7 +110,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    public IPartyIdentification10Choice? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Party/agent responsible for maintaining the register of a security.
@@ -119,7 +119,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Party/agent responsible for maintaining the register of a security.")]
     [DataMember(Name="Regar")]
     [XmlElement(ElementName="Regar")]
-    public SomeRegistrarRecord? Registrar { get; init; }
+    public IPartyIdentification10Choice? Registrar { get; init; }
     
     /// <summary>
     /// A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
@@ -128,7 +128,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
     [DataMember(Name="RsellngAgt")]
     [XmlElement(ElementName="RsellngAgt")]
-    public SomeResellingAgentRecord? ResellingAgent { get; init; }
+    public IPartyIdentification10Choice? ResellingAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
@@ -137,7 +137,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
     [DataMember(Name="PhysSctiesAgt")]
     [XmlElement(ElementName="PhysSctiesAgt")]
-    public SomePhysicalSecuritiesAgentRecord? PhysicalSecuritiesAgent { get; init; }
+    public IPartyIdentification10Choice? PhysicalSecuritiesAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.
@@ -146,7 +146,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.")]
     [DataMember(Name="DrpAgt")]
     [XmlElement(ElementName="DrpAgt")]
-    public SomeDropAgentRecord? DropAgent { get; init; }
+    public IPartyIdentification10Choice? DropAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
@@ -155,7 +155,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
     [DataMember(Name="SlctnAgt")]
     [XmlElement(ElementName="SlctnAgt")]
-    public SomeSolicitationAgentRecord? SolicitationAgent { get; init; }
+    public IPartyIdentification10Choice? SolicitationAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
@@ -164,7 +164,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
     [DataMember(Name="InfAgt")]
     [XmlElement(ElementName="InfAgt")]
-    public SomeInformationAgentRecord? InformationAgent { get; init; }
+    public IPartyIdentification10Choice? InformationAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -173,7 +173,7 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension2? Extension { get; init; }
     
     */
     

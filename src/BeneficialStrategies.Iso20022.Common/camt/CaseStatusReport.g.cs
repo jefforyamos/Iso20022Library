@@ -29,7 +29,7 @@ public partial record CaseStatusReport : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ReportHeader Header { get; init; }
     
     /// <summary>
     /// Identifies the case.
@@ -39,7 +39,7 @@ public partial record CaseStatusReport : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case Case { get; init; }
     
     /// <summary>
     /// Defines the status of the case.
@@ -49,7 +49,7 @@ public partial record CaseStatusReport : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required SomeStatusRecord Status { get; init; }
+    public required CaseStatus Status { get; init; }
     
     /// <summary>
     /// Identifies the last assignment performed.
@@ -58,7 +58,7 @@ public partial record CaseStatusReport : IOuterRecord
     [Description(@"Identifies the last assignment performed.")]
     [DataMember(Name="NewAssgnmt")]
     [XmlElement(ElementName="NewAssgnmt")]
-    public SomeNewAssignmentRecord? NewAssignment { get; init; }
+    public CaseAssignment? NewAssignment { get; init; }
     
     */
     

@@ -44,7 +44,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     [DataMember(Name="Hdr")]
     [XmlElement(ElementName="Hdr")]
     [Required]
-    public required SomeHeaderRecord Header { get; init; }
+    public required ReportHeader5 Header { get; init; }
     
     /// <summary>
     /// Identifies the investigation case.
@@ -54,7 +54,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     [DataMember(Name="Case")]
     [XmlElement(ElementName="Case")]
     [Required]
-    public required SomeCaseRecord Case { get; init; }
+    public required Case5 Case { get; init; }
     
     /// <summary>
     /// Identifies the assignment of an investigation case from an assigner to an assignee.
@@ -65,7 +65,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     [DataMember(Name="Assgnmt")]
     [XmlElement(ElementName="Assgnmt")]
     [Required]
-    public required SomeAssignmentRecord Assignment { get; init; }
+    public required CaseAssignment5 Assignment { get; init; }
     
     /// <summary>
     /// Information about the type of action taken.
@@ -75,7 +75,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required CaseForwardingNotification3 Notification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -84,7 +84,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

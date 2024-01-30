@@ -29,7 +29,7 @@ public partial record RemittanceLocationAdviceV01 : IOuterRecord
     [DataMember(Name="GrpHdr")]
     [XmlElement(ElementName="GrpHdr")]
     [Required]
-    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    public required GroupHeader62 GroupHeader { get; init; }
     
     /// <summary>
     /// Provides information related to location and/or delivery of the remittance information. This information is used to enable the matching of an entry with the items that the associated payment is intended to settle.
@@ -39,7 +39,7 @@ public partial record RemittanceLocationAdviceV01 : IOuterRecord
     [DataMember(Name="RmtLctn")]
     [XmlElement(ElementName="RmtLctn")]
     [Required]
-    public required SomeRemittanceLocationRecord RemittanceLocation { get; init; }
+    public required RemittanceLocation3 RemittanceLocation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record RemittanceLocationAdviceV01 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

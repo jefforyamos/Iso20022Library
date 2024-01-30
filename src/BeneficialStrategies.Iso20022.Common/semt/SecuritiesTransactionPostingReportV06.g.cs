@@ -41,7 +41,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [DataMember(Name="Pgntn")]
     [XmlElement(ElementName="Pgntn")]
     [Required]
-    public required SomePaginationRecord Pagination { get; init; }
+    public required Pagination Pagination { get; init; }
     
     /// <summary>
     /// Provides general information on the report.
@@ -51,7 +51,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [DataMember(Name="StmtGnlDtls")]
     [XmlElement(ElementName="StmtGnlDtls")]
     [Required]
-    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    public required Statement44 StatementGeneralDetails { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -60,7 +60,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    public PartyIdentification98? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -70,7 +70,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [DataMember(Name="SfkpgAcct")]
     [XmlElement(ElementName="SfkpgAcct")]
     [Required]
-    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    public required SecuritiesAccount24 SafekeepingAccount { get; init; }
     
     /// <summary>
     /// Reporting per financial instrument.
@@ -79,7 +79,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [Description(@"Reporting per financial instrument.")]
     [DataMember(Name="FinInstrmDtls")]
     [XmlElement(ElementName="FinInstrmDtls")]
-    public SomeFinancialInstrumentDetailsRecord? FinancialInstrumentDetails { get; init; }
+    public FinancialInstrumentDetails20? FinancialInstrumentDetails { get; init; }
     
     /// <summary>
     /// Details at sub-account level.
@@ -88,7 +88,7 @@ public partial record SecuritiesTransactionPostingReportV06 : IOuterRecord
     [Description(@"Details at sub-account level.")]
     [DataMember(Name="SubAcctDtls")]
     [XmlElement(ElementName="SubAcctDtls")]
-    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    public SubAccountIdentification44? SubAccountDetails { get; init; }
     
     */
     

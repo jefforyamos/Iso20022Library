@@ -29,7 +29,7 @@ public partial record NettingCutOffReferenceDataReportV02 : IOuterRecord
     [DataMember(Name="RptData")]
     [XmlElement(ElementName="RptData")]
     [Required]
-    public required SomeReportDataRecord ReportData { get; init; }
+    public required NettingCutOffReportData2 ReportData { get; init; }
     
     /// <summary>
     /// Provides the latest information related to the status of a netting cut off held at a central system.
@@ -39,7 +39,7 @@ public partial record NettingCutOffReferenceDataReportV02 : IOuterRecord
     [DataMember(Name="PtcptNetgCutOffData")]
     [XmlElement(ElementName="PtcptNetgCutOffData")]
     [Required]
-    public required SomeParticipantNettingCutOffDataRecord ParticipantNettingCutOffData { get; init; }
+    public required CutOffData2 ParticipantNettingCutOffData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -48,7 +48,7 @@ public partial record NettingCutOffReferenceDataReportV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

@@ -29,7 +29,7 @@ public partial record CalendarQueryV02 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the criteria to extract the calendar information.
@@ -38,7 +38,7 @@ public partial record CalendarQueryV02 : IOuterRecord
     [Description(@"Defines the criteria to extract the calendar information.")]
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
-    public SomeSearchCriteriaRecord? SearchCriteria { get; init; }
+    public CalendarSearchCriteria1? SearchCriteria { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -47,7 +47,7 @@ public partial record CalendarQueryV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

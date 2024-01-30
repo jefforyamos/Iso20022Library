@@ -33,7 +33,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
     [Required]
-    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    public required MessageIdentification PreviousReference { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -42,7 +42,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     [Description(@"Series of elements which allow to identify a meeting.")]
     [DataMember(Name="MtgRef")]
     [XmlElement(ElementName="MtgRef")]
-    public SomeMeetingReferenceRecord? MeetingReference { get; init; }
+    public MeetingReference7? MeetingReference { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.
@@ -51,7 +51,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     [Description(@"Identifies the security for which the meeting is organised.")]
     [DataMember(Name="FinInstrmId")]
     [XmlElement(ElementName="FinInstrmId")]
-    public SomeFinancialInstrumentIdentificationRecord? FinancialInstrumentIdentification { get; init; }
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; init; }
     
     /// <summary>
     /// Identifies the account and instructed positions for which the instruction cancellation request applies.
@@ -60,7 +60,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     [Description(@"Identifies the account and instructed positions for which the instruction cancellation request applies.")]
     [DataMember(Name="InstdPos")]
     [XmlElement(ElementName="InstdPos")]
-    public SomeInstructedPositionRecord? InstructedPosition { get; init; }
+    public SafekeepingAccount6? InstructedPosition { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
@@ -69,7 +69,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

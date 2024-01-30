@@ -32,7 +32,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [DataMember(Name="TradInf")]
     [XmlElement(ElementName="TradInf")]
     [Required]
-    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    public required TradeAgreement2 TradeInformation { get; init; }
     
     /// <summary>
     /// Specifies the trading side of the non deliverable trade which is cancelled.
@@ -41,7 +41,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [Description(@"Specifies the trading side of the non deliverable trade which is cancelled.")]
     [DataMember(Name="TradgSdId")]
     [XmlElement(ElementName="TradgSdId")]
-    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    public TradePartyIdentification3? TradingSideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the counterparty of the non deliverable trade which is cancelled.
@@ -50,7 +50,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [Description(@"Specifies the counterparty of the non deliverable trade which is cancelled.")]
     [DataMember(Name="CtrPtySdId")]
     [XmlElement(ElementName="CtrPtySdId")]
-    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    public TradePartyIdentification3? CounterpartySideIdentification { get; init; }
     
     /// <summary>
     /// Specifies the amounts of the valuation of the non deliverable trade which is cancelled.
@@ -59,7 +59,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [Description(@"Specifies the amounts of the valuation of the non deliverable trade which is cancelled.")]
     [DataMember(Name="TradAmts")]
     [XmlElement(ElementName="TradAmts")]
-    public SomeTradeAmountsRecord? TradeAmounts { get; init; }
+    public AmountsAndValueDate1? TradeAmounts { get; init; }
     
     /// <summary>
     /// Specifies the valuation rate of the valuation of the non deliverable trade which is cancelled.
@@ -68,7 +68,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [Description(@"Specifies the valuation rate of the valuation of the non deliverable trade which is cancelled.")]
     [DataMember(Name="ValtnRate")]
     [XmlElement(ElementName="ValtnRate")]
-    public SomeValuationRateRecord? ValuationRate { get; init; }
+    public AgreedRate1? ValuationRate { get; init; }
     
     /// <summary>
     /// Specifies the valuation information of the valuation of the non deliverable trade which is cancelled.
@@ -77,7 +77,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     [Description(@"Specifies the valuation information of the valuation of the non deliverable trade which is cancelled.")]
     [DataMember(Name="ValtnInf")]
     [XmlElement(ElementName="ValtnInf")]
-    public SomeValuationInformationRecord? ValuationInformation { get; init; }
+    public ValuationData2? ValuationInformation { get; init; }
     
     */
     

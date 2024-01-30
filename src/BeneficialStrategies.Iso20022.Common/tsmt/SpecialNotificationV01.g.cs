@@ -33,7 +33,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="NtfctnId")]
     [XmlElement(ElementName="NtfctnId")]
     [Required]
-    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    public required MessageIdentification1 NotificationIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
@@ -43,7 +43,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="TxId")]
     [XmlElement(ElementName="TxId")]
     [Required]
-    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; }
     
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
@@ -53,7 +53,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="EstblishdBaselnId")]
     [XmlElement(ElementName="EstblishdBaselnId")]
     [Required]
-    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; }
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
@@ -63,7 +63,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="TxSts")]
     [XmlElement(ElementName="TxSts")]
     [Required]
-    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    public required TransactionStatus4 TransactionStatus { get; init; }
     
     /// <summary>
     /// Reference to the transaction for the financial institution that is the sender of the acknowledged message.
@@ -72,7 +72,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution that is the sender of the acknowledged message.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    public required IReadonlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } // Min=0, Max=2
     
     /// <summary>
     /// Party that has sent the special request.
@@ -82,7 +82,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="Initr")]
     [XmlElement(ElementName="Initr")]
     [Required]
-    public required SomeInitiatorRecord Initiator { get; init; }
+    public required BICIdentification1 Initiator { get; init; }
     
     /// <summary>
     /// Notification received by the matching application and forwarded to another party.
@@ -92,7 +92,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [DataMember(Name="Ntfctn")]
     [XmlElement(ElementName="Ntfctn")]
     [Required]
-    public required SomeNotificationRecord Notification { get; init; }
+    public required Notification1 Notification { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.
@@ -101,7 +101,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [Description(@"Information on the next processing step required.")]
     [DataMember(Name="ReqForActn")]
     [XmlElement(ElementName="ReqForActn")]
-    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    public PendingActivity2? RequestForAction { get; init; }
     
     */
     

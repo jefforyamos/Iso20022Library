@@ -34,7 +34,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [DataMember(Name="MsgRef")]
     [XmlElement(ElementName="MsgRef")]
     [Required]
-    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    public required MessageIdentification1 MessageReference { get; init; }
     
     /// <summary>
     /// Collective reference identifying a set of messages.
@@ -43,7 +43,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Collective reference identifying a set of messages.")]
     [DataMember(Name="PoolRef")]
     [XmlElement(ElementName="PoolRef")]
-    public SomePoolReferenceRecord? PoolReference { get; init; }
+    public AdditionalReference3? PoolReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
@@ -52,7 +52,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Reference to a linked message that was previously sent.")]
     [DataMember(Name="PrvsRef")]
     [XmlElement(ElementName="PrvsRef")]
-    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    public AdditionalReference3? PreviousReference { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -61,7 +61,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    public AdditionalReference3? RelatedReference { get; init; }
     
     /// <summary>
     /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
@@ -70,7 +70,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the primary individual investor, for example, name, address, social security number and date of birth.")]
     [DataMember(Name="PmryIndvInvstr")]
     [XmlElement(ElementName="PmryIndvInvstr")]
-    public SomePrimaryIndividualInvestorRecord? PrimaryIndividualInvestor { get; init; }
+    public IndividualPerson8? PrimaryIndividualInvestor { get; init; }
     
     /// <summary>
     /// Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.
@@ -79,7 +79,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.")]
     [DataMember(Name="ScndryIndvInvstr")]
     [XmlElement(ElementName="ScndryIndvInvstr")]
-    public SomeSecondaryIndividualInvestorRecord? SecondaryIndividualInvestor { get; init; }
+    public IndividualPerson8? SecondaryIndividualInvestor { get; init; }
     
     /// <summary>
     /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
@@ -88,7 +88,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the other individual investors, for example, name, address, social security number and date of birth.")]
     [DataMember(Name="OthrIndvInvstr")]
     [XmlElement(ElementName="OthrIndvInvstr")]
-    public SomeOtherIndividualInvestorRecord? OtherIndividualInvestor { get; init; }
+    public IndividualPerson8? OtherIndividualInvestor { get; init; }
     
     /// <summary>
     /// Information identifying the primary corporate investor, for example, name and address.
@@ -97,7 +97,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the primary corporate investor, for example, name and address.")]
     [DataMember(Name="PmryCorpInvstr")]
     [XmlElement(ElementName="PmryCorpInvstr")]
-    public SomePrimaryCorporateInvestorRecord? PrimaryCorporateInvestor { get; init; }
+    public Organisation4? PrimaryCorporateInvestor { get; init; }
     
     /// <summary>
     /// Information identifying the secondary corporate investor, for example, name and address.
@@ -106,7 +106,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the secondary corporate investor, for example, name and address.")]
     [DataMember(Name="ScndryCorpInvstr")]
     [XmlElement(ElementName="ScndryCorpInvstr")]
-    public SomeSecondaryCorporateInvestorRecord? SecondaryCorporateInvestor { get; init; }
+    public Organisation4? SecondaryCorporateInvestor { get; init; }
     
     /// <summary>
     /// Information identifying the other corporate investors, for example, name and address.
@@ -115,7 +115,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Information identifying the other corporate investors, for example, name and address.")]
     [DataMember(Name="OthrCorpInvstr")]
     [XmlElement(ElementName="OthrCorpInvstr")]
-    public SomeOtherCorporateInvestorRecord? OtherCorporateInvestor { get; init; }
+    public Organisation4? OtherCorporateInvestor { get; init; }
     
     /// <summary>
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
@@ -125,7 +125,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [DataMember(Name="TrfrAcct")]
     [XmlElement(ElementName="TrfrAcct")]
     [Required]
-    public required SomeTransferorAccountRecord TransferorAccount { get; init; }
+    public required Account15 TransferorAccount { get; init; }
     
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
@@ -134,7 +134,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Account held in the name of a party that is not the name of the beneficial owner of the shares.")]
     [DataMember(Name="NmneeAcct")]
     [XmlElement(ElementName="NmneeAcct")]
-    public SomeNomineeAccountRecord? NomineeAccount { get; init; }
+    public Account16? NomineeAccount { get; init; }
     
     /// <summary>
     /// Information related to the institution to which the financial instrument is to be transferred.
@@ -144,7 +144,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [DataMember(Name="Trfee")]
     [XmlElement(ElementName="Trfee")]
     [Required]
-    public required SomeTransfereeRecord Transferee { get; init; }
+    public required IPartyIdentification2Choice Transferee { get; init; }
     
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
@@ -153,7 +153,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).")]
     [DataMember(Name="CshAcct")]
     [XmlElement(ElementName="CshAcct")]
-    public SomeCashAccountRecord? CashAccount { get; init; }
+    public CashAccount29? CashAccount { get; init; }
     
     /// <summary>
     /// Provides information related to the asset(s) transferred.
@@ -163,7 +163,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [DataMember(Name="PdctTrf")]
     [XmlElement(ElementName="PdctTrf")]
     [Required]
-    public required SomeProductTransferRecord ProductTransfer { get; init; }
+    public required ISATransfer18 ProductTransfer { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -172,7 +172,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Identifies the market practice to which the message conforms.")]
     [DataMember(Name="MktPrctcVrsn")]
     [XmlElement(ElementName="MktPrctcVrsn")]
-    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    public MarketPracticeVersion1? MarketPracticeVersion { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -181,7 +181,7 @@ public partial record PortfolioTransferInstructionV06 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="Xtnsn")]
     [XmlElement(ElementName="Xtnsn")]
-    public SomeExtensionRecord? Extension { get; init; }
+    public Extension1? Extension { get; init; }
     
     */
     

@@ -45,7 +45,7 @@ public partial record GetAccountV07 : IOuterRecord
     [DataMember(Name="MsgHdr")]
     [XmlElement(ElementName="MsgHdr")]
     [Required]
-    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    public required MessageHeader9 MessageHeader { get; init; }
     
     /// <summary>
     /// Defines the account query criteria.
@@ -54,7 +54,7 @@ public partial record GetAccountV07 : IOuterRecord
     [Description(@"Defines the account query criteria.")]
     [DataMember(Name="AcctQryDef")]
     [XmlElement(ElementName="AcctQryDef")]
-    public SomeAccountQueryDefinitionRecord? AccountQueryDefinition { get; init; }
+    public AccountQuery3? AccountQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -63,7 +63,7 @@ public partial record GetAccountV07 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     

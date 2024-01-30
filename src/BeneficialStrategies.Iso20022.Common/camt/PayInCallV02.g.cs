@@ -29,7 +29,7 @@ public partial record PayInCallV02 : IOuterRecord
     [DataMember(Name="PtyId")]
     [XmlElement(ElementName="PtyId")]
     [Required]
-    public required SomePartyIdentificationRecord PartyIdentification { get; init; }
+    public required IPartyIdentification73Choice PartyIdentification { get; init; }
     
     /// <summary>
     /// Contains the report generation information and the report items.
@@ -39,7 +39,7 @@ public partial record PayInCallV02 : IOuterRecord
     [DataMember(Name="RptData")]
     [XmlElement(ElementName="RptData")]
     [Required]
-    public required SomeReportDataRecord ReportData { get; init; }
+    public required ReportData5 ReportData { get; init; }
     
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
@@ -48,7 +48,7 @@ public partial record PayInCallV02 : IOuterRecord
     [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
     [DataMember(Name="SttlmSsnIdr")]
     [XmlElement(ElementName="SttlmSsnIdr")]
-    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -57,7 +57,7 @@ public partial record PayInCallV02 : IOuterRecord
     [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
     [DataMember(Name="SplmtryData")]
     [XmlElement(ElementName="SplmtryData")]
-    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    public SupplementaryData1? SupplementaryData { get; init; }
     
     */
     
