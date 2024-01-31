@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies when a transaction/instruction is to be executed relative to a linked transaction/instruction.

@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.

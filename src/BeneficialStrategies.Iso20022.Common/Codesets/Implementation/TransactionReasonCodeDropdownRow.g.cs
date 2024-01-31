@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies the reason for a transaction to be rejected, returned or reversed by an instructed agent or somebody acting on behalf of an instructed agent.

@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies the reason the transaction/instruction is pending settlement. Settlement on the instructed settlement date is still possible.

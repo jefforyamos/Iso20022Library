@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies the external submission or presentation channel code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.

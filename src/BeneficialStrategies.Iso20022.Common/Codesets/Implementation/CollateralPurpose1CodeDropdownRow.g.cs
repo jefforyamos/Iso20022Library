@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Indicates whether the collateral has been posted against the variation margin or the segregated independent amount.

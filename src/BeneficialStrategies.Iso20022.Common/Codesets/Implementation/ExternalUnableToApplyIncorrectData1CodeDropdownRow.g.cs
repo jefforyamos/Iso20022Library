@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies the reason of an unable to apply due to incorrect data, as published in an external unable to apply incorrect data code set.

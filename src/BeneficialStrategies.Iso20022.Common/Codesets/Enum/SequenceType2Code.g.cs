@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies whether a once off transaction is covered or whether recurring transactions are covered.

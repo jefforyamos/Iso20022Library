@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// List of Retail services available and used in the Retail messages. Helps to know which service to activate.

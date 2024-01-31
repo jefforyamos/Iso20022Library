@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is to be processed.

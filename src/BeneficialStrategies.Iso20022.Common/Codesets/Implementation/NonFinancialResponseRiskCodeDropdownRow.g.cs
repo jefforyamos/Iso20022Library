@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Type of risk management answer from an Acquirer (or its IntermediaryAgent) to a POI through a NonFinancialResponse. 

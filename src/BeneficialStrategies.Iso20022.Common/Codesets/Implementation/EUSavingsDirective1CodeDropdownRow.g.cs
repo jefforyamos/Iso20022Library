@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Indicates whether or not the fund is subject to reporting under the EU Savings Directive. Enter "Variable" if the status of the fund is likely to change from time to time.

@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Indicates the type of DTC (The Depository Trust Company) service for example Cash In Lieu/ Round Up, Foreign Tax Relief, etc.

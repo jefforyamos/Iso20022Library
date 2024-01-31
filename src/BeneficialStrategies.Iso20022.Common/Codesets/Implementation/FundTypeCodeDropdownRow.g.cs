@@ -6,7 +6,7 @@
 
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// In the case where the reporting counterparty is a UCIT or AIF, an indication whether it is an ETF or a MMF.

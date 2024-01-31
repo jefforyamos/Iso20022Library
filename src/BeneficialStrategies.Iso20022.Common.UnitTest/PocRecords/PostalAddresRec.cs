@@ -2,7 +2,8 @@
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using BeneficialStrategies.Iso20222.Common;
+using BeneficialStrategies.Iso20022.Codesets;
+
 
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;

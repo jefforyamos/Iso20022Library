@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Specifies further instructions concerning the processing of a payment instruction, as provided to the creditor agent.
@@ -16,7 +16,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hokV-ssaEemxFbEZK-FMzw")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction, as provided to the creditor agent.")]
-// [Derivations(typeof(ExternalDebtorAgentInstruction1Code))]
+[Derivations(typeof(ExternalDebtorAgentInstruction1Code))]
 public enum ExternalDebtorAgentInstructionCode
 {
     /// <summary>

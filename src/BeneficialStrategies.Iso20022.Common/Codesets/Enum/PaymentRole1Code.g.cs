@@ -7,7 +7,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace BeneficialStrategies.Iso20222.Common;
+namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
 /// Role associated with a specific party in relation to a payment instruction. The role identifies either the specific function of the party, or the party's rights regarding management of the instruction.
