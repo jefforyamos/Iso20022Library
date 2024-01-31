@@ -24,7 +24,7 @@ public partial record ConditionallyAcceptedStatus2
     /// <summary>
     /// Reason for the conditionally accepted status.
     /// </summary>
-    // public IReadOnlyCollection<ConditionallyAcceptedStatusReason2> ReasonDetails { get; init; }
+    public IReadOnlyCollection<ConditionallyAcceptedStatusReason2> ReasonDetails { get; init; } = [];
     
     #nullable disable
 }

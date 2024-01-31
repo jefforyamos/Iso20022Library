@@ -24,7 +24,7 @@ public partial record SwitchOrderInstruction1
     /// <summary>
     /// Confirmation of the information related to an intermediary.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; }
+    public IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
     /// </summary>

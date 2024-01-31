@@ -70,6 +70,6 @@ public partial record VoteInstruction : IVote4Choice
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    // public IReadOnlyCollection<ProprietaryVote1> Proprietary { get; init; }
+    public IReadOnlyCollection<ProprietaryVote1> Proprietary { get; init; } = [];
     #nullable disable
 }

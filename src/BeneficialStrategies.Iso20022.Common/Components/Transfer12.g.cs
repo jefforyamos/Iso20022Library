@@ -20,7 +20,7 @@ public partial record Transfer12
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    // public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; }
+    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be withdrawn.
     /// </summary>

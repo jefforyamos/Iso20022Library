@@ -18,7 +18,7 @@ public partial record State : ITradeData17Choice
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>

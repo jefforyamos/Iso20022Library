@@ -48,7 +48,7 @@ public partial record Resolution3
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    // public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; }
+    public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>

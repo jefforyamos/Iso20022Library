@@ -56,11 +56,11 @@ public partial record AccountParties8
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation8> Granter { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation8> Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation8> Settler { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation8> Settler { get; init; } = [];
     
     #nullable disable
 }

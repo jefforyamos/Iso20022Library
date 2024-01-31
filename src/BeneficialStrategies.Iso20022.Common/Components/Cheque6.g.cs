@@ -52,7 +52,7 @@ public partial record Cheque6
     /// <summary>
     /// Information that needs to be printed on a cheque, used by the payer to add miscellaneous information.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> MemoField { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> MemoField { get; init; } = [];
     /// <summary>
     /// Regional area in which the cheque can be cleared, when a country has no nation-wide cheque clearing organisation.
     /// </summary>

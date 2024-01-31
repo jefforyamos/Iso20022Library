@@ -18,7 +18,7 @@ public partial record Other : ITradeTransactionReport8Choice
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Trade transaction data details.
     /// </summary>

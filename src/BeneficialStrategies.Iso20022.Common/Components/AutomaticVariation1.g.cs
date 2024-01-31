@@ -32,7 +32,7 @@ public partial record AutomaticVariation1
     /// <summary>
     /// Additional information related to the variation.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

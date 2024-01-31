@@ -36,11 +36,11 @@ public partial record SafekeepingAccount16
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    // public IReadOnlyCollection<HoldingBalance12> InstructedBalance { get; init; }
+    public IReadOnlyCollection<HoldingBalance12> InstructedBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    // public IReadOnlyCollection<IPartyIdentification246Choice> RightsHolder { get; init; }
+    public IReadOnlyCollection<IPartyIdentification246Choice> RightsHolder { get; init; } = [];
     
     #nullable disable
 }

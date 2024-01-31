@@ -148,7 +148,7 @@ public partial record Undertaking1
     /// <summary>
     /// Additional information related to the application for an undertaking.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalApplicationInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalApplicationInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -18,7 +18,7 @@ public partial record PositionComponent : ITradeTransactionReport8Choice
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData24> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData24> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Contract and transaction trade data details.
     /// </summary>

@@ -18,6 +18,6 @@ public partial record Portfolio : IISAPortfolio4Choice
     /// <summary>
     /// Additional information related to the portfolio.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax350Text> PortfolioInformation { get; init; }
+    public IReadOnlyCollection<IsoMax350Text> PortfolioInformation { get; init; } = [];
     #nullable disable
 }

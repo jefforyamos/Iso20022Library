@@ -26,6 +26,6 @@ public partial record OpeningConditions : INDFOpeningFixing1Choice
     /// <summary>
     /// Specifies the rate source associated with the non deliverable trade.
     /// </summary>
-    // public IReadOnlyCollection<SettlementRateSource1> SettlementRateSource { get; init; }
+    public IReadOnlyCollection<SettlementRateSource1> SettlementRateSource { get; init; } = [];
     #nullable disable
 }

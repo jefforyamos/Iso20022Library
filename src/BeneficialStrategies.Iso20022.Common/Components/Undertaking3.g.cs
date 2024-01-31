@@ -132,7 +132,7 @@ public partial record Undertaking3
     /// <summary>
     /// Additional information related to the undertaking.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     /// <summary>
     /// Details of the local or ancillary undertaking requested to be issued by a local or other issuing institution.
     /// </summary>

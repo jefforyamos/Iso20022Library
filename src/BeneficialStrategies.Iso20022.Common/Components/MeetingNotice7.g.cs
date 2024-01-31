@@ -60,7 +60,7 @@ public partial record MeetingNotice7
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    // public IReadOnlyCollection<AdditionalRights3> AdditionalProcedureDetails { get; init; }
+    public IReadOnlyCollection<AdditionalRights3> AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record MeetingNotice7
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    // public IReadOnlyCollection<MeetingContactPerson3> ContactPersonDetails { get; init; }
+    public IReadOnlyCollection<MeetingContactPerson3> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>

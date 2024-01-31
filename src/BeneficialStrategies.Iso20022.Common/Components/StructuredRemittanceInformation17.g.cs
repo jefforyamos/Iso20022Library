@@ -48,7 +48,7 @@ public partial record StructuredRemittanceInformation17
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax140Text> AdditionalRemittanceInformation { get; init; }
+    public IReadOnlyCollection<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
     
     #nullable disable
 }

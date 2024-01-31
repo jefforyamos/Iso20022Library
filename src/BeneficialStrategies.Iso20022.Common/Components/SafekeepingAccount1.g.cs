@@ -36,7 +36,7 @@ public partial record SafekeepingAccount1
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary1> IntermediaryInformation { get; init; }
+    public IReadOnlyCollection<Intermediary1> IntermediaryInformation { get; init; } = [];
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>

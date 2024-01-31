@@ -64,7 +64,7 @@ public partial record EntryTransaction3
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    // public IReadOnlyCollection<RemittanceLocation2> RelatedRemittanceInformation { get; init; }
+    public IReadOnlyCollection<RemittanceLocation2> RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Structured information that enables the matching, that is reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>

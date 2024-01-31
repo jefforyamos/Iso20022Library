@@ -32,7 +32,7 @@ public partial record SubscriptionExecution5
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    // public IReadOnlyCollection<FundOrderType3> OrderType { get; init; }
+    public IReadOnlyCollection<FundOrderType3> OrderType { get; init; } = [];
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record SubscriptionExecution5
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    // public IReadOnlyCollection<UnitPrice10> InformativePriceDetails { get; init; }
+    public IReadOnlyCollection<UnitPrice10> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
@@ -140,7 +140,7 @@ public partial record SubscriptionExecution5
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; }
+    public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Return of cash that has been overpaid for a subscription.
     /// </summary>
@@ -180,7 +180,7 @@ public partial record SubscriptionExecution5
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

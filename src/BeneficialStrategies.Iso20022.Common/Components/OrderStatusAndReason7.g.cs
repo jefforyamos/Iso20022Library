@@ -36,7 +36,7 @@ public partial record OrderStatusAndReason7
     /// <summary>
     /// Status of all the orders in the order message is rejected. This status is used for orders that have not been accepted or entered in an order book.
     /// </summary>
-    // public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; }
+    public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of all the orders in the order message is suspended.
     /// </summary>

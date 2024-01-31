@@ -76,7 +76,7 @@ public partial record Amendment1
     /// <summary>
     /// Additional information related to the proposed amendment.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

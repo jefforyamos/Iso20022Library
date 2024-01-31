@@ -20,7 +20,7 @@ public partial record PowerOfAttorneyRequirements4
     /// <summary>
     /// Authority that must validate the power of attorney.
     /// </summary>
-    // public IReadOnlyCollection<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; }
+    public IReadOnlyCollection<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
     /// <summary>
     /// Documents needed to obtain a valid power of attorney.
     /// </summary>

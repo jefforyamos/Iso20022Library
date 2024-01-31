@@ -44,7 +44,7 @@ public partial record IndividualOrderStatusAndReason7
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    // public IReadOnlyCollection<Fee3> RepairedFee { get; init; }
+    public IReadOnlyCollection<Fee3> RepairedFee { get; init; } = [];
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>

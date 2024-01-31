@@ -20,7 +20,7 @@ public partial record PostalAddress7
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    // public IReadOnlyCollection<IsoRestrictedFINMax35Text> AddressLine { get; init; }
+    public IReadOnlyCollection<IsoRestrictedFINMax35Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>

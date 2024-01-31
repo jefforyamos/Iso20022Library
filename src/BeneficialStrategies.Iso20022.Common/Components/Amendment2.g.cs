@@ -36,7 +36,7 @@ public partial record Amendment2
     /// <summary>
     /// Digital signature of the party providing additional undertaking amendment advice details.
     /// </summary>
-    // public IReadOnlyCollection<PartyAndSignature2> DigitalSignature { get; init; }
+    public IReadOnlyCollection<PartyAndSignature2> DigitalSignature { get; init; } = [];
     
     #nullable disable
 }

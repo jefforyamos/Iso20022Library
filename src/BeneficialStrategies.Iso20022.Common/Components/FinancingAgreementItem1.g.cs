@@ -60,7 +60,7 @@ public partial record FinancingAgreementItem1
     /// <summary>
     /// Free form textual information related to the agreement.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

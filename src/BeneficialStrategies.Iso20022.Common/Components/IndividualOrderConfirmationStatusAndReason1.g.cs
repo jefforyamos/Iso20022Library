@@ -36,11 +36,11 @@ public partial record IndividualOrderConfirmationStatusAndReason1
     /// <summary>
     /// Status of the order confirmation is rejected.
     /// </summary>
-    // public IReadOnlyCollection<ConfirmationRejectedStatus1> ConfirmationRejected { get; init; }
+    public IReadOnlyCollection<ConfirmationRejectedStatus1> ConfirmationRejected { get; init; } = [];
     /// <summary>
     /// Status of the order confirmation amendment is rejected.
     /// </summary>
-    // public IReadOnlyCollection<ConfirmationRejectedStatus1> AmendmentRejected { get; init; }
+    public IReadOnlyCollection<ConfirmationRejectedStatus1> AmendmentRejected { get; init; } = [];
     /// <summary>
     /// Status of the order confirmation is accepted or received or sent to next party or there is a communication problem with next party. There is no reason attached.
     /// </summary>

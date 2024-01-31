@@ -28,7 +28,7 @@ public partial record NonFinancialRequestContentComponent3
     /// <summary>
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
-    // public IReadOnlyCollection<ExternallyDefinedData4> AdditionalRequest { get; init; }
+    public IReadOnlyCollection<ExternallyDefinedData4> AdditionalRequest { get; init; } = [];
     
     #nullable disable
 }

@@ -68,7 +68,7 @@ public partial record IndividualPerson33
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope39> ModifiedCitizenship { get; init; }
+    public IReadOnlyCollection<ModificationScope39> ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>

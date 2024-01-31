@@ -78,7 +78,7 @@ public partial record PartyAddress : ISystemPartyModification2Choice
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; }
+    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Specifies the date from which the address is valid.
     /// </summary>

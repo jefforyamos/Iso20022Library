@@ -32,7 +32,7 @@ public partial record RedemptionOrder7
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    // public IReadOnlyCollection<FundOrderType2> OrderType { get; init; }
+    public IReadOnlyCollection<FundOrderType2> OrderType { get; init; } = [];
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
@@ -116,7 +116,7 @@ public partial record RedemptionOrder7
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; }
+    public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -128,7 +128,7 @@ public partial record RedemptionOrder7
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

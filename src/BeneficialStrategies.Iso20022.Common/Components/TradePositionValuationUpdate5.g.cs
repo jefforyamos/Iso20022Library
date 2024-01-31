@@ -20,7 +20,7 @@ public partial record TradePositionValuationUpdate5
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData23> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData23> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>

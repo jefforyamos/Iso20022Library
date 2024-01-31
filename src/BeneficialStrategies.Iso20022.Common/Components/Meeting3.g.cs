@@ -32,7 +32,7 @@ public partial record Meeting3
     /// <summary>
     /// Specifies location where meeting will take place.
     /// </summary>
-    // public IReadOnlyCollection<ILocationFormat1Choice> Location { get; init; }
+    public IReadOnlyCollection<ILocationFormat1Choice> Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>

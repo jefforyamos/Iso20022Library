@@ -36,7 +36,7 @@ public partial record DetailedInstructionStatus10
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    // public IReadOnlyCollection<IPartyIdentification40Choice> RightsHolder { get; init; }
+    public IReadOnlyCollection<IPartyIdentification40Choice> RightsHolder { get; init; } = [];
     /// <summary>
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record DetailedInstructionStatus10
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    // public IReadOnlyCollection<Vote6> VotePerResolution { get; init; }
+    public IReadOnlyCollection<Vote6> VotePerResolution { get; init; } = [];
     
     #nullable disable
 }

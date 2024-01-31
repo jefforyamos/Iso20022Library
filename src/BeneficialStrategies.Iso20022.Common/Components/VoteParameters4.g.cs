@@ -72,7 +72,7 @@ public partial record VoteParameters4
     /// <summary>
     /// Identifies the possible types of voting instructions. When used at the resolution level, it supersedes the value specified in the meeting notice.
     /// </summary>
-    // public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; }
+    public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Cash premium paid to the security holder when voting earlier (before the early vote with premium deadline).
     /// </summary>

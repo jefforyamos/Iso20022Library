@@ -24,7 +24,7 @@ public partial record ActivityReportItems2
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; }
+    public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Entity for which the activity is reported.
     /// </summary>

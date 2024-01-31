@@ -28,7 +28,7 @@ public partial record CashProceeds1
     /// <summary>
     /// Provides information about the debited securities account.
     /// </summary>
-    // public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; }
+    public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

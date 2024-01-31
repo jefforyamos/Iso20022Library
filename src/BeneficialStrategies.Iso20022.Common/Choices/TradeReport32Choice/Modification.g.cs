@@ -18,7 +18,7 @@ public partial record Modification : ITradeReport32Choice
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData36> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>

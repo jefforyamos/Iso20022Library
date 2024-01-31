@@ -49,11 +49,11 @@ public partial record TradeTransaction37
     /// Indicates monetary or converted amount for the derivatives transaction.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    // public IReadOnlyCollection<NotionalAmount1> NotionalAmount { get; init; }
+    public IReadOnlyCollection<NotionalAmount1> NotionalAmount { get; init; } = [];
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.|
     /// </summary>
-    // public IReadOnlyCollection<NotionalQuantity1> NotionalQuantity { get; init; }
+    public IReadOnlyCollection<NotionalQuantity1> NotionalQuantity { get; init; } = [];
     /// <summary>
     /// Specifies the ratio of the absolute change in price of a derivative transaction to the change in price of the underlier, at the time a new transaction is reported or when a change in the notional amount is reported.
     /// </summary>

@@ -30,6 +30,6 @@ public partial record Proxy : IProxy4Choice
     /// <summary>
     /// Proxy person that is authorised by the issuer.
     /// </summary>
-    // public IReadOnlyCollection<Proxy9> AuthorisedProxy { get; init; }
+    public IReadOnlyCollection<Proxy9> AuthorisedProxy { get; init; } = [];
     #nullable disable
 }

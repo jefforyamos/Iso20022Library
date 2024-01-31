@@ -62,11 +62,11 @@ public partial record IndividualPerson : IParty30Choice
     /// <summary>
     /// Information related to an address to be inserted, updated or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope34> ModifiedPostalAddress { get; init; }
+    public IReadOnlyCollection<ModificationScope34> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; }
+    public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>

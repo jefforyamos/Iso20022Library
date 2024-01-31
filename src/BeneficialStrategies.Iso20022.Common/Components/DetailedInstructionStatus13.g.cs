@@ -36,7 +36,7 @@ public partial record DetailedInstructionStatus13
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    // public IReadOnlyCollection<IPartyIdentification227Choice> RightsHolder { get; init; }
+    public IReadOnlyCollection<IPartyIdentification227Choice> RightsHolder { get; init; } = [];
     /// <summary>
     /// Identification of the person appointed by the security holder as the proxy.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record DetailedInstructionStatus13
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    // public IReadOnlyCollection<Vote13> VotePerResolution { get; init; }
+    public IReadOnlyCollection<Vote13> VotePerResolution { get; init; } = [];
     
     #nullable disable
 }

@@ -48,7 +48,7 @@ public partial record AccountParties16
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> SuccessorOnDeath { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> SuccessorOnDeath { get; init; } = [];
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record AccountParties16
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> Granter { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> Granter { get; init; } = [];
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> Settlor { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation15> Settlor { get; init; } = [];
     /// <summary>
     /// Party that makes, or participates in the making of, decisions that affect the whole, or a substantial part, of the business of a customer of a reporting entity or that has the capacity to affect significantly the financial standing of a customer of a reporting entity. Typically, this is a controlling person of a corporate (ownership type CORP).
     /// </summary>

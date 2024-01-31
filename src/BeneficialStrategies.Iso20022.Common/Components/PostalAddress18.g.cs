@@ -20,7 +20,7 @@ public partial record PostalAddress18
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; }
+    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PostalAddress18
     /// <summary>
     /// Identifies a subdivision of a country, for instance state, region, county.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> CountrySubDivision { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> CountrySubDivision { get; init; } = [];
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>

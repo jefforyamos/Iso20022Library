@@ -56,7 +56,7 @@ public partial record QualifiedDocumentInformation1
     /// <summary>
     /// Cryptographic hash of the document.
     /// </summary>
-    // public IReadOnlyCollection<AlgorithmAndDigest1> Digest { get; init; }
+    public IReadOnlyCollection<AlgorithmAndDigest1> Digest { get; init; } = [];
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>

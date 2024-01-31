@@ -28,7 +28,7 @@ public partial record ReorganisationInstructionSD13
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using Transaction Sequence Number.
     /// </summary>
-    // public IReadOnlyCollection<InstructionsTransactionsSequence2> TransactionSequence { get; init; }
+    public IReadOnlyCollection<InstructionsTransactionsSequence2> TransactionSequence { get; init; } = [];
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>

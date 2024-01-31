@@ -60,11 +60,11 @@ public partial record InvestmentPlan5
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    // public IReadOnlyCollection<Repartition1> SecurityDetails { get; init; }
+    public IReadOnlyCollection<Repartition1> SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan and to be either inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundCashSettlementInformation4> ModifiedCashSettlement { get; init; }
+    public IReadOnlyCollection<InvestmentFundCashSettlementInformation4> ModifiedCashSettlement { get; init; } = [];
     
     #nullable disable
 }

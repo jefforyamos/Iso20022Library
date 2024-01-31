@@ -32,7 +32,7 @@ public partial record UndertakingConfirmation1
     /// <summary>
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> Confirmation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> Confirmation { get; init; } = [];
     
     #nullable disable
 }

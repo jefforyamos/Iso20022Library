@@ -44,7 +44,7 @@ public partial record AccountParties13
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> SuccessorOnDeath { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> SuccessorOnDeath { get; init; } = [];
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record AccountParties13
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> Granter { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> Granter { get; init; } = [];
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> Settlor { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation12> Settlor { get; init; } = [];
     /// <summary>
     /// Party that registers its name with the issuer and the name used for the registration.
     /// </summary>

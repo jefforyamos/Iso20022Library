@@ -28,7 +28,7 @@ public partial record CounterpartyData76
     /// <summary>
     /// Data specific to counterparties.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartyData77> CounterpartyData { get; init; }
+    public IReadOnlyCollection<CounterpartyData77> CounterpartyData { get; init; } = [];
     
     #nullable disable
 }

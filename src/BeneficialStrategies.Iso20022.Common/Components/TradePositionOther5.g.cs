@@ -20,7 +20,7 @@ public partial record TradePositionOther5
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>

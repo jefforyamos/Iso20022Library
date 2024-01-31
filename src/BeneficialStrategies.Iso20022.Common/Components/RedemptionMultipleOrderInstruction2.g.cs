@@ -24,7 +24,7 @@ public partial record RedemptionMultipleOrderInstruction2
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>

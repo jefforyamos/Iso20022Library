@@ -32,7 +32,7 @@ public partial record TradeTransactionStatusAndReason1
     /// <summary>
     /// Indicates that the report is rejected and provides a reason why.
     /// </summary>
-    // public IReadOnlyCollection<IRejectedStatusReason9Choice> Rejected { get; init; }
+    public IReadOnlyCollection<IRejectedStatusReason9Choice> Rejected { get; init; } = [];
     
     #nullable disable
 }

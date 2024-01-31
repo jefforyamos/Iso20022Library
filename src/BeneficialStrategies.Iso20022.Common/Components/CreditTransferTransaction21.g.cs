@@ -80,7 +80,7 @@ public partial record CreditTransferTransaction21
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    // public IReadOnlyCollection<RegulatoryReporting3> RegulatoryReporting { get; init; }
+    public IReadOnlyCollection<RegulatoryReporting3> RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Provides details on the tax.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record CreditTransferTransaction21
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    // public IReadOnlyCollection<RemittanceLocation4> RelatedRemittanceInformation { get; init; }
+    public IReadOnlyCollection<RemittanceLocation4> RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>

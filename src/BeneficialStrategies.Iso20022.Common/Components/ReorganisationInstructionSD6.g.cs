@@ -40,7 +40,7 @@ public partial record ReorganisationInstructionSD6
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is rejected.
     /// </summary>
-    // public IReadOnlyCollection<InstructionRejectionReason1Code> RejectionReason { get; init; }
+    public IReadOnlyCollection<InstructionRejectionReason1Code> RejectionReason { get; init; } = [];
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>

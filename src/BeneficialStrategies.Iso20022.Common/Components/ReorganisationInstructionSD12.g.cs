@@ -28,7 +28,7 @@ public partial record ReorganisationInstructionSD12
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using transaction sequence number.
     /// </summary>
-    // public IReadOnlyCollection<InstructionsTransactionsSequence2> TransactionSequence { get; init; }
+    public IReadOnlyCollection<InstructionsTransactionsSequence2> TransactionSequence { get; init; } = [];
     /// <summary>
     /// Status of the instruction.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record ReorganisationInstructionSD12
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is pending or rejected.
     /// </summary>
-    // public IReadOnlyCollection<InstructionReason4Code> Reason { get; init; }
+    public IReadOnlyCollection<InstructionReason4Code> Reason { get; init; } = [];
     /// <summary>
     /// Provides further information about securities quantity linked to a corporate action option.
     /// </summary>

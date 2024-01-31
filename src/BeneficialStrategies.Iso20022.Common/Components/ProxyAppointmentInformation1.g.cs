@@ -36,7 +36,7 @@ public partial record ProxyAppointmentInformation1
     /// <summary>
     /// Specifies the proxy persons which are authorised by the issuer.
     /// </summary>
-    // public IReadOnlyCollection<Proxy1> AuthorisedProxy { get; init; }
+    public IReadOnlyCollection<Proxy1> AuthorisedProxy { get; init; } = [];
     
     #nullable disable
 }

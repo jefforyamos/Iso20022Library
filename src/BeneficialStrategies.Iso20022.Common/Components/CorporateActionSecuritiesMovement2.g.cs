@@ -36,7 +36,7 @@ public partial record CorporateActionSecuritiesMovement2
     /// <summary>
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
-    // public IReadOnlyCollection<SecuritiesAccount9> AccountDetails { get; init; }
+    public IReadOnlyCollection<SecuritiesAccount9> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

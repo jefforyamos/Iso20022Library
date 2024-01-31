@@ -41,7 +41,7 @@ public partial record TradeCounterpartyReport14
     /// Identification of the beneficiary of a derivative transaction, ie a party that is subject to the rights and obligations arising from the contract.
     /// ||Usage: The first iteration must always be the beneficiary 1 of the counterparty 1 and the second iteration is the beneficiary 2 of the counterparty 2.
     /// </summary>
-    // public IReadOnlyCollection<IPartyIdentification235Choice> Beneficiary { get; init; }
+    public IReadOnlyCollection<IPartyIdentification235Choice> Beneficiary { get; init; } = [];
     
     #nullable disable
 }

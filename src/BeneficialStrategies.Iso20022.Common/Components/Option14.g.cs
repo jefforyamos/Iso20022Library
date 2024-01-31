@@ -20,7 +20,7 @@ public partial record Option14
     /// <summary>
     /// Expiration style of the option.
     /// </summary>
-    // public IReadOnlyCollection<OptionStyle5Code> ExpirationStyle { get; init; }
+    public IReadOnlyCollection<OptionStyle5Code> ExpirationStyle { get; init; } = [];
     /// <summary>
     /// Specifies how the option can be exercised.
     /// </summary>

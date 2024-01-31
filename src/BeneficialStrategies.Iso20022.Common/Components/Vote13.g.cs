@@ -72,7 +72,7 @@ public partial record Vote13
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    // public IReadOnlyCollection<ProprietaryVote2> Proprietary { get; init; }
+    public IReadOnlyCollection<ProprietaryVote2> Proprietary { get; init; } = [];
     /// <summary>
     /// Indicates the resolution was withdrawn at the meeting.
     /// </summary>

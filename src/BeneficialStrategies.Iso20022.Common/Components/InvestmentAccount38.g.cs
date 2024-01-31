@@ -100,11 +100,11 @@ public partial record InvestmentAccount38
     /// <summary>
     /// Part of the investment account to or from which cash entries are made.
     /// </summary>
-    // public IReadOnlyCollection<CashAccount12> CashAccount { get; init; }
+    public IReadOnlyCollection<CashAccount12> CashAccount { get; init; } = [];
     /// <summary>
     /// Part of the investment account to or from which securities entries are made.
     /// </summary>
-    // public IReadOnlyCollection<SecuritiesAccount4> SecuritiesAccount { get; init; }
+    public IReadOnlyCollection<SecuritiesAccount4> SecuritiesAccount { get; init; } = [];
     /// <summary>
     /// Specifies information about blocked accounts.
     /// </summary>

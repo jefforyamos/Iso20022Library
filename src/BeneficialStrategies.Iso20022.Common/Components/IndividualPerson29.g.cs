@@ -36,7 +36,7 @@ public partial record IndividualPerson29
     /// <summary>
     /// Address of the person.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; }
+    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
     
     #nullable disable
 }

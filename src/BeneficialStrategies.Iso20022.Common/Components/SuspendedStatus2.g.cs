@@ -24,7 +24,7 @@ public partial record SuspendedStatus2
     /// <summary>
     /// Reason for the suspended status.
     /// </summary>
-    // public IReadOnlyCollection<SuspendedStatusReason2> ReasonDetails { get; init; }
+    public IReadOnlyCollection<SuspendedStatusReason2> ReasonDetails { get; init; } = [];
     
     #nullable disable
 }

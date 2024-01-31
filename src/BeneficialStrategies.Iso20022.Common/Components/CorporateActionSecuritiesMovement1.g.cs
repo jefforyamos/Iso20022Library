@@ -32,7 +32,7 @@ public partial record CorporateActionSecuritiesMovement1
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    // public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; }
+    public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

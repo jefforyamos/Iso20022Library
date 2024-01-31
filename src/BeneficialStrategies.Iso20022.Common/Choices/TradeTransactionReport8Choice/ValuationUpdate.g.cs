@@ -18,7 +18,7 @@ public partial record ValuationUpdate : ITradeTransactionReport8Choice
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData23> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData23> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Trade transaction data details.
     /// </summary>

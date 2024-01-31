@@ -28,7 +28,7 @@ public partial record UnderlyingSecurityMovement1
     /// <summary>
     /// Provides information about the debited/credited securities account.
     /// </summary>
-    // public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; }
+    public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

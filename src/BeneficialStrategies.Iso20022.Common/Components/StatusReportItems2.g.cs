@@ -24,7 +24,7 @@ public partial record StatusReportItems2
     /// <summary>
     /// Entity for which the matching application has generated a report.
     /// </summary>
-    // public IReadOnlyCollection<BICIdentification1> ReportedEntity { get; init; }
+    public IReadOnlyCollection<BICIdentification1> ReportedEntity { get; init; } = [];
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>

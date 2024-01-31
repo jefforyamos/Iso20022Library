@@ -46,7 +46,7 @@ public partial record Organisation : IParty47Choice
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; }
+    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
     /// <summary>
     /// Type of organisation.
     /// </summary>

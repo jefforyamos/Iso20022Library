@@ -48,7 +48,7 @@ public partial record Undertaking2
     /// <summary>
     /// Additional information related to the counter-undertaking.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -24,11 +24,11 @@ public partial record MissingOrIncorrectInformation2
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    // public IReadOnlyCollection<UnableToApplyMissingInformation2Code> MissingInformation { get; init; }
+    public IReadOnlyCollection<UnableToApplyMissingInformation2Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates, in a coded form, the incorrect information.
     /// </summary>
-    // public IReadOnlyCollection<UnableToApplyIncorrectInformation3Code> IncorrectInformation { get; init; }
+    public IReadOnlyCollection<UnableToApplyIncorrectInformation3Code> IncorrectInformation { get; init; } = [];
     
     #nullable disable
 }

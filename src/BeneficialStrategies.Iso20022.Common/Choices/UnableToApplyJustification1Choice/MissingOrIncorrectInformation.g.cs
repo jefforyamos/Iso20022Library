@@ -18,10 +18,10 @@ public partial record MissingOrIncorrectInformation : IUnableToApplyJustificatio
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    // public IReadOnlyCollection<UnableToApplyMissingInfo1Code> MissingInformation { get; init; }
+    public IReadOnlyCollection<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates the incorrect information.
     /// </summary>
-    // public IReadOnlyCollection<UnableToApplyIncorrectInfo2Code> IncorrectInformation { get; init; }
+    public IReadOnlyCollection<UnableToApplyIncorrectInfo2Code> IncorrectInformation { get; init; } = [];
     #nullable disable
 }

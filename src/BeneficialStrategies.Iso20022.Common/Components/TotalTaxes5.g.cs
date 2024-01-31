@@ -28,7 +28,7 @@ public partial record TotalTaxes5
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    // public IReadOnlyCollection<Tax20> TaxDetails { get; init; }
+    public IReadOnlyCollection<Tax20> TaxDetails { get; init; } = [];
     
     #nullable disable
 }

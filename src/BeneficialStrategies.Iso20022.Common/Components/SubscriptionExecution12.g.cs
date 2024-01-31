@@ -32,7 +32,7 @@ public partial record SubscriptionExecution12
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    // public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; }
+    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
@@ -70,7 +70,7 @@ public partial record SubscriptionExecution12
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    // public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; }
+    public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
@@ -147,7 +147,7 @@ public partial record SubscriptionExecution12
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; }
+    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Return of cash that has been overpaid for a subscription.
     /// </summary>
@@ -187,7 +187,7 @@ public partial record SubscriptionExecution12
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

@@ -99,7 +99,7 @@ public partial record UnsecuredMarketTransaction3
     /// <summary>
     /// Provides the option details, when the transaction reported is a call/put option.
     /// </summary>
-    // public IReadOnlyCollection<Option12> CallPutOption { get; init; }
+    public IReadOnlyCollection<Option12> CallPutOption { get; init; } = [];
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>

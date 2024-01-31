@@ -24,7 +24,7 @@ public partial record ExpiryDetails2
     /// <summary>
     /// Additional information related to the expiry and expiry extension.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalExpiryInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalExpiryInformation { get; init; } = [];
     
     #nullable disable
 }

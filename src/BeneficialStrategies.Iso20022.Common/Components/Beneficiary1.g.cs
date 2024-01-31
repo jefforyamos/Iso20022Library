@@ -24,7 +24,7 @@ public partial record Beneficiary1
     /// <summary>
     /// Additional information concerning the amended beneficiary details.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

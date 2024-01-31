@@ -76,7 +76,7 @@ public partial record Vote14
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    // public IReadOnlyCollection<ProprietaryVote1> Proprietary { get; init; }
+    public IReadOnlyCollection<ProprietaryVote1> Proprietary { get; init; } = [];
     
     #nullable disable
 }

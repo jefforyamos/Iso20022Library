@@ -28,7 +28,7 @@ public partial record Location1
     /// <summary>
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> Text { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> Text { get; init; } = [];
     
     #nullable disable
 }

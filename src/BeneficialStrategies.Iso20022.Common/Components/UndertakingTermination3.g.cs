@@ -28,7 +28,7 @@ public partial record UndertakingTermination3
     /// <summary>
     /// Additional information related to the termination.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

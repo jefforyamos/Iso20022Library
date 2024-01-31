@@ -40,7 +40,7 @@ public partial record MeetingReference4
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress1> Location { get; init; }
+    public IReadOnlyCollection<PostalAddress1> Location { get; init; } = [];
     
     #nullable disable
 }

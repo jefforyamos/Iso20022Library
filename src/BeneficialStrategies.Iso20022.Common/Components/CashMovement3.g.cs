@@ -32,7 +32,7 @@ public partial record CashMovement3
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    // public IReadOnlyCollection<CashAccount18> AccountDetails { get; init; }
+    public IReadOnlyCollection<CashAccount18> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

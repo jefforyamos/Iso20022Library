@@ -28,7 +28,7 @@ public partial record SecuritiesProceeds1
     /// <summary>
     /// Provides information about the account that is debited/credited.
     /// </summary>
-    // public IReadOnlyCollection<SecuritiesAccount10> AccountDetails { get; init; }
+    public IReadOnlyCollection<SecuritiesAccount10> AccountDetails { get; init; } = [];
     /// <summary>
     /// Provides reconciliation information.
     /// </summary>

@@ -62,7 +62,7 @@ public partial record SwitchRedemptionLegExecution4
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    // public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; }
+    public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Indicates whether the dividend is included, that is, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>

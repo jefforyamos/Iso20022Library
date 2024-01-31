@@ -28,7 +28,7 @@ public partial record GroupHeader80
     /// <summary>
     /// User identification or any user key to be used to check the authority of the initiating party.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side. The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    // public IReadOnlyCollection<IAuthorisation1Choice> Authorisation { get; init; }
+    public IReadOnlyCollection<IAuthorisation1Choice> Authorisation { get; init; } = [];
     /// <summary>
     /// Party that initiates the mandate message.
     /// </summary>

@@ -108,7 +108,7 @@ public partial record Undertaking4
     /// <summary>
     /// Additional information related to the requested local undertaking.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

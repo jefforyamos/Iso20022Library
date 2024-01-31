@@ -20,19 +20,19 @@ public partial record VoteMethods3
     /// <summary>
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
-    // public IReadOnlyCollection<IsoAnyBICDec2014Identifier> VoteThroughNetwork { get; init; }
+    public IReadOnlyCollection<IsoAnyBICDec2014Identifier> VoteThroughNetwork { get; init; } = [];
     /// <summary>
     /// Address where the voting ballot can be sent.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress1> VoteByMail { get; init; }
+    public IReadOnlyCollection<PostalAddress1> VoteByMail { get; init; } = [];
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    // public IReadOnlyCollection<CommunicationAddress11> ElectronicVote { get; init; }
+    public IReadOnlyCollection<CommunicationAddress11> ElectronicVote { get; init; } = [];
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> VoteByTelephone { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> VoteByTelephone { get; init; } = [];
     
     #nullable disable
 }

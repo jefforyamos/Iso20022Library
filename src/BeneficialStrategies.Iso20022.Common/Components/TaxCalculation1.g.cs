@@ -32,7 +32,7 @@ public partial record TaxCalculation1
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. ||Usage: A maximum of three specific tax identifications may be provided. These elements use the total host currency taxable amount as the basis of the calculation. |This element is only valid for method C.
     /// </summary>
-    // public IReadOnlyCollection<BillingServicesTax3> TaxIdentification { get; init; }
+    public IReadOnlyCollection<BillingServicesTax3> TaxIdentification { get; init; } = [];
     /// <summary>
     /// Total amount of all taxes for a specific customer within the tax region. This is a sum of all individual total tax amounts for tax identification ’s expressed in the tax region’s host currency.
     /// </summary>

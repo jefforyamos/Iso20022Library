@@ -50,7 +50,7 @@ public partial record Organisation : IParty24Choice
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; }
+    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record DataSetSubmissionReferences4
     /// <summary>
     /// Own reference to the transaction for the financial institution.
     /// </summary>
-    // public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; }
+    public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Specifies that this message should force the matching application to match all data sets it has received so far for the transaction identified by the transaction identification.
     /// </summary>

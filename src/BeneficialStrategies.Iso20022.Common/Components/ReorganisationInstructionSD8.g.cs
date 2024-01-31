@@ -44,7 +44,7 @@ public partial record ReorganisationInstructionSD8
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is rejected.
     /// </summary>
-    // public IReadOnlyCollection<InstructionRejectionReason1Code> RejectionReason { get; init; }
+    public IReadOnlyCollection<InstructionRejectionReason1Code> RejectionReason { get; init; } = [];
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>

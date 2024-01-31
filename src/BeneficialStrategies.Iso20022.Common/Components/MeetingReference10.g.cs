@@ -40,7 +40,7 @@ public partial record MeetingReference10
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress1> Location { get; init; }
+    public IReadOnlyCollection<PostalAddress1> Location { get; init; } = [];
     /// <summary>
     /// Institution that is the issuer of the security to which the meeting applies.
     /// </summary>

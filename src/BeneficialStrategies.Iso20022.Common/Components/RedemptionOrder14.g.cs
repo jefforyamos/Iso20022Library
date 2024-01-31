@@ -28,7 +28,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    // public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; }
+    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
     /// <summary>
     /// Investment fund class related to the order.
     /// </summary>
@@ -113,7 +113,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; }
+    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -125,7 +125,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary40> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary40> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's retained subscription amount that is returned by the fund in order to reimburse preliminary incentive/performance fees.
     /// </summary>

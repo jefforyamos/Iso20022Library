@@ -32,7 +32,7 @@ public partial record TradingParameters2
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    // public IReadOnlyCollection<IsoMICIdentifier> SecondaryPlaceOfListing { get; init; }
+    public IReadOnlyCollection<IsoMICIdentifier> SecondaryPlaceOfListing { get; init; } = [];
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>

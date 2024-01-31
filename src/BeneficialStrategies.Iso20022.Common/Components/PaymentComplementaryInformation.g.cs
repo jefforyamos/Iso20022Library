@@ -68,7 +68,7 @@ public partial record PaymentComplementaryInformation
     /// <summary>
     /// Unformatted information from the sender to the receiver.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> SenderToReceiverInformation { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record TradeNewTransaction10
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData24> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData24> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>

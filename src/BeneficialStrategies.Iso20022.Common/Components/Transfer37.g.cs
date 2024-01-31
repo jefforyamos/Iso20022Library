@@ -64,7 +64,7 @@ public partial record Transfer37
     /// <summary>
     /// Specifies information about investment plans included in the holding.
     /// </summary>
-    // public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; }
+    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument transferred.
     /// </summary>

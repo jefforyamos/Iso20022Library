@@ -20,7 +20,7 @@ public partial record TradePositionEarlyTermination5
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    // public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; }
+    public IReadOnlyCollection<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Contract and transaction trade data details.
     /// </summary>

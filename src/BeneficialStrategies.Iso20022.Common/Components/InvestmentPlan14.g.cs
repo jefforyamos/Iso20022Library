@@ -56,11 +56,11 @@ public partial record InvestmentPlan14
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    // public IReadOnlyCollection<Repartition5> SecurityDetails { get; init; }
+    public IReadOnlyCollection<Repartition5> SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan.
     /// </summary>
-    // public IReadOnlyCollection<CashSettlement1> CashSettlement { get; init; }
+    public IReadOnlyCollection<CashSettlement1> CashSettlement { get; init; } = [];
     /// <summary>
     /// Reference of the underlying investment contract. In some markets, such as Italy, this might be required to segregate holdings between the same investment account.
     /// </summary>

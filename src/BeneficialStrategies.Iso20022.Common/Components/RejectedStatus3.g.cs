@@ -20,11 +20,11 @@ public partial record RejectedStatus3
     /// <summary>
     /// Reason for a rejected status in the report.
     /// </summary>
-    // public IReadOnlyCollection<RejectedStatusReason6> Reason { get; init; }
+    public IReadOnlyCollection<RejectedStatusReason6> Reason { get; init; } = [];
     /// <summary>
     /// Proprietary identification of a reason for a rejected status in the report.
     /// </summary>
-    // public IReadOnlyCollection<GenericIdentification1> DataSourceScheme { get; init; }
+    public IReadOnlyCollection<GenericIdentification1> DataSourceScheme { get; init; } = [];
     
     #nullable disable
 }

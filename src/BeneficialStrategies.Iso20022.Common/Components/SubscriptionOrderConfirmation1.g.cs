@@ -28,7 +28,7 @@ public partial record SubscriptionOrderConfirmation1
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>

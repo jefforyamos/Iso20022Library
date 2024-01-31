@@ -52,7 +52,7 @@ public partial record Organisation38
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress3> PostalAddress { get; init; }
+    public IReadOnlyCollection<PostalAddress3> PostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>

@@ -32,7 +32,7 @@ public partial record ProxyAppointmentInformation4
     /// <summary>
     /// Proxy person that is authorised by the issuer.
     /// </summary>
-    // public IReadOnlyCollection<Proxy8> AuthorisedProxy { get; init; }
+    public IReadOnlyCollection<Proxy8> AuthorisedProxy { get; init; } = [];
     
     #nullable disable
 }

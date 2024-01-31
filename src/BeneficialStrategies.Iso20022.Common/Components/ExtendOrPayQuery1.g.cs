@@ -44,7 +44,7 @@ public partial record ExtendOrPayQuery1
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

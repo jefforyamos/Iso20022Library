@@ -28,7 +28,7 @@ public partial record GroupHeader9
     /// <summary>
     /// User identification or any user key that allows to check if the initiating party is allowed to initiate transactions from the account specified in the initiation.||Usage: the content is not of a technical nature, but reflects the organisational structure at the initiating side.|The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a different party than the initiating party.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax128Text> Authorisation { get; init; }
+    public IReadOnlyCollection<IsoMax128Text> Authorisation { get; init; } = [];
     /// <summary>
     /// Identifies whether a single entry per individual transaction or a batch entry for the sum of the amounts of all transactions in the message is requested.
     /// </summary>

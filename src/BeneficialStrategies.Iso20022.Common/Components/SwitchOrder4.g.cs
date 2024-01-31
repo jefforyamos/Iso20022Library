@@ -76,7 +76,7 @@ public partial record SwitchOrder4
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>

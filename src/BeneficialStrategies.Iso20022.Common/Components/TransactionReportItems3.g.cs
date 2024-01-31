@@ -32,7 +32,7 @@ public partial record TransactionReportItems3
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; }
+    public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>

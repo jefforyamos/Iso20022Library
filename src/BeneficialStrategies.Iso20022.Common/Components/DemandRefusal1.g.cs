@@ -48,11 +48,11 @@ public partial record DemandRefusal1
     /// <summary>
     /// Indication of how the demand presentation documents will be handled as a consequence of the demand refusal.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> DispositionOfDocuments { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> DispositionOfDocuments { get; init; } = [];
     /// <summary>
     /// Additional information related to the notification.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -28,7 +28,7 @@ public partial record Tax17
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    // public IReadOnlyCollection<IsoActiveOrHistoricCurrencyAnd13DecimalAmount> Amount { get; init; }
+    public IReadOnlyCollection<IsoActiveOrHistoricCurrencyAnd13DecimalAmount> Amount { get; init; } = [];
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>

@@ -34,6 +34,6 @@ public partial record IndividualPerson : IRegisteredShareholderName1Choice
     /// <summary>
     /// Address of the person.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; }
+    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
     #nullable disable
 }

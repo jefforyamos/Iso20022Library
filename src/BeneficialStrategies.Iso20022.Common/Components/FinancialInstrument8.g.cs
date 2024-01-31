@@ -20,7 +20,7 @@ public partial record FinancialInstrument8
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    // public IReadOnlyCollection<ISecurityIdentification3Choice> Identification { get; init; }
+    public IReadOnlyCollection<ISecurityIdentification3Choice> Identification { get; init; } = [];
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>

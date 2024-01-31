@@ -56,7 +56,7 @@ public partial record SwitchExecution7
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>

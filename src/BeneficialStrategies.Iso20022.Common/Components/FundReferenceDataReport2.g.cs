@@ -96,7 +96,7 @@ public partial record FundReferenceDataReport2
     /// <summary>
     /// Costs and charges associated with the distribution of selling of the financial instrument. These may be one-off or recurring. These may be ex ante (intended) or post ante (actual).
     /// </summary>
-    // public IReadOnlyCollection<CostsAndCharges1> CostsAndCharges { get; init; }
+    public IReadOnlyCollection<CostsAndCharges1> CostsAndCharges { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>

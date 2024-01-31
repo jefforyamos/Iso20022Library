@@ -52,7 +52,7 @@ public partial record InvestmentAccountOwnershipInformation4
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope11> ModifiedInvestorProfileValidation { get; init; }
+    public IReadOnlyCollection<ModificationScope11> ModifiedInvestorProfileValidation { get; init; } = [];
     
     #nullable disable
 }

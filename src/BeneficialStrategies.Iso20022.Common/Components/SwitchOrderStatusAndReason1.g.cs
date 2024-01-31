@@ -52,7 +52,7 @@ public partial record SwitchOrderStatusAndReason1
     /// <summary>
     /// Status of the switch order is rejected.
     /// </summary>
-    // public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; }
+    public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of the switch order is suspended.
     /// </summary>

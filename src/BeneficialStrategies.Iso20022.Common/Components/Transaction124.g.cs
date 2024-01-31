@@ -89,7 +89,7 @@ public partial record Transaction124
     /// <summary>
     /// Provides the status of a  transaction.
     /// </summary>
-    // public IReadOnlyCollection<TransactionStatus6> TransactionStatus { get; init; }
+    public IReadOnlyCollection<TransactionStatus6> TransactionStatus { get; init; } = [];
     /// <summary>
     /// Quantity of securities assigned as collateral position.
     /// </summary>

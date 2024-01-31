@@ -52,15 +52,15 @@ public partial record AccountParties7
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Granter { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Settler { get; init; }
+    public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Settler { get; init; } = [];
     /// <summary>
     /// An other type of party.
     /// </summary>
-    // public IReadOnlyCollection<ExtendedParty4> OtherParty { get; init; }
+    public IReadOnlyCollection<ExtendedParty4> OtherParty { get; init; } = [];
     
     #nullable disable
 }

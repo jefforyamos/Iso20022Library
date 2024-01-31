@@ -44,7 +44,7 @@ public partial record TransactionDetails3
     /// <summary>
     /// Identifies the regulator(s) to whom the transaction report must be sent.
     /// </summary>
-    // public IReadOnlyCollection<IPartyIdentification24Choice> TransactionReportMarker { get; init; }
+    public IReadOnlyCollection<IPartyIdentification24Choice> TransactionReportMarker { get; init; } = [];
     /// <summary>
     /// Provides details of the counterparty.
     /// </summary>

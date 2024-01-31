@@ -72,7 +72,7 @@ public partial record DirectDebitTransactionInformation1
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    // public IReadOnlyCollection<RegulatoryReporting2> RegulatoryReporting { get; init; }
+    public IReadOnlyCollection<RegulatoryReporting2> RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record DirectDebitTransactionInformation1
     /// <summary>
     /// Information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    // public IReadOnlyCollection<RemittanceLocation1> RelatedRemittanceInformation { get; init; }
+    public IReadOnlyCollection<RemittanceLocation1> RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>

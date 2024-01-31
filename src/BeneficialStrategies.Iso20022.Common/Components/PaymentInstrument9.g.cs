@@ -24,7 +24,7 @@ public partial record PaymentInstrument9
     /// <summary>
     /// Cash account to credit for the payment of the dividends or of the redeemed investments funds.
     /// </summary>
-    // public IReadOnlyCollection<CashAccount4> CashAccountDetails { get; init; }
+    public IReadOnlyCollection<CashAccount4> CashAccountDetails { get; init; } = [];
     /// <summary>
     /// Settlement instructions for a payment by cheque.
     /// </summary>

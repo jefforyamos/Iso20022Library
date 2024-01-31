@@ -54,6 +54,6 @@ public partial record NewAddress : IAddressOrParty1Choice
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; }
+    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
     #nullable disable
 }

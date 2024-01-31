@@ -24,7 +24,7 @@ public partial record RedemptionBulkOrderInstruction1
     /// <summary>
     /// Information related to an intermediary.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; }
+    public IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Message is a copy.
     /// </summary>

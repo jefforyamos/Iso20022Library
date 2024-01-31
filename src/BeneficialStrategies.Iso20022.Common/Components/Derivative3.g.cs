@@ -24,7 +24,7 @@ public partial record Derivative3
     /// <summary>
     /// Rate(s) that determine(s)) the value of the swap during the lifetime of the trade. Where both rates are fixed this does not need to be reported.
     /// </summary>
-    // public IReadOnlyCollection<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; }
+    public IReadOnlyCollection<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; } = [];
     /// <summary>
     /// Option specific attributes.
     /// </summary>

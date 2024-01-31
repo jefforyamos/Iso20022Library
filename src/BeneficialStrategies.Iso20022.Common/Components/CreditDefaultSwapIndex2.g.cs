@@ -28,7 +28,7 @@ public partial record CreditDefaultSwapIndex2
     /// <summary>
     /// All months when the roll is expected as established by the index provider for a given year. Field should be repeated for each month in the roll.
     /// </summary>
-    // public IReadOnlyCollection<IsoRestrictedMonthExact2Number> RollMonth { get; init; }
+    public IReadOnlyCollection<IsoRestrictedMonthExact2Number> RollMonth { get; init; } = [];
     /// <summary>
     /// To be populated in the case of a CDS Index or a derivative CDS Index with the next roll date of the index as established by the index provider.
     /// </summary>

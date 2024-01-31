@@ -28,7 +28,7 @@ public partial record Presentation4
     /// <summary>
     /// Additional information related to the presentation.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -52,7 +52,7 @@ public partial record Organisation3
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; }
+    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>

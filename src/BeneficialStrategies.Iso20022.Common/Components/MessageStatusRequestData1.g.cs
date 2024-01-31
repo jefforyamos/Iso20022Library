@@ -32,7 +32,7 @@ public partial record MessageStatusRequestData1
     /// <summary>
     /// Customer or Cashier Receipt.
     /// </summary>
-    // public IReadOnlyCollection<DocumentType7Code> DocumentQualifier { get; init; }
+    public IReadOnlyCollection<DocumentType7Code> DocumentQualifier { get; init; } = [];
     
     #nullable disable
 }

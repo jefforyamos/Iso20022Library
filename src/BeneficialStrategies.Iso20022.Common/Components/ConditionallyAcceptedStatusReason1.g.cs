@@ -20,7 +20,7 @@ public partial record ConditionallyAcceptedStatusReason1
     /// <summary>
     /// Reason for a conditionally accepted status in structured form.
     /// </summary>
-    // public IReadOnlyCollection<ConditionallyAcceptedStatusReason1Code> Structured { get; init; }
+    public IReadOnlyCollection<ConditionallyAcceptedStatusReason1Code> Structured { get; init; } = [];
     /// <summary>
     /// Reason for a conditionally accepted status in free format text.
     /// </summary>

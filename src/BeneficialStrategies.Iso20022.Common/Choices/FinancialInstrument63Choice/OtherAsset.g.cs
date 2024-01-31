@@ -34,7 +34,7 @@ public partial record OtherAsset : IFinancialInstrument63Choice
     /// <summary>
     /// Additional identification of the asset.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> OtherIdentification { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> OtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional information about the other asset.
     /// </summary>

@@ -52,7 +52,7 @@ public partial record IndividualOrderStatusAndReason2
     /// <summary>
     /// Status of the individual order is rejected. This status is used for an order that has not been accepted or entered in an order book.
     /// </summary>
-    // public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; }
+    public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of the individual order is suspended.
     /// </summary>

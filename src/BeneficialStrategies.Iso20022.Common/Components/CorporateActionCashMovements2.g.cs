@@ -32,7 +32,7 @@ public partial record CorporateActionCashMovements2
     /// <summary>
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
-    // public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; }
+    public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

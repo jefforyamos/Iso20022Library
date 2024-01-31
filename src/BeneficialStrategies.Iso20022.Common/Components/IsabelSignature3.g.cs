@@ -24,7 +24,7 @@ public partial record IsabelSignature3
     /// <summary>
     /// Individual record of the file signature.
     /// </summary>
-    // public IReadOnlyCollection<IsabelSignatureRecord2> Record { get; init; }
+    public IReadOnlyCollection<IsabelSignatureRecord2> Record { get; init; } = [];
     /// <summary>
     /// Random data related to the signature.
     /// </summary>

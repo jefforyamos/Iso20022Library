@@ -44,7 +44,7 @@ public partial record InvestmentAccount52
     /// <summary>
     /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary33> Intermediary { get; init; }
+    public IReadOnlyCollection<Intermediary33> Intermediary { get; init; } = [];
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>

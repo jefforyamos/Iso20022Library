@@ -84,11 +84,11 @@ public partial record IndividualPerson21
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; }
+    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; }
+    public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record IndividualPerson21
     /// <summary>
     /// Identification information to be either inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope17> ModifiedOtherIdentification { get; init; }
+    public IReadOnlyCollection<ModificationScope17> ModifiedOtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional regulatory information about the investor that is required in some markets to support anti-money laundering laws.
     /// </summary>

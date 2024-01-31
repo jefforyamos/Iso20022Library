@@ -52,7 +52,7 @@ public partial record SwitchExecution4
     /// <summary>
     /// Confirmation of the information about parties related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record PostalAddress13
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; }
+    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>

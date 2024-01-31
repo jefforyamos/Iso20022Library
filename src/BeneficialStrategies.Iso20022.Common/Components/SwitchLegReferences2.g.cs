@@ -28,7 +28,7 @@ public partial record SwitchLegReferences2
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    // public IReadOnlyCollection<Fee3> RepairedFee { get; init; }
+    public IReadOnlyCollection<Fee3> RepairedFee { get; init; } = [];
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>

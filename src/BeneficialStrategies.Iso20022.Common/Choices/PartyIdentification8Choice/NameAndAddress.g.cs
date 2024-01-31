@@ -26,6 +26,6 @@ public partial record NameAndAddress : IPartyIdentification8Choice
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> AlternativeIdentifier { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> AlternativeIdentifier { get; init; } = [];
     #nullable disable
 }

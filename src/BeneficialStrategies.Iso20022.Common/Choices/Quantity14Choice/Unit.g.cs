@@ -22,6 +22,6 @@ public partial record Unit : IQuantity14Choice
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    // public IReadOnlyCollection<Unit5> UnitDetails { get; init; }
+    public IReadOnlyCollection<Unit5> UnitDetails { get; init; } = [];
     #nullable disable
 }

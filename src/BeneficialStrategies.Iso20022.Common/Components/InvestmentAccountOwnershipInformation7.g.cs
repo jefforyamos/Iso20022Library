@@ -44,7 +44,7 @@ public partial record InvestmentAccountOwnershipInformation7
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    // public IReadOnlyCollection<ModificationScope14> ModifiedInvestorProfileValidation { get; init; }
+    public IReadOnlyCollection<ModificationScope14> ModifiedInvestorProfileValidation { get; init; } = [];
     /// <summary>
     /// Details about the MiFID classification of the account owner.
     /// </summary>

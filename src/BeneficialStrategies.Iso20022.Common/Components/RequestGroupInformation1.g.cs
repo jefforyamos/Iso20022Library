@@ -28,7 +28,7 @@ public partial record RequestGroupInformation1
     /// <summary>
     /// User identification or any user key that allows to check if the financing requestor is allowed to ask for invoice financing.||Usage: the content is not of a technical nature, but reflects the organisational structure at the requesting side.|The authorisation element can typically be used in case the financing requestor acts on behalf of one or more suppliers.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax128Text> Authorisation { get; init; }
+    public IReadOnlyCollection<IsoMax128Text> Authorisation { get; init; } = [];
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the bulk request message.
     /// </summary>

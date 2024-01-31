@@ -44,7 +44,7 @@ public partial record UnderlyingTradeTransaction1
     /// <summary>
     /// Additional information related to the underlying transaction.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

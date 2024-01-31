@@ -28,11 +28,11 @@ public partial record VoteMethods5
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    // public IReadOnlyCollection<CommunicationAddress12> ElectronicVote { get; init; }
+    public IReadOnlyCollection<CommunicationAddress12> ElectronicVote { get; init; } = [];
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax35Text> VoteByTelephone { get; init; }
+    public IReadOnlyCollection<IsoMax35Text> VoteByTelephone { get; init; } = [];
     
     #nullable disable
 }

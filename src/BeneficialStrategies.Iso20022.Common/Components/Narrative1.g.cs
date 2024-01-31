@@ -24,7 +24,7 @@ public partial record Narrative1
     /// <summary>
     /// Narrative text.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax20000Text> Text { get; init; }
+    public IReadOnlyCollection<IsoMax20000Text> Text { get; init; } = [];
     
     #nullable disable
 }

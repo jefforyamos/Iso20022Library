@@ -32,7 +32,7 @@ public partial record RedemptionExecution16
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    // public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; }
+    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
@@ -86,7 +86,7 @@ public partial record RedemptionExecution16
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    // public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; }
+    public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Indicates whether the order has been partially executed, that is, the confirmed quantity does not match the ordered quantity for a given financial instrument.
     /// </summary>
@@ -135,7 +135,7 @@ public partial record RedemptionExecution16
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    // public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; }
+    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
@@ -183,7 +183,7 @@ public partial record RedemptionExecution16
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    // public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; }
+    public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that was held by the fund in order to pay incentive/performance fees at the end of the fiscal year, and is returned due to the redemption.
     /// </summary>

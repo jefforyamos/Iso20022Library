@@ -64,11 +64,11 @@ public partial record IndividualPerson34
     /// <summary>
     /// Address of the person.
     /// </summary>
-    // public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; }
+    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
     /// <summary>
     /// Nationality and legal status (minor or major).
     /// </summary>
-    // public IReadOnlyCollection<CitizenshipInformation2> Citizenship { get; init; }
+    public IReadOnlyCollection<CitizenshipInformation2> Citizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>

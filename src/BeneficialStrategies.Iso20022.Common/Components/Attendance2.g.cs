@@ -20,7 +20,7 @@ public partial record Attendance2
     /// <summary>
     /// Conditions for physical admittance to the general meeting.
     /// </summary>
-    // public IReadOnlyCollection<AttendanceAdmissionConditions2> AdmissionConditions { get; init; }
+    public IReadOnlyCollection<AttendanceAdmissionConditions2> AdmissionConditions { get; init; } = [];
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>

@@ -48,7 +48,7 @@ public partial record GuaranteeDetails1
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    // public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; }
+    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

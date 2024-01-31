@@ -104,7 +104,7 @@ public partial record MeetingNotice2
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    // public IReadOnlyCollection<MeetingContactPerson1> ContactPersonDetails { get; init; }
+    public IReadOnlyCollection<MeetingContactPerson1> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which a company publishes the results of its meeting.
     /// </summary>
