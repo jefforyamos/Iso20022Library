@@ -1,6 +1,6 @@
 using BeneficialStrategies.Iso20022.Codesets;
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022;
 
 public class UnitTest1
 {

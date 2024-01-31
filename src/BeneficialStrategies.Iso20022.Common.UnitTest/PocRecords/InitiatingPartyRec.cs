@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+namespace BeneficialStrategies.Iso20022.PocRecords;
 
 //<InitgPty>
 //	<Nm>Virgay</Nm>

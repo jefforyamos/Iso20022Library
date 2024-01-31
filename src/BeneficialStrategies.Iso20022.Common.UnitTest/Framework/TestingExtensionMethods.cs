@@ -8,7 +8,7 @@ using System.Xml.Schema;
 using BeneficialStrategies.Iso20022.SchemaValidation;
 using Xunit.Abstractions;
 
-namespace BeneficialStrategies.Iso20022.Common.Framework;
+namespace BeneficialStrategies.Iso20022.Framework;
 
 public static class TestingExtensionMethods
 {

@@ -14,7 +14,7 @@ using System.Numerics;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+namespace BeneficialStrategies.Iso20022.PocRecords;
 
 //<InitgPty>
 //	<Nm>Virgay</Nm>

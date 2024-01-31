@@ -1,6 +1,6 @@
 ﻿using Xunit.Abstractions;
 
-namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+namespace BeneficialStrategies.Iso20022.PocRecords;
 
 public class ContactDetailsRecTestSerialization : TestSerialization<ContactDetailsRec>
 {

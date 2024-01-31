@@ -1,4 +1,4 @@
-namespace BeneficialStrategies.Iso20022.Common.Framework;
+namespace BeneficialStrategies.Iso20022.Framework;
 
 /// <summary>
 /// Should be implemented by the document wrapper that is placed around each message that establishes the XML namespace.

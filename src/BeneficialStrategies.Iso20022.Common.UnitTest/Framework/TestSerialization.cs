@@ -1,6 +1,6 @@
 ﻿using Xunit.Abstractions;
 
-namespace BeneficialStrategies.Iso20022.Common.Framework;
+namespace BeneficialStrategies.Iso20022.Framework;
 
 public abstract class TestSerialization<T>
     where T : Iso20022Certified<T>

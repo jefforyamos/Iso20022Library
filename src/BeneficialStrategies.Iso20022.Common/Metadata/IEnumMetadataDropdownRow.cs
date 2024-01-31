@@ -1,4 +1,4 @@
-﻿namespace BeneficialStrategies.Iso20022.Common.Metadata;
+﻿namespace BeneficialStrategies.Iso20022.Metadata;
 
 public interface IEnumMetadataDropdownRow<TEnum> : IDropdownRow
     where TEnum : struct

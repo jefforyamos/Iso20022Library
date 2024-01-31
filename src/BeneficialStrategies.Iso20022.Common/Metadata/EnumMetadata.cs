@@ -1,7 +1,7 @@
 ﻿
 using System.Reflection;
 
-namespace BeneficialStrategies.Iso20022.Common.Metadata;
+namespace BeneficialStrategies.Iso20022.Metadata;
 
 /// <summary>
 /// Provides implementation of <seealso cref="IDropdownDataSource{T}"/> by gathering information from metadata that adorns the code generated from the ISO20022 specification.

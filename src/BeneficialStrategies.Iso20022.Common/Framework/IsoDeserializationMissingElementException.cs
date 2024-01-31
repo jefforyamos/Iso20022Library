@@ -1,4 +1,4 @@
-﻿namespace BeneficialStrategies.Iso20022.Common.Framework;
+﻿namespace BeneficialStrategies.Iso20022.Framework;
 
 public class IsoDeserializationMissingElementException : System.Exception
 {

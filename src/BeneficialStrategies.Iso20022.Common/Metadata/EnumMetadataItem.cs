@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace BeneficialStrategies.Iso20022.Common.Metadata;
+namespace BeneficialStrategies.Iso20022.Metadata;
 
 public class EnumMetadataItem<TEnum> : IEnumMetadataDropdownRow<TEnum>
     where TEnum : struct

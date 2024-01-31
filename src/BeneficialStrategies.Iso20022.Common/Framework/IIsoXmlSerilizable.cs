@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Common.Framework;
+namespace BeneficialStrategies.Iso20022.Framework;
 
 /// <summary>
 /// Denotes the container as being self-serializable in a ISO20022-compliant syntax.

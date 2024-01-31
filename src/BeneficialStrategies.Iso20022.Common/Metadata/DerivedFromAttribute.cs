@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BeneficialStrategies.Iso20022.Common.Metadata;
+namespace BeneficialStrategies.Iso20022.Metadata;
 
 /// <summary>
 /// Specifies the adorned type is derived from the specified type.

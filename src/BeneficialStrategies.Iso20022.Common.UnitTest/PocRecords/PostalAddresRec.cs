@@ -6,7 +6,7 @@ using BeneficialStrategies.Iso20022.Codesets;
 
 
 
-namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+namespace BeneficialStrategies.Iso20022.PocRecords;
 
 // https://www.iso20022.org/standardsrepository/type/PostalAddress1
 

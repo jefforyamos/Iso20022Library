@@ -2,14 +2,14 @@
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.ContactDetailsRec>;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.PocRecords.ContactDetailsRec>;
 
 //	<CtctDtls>
 //		<Nm>J.Thompson</Nm>
 //		<EmailAdr>Thompson @virgay.com</EmailAdr>
 //	</CtctDtls>
 
-namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+namespace BeneficialStrategies.Iso20022.PocRecords;
 
 [DataContract(Name = "CtctDtls", Namespace ="")]
 [XmlRoot(ElementName ="CtctDtls", Namespace ="")]

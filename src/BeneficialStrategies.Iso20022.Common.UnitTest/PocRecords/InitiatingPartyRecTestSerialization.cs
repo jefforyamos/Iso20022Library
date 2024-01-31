@@ -1,4 +1,4 @@
-﻿namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+﻿namespace BeneficialStrategies.Iso20022.PocRecords;
 
 public class InitiatingPartyRecTestSerialization : TestSerialization<InitiatingPartyRec>
 {
