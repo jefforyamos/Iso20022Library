@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.049.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope|The DeleteReservation message is used to request the deletion of one particular reservation by the member and managed by the transaction administrator.|Usage|The deletion of a reservation in the system, will not only reset the reserved liquidity to zero, but also delete the reservation itself from the system: only the default reservation for the current business day remains in the system.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The DeleteReservation message is used to request the deletion of one particular reservation by the member and managed by the transaction administrator.|Usage|The deletion of a reservation in the system, will not only reset the reserved liquidity to zero, but also delete the reservation itself from the system: only the default reservation for the current business day remains in the system.")]
 public partial record DeleteReservationV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.049.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

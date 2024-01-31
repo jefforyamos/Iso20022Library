@@ -16,12 +16,16 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.014.001.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The InterestPaymentResponse message is sent by either;
 /// - the collateral taker or its collateral manager to the collateral giver or its collateral manager, or
 /// - the collateral giver or its collateral manager to the collateral taker or its collateral manager
 /// This is a response to the InterestPaymentRequest message and the amount of interest requested or advised can be accepted or rejected.
+/// 
 /// The message definition is intended for use with the ISO20022 Business Application Header.
+/// 
 /// Usage
 /// The InterestPaymentResponse message is sent in response to the InterestPaymentRequest in order to accept or reject the amount of interest requested or advised. A rejection reason and information can be provide if the InterestPaymentRequest is being rejected.
 /// </summary>
@@ -31,6 +35,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope|The InterestPaymentResponse message is sent by either;|- the collateral taker or its collateral manager to the collateral giver or its collateral manager, or|- the collateral giver or its collateral manager to the collateral taker or its collateral manager|This is a response to the InterestPaymentRequest message and the amount of interest requested or advised can be accepted or rejected.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The InterestPaymentResponse message is sent in response to the InterestPaymentRequest in order to accept or reject the amount of interest requested or advised. A rejection reason and information can be provide if the InterestPaymentRequest is being rejected.")]
 public partial record InterestPaymentResponseV04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.014.001.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

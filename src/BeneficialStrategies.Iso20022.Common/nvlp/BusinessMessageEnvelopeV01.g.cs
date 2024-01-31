@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.nvlp;
 
 
 /// <summary>
+/// This record is an implementation of the nvlp.001.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The BusinessMessageEnvelope is a technical message container used to bundle a business application header with a message definition, typically to support processing or transport. It may contain and define additional data elements that apply to the message instance container.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.nvlp;
 [Description(@"The BusinessMessageEnvelope is a technical message container used to bundle a business application header with a message definition, typically to support processing or transport. It may contain and define additional data elements that apply to the message instance container.")]
 public partial record BusinessMessageEnvelopeV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "nvlp.001.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

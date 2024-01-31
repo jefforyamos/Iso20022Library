@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.011.001.09 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The TransferInstructionStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or one of its authorised representatives to provide the status of a previously received request for holdings information, portfolio transfer or transfer instruction.
 ///  It may also be used to report the status of an event related to the asset being transferred or provide additional information.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope|The TransferInstructionStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or one of its authorised representatives to provide the status of a previously received request for holdings information, portfolio transfer or transfer instruction.| It may also be used to report the status of an event related to the asset being transferred or provide additional information.|The TransferInstructionStatusReport message may also be sent by any party in the transfer transaction to another party in the transfer transaction chain to provide information relevant for the settlement of a transfer transaction. |Usage|The TransferInstructionStatusReport message is used to provide the status of a previously received request for holdings information, portfolio transfer or transfer instruction, or in response to a RequestForTransferStatus message. It may also be used to report the status of an event related to the asset being transferred or provide additional information.")]
 public partial record TransferInstructionStatusReportV09 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.011.001.09";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

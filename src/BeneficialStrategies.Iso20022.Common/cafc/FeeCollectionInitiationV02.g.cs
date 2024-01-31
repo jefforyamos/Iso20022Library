@@ -16,7 +16,11 @@ namespace BeneficialStrategies.Iso20022.cafc;
 
 
 /// <summary>
+/// This record is an implementation of the cafc.001.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The FeeCollectionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer) to claim or pay a miscellaneous service between financial institutions. Fee collection messages have financial impacts and affect reconciliation totals without affecting a cardholder account.
+/// 
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.cafc;
 [Description(@"The FeeCollectionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer) to claim or pay a miscellaneous service between financial institutions. Fee collection messages have financial impacts and affect reconciliation totals without affecting a cardholder account.||")]
 public partial record FeeCollectionInitiationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cafc.001.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

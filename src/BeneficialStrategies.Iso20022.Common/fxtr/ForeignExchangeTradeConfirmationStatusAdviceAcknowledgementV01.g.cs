@@ -16,8 +16,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 
 
 /// <summary>
+/// This record is an implementation of the fxtr.038.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The ForeignExchangeTradeConfirmationStatusAdviceAcknowledgement message is sent from a market participant to a Central matching utility (CMU) in response to the FXTradeConfirmationStatusAdvice previously sent by the CMU in the scenario of trades matched by both participants.
+/// 
 /// Usage
 /// The acknowledgement is sent by the trading member to the CMU after they received the confirmation status advice. 
 /// Note that one confirmation status advice acknowledgement responds to one confirmation status advice.
@@ -28,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 [Description(@"Scope|The ForeignExchangeTradeConfirmationStatusAdviceAcknowledgement message is sent from a market participant to a Central matching utility (CMU) in response to the FXTradeConfirmationStatusAdvice previously sent by the CMU in the scenario of trades matched by both participants.||Usage|The acknowledgement is sent by the trading member to the CMU after they received the confirmation status advice. |Note that one confirmation status advice acknowledgement responds to one confirmation status advice.")]
 public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "fxtr.038.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

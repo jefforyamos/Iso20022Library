@@ -16,12 +16,15 @@ namespace BeneficialStrategies.Iso20022.semt;
 
 
 /// <summary>
+/// This record is an implementation of the semt.014.002.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// An account servicer sends a IntraPositionMovementStatusAdvice to an account owner to advise the status of a intra-position movement instruction previously sent by the account owner.
 /// The account servicer/owner relationship may be:
 /// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
 /// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
 /// - a custodian acting on behalf of an investment management institution or a broker/dealer.
+/// 
 /// Usage
 /// The message may also be used to:
 /// - re-send a message previously sent,
@@ -35,6 +38,11 @@ namespace BeneficialStrategies.Iso20022.semt;
 [Description(@"Scope|An account servicer sends a IntraPositionMovementStatusAdvice to an account owner to advise the status of a intra-position movement instruction previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.")]
 public partial record IntraPositionMovementStatusAdvice002V04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "semt.014.002.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

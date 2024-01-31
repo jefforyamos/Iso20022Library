@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.048.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The ShareholdersIdentificationDisclosureResponseCancellationAdvice message is sent by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to cancel the shareholder identification disclosure response whether previously sent in a single message or in a set of multipart/paginated response messages.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"The ShareholdersIdentificationDisclosureResponseCancellationAdvice message is sent by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to cancel the shareholder identification disclosure response whether previously sent in a single message or in a set of multipart/paginated response messages.")]
 public partial record ShareholderIdentificationDisclosureResponseCancellationAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.048.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

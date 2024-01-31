@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.setr;
 
 
 /// <summary>
+/// This record is an implementation of the setr.056.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// An executing party, for example, a transfer agent, sends the SwitchOrderConfirmationAmendment message to the instructing party, for example, an investment manager or its authorised representative to amend a previously sent SwitchOrderConfirmation message.
 /// Usage
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.setr;
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the SwitchOrderConfirmationAmendment message to the instructing party, for example, an investment manager or its authorised representative to amend a previously sent SwitchOrderConfirmation message.|Usage|The SwitchOrderConfirmationAmendment message is used to amend a previously sent switch order confirmation.|Each order confirmation amendment specified is identified in DealReference. The reference of the original order is specified in OrderReference.|The message identification of the SwitchOrder message in which the switch order was conveyed may also be quoted in RelatedReference. The message identification of the SwitchOrderConfirmation message in which the original switch order confirmation was conveyed may also be quoted in PreviousReference.")]
 public partial record SwitchOrderConfirmationAmendmentV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "setr.056.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

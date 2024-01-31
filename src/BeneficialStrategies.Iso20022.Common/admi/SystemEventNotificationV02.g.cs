@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.admi;
 
 
 /// <summary>
+/// This record is an implementation of the admi.004.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The SystemEventNotification message is sent by a central system to notify the occurrence of an event in a central system.
 /// Usage
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.admi;
 [Description(@"Scope|The SystemEventNotification message is sent by a central system to notify the occurrence of an event in a central system.|Usage|The message can be used by a central settlement system to inform its participants of an event that is going to occur in the system, for instance that the system will be down at a certain time, etc.")]
 public partial record SystemEventNotificationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "admi.004.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

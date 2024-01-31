@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.017.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// This message is sent by a CSD to an issuer (or its agent) to request the authorisation to process the entitlement movements (cash and/or securities) calculated by the CSD for a given corporate action entire event, a given corporate action option and optionally a given resource.
 /// This message can also be sent to request the issuer (or its agent) to make available / deliver the relevant resources to the CSD.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to request the authorisation to process the entitlement movements (cash and/or securities) calculated by the CSD for a given corporate action entire event, a given corporate action option and optionally a given resource.|This message can also be sent to request the issuer (or its agent) to make available / deliver the relevant resources to the CSD.|Usage|This message is used to request the authorisation to process the entitlement movements calculated by the CSD for a given corporate action event and option. An Agent Corporate Action Global Distribution Authorisation Request message must be sent for each option and if several resources are associated to an option, an Agent Corporate Action Global Distribution Authorisation Request message can be sent for each resource.|This message can also be used to pre-advise a global distribution authorisation request, in which case the value of the field pre-advice indicator must be set to yes.")]
 public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.017.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

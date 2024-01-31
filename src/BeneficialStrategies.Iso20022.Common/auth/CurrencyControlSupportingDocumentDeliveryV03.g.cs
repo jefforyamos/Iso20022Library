@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.025.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The CurrencyControlSupportingDocumentDelivery message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) in response to the supporting document request.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"The CurrencyControlSupportingDocumentDelivery message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) in response to the supporting document request.")]
 public partial record CurrencyControlSupportingDocumentDeliveryV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.025.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

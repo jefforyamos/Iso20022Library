@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.supl;
 
 
 /// <summary>
+/// This record is an implementation of the supl.004.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The DTCCCANOCustodianSD1 message extends ISO corporate action notification (CANO) message with DTCC validation custodian service specific data elements that are not covered by the standard message.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.supl;
 [Description(@"The DTCCCANOCustodianSD1 message extends ISO corporate action notification (CANO) message with DTCC validation custodian service specific data elements that are not covered by the standard message.")]
 public partial record DTCCCANOCustodianSD1V03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "supl.004.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.005.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The CollateralManagementCancellationRequest message is sent by:
 /// - the collateral taker or its collateral manager to the collateral giver or its collateral manager,
@@ -32,6 +34,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope|The CollateralManagementCancellationRequest message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager,|- the collateral giver or its collateral manager to the collateral taker or its collateral manager|This message is used to request the cancellation of a previously sent MarginCallRequest message, MarginCallResponse message, CollateralProposal message, CollateralProposalResponse message, MarginCallDisputeNotification message or a CollateralSubstitutionRequest message.|The message definition is intended for use with the ISO20022 Business Application Header.|Usage|The CollateralManagementCancellationRequest message is used to request the cancellation of a collateral message. When requesting the cancellation of a message there must be a cancellation reason specified.|When the CollateralManagementCancellationRequest message is used to cancel a collateral message the reference of the original message must be specified. The rejection or acceptance of a CollateralManagementCancellationRequest message is made using a CollateralManagementCancellationStatus message.")]
 public partial record CollateralManagementCancellationRequestV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.005.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

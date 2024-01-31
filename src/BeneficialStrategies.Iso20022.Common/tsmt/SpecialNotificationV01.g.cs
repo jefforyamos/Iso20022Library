@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.048.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The SpecialNotification message is sent by the matching application to parties to the transaction, following the receipt of a SpecialRequest message.
 /// The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The SpecialNotification message is sent by the matching application to parties to the transaction, following the receipt of a SpecialRequest message.|The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.|Usage|The SpecialNotification message is sent to the parties to the transaction so that they can take appropriate action.")]
 public partial record SpecialNotificationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.048.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

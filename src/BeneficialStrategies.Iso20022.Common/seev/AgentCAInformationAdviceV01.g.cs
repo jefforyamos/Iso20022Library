@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.023.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// This message is sent by a CSD to an issuer (or its agent) to provide information about the certification and/or the delivery details to the issuer (or its agent).
 /// Usage
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to provide information about the certification and/or the delivery details to the issuer (or its agent).|Usage|This message can be used in the case of a corporate action event without an election.|This message can also be used in the case of a corporate action event with election when the election details and the additional information cannot be provided in the same message. In this case, the Agent Corporate Action Election Advice Identification must be used to link this message to the election advice for which additional information is provided.")]
 public partial record AgentCAInformationAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.023.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

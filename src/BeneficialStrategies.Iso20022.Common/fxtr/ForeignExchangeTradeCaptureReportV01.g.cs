@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 
 
 /// <summary>
+/// This record is an implementation of the fxtr.031.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The ForeignExchangeTradeCaptureReport message is sent by a trading system to a participant for notification and providing details of a treasury trade.
 /// Usage
@@ -30,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 [Description(@"Scope|The ForeignExchangeTradeCaptureReport message is sent by a trading system to a participant for notification and providing details of a treasury trade.|Usage|The report is sent by the trading system to the two trading parties after their trade has been executed. |The report can also be sent by the trading system to a trading parties to respond their inquiry (TradeCaptureRequest). |Note that multiple reports can be sent to respond one inquiry message.|The message may contains trade details and trading parties' information.")]
 public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "fxtr.031.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

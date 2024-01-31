@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.pain;
 
 
 /// <summary>
+/// This record is an implementation of the pain.018.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The MandateSuspensionRequest message is sent by the initiator of the request to its agent. The initiator can either be the debtor, debtor agent, creditor or creditor agent.
 /// A MandateSuspensionRequest message is used to request the suspension of an existing mandate until the suspension is lifted. 
@@ -23,6 +25,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The MandateSuspensionRequest message can contain one or more suspension requests.
 /// The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.
 /// The MandateSuspensionRequest message can be used in domestic and cross-border scenarios.
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -30,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.pain;
 [Description(@"Scope|The MandateSuspensionRequest message is sent by the initiator of the request to its agent. The initiator can either be the debtor, debtor agent, creditor or creditor agent.|A MandateSuspensionRequest message is used to request the suspension of an existing mandate until the suspension is lifted. |Usage|The MandateSuspensionRequest message can contain one or more suspension requests.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The MandateSuspensionRequest message can be used in domestic and cross-border scenarios.|")]
 public partial record MandateSuspensionRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "pain.018.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

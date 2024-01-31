@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.101.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The SettlementFailsAnnualReport is sent by a central securities depository or by a central bank operating a securities settlement system to the CSD competent authority to provide annual aggregated data on the number and the nature of settlement instructions which failed to settle on their intended settlement day. The report contains annual statistical information on the number and value of overall settlement instructions, settled instructions, and settlement fails that occurred during a specified period and within a given securities settlement system.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"The SettlementFailsAnnualReport is sent by a central securities depository or by a central bank operating a securities settlement system to the CSD competent authority to provide annual aggregated data on the number and the nature of settlement instructions which failed to settle on their intended settlement day. The report contains annual statistical information on the number and value of overall settlement instructions, settled instructions, and settlement fails that occurred during a specified period and within a given securities settlement system.")]
 public partial record SettlementFailsAnnualReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.101.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

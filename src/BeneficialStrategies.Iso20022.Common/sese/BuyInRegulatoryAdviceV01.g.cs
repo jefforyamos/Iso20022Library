@@ -16,9 +16,12 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.041.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// |An account owner sends a BuyInRegulatoryAdvice to an account servicer to  notify the results of the buy-in transactions executed under CSDR regulatory regime.||
 /// The account owner/servicer relationship may be:|- a central securities depository participant which has an account with a central securities depository.|It could also be, if agreed in a service level agreement:|- a global custodian which has an account with its local agent (sub-custodian), or|- an investment management institution which manage a fund account opened at a custodian, or|- a broker which has an account with a custodian, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.|The ultimate receiving party at the end of the settlement chain is a central securities depository or interational central securities depository.||
+/// 
 /// Usage
 /// |The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.||
 /// </summary>
@@ -28,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope||An account owner sends a BuyInRegulatoryAdvice to an account servicer to  notify the results of the buy-in transactions executed under CSDR regulatory regime.|||The account owner/servicer relationship may be:|- a central securities depository participant which has an account with a central securities depository.|It could also be, if agreed in a service level agreement:|- a global custodian which has an account with its local agent (sub-custodian), or|- an investment management institution which manage a fund account opened at a custodian, or|- a broker which has an account with a custodian, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.|The ultimate receiving party at the end of the settlement chain is a central securities depository or interational central securities depository.||||Usage||The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.||")]
 public partial record BuyInRegulatoryAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.041.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.setr;
 
 
 /// <summary>
+/// This record is an implementation of the setr.004.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// An instructing party, for example, an investment manager or its authorised representative, sends the RedemptionOrder message to the executing party, for example, a transfer agent, to instruct the redemption of one or more financial instruments for one investment fund account.
 /// Usage
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.setr;
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the RedemptionOrder message to the executing party, for example, a transfer agent, to instruct the redemption of one or more financial instruments for one investment fund account.|Usage|The RedemptionOrder message is used to instruct single redemption orders, that is, a message containing one order for one financial instrument and related to one investment account. The RedemptionOrder message may also be used for multiple orders, that is, a message containing several orders related to the same investment account for different financial instruments.|For a single redemption order, the RedemptionOrder message, not the RedemptionBulkOrder message, must be used.|If there are redemption orders for the same financial instrument but for different accounts, then the RedemptionBulkOrder message must be used.")]
 public partial record RedemptionOrderV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "setr.004.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

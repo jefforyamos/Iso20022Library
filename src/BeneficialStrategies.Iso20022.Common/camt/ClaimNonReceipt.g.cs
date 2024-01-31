@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.027.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope|The Claim Non Receipt message is sent by a case creator/case assigner to a case assignee.|This message allows to initiate an investigation in case the beneficiary of a payment has not received an expected payment.|Usage|Note 1: Although there are cases where a creditor would contact the creditor's bank when claiming non-receipt, the activity only retained the scenario where the beneficiary claims non-receipt with its debtor, the debtor in its turn contacting the first agent. Therefore the investigation follows the same route as the original instruction.|Note 2: This message is also used to report a missing cover. The rationale behind this is that the beneficiary of the cover (receiver of the payment instruction) missing the cover would be in the very same position as a beneficiary expecting a credit to its account and would therefore trigger the same processes.|In case of a Missing cover, the case will be assigned to the sender of the payment instruction, before following the route of the payment instruction.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The Claim Non Receipt message is sent by a case creator/case assigner to a case assignee.|This message allows to initiate an investigation in case the beneficiary of a payment has not received an expected payment.|Usage|Note 1: Although there are cases where a creditor would contact the creditor's bank when claiming non-receipt, the activity only retained the scenario where the beneficiary claims non-receipt with its debtor, the debtor in its turn contacting the first agent. Therefore the investigation follows the same route as the original instruction.|Note 2: This message is also used to report a missing cover. The rationale behind this is that the beneficiary of the cover (receiver of the payment instruction) missing the cover would be in the very same position as a beneficiary expecting a credit to its account and would therefore trigger the same processes.|In case of a Missing cover, the case will be assigned to the sender of the payment instruction, before following the route of the payment instruction.")]
 public partial record ClaimNonReceipt : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.027.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

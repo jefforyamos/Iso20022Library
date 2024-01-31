@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.030.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The DerivativesTradeReport is sent by the trade repositories (TRs) to the users as a response to a query to provide transaction data.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"The DerivativesTradeReport is sent by the trade repositories (TRs) to the users as a response to a query to provide transaction data.")]
 public partial record DerivativesTradeReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.030.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

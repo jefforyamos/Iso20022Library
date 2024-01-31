@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.031.001.06 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The RejectInvestigation message is sent by a case assignee to a case creator or case assigner to reject a case given to him.
 /// Usage
@@ -39,6 +41,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The RejectInvestigation message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The RejectInvestigation message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case;|- request to modify payment case;|- unable to apply case;|- claim non receipt case.|Rejecting a case assignment occurs when:|- the case assignee is unable to trace the original payment instruction;|- the case assignee is unable, or does not have authority, to process the assigned case (indicate ""You have by-passed a party"";|- the case assignee has received a non expected message, and rejects the message with a wrong message indicator;|- the case assignee has not yet received the ResolutionOfInvestigation message and the case has already been reopened;|- the case assignee has rejects an non-cash related query.|The RejectInvestigation message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple RejectInvestigation messages must be sent.|The RejectInvestigation message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner and must not be used in place of a ResolutionOfInvestigation or CaseStatusReport message.")]
 public partial record RejectInvestigationV06 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.031.001.06";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

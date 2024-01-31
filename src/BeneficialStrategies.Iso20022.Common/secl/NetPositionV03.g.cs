@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.004.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The Net Position Report message is sent by the central counterparty (CCP) to a clearing member to confirm the net position of all trade legs reported during the day.
+/// 
 /// The message definition is intended for use with the ISO 20022 Business Application Header.
+/// 
 /// Usage
 /// The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.
 /// </summary>
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The Net Position Report message is sent by the central counterparty (CCP) to a clearing member to confirm the net position of all trade legs reported during the day.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.")]
 public partial record NetPositionV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.004.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

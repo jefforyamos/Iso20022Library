@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caad;
 
 
 /// <summary>
+/// This record is an implementation of the caad.004.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The BatchTransferResponse message is sent by any party to any party (acquirer, agent or issuer) in response to a BatchTransferInitiation message.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.caad;
 [Description(@"The BatchTransferResponse message is sent by any party to any party (acquirer, agent or issuer) in response to a BatchTransferInitiation message.")]
 public partial record BatchTransferResponseV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caad.004.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 
 
 /// <summary>
+/// This record is an implementation of the fxtr.017.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope|
 /// The ForeignExchangeTradeStatusAndDetails message is sent by a central system to the participant to provide notification of the status and details of a foreign exchange trade.|
 /// Usage|
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 [Description(@"Scope||The ForeignExchangeTradeStatusAndDetails message is sent by a central system to the participant to provide notification of the status and details of a foreign exchange trade.||Usage||The notification is sent by a central settlement system to the two trading parties after it has received foreign exchange trade instructions from both.")]
 public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "fxtr.017.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

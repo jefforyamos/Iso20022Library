@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.006.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// TheTransferInCancellationInstruction message is sent by an instructing party, or an instructing party's designated agent, to the executing party.
 /// This message is used to request the cancellation of a TransferInInstruction that was previously sent by the instructing party.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope|TheTransferInCancellationInstruction message is sent by an instructing party, or an instructing party's designated agent, to the executing party.|This message is used to request the cancellation of a TransferInInstruction that was previously sent by the instructing party.|Usage|TheTransferInCancellationInstruction message is sent by an instructing party to request cancellation of a previously sent TransferInInstruction.|This message must contain the reference of the message to be cancelled. The message may also contain all the details of the message to be cancelled, but this is not recommended.")]
 public partial record TransferInCancellationInstruction : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.006.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

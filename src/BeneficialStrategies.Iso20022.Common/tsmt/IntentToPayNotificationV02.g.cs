@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.044.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The IntentToPayNotification message is sent by a party to the matching application in order to provide details about a future payment.
 /// This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The IntentToPayNotification message is sent by a party to the matching application in order to provide details about a future payment.|This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.|Usage|The IntentToPayNotification message can be sent by a party to the transaction at any time as long as the transaction is established and not yet closed.|The message is unsolicited, that is, it is not sent in response to another message.")]
 public partial record IntentToPayNotificationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.044.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

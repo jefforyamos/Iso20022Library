@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.catm;
 
 
 /// <summary>
+/// This record is an implementation of the catm.001.001.06 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Informs the master terminal manager (MTM) or the terminal manager (TM) about the status of the acceptor system including the identification of the POI, its components and their installed versions.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.catm;
 [Description(@"Informs the master terminal manager (MTM) or the terminal manager (TM) about the status of the acceptor system including the identification of the POI, its components and their installed versions.")]
 public partial record StatusReportV06 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "catm.001.001.06";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

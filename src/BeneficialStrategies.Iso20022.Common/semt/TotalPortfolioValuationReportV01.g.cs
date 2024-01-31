@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.semt;
 
 
 /// <summary>
+/// This record is an implementation of the semt.024.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// An account servicer sends a TotalPortfolioValuationReport to an account owner to provide detailed valuation information for a portfolio.
 /// Usage
@@ -32,6 +34,11 @@ namespace BeneficialStrategies.Iso20022.semt;
 [Description(@"Scope|An account servicer sends a TotalPortfolioValuationReport to an account owner to provide detailed valuation information for a portfolio.|Usage|The TotalPortfolioValuationReport will be sent by the account servicer to the account owner on an agreed basis. The report may also be requested using a SecuritiesStatementQuery.|The TotalPortfolioValuationReport is used to report on a portfolio without Investment Funds; or to report on a portfolio when an investment fund is regarded as a portfolio containing, only one or multiple investment funds|The TotalPortfolioValuationReport may also be used to:|- re-send a message previously sent (the CopyDuplicate value is DUPL),|- provide a third party with a copy of a message for information (the CopyDuplicate value is COPY),|- re-send to a third party a copy of a message for information (the CopyDuplicate value is CODU).")]
 public partial record TotalPortfolioValuationReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "semt.024.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

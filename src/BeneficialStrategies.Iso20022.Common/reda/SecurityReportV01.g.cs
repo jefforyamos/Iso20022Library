@@ -16,15 +16,20 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.012.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// SCOPE
 /// An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data's.
+/// 
 /// The report may be sent upon request (for example a query) of the instructing party or push by the executing/servicing party.
+/// 
 /// The instructing party - executing/servicing party relationship may be:
 /// - Central Securities Depositories (CSD) who would like to publish security static data, or 
 /// - a Corporate, or
 /// - a Bank, or
 /// - a Market Infrastructure, or 
 /// - a Market Data Provider.
+/// 
 /// Initiator: executing/servicing party.
 /// </summary>
 [Serializable]
@@ -33,6 +38,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"SCOPE|An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data's.||The report may be sent upon request (for example a query) of the instructing party or push by the executing/servicing party.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||Initiator: executing/servicing party.")]
 public partial record SecurityReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.012.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

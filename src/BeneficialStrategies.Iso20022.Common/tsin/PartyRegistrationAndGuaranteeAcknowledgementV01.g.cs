@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsin;
 
 
 /// <summary>
+/// This record is an implementation of the tsin.012.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The message PartyManagementPaymentAcknowledgement is sent from a trade partner to any partner requested through a PartyManagementPaymentAcknowledgemenNotification message to acknowledge the notified factoring service agreement. Depending on legal contexts, the acknowledgement may be required in order for the financial service agreement to become effective.
 /// The message references related messages and may include referenced data.
 /// The message can carry digital signatures if required by context.
@@ -26,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.tsin;
 [Description(@"The message PartyManagementPaymentAcknowledgement is sent from a trade partner to any partner requested through a PartyManagementPaymentAcknowledgemenNotification message to acknowledge the notified factoring service agreement. Depending on legal contexts, the acknowledgement may be required in order for the financial service agreement to become effective.|The message references related messages and may include referenced data.|The message can carry digital signatures if required by context.")]
 public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsin.012.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

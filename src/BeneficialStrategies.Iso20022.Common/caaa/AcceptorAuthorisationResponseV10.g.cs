@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caaa;
 
 
 /// <summary>
+/// This record is an implementation of the caaa.002.001.10 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The AcceptorAuthorisationResponse message is sent by the acquirer (or its agent) to an acceptor (or its agent), to return the result of the validation made by issuer about the payment transaction.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.caaa;
 [Description(@"The AcceptorAuthorisationResponse message is sent by the acquirer (or its agent) to an acceptor (or its agent), to return the result of the validation made by issuer about the payment transaction.")]
 public partial record AcceptorAuthorisationResponseV10 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caaa.002.001.10";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

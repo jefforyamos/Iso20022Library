@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.catm;
 
 
 /// <summary>
+/// This record is an implementation of the catm.003.001.07 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Update of the acceptor configuration to be downloaded by the terminal management system.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.catm;
 [Description(@"Update of the acceptor configuration to be downloaded by the terminal management system.")]
 public partial record AcceptorConfigurationUpdateV07 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "catm.003.001.07";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

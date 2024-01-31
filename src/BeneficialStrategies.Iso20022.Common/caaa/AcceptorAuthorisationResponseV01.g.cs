@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caaa;
 
 
 /// <summary>
+/// This record is an implementation of the caaa.002.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The AcceptorAuthorisationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the authorisation process. The message can be sent directly to the acceptor or through an agent.
 /// Usage
@@ -30,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.caaa;
 [Description(@"Scope|The AcceptorAuthorisationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the authorisation process. The message can be sent directly to the acceptor or through an agent.|Usage|The AcceptorAuthorisationResponse message is used to indicate one of the possible outcomes of an authorisation process:|- a successful authorisation;|- a decline from the acquirer for financial reasons;|- a decline from the acquirer for technical reasons (for instance, a timeout).")]
 public partial record AcceptorAuthorisationResponseV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caaa.002.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.023.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The MisMatchRejectionNotification message is sent by the matching application to the parties involved in the transaction.
 /// This message is used to notify the rejection of mis-matched data sets.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The MisMatchRejectionNotification message is sent by the matching application to the parties involved in the transaction.|This message is used to notify the rejection of mis-matched data sets.|Usage|The MisMatchRejectionNotification message can be sent by the matching application to pass on the information about the rejection of mis-matched data sets that it has obtained through the receipt of an MisMatchRejection message.|In order to pass on information about the acceptance of mis-matched data sets the matching application sends an MisMatchAcceptanceNotification message.")]
 public partial record MisMatchRejectionNotificationV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.023.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

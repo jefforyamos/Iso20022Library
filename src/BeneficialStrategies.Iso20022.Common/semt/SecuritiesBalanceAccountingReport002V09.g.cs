@@ -16,11 +16,14 @@ namespace BeneficialStrategies.Iso20022.semt;
 
 
 /// <summary>
+/// This record is an implementation of the semt.003.002.09 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope 
 /// An account servicer sends a SecuritiesBalanceAccountingReport to an account owner to provide, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.
 /// The account servicer/owner relationship may be:
 /// - an accounting agent acting on behalf of an account owner, or
 /// - a transfer agent acting on behalf of a fund manager or an account owner's designated agent.
+/// 
 /// Usage
 /// The message should be sent at a frequency agreed bi-laterally between the account servicer and the account owner.
 /// The message can be sent either audited or un-audited and may be provided on a trade date, contractual or settlement date basis. 
@@ -42,6 +45,11 @@ namespace BeneficialStrategies.Iso20022.semt;
 [Description(@"Scope |An account servicer sends a SecuritiesBalanceAccountingReport to an account owner to provide, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.|The account servicer/owner relationship may be:|- an accounting agent acting on behalf of an account owner, or|- a transfer agent acting on behalf of a fund manager or an account owner's designated agent.||Usage|The message should be sent at a frequency agreed bi-laterally between the account servicer and the account owner.|The message can be sent either audited or un-audited and may be provided on a trade date, contractual or settlement date basis. |This message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, the message can be used to either specify holdings at|- the main account level, or, |- the sub-account level.|This message can be used to report where the financial instruments are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated. |The SecuritiesBalanceAccountingReport message should not be used for trading purposes.|There may be one or more intermediary parties, for example, an intermediary or a concentrator between the account owner and account servicer.|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
 public partial record SecuritiesBalanceAccountingReport002V09 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "semt.003.002.09";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

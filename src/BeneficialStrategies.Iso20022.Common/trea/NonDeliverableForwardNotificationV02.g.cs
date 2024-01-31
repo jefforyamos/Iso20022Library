@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.trea;
 
 
 /// <summary>
+/// This record is an implementation of the trea.007.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The NonDeliverableForwardNotification message is sent by a central system to a participant to provide details of a non deliverable forward trade.
 /// Usage
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.trea;
 [Description(@"Scope|The NonDeliverableForwardNotification message is sent by a central system to a participant to provide details of a non deliverable forward trade.|Usage|The notification is sent by a central settlement system to the two trading parties after it has received create, amend or cancel messages from both. The message may also contain information on the settlement of the trade.")]
 public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "trea.007.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

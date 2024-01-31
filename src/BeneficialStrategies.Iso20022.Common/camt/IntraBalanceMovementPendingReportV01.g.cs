@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.085.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// This IntraBalanceMovementPendingReport message is sent from a settlement infrastructure to an account owner/request to report the intra-balance movement instructions, previously sent by the account owner, that have a pending status.
+/// 
 /// The message may also be used to: 
 /// -	re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
 /// -	provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
@@ -28,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"This IntraBalanceMovementPendingReport message is sent from a settlement infrastructure to an account owner/request to report the intra-balance movement instructions, previously sent by the account owner, that have a pending status.||The message may also be used to: |-	re-send a message sent by the account owner to the account servicer (the sub-function of the message is ""Duplicate"") |-	provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy"") |-	- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy Duplicate"").")]
 public partial record IntraBalanceMovementPendingReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.085.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

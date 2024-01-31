@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.064.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The CalendarQuery message is sent by the system member to the system administrator to request information on the the system status for specific calendar days.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"The CalendarQuery message is sent by the system member to the system administrator to request information on the the system status for specific calendar days.")]
 public partial record CalendarQueryV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.064.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

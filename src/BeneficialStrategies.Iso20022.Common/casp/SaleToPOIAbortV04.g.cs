@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.casp;
 
 
 /// <summary>
+/// This record is an implementation of the casp.011.001.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The SaleToPOIAbort message is sent by a sale system to abort process on POI.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.casp;
 [Description(@"The SaleToPOIAbort message is sent by a sale system to abort process on POI.")]
 public partial record SaleToPOIAbortV04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "casp.011.001.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

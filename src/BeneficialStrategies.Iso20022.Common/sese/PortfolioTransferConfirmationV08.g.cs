@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.013.001.08 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The PortfolioTransferConfirmation message is sent by an executing party, for example, a (old) plan manager (transferor), to the instructing party for example, a (new) plan manager (transferee), to confirm the transfer of one or more ISA or portfolio products from the client's account at the old plan manager (transferor) to the client's account at the new plan manager (transferee) through a nominee account.
 /// Usage
 /// The PortfolioTransferConfirmation message is used to confirm the transfer of one or more ISA or portfolio products.
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"The PortfolioTransferConfirmation message is sent by an executing party, for example, a (old) plan manager (transferor), to the instructing party for example, a (new) plan manager (transferee), to confirm the transfer of one or more ISA or portfolio products from the client's account at the old plan manager (transferor) to the client's account at the new plan manager (transferee) through a nominee account.|Usage|The PortfolioTransferConfirmation message is used to confirm the transfer of one or more ISA or portfolio products.|The reference of each product transfer confirmation is identified in TransferConfirmationIdentification. The reference of the original product transfer is specified in TransferInstructionReference. The message identification of the PortfolioTransferInstruction message in which the product transfers were conveyed may also be quoted in RelatedReferencebut this is not recommended.")]
 public partial record PortfolioTransferConfirmationV08 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.013.001.08";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

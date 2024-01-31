@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.038.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The StatusReportRequest message is sent by a party involved in a transaction to the matching application.
 /// This message is used to request a report on the status of transactions registered in the matching application.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The StatusReportRequest message is sent by a party involved in a transaction to the matching application.|This message is used to request a report on the status of transactions registered in the matching application.|Usage|The StatusReportRequest message can be sent by either party involved in a transaction to request a report on the status and sub-statuses of all transactions that the requester is involved in.|The application will respond to the request by sending a StatusReport message.")]
 public partial record StatusReportRequestV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.038.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

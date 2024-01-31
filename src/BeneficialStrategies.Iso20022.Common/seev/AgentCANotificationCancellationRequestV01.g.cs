@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.010.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// This message is sent by an issuer (or its agent) to a CSD to request the cancellation of a notification advice message.
 /// Usage
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"Scope|This message is sent by an issuer (or its agent) to a CSD to request the cancellation of a notification advice message.|Usage|When this message is used to request the cancellation of a notification advice message, the function of the message must be cancellation.|When this message is used to request the withdrawal of a Corporate Action event or option, then the function of the message must be withdrawal.|In both cases, the building block notification advice identification must be present to link this cancellation request to the notification advice that was previously sent.")]
 public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.010.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.024.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The ActionReminder message is sent by the matching application to a party involved in a transaction that it is expecting to take an action.
 /// This message is used to remind a party of an action that it is expected to take.
@@ -39,6 +41,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The ActionReminder message is sent by the matching application to a party involved in a transaction that it is expecting to take an action.|This message is used to remind a party of an action that it is expected to take.|Usage|The ActionReminder message can be sent by the matching application to remind a party that it is waiting for|- the submission of a transaction initiation message (BaselineReSubmission message),|or|- the acceptance or rejection of mis-matched data sets (MisMatchAcceptance or MisMatchRejection message),|or|- the acceptance or rejection of an amendment request (AmendmentAcceptance or AmendmentRejection message),|or|- the acceptance or rejection of a status change request (StatusChangeRequestAcceptance or StatusChangeRequestRejection message),|or|- the acceptance or rejection of a status extension request (StatusExtensionAcceptance or StatusExtensionRejection message).|- or|- the acceptance or rejection of a request to accept role and baseline (RoleAndBaselineAcceptance or RoleAndBaselineRejection message).")]
 public partial record ActionReminderV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.024.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

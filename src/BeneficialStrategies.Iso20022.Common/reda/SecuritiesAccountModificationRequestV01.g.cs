@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.023.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The SecuritiesAccountModificationRequest message is sent by an instructing party to the executing party to instruct the update of an existing securities account by amending its existing attributes or by providing additional attibutes details.
+/// 
 /// Usage:
 /// Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.
 /// </summary>
@@ -26,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"The SecuritiesAccountModificationRequest message is sent by an instructing party to the executing party to instruct the update of an existing securities account by amending its existing attributes or by providing additional attibutes details.||Usage:|Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.")]
 public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.023.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

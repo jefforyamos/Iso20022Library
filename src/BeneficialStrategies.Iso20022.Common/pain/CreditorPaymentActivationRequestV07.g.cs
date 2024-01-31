@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.pain;
 
 
 /// <summary>
+/// This record is an implementation of the pain.013.001.07 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The CreditorPaymentActivationRequest message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents. It is used by a Creditor to request movement of funds from the debtor account to a creditor.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.pain;
 [Description(@"The CreditorPaymentActivationRequest message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents. It is used by a Creditor to request movement of funds from the debtor account to a creditor.")]
 public partial record CreditorPaymentActivationRequestV07 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "pain.013.001.07";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

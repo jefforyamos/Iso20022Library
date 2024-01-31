@@ -16,8 +16,12 @@ namespace BeneficialStrategies.Iso20022.cain;
 
 
 /// <summary>
+/// This record is an implementation of the cain.020.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The Amendment message can be initiated by any party and received by any party (acquirer, agent or issuer). 
+/// 
 /// This message is used to inform the originator that the original message has been corrected/amended and then forwarded to the destination on behalf of the originator. It contains a copy of the original message and any errors found. It may also contain any corrections and/or amendments that were made to the original message.
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -25,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 [Description(@"The Amendment message can be initiated by any party and received by any party (acquirer, agent or issuer). ||This message is used to inform the originator that the original message has been corrected/amended and then forwarded to the destination on behalf of the originator. It contains a copy of the original message and any errors found. It may also contain any corrections and/or amendments that were made to the original message.|")]
 public partial record AmendmentV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cain.020.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

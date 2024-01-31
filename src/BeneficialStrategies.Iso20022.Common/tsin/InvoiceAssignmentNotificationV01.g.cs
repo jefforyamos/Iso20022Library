@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsin;
 
 
 /// <summary>
+/// This record is an implementation of the tsin.008.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// This message is sent from a factoring service provider or a factoring client to a trade partner to inform about assignments of financing items and, optionally, to an interested party.
 /// The information given to the trade party indicates that property of the payment obligation has been or is being transferred to the financial institution and that payments have to be done between the trade partner and the factoring service provider.
 /// The message indicates whether the notified party is required to acknowledge the notified assignment and to which party an acknowledgement has to be sent.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.tsin;
 [Description(@"This message is sent from a factoring service provider or a factoring client to a trade partner to inform about assignments of financing items and, optionally, to an interested party.|The information given to the trade party indicates that property of the payment obligation has been or is being transferred to the financial institution and that payments have to be done between the trade partner and the factoring service provider.|The message indicates whether the notified party is required to acknowledge the notified assignment and to which party an acknowledgement has to be sent.|This message can also be used outside a factoring context directly between a payer and a payee for example as a reminder about a payment obligation or to make an adjustment.|If applicable, the message may reference corresponding items of an InvoiceFinancingRequest or InvoiceFinancingStatus or other related messages and may contain referenced data.|The message can carry digital signatures if required by context.")]
 public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsin.008.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.001.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The Acknowledgement message is sent by the matching application to the party from which it received a message.
 /// This message is used to acknowledge the receipt of a message by the matching application.
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The Acknowledgement message is sent by the matching application to the party from which it received a message.|This message is used to acknowledge the receipt of a message by the matching application.|Usage|The Acknowledgement message can be sent to a party from which the matching application received a message to acknowledge the receipt of that message. The message is sent when the matching application does not send any other message in response to a received message.")]
 public partial record AcknowledgementV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.001.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

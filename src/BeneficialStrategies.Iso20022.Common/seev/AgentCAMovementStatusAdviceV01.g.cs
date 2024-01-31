@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.022.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// This message is sent by a CSD to an issuer (or its agent) to report the status, or a change in status, of
 /// - a global distribution status advice released by an issuer (or its agent);
@@ -37,6 +39,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to report the status, or a change in status, of|- a global distribution status advice released by an issuer (or its agent);|- a movement instruction released by an issuer (or its agent);|- a movement cancellation request sent by the issuer (or its agent); and|- the non-settlement of the movements at the CSD.|Usage|This message is used to report the status of:|- the movements resulting from a movement instruction message, in which case, the Agent Corporate Action Movement Instruction Identification must be present;|- the movements resulting from a global distribution status advice message (with the status, authorised), in which case, the Agent Corporate Action Global Distribution Status Advice Identification must be present;|- the movement cancellation request, in which case, the Agent Corporate Action Movement Cancellation Request Identification must be present; and|- the movements resulting from an election status advice (if the status of the election advice is rejected or if the status of the election cancellation request or amendment request is accepted) in case there is a settlement problem. The Election Status Advice Identification must be present.|In the case of a failed settlement, the message contains details of the movement, such as account details, securities or cash information and the reason of the failure.|This message should not be used to provide the confirmation of the settlement; the Agent Corporate Action Movement Confirmation message should be used instead.")]
 public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.022.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,7 +16,11 @@ namespace BeneficialStrategies.Iso20022.caaa;
 
 
 /// <summary>
+/// This record is an implementation of the caaa.005.001.09 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The AcceptorCancellationRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to request the cancellation of a successfully completed transaction. Cancellation should only occur before the transaction has been cleared.
+/// 
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.caaa;
 [Description(@"The AcceptorCancellationRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to request the cancellation of a successfully completed transaction. Cancellation should only occur before the transaction has been cleared.||")]
 public partial record AcceptorCancellationRequestV09 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caaa.005.001.09";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

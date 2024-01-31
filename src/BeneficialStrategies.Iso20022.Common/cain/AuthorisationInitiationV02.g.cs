@@ -16,7 +16,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 
 
 /// <summary>
+/// This record is an implementation of the cain.001.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// AuthorisationInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction by the issuer or to inform the issuer about the completion of the authorisation. It can also be sent by an issuer to an acquirer or agent to advise about the result of an authorisation already performed.
+/// 
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 [Description(@"AuthorisationInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction by the issuer or to inform the issuer about the completion of the authorisation. It can also be sent by an issuer to an acquirer or agent to advise about the result of an authorisation already performed.||")]
 public partial record AuthorisationInitiationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cain.001.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

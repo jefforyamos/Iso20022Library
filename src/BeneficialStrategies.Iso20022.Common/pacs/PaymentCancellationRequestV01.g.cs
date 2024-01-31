@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.pacs;
 
 
 /// <summary>
+/// This record is an implementation of the pacs.006.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The PaymentCancellationRequest message is sent by the initiating party or any agent, to the next party in the payment chain. It is used to request the cancellation of an instruction previously sent.
 /// Usage
@@ -31,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.pacs;
 [Description(@"Scope|The PaymentCancellationRequest message is sent by the initiating party or any agent, to the next party in the payment chain. It is used to request the cancellation of an instruction previously sent.|Usage|The PaymentCancellationRequest message is exchanged between agents to request the cancellation of a payment message previously sent (i.e. FIToFICustomerCreditTransfer, FIToFICustomerDirectDebit, and FinancialInstitutionCreditTransfer).|The PaymentCancellationRequest message can be used to request the cancellation of single instructions or multiple instructions, from one or multiple files.|The PaymentCancellationRequest message can be used in domestic and cross-border scenarios.|The PaymentCancellationRequest message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The PaymentCancellationRequest message exchanged between agents is identified in the schema as follows: |urn: iso: std: iso: 20022: tech: xsd: pacs.006.001.01|.")]
 public partial record PaymentCancellationRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "pacs.006.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

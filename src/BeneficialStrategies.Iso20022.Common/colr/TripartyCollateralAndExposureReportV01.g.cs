@@ -16,10 +16,13 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.022.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope:
 /// This message is sent by a triparty agent to both the collateral giver and the collateral taker or to an account servicer, who manage the account at the triparty agent on behalf of a trading party, in the following circumstances:
 /// - after all collateral movements have been affected (after settlement-initiated) to show the end (fixed) positions (current status) or,
 /// - taking into account all collateral management instructions (including pending initiation and/or initiated.
+/// 
 /// Usage:
 /// This message is sent to provide the details of the valuation of both the collateral and the exposure.
 /// </summary>
@@ -29,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope:|This message is sent by a triparty agent to both the collateral giver and the collateral taker or to an account servicer, who manage the account at the triparty agent on behalf of a trading party, in the following circumstances:|- after all collateral movements have been affected (after settlement-initiated) to show the end (fixed) positions (current status) or,|- taking into account all collateral management instructions (including pending initiation and/or initiated.||Usage:|This message is sent to provide the details of the valuation of both the collateral and the exposure.")]
 public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.022.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

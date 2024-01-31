@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.trea;
 
 
 /// <summary>
+/// This record is an implementation of the trea.008.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The StatusNotification message is sent by a central system to a participant to notify the current status of a trade in the system.|Usage
 /// This message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.
+/// 
+/// 
 /// This message is obsolete please use ForeignExchangeAndDerivativeTradeStatusNotificationV03 - fxtr.008.001.03
 /// </summary>
 [Serializable]
@@ -27,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.trea;
 [Description(@"Scope|The StatusNotification message is sent by a central system to a participant to notify the current status of a trade in the system.|Usage|This message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.|||This message is obsolete please use ForeignExchangeAndDerivativeTradeStatusNotificationV03 - fxtr.008.001.03")]
 public partial record StatusNotificationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "trea.008.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

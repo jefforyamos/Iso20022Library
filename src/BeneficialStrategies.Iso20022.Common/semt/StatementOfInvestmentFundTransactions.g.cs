@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.semt;
 
 
 /// <summary>
+/// This record is an implementation of the semt.006.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The StatementOfInvestmentFundTransactions is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a fund administrator or fund intermediary, trustee or registrar.
 /// This message provides the details of increases and decreases of holdings which occurred during a specified period.
@@ -36,6 +38,11 @@ namespace BeneficialStrategies.Iso20022.semt;
 [Description(@"Scope|The StatementOfInvestmentFundTransactions is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a fund administrator or fund intermediary, trustee or registrar.|This message provides the details of increases and decreases of holdings which occurred during a specified period.|This message can also be used for information purposes, eg, tax information.|Usage|The StatementOfInvestmentFundTransactions message can be sent:|- At a frequency agreed bi-laterally between the Sender and the Receiver and/or|- As a response to a request for statement sent by the account owner.|The StatementOfInvestmentFundTransactions message can only be used to list the transactions of a single (master) account. However, it is possible to break down these transactions into one or several sub-accounts. Therefore, the message can be used to either specify transactions at|- the main account level, or|- the sub-account level.|This message must not be used in place of confirmation messages.|Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.")]
 public partial record StatementOfInvestmentFundTransactions : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "semt.006.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

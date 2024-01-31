@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.cain;
 
 
 /// <summary>
+/// This record is an implementation of the cain.004.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The FinancialResponse message is sent by an issuer or an agent to an acquirer in response to a FinancialInitiation message.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 [Description(@"The FinancialResponse message is sent by an issuer or an agent to an acquirer in response to a FinancialInitiation message.")]
 public partial record FinancialResponseV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cain.004.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caaa;
 
 
 /// <summary>
+/// This record is an implementation of the caaa.006.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The AcceptorCancellationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the cancellation process. The message can be sent directly to the acceptor or through an agent.
 /// Usage
@@ -30,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.caaa;
 [Description(@"Scope|The AcceptorCancellationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the cancellation process. The message can be sent directly to the acceptor or through an agent.|Usage|The AcceptorCancellationResponse message is used to indicate one of the possible outcomes of a cancellation process:|- a successful cancellation;|- a rejection from the acquirer for financial reasons;|- a rejection from the acquirer for technical reasons.")]
 public partial record AcceptorCancellationResponseV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caaa.006.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.076.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// This FinancialSupervisedPartyIdentityReport message is sent by the competent institution to report parties used for the purpose of the local regulation.
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +27,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"This FinancialSupervisedPartyIdentityReport message is sent by the competent institution to report parties used for the purpose of the local regulation.|")]
 public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.076.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

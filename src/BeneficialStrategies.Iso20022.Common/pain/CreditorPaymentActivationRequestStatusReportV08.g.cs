@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.pain;
 
 
 /// <summary>
+/// This record is an implementation of the pain.014.001.08 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The CreditorPaymentActivationRequestStatusReport message is sent by a party to the next party in the creditor payment activation request chain. It is used to inform the latter about the positive or negative status of a creditor payment activation request (either single or file).
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.pain;
 [Description(@"The CreditorPaymentActivationRequestStatusReport message is sent by a party to the next party in the creditor payment activation request chain. It is used to inform the latter about the positive or negative status of a creditor payment activation request (either single or file).")]
 public partial record CreditorPaymentActivationRequestStatusReportV08 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "pain.014.001.08";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

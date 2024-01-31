@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.catp;
 
 
 /// <summary>
+/// This record is an implementation of the catp.014.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The ATMDepositCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a deposit transaction at an ATM.
 /// If the ATM is configured to only send negative completion, a generic completion message should be used instead of ATMCompletionAdvice.
 /// This message can be used each time a bundle is put in the ATM safe and/or at the end of a multi bundle deposit.
@@ -26,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.catp;
 [Description(@"The ATMDepositCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a deposit transaction at an ATM.|If the ATM is configured to only send negative completion, a generic completion message should be used instead of ATMCompletionAdvice.|This message can be used each time a bundle is put in the ATM safe and/or at the end of a multi bundle deposit.")]
 public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "catp.014.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

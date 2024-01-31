@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.052.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The RoleAndBaselineRejectionNotification message is sent by the matching application to the primary banks to inform about role and baseline rejection by a secondary bank.
 /// Usage
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The RoleAndBaselineRejectionNotification message is sent by the matching application to the primary banks to inform about role and baseline rejection by a secondary bank.|Usage|The RoleAndBaselineRejectionNotification message is used to inform that a secondary bank has rejected the role and baseline. No response is expected.")]
 public partial record RoleAndBaselineRejectionNotificationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.052.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

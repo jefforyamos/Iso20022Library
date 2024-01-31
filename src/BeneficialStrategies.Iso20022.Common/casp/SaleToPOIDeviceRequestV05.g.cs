@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.casp;
 
 
 /// <summary>
+/// This record is an implementation of the casp.016.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The SaleTOPOIDeviceRequest message is sent by the sale system to POI system to request a device service.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.casp;
 [Description(@"The SaleTOPOIDeviceRequest message is sent by the sale system to POI system to request a device service.")]
 public partial record SaleToPOIDeviceRequestV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "casp.016.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

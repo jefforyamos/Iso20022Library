@@ -16,11 +16,15 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.016.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The CollateralAndExposureReport message is sent:
 /// - either by the collateral giver, or its collateral manager, to the collateral taker, or its collateral manager, or
 /// - or by the collateral taker, or its collateral manager to the collateral giver, or its collateral manager
+/// 
 /// The message definition is intended for use with the ISO20022 Business Application Header.
+/// 
 /// Usage
 /// The CollateralAndExposureReport is used to provide the details of the valuation of the collateral, that is, the valuation of securities collateral, cash collateral or other type of collateral, posted at a specific calculation date.
 /// </summary>
@@ -30,6 +34,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope|The CollateralAndExposureReport message is sent:|- either by the collateral giver, or its collateral manager, to the collateral taker, or its collateral manager, or|- or by the collateral taker, or its collateral manager to the collateral giver, or its collateral manager||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralAndExposureReport is used to provide the details of the valuation of the collateral, that is, the valuation of securities collateral, cash collateral or other type of collateral, posted at a specific calculation date.")]
 public partial record CollateralAndExposureReportV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.016.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

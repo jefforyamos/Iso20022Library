@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.008.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The BuyInResponse message is sent by the clearing member to the central counterparty as a response to the previous buy-in notification message.
+/// 
 /// The message definition is intended for use with the ISO 20022 Business Application Header.
+/// 
 /// Usage
 /// The BuyInResponse may be sent in response to the BuyInNotification message. However, the use of this message in the buy in process is optional and depends on the rules set by each central counterparty.
 /// </summary>
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The BuyInResponse message is sent by the clearing member to the central counterparty as a response to the previous buy-in notification message.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The BuyInResponse may be sent in response to the BuyInNotification message. However, the use of this message in the buy in process is optional and depends on the rules set by each central counterparty.")]
 public partial record BuyInResponseV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.008.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

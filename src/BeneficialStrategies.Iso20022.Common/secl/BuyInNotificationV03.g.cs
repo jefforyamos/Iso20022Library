@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.007.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The BuyInNotification message is sent by the central counterparty (CCP) to a clearing member to notify the start of the buy in process.
+/// 
 /// The message definition is intended for use with the ISO 20022 Business Application Header.
+/// 
 /// Usage
 /// The buy in process is a process by which the CCP buys in stocks to cover failed transactions; the clearing member is notified that this process has started. Depending on each CCP internal rules, this message can also be sent, as a warning, by the central counterparty to the clearing member some days before the buy in process starts.
 /// </summary>
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The BuyInNotification message is sent by the central counterparty (CCP) to a clearing member to notify the start of the buy in process.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The buy in process is a process by which the CCP buys in stocks to cover failed transactions; the clearing member is notified that this process has started. Depending on each CCP internal rules, this message can also be sent, as a warning, by the central counterparty to the clearing member some days before the buy in process starts.")]
 public partial record BuyInNotificationV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.007.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

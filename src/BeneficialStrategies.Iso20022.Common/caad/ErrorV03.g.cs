@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caad;
 
 
 /// <summary>
+/// This record is an implementation of the caad.007.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The Error message is sent by any party to any party (acquirer, agent or issuer) to indicate a message error. 
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.caad;
 [Description(@"The Error message is sent by any party to any party (acquirer, agent or issuer) to indicate a message error. ")]
 public partial record ErrorV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caad.007.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

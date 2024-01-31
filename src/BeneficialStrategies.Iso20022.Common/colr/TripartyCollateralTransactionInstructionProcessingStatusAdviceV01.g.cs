@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.020.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope: 
 /// This message is sent by a triparty agent after the receipt of a collateral instruction from its client.
+/// 
 /// In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.
+/// 
 /// Usage:
 /// This message provides the status of the Triparty collateral transaction or instruction.
 /// </summary>
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope: |This message is sent by a triparty agent after the receipt of a collateral instruction from its client.||In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.||Usage:|This message provides the status of the Triparty collateral transaction or instruction.")]
 public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.020.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

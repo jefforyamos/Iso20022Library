@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.083.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The IntraBalanceMovementCancellationReport message is sent from a settlement infrastructure to an account owner/requestor to provide full details or current status values of the intra-balance movement cancellation request(s), as defined within the query.|
 /// The message may also be used to: 
 /// - re-send a message previously sent (the sub-function of the message is "Duplicate") 
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"The IntraBalanceMovementCancellationReport message is sent from a settlement infrastructure to an account owner/requestor to provide full details or current status values of the intra-balance movement cancellation request(s), as defined within the query.||The message may also be used to: |- re-send a message previously sent (the sub-function of the message is ""Duplicate"") |- provide a third party with a copy of a message for information (the sub-function of the message is ""Copy"") |- re-send to a third party a copy of a message for information (the sub-function of the message is ""Copy Duplicate"").")]
 public partial record IntraBalanceMovementCancellationReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.083.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

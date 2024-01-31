@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.102.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The CreateStandingOrder message is sent by a member to the transaction administrator.
 /// It is used to create a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The CreateStandingOrder message is sent by a member to the transaction administrator.|It is used to create a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.|Usage|Based on the criteria defined in the CreateStandingOrder message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
 public partial record CreateStandingOrderV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.102.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.remt;
 
 
 /// <summary>
+/// This record is an implementation of the remt.001.001.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.remt;
 [Description(@"The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.")]
 public partial record RemittanceAdviceV04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "remt.001.001.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsin;
 
 
 /// <summary>
+/// This record is an implementation of the tsin.013.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The InvoiceAssignmentAcknowledgement message is sent from a trade partner to communicate the status of payment obligations related to financial items. The message can be sent independently or as a response to an InvoiceAssignmentNotification message.
 /// Depending on legal contexts the message may be required as a response to an InvoiceAssignmentNotification message in order for the assignment to become effective.
 /// The trade party may include references to the corresponding items of an InvoiceAssignmentRequest, InvoiceAssignmentStatus or InvoiceAssignmentNotification or other messages and may include referenced data.
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.tsin;
 [Description(@"The InvoiceAssignmentAcknowledgement message is sent from a trade partner to communicate the status of payment obligations related to financial items. The message can be sent independently or as a response to an InvoiceAssignmentNotification message.|Depending on legal contexts the message may be required as a response to an InvoiceAssignmentNotification message in order for the assignment to become effective.|The trade party may include references to the corresponding items of an InvoiceAssignmentRequest, InvoiceAssignmentStatus or InvoiceAssignmentNotification or other messages and may include referenced data.|The message can carry digital signatures if required by context.")]
 public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsin.013.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

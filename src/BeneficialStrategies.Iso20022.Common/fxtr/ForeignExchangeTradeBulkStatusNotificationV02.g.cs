@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 
 
 /// <summary>
+/// This record is an implementation of the fxtr.030.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope|
 /// The ForeignExchangeTradeBulkStatusNotification message is sent by a central system to the participant to provide notification of the current status of one or more foreign exchange trades.
 /// </summary>
@@ -25,6 +27,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 [Description(@"Scope||The ForeignExchangeTradeBulkStatusNotification message is sent by a central system to the participant to provide notification of the current status of one or more foreign exchange trades.")]
 public partial record ForeignExchangeTradeBulkStatusNotificationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "fxtr.030.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

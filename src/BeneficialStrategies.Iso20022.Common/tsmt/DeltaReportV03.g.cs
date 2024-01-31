@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.015.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The DeltaReport message is sent by the matching application to the parties involved in the request of a baseline amendment.
 /// The message is used to list the differences between the established and the newly proposed baseline.
@@ -31,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The DeltaReport message is sent by the matching application to the parties involved in the request of a baseline amendment.|The message is used to list the differences between the established and the newly proposed baseline.|Usage|The DeltaReport message can be sent by the matching application to|- the parties involved in the amendment of a baseline that has been established in the push-through mode. In the outlined scenario the message is sent to the requester of the amendment to acknowledge the receipt of the request and to list the differences between the established and the newly proposed baseline and to the counterparty to list the differences between the established and the newly proposed baseline and to request the acceptance or rejection of the amendment request,|or|- the party that has requested the amendment of a baseline established in the lodge mode. In the outlined scenario the message is used to confirm the changes to the baseline and to list the differences between the amended baseline and the baseline established earlier.")]
 public partial record DeltaReportV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.015.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

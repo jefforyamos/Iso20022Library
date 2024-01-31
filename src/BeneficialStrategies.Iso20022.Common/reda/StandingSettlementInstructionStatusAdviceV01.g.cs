@@ -16,8 +16,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.058.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The receiver of a StandingSettlementInstruction message sends the StandingSettlementInstructionStatusAdvice message to the instructing party (sender of the StandingSettlementInstruction message) to provide the status of a previously received StandingSettlementInstruction, StandingSettlementInstructionCancellation or StandingSettlementInstructionDeletion message.
+/// 
 /// Usage
 /// The StandingSettlementInstructionStatusAdvice message is used to report one of the following statuses:
 /// -	a received status, or, 
@@ -32,6 +35,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"Scope|The receiver of a StandingSettlementInstruction message sends the StandingSettlementInstructionStatusAdvice message to the instructing party (sender of the StandingSettlementInstruction message) to provide the status of a previously received StandingSettlementInstruction, StandingSettlementInstructionCancellation or StandingSettlementInstructionDeletion message.||Usage|The StandingSettlementInstructionStatusAdvice message is used to report one of the following statuses:|-	a received status, or, |-	an accepted status, or,|-	a rejected status, or,|-	a pending processing status, or,|-	a proprietary status.")]
 public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.058.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

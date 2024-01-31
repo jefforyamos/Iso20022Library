@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.020.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The SecuritiesAccountStatusAdvice message is send by the the executing party to an instructing party to provide the status of the execution of an creation, modification or deletion of securities account reference data.
+/// 
 /// Usage: 
 /// When processing information is negative – a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed. 
 /// When the processing is succesfully performed, the message includes the related securities account identification.
@@ -27,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"The SecuritiesAccountStatusAdvice message is send by the the executing party to an instructing party to provide the status of the execution of an creation, modification or deletion of securities account reference data.||Usage: |When processing information is negative – a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed. |When the processing is succesfully performed, the message includes the related securities account identification.")]
 public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.020.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

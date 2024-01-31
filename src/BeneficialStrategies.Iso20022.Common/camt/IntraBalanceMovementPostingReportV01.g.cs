@@ -16,11 +16,15 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.084.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// This IntraBalanceMovementPostingReport message is sent from a settlement infrastructure to an account owner/requestor to report the intra-balance movement instructions, previously sent by the account owner, that have a settled status.
+/// 
 /// The message may also be used to: 
 /// -	- re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
 /// -	- provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
 /// -	- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"This IntraBalanceMovementPostingReport message is sent from a settlement infrastructure to an account owner/requestor to report the intra-balance movement instructions, previously sent by the account owner, that have a settled status.||The message may also be used to: |-	- re-send a message sent by the account owner to the account servicer (the sub-function of the message is ""Duplicate"") |-	- provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy"") |-	- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy Duplicate"").|")]
 public partial record IntraBalanceMovementPostingReportV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.084.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

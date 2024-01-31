@@ -16,15 +16,20 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.008.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// SCOPE
 /// An executing/servicing party sends a SecurityCreationStatusAdvice message to an instructing party to report the status of a SecurityCreationRequest message previously sent by the instructing party. 
+/// 
 /// The SecurityCreationStatusAdvice message may be sent as a response to the request of the instructing party or not.
+/// 
 /// The instructing party - executing/servicing party relationship may be:
 /// - Central Securities Depositories (CSD) who would like to publish security static data, or 
 /// - a Corporate, or
 /// - a Bank, or
 /// - a Market Infrastructure, or 
 /// - a Market Data Provider.
+/// 
 /// USAGE
 /// Initiator: executing/servicing party.
 /// </summary>
@@ -34,6 +39,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"SCOPE|An executing/servicing party sends a SecurityCreationStatusAdvice message to an instructing party to report the status of a SecurityCreationRequest message previously sent by the instructing party. ||The SecurityCreationStatusAdvice message may be sent as a response to the request of the instructing party or not.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|Initiator: executing/servicing party.")]
 public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.008.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

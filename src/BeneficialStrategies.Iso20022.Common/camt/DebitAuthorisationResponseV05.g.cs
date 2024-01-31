@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.036.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The DebitAuthorisationResponse message is sent by an account owner to its account servicing institution. This message is used to approve or reject a debit authorisation request.
 /// Usage
@@ -31,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The DebitAuthorisationResponse message is sent by an account owner to its account servicing institution. This message is used to approve or reject a debit authorisation request.|Usage|The DebitAuthorisationResponse message:|- is used to reply to a Debit Authorisation Request message;|- covers one and only one payment instruction at a time. If an account owner needs to reply to several DebitAuthorisationRequest messages, then multiple DebitAuthorisationResponse messages must be sent;|- indicates whether the account owner agrees with the request by means of a code. It also allows further details to be given about the debit authorisation, such as acceptable amount and value date for the debit;|- must be used exclusively between the account owner and the account servicing institution. It must not be used in place of a Resolution Of Investigation message between subsequent agents.")]
 public partial record DebitAuthorisationResponseV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.036.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

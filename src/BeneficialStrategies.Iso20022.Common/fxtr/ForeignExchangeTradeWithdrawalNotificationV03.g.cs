@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 
 
 /// <summary>
+/// This record is an implementation of the fxtr.013.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The ForeignExchangeTradeWithdrawalNotification message is sent by a central system to notify the withdrawal of a foreign exchange trade which was previously notified to the receiver as an alleged trade.
 /// Usage
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 [Description(@"Scope|The ForeignExchangeTradeWithdrawalNotification message is sent by a central system to notify the withdrawal of a foreign exchange trade which was previously notified to the receiver as an alleged trade.|Usage|The ForeignExchangeTradeWithdrawalNotification message is used to confirm the cancellation of a previously notified trade.")]
 public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "fxtr.013.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

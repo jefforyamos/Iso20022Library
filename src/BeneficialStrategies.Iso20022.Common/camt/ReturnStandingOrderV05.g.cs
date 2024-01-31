@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.070.001.05 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope|The ReturnStandingOrder message is sent by a transaction administrator to a member.|It is used to provide information on the details of one or more standing orders, based on specific request and return criteria.|in response to a request a on information on standing and predefined orders.|Usage|The ReturnStandingOrder message lists the standing order based on the following possible return criteria: |- Generic standing order details,|- Details of a specific predefined or standing liquidity transfer orders,|- Details on the set to which the standing order belongs to,|- List of all predefined and standing liquidity transfer standing orders and/or per set,|- Total amount of predefined and standing liquidity transfer orders defined in the system.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The ReturnStandingOrder message is sent by a transaction administrator to a member.|It is used to provide information on the details of one or more standing orders, based on specific request and return criteria.|in response to a request a on information on standing and predefined orders.|Usage|The ReturnStandingOrder message lists the standing order based on the following possible return criteria: |- Generic standing order details,|- Details of a specific predefined or standing liquidity transfer orders,|- Details on the set to which the standing order belongs to,|- List of all predefined and standing liquidity transfer standing orders and/or per set,|- Total amount of predefined and standing liquidity transfer orders defined in the system.")]
 public partial record ReturnStandingOrderV05 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.070.001.05";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

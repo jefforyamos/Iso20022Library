@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.catm;
 
 
 /// <summary>
+/// This record is an implementation of the catm.003.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The AcceptorConfigurationUpdate message is sent by the master terminal manager or delegated terminal manager to the acceptor system for the update of acquirer parameters, merchant parameters, vendor parameters or cryptographic keys of the acquirer.
 /// Usage
@@ -31,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.catm;
 [Description(@"Scope|The AcceptorConfigurationUpdate message is sent by the master terminal manager or delegated terminal manager to the acceptor system for the update of acquirer parameters, merchant parameters, vendor parameters or cryptographic keys of the acquirer.|Usage|The AcceptorConfigurationUpdate message may embed the information required by the acceptor system for the configuration of:|- the application parameters necessary for software applications processed by the POI system,|- the acquirer protocol parameters for the message content and message exchange behaviour of the acquirer protocol supported by the POI system,|- the host communication parameters to define the addresses of the connected acquirer hosts, and|- the merchant parameters needed for the retailer protocol settings of the POI system.")]
 public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "catm.003.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

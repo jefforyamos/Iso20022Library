@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.010.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The TransferCancellationStatusReport message is sent by an executing party to the instructing party.
 /// The message gives the status of a transfer cancellation instruction that was previously sent by the instructing party.
@@ -31,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope|The TransferCancellationStatusReport message is sent by an executing party to the instructing party.|The message gives the status of a transfer cancellation instruction that was previously sent by the instructing party.|Usage|The TransferCancellationStatusReport message is sent by an executing party to the instructing party. The message can be used to report that either|- the cancellation has been acted upon or|- the cancellation is rejected.|In both cases, the reason must be specified using either a code or unstructured information.")]
 public partial record TransferCancellationStatusReport : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.010.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

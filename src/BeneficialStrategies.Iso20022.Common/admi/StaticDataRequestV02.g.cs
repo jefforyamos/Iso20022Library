@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.admi;
 
 
 /// <summary>
+/// This record is an implementation of the admi.009.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The StaticDataRequest message is sent by a participant of a central system to the central system to request a static data report.
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +27,11 @@ namespace BeneficialStrategies.Iso20022.admi;
 [Description(@"The StaticDataRequest message is sent by a participant of a central system to the central system to request a static data report.|")]
 public partial record StaticDataRequestV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "admi.009.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

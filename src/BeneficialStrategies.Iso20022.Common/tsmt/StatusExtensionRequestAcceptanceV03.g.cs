@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.031.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The StatusExtensionRequestAcceptance message is sent by the party requested to accept or reject a request to extend the status of a transaction to the matching application.
 /// This message is used to inform about the acceptance of a request to extend the status of a transaction.
@@ -30,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The StatusExtensionRequestAcceptance message is sent by the party requested to accept or reject a request to extend the status of a transaction to the matching application.|This message is used to inform about the acceptance of a request to extend the status of a transaction.|Usage|The StatusExtensionRequestAcceptance message can be sent by the party requested to accept or reject the request to extend the status of a transaction to inform that it accepts the request.|The message can be sent in response to a StatusExtensionRequestNotification message.|The rejection of a request to extend the status of a transaction can be achieved by sending a StatusExtensionRequestRejection message.")]
 public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.031.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

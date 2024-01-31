@@ -16,12 +16,17 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.038.002.07 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// This message is sent by an account owner to an account servicer. 
+/// 
 /// The account owner will generally be:
 /// - a central securities depository participant which has an account with a central securities depository or a market infrastructure
 /// - an investment manager which has an account with a custodian acting as accounting and/or settlement agent.
+/// 
 /// It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.
+/// 
 /// Usage
 /// The modification must only contain the data to be modified.
 /// The message may also be used to:
@@ -35,6 +40,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope|This message is sent by an account owner to an account servicer. ||The account owner will generally be:|- a central securities depository participant which has an account with a central securities depository or a market infrastructure|- an investment manager which has an account with a custodian acting as accounting and/or settlement agent.||It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.||Usage|The modification must only contain the data to be modified.|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information using the relevant elements in the Business Application Header.")]
 public partial record SecuritiesSettlementTransactionModificationRequest002V07 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.038.002.07";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

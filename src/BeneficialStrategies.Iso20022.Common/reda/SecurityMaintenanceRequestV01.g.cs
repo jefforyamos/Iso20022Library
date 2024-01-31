@@ -16,16 +16,21 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.007.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// SCOPE
 /// An instructing party sends a SecurityMaintenanceRequest message to an executing/servicing party to request the maintenance of financial instrument details in their system.
+/// 
 /// The instructing party - executing/servicing party relationship may be:
 /// - Central Securities Depositories (CSD) who would like to publish security static data, or 
 /// - a Corporate, or
 /// - a Bank, or
 /// - a Market Infrastructure, or 
 /// - a Market Data Provider.
+/// 
 /// USAGE
 /// The request is sent when the instructing party identified a gap in the security data within the executing/servicing party system. The instructing party needs this security to be updated at the executing /servicing party to perform its activities.
+/// 
 /// Initiator: instructing party.
 /// </summary>
 [Serializable]
@@ -34,6 +39,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"SCOPE|An instructing party sends a SecurityMaintenanceRequest message to an executing/servicing party to request the maintenance of financial instrument details in their system.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|The request is sent when the instructing party identified a gap in the security data within the executing/servicing party system. The instructing party needs this security to be updated at the executing /servicing party to perform its activities.||Initiator: instructing party.")]
 public partial record SecurityMaintenanceRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.007.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.seev;
 
 
 /// <summary>
+/// This record is an implementation of the seev.050.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope and Usage
 /// The MarketClaimCreation message is sent by an account servicer to an account holder to advise of the creation of a market claim transaction on a securities account, for example by a CSD that has automatically generated market claims on a mandatory distribution type of corporate action event. The MarketClaimCreation message may also be sent by an account holder to its account holder, to instruct settlement of a bilaterally agreed (as opposed to centrally generated) market claim for a corporate action event.
 /// This message definition is intended for use with the Business Application Header (BAH).
@@ -26,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 [Description(@"Scope and Usage|The MarketClaimCreation message is sent by an account servicer to an account holder to advise of the creation of a market claim transaction on a securities account, for example by a CSD that has automatically generated market claims on a mandatory distribution type of corporate action event. The MarketClaimCreation message may also be sent by an account holder to its account holder, to instruct settlement of a bilaterally agreed (as opposed to centrally generated) market claim for a corporate action event.|This message definition is intended for use with the Business Application Header (BAH).")]
 public partial record MarketClaimCreationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "seev.050.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,8 +16,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 
 
 /// <summary>
+/// This record is an implementation of the reda.074.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope:
 /// A collateral giver/taker sends a TripartyCollateralFinancialInstrumentRemovalRequest to the Triparty Agent to remove a financial instrument from the collateral pool.
+/// 
 /// The status of this request is provided with the reda.028 , the CollateralDataStatusAdvice.
 /// </summary>
 [Serializable]
@@ -26,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 [Description(@"Scope:|A collateral giver/taker sends a TripartyCollateralFinancialInstrumentRemovalRequest to the Triparty Agent to remove a financial instrument from the collateral pool.||The status of this request is provided with the reda.028 , the CollateralDataStatusAdvice.")]
 public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "reda.074.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

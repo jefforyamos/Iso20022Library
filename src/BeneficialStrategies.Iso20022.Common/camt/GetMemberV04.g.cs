@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.013.001.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The GetMember message is sent by a member to the transaction administrator.
 /// It is used to request information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.
@@ -38,6 +40,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The GetMember message is sent by a member to the transaction administrator.|It is used to request information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into the system. The type of business information available can vary depending on the system. Among other things, it can refer to information about the membership of the system.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the static data related to the members of the system.|The member can request information based on the following elements:|- identification of the member within the system|- membership status|- type of member|- contact details for the member: name, address|- account number of the member|- identification of contact persons for the member|This message will be replied to by a ReturnMember message.|Additional information on the generic design of the Get/Return messages can be found in the MDR Part 1 section How to Use the Cash Management Messages.")]
 public partial record GetMemberV04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.013.001.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

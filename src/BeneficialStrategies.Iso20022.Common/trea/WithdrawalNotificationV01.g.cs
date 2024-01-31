@@ -16,10 +16,13 @@ namespace BeneficialStrategies.Iso20022.trea;
 
 
 /// <summary>
+/// This record is an implementation of the trea.013.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The WithdrawalNotification message is sent by a central system to notify the withdrawal of a trade which was previously notified to the receiver as an alleged trade.
 /// Usage
 /// The message is used to confirm the cancellation of a previously notified trade.
+/// 
 /// This message is obsolete please use WithdrawalNotificationV02 - fxtr.013.001.02
 /// </summary>
 [Serializable]
@@ -28,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.trea;
 [Description(@"Scope|The WithdrawalNotification message is sent by a central system to notify the withdrawal of a trade which was previously notified to the receiver as an alleged trade.|Usage|The message is used to confirm the cancellation of a previously notified trade.||This message is obsolete please use WithdrawalNotificationV02 - fxtr.013.001.02")]
 public partial record WithdrawalNotificationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "trea.013.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

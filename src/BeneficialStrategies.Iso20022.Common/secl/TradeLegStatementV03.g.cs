@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.003.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The TradeLegStatement message is sent by the central counterparty (CCP) to a clearing member to report all trades that have been executed by the trading platform.
+/// 
 /// The message definition is intended for use with the ISO20022 Business Application Header.
+/// 
 /// Usage
 /// The TradeLegStatement message may be either sent:
 /// - during the day (to report trades execution by batch) or
@@ -30,6 +34,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The TradeLegStatement message is sent by the central counterparty (CCP) to a clearing member to report all trades that have been executed by the trading platform.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The TradeLegStatement message may be either sent:|- during the day (to report trades execution by batch) or|- as an end of day report.")]
 public partial record TradeLegStatementV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.003.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

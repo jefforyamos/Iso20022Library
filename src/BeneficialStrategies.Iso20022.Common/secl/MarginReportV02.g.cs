@@ -16,12 +16,16 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.005.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The MarginReport message is sent by the central counterparty (CCP) to a clearing member to report on:
 /// - the exposure resulting from the trade positions
 /// - the value of the collateral held by the CCP (market value of this collateral) and
 /// - the resulting difference representing the risk encountered by the CCP.
+/// 
 /// The message definition is intended for use with the ISO20022 Business Application Header.
+/// 
 /// Usage
 /// There are four possibilities to report the above information. Indeed, the margin report may be structured as follows:
 /// - per clearing member: the report will only show the information for the clearing member, or
@@ -35,6 +39,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The MarginReport message is sent by the central counterparty (CCP) to a clearing member to report on:|- the exposure resulting from the trade positions|- the value of the collateral held by the CCP (market value of this collateral) and|- the resulting difference representing the risk encountered by the CCP.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|There are four possibilities to report the above information. Indeed, the margin report may be structured as follows:|- per clearing member: the report will only show the information for the clearing member, or|- per clearing member and per financial instrument: the report will show the information for the clearing member, structured by security identification, or|- per clearing member and per non clearing member: the report will show the information for the clearing member (that is for global clearing member only) structured by non clearing member(s), or|- per clearing member and per non clearing member and per security identification: the report will show the information for the clearing member (global clearing member only) structured by non clearing member(s) and by security identification.")]
 public partial record MarginReportV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.005.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

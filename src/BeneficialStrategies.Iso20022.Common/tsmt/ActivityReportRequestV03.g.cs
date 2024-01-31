@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.003.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The ActivityReportRequest message is sent by any party involved in a transaction to the matching application.
 /// This message is used to request a report on all transactions for which an activity has taken place within a given time span.
@@ -30,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The ActivityReportRequest message is sent by any party involved in a transaction to the matching application.|This message is used to request a report on all transactions for which an activity has taken place within a given time span.|Usage|The ActivityReportRequest message can be sent|- at a pre-determined time. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within the last 24 hours.|- on demand. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within a time span specified by the requester.")]
 public partial record ActivityReportRequestV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.003.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

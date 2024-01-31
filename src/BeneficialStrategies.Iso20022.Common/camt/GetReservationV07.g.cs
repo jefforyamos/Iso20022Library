@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.046.001.07 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The GetReservation message is sent by a member to the transaction administrator.
 /// It is used to request information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.
@@ -33,6 +35,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The GetReservation message is sent by a member to the transaction administrator.|It is used to request information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.|Usage|The member can request reservations information based on the following elements:|- identification of the system;|- identification of the account;|- status of the reservation (default and/or current);|- type of reservation.|This message will be replied to by a ReturnReservation message.")]
 public partial record GetReservationV07 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.046.001.07";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.caad;
 
 
 /// <summary>
+/// This record is an implementation of the caad.005.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The ReconciliationInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer).
+/// 
 /// Reconciliation is the exchange between two interchanging parties (Acquirer, Issuer or Agent) of totals and/or counts of messages within a specific session.
 /// </summary>
 [Serializable]
@@ -25,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.caad;
 [Description(@"The ReconciliationInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer).||Reconciliation is the exchange between two interchanging parties (Acquirer, Issuer or Agent) of totals and/or counts of messages within a specific session.")]
 public partial record ReconciliationInitiationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caad.005.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

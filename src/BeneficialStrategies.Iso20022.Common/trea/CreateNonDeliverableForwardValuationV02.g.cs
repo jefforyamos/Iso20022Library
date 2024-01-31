@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.trea;
 
 
 /// <summary>
+/// This record is an implementation of the trea.004.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The CreateNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the valuation of a non deliverable trade.
 /// Usage
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.trea;
 [Description(@"Scope|The CreateNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the valuation of a non deliverable trade.|Usage|The two trading parties will both send similar notifications to the central settlement system and the central settlement system will send notifications to both.")]
 public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "trea.004.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

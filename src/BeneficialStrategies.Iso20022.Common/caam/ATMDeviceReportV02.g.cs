@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caam;
 
 
 /// <summary>
+/// This record is an implementation of the caam.001.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The ATMDeviceReport message is sent to an acquirer by an ATM, or forwarded by an agent, to report:
 /// - The result of maintenance commands performed by the ATM,
 /// - The components of the ATM,
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.caam;
 [Description(@"The ATMDeviceReport message is sent to an acquirer by an ATM, or forwarded by an agent, to report:|- The result of maintenance commands performed by the ATM,|- The components of the ATM,|- The status of the ATM components.")]
 public partial record ATMDeviceReportV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caam.001.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

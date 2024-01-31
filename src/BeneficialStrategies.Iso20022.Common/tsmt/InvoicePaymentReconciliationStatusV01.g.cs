@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.054.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The message InvoicePaymentReconciliationStatus is sent from a payee to a payer to acknowledge attribution of payments.
 /// A payee that has received payment reconciliation information uses this message to confirm or to question common understanding of payments and instalments.
 /// The payee may include references to the corresponding items of an InvoicePaymentReconciliationAdvice message or to other messages and may include the referenced data.
@@ -27,6 +29,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"The message InvoicePaymentReconciliationStatus is sent from a payee to a payer to acknowledge attribution of payments.|A payee that has received payment reconciliation information uses this message to confirm or to question common understanding of payments and instalments.|The payee may include references to the corresponding items of an InvoicePaymentReconciliationAdvice message or to other messages and may include the referenced data.|The message can carry digital signatures if required by context.")]
 public partial record InvoicePaymentReconciliationStatusV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.054.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

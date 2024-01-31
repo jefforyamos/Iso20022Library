@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.cafr;
 
 
 /// <summary>
+/// This record is an implementation of the cafr.004.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// A FraudDispositionResponse message is sent by an issuer or acquirer to an agent (processor, agent) in response to a FraudDispositionInitiation message.|
+/// 
 /// </summary>
 [Serializable]
 [DataContract(Name = XmlTag)]
@@ -24,6 +27,11 @@ namespace BeneficialStrategies.Iso20022.cafr;
 [Description(@"A FraudDispositionResponse message is sent by an issuer or acquirer to an agent (processor, agent) in response to a FraudDispositionInitiation message.||")]
 public partial record FraudDispositionResponseV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cafr.004.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

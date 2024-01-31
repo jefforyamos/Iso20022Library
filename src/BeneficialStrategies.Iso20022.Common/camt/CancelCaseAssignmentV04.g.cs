@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.032.001.04 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The CancelCaseAssignment message is sent by a case creator or case assigner to a case assignee. This message is used to request the cancellation of a case.
 /// Usage
@@ -37,6 +39,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The CancelCaseAssignment message is sent by a case creator or case assigner to a case assignee. This message is used to request the cancellation of a case.|Usage|The CancelCaseAssignment message is used to stop the processing of a case at a case assignee when a case assignment is incorrect or when the root cause for the case disappears (such as the account owner was able to reconcile after sending a ClaimNonReceipt message).|The CancelCaseAssignment message can be used to stop the processing of a:|- request to cancel payment case;|- request to modify payment case;|- unable to apply case;|- claim non receipt case.|The CancelCaseAssignment message covers one and only one case at a time. If several case assignments need to be cancelled, then multiple CancelCaseAssignment messages must be sent.|The CancelCaseAssignment message must be forwarded by all subsequent case assignee(s) in the case processing chain until it reaches the end point.|When an agent re-assigns the CancelCaseAssignment to a subsequent case assignee, this agent must send a NotificationOfCaseAssignment message to its assigner.|When the CancelCaseAssignment instruction has been acted upon by the relevant case assignee, a ResolutionOfInvestigation message is sent to the case assigner or case creator, in reply.|The CancelCaseAssignment message must not be used for other purposes. If, for example, a request to modify payment fails, and the case creator requests the cancellation of the payment, then a CustomerPaymentCancellationRequest or FIToFIPaymentCancellationRequest message must be used, with the case identification of the original RequestToModifyPayment message. In this context it is incorrect to use the CancelCaseAssignment message.")]
 public partial record CancelCaseAssignmentV04 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.032.001.04";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

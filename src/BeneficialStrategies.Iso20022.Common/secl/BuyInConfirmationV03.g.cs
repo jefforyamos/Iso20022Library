@@ -16,9 +16,13 @@ namespace BeneficialStrategies.Iso20022.secl;
 
 
 /// <summary>
+/// This record is an implementation of the secl.009.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The Buy In Confirmation message is sent by the central counterparty (CCP) to the clearing member to confirm the details of the transaction resulting from the buy in.
+/// 
 /// The message definition is intended for use with the ISO 20022 Business Application Header.
+/// 
 /// Usage
 /// The Buy In Confirmation message is sent by the central counterparty (CCP) to confirm the details of the buy in transaction.
 /// </summary>
@@ -28,6 +32,11 @@ namespace BeneficialStrategies.Iso20022.secl;
 [Description(@"Scope|The Buy In Confirmation message is sent by the central counterparty (CCP) to the clearing member to confirm the details of the transaction resulting from the buy in.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The Buy In Confirmation message is sent by the central counterparty (CCP) to confirm the details of the buy in transaction.")]
 public partial record BuyInConfirmationV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "secl.009.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

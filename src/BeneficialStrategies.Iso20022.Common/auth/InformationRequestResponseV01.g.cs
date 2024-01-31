@@ -16,8 +16,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.002.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// This message is sent by the financial institution to the authorities (police, customs, tax authorities, enforcement authorities) to provide a part or all of the requested information.
 /// The financial institution previously received a request for financial information in the scope of a financial investigation.
+/// 
 /// Depending on whether the response can be provided STP within the authorities financial investigations messages, the requested information may be 
 /// •	provided in part or in full within the response message itself, or 
 /// •	only referred to in the response message.
@@ -28,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"This message is sent by the financial institution to the authorities (police, customs, tax authorities, enforcement authorities) to provide a part or all of the requested information.|The financial institution previously received a request for financial information in the scope of a financial investigation.||Depending on whether the response can be provided STP within the authorities financial investigations messages, the requested information may be |•	provided in part or in full within the response message itself, or |•	only referred to in the response message.")]
 public partial record InformationRequestResponseV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.002.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

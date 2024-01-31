@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.cain;
 
 
 /// <summary>
+/// This record is an implementation of the cain.025.001.02 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Provides supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. 
+/// 
 /// The supplemental data is associated with an authorization or financial message.
 /// </summary>
 [Serializable]
@@ -25,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 [Description(@"Provides supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. ||The supplemental data is associated with an authorization or financial message.")]
 public partial record AddendumInitiationV02 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cain.025.001.02";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 
 
 /// <summary>
+/// This record is an implementation of the sese.011.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The TransferInstructionStatusReport message is sent by an instructing party to the executing party. The instructing party may be an investor, a transfer agent, or an intermediary, etc. The executing party may be a transfer agent, or an intermediary, etc.
 /// This message gives the status of a transfer instruction, and can be used from the time the executing party receives the transfer instruction until its execution.
@@ -34,6 +36,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 [Description(@"Scope|The TransferInstructionStatusReport message is sent by an instructing party to the executing party. The instructing party may be an investor, a transfer agent, or an intermediary, etc. The executing party may be a transfer agent, or an intermediary, etc.|This message gives the status of a transfer instruction, and can be used from the time the executing party receives the transfer instruction until its execution.|Usage|The TransferInstructionStatusReport message is sent by an executing party to the instructing party. The message can be used to report one of the following|- the status of the transfer instruction (using a code)or|- the repair status or|- the unmatched status or|- the rejection status or|- the pending settlement status.|Further information about repair, unmatched, rejected or pending settlement statuses must be specified using either codes or unstructured information.")]
 public partial record TransferInstructionStatusReport : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "sese.011.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

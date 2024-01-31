@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.041.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The TransactionReport message is sent by the matching application to the requester of a transaction report.
 /// This message is used to report on various details of transactions registered in the matching application.
@@ -28,6 +30,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The TransactionReport message is sent by the matching application to the requester of a transaction report.|This message is used to report on various details of transactions registered in the matching application.|Usage|The TransactionReport message can be sent by the matching application to report on various details of transactions that the requester of the report asked for. The message is sent in response to a TransactionReportRequest message.")]
 public partial record TransactionReportV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.041.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.caad;
 
 
 /// <summary>
+/// This record is an implementation of the caad.009.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The AdministrativeResponse message is usually sent by any party (processor, clearing or settlement agent) to any party in response to a AdministrativeInitiation Message.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.caad;
 [Description(@"The AdministrativeResponse message is usually sent by any party (processor, clearing or settlement agent) to any party in response to a AdministrativeInitiation Message.")]
 public partial record AdministrativeResponseV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "caad.009.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

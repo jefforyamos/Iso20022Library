@@ -16,11 +16,15 @@ namespace BeneficialStrategies.Iso20022.colr;
 
 
 /// <summary>
+/// This record is an implementation of the colr.019.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope:
 /// This message is sent by a trading party to its triparty agent to instruct the agent to perform a specific action on a collateral management transaction.
 /// It is also sent by an account owner to an account servicer where the account servicer manages the account at the triparty agent on behalf of the trading party. The account owner may be a global custodian which manages an account with a triparty agent on behalf of their client or an investment management institution or a broker/dealer which has an account with their custodian.
+/// 
 /// Usage:
 /// The triparty collateral management service is used by two trading parties at the agreement of a business transaction (for example, a repo, a securities loan, ... ) when they want to secure the transaction with collateral. The management of this collateral (that is, agreeing on quantity and type, marking to market, ... ) is done by a third party, the triparty collateral manager.
+/// 
 /// Before starting to use these services, the three parties will first sign a contract in which they stipulate the rules of the agreement.
 /// </summary>
 [Serializable]
@@ -29,6 +33,11 @@ namespace BeneficialStrategies.Iso20022.colr;
 [Description(@"Scope:|This message is sent by a trading party to its triparty agent to instruct the agent to perform a specific action on a collateral management transaction.|It is also sent by an account owner to an account servicer where the account servicer manages the account at the triparty agent on behalf of the trading party. The account owner may be a global custodian which manages an account with a triparty agent on behalf of their client or an investment management institution or a broker/dealer which has an account with their custodian.||Usage:|The triparty collateral management service is used by two trading parties at the agreement of a business transaction (for example, a repo, a securities loan, ... ) when they want to secure the transaction with collateral. The management of this collateral (that is, agreeing on quantity and type, marking to market, ... ) is done by a third party, the triparty collateral manager.||Before starting to use these services, the three parties will first sign a contract in which they stipulate the rules of the agreement.")]
 public partial record TripartyCollateralTransactionInstructionV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "colr.019.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

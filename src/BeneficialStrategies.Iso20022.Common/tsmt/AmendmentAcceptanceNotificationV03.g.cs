@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 
 
 /// <summary>
+/// This record is an implementation of the tsmt.006.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The AmendmentAcceptanceNotification message is sent by the matching application to the requester of an amendment.
 /// This message is used to notify the acceptance of an amendment request.
@@ -29,6 +31,11 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 [Description(@"Scope|The AmendmentAcceptanceNotification message is sent by the matching application to the requester of an amendment.|This message is used to notify the acceptance of an amendment request.|Usage|The AmendmentAcceptanceNotification message can be sent by the matching application to pass on information about the acceptance of an amendment request that it has obtained through the receipt of an AmendmentAcceptance message.|In order to pass on information about the rejection of an amendment request the matching application sends an AmendmentRejectionNotification message.")]
 public partial record AmendmentAcceptanceNotificationV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "tsmt.006.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

@@ -16,7 +16,10 @@ namespace BeneficialStrategies.Iso20022.cafm;
 
 
 /// <summary>
+/// This record is an implementation of the cafm.001.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The FileActionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer).
+/// 
 /// This message is used to inquire, add, change, delete or replace a file or a record.
 /// </summary>
 [Serializable]
@@ -25,6 +28,11 @@ namespace BeneficialStrategies.Iso20022.cafm;
 [Description(@"The FileActionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer).||This message is used to inquire, add, change, delete or replace a file or a record.")]
 public partial record FileActionInitiationV01 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "cafm.001.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

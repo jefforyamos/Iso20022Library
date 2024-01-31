@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.camt;
 
 
 /// <summary>
+/// This record is an implementation of the camt.031.001.01 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The Reject Case Assignment message is sent by a case assignee to a case creator or case assigner to reject a case given to him.
 /// Usage
@@ -35,6 +37,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 [Description(@"Scope|The Reject Case Assignment message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The Reject Case Assignment message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|Rejecting a case assignment occurs when the case assignee is unable to trace the original payment instruction or when the case assignee is unable, or does not have authority, to process the assigned case.|The Reject Case Assignment message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Case Assignment messages must be sent.|The Reject Case Assignment message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner.|The Reject Case Assignment message must not be used in place of a Resolution Of Investigation or Case Status Report message.")]
 public partial record RejectCaseAssignment : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "camt.031.001.01";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.

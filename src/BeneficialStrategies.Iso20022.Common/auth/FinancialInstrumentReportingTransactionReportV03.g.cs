@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.auth;
 
 
 /// <summary>
+/// This record is an implementation of the auth.016.001.03 ISO standard message type.
+/// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The FinancialInstrumentReportingTransactionReport message is sent by the reporting agent to the competent authority to report on the securities transactions or by the competent authority to another competent authority when the transaction needs to be exchanged between the competent authorities.
 /// </summary>
 [Serializable]
@@ -24,6 +26,11 @@ namespace BeneficialStrategies.Iso20022.auth;
 [Description(@"The FinancialInstrumentReportingTransactionReport message is sent by the reporting agent to the competent authority to report on the securities transactions or by the competent authority to another competent authority when the transaction needs to be exchanged between the competent authorities.")]
 public partial record FinancialInstrumentReportingTransactionReportV03 : IOuterRecord
 {
+    
+    /// <summary>
+    /// The official ISO 20022 designation for this version of this message.
+    /// </summary>
+    public const string IsoIdentifier = "auth.016.001.03";
     
     /// <summary>
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
